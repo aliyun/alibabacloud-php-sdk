@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegistryAuthConfig extends Model
 {
     /**
-     * @example abc***
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @example admin
-     *
      * @var string
      */
     public $userName;
@@ -28,14 +23,16 @@ class RegistryAuthConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -43,17 +40,18 @@ class RegistryAuthConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegistryAuthConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

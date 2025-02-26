@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OSSTriggerConfig extends Model
 {
@@ -12,7 +12,6 @@ class OSSTriggerConfig extends Model
      * @var string[]
      */
     public $events;
-
     /**
      * @var Filter
      */
@@ -24,34 +23,53 @@ class OSSTriggerConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['events'] = [];
+                $n1            = 0;
+                foreach ($this->events as $item1) {
+                    $res['events'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->filter) {
-            $res['filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OSSTriggerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
-                $model->events = $map['events'];
+                $model->events = [];
+                $n1            = 0;
+                foreach ($map['events'] as $item1) {
+                    $model->events[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['filter'])) {
             $model->filter = Filter::fromMap($map['filter']);
         }

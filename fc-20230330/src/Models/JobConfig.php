@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JobConfig extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $maxRetryTime;
-
     /**
-     * @example 60
-     *
      * @var int
      */
     public $triggerInterval;
@@ -28,14 +23,16 @@ class JobConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxRetryTime) {
             $res['maxRetryTime'] = $this->maxRetryTime;
         }
+
         if (null !== $this->triggerInterval) {
             $res['triggerInterval'] = $this->triggerInterval;
         }
@@ -43,17 +40,18 @@ class JobConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxRetryTime'])) {
             $model->maxRetryTime = $map['maxRetryTime'];
         }
+
         if (isset($map['triggerInterval'])) {
             $model->triggerInterval = $map['triggerInterval'];
         }

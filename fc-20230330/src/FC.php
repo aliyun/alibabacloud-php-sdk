@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateAliasRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateCustomDomainRequest;
@@ -103,11 +104,10 @@ use AlibabaCloud\SDK\FC\V20230330\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateFunctionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class FC extends OpenApiClient
 {
@@ -132,55 +132,67 @@ class FC extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 创建函数别名。
-     *  *
-     * @param string             $functionName
-     * @param CreateAliasRequest $request      CreateAliasRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * 创建函数别名。
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @param request - CreateAliasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAliasResponse
+     *
+     * @param string             $functionName
+     * @param CreateAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAliasResponse
      */
     public function createAliasWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateAlias',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/aliases',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/aliases',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建函数别名。
-     *  *
-     * @param string             $functionName
-     * @param CreateAliasRequest $request      CreateAliasRequest
+     * 创建函数别名。
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @param request - CreateAliasRequest
+     * @returns CreateAliasResponse
+     *
+     * @param string             $functionName
+     * @param CreateAliasRequest $request
+     *
+     * @return CreateAliasResponse
      */
     public function createAlias($functionName, $request)
     {
@@ -191,22 +203,28 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom domain name.
-     *  *
-     * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
-     *  *
-     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a custom domain name.
      *
-     * @return CreateCustomDomainResponse CreateCustomDomainResponse
+     * @remarks
+     * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+     *
+     * @param request - CreateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCustomDomainResponse
      */
     public function createCustomDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomDomain',
@@ -219,18 +237,25 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom domain name.
-     *  *
-     * @description If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
-     *  *
-     * @param CreateCustomDomainRequest $request CreateCustomDomainRequest
+     * Creates a custom domain name.
      *
-     * @return CreateCustomDomainResponse CreateCustomDomainResponse
+     * @remarks
+     * If you want to use a fixed domain name to access an application or function in a production environment of Function Compute, or to resolve the issue of forced downloads when accessing an HTTP trigger, you can bind a custom domain name to the application or function.
+     *
+     * @param request - CreateCustomDomainRequest
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     *
+     * @return CreateCustomDomainResponse
      */
     public function createCustomDomain($request)
     {
@@ -241,22 +266,28 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a function.
-     *  *
-     * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
-     *  *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a function.
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @remarks
+     * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+     *
+     * @param request - CreateFunctionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFunctionResponse
+     *
+     * @param CreateFunctionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateFunctionResponse
      */
     public function createFunctionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateFunction',
@@ -269,18 +300,25 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a function.
-     *  *
-     * @description Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
-     *  *
-     * @param CreateFunctionRequest $request CreateFunctionRequest
+     * Creates a function.
      *
-     * @return CreateFunctionResponse CreateFunctionResponse
+     * @remarks
+     * Resources of Function Compute are scheduled and run based on functions. A function usually refers to a code snippet that is written by a user and can be independently executed to respond to events and requests.
+     *
+     * @param request - CreateFunctionRequest
+     * @returns CreateFunctionResponse
+     *
+     * @param CreateFunctionRequest $request
+     *
+     * @return CreateFunctionResponse
      */
     public function createFunction($request)
     {
@@ -291,44 +329,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 创建层版本。
-     *  *
-     * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * 创建层版本。
      *
-     * @return CreateLayerVersionResponse CreateLayerVersionResponse
+     * @param request - CreateLayerVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLayerVersionResponse
+     *
+     * @param string                    $layerName
+     * @param CreateLayerVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLayerVersionResponse
      */
     public function createLayerVersionWithOptions($layerName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateLayerVersion',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions',
+            'pathname'    => '/2023-03-30/layers/' . Url::percentEncode($layerName) . '/versions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建层版本。
-     *  *
-     * @param string                    $layerName
-     * @param CreateLayerVersionRequest $request   CreateLayerVersionRequest
+     * 创建层版本。
      *
-     * @return CreateLayerVersionResponse CreateLayerVersionResponse
+     * @param request - CreateLayerVersionRequest
+     * @returns CreateLayerVersionResponse
+     *
+     * @param string                    $layerName
+     * @param CreateLayerVersionRequest $request
+     *
+     * @return CreateLayerVersionResponse
      */
     public function createLayerVersion($layerName, $request)
     {
@@ -339,44 +388,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 创建函数触发器。
-     *  *
-     * @param string               $functionName
-     * @param CreateTriggerRequest $request      CreateTriggerRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * 创建函数触发器。
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @param request - CreateTriggerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTriggerResponse
+     *
+     * @param string               $functionName
+     * @param CreateTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateTriggerResponse
      */
     public function createTriggerWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateTrigger',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/triggers',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建函数触发器。
-     *  *
-     * @param string               $functionName
-     * @param CreateTriggerRequest $request      CreateTriggerRequest
+     * 创建函数触发器。
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @param request - CreateTriggerRequest
+     * @returns CreateTriggerResponse
+     *
+     * @param string               $functionName
+     * @param CreateTriggerRequest $request
+     *
+     * @return CreateTriggerResponse
      */
     public function createTrigger($functionName, $request)
     {
@@ -387,44 +447,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a VPC connection.
-     *  *
-     * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * Creates a VPC connection.
      *
-     * @return CreateVpcBindingResponse CreateVpcBindingResponse
+     * @param request - CreateVpcBindingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpcBindingResponse
+     *
+     * @param string                  $functionName
+     * @param CreateVpcBindingRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateVpcBindingResponse
      */
     public function createVpcBindingWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpcBinding',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/vpc-bindings',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/vpc-bindings',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a VPC connection.
-     *  *
-     * @param string                  $functionName
-     * @param CreateVpcBindingRequest $request      CreateVpcBindingRequest
+     * Creates a VPC connection.
      *
-     * @return CreateVpcBindingResponse CreateVpcBindingResponse
+     * @param request - CreateVpcBindingRequest
+     * @returns CreateVpcBindingResponse
+     *
+     * @param string                  $functionName
+     * @param CreateVpcBindingRequest $request
+     *
+     * @return CreateVpcBindingResponse
      */
     public function createVpcBinding($functionName, $request)
     {
@@ -435,14 +506,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alias.
-     *  *
+     * Deletes an alias.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAliasResponse
+     *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -453,24 +528,29 @@ class FC extends OpenApiClient
             'action'      => 'DeleteAlias',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/aliases/' . Url::percentEncode($aliasName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alias.
-     *  *
+     * Deletes an alias.
+     *
+     * @returns DeleteAliasResponse
+     *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAlias($functionName, $aliasName)
     {
@@ -481,48 +561,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an asynchronous invocation configuration.
-     *  *
-     * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
-     * @param string[]                       $headers      map
-     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
+     * Deletes an asynchronous invocation configuration.
      *
-     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
+     * @param request - DeleteAsyncInvokeConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAsyncInvokeConfigResponse
+     *
+     * @param string                         $functionName
+     * @param DeleteAsyncInvokeConfigRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAsyncInvokeConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-invoke-config',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an asynchronous invocation configuration.
-     *  *
-     * @param string                         $functionName
-     * @param DeleteAsyncInvokeConfigRequest $request      DeleteAsyncInvokeConfigRequest
+     * Deletes an asynchronous invocation configuration.
      *
-     * @return DeleteAsyncInvokeConfigResponse DeleteAsyncInvokeConfigResponse
+     * @param request - DeleteAsyncInvokeConfigRequest
+     * @returns DeleteAsyncInvokeConfigResponse
+     *
+     * @param string                         $functionName
+     * @param DeleteAsyncInvokeConfigRequest $request
+     *
+     * @return DeleteAsyncInvokeConfigResponse
      */
     public function deleteAsyncInvokeConfig($functionName, $request)
     {
@@ -533,13 +625,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a concurrency configuration.
-     *  *
-     * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * Deletes a concurrency configuration.
      *
-     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteConcurrencyConfigResponse
+     *
+     * @param string         $functionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -550,23 +646,28 @@ class FC extends OpenApiClient
             'action'      => 'DeleteConcurrencyConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/concurrency',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/concurrency',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a concurrency configuration.
-     *  *
+     * Deletes a concurrency configuration.
+     *
+     * @returns DeleteConcurrencyConfigResponse
+     *
      * @param string $functionName
      *
-     * @return DeleteConcurrencyConfigResponse DeleteConcurrencyConfigResponse
+     * @return DeleteConcurrencyConfigResponse
      */
     public function deleteConcurrencyConfig($functionName)
     {
@@ -577,13 +678,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom domain name.
-     *  *
-     * @param string         $domainName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Deletes a custom domain name.
      *
-     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomDomainResponse
+     *
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteCustomDomainResponse
      */
     public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -594,23 +699,28 @@ class FC extends OpenApiClient
             'action'      => 'DeleteCustomDomain',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
+            'pathname'    => '/2023-03-30/custom-domains/' . Url::percentEncode($domainName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom domain name.
-     *  *
+     * Deletes a custom domain name.
+     *
+     * @returns DeleteCustomDomainResponse
+     *
      * @param string $domainName
      *
-     * @return DeleteCustomDomainResponse DeleteCustomDomainResponse
+     * @return DeleteCustomDomainResponse
      */
     public function deleteCustomDomain($domainName)
     {
@@ -621,13 +731,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a function.
-     *  *
-     * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * Deletes a function.
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFunctionResponse
+     *
+     * @param string         $functionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteFunctionResponse
      */
     public function deleteFunctionWithOptions($functionName, $headers, $runtime)
     {
@@ -638,23 +752,28 @@ class FC extends OpenApiClient
             'action'      => 'DeleteFunction',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a function.
-     *  *
+     * Deletes a function.
+     *
+     * @returns DeleteFunctionResponse
+     *
      * @param string $functionName
      *
-     * @return DeleteFunctionResponse DeleteFunctionResponse
+     * @return DeleteFunctionResponse
      */
     public function deleteFunction($functionName)
     {
@@ -665,14 +784,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a function version.
-     *  *
+     * Deletes a function version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFunctionVersionResponse
+     *
      * @param string         $functionName
      * @param string         $versionId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
@@ -683,24 +806,29 @@ class FC extends OpenApiClient
             'action'      => 'DeleteFunctionVersion',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionId) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/versions/' . Url::percentEncode($versionId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFunctionVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a function version.
-     *  *
+     * Deletes a function version.
+     *
+     * @returns DeleteFunctionVersionResponse
+     *
      * @param string $functionName
      * @param string $versionId
      *
-     * @return DeleteFunctionVersionResponse DeleteFunctionVersionResponse
+     * @return DeleteFunctionVersionResponse
      */
     public function deleteFunctionVersion($functionName, $versionId)
     {
@@ -711,14 +839,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a layer version.
-     *  *
+     * Deletes a layer version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLayerVersionResponse
+     *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse
      */
     public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -729,24 +861,29 @@ class FC extends OpenApiClient
             'action'      => 'DeleteLayerVersion',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions/' . OpenApiUtilClient::getEncodeParam($version) . '',
+            'pathname'    => '/2023-03-30/layers/' . Url::percentEncode($layerName) . '/versions/' . Url::percentEncode($version) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a layer version.
-     *  *
+     * Deletes a layer version.
+     *
+     * @returns DeleteLayerVersionResponse
+     *
      * @param string $layerName
      * @param string $version
      *
-     * @return DeleteLayerVersionResponse DeleteLayerVersionResponse
+     * @return DeleteLayerVersionResponse
      */
     public function deleteLayerVersion($layerName, $version)
     {
@@ -757,48 +894,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a provisioned configuration.
-     *  *
-     * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * Deletes a provisioned configuration.
      *
-     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
+     * @param request - DeleteProvisionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProvisionConfigResponse
+     *
+     * @param string                       $functionName
+     * @param DeleteProvisionConfigRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProvisionConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/provision-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/provision-config',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a provisioned configuration.
-     *  *
-     * @param string                       $functionName
-     * @param DeleteProvisionConfigRequest $request      DeleteProvisionConfigRequest
+     * Deletes a provisioned configuration.
      *
-     * @return DeleteProvisionConfigResponse DeleteProvisionConfigResponse
+     * @param request - DeleteProvisionConfigRequest
+     * @returns DeleteProvisionConfigResponse
+     *
+     * @param string                       $functionName
+     * @param DeleteProvisionConfigRequest $request
+     *
+     * @return DeleteProvisionConfigResponse
      */
     public function deleteProvisionConfig($functionName, $request)
     {
@@ -809,14 +958,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a trigger.
-     *  *
+     * Deletes a trigger.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTriggerResponse
+     *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @return DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -827,24 +980,29 @@ class FC extends OpenApiClient
             'action'      => 'DeleteTrigger',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/triggers/' . Url::percentEncode($triggerName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a trigger.
-     *  *
+     * Deletes a trigger.
+     *
+     * @returns DeleteTriggerResponse
+     *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @return DeleteTriggerResponse
      */
     public function deleteTrigger($functionName, $triggerName)
     {
@@ -855,14 +1013,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
-     *  *
+     * Deletes an access control policy from a specified policy group for a VPC firewall.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpcBindingResponse
+     *
      * @param string         $functionName
      * @param string         $vpcId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse
      */
     public function deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime)
     {
@@ -873,24 +1035,29 @@ class FC extends OpenApiClient
             'action'      => 'DeleteVpcBinding',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/vpc-bindings/' . OpenApiUtilClient::getEncodeParam($vpcId) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/vpc-bindings/' . Url::percentEncode($vpcId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an access control policy from a specified policy group for a VPC firewall.
-     *  *
+     * Deletes an access control policy from a specified policy group for a VPC firewall.
+     *
+     * @returns DeleteVpcBindingResponse
+     *
      * @param string $functionName
      * @param string $vpcId
      *
-     * @return DeleteVpcBindingResponse DeleteVpcBindingResponse
+     * @return DeleteVpcBindingResponse
      */
     public function deleteVpcBinding($functionName, $vpcId)
     {
@@ -901,14 +1068,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an alias.
-     *  *
+     * Queries information about an alias.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAliasResponse
+     *
      * @param string         $functionName
      * @param string         $aliasName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAliasResponse GetAliasResponse
+     * @return GetAliasResponse
      */
     public function getAliasWithOptions($functionName, $aliasName, $headers, $runtime)
     {
@@ -919,24 +1090,29 @@ class FC extends OpenApiClient
             'action'      => 'GetAlias',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/aliases/' . Url::percentEncode($aliasName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about an alias.
-     *  *
+     * Queries information about an alias.
+     *
+     * @returns GetAliasResponse
+     *
      * @param string $functionName
      * @param string $aliasName
      *
-     * @return GetAliasResponse GetAliasResponse
+     * @return GetAliasResponse
      */
     public function getAlias($functionName, $aliasName)
     {
@@ -947,48 +1123,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Gets asynchronous invocation configurations of a function.
-     *  *
-     * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * Gets asynchronous invocation configurations of a function.
      *
-     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
+     * @param request - GetAsyncInvokeConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAsyncInvokeConfigResponse
+     *
+     * @param string                      $functionName
+     * @param GetAsyncInvokeConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAsyncInvokeConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-invoke-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Gets asynchronous invocation configurations of a function.
-     *  *
-     * @param string                      $functionName
-     * @param GetAsyncInvokeConfigRequest $request      GetAsyncInvokeConfigRequest
+     * Gets asynchronous invocation configurations of a function.
      *
-     * @return GetAsyncInvokeConfigResponse GetAsyncInvokeConfigResponse
+     * @param request - GetAsyncInvokeConfigRequest
+     * @returns GetAsyncInvokeConfigResponse
+     *
+     * @param string                      $functionName
+     * @param GetAsyncInvokeConfigRequest $request
+     *
+     * @return GetAsyncInvokeConfigResponse
      */
     public function getAsyncInvokeConfig($functionName, $request)
     {
@@ -999,50 +1187,62 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an asynchronous task.
-     *  *
+     * Queries the information about an asynchronous task.
+     *
+     * @param request - GetAsyncTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAsyncTaskResponse
+     *
      * @param string              $functionName
      * @param string              $taskId
-     * @param GetAsyncTaskRequest $request      GetAsyncTaskRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * @param GetAsyncTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetAsyncTaskResponse GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse
      */
     public function getAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAsyncTask',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-tasks/' . Url::percentEncode($taskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an asynchronous task.
-     *  *
+     * Queries the information about an asynchronous task.
+     *
+     * @param request - GetAsyncTaskRequest
+     * @returns GetAsyncTaskResponse
+     *
      * @param string              $functionName
      * @param string              $taskId
-     * @param GetAsyncTaskRequest $request      GetAsyncTaskRequest
+     * @param GetAsyncTaskRequest $request
      *
-     * @return GetAsyncTaskResponse GetAsyncTaskResponse
+     * @return GetAsyncTaskResponse
      */
     public function getAsyncTask($functionName, $taskId, $request)
     {
@@ -1053,13 +1253,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a concurrency configuration.
-     *  *
-     * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * Obtains a concurrency configuration.
      *
-     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConcurrencyConfigResponse
+     *
+     * @param string         $functionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfigWithOptions($functionName, $headers, $runtime)
     {
@@ -1070,23 +1274,28 @@ class FC extends OpenApiClient
             'action'      => 'GetConcurrencyConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/concurrency',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/concurrency',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a concurrency configuration.
-     *  *
+     * Obtains a concurrency configuration.
+     *
+     * @returns GetConcurrencyConfigResponse
+     *
      * @param string $functionName
      *
-     * @return GetConcurrencyConfigResponse GetConcurrencyConfigResponse
+     * @return GetConcurrencyConfigResponse
      */
     public function getConcurrencyConfig($functionName)
     {
@@ -1097,13 +1306,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a custom domain name.
-     *  *
-     * @param string         $domainName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Queries information about a custom domain name.
      *
-     * @return GetCustomDomainResponse GetCustomDomainResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomDomainResponse
+     *
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCustomDomainResponse
      */
     public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
@@ -1114,23 +1327,28 @@ class FC extends OpenApiClient
             'action'      => 'GetCustomDomain',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
+            'pathname'    => '/2023-03-30/custom-domains/' . Url::percentEncode($domainName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a custom domain name.
-     *  *
+     * Queries information about a custom domain name.
+     *
+     * @returns GetCustomDomainResponse
+     *
      * @param string $domainName
      *
-     * @return GetCustomDomainResponse GetCustomDomainResponse
+     * @return GetCustomDomainResponse
      */
     public function getCustomDomain($domainName)
     {
@@ -1141,48 +1359,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary http://pre.hhht/#vpc
-     *  *
-     * @param string             $functionName
-     * @param GetFunctionRequest $request      GetFunctionRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * http://pre.hhht/#vpc.
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @param request - GetFunctionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFunctionResponse
+     *
+     * @param string             $functionName
+     * @param GetFunctionRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetFunctionResponse
      */
     public function getFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFunction',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary http://pre.hhht/#vpc
-     *  *
-     * @param string             $functionName
-     * @param GetFunctionRequest $request      GetFunctionRequest
+     * http://pre.hhht/#vpc.
      *
-     * @return GetFunctionResponse GetFunctionResponse
+     * @param request - GetFunctionRequest
+     * @returns GetFunctionResponse
+     *
+     * @param string             $functionName
+     * @param GetFunctionRequest $request
+     *
+     * @return GetFunctionResponse
      */
     public function getFunction($functionName, $request)
     {
@@ -1193,48 +1423,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries a code package of a function.
-     *  *
-     * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
-     * @param string[]               $headers      map
-     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
+     * Queries a code package of a function.
      *
-     * @return GetFunctionCodeResponse GetFunctionCodeResponse
+     * @param request - GetFunctionCodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFunctionCodeResponse
+     *
+     * @param string                 $functionName
+     * @param GetFunctionCodeRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetFunctionCodeResponse
      */
     public function getFunctionCodeWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFunctionCode',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/code',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/code',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFunctionCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a code package of a function.
-     *  *
-     * @param string                 $functionName
-     * @param GetFunctionCodeRequest $request      GetFunctionCodeRequest
+     * Queries a code package of a function.
      *
-     * @return GetFunctionCodeResponse GetFunctionCodeResponse
+     * @param request - GetFunctionCodeRequest
+     * @returns GetFunctionCodeResponse
+     *
+     * @param string                 $functionName
+     * @param GetFunctionCodeRequest $request
+     *
+     * @return GetFunctionCodeResponse
      */
     public function getFunctionCode($functionName, $request)
     {
@@ -1245,14 +1487,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries versions of a layer.
-     *  *
+     * Queries versions of a layer.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLayerVersionResponse
+     *
      * @param string         $layerName
      * @param string         $version
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetLayerVersionResponse GetLayerVersionResponse
+     * @return GetLayerVersionResponse
      */
     public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
@@ -1263,24 +1509,29 @@ class FC extends OpenApiClient
             'action'      => 'GetLayerVersion',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions/' . OpenApiUtilClient::getEncodeParam($version) . '',
+            'pathname'    => '/2023-03-30/layers/' . Url::percentEncode($layerName) . '/versions/' . Url::percentEncode($version) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries versions of a layer.
-     *  *
+     * Queries versions of a layer.
+     *
+     * @returns GetLayerVersionResponse
+     *
      * @param string $layerName
      * @param string $version
      *
-     * @return GetLayerVersionResponse GetLayerVersionResponse
+     * @return GetLayerVersionResponse
      */
     public function getLayerVersion($layerName, $version)
     {
@@ -1291,13 +1542,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Obtain version information of a layer by using ARNs.
-     *  *
-     * @param string         $arn
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtain version information of a layer by using ARNs.
      *
-     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLayerVersionByArnResponse
+     *
+     * @param string         $arn
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
     {
@@ -1308,23 +1563,28 @@ class FC extends OpenApiClient
             'action'      => 'GetLayerVersionByArn',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layerarn/' . OpenApiUtilClient::getEncodeParam($arn) . '',
+            'pathname'    => '/2023-03-30/layerarn/' . Url::percentEncode($arn) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLayerVersionByArnResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain version information of a layer by using ARNs.
-     *  *
+     * Obtain version information of a layer by using ARNs.
+     *
+     * @returns GetLayerVersionByArnResponse
+     *
      * @param string $arn
      *
-     * @return GetLayerVersionByArnResponse GetLayerVersionByArnResponse
+     * @return GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArn($arn)
     {
@@ -1335,48 +1595,60 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries provisioned configurations.
-     *  *
-     * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * Queries provisioned configurations.
      *
-     * @return GetProvisionConfigResponse GetProvisionConfigResponse
+     * @param request - GetProvisionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProvisionConfigResponse
+     *
+     * @param string                    $functionName
+     * @param GetProvisionConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetProvisionConfigResponse
      */
     public function getProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProvisionConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/provision-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/provision-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries provisioned configurations.
-     *  *
-     * @param string                    $functionName
-     * @param GetProvisionConfigRequest $request      GetProvisionConfigRequest
+     * Queries provisioned configurations.
      *
-     * @return GetProvisionConfigResponse GetProvisionConfigResponse
+     * @param request - GetProvisionConfigRequest
+     * @returns GetProvisionConfigResponse
+     *
+     * @param string                    $functionName
+     * @param GetProvisionConfigRequest $request
+     *
+     * @return GetProvisionConfigResponse
      */
     public function getProvisionConfig($functionName, $request)
     {
@@ -1387,14 +1659,18 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a trigger.
-     *  *
+     * Queries information about a trigger.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTriggerResponse
+     *
      * @param string         $functionName
      * @param string         $triggerName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @return GetTriggerResponse
      */
     public function getTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
     {
@@ -1405,24 +1681,29 @@ class FC extends OpenApiClient
             'action'      => 'GetTrigger',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/triggers/' . Url::percentEncode($triggerName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a trigger.
-     *  *
+     * Queries information about a trigger.
+     *
+     * @returns GetTriggerResponse
+     *
      * @param string $functionName
      * @param string $triggerName
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @return GetTriggerResponse
      */
     public function getTrigger($functionName, $triggerName)
     {
@@ -1433,38 +1714,48 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Invokes a function.
-     *  *
-     * @param string                $functionName
-     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
-     * @param InvokeFunctionHeaders $headers      InvokeFunctionHeaders
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * Invokes a function.
      *
-     * @return InvokeFunctionResponse InvokeFunctionResponse
+     * @param request - InvokeFunctionRequest
+     * @param headers - InvokeFunctionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InvokeFunctionResponse
+     *
+     * @param string                $functionName
+     * @param InvokeFunctionRequest $request
+     * @param InvokeFunctionHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return InvokeFunctionResponse
      */
     public function invokeFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->xFcAsyncTaskId)) {
-            $realHeaders['x-fc-async-task-id'] = Utils::toJSONString($headers->xFcAsyncTaskId);
+
+        if (null !== $headers->xFcAsyncTaskId) {
+            @$realHeaders['x-fc-async-task-id'] = '' . $headers->xFcAsyncTaskId;
         }
-        if (!Utils::isUnset($headers->xFcInvocationType)) {
-            $realHeaders['x-fc-invocation-type'] = Utils::toJSONString($headers->xFcInvocationType);
+
+        if (null !== $headers->xFcInvocationType) {
+            @$realHeaders['x-fc-invocation-type'] = '' . $headers->xFcInvocationType;
         }
-        if (!Utils::isUnset($headers->xFcLogType)) {
-            $realHeaders['x-fc-log-type'] = Utils::toJSONString($headers->xFcLogType);
+
+        if (null !== $headers->xFcLogType) {
+            @$realHeaders['x-fc-log-type'] = '' . $headers->xFcLogType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
             'body'    => $request->body,
             'stream'  => $request->body,
         ]);
@@ -1472,7 +1763,7 @@ class FC extends OpenApiClient
             'action'      => 'InvokeFunction',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/invocations',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/invocations',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1480,17 +1771,19 @@ class FC extends OpenApiClient
             'bodyType'    => 'binary',
         ]);
         $res = new InvokeFunctionResponse([]);
-        $tmp = Utils::assertAsMap($this->callApi($params, $req, $runtime));
-        if (!Utils::isUnset(@$tmp['body'])) {
-            $respBody  = Utils::assertAsReadable(@$tmp['body']);
+        $tmp = $this->callApi($params, $req, $runtime);
+        if (null !== @$tmp['body']) {
+            $respBody  = StreamUtil::streamFor(@$tmp['body']);
             $res->body = $respBody;
         }
-        if (!Utils::isUnset(@$tmp['headers'])) {
-            $respHeaders  = Utils::assertAsMap(@$tmp['headers']);
+
+        if (null !== @$tmp['headers']) {
+            $respHeaders  = @$tmp['headers'];
             $res->headers = Utils::stringifyMapValue($respHeaders);
         }
-        if (!Utils::isUnset(@$tmp['statusCode'])) {
-            $statusCode      = Utils::assertAsInteger(@$tmp['statusCode']);
+
+        if (null !== @$tmp['statusCode']) {
+            $statusCode      = (int) (@$tmp['statusCode']);
             $res->statusCode = $statusCode;
         }
 
@@ -1498,12 +1791,15 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Invokes a function.
-     *  *
-     * @param string                $functionName
-     * @param InvokeFunctionRequest $request      InvokeFunctionRequest
+     * Invokes a function.
      *
-     * @return InvokeFunctionResponse InvokeFunctionResponse
+     * @param request - InvokeFunctionRequest
+     * @returns InvokeFunctionResponse
+     *
+     * @param string                $functionName
+     * @param InvokeFunctionRequest $request
+     *
+     * @return InvokeFunctionResponse
      */
     public function invokeFunction($functionName, $request)
     {
@@ -1514,54 +1810,68 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries aliases.
-     *  *
-     * @param string             $functionName
-     * @param ListAliasesRequest $request      ListAliasesRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * Queries aliases.
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @param request - ListAliasesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAliasesResponse
+     *
+     * @param string             $functionName
+     * @param ListAliasesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListAliasesResponse
      */
     public function listAliasesWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAliases',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/aliases',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/aliases',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries aliases.
-     *  *
-     * @param string             $functionName
-     * @param ListAliasesRequest $request      ListAliasesRequest
+     * Queries aliases.
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @param request - ListAliasesRequest
+     * @returns ListAliasesResponse
+     *
+     * @param string             $functionName
+     * @param ListAliasesRequest $request
+     *
+     * @return ListAliasesResponse
      */
     public function listAliases($functionName, $request)
     {
@@ -1572,30 +1882,38 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries all asynchronous configurations of a function.
-     *  *
-     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries all asynchronous configurations of a function.
      *
-     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
+     * @param request - ListAsyncInvokeConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAsyncInvokeConfigsResponse
+     *
+     * @param ListAsyncInvokeConfigsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['functionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAsyncInvokeConfigs',
@@ -1608,16 +1926,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAsyncInvokeConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all asynchronous configurations of a function.
-     *  *
-     * @param ListAsyncInvokeConfigsRequest $request ListAsyncInvokeConfigsRequest
+     * Queries all asynchronous configurations of a function.
      *
-     * @return ListAsyncInvokeConfigsResponse ListAsyncInvokeConfigsResponse
+     * @param request - ListAsyncInvokeConfigsRequest
+     * @returns ListAsyncInvokeConfigsResponse
+     *
+     * @param ListAsyncInvokeConfigsRequest $request
+     *
+     * @return ListAsyncInvokeConfigsResponse
      */
     public function listAsyncInvokeConfigs($request)
     {
@@ -1628,72 +1952,92 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Lists asynchronous tasks.
-     *  *
-     * @param string                $functionName
-     * @param ListAsyncTasksRequest $request      ListAsyncTasksRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * Lists asynchronous tasks.
      *
-     * @return ListAsyncTasksResponse ListAsyncTasksResponse
+     * @param request - ListAsyncTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAsyncTasksResponse
+     *
+     * @param string                $functionName
+     * @param ListAsyncTasksRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAsyncTasksResponse
      */
     public function listAsyncTasksWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includePayload)) {
-            $query['includePayload'] = $request->includePayload;
+        if (null !== $request->includePayload) {
+            @$query['includePayload'] = $request->includePayload;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
-        if (!Utils::isUnset($request->sortOrderByTime)) {
-            $query['sortOrderByTime'] = $request->sortOrderByTime;
+
+        if (null !== $request->sortOrderByTime) {
+            @$query['sortOrderByTime'] = $request->sortOrderByTime;
         }
-        if (!Utils::isUnset($request->startedTimeBegin)) {
-            $query['startedTimeBegin'] = $request->startedTimeBegin;
+
+        if (null !== $request->startedTimeBegin) {
+            @$query['startedTimeBegin'] = $request->startedTimeBegin;
         }
-        if (!Utils::isUnset($request->startedTimeEnd)) {
-            $query['startedTimeEnd'] = $request->startedTimeEnd;
+
+        if (null !== $request->startedTimeEnd) {
+            @$query['startedTimeEnd'] = $request->startedTimeEnd;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAsyncTasks',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-tasks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAsyncTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists asynchronous tasks.
-     *  *
-     * @param string                $functionName
-     * @param ListAsyncTasksRequest $request      ListAsyncTasksRequest
+     * Lists asynchronous tasks.
      *
-     * @return ListAsyncTasksResponse ListAsyncTasksResponse
+     * @param request - ListAsyncTasksRequest
+     * @returns ListAsyncTasksResponse
+     *
+     * @param string                $functionName
+     * @param ListAsyncTasksRequest $request
+     *
+     * @return ListAsyncTasksResponse
      */
     public function listAsyncTasks($functionName, $request)
     {
@@ -1704,30 +2048,38 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 列出函数并发度配置。
-     *  *
-     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 列出函数并发度配置。
      *
-     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
+     * @param request - ListConcurrencyConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConcurrencyConfigsResponse
+     *
+     * @param ListConcurrencyConfigsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['functionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConcurrencyConfigs',
@@ -1740,16 +2092,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConcurrencyConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConcurrencyConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConcurrencyConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出函数并发度配置。
-     *  *
-     * @param ListConcurrencyConfigsRequest $request ListConcurrencyConfigsRequest
+     * 列出函数并发度配置。
      *
-     * @return ListConcurrencyConfigsResponse ListConcurrencyConfigsResponse
+     * @param request - ListConcurrencyConfigsRequest
+     * @returns ListConcurrencyConfigsResponse
+     *
+     * @param ListConcurrencyConfigsRequest $request
+     *
+     * @return ListConcurrencyConfigsResponse
      */
     public function listConcurrencyConfigs($request)
     {
@@ -1760,30 +2118,38 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom domain names.
-     *  *
-     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries custom domain names.
      *
-     * @return ListCustomDomainsResponse ListCustomDomainsResponse
+     * @param request - ListCustomDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCustomDomainsResponse
      */
     public function listCustomDomainsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomDomains',
@@ -1796,16 +2162,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom domain names.
-     *  *
-     * @param ListCustomDomainsRequest $request ListCustomDomainsRequest
+     * Queries custom domain names.
      *
-     * @return ListCustomDomainsResponse ListCustomDomainsResponse
+     * @param request - ListCustomDomainsRequest
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     *
+     * @return ListCustomDomainsResponse
      */
     public function listCustomDomains($request)
     {
@@ -1816,54 +2188,68 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries versions of a function.
-     *  *
-     * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * Queries versions of a function.
      *
-     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
+     * @param request - ListFunctionVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFunctionVersionsResponse
+     *
+     * @param string                      $functionName
+     * @param ListFunctionVersionsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListFunctionVersionsResponse
      */
     public function listFunctionVersionsWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->direction)) {
-            $query['direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFunctionVersions',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/versions',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/versions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFunctionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFunctionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFunctionVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries versions of a function.
-     *  *
-     * @param string                      $functionName
-     * @param ListFunctionVersionsRequest $request      ListFunctionVersionsRequest
+     * Queries versions of a function.
      *
-     * @return ListFunctionVersionsResponse ListFunctionVersionsResponse
+     * @param request - ListFunctionVersionsRequest
+     * @returns ListFunctionVersionsResponse
+     *
+     * @param string                      $functionName
+     * @param ListFunctionVersionsRequest $request
+     *
+     * @return ListFunctionVersionsResponse
      */
     public function listFunctionVersions($functionName, $request)
     {
@@ -1874,33 +2260,42 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary 列出函数。
-     *  *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 列出函数。
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @param request - ListFunctionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFunctionsResponse
+     *
+     * @param ListFunctionsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFunctionsResponse
      */
     public function listFunctionsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fcVersion)) {
-            $query['fcVersion'] = $request->fcVersion;
+        if (null !== $request->fcVersion) {
+            @$query['fcVersion'] = $request->fcVersion;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFunctions',
@@ -1913,16 +2308,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出函数。
-     *  *
-     * @param ListFunctionsRequest $request ListFunctionsRequest
+     * 列出函数。
      *
-     * @return ListFunctionsResponse ListFunctionsResponse
+     * @param request - ListFunctionsRequest
+     * @returns ListFunctionsResponse
+     *
+     * @param ListFunctionsRequest $request
+     *
+     * @return ListFunctionsResponse
      */
     public function listFunctions($request)
     {
@@ -1933,77 +2334,98 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of function instances.
-     *  *
-     * @param string               $functionName
-     * @param ListInstancesRequest $tmpReq       ListInstancesRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * Queries a list of function instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param tmpReq - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
+     *
+     * @param string               $functionName
+     * @param ListInstancesRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($functionName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instanceIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->instanceStatus)) {
-            $request->instanceStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceStatus, 'instanceStatus', 'json');
+
+        if (null !== $tmpReq->instanceStatus) {
+            $request->instanceStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceStatus, 'instanceStatus', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->endTimeMs)) {
-            $query['endTimeMs'] = $request->endTimeMs;
+        if (null !== $request->endTimeMs) {
+            @$query['endTimeMs'] = $request->endTimeMs;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['instanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['instanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->instanceStatusShrink)) {
-            $query['instanceStatus'] = $request->instanceStatusShrink;
+
+        if (null !== $request->instanceStatusShrink) {
+            @$query['instanceStatus'] = $request->instanceStatusShrink;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
-        if (!Utils::isUnset($request->startKey)) {
-            $query['startKey'] = $request->startKey;
+
+        if (null !== $request->startKey) {
+            @$query['startKey'] = $request->startKey;
         }
-        if (!Utils::isUnset($request->startTimeMs)) {
-            $query['startTimeMs'] = $request->startTimeMs;
+
+        if (null !== $request->startTimeMs) {
+            @$query['startTimeMs'] = $request->startTimeMs;
         }
-        if (!Utils::isUnset($request->withAllActive)) {
-            $query['withAllActive'] = $request->withAllActive;
+
+        if (null !== $request->withAllActive) {
+            @$query['withAllActive'] = $request->withAllActive;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of function instances.
-     *  *
-     * @param string               $functionName
-     * @param ListInstancesRequest $request      ListInstancesRequest
+     * Queries a list of function instances.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
+     *
+     * @param string               $functionName
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($functionName, $request)
     {
@@ -2014,51 +2436,64 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Gets a list of layer versions.
-     *  *
-     * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * Gets a list of layer versions.
      *
-     * @return ListLayerVersionsResponse ListLayerVersionsResponse
+     * @param request - ListLayerVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLayerVersionsResponse
+     *
+     * @param string                   $layerName
+     * @param ListLayerVersionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLayerVersionsResponse
      */
     public function listLayerVersionsWithOptions($layerName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->startVersion)) {
-            $query['startVersion'] = $request->startVersion;
+
+        if (null !== $request->startVersion) {
+            @$query['startVersion'] = $request->startVersion;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLayerVersions',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions',
+            'pathname'    => '/2023-03-30/layers/' . Url::percentEncode($layerName) . '/versions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLayerVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Gets a list of layer versions.
-     *  *
-     * @param string                   $layerName
-     * @param ListLayerVersionsRequest $request   ListLayerVersionsRequest
+     * Gets a list of layer versions.
      *
-     * @return ListLayerVersionsResponse ListLayerVersionsResponse
+     * @param request - ListLayerVersionsRequest
+     * @returns ListLayerVersionsResponse
+     *
+     * @param string                   $layerName
+     * @param ListLayerVersionsRequest $request
+     *
+     * @return ListLayerVersionsResponse
      */
     public function listLayerVersions($layerName, $request)
     {
@@ -2069,36 +2504,46 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Gets a list of layers.
-     *  *
-     * @param ListLayersRequest $request ListLayersRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Gets a list of layers.
      *
-     * @return ListLayersResponse ListLayersResponse
+     * @param request - ListLayersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLayersResponse
+     *
+     * @param ListLayersRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListLayersResponse
      */
     public function listLayersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->official)) {
-            $query['official'] = $request->official;
+
+        if (null !== $request->official) {
+            @$query['official'] = $request->official;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
-        if (!Utils::isUnset($request->public_)) {
-            $query['public'] = $request->public_;
+
+        if (null !== $request->public) {
+            @$query['public'] = $request->public;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLayers',
@@ -2111,16 +2556,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLayersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Gets a list of layers.
-     *  *
-     * @param ListLayersRequest $request ListLayersRequest
+     * Gets a list of layers.
      *
-     * @return ListLayersResponse ListLayersResponse
+     * @param request - ListLayersRequest
+     * @returns ListLayersResponse
+     *
+     * @param ListLayersRequest $request
+     *
+     * @return ListLayersResponse
      */
     public function listLayers($request)
     {
@@ -2131,30 +2582,38 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of provisioned configurations.
-     *  *
-     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries a list of provisioned configurations.
      *
-     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
+     * @param request - ListProvisionConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProvisionConfigsResponse
+     *
+     * @param ListProvisionConfigsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProvisionConfigsResponse
      */
     public function listProvisionConfigsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->functionName)) {
-            $query['functionName'] = $request->functionName;
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProvisionConfigs',
@@ -2167,16 +2626,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProvisionConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of provisioned configurations.
-     *  *
-     * @param ListProvisionConfigsRequest $request ListProvisionConfigsRequest
+     * Queries a list of provisioned configurations.
      *
-     * @return ListProvisionConfigsResponse ListProvisionConfigsResponse
+     * @param request - ListProvisionConfigsRequest
+     * @returns ListProvisionConfigsResponse
+     *
+     * @param ListProvisionConfigsRequest $request
+     *
+     * @return ListProvisionConfigsResponse
      */
     public function listProvisionConfigs($request)
     {
@@ -2187,44 +2652,56 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Lists all tagged resources.
-     *  *
-     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Lists all tagged resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['ResourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -2237,16 +2714,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists all tagged resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Lists all tagged resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2257,54 +2740,68 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the triggers of a function.
-     *  *
-     * @param string              $functionName
-     * @param ListTriggersRequest $request      ListTriggersRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * Queries the triggers of a function.
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @param request - ListTriggersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTriggersResponse
+     *
+     * @param string              $functionName
+     * @param ListTriggersRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTriggersResponse
      */
     public function listTriggersWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTriggers',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/triggers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTriggersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the triggers of a function.
-     *  *
-     * @param string              $functionName
-     * @param ListTriggersRequest $request      ListTriggersRequest
+     * Queries the triggers of a function.
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @param request - ListTriggersRequest
+     * @returns ListTriggersResponse
+     *
+     * @param string              $functionName
+     * @param ListTriggersRequest $request
+     *
+     * @return ListTriggersResponse
      */
     public function listTriggers($functionName, $request)
     {
@@ -2315,13 +2812,17 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of existing VPC connections.
-     *  *
-     * @param string         $functionName
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * Queries a list of existing VPC connections.
      *
-     * @return ListVpcBindingsResponse ListVpcBindingsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpcBindingsResponse
+     *
+     * @param string         $functionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListVpcBindingsResponse
      */
     public function listVpcBindingsWithOptions($functionName, $headers, $runtime)
     {
@@ -2332,23 +2833,28 @@ class FC extends OpenApiClient
             'action'      => 'ListVpcBindings',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/vpc-bindings',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/vpc-bindings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpcBindingsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of existing VPC connections.
-     *  *
+     * Queries a list of existing VPC connections.
+     *
+     * @returns ListVpcBindingsResponse
+     *
      * @param string $functionName
      *
-     * @return ListVpcBindingsResponse ListVpcBindingsResponse
+     * @return ListVpcBindingsResponse
      */
     public function listVpcBindings($functionName)
     {
@@ -2359,44 +2865,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Publishes a function version.
-     *  *
-     * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
-     * @param string[]                      $headers      map
-     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
+     * Publishes a function version.
      *
-     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
+     * @param request - PublishFunctionVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PublishFunctionVersionResponse
+     *
+     * @param string                        $functionName
+     * @param PublishFunctionVersionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PublishFunctionVersionResponse
      */
     public function publishFunctionVersionWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'PublishFunctionVersion',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/versions',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/versions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PublishFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishFunctionVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes a function version.
-     *  *
-     * @param string                        $functionName
-     * @param PublishFunctionVersionRequest $request      PublishFunctionVersionRequest
+     * Publishes a function version.
      *
-     * @return PublishFunctionVersionResponse PublishFunctionVersionResponse
+     * @param request - PublishFunctionVersionRequest
+     * @returns PublishFunctionVersionResponse
+     *
+     * @param string                        $functionName
+     * @param PublishFunctionVersionRequest $request
+     *
+     * @return PublishFunctionVersionResponse
      */
     public function publishFunctionVersion($functionName, $request)
     {
@@ -2407,49 +2924,61 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an asynchronous invocation configuration for a function.
-     *  *
-     * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * Creates or modifies an asynchronous invocation configuration for a function.
      *
-     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
+     * @param request - PutAsyncInvokeConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutAsyncInvokeConfigResponse
+     *
+     * @param string                      $functionName
+     * @param PutAsyncInvokeConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'PutAsyncInvokeConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-invoke-config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an asynchronous invocation configuration for a function.
-     *  *
-     * @param string                      $functionName
-     * @param PutAsyncInvokeConfigRequest $request      PutAsyncInvokeConfigRequest
+     * Creates or modifies an asynchronous invocation configuration for a function.
      *
-     * @return PutAsyncInvokeConfigResponse PutAsyncInvokeConfigResponse
+     * @param request - PutAsyncInvokeConfigRequest
+     * @returns PutAsyncInvokeConfigResponse
+     *
+     * @param string                      $functionName
+     * @param PutAsyncInvokeConfigRequest $request
+     *
+     * @return PutAsyncInvokeConfigResponse
      */
     public function putAsyncInvokeConfig($functionName, $request)
     {
@@ -2460,44 +2989,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Configures concurrency of a function.
-     *  *
-     * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * Configures concurrency of a function.
      *
-     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
+     * @param request - PutConcurrencyConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutConcurrencyConfigResponse
+     *
+     * @param string                      $functionName
+     * @param PutConcurrencyConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'PutConcurrencyConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/concurrency',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/concurrency',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures concurrency of a function.
-     *  *
-     * @param string                      $functionName
-     * @param PutConcurrencyConfigRequest $request      PutConcurrencyConfigRequest
+     * Configures concurrency of a function.
      *
-     * @return PutConcurrencyConfigResponse PutConcurrencyConfigResponse
+     * @param request - PutConcurrencyConfigRequest
+     * @returns PutConcurrencyConfigResponse
+     *
+     * @param string                      $functionName
+     * @param PutConcurrencyConfigRequest $request
+     *
+     * @return PutConcurrencyConfigResponse
      */
     public function putConcurrencyConfig($functionName, $request)
     {
@@ -2508,51 +3048,64 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Modifies permissions of a layer.
-     *  *
-     * @param string             $layerName
-     * @param PutLayerACLRequest $request   PutLayerACLRequest
-     * @param string[]           $headers   map
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * Modifies permissions of a layer.
      *
-     * @return PutLayerACLResponse PutLayerACLResponse
+     * @param request - PutLayerACLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutLayerACLResponse
+     *
+     * @param string             $layerName
+     * @param PutLayerACLRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PutLayerACLResponse
      */
     public function putLayerACLWithOptions($layerName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acl)) {
-            $query['acl'] = $request->acl;
+        if (null !== $request->acl) {
+            @$query['acl'] = $request->acl;
         }
-        if (!Utils::isUnset($request->public_)) {
-            $query['public'] = $request->public_;
+
+        if (null !== $request->public) {
+            @$query['public'] = $request->public;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PutLayerACL',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/acl',
+            'pathname'    => '/2023-03-30/layers/' . Url::percentEncode($layerName) . '/acl',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutLayerACLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies permissions of a layer.
-     *  *
-     * @param string             $layerName
-     * @param PutLayerACLRequest $request   PutLayerACLRequest
+     * Modifies permissions of a layer.
      *
-     * @return PutLayerACLResponse PutLayerACLResponse
+     * @param request - PutLayerACLRequest
+     * @returns PutLayerACLResponse
+     *
+     * @param string             $layerName
+     * @param PutLayerACLRequest $request
+     *
+     * @return PutLayerACLResponse
      */
     public function putLayerACL($layerName, $request)
     {
@@ -2563,49 +3116,61 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Creates provisioned configurations.
-     *  *
-     * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * Creates provisioned configurations.
      *
-     * @return PutProvisionConfigResponse PutProvisionConfigResponse
+     * @param request - PutProvisionConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PutProvisionConfigResponse
+     *
+     * @param string                    $functionName
+     * @param PutProvisionConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutProvisionConfigResponse
      */
     public function putProvisionConfigWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'PutProvisionConfig',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/provision-config',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/provision-config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PutProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates provisioned configurations.
-     *  *
-     * @param string                    $functionName
-     * @param PutProvisionConfigRequest $request      PutProvisionConfigRequest
+     * Creates provisioned configurations.
      *
-     * @return PutProvisionConfigResponse PutProvisionConfigResponse
+     * @param request - PutProvisionConfigRequest
+     * @returns PutProvisionConfigResponse
+     *
+     * @param string                    $functionName
+     * @param PutProvisionConfigRequest $request
+     *
+     * @return PutProvisionConfigResponse
      */
     public function putProvisionConfig($functionName, $request)
     {
@@ -2616,50 +3181,62 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Stops an asynchronous task.
-     *  *
+     * Stops an asynchronous task.
+     *
+     * @param request - StopAsyncTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopAsyncTaskResponse
+     *
      * @param string               $functionName
      * @param string               $taskId
-     * @param StopAsyncTaskRequest $request      StopAsyncTaskRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param StopAsyncTaskRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return StopAsyncTaskResponse StopAsyncTaskResponse
+     * @return StopAsyncTaskResponse
      */
     public function stopAsyncTaskWithOptions($functionName, $taskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->qualifier)) {
-            $query['qualifier'] = $request->qualifier;
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopAsyncTask',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/stop',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/async-tasks/' . Url::percentEncode($taskId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops an asynchronous task.
-     *  *
+     * Stops an asynchronous task.
+     *
+     * @param request - StopAsyncTaskRequest
+     * @returns StopAsyncTaskResponse
+     *
      * @param string               $functionName
      * @param string               $taskId
-     * @param StopAsyncTaskRequest $request      StopAsyncTaskRequest
+     * @param StopAsyncTaskRequest $request
      *
-     * @return StopAsyncTaskResponse StopAsyncTaskResponse
+     * @return StopAsyncTaskResponse
      */
     public function stopAsyncTask($functionName, $taskId, $request)
     {
@@ -2670,22 +3247,28 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to a resource.
-     *  *
-     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to a resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -2698,18 +3281,25 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to a resource.
-     *  *
-     * @description Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to a resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](https://help.aliyun.com/document_detail/156983.html).
+     *
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2720,41 +3310,52 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from a resource.
-     *  *
-     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from a resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UntagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagKey)) {
-            $request->tagKeyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['ResourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKeyShrink)) {
-            $query['TagKey'] = $request->tagKeyShrink;
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['TagKey'] = $request->tagKeyShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -2767,16 +3368,22 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'none',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from a resource.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from a resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2787,46 +3394,57 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Updates an alias.
-     *  *
+     * Updates an alias.
+     *
+     * @param request - UpdateAliasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAliasResponse
+     *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request      UpdateAliasRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @return UpdateAliasResponse
      */
     public function updateAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAlias',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/aliases/' . Url::percentEncode($aliasName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates an alias.
-     *  *
+     * Updates an alias.
+     *
+     * @param request - UpdateAliasRequest
+     * @returns UpdateAliasResponse
+     *
      * @param string             $functionName
      * @param string             $aliasName
-     * @param UpdateAliasRequest $request      UpdateAliasRequest
+     * @param UpdateAliasRequest $request
      *
-     * @return UpdateAliasResponse UpdateAliasResponse
+     * @return UpdateAliasResponse
      */
     public function updateAlias($functionName, $aliasName, $request)
     {
@@ -2837,44 +3455,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Update a custom domain name.
-     *  *
-     * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * Update a custom domain name.
      *
-     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
+     * @param request - UpdateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCustomDomainResponse
      */
     public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomDomain',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
+            'pathname'    => '/2023-03-30/custom-domains/' . Url::percentEncode($domainName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Update a custom domain name.
-     *  *
-     * @param string                    $domainName
-     * @param UpdateCustomDomainRequest $request    UpdateCustomDomainRequest
+     * Update a custom domain name.
      *
-     * @return UpdateCustomDomainResponse UpdateCustomDomainResponse
+     * @param request - UpdateCustomDomainRequest
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     *
+     * @return UpdateCustomDomainResponse
      */
     public function updateCustomDomain($domainName, $request)
     {
@@ -2885,44 +3514,55 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a function.
-     *  *
-     * @param string                $functionName
-     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * Updates the information about a function.
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @param request - UpdateFunctionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFunctionResponse
+     *
+     * @param string                $functionName
+     * @param UpdateFunctionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFunctionResponse
      */
     public function updateFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFunction',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a function.
-     *  *
-     * @param string                $functionName
-     * @param UpdateFunctionRequest $request      UpdateFunctionRequest
+     * Updates the information about a function.
      *
-     * @return UpdateFunctionResponse UpdateFunctionResponse
+     * @param request - UpdateFunctionRequest
+     * @returns UpdateFunctionResponse
+     *
+     * @param string                $functionName
+     * @param UpdateFunctionRequest $request
+     *
+     * @return UpdateFunctionResponse
      */
     public function updateFunction($functionName, $request)
     {
@@ -2933,46 +3573,57 @@ class FC extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a trigger.
-     *  *
+     * Modifies a trigger.
+     *
+     * @param request - UpdateTriggerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTriggerResponse
+     *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @return UpdateTriggerResponse
      */
     public function updateTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTrigger',
             'version'     => '2023-03-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2023-03-30/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
+            'pathname'    => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/triggers/' . Url::percentEncode($triggerName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a trigger.
-     *  *
+     * Modifies a trigger.
+     *
+     * @param request - UpdateTriggerRequest
+     * @returns UpdateTriggerResponse
+     *
      * @param string               $functionName
      * @param string               $triggerName
-     * @param UpdateTriggerRequest $request      UpdateTriggerRequest
+     * @param UpdateTriggerRequest $request
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @return UpdateTriggerResponse
      */
     public function updateTrigger($functionName, $triggerName, $request)
     {

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTriggersRequest extends Model
 {
     /**
-     * @description The number of triggers returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $limit;
-
     /**
-     * @description The token for the next page.
-     *
-     * @example MTIzNCNhYmM=
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The trigger name prefix.
-     *
-     * @example my-trigger
-     *
      * @var string
      */
     public $prefix;
@@ -42,17 +28,20 @@ class ListTriggersRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
         }
@@ -60,20 +49,22 @@ class ListTriggersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTriggersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
         }

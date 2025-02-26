@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutConcurrencyConfigRequest extends Model
 {
     /**
-     * @description The concurrency configurations.
-     *
-     * This parameter is required.
      * @var PutConcurrencyInput
      */
     public $body;
@@ -21,23 +18,27 @@ class PutConcurrencyConfigRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutConcurrencyConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAsyncInvokeConfigOutput extends Model
 {
@@ -12,10 +12,7 @@ class ListAsyncInvokeConfigOutput extends Model
      * @var AsyncConfig[]
      */
     public $configs;
-
     /**
-     * @example 8bj81uI8n****
-     *
      * @var string
      */
     public $nextToken;
@@ -26,20 +23,25 @@ class ListAsyncInvokeConfigOutput extends Model
 
     public function validate()
     {
+        if (\is_array($this->configs)) {
+            Model::validateArray($this->configs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['configs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configs)) {
+                $res['configs'] = [];
+                $n1             = 0;
+                foreach ($this->configs as $item1) {
+                    $res['configs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
@@ -47,23 +49,24 @@ class ListAsyncInvokeConfigOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAsyncInvokeConfigOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configs'])) {
             if (!empty($map['configs'])) {
                 $model->configs = [];
-                $n              = 0;
-                foreach ($map['configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? AsyncConfig::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['configs'] as $item1) {
+                    $model->configs[$n1++] = AsyncConfig::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }

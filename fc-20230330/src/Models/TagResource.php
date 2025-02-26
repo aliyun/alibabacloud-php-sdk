@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TagResource extends Model
 {
     /**
-     * @example acs:fc:cn-shanghai:****:functions/demo
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @example ALIYUN::FC::FUNCTION
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @example key1
-     *
      * @var string
      */
     public $tagKey;
-
     /**
-     * @example key1
-     *
      * @var string
      */
     public $tagValue;
@@ -44,20 +33,24 @@ class TagResource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -65,23 +58,26 @@ class TagResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

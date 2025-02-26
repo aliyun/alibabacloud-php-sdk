@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NASMountConfig extends Model
 {
@@ -12,17 +12,11 @@ class NASMountConfig extends Model
      * @var bool
      */
     public $enableTLS;
-
     /**
-     * @example /home/test
-     *
      * @var string
      */
     public $mountDir;
-
     /**
-     * @example ***-uni85.cn-hangzhou.nas.com:/
-     *
      * @var string
      */
     public $serverAddr;
@@ -34,17 +28,20 @@ class NASMountConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableTLS) {
             $res['enableTLS'] = $this->enableTLS;
         }
+
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
         }
+
         if (null !== $this->serverAddr) {
             $res['serverAddr'] = $this->serverAddr;
         }
@@ -52,20 +49,22 @@ class NASMountConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NASMountConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enableTLS'])) {
             $model->enableTLS = $map['enableTLS'];
         }
+
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];
         }
+
         if (isset($map['serverAddr'])) {
             $model->serverAddr = $map['serverAddr'];
         }

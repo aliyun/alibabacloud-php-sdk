@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAliasInput extends Model
 {
@@ -12,17 +12,11 @@ class UpdateAliasInput extends Model
      * @var float[]
      */
     public $additionalVersionWeight;
-
     /**
-     * @example my alias
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $versionId;
@@ -34,17 +28,28 @@ class UpdateAliasInput extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalVersionWeight)) {
+            Model::validateArray($this->additionalVersionWeight);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalVersionWeight) {
-            $res['additionalVersionWeight'] = $this->additionalVersionWeight;
+            if (\is_array($this->additionalVersionWeight)) {
+                $res['additionalVersionWeight'] = [];
+                foreach ($this->additionalVersionWeight as $key1 => $value1) {
+                    $res['additionalVersionWeight'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
         }
@@ -52,20 +57,27 @@ class UpdateAliasInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAliasInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalVersionWeight'])) {
-            $model->additionalVersionWeight = $map['additionalVersionWeight'];
+            if (!empty($map['additionalVersionWeight'])) {
+                $model->additionalVersionWeight = [];
+                foreach ($map['additionalVersionWeight'] as $key1 => $value1) {
+                    $model->additionalVersionWeight[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];
         }

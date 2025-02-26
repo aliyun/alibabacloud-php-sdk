@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EventSinkConfig extends Model
 {
@@ -18,23 +18,27 @@ class EventSinkConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->deliveryOption) {
+            $this->deliveryOption->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryOption) {
-            $res['deliveryOption'] = null !== $this->deliveryOption ? $this->deliveryOption->toMap() : null;
+            $res['deliveryOption'] = null !== $this->deliveryOption ? $this->deliveryOption->toArray($noStream) : $this->deliveryOption;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EventSinkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

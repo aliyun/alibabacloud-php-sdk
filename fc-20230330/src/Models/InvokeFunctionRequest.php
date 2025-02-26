@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class InvokeFunctionRequest extends Model
 {
     /**
-     * @description The request parameters of function invocation.
-     *
-     * @example event
-     *
      * @var Stream
      */
     public $body;
-
     /**
-     * @description The version or alias of the function.
-     *
-     * @example LATEST
-     *
      * @var string
      */
     public $qualifier;
@@ -33,14 +24,16 @@ class InvokeFunctionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
         }
@@ -48,17 +41,18 @@ class InvokeFunctionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeFunctionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
         }

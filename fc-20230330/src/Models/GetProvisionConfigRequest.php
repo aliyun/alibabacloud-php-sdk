@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetProvisionConfigRequest extends Model
 {
     /**
-     * @description The function alias or LATEST.
-     *
-     * @example LATEST
-     *
      * @var string
      */
     public $qualifier;
@@ -22,9 +18,10 @@ class GetProvisionConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualifier) {
@@ -34,11 +31,11 @@ class GetProvisionConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProvisionConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

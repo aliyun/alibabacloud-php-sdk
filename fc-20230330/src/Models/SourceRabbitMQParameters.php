@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SourceRabbitMQParameters extends Model
 {
     /**
-     * @example amqp-cn-nif22u74****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example demo
-     *
      * @var string
      */
     public $queueName;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example eb-connect
-     *
      * @var string
      */
     public $virtualHostName;
@@ -44,20 +33,24 @@ class SourceRabbitMQParameters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->virtualHostName) {
             $res['VirtualHostName'] = $this->virtualHostName;
         }
@@ -65,23 +58,26 @@ class SourceRabbitMQParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SourceRabbitMQParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = $map['VirtualHostName'];
         }

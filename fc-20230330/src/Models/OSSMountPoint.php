@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OSSMountPoint extends Model
 {
     /**
-     * @example my-bucket
-     *
      * @var string
      */
     public $bucketName;
-
     /**
-     * @example /my-dir
-     *
      * @var string
      */
     public $bucketPath;
-
     /**
-     * @example http://oss-cn-shanghai.aliyuncs.com
-     *
      * @var string
      */
     public $endpoint;
-
     /**
-     * @example /mnt/dir
-     *
      * @var string
      */
     public $mountDir;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $readOnly;
@@ -52,23 +38,28 @@ class OSSMountPoint extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
         }
+
         if (null !== $this->bucketPath) {
             $res['bucketPath'] = $this->bucketPath;
         }
+
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
+
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
         }
+
         if (null !== $this->readOnly) {
             $res['readOnly'] = $this->readOnly;
         }
@@ -76,26 +67,30 @@ class OSSMountPoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OSSMountPoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
         }
+
         if (isset($map['bucketPath'])) {
             $model->bucketPath = $map['bucketPath'];
         }
+
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
+
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];
         }
+
         if (isset($map['readOnly'])) {
             $model->readOnly = $map['readOnly'];
         }

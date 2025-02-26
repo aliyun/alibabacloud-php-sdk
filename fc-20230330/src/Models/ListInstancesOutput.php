@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesOutput extends Model
 {
@@ -12,7 +12,6 @@ class ListInstancesOutput extends Model
      * @var InstanceInfo[]
      */
     public $instances;
-
     /**
      * @var string
      */
@@ -24,20 +23,25 @@ class ListInstancesOutput extends Model
 
     public function validate()
     {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['instances'] = [];
+                $n1               = 0;
+                foreach ($this->instances as $item1) {
+                    $res['instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,23 +49,24 @@ class ListInstancesOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
-                $n                = 0;
-                foreach ($map['instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? InstanceInfo::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['instances'] as $item1) {
+                    $model->instances[$n1++] = InstanceInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

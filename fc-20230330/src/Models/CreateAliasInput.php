@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAliasInput extends Model
 {
@@ -12,28 +12,15 @@ class CreateAliasInput extends Model
      * @var float[]
      */
     public $additionalVersionWeight;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example prod
-     *
      * @var string
      */
     public $aliasName;
-
     /**
-     * @example my alias
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $versionId;
@@ -46,20 +33,32 @@ class CreateAliasInput extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalVersionWeight)) {
+            Model::validateArray($this->additionalVersionWeight);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalVersionWeight) {
-            $res['additionalVersionWeight'] = $this->additionalVersionWeight;
+            if (\is_array($this->additionalVersionWeight)) {
+                $res['additionalVersionWeight'] = [];
+                foreach ($this->additionalVersionWeight as $key1 => $value1) {
+                    $res['additionalVersionWeight'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->aliasName) {
             $res['aliasName'] = $this->aliasName;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
         }
@@ -67,23 +66,31 @@ class CreateAliasInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAliasInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalVersionWeight'])) {
-            $model->additionalVersionWeight = $map['additionalVersionWeight'];
+            if (!empty($map['additionalVersionWeight'])) {
+                $model->additionalVersionWeight = [];
+                foreach ($map['additionalVersionWeight'] as $key1 => $value1) {
+                    $model->additionalVersionWeight[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['aliasName'])) {
             $model->aliasName = $map['aliasName'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];
         }
