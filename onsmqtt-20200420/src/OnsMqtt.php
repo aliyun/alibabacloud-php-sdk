@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdReques
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthConnectBlackRequest;
@@ -2058,6 +2060,64 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例列表.
+     *
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例列表.
+     *
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
     }
 
     /**
