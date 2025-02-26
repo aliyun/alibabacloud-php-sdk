@@ -35,15 +35,20 @@ class ApproveFotaUpdateRequest extends Model
     /**
      * @var string
      */
+    public $targetStatus;
+    /**
+     * @var string
+     */
     public $uuid;
     protected $_name = [
-        'appVersion' => 'AppVersion',
-        'clientId'   => 'ClientId',
-        'desktopId'  => 'DesktopId',
-        'loginToken' => 'LoginToken',
-        'regionId'   => 'RegionId',
-        'sessionId'  => 'SessionId',
-        'uuid'       => 'Uuid',
+        'appVersion'   => 'AppVersion',
+        'clientId'     => 'ClientId',
+        'desktopId'    => 'DesktopId',
+        'loginToken'   => 'LoginToken',
+        'regionId'     => 'RegionId',
+        'sessionId'    => 'SessionId',
+        'targetStatus' => 'TargetStatus',
+        'uuid'         => 'Uuid',
     ];
 
     public function validate()
@@ -76,6 +81,10 @@ class ApproveFotaUpdateRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->targetStatus) {
+            $res['TargetStatus'] = $this->targetStatus;
         }
 
         if (null !== $this->uuid) {
@@ -115,6 +124,10 @@ class ApproveFotaUpdateRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['TargetStatus'])) {
+            $model->targetStatus = $map['TargetStatus'];
         }
 
         if (isset($map['Uuid'])) {

@@ -147,6 +147,10 @@ class Ecd extends OpenApiClient
             @$query['SessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->targetStatus) {
+            @$query['TargetStatus'] = $request->targetStatus;
+        }
+
         if (null !== $request->uuid) {
             @$query['Uuid'] = $request->uuid;
         }
