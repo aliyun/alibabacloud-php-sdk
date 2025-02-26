@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayResponse;
@@ -51,6 +53,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
@@ -64,10 +67,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
@@ -168,7 +175,7 @@ class APIG extends OpenApiClient
             'action'      => 'AddGatewaySecurityGroupRule',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/security-group-rules',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/security-group-rules',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -608,7 +615,7 @@ class APIG extends OpenApiClient
             'action'      => 'CreateHttpApiOperation',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/operations',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -692,7 +699,7 @@ class APIG extends OpenApiClient
             'action'      => 'CreateHttpApiRoute',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/routes',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -878,6 +885,80 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 创建服务
+     *
+     * @param request - CreateServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateServiceResponse
+     */
+    public function createServiceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->serviceConfigs) {
+            @$body['serviceConfigs'] = $request->serviceConfigs;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['sourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2024-03-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/services',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建服务
+     *
+     * @param request - CreateServiceRequest
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $request
+     *
+     * @return CreateServiceResponse
+     */
+    public function createService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * DeleteDomain.
      *
      * @param headers - map
@@ -899,7 +980,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteDomain',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/domains/' . URL::percentEncode($domainId) . '',
+            'pathname'    => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -956,7 +1037,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteEnvironment',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/environments/' . URL::percentEncode($environmentId) . '',
+            'pathname'    => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1012,7 +1093,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteGateway',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1075,7 +1156,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteGatewaySecurityGroupRule',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/security-group-rules/' . URL::percentEncode($securityGroupRuleId) . '',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/security-group-rules/' . Url::percentEncode($securityGroupRuleId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1131,7 +1212,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteHttpApi',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1185,7 +1266,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteHttpApiOperation',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/operations/' . URL::percentEncode($operationId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1240,7 +1321,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeleteHttpApiRoute',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/routes/' . URL::percentEncode($routeId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1294,7 +1375,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeletePolicy',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/policies/' . URL::percentEncode($policyId) . '',
+            'pathname'    => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1347,7 +1428,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeletePolicyAttachment',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/policy-attachments/' . URL::percentEncode($policyAttachmentId) . '',
+            'pathname'    => '/v1/policy-attachments/' . Url::percentEncode($policyAttachmentId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1413,7 +1494,7 @@ class APIG extends OpenApiClient
             'action'      => 'DeployHttpApi',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/deploy',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/deploy',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1468,7 +1549,7 @@ class APIG extends OpenApiClient
             'action'      => 'ExportHttpApi',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/export',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/export',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1556,7 +1637,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetDashboard',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/dashboards',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/dashboards',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1620,7 +1701,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetDomain',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/domains/' . URL::percentEncode($domainId) . '',
+            'pathname'    => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1692,7 +1773,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetEnvironment',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/environments/' . URL::percentEncode($environmentId) . '',
+            'pathname'    => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1751,7 +1832,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetGateway',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1804,7 +1885,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetHttpApi',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1858,7 +1939,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetHttpApiOperation',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/operations/' . URL::percentEncode($operationId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1913,7 +1994,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetHttpApiRoute',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/routes/' . URL::percentEncode($routeId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1967,7 +2048,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetPolicy',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/policies/' . URL::percentEncode($policyId) . '',
+            'pathname'    => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2020,7 +2101,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetPolicyAttachment',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/policy-attachments/' . URL::percentEncode($policyAttachmentId) . '',
+            'pathname'    => '/v1/policy-attachments/' . Url::percentEncode($policyAttachmentId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2102,6 +2183,59 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取服务详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceResponse
+     *
+     * @param string         $serviceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceResponse
+     */
+    public function getServiceWithOptions($serviceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetService',
+            'version'     => '2024-03-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/services/' . Url::percentEncode($serviceId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetServiceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务详情.
+     *
+     * @returns GetServiceResponse
+     *
+     * @param string $serviceId
+     *
+     * @return GetServiceResponse
+     */
+    public function getService($serviceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceWithOptions($serviceId, $headers, $runtime);
+    }
+
+    /**
      * 获取链路追踪配置.
      *
      * @param request - GetTraceConfigRequest
@@ -2132,7 +2266,7 @@ class APIG extends OpenApiClient
             'action'      => 'GetTraceConfig',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/trace',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/trace',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2594,7 +2728,7 @@ class APIG extends OpenApiClient
             'action'      => 'ListHttpApiOperations',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/operations',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2625,6 +2759,118 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listHttpApiOperationsWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建HttpApi的路由.
+     *
+     * @param request - ListHttpApiRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHttpApiRoutesResponse
+     *
+     * @param string                   $httpApiId
+     * @param ListHttpApiRoutesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListHttpApiRoutesResponse
+     */
+    public function listHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerAuthorizationRuleId) {
+            @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
+        }
+
+        if (null !== $request->deployStatuses) {
+            @$query['deployStatuses'] = $request->deployStatuses;
+        }
+
+        if (null !== $request->domainId) {
+            @$query['domainId'] = $request->domainId;
+        }
+
+        if (null !== $request->environmentId) {
+            @$query['environmentId'] = $request->environmentId;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pathLike) {
+            @$query['pathLike'] = $request->pathLike;
+        }
+
+        if (null !== $request->withAuthPolicyInfo) {
+            @$query['withAuthPolicyInfo'] = $request->withAuthPolicyInfo;
+        }
+
+        if (null !== $request->withConsumerInfoById) {
+            @$query['withConsumerInfoById'] = $request->withConsumerInfoById;
+        }
+
+        if (null !== $request->withPluginAttachmentByPluginId) {
+            @$query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHttpApiRoutes',
+            'version'     => '2024-03-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListHttpApiRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建HttpApi的路由.
+     *
+     * @param request - ListHttpApiRoutesRequest
+     * @returns ListHttpApiRoutesResponse
+     *
+     * @param string                   $httpApiId
+     * @param ListHttpApiRoutesRequest $request
+     *
+     * @return ListHttpApiRoutesResponse
+     */
+    public function listHttpApiRoutes($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -2820,6 +3066,88 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 获取服务列表.
+     *
+     * @param request - ListServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListServicesResponse
+     */
+    public function listServicesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2024-03-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/services',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServicesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务列表.
+     *
+     * @param request - ListServicesRequest
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     *
+     * @return ListServicesResponse
+     */
+    public function listServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServicesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * ListSslCerts。
      *
      * @param request - ListSslCertsRequest
@@ -2965,7 +3293,7 @@ class APIG extends OpenApiClient
             'action'      => 'RestartGateway',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/restart',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/restart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3055,7 +3383,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateDomain',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/domains/' . URL::percentEncode($domainId) . '',
+            'pathname'    => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3127,7 +3455,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateEnvironment',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/environments/' . URL::percentEncode($environmentId) . '',
+            'pathname'    => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3196,7 +3524,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateGatewayFeature',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/gateway-features/' . URL::percentEncode($name) . '',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/gateway-features/' . Url::percentEncode($name) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3261,7 +3589,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateGatewayName',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/name',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/name',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3357,7 +3685,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateHttpApi',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3422,7 +3750,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateHttpApiOperation',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/operations/' . URL::percentEncode($operationId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3504,7 +3832,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdateHttpApiRoute',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . URL::percentEncode($httpApiId) . '/routes/' . URL::percentEncode($routeId) . '',
+            'pathname'    => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3577,7 +3905,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpdatePolicy',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/policies/' . URL::percentEncode($policyId) . '',
+            'pathname'    => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3641,7 +3969,7 @@ class APIG extends OpenApiClient
             'action'      => 'UpgradeGateway',
             'version'     => '2024-03-27',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . URL::percentEncode($gatewayId) . '/upgrade',
+            'pathname'    => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/upgrade',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
