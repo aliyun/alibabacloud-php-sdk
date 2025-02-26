@@ -67,6 +67,10 @@ class CreateDifyInstanceRequest extends Model
     /**
      * @var string
      */
+    public $gpuNodeSpec;
+    /**
+     * @var string
+     */
     public $kvStoreAccount;
     /**
      * @var string
@@ -96,6 +100,14 @@ class CreateDifyInstanceRequest extends Model
      * @var string
      */
     public $kvStoreType;
+    /**
+     * @var string
+     */
+    public $modelId;
+    /**
+     * @var string
+     */
+    public $modelOption;
     /**
      * @var string
      */
@@ -223,6 +235,7 @@ class CreateDifyInstanceRequest extends Model
         'dbStorageSize'           => 'DbStorageSize',
         'dbStorageType'           => 'DbStorageType',
         'dryRun'                  => 'DryRun',
+        'gpuNodeSpec'             => 'GpuNodeSpec',
         'kvStoreAccount'          => 'KvStoreAccount',
         'kvStoreEngineVersion'    => 'KvStoreEngineVersion',
         'kvStoreInstanceClass'    => 'KvStoreInstanceClass',
@@ -231,6 +244,8 @@ class CreateDifyInstanceRequest extends Model
         'kvStorePassword'         => 'KvStorePassword',
         'kvStoreResourceId'       => 'KvStoreResourceId',
         'kvStoreType'             => 'KvStoreType',
+        'modelId'                 => 'ModelId',
+        'modelOption'             => 'ModelOption',
         'ossPath'                 => 'OssPath',
         'ossResourceId'           => 'OssResourceId',
         'payPeriod'               => 'PayPeriod',
@@ -325,6 +340,10 @@ class CreateDifyInstanceRequest extends Model
             $res['DryRun'] = $this->dryRun;
         }
 
+        if (null !== $this->gpuNodeSpec) {
+            $res['GpuNodeSpec'] = $this->gpuNodeSpec;
+        }
+
         if (null !== $this->kvStoreAccount) {
             $res['KvStoreAccount'] = $this->kvStoreAccount;
         }
@@ -355,6 +374,14 @@ class CreateDifyInstanceRequest extends Model
 
         if (null !== $this->kvStoreType) {
             $res['KvStoreType'] = $this->kvStoreType;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
+
+        if (null !== $this->modelOption) {
+            $res['ModelOption'] = $this->modelOption;
         }
 
         if (null !== $this->ossPath) {
@@ -536,6 +563,10 @@ class CreateDifyInstanceRequest extends Model
             $model->dryRun = $map['DryRun'];
         }
 
+        if (isset($map['GpuNodeSpec'])) {
+            $model->gpuNodeSpec = $map['GpuNodeSpec'];
+        }
+
         if (isset($map['KvStoreAccount'])) {
             $model->kvStoreAccount = $map['KvStoreAccount'];
         }
@@ -566,6 +597,14 @@ class CreateDifyInstanceRequest extends Model
 
         if (isset($map['KvStoreType'])) {
             $model->kvStoreType = $map['KvStoreType'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
+
+        if (isset($map['ModelOption'])) {
+            $model->modelOption = $map['ModelOption'];
         }
 
         if (isset($map['OssPath'])) {

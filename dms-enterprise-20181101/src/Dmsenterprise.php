@@ -570,6 +570,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentV2Request;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentV2Response;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsShrinkRequest;
@@ -3412,6 +3414,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['DryRun'] = $request->dryRun;
         }
 
+        if (null !== $request->gpuNodeSpec) {
+            @$query['GpuNodeSpec'] = $request->gpuNodeSpec;
+        }
+
         if (null !== $request->kvStoreAccount) {
             @$query['KvStoreAccount'] = $request->kvStoreAccount;
         }
@@ -3442,6 +3448,14 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->kvStoreType) {
             @$query['KvStoreType'] = $request->kvStoreType;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelOption) {
+            @$query['ModelOption'] = $request->modelOption;
         }
 
         if (null !== $request->ossPath) {
@@ -20434,6 +20448,70 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTaskContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 接受大容量sql文件的更新节点内容API.
+     *
+     * @param request - UpdateTaskContentV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTaskContentV2Response
+     *
+     * @param UpdateTaskContentV2Request $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskContentV2Response
+     */
+    public function updateTaskContentV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        $body = [];
+        if (null !== $request->nodeContent) {
+            @$body['NodeContent'] = $request->nodeContent;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskContentV2',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTaskContentV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateTaskContentV2Response::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 接受大容量sql文件的更新节点内容API.
+     *
+     * @param request - UpdateTaskContentV2Request
+     * @returns UpdateTaskContentV2Response
+     *
+     * @param UpdateTaskContentV2Request $request
+     *
+     * @return UpdateTaskContentV2Response
+     */
+    public function updateTaskContentV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskContentV2WithOptions($request, $runtime);
     }
 
     /**
