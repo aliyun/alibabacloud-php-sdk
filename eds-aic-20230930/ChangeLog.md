@@ -1,3 +1,9 @@
+2025-02-26 Version: 4.1.0
+- Support API DisconnectAndroidInstance.
+- Support API EndCoordination.
+- Support API GenerateCoordinationCode.
+
+
 2025-02-21 Version: 4.0.1
 - Update API CreateAndroidInstanceGroup: add param Tag.
 - Update API CreateApp: add param CustomAppInfo.

@@ -62,12 +62,18 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DetachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DetachKeyPairResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DisconnectAndroidInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DisconnectAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DistributeImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DistributeImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DowngradeAndroidInstanceGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\EndCoordinationResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\FetchFileResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
@@ -154,7 +160,11 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 绑定密钥对.
+     * Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+     *
+     * @remarks
+     *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
+     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
      *
      * @param request - AttachKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -199,7 +209,11 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 绑定密钥对.
+     * Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
+     *
+     * @remarks
+     *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
+     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
      *
      * @param request - AttachKeyPairRequest
      * @returns AttachKeyPairResponse
@@ -386,7 +400,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 批量获取ticket.
+     * Retrieves connection tickets in bulk.
      *
      * @param request - BatchGetAcpConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -439,7 +453,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 批量获取ticket.
+     * Retrieves connection tickets in bulk.
      *
      * @param request - BatchGetAcpConnectionTicketRequest
      * @returns BatchGetAcpConnectionTicketResponse
@@ -1010,7 +1024,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 创建云手机截图接口.
+     * Creates a screenshot of a cloud phone instance.
+     *
+     * @remarks
+     * You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
      *
      * @param request - CreateScreenshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1059,7 +1076,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 创建云手机截图接口.
+     * Creates a screenshot of a cloud phone instance.
+     *
+     * @remarks
+     * You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
      *
      * @param request - CreateScreenshotRequest
      * @returns CreateScreenshotResponse
@@ -1884,7 +1904,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 查询命令结果.
+     * Queries the execution results of commands.
      *
      * @param request - DescribeInvocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1929,7 +1949,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 查询命令结果.
+     * Queries the execution results of commands.
      *
      * @param request - DescribeInvocationsRequest
      * @returns DescribeInvocationsResponse
@@ -2164,7 +2184,14 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 查询异步任务
+     * Queries tasks created for a cloud phone instance.
+     *
+     * @remarks
+     *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
+     * *   The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
+     * *   You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
+     * **Example**
+     * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
      *
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2257,7 +2284,14 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 查询异步任务
+     * Queries tasks created for a cloud phone instance.
+     *
+     * @remarks
+     *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
+     * *   The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
+     * *   You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
+     * **Example**
+     * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
      *
      * @param request - DescribeTasksRequest
      * @returns DescribeTasksResponse
@@ -2274,7 +2308,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 解绑密钥对.
+     * Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
+     *
+     * @remarks
+     *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
      *
      * @param request - DetachKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2319,7 +2356,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 解绑密钥对.
+     * Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
+     *
+     * @remarks
+     *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
      *
      * @param request - DetachKeyPairRequest
      * @returns DetachKeyPairResponse
@@ -2336,7 +2376,68 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 自定义镜像分发.
+     * 实例断开连接.
+     *
+     * @param request - DisconnectAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisconnectAndroidInstanceResponse
+     *
+     * @param DisconnectAndroidInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisconnectAndroidInstanceResponse
+     */
+    public function disconnectAndroidInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisconnectAndroidInstance',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisconnectAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DisconnectAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 实例断开连接.
+     *
+     * @param request - DisconnectAndroidInstanceRequest
+     * @returns DisconnectAndroidInstanceResponse
+     *
+     * @param DisconnectAndroidInstanceRequest $request
+     *
+     * @return DisconnectAndroidInstanceResponse
+     */
+    public function disconnectAndroidInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disconnectAndroidInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Distributes an image.
+     *
+     * @remarks
+     * After you distribute an image in supported regions, the distribution cannot be canceled.
      *
      * @param request - DistributeImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2381,7 +2482,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 自定义镜像分发.
+     * Distributes an image.
+     *
+     * @remarks
+     * After you distribute an image in supported regions, the distribution cannot be canceled.
      *
      * @param request - DistributeImageRequest
      * @returns DistributeImageResponse
@@ -2398,7 +2502,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例组缩容.
+     * Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
+     *
+     * @remarks
+     * This operation only allows you to scale down an instance group.
      *
      * @param request - DowngradeAndroidInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2447,7 +2554,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例组缩容.
+     * Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
+     *
+     * @remarks
+     * This operation only allows you to scale down an instance group.
      *
      * @param request - DowngradeAndroidInstanceGroupRequest
      * @returns DowngradeAndroidInstanceGroupResponse
@@ -2464,7 +2574,76 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 云手机拉取文件到OSS.
+     * 结束协同.
+     *
+     * @param request - EndCoordinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EndCoordinationResponse
+     *
+     * @param EndCoordinationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EndCoordinationResponse
+     */
+    public function endCoordinationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->coordinatorUserId) {
+            @$query['CoordinatorUserId'] = $request->coordinatorUserId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EndCoordination',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EndCoordinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return EndCoordinationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 结束协同.
+     *
+     * @param request - EndCoordinationRequest
+     * @returns EndCoordinationResponse
+     *
+     * @param EndCoordinationRequest $request
+     *
+     * @return EndCoordinationResponse
+     */
+    public function endCoordination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endCoordinationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
+     *
+     * @remarks
+     * Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
      *
      * @param request - FetchFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2521,7 +2700,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 云手机拉取文件到OSS.
+     * Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
+     *
+     * @remarks
+     * Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
      *
      * @param request - FetchFileRequest
      * @returns FetchFileResponse
@@ -2538,7 +2720,72 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 导入秘钥.
+     * 获取协同码
+     *
+     * @param request - GenerateCoordinationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateCoordinationCodeResponse
+     */
+    public function generateCoordinationCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateCoordinationCode',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateCoordinationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GenerateCoordinationCodeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取协同码
+     *
+     * @param request - GenerateCoordinationCodeRequest
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     *
+     * @return GenerateCoordinationCodeResponse
+     */
+    public function generateCoordinationCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateCoordinationCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Imports the public key of an Android Debug Bridge (ADB) key pair.
+     *
+     * @remarks
+     * To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
      *
      * @param request - ImportKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2583,7 +2830,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 导入秘钥.
+     * Imports the public key of an Android Debug Bridge (ADB) key pair.
+     *
+     * @remarks
+     * To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
      *
      * @param request - ImportKeyPairRequest
      * @returns ImportKeyPairResponse
@@ -2600,7 +2850,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 安装app到实例组.
+     * Installs an app on multiple cloud phone instances at the same time.
+     *
+     * @remarks
+     * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
      *
      * @param request - InstallAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2649,7 +2902,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 安装app到实例组.
+     * Installs an app on multiple cloud phone instances at the same time.
+     *
+     * @remarks
+     * This operation runs asynchronously. To check the installation result, you can query the installation history for the app.
      *
      * @param request - InstallAppRequest
      * @returns InstallAppResponse
@@ -3096,7 +3352,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 操作App.
+     * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *
      * @param request - OperateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3145,7 +3401,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 操作App.
+     * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *
      * @param request - OperateAppRequest
      * @returns OperateAppResponse
@@ -3162,7 +3418,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 重启安卓实例.
+     * Restarts one or more cloud phone instances.
+     *
+     * @remarks
+     * Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
      *
      * @param request - RebootAndroidInstancesInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3207,7 +3466,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 重启安卓实例.
+     * Restarts one or more cloud phone instances.
+     *
+     * @remarks
+     * Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
      *
      * @param request - RebootAndroidInstancesInGroupRequest
      * @returns RebootAndroidInstancesInGroupResponse
@@ -3308,7 +3570,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 续费安卓实例组.
+     * Renews instance groups.
      *
      * @param request - RenewAndroidInstanceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3361,7 +3623,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 续费安卓实例组.
+     * Renews instance groups.
      *
      * @param request - RenewAndroidInstanceGroupsRequest
      * @returns RenewAndroidInstanceGroupsResponse
@@ -3378,7 +3640,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 重置安卓实例.
+     * Resets one or more cloud phone instances.
+     *
+     * @remarks
+     * Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
      *
      * @param request - ResetAndroidInstancesInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3419,7 +3684,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 重置安卓实例.
+     * Resets one or more cloud phone instances.
+     *
+     * @remarks
+     * Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
      *
      * @param request - ResetAndroidInstancesInGroupRequest
      * @returns ResetAndroidInstancesInGroupResponse
@@ -3436,7 +3704,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 通过eds agent通道下发命令.
+     * Executes a command on a cloud phone instance.
      *
      * @param request - RunCommandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3489,7 +3757,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 通过eds agent通道下发命令.
+     * Executes a command on a cloud phone instance.
      *
      * @param request - RunCommandRequest
      * @returns RunCommandResponse
@@ -3506,7 +3774,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 推送文件到云手机.
+     * Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
+     *
+     * @remarks
+     * Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
      *
      * @param request - SendFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3563,7 +3834,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 推送文件到云手机.
+     * Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
+     *
+     * @remarks
+     * Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
      *
      * @param request - SendFileRequest
      * @returns SendFileResponse
@@ -3580,6 +3854,11 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+     *
      * @param request - SetAdbSecureRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns SetAdbSecureResponse
@@ -3623,6 +3902,11 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+     *
      * @param request - SetAdbSecureRequest
      * @returns SetAdbSecureResponse
      *
@@ -3702,7 +3986,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例关机.
+     * Stops a cloud phone instance.
+     *
+     * @remarks
+     * Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
      *
      * @param request - StopAndroidInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3747,7 +4034,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例关机.
+     * Stops a cloud phone instance.
+     *
+     * @remarks
+     * Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
      *
      * @param request - StopAndroidInstanceRequest
      * @returns StopAndroidInstanceResponse
@@ -3764,7 +4054,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 卸载app.
+     * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
      *
      * @param request - UninstallAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3813,7 +4103,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 卸载app.
+     * Uninstalls an app from multiple cloud phone instances. This operation runs asynchronously. You can check the result of the task by using the task ID.
      *
      * @param request - UninstallAppRequest
      * @returns UninstallAppResponse
@@ -3892,7 +4182,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例组变更镜像.
+     * Changes the image of an instance group.
+     *
+     * @remarks
+     * Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
      *
      * @param request - UpdateInstanceGroupImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3937,7 +4230,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 实例组变更镜像.
+     * Changes the image of an instance group.
+     *
+     * @remarks
+     * Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
      *
      * @param request - UpdateInstanceGroupImageRequest
      * @returns UpdateInstanceGroupImageResponse
