@@ -87,11 +87,19 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $mergedVersion;
+    /**
+     * @var int
+     */
     public $newThreatAnalysis;
     /**
      * @var int
      */
     public $openTime;
+    /**
+     * @var int
+     */
+    public $postPayHostVersion;
     /**
      * @var string
      */
@@ -188,8 +196,10 @@ class DescribeVersionConfigResponseBody extends Model
         'lastTrailEndTime'       => 'LastTrailEndTime',
         'MVAuthCount'            => 'MVAuthCount',
         'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
+        'mergedVersion'          => 'MergedVersion',
         'newThreatAnalysis'      => 'NewThreatAnalysis',
         'openTime'               => 'OpenTime',
+        'postPayHostVersion'     => 'PostPayHostVersion',
         'postPayInstanceId'      => 'PostPayInstanceId',
         'postPayModuleSwitch'    => 'PostPayModuleSwitch',
         'postPayOpenTime'        => 'PostPayOpenTime',
@@ -295,12 +305,20 @@ class DescribeVersionConfigResponseBody extends Model
             $res['MVUnusedAuthCount'] = $this->MVUnusedAuthCount;
         }
 
+        if (null !== $this->mergedVersion) {
+            $res['MergedVersion'] = $this->mergedVersion;
+        }
+
         if (null !== $this->newThreatAnalysis) {
             $res['NewThreatAnalysis'] = $this->newThreatAnalysis;
         }
 
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
+        }
+
+        if (null !== $this->postPayHostVersion) {
+            $res['PostPayHostVersion'] = $this->postPayHostVersion;
         }
 
         if (null !== $this->postPayInstanceId) {
@@ -466,12 +484,20 @@ class DescribeVersionConfigResponseBody extends Model
             $model->MVUnusedAuthCount = $map['MVUnusedAuthCount'];
         }
 
+        if (isset($map['MergedVersion'])) {
+            $model->mergedVersion = $map['MergedVersion'];
+        }
+
         if (isset($map['NewThreatAnalysis'])) {
             $model->newThreatAnalysis = $map['NewThreatAnalysis'];
         }
 
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
+        }
+
+        if (isset($map['PostPayHostVersion'])) {
+            $model->postPayHostVersion = $map['PostPayHostVersion'];
         }
 
         if (isset($map['PostPayInstanceId'])) {

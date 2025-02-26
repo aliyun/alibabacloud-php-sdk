@@ -1,3 +1,10 @@
+2025-02-26 Version: 4.2.2
+- Update API DescribeCloudCenterInstances: update response param.
+- Update API DescribeVersionConfig: update response param.
+- Update API GetAuthSummary: update response param.
+- Update API ListCheckResult: update response param.
+
+
 2025-02-21 Version: 4.2.1
 - Generated php 2018-12-03 for Sas.
 

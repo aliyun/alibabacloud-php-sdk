@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\machine;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\postPaidVersionSummary;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthSummaryResponseBody\versionSummary;
 
 class GetAuthSummaryResponseBody extends Model
@@ -49,29 +50,52 @@ class GetAuthSummaryResponseBody extends Model
     /**
      * @var string
      */
+    public $postPaidHighestVersion;
+    /**
+     * @var string
+     */
+    public $postPaidHostAutoBind;
+    /**
+     * @var string
+     */
+    public $postPaidHostAutoBindVersion;
+    /**
+     * @var postPaidVersionSummary[]
+     */
+    public $postPaidVersionSummary;
+    /**
+     * @var string
+     */
     public $requestId;
     /**
      * @var versionSummary[]
      */
     public $versionSummary;
     protected $_name = [
-        'allowPartialBuy'        => 'AllowPartialBuy',
-        'allowUpgradePartialBuy' => 'AllowUpgradePartialBuy',
-        'allowUserUnbind'        => 'AllowUserUnbind',
-        'autoBind'               => 'AutoBind',
-        'defaultAuthToAll'       => 'DefaultAuthToAll',
-        'hasPreBindSetting'      => 'HasPreBindSetting',
-        'highestVersion'         => 'HighestVersion',
-        'isMultiVersion'         => 'IsMultiVersion',
-        'machine'                => 'Machine',
-        'requestId'              => 'RequestId',
-        'versionSummary'         => 'VersionSummary',
+        'allowPartialBuy'             => 'AllowPartialBuy',
+        'allowUpgradePartialBuy'      => 'AllowUpgradePartialBuy',
+        'allowUserUnbind'             => 'AllowUserUnbind',
+        'autoBind'                    => 'AutoBind',
+        'defaultAuthToAll'            => 'DefaultAuthToAll',
+        'hasPreBindSetting'           => 'HasPreBindSetting',
+        'highestVersion'              => 'HighestVersion',
+        'isMultiVersion'              => 'IsMultiVersion',
+        'machine'                     => 'Machine',
+        'postPaidHighestVersion'      => 'PostPaidHighestVersion',
+        'postPaidHostAutoBind'        => 'PostPaidHostAutoBind',
+        'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
+        'postPaidVersionSummary'      => 'PostPaidVersionSummary',
+        'requestId'                   => 'RequestId',
+        'versionSummary'              => 'VersionSummary',
     ];
 
     public function validate()
     {
         if (null !== $this->machine) {
             $this->machine->validate();
+        }
+        if (\is_array($this->postPaidVersionSummary)) {
+            Model::validateArray($this->postPaidVersionSummary);
         }
         if (\is_array($this->versionSummary)) {
             Model::validateArray($this->versionSummary);
@@ -116,6 +140,28 @@ class GetAuthSummaryResponseBody extends Model
 
         if (null !== $this->machine) {
             $res['Machine'] = null !== $this->machine ? $this->machine->toArray($noStream) : $this->machine;
+        }
+
+        if (null !== $this->postPaidHighestVersion) {
+            $res['PostPaidHighestVersion'] = $this->postPaidHighestVersion;
+        }
+
+        if (null !== $this->postPaidHostAutoBind) {
+            $res['PostPaidHostAutoBind'] = $this->postPaidHostAutoBind;
+        }
+
+        if (null !== $this->postPaidHostAutoBindVersion) {
+            $res['PostPaidHostAutoBindVersion'] = $this->postPaidHostAutoBindVersion;
+        }
+
+        if (null !== $this->postPaidVersionSummary) {
+            if (\is_array($this->postPaidVersionSummary)) {
+                $res['PostPaidVersionSummary'] = [];
+                $n1                            = 0;
+                foreach ($this->postPaidVersionSummary as $item1) {
+                    $res['PostPaidVersionSummary'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -177,6 +223,28 @@ class GetAuthSummaryResponseBody extends Model
 
         if (isset($map['Machine'])) {
             $model->machine = machine::fromMap($map['Machine']);
+        }
+
+        if (isset($map['PostPaidHighestVersion'])) {
+            $model->postPaidHighestVersion = $map['PostPaidHighestVersion'];
+        }
+
+        if (isset($map['PostPaidHostAutoBind'])) {
+            $model->postPaidHostAutoBind = $map['PostPaidHostAutoBind'];
+        }
+
+        if (isset($map['PostPaidHostAutoBindVersion'])) {
+            $model->postPaidHostAutoBindVersion = $map['PostPaidHostAutoBindVersion'];
+        }
+
+        if (isset($map['PostPaidVersionSummary'])) {
+            if (!empty($map['PostPaidVersionSummary'])) {
+                $model->postPaidVersionSummary = [];
+                $n1                            = 0;
+                foreach ($map['PostPaidVersionSummary'] as $item1) {
+                    $model->postPaidVersionSummary[$n1++] = postPaidVersionSummary::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['RequestId'])) {

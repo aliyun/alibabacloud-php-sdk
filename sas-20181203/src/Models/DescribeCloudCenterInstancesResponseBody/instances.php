@@ -157,6 +157,10 @@ class instances extends Model
      */
     public $podCount;
     /**
+     * @var int
+     */
+    public $postPaidFlag;
+    /**
      * @var string
      */
     public $region;
@@ -258,6 +262,7 @@ class instances extends Model
         'os'                 => 'Os',
         'osName'             => 'OsName',
         'podCount'           => 'PodCount',
+        'postPaidFlag'       => 'PostPaidFlag',
         'region'             => 'Region',
         'regionId'           => 'RegionId',
         'regionName'         => 'RegionName',
@@ -430,6 +435,10 @@ class instances extends Model
 
         if (null !== $this->podCount) {
             $res['PodCount'] = $this->podCount;
+        }
+
+        if (null !== $this->postPaidFlag) {
+            $res['PostPaidFlag'] = $this->postPaidFlag;
         }
 
         if (null !== $this->region) {
@@ -653,6 +662,10 @@ class instances extends Model
 
         if (isset($map['PodCount'])) {
             $model->podCount = $map['PodCount'];
+        }
+
+        if (isset($map['PostPaidFlag'])) {
+            $model->postPaidFlag = $map['PostPaidFlag'];
         }
 
         if (isset($map['Region'])) {

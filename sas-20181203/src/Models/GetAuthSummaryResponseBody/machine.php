@@ -19,6 +19,14 @@ class machine extends Model
     /**
      * @var int
      */
+    public $postPaidBindCoreCount;
+    /**
+     * @var int
+     */
+    public $postPaidBindEcsCount;
+    /**
+     * @var int
+     */
     public $riskCoreCount;
     /**
      * @var int
@@ -41,14 +49,16 @@ class machine extends Model
      */
     public $unBindEcsCount;
     protected $_name = [
-        'bindCoreCount'   => 'BindCoreCount',
-        'bindEcsCount'    => 'BindEcsCount',
-        'riskCoreCount'   => 'RiskCoreCount',
-        'riskEcsCount'    => 'RiskEcsCount',
-        'totalCoreCount'  => 'TotalCoreCount',
-        'totalEcsCount'   => 'TotalEcsCount',
-        'unBindCoreCount' => 'UnBindCoreCount',
-        'unBindEcsCount'  => 'UnBindEcsCount',
+        'bindCoreCount'         => 'BindCoreCount',
+        'bindEcsCount'          => 'BindEcsCount',
+        'postPaidBindCoreCount' => 'PostPaidBindCoreCount',
+        'postPaidBindEcsCount'  => 'PostPaidBindEcsCount',
+        'riskCoreCount'         => 'RiskCoreCount',
+        'riskEcsCount'          => 'RiskEcsCount',
+        'totalCoreCount'        => 'TotalCoreCount',
+        'totalEcsCount'         => 'TotalEcsCount',
+        'unBindCoreCount'       => 'UnBindCoreCount',
+        'unBindEcsCount'        => 'UnBindEcsCount',
     ];
 
     public function validate()
@@ -65,6 +75,14 @@ class machine extends Model
 
         if (null !== $this->bindEcsCount) {
             $res['BindEcsCount'] = $this->bindEcsCount;
+        }
+
+        if (null !== $this->postPaidBindCoreCount) {
+            $res['PostPaidBindCoreCount'] = $this->postPaidBindCoreCount;
+        }
+
+        if (null !== $this->postPaidBindEcsCount) {
+            $res['PostPaidBindEcsCount'] = $this->postPaidBindEcsCount;
         }
 
         if (null !== $this->riskCoreCount) {
@@ -108,6 +126,14 @@ class machine extends Model
 
         if (isset($map['BindEcsCount'])) {
             $model->bindEcsCount = $map['BindEcsCount'];
+        }
+
+        if (isset($map['PostPaidBindCoreCount'])) {
+            $model->postPaidBindCoreCount = $map['PostPaidBindCoreCount'];
+        }
+
+        if (isset($map['PostPaidBindEcsCount'])) {
+            $model->postPaidBindEcsCount = $map['PostPaidBindEcsCount'];
         }
 
         if (isset($map['RiskCoreCount'])) {

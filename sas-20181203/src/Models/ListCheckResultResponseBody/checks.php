@@ -74,6 +74,10 @@ class checks extends Model
      */
     public $trialPermission;
     /**
+     * @var int
+     */
+    public $trialPermissionType;
+    /**
      * @var string
      */
     public $vendor;
@@ -82,24 +86,25 @@ class checks extends Model
      */
     public $vendorShowName;
     protected $_name = [
-        'assetSubType'    => 'AssetSubType',
-        'assetType'       => 'AssetType',
-        'assetVendor'     => 'AssetVendor',
-        'checkId'         => 'CheckId',
-        'checkPolicies'   => 'CheckPolicies',
-        'checkSaleType'   => 'CheckSaleType',
-        'checkShowName'   => 'CheckShowName',
-        'instanceSubType' => 'InstanceSubType',
-        'instanceType'    => 'InstanceType',
-        'lastCheckTime'   => 'LastCheckTime',
-        'operationType'   => 'OperationType',
-        'riskLevel'       => 'RiskLevel',
-        'status'          => 'Status',
-        'statusMessage'   => 'StatusMessage',
-        'taskId'          => 'TaskId',
-        'trialPermission' => 'TrialPermission',
-        'vendor'          => 'Vendor',
-        'vendorShowName'  => 'VendorShowName',
+        'assetSubType'        => 'AssetSubType',
+        'assetType'           => 'AssetType',
+        'assetVendor'         => 'AssetVendor',
+        'checkId'             => 'CheckId',
+        'checkPolicies'       => 'CheckPolicies',
+        'checkSaleType'       => 'CheckSaleType',
+        'checkShowName'       => 'CheckShowName',
+        'instanceSubType'     => 'InstanceSubType',
+        'instanceType'        => 'InstanceType',
+        'lastCheckTime'       => 'LastCheckTime',
+        'operationType'       => 'OperationType',
+        'riskLevel'           => 'RiskLevel',
+        'status'              => 'Status',
+        'statusMessage'       => 'StatusMessage',
+        'taskId'              => 'TaskId',
+        'trialPermission'     => 'TrialPermission',
+        'trialPermissionType' => 'TrialPermissionType',
+        'vendor'              => 'Vendor',
+        'vendorShowName'      => 'VendorShowName',
     ];
 
     public function validate()
@@ -181,6 +186,10 @@ class checks extends Model
 
         if (null !== $this->trialPermission) {
             $res['TrialPermission'] = $this->trialPermission;
+        }
+
+        if (null !== $this->trialPermissionType) {
+            $res['TrialPermissionType'] = $this->trialPermissionType;
         }
 
         if (null !== $this->vendor) {
@@ -270,6 +279,10 @@ class checks extends Model
 
         if (isset($map['TrialPermission'])) {
             $model->trialPermission = $map['TrialPermission'];
+        }
+
+        if (isset($map['TrialPermissionType'])) {
+            $model->trialPermissionType = $map['TrialPermissionType'];
         }
 
         if (isset($map['Vendor'])) {
