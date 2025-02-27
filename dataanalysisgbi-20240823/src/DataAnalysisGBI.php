@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\BatchDeleteSynonymsRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\BatchDeleteSynonymsResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\CancelDatasourceAuthorizationRequest;
@@ -1412,6 +1412,10 @@ class DataAnalysisGBI extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->agentCtrlParams) {
+            @$body['agentCtrlParams'] = $request->agentCtrlParams;
+        }
+
         if (null !== $request->dataRole) {
             @$body['dataRole'] = $request->dataRole;
         }
@@ -1444,7 +1448,7 @@ class DataAnalysisGBI extends OpenApiClient
             'action'      => 'RunDataAnalysis',
             'version'     => '2024-08-23',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/gbi/runDataAnalysis',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/gbi/runDataAnalysis',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',

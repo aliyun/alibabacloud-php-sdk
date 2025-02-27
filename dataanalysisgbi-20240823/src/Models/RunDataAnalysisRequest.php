@@ -9,6 +9,10 @@ use AlibabaCloud\Dara\Model;
 class RunDataAnalysisRequest extends Model
 {
     /**
+     * @var mixed
+     */
+    public $agentCtrlParams;
+    /**
      * @var string[]
      */
     public $dataRole;
@@ -33,6 +37,7 @@ class RunDataAnalysisRequest extends Model
      */
     public $userParams;
     protected $_name = [
+        'agentCtrlParams'   => 'agentCtrlParams',
         'dataRole'          => 'dataRole',
         'generateSqlOnly'   => 'generateSqlOnly',
         'query'             => 'query',
@@ -52,6 +57,10 @@ class RunDataAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentCtrlParams) {
+            $res['agentCtrlParams'] = $this->agentCtrlParams;
+        }
+
         if (null !== $this->dataRole) {
             if (\is_array($this->dataRole)) {
                 $res['dataRole'] = [];
@@ -93,6 +102,10 @@ class RunDataAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentCtrlParams'])) {
+            $model->agentCtrlParams = $map['agentCtrlParams'];
+        }
+
         if (isset($map['dataRole'])) {
             if (!empty($map['dataRole'])) {
                 $model->dataRole = [];
