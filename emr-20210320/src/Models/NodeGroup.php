@@ -13,6 +13,10 @@ class NodeGroup extends Model
      */
     public $additionalSecurityGroupIds;
     /**
+     * @var bool
+     */
+    public $compensateWithOnDemand;
+    /**
      * @var CostOptimizedConfig
      */
     public $costOptimizedConfig;
@@ -102,6 +106,7 @@ class NodeGroup extends Model
     public $zoneId;
     protected $_name = [
         'additionalSecurityGroupIds' => 'AdditionalSecurityGroupIds',
+        'compensateWithOnDemand'     => 'CompensateWithOnDemand',
         'costOptimizedConfig'        => 'CostOptimizedConfig',
         'dataDisks'                  => 'DataDisks',
         'deploymentSetStrategy'      => 'DeploymentSetStrategy',
@@ -169,6 +174,10 @@ class NodeGroup extends Model
                     $res['AdditionalSecurityGroupIds'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->compensateWithOnDemand) {
+            $res['CompensateWithOnDemand'] = $this->compensateWithOnDemand;
         }
 
         if (null !== $this->costOptimizedConfig) {
@@ -302,6 +311,10 @@ class NodeGroup extends Model
                     $model->additionalSecurityGroupIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['CompensateWithOnDemand'])) {
+            $model->compensateWithOnDemand = $map['CompensateWithOnDemand'];
         }
 
         if (isset($map['CostOptimizedConfig'])) {

@@ -17,6 +17,10 @@ class NodeGroupConfig extends Model
      */
     public $autoScalingPolicy;
     /**
+     * @var bool
+     */
+    public $compensateWithOnDemand;
+    /**
      * @var string[]
      */
     public $componentTags;
@@ -95,6 +99,7 @@ class NodeGroupConfig extends Model
     protected $_name = [
         'additionalSecurityGroupIds' => 'AdditionalSecurityGroupIds',
         'autoScalingPolicy'          => 'AutoScalingPolicy',
+        'compensateWithOnDemand'     => 'CompensateWithOnDemand',
         'componentTags'              => 'ComponentTags',
         'costOptimizedConfig'        => 'CostOptimizedConfig',
         'dataDisks'                  => 'DataDisks',
@@ -169,6 +174,10 @@ class NodeGroupConfig extends Model
 
         if (null !== $this->autoScalingPolicy) {
             $res['AutoScalingPolicy'] = null !== $this->autoScalingPolicy ? $this->autoScalingPolicy->toArray($noStream) : $this->autoScalingPolicy;
+        }
+
+        if (null !== $this->compensateWithOnDemand) {
+            $res['CompensateWithOnDemand'] = $this->compensateWithOnDemand;
         }
 
         if (null !== $this->componentTags) {
@@ -300,6 +309,10 @@ class NodeGroupConfig extends Model
 
         if (isset($map['AutoScalingPolicy'])) {
             $model->autoScalingPolicy = AutoScalingPolicy::fromMap($map['AutoScalingPolicy']);
+        }
+
+        if (isset($map['CompensateWithOnDemand'])) {
+            $model->compensateWithOnDemand = $map['CompensateWithOnDemand'];
         }
 
         if (isset($map['ComponentTags'])) {
