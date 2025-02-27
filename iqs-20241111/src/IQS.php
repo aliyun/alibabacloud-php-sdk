@@ -146,6 +146,10 @@ class IQS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
+        }
+
         if (null !== $request->query) {
             @$query['query'] = $request->query;
         }

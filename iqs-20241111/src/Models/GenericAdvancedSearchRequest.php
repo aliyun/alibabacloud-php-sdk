@@ -11,6 +11,10 @@ class GenericAdvancedSearchRequest extends Model
     /**
      * @var string
      */
+    public $industry;
+    /**
+     * @var string
+     */
     public $query;
     /**
      * @var string
@@ -21,6 +25,7 @@ class GenericAdvancedSearchRequest extends Model
      */
     public $timeRange;
     protected $_name = [
+        'industry'  => 'industry',
         'query'     => 'query',
         'sessionId' => 'sessionId',
         'timeRange' => 'timeRange',
@@ -34,6 +39,10 @@ class GenericAdvancedSearchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->industry) {
+            $res['industry'] = $this->industry;
+        }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -57,6 +66,10 @@ class GenericAdvancedSearchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['industry'])) {
+            $model->industry = $map['industry'];
+        }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
