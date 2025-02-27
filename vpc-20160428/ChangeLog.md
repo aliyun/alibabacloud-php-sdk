@@ -1,3 +1,6 @@
+2025-02-27 Version: 6.11.1
+- Generated php 2016-04-28 for Vpc.
+
 2025-02-26 Version: 6.11.0
 - Support API ModifyEipForwardMode.
 - Update API AssociateVpcCidrBlock: update response param.
