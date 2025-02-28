@@ -13,6 +13,10 @@ class DescribeClusterAttachScriptsRequest extends Model
      */
     public $arch;
     /**
+     * @var int
+     */
+    public $expired;
+    /**
      * @var bool
      */
     public $formatDisk;
@@ -34,6 +38,7 @@ class DescribeClusterAttachScriptsRequest extends Model
     public $rdsInstances;
     protected $_name = [
         'arch'             => 'arch',
+        'expired'          => 'expired',
         'formatDisk'       => 'format_disk',
         'keepInstanceName' => 'keep_instance_name',
         'nodepoolId'       => 'nodepool_id',
@@ -54,6 +59,10 @@ class DescribeClusterAttachScriptsRequest extends Model
         $res = [];
         if (null !== $this->arch) {
             $res['arch'] = $this->arch;
+        }
+
+        if (null !== $this->expired) {
+            $res['expired'] = $this->expired;
         }
 
         if (null !== $this->formatDisk) {
@@ -95,6 +104,10 @@ class DescribeClusterAttachScriptsRequest extends Model
         $model = new self();
         if (isset($map['arch'])) {
             $model->arch = $map['arch'];
+        }
+
+        if (isset($map['expired'])) {
+            $model->expired = $map['expired'];
         }
 
         if (isset($map['format_disk'])) {

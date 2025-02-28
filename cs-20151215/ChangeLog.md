@@ -1,10 +1,8 @@
-2025-02-18 Version: 4.8.9
-- Update API ModifyNodePoolNodeConfig: update param body.
-- Update API RepairClusterNodePool: update param body.
+2025-02-28 Version: 4.8.10
+- Update API DescribeClusterUserKubeconfig: update response param.
+- Update API DescribeClusterV2UserKubeconfig: update response param.
+- Update API ModifyCluster: update param body.
 
-
-2025-02-07 Version: 4.8.8
-- Generated php 2015-12-15 for CS.
 
 2025-01-15 Version: 4.8.7
 - Update API CreateAutoscalingConfig: update param body.

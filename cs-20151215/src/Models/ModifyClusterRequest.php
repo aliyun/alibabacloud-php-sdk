@@ -69,9 +69,17 @@ class ModifyClusterRequest extends Model
      */
     public $resourceGroupId;
     /**
+     * @var string
+     */
+    public $securityGroupId;
+    /**
      * @var systemEventsLogging
      */
     public $systemEventsLogging;
+    /**
+     * @var string
+     */
+    public $timezone;
     /**
      * @var string[]
      */
@@ -91,7 +99,9 @@ class ModifyClusterRequest extends Model
         'maintenanceWindow'          => 'maintenance_window',
         'operationPolicy'            => 'operation_policy',
         'resourceGroupId'            => 'resource_group_id',
+        'securityGroupId'            => 'security_group_id',
         'systemEventsLogging'        => 'system_events_logging',
+        'timezone'                   => 'timezone',
         'vswitchIds'                 => 'vswitch_ids',
     ];
 
@@ -186,8 +196,16 @@ class ModifyClusterRequest extends Model
             $res['resource_group_id'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['security_group_id'] = $this->securityGroupId;
+        }
+
         if (null !== $this->systemEventsLogging) {
             $res['system_events_logging'] = null !== $this->systemEventsLogging ? $this->systemEventsLogging->toArray($noStream) : $this->systemEventsLogging;
+        }
+
+        if (null !== $this->timezone) {
+            $res['timezone'] = $this->timezone;
         }
 
         if (null !== $this->vswitchIds) {
@@ -273,8 +291,16 @@ class ModifyClusterRequest extends Model
             $model->resourceGroupId = $map['resource_group_id'];
         }
 
+        if (isset($map['security_group_id'])) {
+            $model->securityGroupId = $map['security_group_id'];
+        }
+
         if (isset($map['system_events_logging'])) {
             $model->systemEventsLogging = systemEventsLogging::fromMap($map['system_events_logging']);
+        }
+
+        if (isset($map['timezone'])) {
+            $model->timezone = $map['timezone'];
         }
 
         if (isset($map['vswitch_ids'])) {
