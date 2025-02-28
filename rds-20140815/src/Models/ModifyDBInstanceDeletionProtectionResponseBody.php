@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceDeletionProtectionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 3C5CFDEE-F774-4DED-89A2-1D76EC63C575
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyDBInstanceDeletionProtectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyDBInstanceDeletionProtectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceDeletionProtectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

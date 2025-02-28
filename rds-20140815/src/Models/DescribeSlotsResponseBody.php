@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSlotsResponseBody\slots;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSlotsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 76AF0609-4195-5DFC-BC78-3AD76FF872BB
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the replication slot.
-     *
      * @var slots[]
      */
     public $slots;
@@ -31,20 +24,25 @@ class DescribeSlotsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->slots)) {
+            Model::validateArray($this->slots);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slots) {
-            $res['Slots'] = [];
-            if (null !== $this->slots && \is_array($this->slots)) {
-                $n = 0;
-                foreach ($this->slots as $item) {
-                    $res['Slots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slots)) {
+                $res['Slots'] = [];
+                $n1           = 0;
+                foreach ($this->slots as $item1) {
+                    $res['Slots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeSlotsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSlotsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Slots'])) {
             if (!empty($map['Slots'])) {
                 $model->slots = [];
-                $n            = 0;
-                foreach ($map['Slots'] as $item) {
-                    $model->slots[$n++] = null !== $item ? slots::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Slots'] as $item1) {
+                    $model->slots[$n1++] = slots::fromMap($item1);
                 }
             }
         }

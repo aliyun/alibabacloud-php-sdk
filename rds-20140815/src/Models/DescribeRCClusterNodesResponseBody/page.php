@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCClusterNodesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class page extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The maximum number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $totalCount;
@@ -42,17 +28,20 @@ class page extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -60,20 +49,22 @@ class page extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return page
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MigrateSecurityIPModeResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example rm-uf6wjk5****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example EF1E53AB-5625-49C7-ADF1-FBD0B6640D19
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The whitelist mode after the change, which is the enhanced whitelist mode.
-     *
-     * Valid values:
-     *
-     *   safety
-     *
-     * <!-- -->
-     * @example safety
-     *
      * @var string
      */
     public $securityIPMode;
@@ -47,17 +28,20 @@ class MigrateSecurityIPModeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityIPMode) {
             $res['SecurityIPMode'] = $this->securityIPMode;
         }
@@ -65,20 +49,22 @@ class MigrateSecurityIPModeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateSecurityIPModeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityIPMode'])) {
             $model->securityIPMode = $map['SecurityIPMode'];
         }

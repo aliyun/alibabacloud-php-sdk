@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceKeywordsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class words extends Model
 {
@@ -18,29 +18,43 @@ class words extends Model
 
     public function validate()
     {
+        if (\is_array($this->word)) {
+            Model::validateArray($this->word);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->word) {
-            $res['word'] = $this->word;
+            if (\is_array($this->word)) {
+                $res['word'] = [];
+                $n1          = 0;
+                foreach ($this->word as $item1) {
+                    $res['word'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return words
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['word'])) {
             if (!empty($map['word'])) {
-                $model->word = $map['word'];
+                $model->word = [];
+                $n1          = 0;
+                foreach ($map['word'] as $item1) {
+                    $model->word[$n1++] = $item1;
+                }
             }
         }
 

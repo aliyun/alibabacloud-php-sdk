@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDisk extends Model
 {
     /**
-     * @description The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
-     *
-     * @example cloud_essd
-     *
      * @var string
      */
     public $category;
-
     /**
      * @var string
      */
     public $performanceLevel;
-
     /**
-     * @description The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -38,17 +28,20 @@ class systemDisk extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -56,20 +49,22 @@ class systemDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

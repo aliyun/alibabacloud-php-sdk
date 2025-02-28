@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableZonesResponseBody extends Model
 {
     /**
-     * @description The available zones in the region.
-     *
      * @var availableZones[]
      */
     public $availableZones;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 4256E149-C3C4-4FA7-BDEA-13CA415E8763
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeAvailableZonesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableZones)) {
+            Model::validateArray($this->availableZones);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = [];
-            if (null !== $this->availableZones && \is_array($this->availableZones)) {
-                $n = 0;
-                foreach ($this->availableZones as $item) {
-                    $res['AvailableZones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableZones)) {
+                $res['AvailableZones'] = [];
+                $n1                    = 0;
+                foreach ($this->availableZones as $item1) {
+                    $res['AvailableZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeAvailableZonesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableZonesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             if (!empty($map['AvailableZones'])) {
                 $model->availableZones = [];
-                $n                     = 0;
-                foreach ($map['AvailableZones'] as $item) {
-                    $model->availableZones[$n++] = null !== $item ? availableZones::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['AvailableZones'] as $item1) {
+                    $model->availableZones[$n1++] = availableZones::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

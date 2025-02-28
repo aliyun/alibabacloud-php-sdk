@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigResponseBody\hostInstanceInfos\nodeInfo;
-use AlibabaCloud\Tea\Model;
 
 class hostInstanceInfos extends Model
 {
@@ -19,17 +19,21 @@ class hostInstanceInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeInfo)) {
+            Model::validateArray($this->nodeInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeInfo) {
-            $res['NodeInfo'] = [];
-            if (null !== $this->nodeInfo && \is_array($this->nodeInfo)) {
-                $n = 0;
-                foreach ($this->nodeInfo as $item) {
-                    $res['NodeInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeInfo)) {
+                $res['NodeInfo'] = [];
+                $n1              = 0;
+                foreach ($this->nodeInfo as $item1) {
+                    $res['NodeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class hostInstanceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostInstanceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeInfo'])) {
             if (!empty($map['NodeInfo'])) {
                 $model->nodeInfo = [];
-                $n               = 0;
-                foreach ($map['NodeInfo'] as $item) {
-                    $model->nodeInfo[$n++] = null !== $item ? nodeInfo::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['NodeInfo'] as $item1) {
+                    $model->nodeInfo[$n1++] = nodeInfo::fromMap($item1);
                 }
             }
         }

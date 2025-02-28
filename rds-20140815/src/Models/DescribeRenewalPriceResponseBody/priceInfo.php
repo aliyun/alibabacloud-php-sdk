@@ -4,66 +4,38 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody\priceInfo\activityInfo;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody\priceInfo\coupons;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody\priceInfo\ruleIds;
-use AlibabaCloud\Tea\Model;
 
 class priceInfo extends Model
 {
     /**
-     * @description The information about the promotion.
-     *
      * @var activityInfo
      */
     public $activityInfo;
-
     /**
-     * @description An array that consists of information about the coupon.
-     *
      * @var coupons
      */
     public $coupons;
-
     /**
-     * @description The currency unit.
-     *
-     * @example CNY
-     *
      * @var string
      */
     public $currency;
-
     /**
-     * @description The discount.
-     *
-     * @example 27
-     *
      * @var float
      */
     public $discountPrice;
-
     /**
-     * @description The original price.
-     *
-     * @example 138
-     *
      * @var float
      */
     public $originalPrice;
-
     /**
-     * @description An array that consists of the ID of the promotion rule.
-     *
      * @var ruleIds
      */
     public $ruleIds;
-
     /**
-     * @description The transaction price, which is equal to the original price minus the discount.
-     *
-     * @example 111
-     *
      * @var float
      */
     public $tradePrice;
@@ -79,29 +51,45 @@ class priceInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->activityInfo) {
+            $this->activityInfo->validate();
+        }
+        if (null !== $this->coupons) {
+            $this->coupons->validate();
+        }
+        if (null !== $this->ruleIds) {
+            $this->ruleIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activityInfo) {
-            $res['ActivityInfo'] = null !== $this->activityInfo ? $this->activityInfo->toMap() : null;
+            $res['ActivityInfo'] = null !== $this->activityInfo ? $this->activityInfo->toArray($noStream) : $this->activityInfo;
         }
+
         if (null !== $this->coupons) {
-            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toMap() : null;
+            $res['Coupons'] = null !== $this->coupons ? $this->coupons->toArray($noStream) : $this->coupons;
         }
+
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
+            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toArray($noStream) : $this->ruleIds;
         }
+
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
@@ -109,32 +97,38 @@ class priceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return priceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityInfo'])) {
             $model->activityInfo = activityInfo::fromMap($map['ActivityInfo']);
         }
+
         if (isset($map['Coupons'])) {
             $model->coupons = coupons::fromMap($map['Coupons']);
         }
+
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+
         if (isset($map['RuleIds'])) {
             $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
+
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }

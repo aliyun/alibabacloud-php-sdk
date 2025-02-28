@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponseBody\DBInstanceClasses\DBInstanceStorageRange;
-use AlibabaCloud\Tea\Model;
 
 class DBInstanceClasses extends Model
 {
     /**
-     * @description The instance type of the instance.
-     *
-     * @example rds.mysql.c1.large
-     *
      * @var string
      */
     public $DBInstanceClass;
-
     /**
-     * @description The storage capacity range that is supported for the instance.
-     *
      * @var DBInstanceStorageRange
      */
     public $DBInstanceStorageRange;
@@ -31,32 +24,38 @@ class DBInstanceClasses extends Model
 
     public function validate()
     {
+        if (null !== $this->DBInstanceStorageRange) {
+            $this->DBInstanceStorageRange->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
+
         if (null !== $this->DBInstanceStorageRange) {
-            $res['DBInstanceStorageRange'] = null !== $this->DBInstanceStorageRange ? $this->DBInstanceStorageRange->toMap() : null;
+            $res['DBInstanceStorageRange'] = null !== $this->DBInstanceStorageRange ? $this->DBInstanceStorageRange->toArray($noStream) : $this->DBInstanceStorageRange;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceClasses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
         }
+
         if (isset($map['DBInstanceStorageRange'])) {
             $model->DBInstanceStorageRange = DBInstanceStorageRange::fromMap($map['DBInstanceStorageRange']);
         }

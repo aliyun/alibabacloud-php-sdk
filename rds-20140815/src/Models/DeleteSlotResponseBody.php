@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSlotResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 2875D608-A228-53D7-B8C9-35F13EDCF36D
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The name of the replication slot.
-     *
-     * @example slot_test01
-     *
      * @var string
      */
     public $slotName;
@@ -32,14 +23,16 @@ class DeleteSlotResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slotName) {
             $res['SlotName'] = $this->slotName;
         }
@@ -47,17 +40,18 @@ class DeleteSlotResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSlotResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlotName'])) {
             $model->slotName = $map['SlotName'];
         }

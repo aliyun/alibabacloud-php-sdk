@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems;
 
 class DBProxyConnectStringItems extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems[]
+     * @var DBProxyConnectStringItems[]
      */
     public $DBProxyConnectStringItems;
     protected $_name = [
@@ -18,17 +19,21 @@ class DBProxyConnectStringItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBProxyConnectStringItems)) {
+            Model::validateArray($this->DBProxyConnectStringItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBProxyConnectStringItems) {
-            $res['DBProxyConnectStringItems'] = [];
-            if (null !== $this->DBProxyConnectStringItems && \is_array($this->DBProxyConnectStringItems)) {
-                $n = 0;
-                foreach ($this->DBProxyConnectStringItems as $item) {
-                    $res['DBProxyConnectStringItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBProxyConnectStringItems)) {
+                $res['DBProxyConnectStringItems'] = [];
+                $n1                               = 0;
+                foreach ($this->DBProxyConnectStringItems as $item1) {
+                    $res['DBProxyConnectStringItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class DBProxyConnectStringItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBProxyConnectStringItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBProxyConnectStringItems'])) {
             if (!empty($map['DBProxyConnectStringItems'])) {
                 $model->DBProxyConnectStringItems = [];
-                $n                                = 0;
-                foreach ($map['DBProxyConnectStringItems'] as $item) {
-                    $model->DBProxyConnectStringItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems\DBProxyConnectStringItems::fromMap($item) : $item;
+                $n1                               = 0;
+                foreach ($map['DBProxyConnectStringItems'] as $item1) {
+                    $model->DBProxyConnectStringItems[$n1++] = self::fromMap($item1);
                 }
             }
         }

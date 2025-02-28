@@ -4,20 +4,14 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSupportOnlineResizeDiskRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-uf6wjk5xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
      * @var string
      */
@@ -29,14 +23,16 @@ class DescribeSupportOnlineResizeDiskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -44,17 +40,18 @@ class DescribeSupportOnlineResizeDiskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSupportOnlineResizeDiskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

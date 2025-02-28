@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestoreDdrTableResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 75BBF1EF-1E90-4950-BFFB-252D26E8259B
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class RestoreDdrTableResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class RestoreDdrTableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestoreDdrTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

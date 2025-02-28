@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines\supportedEngineVersions\supportedCategorys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedStorageTypes extends Model
 {
     /**
-     * @description The storage type of the instance.
-     *
-     * @example local_ssd
-     *
      * @var string
      */
     public $storageType;
@@ -22,9 +18,10 @@ class supportedStorageTypes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageType) {
@@ -34,11 +31,11 @@ class supportedStorageTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedStorageTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

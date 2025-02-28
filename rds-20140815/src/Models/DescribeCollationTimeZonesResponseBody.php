@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCollationTimeZonesResponseBody\collationTimeZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCollationTimeZonesResponseBody extends Model
 {
     /**
-     * @description The list of the character set collations and time zones that are available.
-     *
      * @var collationTimeZones
      */
     public $collationTimeZones;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4EAED246-DB18-4C8D-9EB5-C319626F2A77
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeCollationTimeZonesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->collationTimeZones) {
+            $this->collationTimeZones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collationTimeZones) {
-            $res['CollationTimeZones'] = null !== $this->collationTimeZones ? $this->collationTimeZones->toMap() : null;
+            $res['CollationTimeZones'] = null !== $this->collationTimeZones ? $this->collationTimeZones->toArray($noStream) : $this->collationTimeZones;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeCollationTimeZonesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCollationTimeZonesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollationTimeZones'])) {
             $model->collationTimeZones = collationTimeZones::fromMap($map['CollationTimeZones']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

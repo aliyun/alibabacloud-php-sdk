@@ -4,32 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterGroupResponseBody\paramGroup;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterGroupResponseBody\relatedCustinsInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeParameterGroupResponseBody extends Model
 {
     /**
-     * @description The information about the parameter template.
-     *
      * @var paramGroup
      */
     public $paramGroup;
-
     /**
-     * @description The information about the instance to which the parameter template is applied.
-     *
-     * >  This parameter is available only for ApsaraDB RDS for PostgreSQL instances.
      * @var relatedCustinsInfo
      */
     public $relatedCustinsInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 498AE8CA-8C81-4A01-AF37-2B902014ED30
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +30,26 @@ class DescribeParameterGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->paramGroup) {
+            $this->paramGroup->validate();
+        }
+        if (null !== $this->relatedCustinsInfo) {
+            $this->relatedCustinsInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramGroup) {
-            $res['ParamGroup'] = null !== $this->paramGroup ? $this->paramGroup->toMap() : null;
+            $res['ParamGroup'] = null !== $this->paramGroup ? $this->paramGroup->toArray($noStream) : $this->paramGroup;
         }
+
         if (null !== $this->relatedCustinsInfo) {
-            $res['RelatedCustinsInfo'] = null !== $this->relatedCustinsInfo ? $this->relatedCustinsInfo->toMap() : null;
+            $res['RelatedCustinsInfo'] = null !== $this->relatedCustinsInfo ? $this->relatedCustinsInfo->toArray($noStream) : $this->relatedCustinsInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +57,22 @@ class DescribeParameterGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParameterGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamGroup'])) {
             $model->paramGroup = paramGroup::fromMap($map['ParamGroup']);
         }
+
         if (isset($map['RelatedCustinsInfo'])) {
             $model->relatedCustinsInfo = relatedCustinsInfo::fromMap($map['RelatedCustinsInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

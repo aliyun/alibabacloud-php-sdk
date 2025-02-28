@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDBProxyEndpointAddressResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 343356C6-64B2-4245-ADEB-C9BD165EDD11
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteDBProxyEndpointAddressResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteDBProxyEndpointAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDBProxyEndpointAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

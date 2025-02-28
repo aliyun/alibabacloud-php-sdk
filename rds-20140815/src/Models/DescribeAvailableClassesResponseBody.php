@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponseBody\DBInstanceClasses;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableClassesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the instance types available for the instance.
-     *
      * @var DBInstanceClasses[]
      */
     public $DBInstanceClasses;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeAvailableClassesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBInstanceClasses)) {
+            Model::validateArray($this->DBInstanceClasses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceClasses) {
-            $res['DBInstanceClasses'] = [];
-            if (null !== $this->DBInstanceClasses && \is_array($this->DBInstanceClasses)) {
-                $n = 0;
-                foreach ($this->DBInstanceClasses as $item) {
-                    $res['DBInstanceClasses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBInstanceClasses)) {
+                $res['DBInstanceClasses'] = [];
+                $n1                       = 0;
+                foreach ($this->DBInstanceClasses as $item1) {
+                    $res['DBInstanceClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeAvailableClassesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableClassesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceClasses'])) {
             if (!empty($map['DBInstanceClasses'])) {
                 $model->DBInstanceClasses = [];
-                $n                        = 0;
-                foreach ($map['DBInstanceClasses'] as $item) {
-                    $model->DBInstanceClasses[$n++] = null !== $item ? DBInstanceClasses::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['DBInstanceClasses'] as $item1) {
+                    $model->DBInstanceClasses[$n1++] = DBInstanceClasses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

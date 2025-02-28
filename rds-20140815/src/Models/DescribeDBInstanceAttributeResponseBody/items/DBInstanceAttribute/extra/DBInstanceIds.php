@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\extra;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceIds extends Model
 {
@@ -18,29 +18,43 @@ class DBInstanceIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBInstanceId)) {
+            Model::validateArray($this->DBInstanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+            if (\is_array($this->DBInstanceId)) {
+                $res['DBInstanceId'] = [];
+                $n1                  = 0;
+                foreach ($this->DBInstanceId as $item1) {
+                    $res['DBInstanceId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             if (!empty($map['DBInstanceId'])) {
-                $model->DBInstanceId = $map['DBInstanceId'];
+                $model->DBInstanceId = [];
+                $n1                  = 0;
+                foreach ($map['DBInstanceId'] as $item1) {
+                    $model->DBInstanceId[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The result of the IP address whitelist configuration. Valid values:
-     *
-     *   **Success**
-     *   **Fail**
-     *
-     * @example Success
-     *
      * @var string
      */
     public $DTCSetResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 671B6D32-B907-4EFF-A3B7-94D2EAD5E3A3
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The task ID.
-     *
-     * @example 178968983
-     *
      * @var string
      */
     public $taskId;
@@ -55,20 +33,24 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->DTCSetResult) {
             $res['DTCSetResult'] = $this->DTCSetResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -76,23 +58,26 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDTCSecurityIpHostsForSQLServerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DTCSetResult'])) {
             $model->DTCSetResult = $map['DTCSetResult'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay;
 
 class readonlyInstanceDelay extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay[]
+     * @var readonlyInstanceDelay[]
      */
     public $readonlyInstanceDelay;
     protected $_name = [
@@ -18,17 +19,21 @@ class readonlyInstanceDelay extends Model
 
     public function validate()
     {
+        if (\is_array($this->readonlyInstanceDelay)) {
+            Model::validateArray($this->readonlyInstanceDelay);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->readonlyInstanceDelay) {
-            $res['ReadonlyInstanceDelay'] = [];
-            if (null !== $this->readonlyInstanceDelay && \is_array($this->readonlyInstanceDelay)) {
-                $n = 0;
-                foreach ($this->readonlyInstanceDelay as $item) {
-                    $res['ReadonlyInstanceDelay'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->readonlyInstanceDelay)) {
+                $res['ReadonlyInstanceDelay'] = [];
+                $n1                           = 0;
+                foreach ($this->readonlyInstanceDelay as $item1) {
+                    $res['ReadonlyInstanceDelay'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class readonlyInstanceDelay extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readonlyInstanceDelay
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReadonlyInstanceDelay'])) {
             if (!empty($map['ReadonlyInstanceDelay'])) {
                 $model->readonlyInstanceDelay = [];
-                $n                            = 0;
-                foreach ($map['ReadonlyInstanceDelay'] as $item) {
-                    $model->readonlyInstanceDelay[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay\readonlyInstanceDelay::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['ReadonlyInstanceDelay'] as $item1) {
+                    $model->readonlyInstanceDelay[$n1++] = self::fromMap($item1);
                 }
             }
         }

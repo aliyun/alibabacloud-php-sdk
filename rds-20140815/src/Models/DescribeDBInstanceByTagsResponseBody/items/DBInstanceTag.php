@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsResponseBody\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsResponseBody\items\DBInstanceTag\tags;
-use AlibabaCloud\Tea\Model;
 
 class DBInstanceTag extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6w**********
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The details about the tag.
-     *
      * @var tags
      */
     public $tags;
@@ -31,32 +24,38 @@ class DBInstanceTag extends Model
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceTag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

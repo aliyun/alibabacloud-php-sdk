@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHADiagnoseConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9EFA6DF3-5247-4D9D-80AA-68765BE6D5EA
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyHADiagnoseConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyHADiagnoseConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHADiagnoseConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,58 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDEResponseBody\databases;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceTDEResponseBody extends Model
 {
     /**
-     * @description The TDE status at the database level.
-     *
-     * >  If your instance runs SQL Server 2019 SE or SQL Server EE, you can specify whether to enable TDE at the database level when you enable TDE at the instance level.
      * @var databases
      */
     public $databases;
-
     /**
-     * @description The ID of the custom key.
-     *
-     * @example 749c1df7-****-****-****-****
-     *
      * @var string
      */
     public $encryptionKey;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C816A4BF-A6EC-4722-95F9-2055859CCFD2
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The method that is used to generate the key for TDE at the instance level. Valid values:
-     *
-     *   **Aliyun_Generate_Key**
-     *   **Customer_Provided_Key**
-     *   **Unknown**
-     *
-     * @example Aliyun_Generate_Key
-     *
      * @var string
      */
     public $TDEMode;
-
     /**
-     * @description The TDE status of the instance. Valid values:
-     *
-     *   **Enabled**
-     *   **Disabled**
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $TDEStatus;
@@ -69,23 +39,31 @@ class DescribeDBInstanceTDEResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->databases) {
+            $this->databases->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+            $res['Databases'] = null !== $this->databases ? $this->databases->toArray($noStream) : $this->databases;
         }
+
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->TDEMode) {
             $res['TDEMode'] = $this->TDEMode;
         }
+
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
         }
@@ -93,26 +71,30 @@ class DescribeDBInstanceTDEResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceTDEResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Databases'])) {
             $model->databases = databases::fromMap($map['Databases']);
         }
+
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TDEMode'])) {
             $model->TDEMode = $map['TDEMode'];
         }
+
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
         }

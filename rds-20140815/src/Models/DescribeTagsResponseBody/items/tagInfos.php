@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsResponseBody\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsResponseBody\items\tagInfos\DBInstanceIds;
-use AlibabaCloud\Tea\Model;
 
 class tagInfos extends Model
 {
     /**
-     * @description The IDs of the instances to which the tag is added.
-     *
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
-
     /**
-     * @description The tag key.
-     *
-     * @example key1
-     *
      * @var string
      */
     public $tagKey;
-
     /**
-     * @description The tag value.
-     *
-     * @example value1
-     *
      * @var string
      */
     public $tagValue;
@@ -41,17 +29,23 @@ class tagInfos extends Model
 
     public function validate()
     {
+        if (null !== $this->DBInstanceIds) {
+            $this->DBInstanceIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceIds) {
-            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
+            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toArray($noStream) : $this->DBInstanceIds;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -59,20 +53,22 @@ class tagInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

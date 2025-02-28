@@ -4,39 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRCClusterNodesRequest extends Model
 {
     /**
-     * @description The instance IDs.
-     *
      * @var string[]
      */
     public $instanceIds;
-
     /**
-     * @description The node information.
-     *
      * @var string[]
      */
     public $nodes;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The virtual private cloud (VPC) ID.
-     *
-     * >  This is a reserved parameter.
-     * @example None
-     *
      * @var string
      */
     public $vpcId;
@@ -49,20 +33,42 @@ class DeleteRCClusterNodesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1                 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -70,27 +76,38 @@ class DeleteRCClusterNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRCClusterNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1                 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
-                $model->nodes = $map['Nodes'];
+                $model->nodes = [];
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

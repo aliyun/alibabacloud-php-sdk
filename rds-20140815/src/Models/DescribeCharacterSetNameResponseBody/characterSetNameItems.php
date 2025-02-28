@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCharacterSetNameResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class characterSetNameItems extends Model
 {
@@ -18,29 +18,43 @@ class characterSetNameItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->characterSetName)) {
+            Model::validateArray($this->characterSetName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->characterSetName) {
-            $res['CharacterSetName'] = $this->characterSetName;
+            if (\is_array($this->characterSetName)) {
+                $res['CharacterSetName'] = [];
+                $n1                      = 0;
+                foreach ($this->characterSetName as $item1) {
+                    $res['CharacterSetName'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return characterSetNameItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CharacterSetName'])) {
             if (!empty($map['CharacterSetName'])) {
-                $model->characterSetName = $map['CharacterSetName'];
+                $model->characterSetName = [];
+                $n1                      = 0;
+                foreach ($map['CharacterSetName'] as $item1) {
+                    $model->characterSetName[$n1++] = $item1;
+                }
             }
         }
 

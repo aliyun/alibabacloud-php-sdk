@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointAddressResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DeleteDBInstanceEndpointAddressResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example F2911788-25E8-42E5-A3A3-1B38D263F01E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeleteDBInstanceEndpointAddressResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeleteDBInstanceEndpointAddressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDBInstanceEndpointAddressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

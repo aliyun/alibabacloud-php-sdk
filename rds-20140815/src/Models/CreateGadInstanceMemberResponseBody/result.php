@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The number of unit nodes that are created by calling this operation.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $createCount;
-
     /**
-     * @description The ID of the global active database cluster.
-     *
-     * @example gad-rm-bp1npi2j8********
-     *
      * @var string
      */
     public $gadInstanceName;
@@ -32,14 +23,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createCount) {
             $res['CreateCount'] = $this->createCount;
         }
+
         if (null !== $this->gadInstanceName) {
             $res['GadInstanceName'] = $this->gadInstanceName;
         }
@@ -47,17 +40,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateCount'])) {
             $model->createCount = $map['CreateCount'];
         }
+
         if (isset($map['GadInstanceName'])) {
             $model->gadInstanceName = $map['GadInstanceName'];
         }

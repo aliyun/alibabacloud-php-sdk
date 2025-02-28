@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readDBInstanceNames;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readDelayTimes;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items\readonlyInstanceDelay;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @description The primary instance ID.
-     *
-     * @example rm-bp*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description An array that consists of information about the read-only instance.
-     *
      * @var readDBInstanceNames
      */
     public $readDBInstanceNames;
-
     /**
-     * @description The latency of data replication.
-     *
      * @var readDelayTimes
      */
     public $readDelayTimes;
-
     /**
-     * @description The information about the write-ahead log (WAL) latency.
-     *
-     * >  This parameter is returned only when the primary instance runs PostgreSQL.
      * @var readonlyInstanceDelay
      */
     public $readonlyInstanceDelay;
@@ -50,44 +36,60 @@ class items extends Model
 
     public function validate()
     {
+        if (null !== $this->readDBInstanceNames) {
+            $this->readDBInstanceNames->validate();
+        }
+        if (null !== $this->readDelayTimes) {
+            $this->readDelayTimes->validate();
+        }
+        if (null !== $this->readonlyInstanceDelay) {
+            $this->readonlyInstanceDelay->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->readDBInstanceNames) {
-            $res['ReadDBInstanceNames'] = null !== $this->readDBInstanceNames ? $this->readDBInstanceNames->toMap() : null;
+            $res['ReadDBInstanceNames'] = null !== $this->readDBInstanceNames ? $this->readDBInstanceNames->toArray($noStream) : $this->readDBInstanceNames;
         }
+
         if (null !== $this->readDelayTimes) {
-            $res['ReadDelayTimes'] = null !== $this->readDelayTimes ? $this->readDelayTimes->toMap() : null;
+            $res['ReadDelayTimes'] = null !== $this->readDelayTimes ? $this->readDelayTimes->toArray($noStream) : $this->readDelayTimes;
         }
+
         if (null !== $this->readonlyInstanceDelay) {
-            $res['ReadonlyInstanceDelay'] = null !== $this->readonlyInstanceDelay ? $this->readonlyInstanceDelay->toMap() : null;
+            $res['ReadonlyInstanceDelay'] = null !== $this->readonlyInstanceDelay ? $this->readonlyInstanceDelay->toArray($noStream) : $this->readonlyInstanceDelay;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ReadDBInstanceNames'])) {
             $model->readDBInstanceNames = readDBInstanceNames::fromMap($map['ReadDBInstanceNames']);
         }
+
         if (isset($map['ReadDelayTimes'])) {
             $model->readDelayTimes = readDelayTimes::fromMap($map['ReadDelayTimes']);
         }
+
         if (isset($map['ReadonlyInstanceDelay'])) {
             $model->readonlyInstanceDelay = readonlyInstanceDelay::fromMap($map['ReadonlyInstanceDelay']);
         }

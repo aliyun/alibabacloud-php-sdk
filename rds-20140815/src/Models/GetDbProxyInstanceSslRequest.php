@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDbProxyInstanceSslRequest extends Model
 {
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $DBProxyEngineType;
-
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-t4n3axxxxx
-     *
      * @var string
      */
     public $dbInstanceId;
-
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -43,17 +28,20 @@ class GetDbProxyInstanceSslRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBProxyEngineType) {
             $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
+
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,20 +49,22 @@ class GetDbProxyInstanceSslRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDbProxyInstanceSslRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBProxyEngineType'])) {
             $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
+
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

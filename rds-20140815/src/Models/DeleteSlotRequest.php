@@ -4,78 +4,43 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSlotRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-     * @example ETnLKlblzczshOTUbOC****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example pgm-bp102g323jd4****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The ID of the resource group. You can leave this parameter empty.
-     *
-     * @example rg-acfmy*****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The name of the replication slot. You can call the DescribeSlots operation to query the name of the replication slot.
-     *
-     * This parameter is required.
-     * @example slot_test01
-     *
      * @var string
      */
     public $slotName;
-
     /**
-     * @description The status of the replication slot. You can call the DescribeSlots operation to query the status of the replication slot. Valid values:
-     *
-     *   **ACTIVE**
-     *   **INACTIVE**
-     *
-     * This parameter is required.
-     * @example INACTIVE
-     *
      * @var string
      */
     public $slotStatus;
@@ -93,35 +58,44 @@ class DeleteSlotRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->slotName) {
             $res['SlotName'] = $this->slotName;
         }
+
         if (null !== $this->slotStatus) {
             $res['SlotStatus'] = $this->slotStatus;
         }
@@ -129,38 +103,46 @@ class DeleteSlotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSlotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SlotName'])) {
             $model->slotName = $map['SlotName'];
         }
+
         if (isset($map['SlotStatus'])) {
             $model->slotStatus = $map['SlotStatus'];
         }

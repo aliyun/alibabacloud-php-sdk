@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReadDBInstanceDelayResponseBody extends Model
 {
     /**
-     * @description The primary instance ID.
-     *
-     * @example rm-bp*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The latency of data replication. Unit: seconds.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $delayTime;
-
     /**
-     * @description The latency information.
-     *
      * @var items
      */
     public $items;
-
     /**
-     * @description The read-only instance ID.
-     *
-     * @example rr-bp*****
-     *
      * @var string
      */
     public $readDBInstanceId;
-
     /**
-     * @description The request ID.
-     *
-     * @example F1BDDEA8-452D-450B-AB10-CD5C5BAFC5DF
-     *
      * @var string
      */
     public $requestId;
@@ -61,23 +39,31 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->readDBInstanceId) {
             $res['ReadDBInstanceId'] = $this->readDBInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -85,26 +71,30 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReadDBInstanceDelayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
         }
+
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['ReadDBInstanceId'])) {
             $model->readDBInstanceId = $map['ReadDBInstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

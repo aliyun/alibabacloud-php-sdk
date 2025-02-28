@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateInstancePublicConnectionResponseBody extends Model
 {
     /**
-     * @description The endpoint that is used to connect to the database instance.
-     *
-     * @example test*****.mysql.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example rm-bp1*****
-     *
      * @var string
      */
     public $dbInstanceName;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class AllocateInstancePublicConnectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->dbInstanceName) {
             $res['DbInstanceName'] = $this->dbInstanceName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class AllocateInstancePublicConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateInstancePublicConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['DbInstanceName'])) {
             $model->dbInstanceName = $map['DbInstanceName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

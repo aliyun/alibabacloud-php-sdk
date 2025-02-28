@@ -4,53 +4,30 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDedicatedHostGroupsRequest extends Model
 {
     /**
-     * @description The dedicated cluster ID.
-     *
-     * @example dhg-7a9xxxxxxxx
-     *
      * @var string
      */
     public $dedicatedHostGroupId;
-
     /**
-     * @description The image based on which the hosts in the dedicated clusters are created. Valid values:
-     *
-     *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
-     *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
-     *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
-     *   **AliLinux**: a Linux image
-     *
-     * @example WindowsWithMssqlStdLicense
-     *
      * @var string
      */
     public $imageCategory;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -66,26 +43,32 @@ class DescribeDedicatedHostGroupsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
+
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -93,29 +76,34 @@ class DescribeDedicatedHostGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedHostGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
+
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

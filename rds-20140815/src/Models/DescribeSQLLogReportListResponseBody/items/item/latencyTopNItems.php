@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListResponseBody\items\item;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListResponseBody\items\item\latencyTopNItems\latencyTopNItem;
-use AlibabaCloud\Tea\Model;
 
 class latencyTopNItems extends Model
 {
@@ -19,17 +19,21 @@ class latencyTopNItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->latencyTopNItem)) {
+            Model::validateArray($this->latencyTopNItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->latencyTopNItem) {
-            $res['LatencyTopNItem'] = [];
-            if (null !== $this->latencyTopNItem && \is_array($this->latencyTopNItem)) {
-                $n = 0;
-                foreach ($this->latencyTopNItem as $item) {
-                    $res['LatencyTopNItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->latencyTopNItem)) {
+                $res['LatencyTopNItem'] = [];
+                $n1                     = 0;
+                foreach ($this->latencyTopNItem as $item1) {
+                    $res['LatencyTopNItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class latencyTopNItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return latencyTopNItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LatencyTopNItem'])) {
             if (!empty($map['LatencyTopNItem'])) {
                 $model->latencyTopNItem = [];
-                $n                      = 0;
-                foreach ($map['LatencyTopNItem'] as $item) {
-                    $model->latencyTopNItem[$n++] = null !== $item ? latencyTopNItem::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['LatencyTopNItem'] as $item1) {
+                    $model->latencyTopNItem[$n1++] = latencyTopNItem::fromMap($item1);
                 }
             }
         }

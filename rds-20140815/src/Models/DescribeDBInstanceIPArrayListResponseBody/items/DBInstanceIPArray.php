@@ -4,43 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIPArrayListResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceIPArray extends Model
 {
     /**
-     * @description The attribute of the IP address whitelist. By default, this parameter is empty.
-     *
-     * >  A whitelist with the hidden attribute does not appear in the console. Such IP address whitelists are used to access Alibaba Cloud services, such as Data Transmission Service (DTS).
-     * @example hidden
-     *
      * @var string
      */
     public $DBInstanceIPArrayAttribute;
-
     /**
-     * @description The name of the IP address whitelist.
-     *
-     * @example rds_default
-     *
      * @var string
      */
     public $DBInstanceIPArrayName;
-
     /**
-     * @description The IP addresses in the IP address whitelist.
-     *
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $securityIPList;
-
     /**
-     * @description The type of the IP address.
-     *
-     * @example IPv4
-     *
      * @var string
      */
     public $securityIPType;
@@ -53,20 +33,24 @@ class DBInstanceIPArray extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceIPArrayAttribute) {
             $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
         }
+
         if (null !== $this->DBInstanceIPArrayName) {
             $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
         }
+
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
+
         if (null !== $this->securityIPType) {
             $res['SecurityIPType'] = $this->securityIPType;
         }
@@ -74,23 +58,26 @@ class DBInstanceIPArray extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceIPArray
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceIPArrayAttribute'])) {
             $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
         }
+
         if (isset($map['DBInstanceIPArrayName'])) {
             $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
         }
+
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }
+
         if (isset($map['SecurityIPType'])) {
             $model->securityIPType = $map['SecurityIPType'];
         }

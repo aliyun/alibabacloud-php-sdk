@@ -4,86 +4,39 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCloudMigrationPrecheckTaskRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example pgm-bp102g323jd4****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The username of the account that is used to connect to the self-managed PostgreSQL instance. Enter the username of the account that you created in the [Create an account for cloud migration on a self-managed PostgreSQL instance](https://help.aliyun.com/document_detail/369500.html) topic.
-     *
-     * This parameter is required.
-     * @example migratetest
-     *
      * @var string
      */
     public $sourceAccount;
-
     /**
-     * @description The environment in which the self-managed PostgreSQL instance runs.
-     *
-     *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-     *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
-     *
-     * This parameter is required.
-     * @example ecsOnVpc
-     *
      * @var string
      */
     public $sourceCategory;
-
     /**
-     * @description The private IP address that is used to connect to the self-managed PostgreSQL instance.
-     *
-     *   If the self-managed PostgreSQL instance resides on an ECS instance, enter the private IP address of the ECS instance. For more information about how to obtain the private IP address of an ECS instance, see [View IP addresses](https://help.aliyun.com/document_detail/273914.html).
-     *   If the self-managed PostgreSQL instance resides in an on-premises data center, enter the private IP address of the on-premises data center.
-     *
-     * This parameter is required.
-     * @example 172.2.XX.XX
-     *
      * @var string
      */
     public $sourceIpAddress;
-
     /**
-     * @description The password of the account that is used to connect to the self-managed PostgreSQL instance. Enter the password of the account that you created in the [Create an account for cloud migration on a self-managed PostgreSQL instance](https://help.aliyun.com/document_detail/369500.html) topic.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var string
      */
     public $sourcePassword;
-
     /**
-     * @description The port that is used to connect to the self-managed PostgreSQL instance. You can run the `netstat -a | grep PGSQL` command to view the port.
-     *
-     * This parameter is required.
-     * @example 5432
-     *
      * @var int
      */
     public $sourcePort;
-
     /**
-     * @description The name of the task. If you do not specify this parameter, ApsaraDB RDS automatically generates a name for the cloud migration task.
-     *
-     * @example slf7w7wj3g
-     *
      * @var string
      */
     public $taskName;
@@ -100,32 +53,40 @@ class CreateCloudMigrationPrecheckTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->sourceAccount) {
             $res['SourceAccount'] = $this->sourceAccount;
         }
+
         if (null !== $this->sourceCategory) {
             $res['SourceCategory'] = $this->sourceCategory;
         }
+
         if (null !== $this->sourceIpAddress) {
             $res['SourceIpAddress'] = $this->sourceIpAddress;
         }
+
         if (null !== $this->sourcePassword) {
             $res['SourcePassword'] = $this->sourcePassword;
         }
+
         if (null !== $this->sourcePort) {
             $res['SourcePort'] = $this->sourcePort;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -133,35 +94,42 @@ class CreateCloudMigrationPrecheckTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCloudMigrationPrecheckTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SourceAccount'])) {
             $model->sourceAccount = $map['SourceAccount'];
         }
+
         if (isset($map['SourceCategory'])) {
             $model->sourceCategory = $map['SourceCategory'];
         }
+
         if (isset($map['SourceIpAddress'])) {
             $model->sourceIpAddress = $map['SourceIpAddress'];
         }
+
         if (isset($map['SourcePassword'])) {
             $model->sourcePassword = $map['SourcePassword'];
         }
+
         if (isset($map['SourcePort'])) {
             $model->sourcePort = $map['SourcePort'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

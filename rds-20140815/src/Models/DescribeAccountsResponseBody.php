@@ -4,73 +4,36 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsResponseBody\accounts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAccountsResponseBody extends Model
 {
     /**
-     * @description The information about the account.
-     *
      * @var accounts
      */
     public $accounts;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The request ID.
-     *
-     * @example A2E94301-D07F-4457-9B49-6AA2BB388C85
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmy****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The first time when the system admin account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * >  This parameter is returned only for instances that run SQL Server.
-     * @example 2020-02-06T11:00:00Z
-     *
      * @var string
      */
     public $systemAdminAccountFirstActivationTime;
-
     /**
-     * @description Indicates whether the system admin account was enabled. Valid values:
-     *
-     *   **true**: The system admin account was enabled.
-     *   **false**: The system admin account was disabled.
-     *
-     * >  The [system admin account](https://help.aliyun.com/document_detail/170736.html) is supported only for the instances that run SQL Server. If the instance runs SQL Server, a value is returned for this parameter. If the instance runs a different database engine, no value is returned for this parameter.
-     * @example True
-     *
      * @var string
      */
     public $systemAdminAccountStatus;
-
     /**
-     * @description The total number of entries that are returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -86,29 +49,39 @@ class DescribeAccountsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accounts) {
+            $this->accounts->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toArray($noStream) : $this->accounts;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->systemAdminAccountFirstActivationTime) {
             $res['SystemAdminAccountFirstActivationTime'] = $this->systemAdminAccountFirstActivationTime;
         }
+
         if (null !== $this->systemAdminAccountStatus) {
             $res['SystemAdminAccountStatus'] = $this->systemAdminAccountStatus;
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -116,32 +89,38 @@ class DescribeAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SystemAdminAccountFirstActivationTime'])) {
             $model->systemAdminAccountFirstActivationTime = $map['SystemAdminAccountFirstActivationTime'];
         }
+
         if (isset($map['SystemAdminAccountStatus'])) {
             $model->systemAdminAccountStatus = $map['SystemAdminAccountStatus'];
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

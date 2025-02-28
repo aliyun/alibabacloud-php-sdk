@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeQuickSaleConfigResponseBody extends Model
 {
     /**
-     * @description The product code. Valid values:
-     *
-     *   rds: The instance is a subscription instance.
-     *   bards: The instance is a pay-as-you-go instance.
-     *
-     * @example rds
-     *
      * @var string
      */
     public $commodity;
-
     /**
-     * @description The configuration details of the product.
-     *
      * @var mixed[]
      */
     public $items;
-
     /**
-     * @description The request ID.
-     *
-     * @example 5DFFE9EC-3369-5937-A4E2-507C0C86A4C6
-     *
      * @var string
      */
     public $requestId;
@@ -43,17 +28,28 @@ class DescribeQuickSaleConfigResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodity) {
             $res['Commodity'] = $this->commodity;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = $this->items;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                foreach ($this->items as $key1 => $value1) {
+                    $res['Items'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,20 +57,27 @@ class DescribeQuickSaleConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeQuickSaleConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commodity'])) {
             $model->commodity = $map['Commodity'];
         }
+
         if (isset($map['Items'])) {
-            $model->items = $map['Items'];
+            if (!empty($map['Items'])) {
+                $model->items = [];
+                foreach ($map['Items'] as $key1 => $value1) {
+                    $model->items[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines\supportedEngineVersions;
-use AlibabaCloud\Tea\Model;
 
 class supportedEngines extends Model
 {
     /**
-     * @description The database engine of the instance.
-     *
-     * @example MySQL
-     *
      * @var string
      */
     public $engine;
-
     /**
-     * @description The database engine versions that are available for purchase.
-     *
      * @var supportedEngineVersions[]
      */
     public $supportedEngineVersions;
@@ -31,20 +24,25 @@ class supportedEngines extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedEngineVersions)) {
+            Model::validateArray($this->supportedEngineVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->supportedEngineVersions) {
-            $res['SupportedEngineVersions'] = [];
-            if (null !== $this->supportedEngineVersions && \is_array($this->supportedEngineVersions)) {
-                $n = 0;
-                foreach ($this->supportedEngineVersions as $item) {
-                    $res['SupportedEngineVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedEngineVersions)) {
+                $res['SupportedEngineVersions'] = [];
+                $n1                             = 0;
+                foreach ($this->supportedEngineVersions as $item1) {
+                    $res['SupportedEngineVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class supportedEngines extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedEngines
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['SupportedEngineVersions'])) {
             if (!empty($map['SupportedEngineVersions'])) {
                 $model->supportedEngineVersions = [];
-                $n                              = 0;
-                foreach ($map['SupportedEngineVersions'] as $item) {
-                    $model->supportedEngineVersions[$n++] = null !== $item ? supportedEngineVersions::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['SupportedEngineVersions'] as $item1) {
+                    $model->supportedEngineVersions[$n1++] = supportedEngineVersions::fromMap($item1);
                 }
             }
         }

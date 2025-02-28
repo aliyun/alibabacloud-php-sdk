@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRCDeploymentSetResponseBody extends Model
 {
     /**
-     * @description The deployment set ID.
-     *
-     * @example ds-uf6c8qerk019bj1l****
-     *
      * @var string
      */
     public $deploymentSetId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateRCDeploymentSetResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateRCDeploymentSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRCDeploymentSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

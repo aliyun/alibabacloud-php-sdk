@@ -4,66 +4,31 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTemplatesResponseBody\parameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class templateRecord extends Model
 {
     /**
-     * @description The valid values of the parameter.
-     *
-     * @example [0-1024]
-     *
      * @var string
      */
     public $checkingCode;
-
     /**
-     * @description Indicates whether the parameter can be modified. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var string
      */
     public $forceModify;
-
     /**
-     * @description Indicates whether you must restart the instance for the modifications to take effect. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var string
      */
     public $forceRestart;
-
     /**
-     * @description The description of the parameter.
-     *
-     * @example Page numbers of multi blocks reading once in some ddl query.
-     *
      * @var string
      */
     public $parameterDescription;
-
     /**
-     * @description The name of the parameter.
-     *
-     * @example loose_multi_blocks_ddl_count
-     *
      * @var string
      */
     public $parameterName;
-
     /**
-     * @description The default value of the parameter.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $parameterValue;
@@ -78,26 +43,32 @@ class templateRecord extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkingCode) {
             $res['CheckingCode'] = $this->checkingCode;
         }
+
         if (null !== $this->forceModify) {
             $res['ForceModify'] = $this->forceModify;
         }
+
         if (null !== $this->forceRestart) {
             $res['ForceRestart'] = $this->forceRestart;
         }
+
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
         }
+
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
+
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
@@ -105,29 +76,34 @@ class templateRecord extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateRecord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckingCode'])) {
             $model->checkingCode = $map['CheckingCode'];
         }
+
         if (isset($map['ForceModify'])) {
             $model->forceModify = $map['ForceModify'];
         }
+
         if (isset($map['ForceRestart'])) {
             $model->forceRestart = $map['ForceRestart'];
         }
+
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
         }
+
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
+
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
         }

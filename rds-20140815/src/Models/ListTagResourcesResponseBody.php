@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesResponseBody\tagResources;
-use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example 212db86sca4384811e0b5e8707ec21345
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 47A514A1-4B77-4E30-B4C5-2A880650B3FD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The list of queried instances and tags.
-     *
      * @var tagResources
      */
     public $tagResources;
@@ -41,38 +29,46 @@ class ListTagResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->tagResources) {
+            $this->tagResources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagResources) {
-            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
+            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toArray($noStream) : $this->tagResources;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagResources'])) {
             $model->tagResources = tagResources::fromMap($map['TagResources']);
         }

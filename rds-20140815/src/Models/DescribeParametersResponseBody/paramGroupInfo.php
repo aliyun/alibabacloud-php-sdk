@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParametersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paramGroupInfo extends Model
 {
     /**
-     * @description The ID of the parameter template.
-     *
-     * @example rpg-sys-01040401010200
-     *
      * @var string
      */
     public $paramGroupId;
-
     /**
-     * @description The description of the parameter template.
-     *
-     * @example sync_binlog=1000, innodb_flush_log_at_trx_commit=2, async
-     *
      * @var string
      */
     public $parameterGroupDesc;
-
     /**
-     * @description The name of the parameter template.
-     *
-     * @example mysql_innodb_8.0_basic_normal_high
-     *
      * @var string
      */
     public $parameterGroupName;
-
     /**
-     * @description The type of the parameter template.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $parameterGroupType;
@@ -52,20 +33,24 @@ class paramGroupInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramGroupId) {
             $res['ParamGroupId'] = $this->paramGroupId;
         }
+
         if (null !== $this->parameterGroupDesc) {
             $res['ParameterGroupDesc'] = $this->parameterGroupDesc;
         }
+
         if (null !== $this->parameterGroupName) {
             $res['ParameterGroupName'] = $this->parameterGroupName;
         }
+
         if (null !== $this->parameterGroupType) {
             $res['ParameterGroupType'] = $this->parameterGroupType;
         }
@@ -73,23 +58,26 @@ class paramGroupInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paramGroupInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamGroupId'])) {
             $model->paramGroupId = $map['ParamGroupId'];
         }
+
         if (isset($map['ParameterGroupDesc'])) {
             $model->parameterGroupDesc = $map['ParameterGroupDesc'];
         }
+
         if (isset($map['ParameterGroupName'])) {
             $model->parameterGroupName = $map['ParameterGroupName'];
         }
+
         if (isset($map['ParameterGroupType'])) {
             $model->parameterGroupType = $map['ParameterGroupType'];
         }

@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\extra\DBInstanceIds;
-use AlibabaCloud\Tea\Model;
 
 class extra extends Model
 {
     /**
-     * @description The group policy of the instance account.
-     *
-     *   MaximumPasswordAge: maximum use time
-     *   MinimumPasswordAge: minimum use time
-     *
-     * @example {"MaximumPasswordAge": 42,"MinimumPasswordAge": 30}
-     *
      * @var string
      */
     public $accountSecurityPolicy;
-
     /**
-     * @description The instance IDs.
-     *
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
-
     /**
-     * @description The recovery model. Valid values: Simple and Full.
-     *
-     * @example Simple
-     *
      * @var string
      */
     public $recoveryModel;
@@ -44,17 +29,23 @@ class extra extends Model
 
     public function validate()
     {
+        if (null !== $this->DBInstanceIds) {
+            $this->DBInstanceIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountSecurityPolicy) {
             $res['AccountSecurityPolicy'] = $this->accountSecurityPolicy;
         }
+
         if (null !== $this->DBInstanceIds) {
-            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toMap() : null;
+            $res['DBInstanceIds'] = null !== $this->DBInstanceIds ? $this->DBInstanceIds->toArray($noStream) : $this->DBInstanceIds;
         }
+
         if (null !== $this->recoveryModel) {
             $res['RecoveryModel'] = $this->recoveryModel;
         }
@@ -62,20 +53,22 @@ class extra extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extra
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountSecurityPolicy'])) {
             $model->accountSecurityPolicy = $map['AccountSecurityPolicy'];
         }
+
         if (isset($map['DBInstanceIds'])) {
             $model->DBInstanceIds = DBInstanceIds::fromMap($map['DBInstanceIds']);
         }
+
         if (isset($map['RecoveryModel'])) {
             $model->recoveryModel = $map['RecoveryModel'];
         }

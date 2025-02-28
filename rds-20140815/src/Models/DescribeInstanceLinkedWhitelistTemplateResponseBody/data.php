@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateResponseBody\data\templates;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The instance name.
-     *
-     * @example rm-bp191w771kd3****
-     *
      * @var string
      */
     public $insName;
-
     /**
-     * @description The information about whitelists that are returned by page.
-     *
      * @var templates[]
      */
     public $templates;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->templates)) {
+            Model::validateArray($this->templates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
         }
+
         if (null !== $this->templates) {
-            $res['Templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['Templates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templates)) {
+                $res['Templates'] = [];
+                $n1               = 0;
+                foreach ($this->templates as $item1) {
+                    $res['Templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
         }
+
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n                = 0;
-                foreach ($map['Templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Templates'] as $item1) {
+                    $model->templates[$n1++] = templates::fromMap($item1);
                 }
             }
         }

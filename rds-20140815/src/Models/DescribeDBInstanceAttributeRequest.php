@@ -4,32 +4,18 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-uf6wjk5*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description Specifies whether the instance expires. Valid values:
-     *
-     *   **True**
-     *   **False**
-     *
-     * @example False
-     *
      * @var string
      */
     public $expired;
-
     /**
      * @var int
      */
@@ -42,17 +28,20 @@ class DescribeDBInstanceAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -60,20 +49,22 @@ class DescribeDBInstanceAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

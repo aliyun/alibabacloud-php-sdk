@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHosts;
 
 class dedicatedHosts extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHosts[]
+     * @var dedicatedHosts[]
      */
     public $dedicatedHosts;
     protected $_name = [
@@ -18,17 +19,21 @@ class dedicatedHosts extends Model
 
     public function validate()
     {
+        if (\is_array($this->dedicatedHosts)) {
+            Model::validateArray($this->dedicatedHosts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHosts) {
-            $res['DedicatedHosts'] = [];
-            if (null !== $this->dedicatedHosts && \is_array($this->dedicatedHosts)) {
-                $n = 0;
-                foreach ($this->dedicatedHosts as $item) {
-                    $res['DedicatedHosts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dedicatedHosts)) {
+                $res['DedicatedHosts'] = [];
+                $n1                    = 0;
+                foreach ($this->dedicatedHosts as $item1) {
+                    $res['DedicatedHosts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class dedicatedHosts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicatedHosts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHosts'])) {
             if (!empty($map['DedicatedHosts'])) {
                 $model->dedicatedHosts = [];
-                $n                     = 0;
-                foreach ($map['DedicatedHosts'] as $item) {
-                    $model->dedicatedHosts[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHosts::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['DedicatedHosts'] as $item1) {
+                    $model->dedicatedHosts[$n1++] = self::fromMap($item1);
                 }
             }
         }

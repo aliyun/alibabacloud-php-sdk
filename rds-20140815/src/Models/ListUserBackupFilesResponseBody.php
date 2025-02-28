@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListUserBackupFilesResponseBody\records;
-use AlibabaCloud\Tea\Model;
 
 class ListUserBackupFilesResponseBody extends Model
 {
     /**
-     * @description The information about the full backup files.
-     *
      * @var records[]
      */
     public $records;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example AD67C22F-64F3-4448-A9A8-D1606D242879
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListUserBackupFilesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->records) {
-            $res['Records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['Records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['Records'] = [];
+                $n1             = 0;
+                foreach ($this->records as $item1) {
+                    $res['Records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListUserBackupFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserBackupFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
-                foreach ($map['Records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Records'] as $item1) {
+                    $model->records[$n1++] = records::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

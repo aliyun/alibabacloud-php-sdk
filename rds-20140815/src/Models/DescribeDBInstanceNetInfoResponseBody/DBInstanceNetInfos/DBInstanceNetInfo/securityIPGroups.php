@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos\DBInstanceNetInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos\DBInstanceNetInfo\securityIPGroups\securityIPGroup;
-use AlibabaCloud\Tea\Model;
 
 class securityIPGroups extends Model
 {
@@ -19,17 +19,21 @@ class securityIPGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->securityIPGroup)) {
+            Model::validateArray($this->securityIPGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityIPGroup) {
-            $res['securityIPGroup'] = [];
-            if (null !== $this->securityIPGroup && \is_array($this->securityIPGroup)) {
-                $n = 0;
-                foreach ($this->securityIPGroup as $item) {
-                    $res['securityIPGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityIPGroup)) {
+                $res['securityIPGroup'] = [];
+                $n1                     = 0;
+                foreach ($this->securityIPGroup as $item1) {
+                    $res['securityIPGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class securityIPGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityIPGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['securityIPGroup'])) {
             if (!empty($map['securityIPGroup'])) {
                 $model->securityIPGroup = [];
-                $n                      = 0;
-                foreach ($map['securityIPGroup'] as $item) {
-                    $model->securityIPGroup[$n++] = null !== $item ? securityIPGroup::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['securityIPGroup'] as $item1) {
+                    $model->securityIPGroup[$n1++] = securityIPGroup::fromMap($item1);
                 }
             }
         }

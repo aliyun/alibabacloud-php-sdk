@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeModifyParameterLogResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeModifyParameterLogResponseBody\items\parameterChangeLog;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameterChangeLog)) {
+            Model::validateArray($this->parameterChangeLog);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterChangeLog) {
-            $res['ParameterChangeLog'] = [];
-            if (null !== $this->parameterChangeLog && \is_array($this->parameterChangeLog)) {
-                $n = 0;
-                foreach ($this->parameterChangeLog as $item) {
-                    $res['ParameterChangeLog'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameterChangeLog)) {
+                $res['ParameterChangeLog'] = [];
+                $n1                        = 0;
+                foreach ($this->parameterChangeLog as $item1) {
+                    $res['ParameterChangeLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterChangeLog'])) {
             if (!empty($map['ParameterChangeLog'])) {
                 $model->parameterChangeLog = [];
-                $n                         = 0;
-                foreach ($map['ParameterChangeLog'] as $item) {
-                    $model->parameterChangeLog[$n++] = null !== $item ? parameterChangeLog::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['ParameterChangeLog'] as $item1) {
+                    $model->parameterChangeLog[$n1++] = parameterChangeLog::fromMap($item1);
                 }
             }
         }

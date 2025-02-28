@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines\supportedEngineVersions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableZonesResponseBody\availableZones\supportedEngines\supportedEngineVersions\supportedCategorys\supportedStorageTypes;
-use AlibabaCloud\Tea\Model;
 
 class supportedCategorys extends Model
 {
     /**
-     * @description The RDS edition of the instance.
-     *
-     * @example HighAvailability
-     *
      * @var string
      */
     public $category;
-
     /**
-     * @description The storage types that are available for purchase.
-     *
      * @var supportedStorageTypes[]
      */
     public $supportedStorageTypes;
@@ -31,20 +24,25 @@ class supportedCategorys extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedStorageTypes)) {
+            Model::validateArray($this->supportedStorageTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->supportedStorageTypes) {
-            $res['SupportedStorageTypes'] = [];
-            if (null !== $this->supportedStorageTypes && \is_array($this->supportedStorageTypes)) {
-                $n = 0;
-                foreach ($this->supportedStorageTypes as $item) {
-                    $res['SupportedStorageTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedStorageTypes)) {
+                $res['SupportedStorageTypes'] = [];
+                $n1                           = 0;
+                foreach ($this->supportedStorageTypes as $item1) {
+                    $res['SupportedStorageTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class supportedCategorys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedCategorys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['SupportedStorageTypes'])) {
             if (!empty($map['SupportedStorageTypes'])) {
                 $model->supportedStorageTypes = [];
-                $n                            = 0;
-                foreach ($map['SupportedStorageTypes'] as $item) {
-                    $model->supportedStorageTypes[$n++] = null !== $item ? supportedStorageTypes::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['SupportedStorageTypes'] as $item1) {
+                    $model->supportedStorageTypes[$n1++] = supportedStorageTypes::fromMap($item1);
                 }
             }
         }

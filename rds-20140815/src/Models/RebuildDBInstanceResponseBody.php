@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebuildDBInstanceResponseBody extends Model
 {
     /**
-     * @description The serial number of the task in the rebuild task queue. When the serial number becomes 0, the system starts to rebuild the secondary instance.
-     *
-     * @example 329****
-     *
      * @var int
      */
     public $migrationId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 355DA57C-8CC4-40AB-B3F8-B684BA32EB9E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The task ID.
-     *
-     * @example 20867****
-     *
      * @var int
      */
     public $taskId;
@@ -42,17 +28,20 @@ class RebuildDBInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->migrationId) {
             $res['MigrationId'] = $this->migrationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +49,22 @@ class RebuildDBInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebuildDBInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MigrationId'])) {
             $model->migrationId = $map['MigrationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

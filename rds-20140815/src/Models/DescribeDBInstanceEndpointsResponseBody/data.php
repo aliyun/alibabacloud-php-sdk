@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEndpointsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEndpointsResponseBody\data\DBInstanceEndpoints;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information of the endpoints of the instance.
-     *
      * @var DBInstanceEndpoints
      */
     public $DBInstanceEndpoints;
-
     /**
-     * @description The name of the instance.
-     *
-     * @example rm-u****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @description The version of the IP protocol. Valid values:
-     *
-     *   **ipv4**
-     *   **ipv6**
-     *
-     * @example ipv4
-     *
      * @var string
      */
     public $ipVersion;
@@ -44,17 +29,23 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->DBInstanceEndpoints) {
+            $this->DBInstanceEndpoints->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceEndpoints) {
-            $res['DBInstanceEndpoints'] = null !== $this->DBInstanceEndpoints ? $this->DBInstanceEndpoints->toMap() : null;
+            $res['DBInstanceEndpoints'] = null !== $this->DBInstanceEndpoints ? $this->DBInstanceEndpoints->toArray($noStream) : $this->DBInstanceEndpoints;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
@@ -62,20 +53,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceEndpoints'])) {
             $model->DBInstanceEndpoints = DBInstanceEndpoints::fromMap($map['DBInstanceEndpoints']);
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }

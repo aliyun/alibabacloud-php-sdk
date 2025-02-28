@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description The IDs of the tasks that are canceled. Multiple task IDs are separated with commas (,).
-     *
-     * @example 188****,188****,188****
-     *
      * @var string
      */
     public $ids;
-
     /**
-     * @description The request ID.
-     *
-     * @example A807C95D-410C-5BB5-96C0-C6E09F2C3D36
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CancelActiveOperationTasksResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CancelActiveOperationTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelActiveOperationTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

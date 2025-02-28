@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCharacterSetNameResponseBody\characterSetNameItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCharacterSetNameResponseBody extends Model
 {
     /**
-     * @description The character sets that are supported.
-     *
      * @var characterSetNameItems
      */
     public $characterSetNameItems;
-
     /**
-     * @description The type of the database engine.
-     *
-     * @example mysql
-     *
      * @var string
      */
     public $engine;
-
     /**
-     * @description The request ID.
-     *
-     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class DescribeCharacterSetNameResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->characterSetNameItems) {
+            $this->characterSetNameItems->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->characterSetNameItems) {
-            $res['CharacterSetNameItems'] = null !== $this->characterSetNameItems ? $this->characterSetNameItems->toMap() : null;
+            $res['CharacterSetNameItems'] = null !== $this->characterSetNameItems ? $this->characterSetNameItems->toArray($noStream) : $this->characterSetNameItems;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class DescribeCharacterSetNameResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCharacterSetNameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CharacterSetNameItems'])) {
             $model->characterSetNameItems = characterSetNameItems::fromMap($map['CharacterSetNameItems']);
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

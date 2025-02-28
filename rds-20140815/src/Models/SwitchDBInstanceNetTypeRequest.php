@@ -4,76 +4,42 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SwitchDBInstanceNetTypeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example ETnLKlblzczshOTUbOCzxxxxxx
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The prefix of the custom endpoint. The prefix must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter. A valid endpoint is in the following format: Prefix.Database engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
-     *
-     * This parameter is required.
-     * @example new**********
-     *
      * @var string
      */
     public $connectionStringPrefix;
-
     /**
-     * @description The type of the endpoint. Valid values:
-     *
-     *   **Normal**
-     *   **ReadWriteSplitting**
-     *
-     * By default, the system returns both types of endpoints.
-     * @example Normal
-     *
      * @var string
      */
     public $connectionStringType;
-
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-bp1**************
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The number of the port that is used to connect to the instance. Valid values: **3001 to 3999**.
-     *
-     * @example 3306
-     *
      * @var string
      */
     public $port;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -92,35 +58,44 @@ class SwitchDBInstanceNetTypeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->connectionStringType) {
             $res['ConnectionStringType'] = $this->connectionStringType;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -128,38 +103,46 @@ class SwitchDBInstanceNetTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SwitchDBInstanceNetTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['ConnectionStringType'])) {
             $model->connectionStringType = $map['ConnectionStringType'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

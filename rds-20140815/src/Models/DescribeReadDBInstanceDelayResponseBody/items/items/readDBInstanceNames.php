@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class readDBInstanceNames extends Model
 {
@@ -18,29 +18,43 @@ class readDBInstanceNames extends Model
 
     public function validate()
     {
+        if (\is_array($this->readDBInstanceName)) {
+            Model::validateArray($this->readDBInstanceName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->readDBInstanceName) {
-            $res['ReadDBInstanceName'] = $this->readDBInstanceName;
+            if (\is_array($this->readDBInstanceName)) {
+                $res['ReadDBInstanceName'] = [];
+                $n1                        = 0;
+                foreach ($this->readDBInstanceName as $item1) {
+                    $res['ReadDBInstanceName'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readDBInstanceNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReadDBInstanceName'])) {
             if (!empty($map['ReadDBInstanceName'])) {
-                $model->readDBInstanceName = $map['ReadDBInstanceName'];
+                $model->readDBInstanceName = [];
+                $n1                        = 0;
+                foreach ($map['ReadDBInstanceName'] as $item1) {
+                    $model->readDBInstanceName[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDatabasesResponseBody extends Model
 {
     /**
-     * @description The information about the databases.
-     *
      * @var databases
      */
     public $databases;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 2603CA96-B17D-4903-BC04-61A2C829CD94
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDatabasesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->databases) {
+            $this->databases->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databases) {
-            $res['Databases'] = null !== $this->databases ? $this->databases->toMap() : null;
+            $res['Databases'] = null !== $this->databases ? $this->databases->toArray($noStream) : $this->databases;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDatabasesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDatabasesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Databases'])) {
             $model->databases = databases::fromMap($map['Databases']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

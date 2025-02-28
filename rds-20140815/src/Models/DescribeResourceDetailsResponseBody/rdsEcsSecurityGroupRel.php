@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceDetailsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rdsEcsSecurityGroupRel extends Model
 {
     /**
-     * @description The name of the security group.
-     *
-     * @example test_switch
-     *
      * @var string
      */
     public $securityGroupName;
@@ -22,9 +18,10 @@ class rdsEcsSecurityGroupRel extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroupName) {
@@ -34,11 +31,11 @@ class rdsEcsSecurityGroupRel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rdsEcsSecurityGroupRel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

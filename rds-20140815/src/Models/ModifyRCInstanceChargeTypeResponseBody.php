@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeResponseBody\feeOfInstances;
-use AlibabaCloud\Tea\Model;
 
 class ModifyRCInstanceChargeTypeResponseBody extends Model
 {
@@ -13,12 +13,10 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
      * @var feeOfInstances
      */
     public $feeOfInstances;
-
     /**
      * @var string
      */
     public $orderId;
-
     /**
      * @var string
      */
@@ -31,17 +29,23 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->feeOfInstances) {
+            $this->feeOfInstances->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feeOfInstances) {
-            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toMap() : null;
+            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toArray($noStream) : $this->feeOfInstances;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,20 +53,22 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyRCInstanceChargeTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeeOfInstances'])) {
             $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

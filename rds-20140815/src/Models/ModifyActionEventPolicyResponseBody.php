@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActionEventPolicyResponseBody extends Model
 {
     /**
-     * @description Indicates whether the event history feature is enabled.
-     *
-     * @example True
-     *
      * @var string
      */
     public $enableEventLog;
-
     /**
-     * @description The ID of the region for which the event history feature is enabled or disabled.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The request ID.
-     *
-     * @example BAC0952C-0EB3-4DE7-A567-B83269BFE43F
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class ModifyActionEventPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableEventLog) {
             $res['EnableEventLog'] = $this->enableEventLog;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class ModifyActionEventPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActionEventPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableEventLog'])) {
             $model->enableEventLog = $map['EnableEventLog'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

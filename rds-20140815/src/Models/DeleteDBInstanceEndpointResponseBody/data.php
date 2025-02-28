@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The endpoint ID of the instance.
-     *
-     * @example ep-****
-     *
      * @var string
      */
     public $DBInstanceEndpointId;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example rm-****
-     *
      * @var string
      */
     public $DBInstanceName;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceEndpointId) {
             $res['DBInstanceEndpointId'] = $this->DBInstanceEndpointId;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceEndpointId'])) {
             $model->DBInstanceEndpointId = $map['DBInstanceEndpointId'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }

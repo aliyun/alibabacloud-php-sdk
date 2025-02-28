@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoForChannelResponseBody\DBInstanceNetInfos\DBInstanceNetInfo\securityIPGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityIPGroup extends Model
 {
     /**
-     * @description The name of the IP address whitelist.
-     *
-     * @example Default
-     *
      * @var string
      */
     public $securityIPGroupName;
-
     /**
-     * @description The IP addresses that is contained in the IP address whitelist.
-     *
-     * @example 127.0.XX.XX
-     *
      * @var string
      */
     public $securityIPs;
@@ -32,14 +23,16 @@ class securityIPGroup extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityIPGroupName) {
             $res['SecurityIPGroupName'] = $this->securityIPGroupName;
         }
+
         if (null !== $this->securityIPs) {
             $res['SecurityIPs'] = $this->securityIPs;
         }
@@ -47,17 +40,18 @@ class securityIPGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityIPGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityIPGroupName'])) {
             $model->securityIPGroupName = $map['SecurityIPGroupName'];
         }
+
         if (isset($map['SecurityIPs'])) {
             $model->securityIPs = $map['SecurityIPs'];
         }

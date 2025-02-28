@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key. You can query N tag keys at a time. Valid values of N: **1** to **20**. The value cannot be an empty string.
-     *
-     * >  You must specify at least one of the **ResourceId** and **Key** parameters.
-     * @example testkey1
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value that is associated with the specified tag key. You can specify N tag values at a time. Valid values of N: **1** to **20**. The value can be an empty string.
-     *
-     * @example testvalue1
-     *
      * @var string
      */
     public $value;
@@ -33,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -48,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

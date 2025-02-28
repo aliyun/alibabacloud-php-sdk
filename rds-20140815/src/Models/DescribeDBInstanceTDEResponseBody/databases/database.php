@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDEResponseBody\databases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class database extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * @example test02
-     *
      * @var string
      */
     public $DBName;
-
     /**
-     * @description The TDE status at the database level. Valid values:
-     *
-     *   **Enabled**
-     *   **Disabled**
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $TDEStatus;
@@ -35,14 +23,16 @@ class database extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
+
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
         }
@@ -50,17 +40,18 @@ class database extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return database
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
+
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
         }

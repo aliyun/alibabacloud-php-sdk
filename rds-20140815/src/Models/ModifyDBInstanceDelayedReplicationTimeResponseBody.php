@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The replication latency of the read-only instance. Unit: seconds.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $readSQLReplicationTime;
-
     /**
-     * @description The request ID.
-     *
-     * @example EFB6083A-7699-489B-8278-C0CB4793A96E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The task ID.
-     *
-     * @example 1715482.0
-     *
      * @var string
      */
     public $taskId;
@@ -52,20 +33,24 @@ class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->readSQLReplicationTime) {
             $res['ReadSQLReplicationTime'] = $this->readSQLReplicationTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -73,23 +58,26 @@ class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceDelayedReplicationTimeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ReadSQLReplicationTime'])) {
             $model->readSQLReplicationTime = $map['ReadSQLReplicationTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

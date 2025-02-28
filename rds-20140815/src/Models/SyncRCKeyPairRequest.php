@@ -4,28 +4,18 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncRCKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair.
-     *
-     * @example customer_keypairs
-     *
      * @var string
      */
     public $keyPairName;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var bool
      */
@@ -38,17 +28,20 @@ class SyncRCKeyPairRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->syncMode) {
             $res['SyncMode'] = $this->syncMode;
         }
@@ -56,20 +49,22 @@ class SyncRCKeyPairRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncRCKeyPairRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SyncMode'])) {
             $model->syncMode = $map['SyncMode'];
         }

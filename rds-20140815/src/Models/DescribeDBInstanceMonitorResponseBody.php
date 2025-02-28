@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBInstanceMonitorResponseBody extends Model
 {
     /**
-     * @description The monitoring frequency. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var string
      */
     public $period;
-
     /**
-     * @description The request ID.
-     *
-     * @example 30829FD4-1A84-4C2A-A625-2EADECB95CA3
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeDBInstanceMonitorResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeDBInstanceMonitorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceMonitorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The start of the time range to which the instance can be restored.
-     *
-     * @example 2020-03-16T07:59:18Z
-     *
      * @var string
      */
     public $recoveryBeginTime;
-
     /**
-     * @description The end of the time range to which the instance can be restored.
-     *
-     * @example 2020-03-20T08:41:29Z
-     *
      * @var string
      */
     public $recoveryEndTime;
-
     /**
-     * @description The request ID.
-     *
-     * @example 14E986AC-0F27-4FFB-8EED-9A8A3A2A0309
-     *
      * @var string
      */
     public $requestId;
@@ -52,20 +33,24 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->recoveryBeginTime) {
             $res['RecoveryBeginTime'] = $this->recoveryBeginTime;
         }
+
         if (null !== $this->recoveryEndTime) {
             $res['RecoveryEndTime'] = $this->recoveryEndTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,23 +58,26 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLocalAvailableRecoveryTimeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['RecoveryBeginTime'])) {
             $model->recoveryBeginTime = $map['RecoveryBeginTime'];
         }
+
         if (isset($map['RecoveryEndTime'])) {
             $model->recoveryEndTime = $map['RecoveryEndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

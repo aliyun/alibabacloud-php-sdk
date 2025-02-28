@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBMiniEngineVersionsResponseBody\minorVersionItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBMiniEngineVersionsResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxRecordsPerPage;
-
     /**
-     * @description The details of the minor engine version.
-     *
      * @var minorVersionItems[]
      */
     public $minorVersionItems;
-
     /**
-     * @description The page number returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumbers;
-
     /**
-     * @description The request ID.
-     *
-     * @example EFB6083A-7699-489B-8278-C0CB4793A96E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -71,32 +44,41 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->minorVersionItems)) {
+            Model::validateArray($this->minorVersionItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->maxRecordsPerPage) {
             $res['MaxRecordsPerPage'] = $this->maxRecordsPerPage;
         }
+
         if (null !== $this->minorVersionItems) {
-            $res['MinorVersionItems'] = [];
-            if (null !== $this->minorVersionItems && \is_array($this->minorVersionItems)) {
-                $n = 0;
-                foreach ($this->minorVersionItems as $item) {
-                    $res['MinorVersionItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->minorVersionItems)) {
+                $res['MinorVersionItems'] = [];
+                $n1                       = 0;
+                foreach ($this->minorVersionItems as $item1) {
+                    $res['MinorVersionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumbers) {
             $res['PageNumbers'] = $this->pageNumbers;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -104,35 +86,40 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBMiniEngineVersionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['MaxRecordsPerPage'])) {
             $model->maxRecordsPerPage = $map['MaxRecordsPerPage'];
         }
+
         if (isset($map['MinorVersionItems'])) {
             if (!empty($map['MinorVersionItems'])) {
                 $model->minorVersionItems = [];
-                $n                        = 0;
-                foreach ($map['MinorVersionItems'] as $item) {
-                    $model->minorVersionItems[$n++] = null !== $item ? minorVersionItems::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['MinorVersionItems'] as $item1) {
+                    $model->minorVersionItems[$n1++] = minorVersionItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumbers'])) {
             $model->pageNumbers = $map['PageNumbers'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

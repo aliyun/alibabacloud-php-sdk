@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The number of unit nodes that are created by calling this operation.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $createMemberCount;
-
     /**
-     * @description The ID of the global active database cluster.
-     *
-     * @example gad-rm-bp1npi2j8********
-     *
      * @var string
      */
     public $gadInstanceName;
-
     /**
-     * @description The task ID.
-     *
-     * @example 5374xxxx
-     *
      * @var string
      */
     public $taskID;
@@ -42,17 +28,20 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createMemberCount) {
             $res['CreateMemberCount'] = $this->createMemberCount;
         }
+
         if (null !== $this->gadInstanceName) {
             $res['GadInstanceName'] = $this->gadInstanceName;
         }
+
         if (null !== $this->taskID) {
             $res['TaskID'] = $this->taskID;
         }
@@ -60,20 +49,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateMemberCount'])) {
             $model->createMemberCount = $map['CreateMemberCount'];
         }
+
         if (isset($map['GadInstanceName'])) {
             $model->gadInstanceName = $map['GadInstanceName'];
         }
+
         if (isset($map['TaskID'])) {
             $model->taskID = $map['TaskID'];
         }

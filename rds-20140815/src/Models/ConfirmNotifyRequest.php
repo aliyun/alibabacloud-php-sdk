@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfirmNotifyRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that is used to confirm the notification. You can set this parameter to **0**, which indicates that the notification is confirmed by the system.
-     *
-     * This parameter is required.
-     * @example 0
-     *
      * @var int
      */
     public $confirmor;
-
     /**
-     * @description The notification IDs.
-     *
-     * This parameter is required.
      * @var int[]
      */
     public $notifyIdList;
@@ -32,35 +23,51 @@ class ConfirmNotifyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifyIdList)) {
+            Model::validateArray($this->notifyIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confirmor) {
             $res['Confirmor'] = $this->confirmor;
         }
+
         if (null !== $this->notifyIdList) {
-            $res['NotifyIdList'] = $this->notifyIdList;
+            if (\is_array($this->notifyIdList)) {
+                $res['NotifyIdList'] = [];
+                $n1                  = 0;
+                foreach ($this->notifyIdList as $item1) {
+                    $res['NotifyIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfirmNotifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confirmor'])) {
             $model->confirmor = $map['Confirmor'];
         }
+
         if (isset($map['NotifyIdList'])) {
             if (!empty($map['NotifyIdList'])) {
-                $model->notifyIdList = $map['NotifyIdList'];
+                $model->notifyIdList = [];
+                $n1                  = 0;
+                foreach ($map['NotifyIdList'] as $item1) {
+                    $model->notifyIdList[$n1++] = $item1;
+                }
             }
         }
 

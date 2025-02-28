@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDisk extends Model
 {
@@ -12,22 +12,18 @@ class systemDisk extends Model
      * @var bool
      */
     public $deleteWithInstance;
-
     /**
      * @var string
      */
     public $encrypted;
-
     /**
      * @var string
      */
     public $systemDiskCategory;
-
     /**
      * @var string
      */
     public $systemDiskPerformanceLevel;
-
     /**
      * @var int
      */
@@ -42,23 +38,28 @@ class systemDisk extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
+
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
+
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
         }
+
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
@@ -66,26 +67,30 @@ class systemDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
+
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
+
         if (isset($map['SystemDiskPerformanceLevel'])) {
             $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
         }
+
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
         }

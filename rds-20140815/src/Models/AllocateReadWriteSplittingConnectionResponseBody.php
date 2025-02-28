@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateReadWriteSplittingConnectionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049166F216
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AllocateReadWriteSplittingConnectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AllocateReadWriteSplittingConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateReadWriteSplittingConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

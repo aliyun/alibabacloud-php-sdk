@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckDBNameAvailableResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * >  If this operation returns only the ID of the request, the database name conforms to the naming conventions. If an error message is returned, the database name is duplicate or does not conform to the naming conventions.
-     * @example 6EF82B07-28D2-48D1-B5D6-7E78FED277C7
-     *
      * @var string
      */
     public $requestId;
@@ -23,9 +18,10 @@ class CheckDBNameAvailableResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -35,11 +31,11 @@ class CheckDBNameAvailableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckDBNameAvailableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,111 +4,47 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDBProxyEndpointAddressRequest extends Model
 {
     /**
-     * @description The prefix of the proxy endpoint Enter a custom prefix.
-     *
-     * This parameter is required.
-     * @example test1234
-     *
      * @var string
      */
     public $connectionStringPrefix;
-
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-t4n3axxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The network type of the proxy endpoint. Valid values:
-     *
-     *   **Public**: Internet
-     *   **VPC**: Virtual Private Cloud (VPC)
-     *   **Classic**: classic network
-     *
-     * Default value: **Classic**
-     *
-     * This parameter is required.
-     * @example Public
-     *
      * @var string
      */
     public $DBProxyConnectStringNetType;
-
     /**
-     * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
-     *
-     * This parameter is required.
-     * @example ta9um4xxxxx
-     *
      * @var string
      */
     public $DBProxyEndpointId;
-
     /**
-     * @description A reserved parameter. You do not need to specify this parameter.
-     *
-     * @example normal
-     *
      * @var string
      */
     public $DBProxyEngineType;
-
     /**
-     * @description The port number that is associated with the proxy endpoint.
-     *
-     *   If the instance runs MySQL, the default value is **3306**.
-     *   If the instance runs PostgreSQL, the default value is **5432**.
-     *
-     * @example 3306
-     *
      * @var string
      */
     public $DBProxyNewConnectStringPort;
-
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmy*****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the DescribeDBInstanceAttribute operation to query the information.
-     *
-     * >  This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
-     * @example vpc-bpxxxxxx
-     *
      * @var string
      */
     public $VPCId;
-
     /**
-     * @description The ID of the vSwitch that is associated with the specified VPC. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
-     *
-     * >  This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
-     * @example vsw-bpxxxxxx
-     *
      * @var string
      */
     public $vSwitchId;
@@ -127,38 +63,48 @@ class CreateDBProxyEndpointAddressRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->DBProxyConnectStringNetType) {
             $res['DBProxyConnectStringNetType'] = $this->DBProxyConnectStringNetType;
         }
+
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
         }
+
         if (null !== $this->DBProxyEngineType) {
             $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
+
         if (null !== $this->DBProxyNewConnectStringPort) {
             $res['DBProxyNewConnectStringPort'] = $this->DBProxyNewConnectStringPort;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -166,41 +112,50 @@ class CreateDBProxyEndpointAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDBProxyEndpointAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DBProxyConnectStringNetType'])) {
             $model->DBProxyConnectStringNetType = $map['DBProxyConnectStringNetType'];
         }
+
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
         }
+
         if (isset($map['DBProxyEngineType'])) {
             $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
+
         if (isset($map['DBProxyNewConnectStringPort'])) {
             $model->DBProxyNewConnectStringPort = $map['DBProxyNewConnectStringPort'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

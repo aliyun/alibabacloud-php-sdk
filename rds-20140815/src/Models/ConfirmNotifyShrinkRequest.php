@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfirmNotifyShrinkRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that is used to confirm the notification. You can set this parameter to **0**, which indicates that the notification is confirmed by the system.
-     *
-     * This parameter is required.
-     * @example 0
-     *
      * @var int
      */
     public $confirmor;
-
     /**
-     * @description The notification IDs.
-     *
-     * This parameter is required.
      * @var string
      */
     public $notifyIdListShrink;
@@ -32,14 +23,16 @@ class ConfirmNotifyShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confirmor) {
             $res['Confirmor'] = $this->confirmor;
         }
+
         if (null !== $this->notifyIdListShrink) {
             $res['NotifyIdList'] = $this->notifyIdListShrink;
         }
@@ -47,17 +40,18 @@ class ConfirmNotifyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfirmNotifyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confirmor'])) {
             $model->confirmor = $map['Confirmor'];
         }
+
         if (isset($map['NotifyIdList'])) {
             $model->notifyIdListShrink = $map['NotifyIdList'];
         }

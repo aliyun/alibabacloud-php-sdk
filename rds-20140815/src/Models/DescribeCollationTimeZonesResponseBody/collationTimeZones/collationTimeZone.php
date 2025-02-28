@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCollationTimeZonesResponseBody\collationTimeZones;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class collationTimeZone extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example Kabul
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The offset of the UTC time. The offset is in the following format: (UTC+*HH:mm*).
-     *
-     * @example (UTC+04:30)
-     *
      * @var string
      */
     public $standardTimeOffset;
-
     /**
-     * @description The time zone.
-     *
-     * @example Afghanistan Standard Time
-     *
      * @var string
      */
     public $timeZone;
@@ -42,17 +28,20 @@ class collationTimeZone extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->standardTimeOffset) {
             $res['StandardTimeOffset'] = $this->standardTimeOffset;
         }
+
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
@@ -60,20 +49,22 @@ class collationTimeZone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return collationTimeZone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['StandardTimeOffset'])) {
             $model->standardTimeOffset = $map['StandardTimeOffset'];
         }
+
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }

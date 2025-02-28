@@ -4,71 +4,37 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigResponseBody\defaultHbaItems;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigResponseBody\runningHbaItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribePGHbaConfigResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-bp1*****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The default configuration items of the pg_hba.conf file.
-     *
      * @var defaultHbaItems
      */
     public $defaultHbaItems;
-
     /**
-     * @description The time when the previous modification was made to the pg_hba.conf file.
-     *
-     * @example 2021-11-25T06:00:40Z
-     *
      * @var string
      */
     public $hbaModifyTime;
-
     /**
-     * @description The status of the previous modification to the pg_hba.conf file. Valid values:
-     *
-     *   **success**
-     *   **setting**
-     *   **failed**
-     *
-     * @example success
-     *
      * @var string
      */
     public $lastModifyStatus;
-
     /**
-     * @description The reason why the previous modification was made to the pg_hba.conf file.
-     *
-     * @example The specified users (testuser) is not exist.
-     *
      * @var string
      */
     public $modifyStatusReason;
-
     /**
-     * @description The request ID.
-     *
-     * @example A147A124-A147-5CCF-9609-B73C028848DF
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The current configuration items of the pg_hba.conf file.
-     *
      * @var runningHbaItems
      */
     public $runningHbaItems;
@@ -84,62 +50,81 @@ class DescribePGHbaConfigResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->defaultHbaItems) {
+            $this->defaultHbaItems->validate();
+        }
+        if (null !== $this->runningHbaItems) {
+            $this->runningHbaItems->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->defaultHbaItems) {
-            $res['DefaultHbaItems'] = null !== $this->defaultHbaItems ? $this->defaultHbaItems->toMap() : null;
+            $res['DefaultHbaItems'] = null !== $this->defaultHbaItems ? $this->defaultHbaItems->toArray($noStream) : $this->defaultHbaItems;
         }
+
         if (null !== $this->hbaModifyTime) {
             $res['HbaModifyTime'] = $this->hbaModifyTime;
         }
+
         if (null !== $this->lastModifyStatus) {
             $res['LastModifyStatus'] = $this->lastModifyStatus;
         }
+
         if (null !== $this->modifyStatusReason) {
             $res['ModifyStatusReason'] = $this->modifyStatusReason;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->runningHbaItems) {
-            $res['RunningHbaItems'] = null !== $this->runningHbaItems ? $this->runningHbaItems->toMap() : null;
+            $res['RunningHbaItems'] = null !== $this->runningHbaItems ? $this->runningHbaItems->toArray($noStream) : $this->runningHbaItems;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePGHbaConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DefaultHbaItems'])) {
             $model->defaultHbaItems = defaultHbaItems::fromMap($map['DefaultHbaItems']);
         }
+
         if (isset($map['HbaModifyTime'])) {
             $model->hbaModifyTime = $map['HbaModifyTime'];
         }
+
         if (isset($map['LastModifyStatus'])) {
             $model->lastModifyStatus = $map['LastModifyStatus'];
         }
+
         if (isset($map['ModifyStatusReason'])) {
             $model->modifyStatusReason = $map['ModifyStatusReason'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RunningHbaItems'])) {
             $model->runningHbaItems = runningHbaItems::fromMap($map['RunningHbaItems']);
         }

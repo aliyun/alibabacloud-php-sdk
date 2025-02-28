@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrantOperatorPermissionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 842B73C8-5776-4BD9-9872-69C8C46DD7D3
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class GrantOperatorPermissionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class GrantOperatorPermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrantOperatorPermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

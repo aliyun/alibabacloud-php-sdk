@@ -4,33 +4,18 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteReplicationLinkRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example pgm-bp1trqb4p1xd****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description Specifies whether to promote the disaster recovery instance to the primary instance. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * This parameter is required.
-     * @example true
-     *
      * @var bool
      */
     public $promoteToMaster;
-
     /**
      * @var int
      */
@@ -43,17 +28,20 @@ class DeleteReplicationLinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->promoteToMaster) {
             $res['PromoteToMaster'] = $this->promoteToMaster;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -61,20 +49,22 @@ class DeleteReplicationLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteReplicationLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['PromoteToMaster'])) {
             $model->promoteToMaster = $map['PromoteToMaster'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

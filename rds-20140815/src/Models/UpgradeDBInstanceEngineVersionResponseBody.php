@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeDBInstanceEngineVersionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the task.
-     *
-     * @example 10254125
-     *
      * @var string
      */
     public $taskId;
@@ -32,14 +23,16 @@ class UpgradeDBInstanceEngineVersionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -47,17 +40,18 @@ class UpgradeDBInstanceEngineVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeDBInstanceEngineVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

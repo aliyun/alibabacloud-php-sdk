@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyPerformanceResponseBody\performanceKeys\performanceKey;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyPerformanceResponseBody\performanceKeys\performanceKey\values\performanceValue;
-use AlibabaCloud\Tea\Model;
 
 class values extends Model
 {
@@ -19,17 +19,21 @@ class values extends Model
 
     public function validate()
     {
+        if (\is_array($this->performanceValue)) {
+            Model::validateArray($this->performanceValue);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->performanceValue) {
-            $res['PerformanceValue'] = [];
-            if (null !== $this->performanceValue && \is_array($this->performanceValue)) {
-                $n = 0;
-                foreach ($this->performanceValue as $item) {
-                    $res['PerformanceValue'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->performanceValue)) {
+                $res['PerformanceValue'] = [];
+                $n1                      = 0;
+                foreach ($this->performanceValue as $item1) {
+                    $res['PerformanceValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PerformanceValue'])) {
             if (!empty($map['PerformanceValue'])) {
                 $model->performanceValue = [];
-                $n                       = 0;
-                foreach ($map['PerformanceValue'] as $item) {
-                    $model->performanceValue[$n++] = null !== $item ? performanceValue::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['PerformanceValue'] as $item1) {
+                    $model->performanceValue[$n1++] = performanceValue::fromMap($item1);
                 }
             }
         }

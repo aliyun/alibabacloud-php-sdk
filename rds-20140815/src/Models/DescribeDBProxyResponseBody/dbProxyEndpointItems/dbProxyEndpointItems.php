@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dbProxyEndpointItems extends Model
 {
     /**
-     * @description The description of the database proxy endpoint.
-     *
-     * @example proxy-test
-     *
      * @var string
      */
     public $dbProxyEndpointAliases;
-
     /**
-     * @description The ID of the database proxy endpoint.
-     *
-     * @example gos787jog2wk0ye1****
-     *
      * @var string
      */
     public $dbProxyEndpointName;
-
     /**
-     * @description The type of the database proxy endpoint. Valid values:
-     *
-     *   Custom: custom database proxy endpoint
-     *   RWSplit: default database proxy endpoint
-     *
-     * @example RWSplit
-     *
      * @var string
      */
     public $dbProxyEndpointType;
-
     /**
-     * @description The read and write attributes of the database proxy endpoint.
-     *
-     *   ReadOnly
-     *   ReadWrite
-     *
-     * @example ReadWrite
-     *
      * @var string
      */
     public $dbProxyReadWriteMode;
@@ -58,20 +33,24 @@ class dbProxyEndpointItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbProxyEndpointAliases) {
             $res['DbProxyEndpointAliases'] = $this->dbProxyEndpointAliases;
         }
+
         if (null !== $this->dbProxyEndpointName) {
             $res['DbProxyEndpointName'] = $this->dbProxyEndpointName;
         }
+
         if (null !== $this->dbProxyEndpointType) {
             $res['DbProxyEndpointType'] = $this->dbProxyEndpointType;
         }
+
         if (null !== $this->dbProxyReadWriteMode) {
             $res['DbProxyReadWriteMode'] = $this->dbProxyReadWriteMode;
         }
@@ -79,23 +58,26 @@ class dbProxyEndpointItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dbProxyEndpointItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbProxyEndpointAliases'])) {
             $model->dbProxyEndpointAliases = $map['DbProxyEndpointAliases'];
         }
+
         if (isset($map['DbProxyEndpointName'])) {
             $model->dbProxyEndpointName = $map['DbProxyEndpointName'];
         }
+
         if (isset($map['DbProxyEndpointType'])) {
             $model->dbProxyEndpointType = $map['DbProxyEndpointType'];
         }
+
         if (isset($map['DbProxyReadWriteMode'])) {
             $model->dbProxyReadWriteMode = $map['DbProxyReadWriteMode'];
         }

@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRCInstancesResponseBody extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The details of the instance.
-     *
      * @var RCInstances[]
      */
     public $RCInstances;
-
     /**
-     * @description The request ID.
-     *
-     * @example E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -61,29 +39,37 @@ class DescribeRCInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->RCInstances)) {
+            Model::validateArray($this->RCInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->RCInstances) {
-            $res['RCInstances'] = [];
-            if (null !== $this->RCInstances && \is_array($this->RCInstances)) {
-                $n = 0;
-                foreach ($this->RCInstances as $item) {
-                    $res['RCInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->RCInstances)) {
+                $res['RCInstances'] = [];
+                $n1                 = 0;
+                foreach ($this->RCInstances as $item1) {
+                    $res['RCInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +77,36 @@ class DescribeRCInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRCInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RCInstances'])) {
             if (!empty($map['RCInstances'])) {
                 $model->RCInstances = [];
-                $n                  = 0;
-                foreach ($map['RCInstances'] as $item) {
-                    $model->RCInstances[$n++] = null !== $item ? RCInstances::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['RCInstances'] as $item1) {
+                    $model->RCInstances[$n1++] = RCInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

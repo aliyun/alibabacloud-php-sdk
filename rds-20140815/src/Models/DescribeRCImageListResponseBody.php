@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListResponseBody\images;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRCImageListResponseBody extends Model
 {
     /**
-     * @description The information about the images.
-     *
      * @var images[]
      */
     public $images;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2553A660-E4EB-4AF4-A402-8AFF70A49143
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of images.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -71,32 +44,41 @@ class DescribeRCImageListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->images)) {
+            Model::validateArray($this->images);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->images)) {
+                $res['Images'] = [];
+                $n1            = 0;
+                foreach ($this->images as $item1) {
+                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -104,35 +86,40 @@ class DescribeRCImageListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRCImageListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Images'] as $item1) {
+                    $model->images[$n1++] = images::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

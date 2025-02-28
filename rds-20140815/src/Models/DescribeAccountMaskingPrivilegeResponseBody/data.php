@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountMaskingPrivilegeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountMaskingPrivilegeResponseBody\data\userPrivilege;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->userPrivilege)) {
+            Model::validateArray($this->userPrivilege);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userPrivilege) {
-            $res['UserPrivilege'] = [];
-            if (null !== $this->userPrivilege && \is_array($this->userPrivilege)) {
-                $n = 0;
-                foreach ($this->userPrivilege as $item) {
-                    $res['UserPrivilege'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userPrivilege)) {
+                $res['UserPrivilege'] = [];
+                $n1                   = 0;
+                foreach ($this->userPrivilege as $item1) {
+                    $res['UserPrivilege'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserPrivilege'])) {
             if (!empty($map['UserPrivilege'])) {
                 $model->userPrivilege = [];
-                $n                    = 0;
-                foreach ($map['UserPrivilege'] as $item) {
-                    $model->userPrivilege[$n++] = null !== $item ? userPrivilege::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['UserPrivilege'] as $item1) {
+                    $model->userPrivilege[$n1++] = userPrivilege::fromMap($item1);
                 }
             }
         }

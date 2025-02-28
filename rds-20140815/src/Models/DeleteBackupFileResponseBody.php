@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupFileResponseBody\deletedBaksetIds;
-use AlibabaCloud\Tea\Model;
 
 class DeleteBackupFileResponseBody extends Model
 {
     /**
-     * @description An array that consists of the IDs of deleted backup sets.
-     *
      * @var deletedBaksetIds
      */
     public $deletedBaksetIds;
-
     /**
-     * @description The request ID.
-     *
-     * @example C7B3A91C-0ACD-4948-ACAE-xxxxxxxD4069
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeleteBackupFileResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->deletedBaksetIds) {
+            $this->deletedBaksetIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deletedBaksetIds) {
-            $res['DeletedBaksetIds'] = null !== $this->deletedBaksetIds ? $this->deletedBaksetIds->toMap() : null;
+            $res['DeletedBaksetIds'] = null !== $this->deletedBaksetIds ? $this->deletedBaksetIds->toArray($noStream) : $this->deletedBaksetIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeleteBackupFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeletedBaksetIds'])) {
             $model->deletedBaksetIds = deletedBaksetIds::fromMap($map['DeletedBaksetIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

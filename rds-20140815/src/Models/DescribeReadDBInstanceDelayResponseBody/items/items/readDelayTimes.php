@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class readDelayTimes extends Model
 {
@@ -18,29 +18,43 @@ class readDelayTimes extends Model
 
     public function validate()
     {
+        if (\is_array($this->readDelayTime)) {
+            Model::validateArray($this->readDelayTime);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->readDelayTime) {
-            $res['ReadDelayTime'] = $this->readDelayTime;
+            if (\is_array($this->readDelayTime)) {
+                $res['ReadDelayTime'] = [];
+                $n1                   = 0;
+                foreach ($this->readDelayTime as $item1) {
+                    $res['ReadDelayTime'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readDelayTimes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReadDelayTime'])) {
             if (!empty($map['ReadDelayTime'])) {
-                $model->readDelayTime = $map['ReadDelayTime'];
+                $model->readDelayTime = [];
+                $n1                   = 0;
+                foreach ($map['ReadDelayTime'] as $item1) {
+                    $model->readDelayTime[$n1++] = $item1;
+                }
             }
         }
 

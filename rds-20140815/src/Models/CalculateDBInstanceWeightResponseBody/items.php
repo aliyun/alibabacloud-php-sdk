@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponseBody\items\DBInstanceWeight;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBInstanceWeight)) {
+            Model::validateArray($this->DBInstanceWeight);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceWeight) {
-            $res['DBInstanceWeight'] = [];
-            if (null !== $this->DBInstanceWeight && \is_array($this->DBInstanceWeight)) {
-                $n = 0;
-                foreach ($this->DBInstanceWeight as $item) {
-                    $res['DBInstanceWeight'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBInstanceWeight)) {
+                $res['DBInstanceWeight'] = [];
+                $n1                      = 0;
+                foreach ($this->DBInstanceWeight as $item1) {
+                    $res['DBInstanceWeight'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceWeight'])) {
             if (!empty($map['DBInstanceWeight'])) {
                 $model->DBInstanceWeight = [];
-                $n                       = 0;
-                foreach ($map['DBInstanceWeight'] as $item) {
-                    $model->DBInstanceWeight[$n++] = null !== $item ? DBInstanceWeight::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['DBInstanceWeight'] as $item1) {
+                    $model->DBInstanceWeight[$n1++] = DBInstanceWeight::fromMap($item1);
                 }
             }
         }

@@ -4,115 +4,51 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateReplicationLinkRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example pgm-bp1trqb4p1xd****
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
-     *
-     *   **true**: performs a dry run but does not create the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the instance is created.
-     *
-     * This parameter is required.
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description The account of the database that is used for data synchronization.
-     *
-     * @example testdbuser
-     *
      * @var string
      */
     public $replicatorAccount;
-
     /**
-     * @description The password of the account.
-     *
-     * @example testpassword
-     *
      * @var string
      */
     public $replicatorPassword;
-
     /**
-     * @description The endpoint of the source instance.
-     *
-     * @example pgm-****.pg.rds.aliyuncs.com
-     *
      * @var string
      */
     public $sourceAddress;
-
     /**
-     * @description The type of the source instance. Valid values:
-     *
-     *   **other**: other instances
-     *   **aliyunRDS**: an ApsaraDB RDS instance
-     *
-     * @example aliyunRDS
-     *
      * @var string
      */
     public $sourceCategory;
-
     /**
-     * @description The name of the source instance.
-     *
-     * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
-     * @example testInstance
-     *
      * @var string
      */
     public $sourceInstanceName;
-
     /**
-     * @description The region ID of the source instance.
-     *
-     * >  This parameter is required when you set the **SourceCategory** parameter to **aliyunRDS**.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $sourceInstanceRegionId;
-
     /**
-     * @description The port of the source instance.
-     *
-     * @example 5432
-     *
      * @var int
      */
     public $sourcePort;
-
     /**
-     * @description The task ID of the successful dry run.
-     *
-     * @example 439946016
-     *
      * @var int
      */
     public $taskId;
-
     /**
-     * @description The name of the task. You can specify a custom task name. If you do not specify this parameter, ApsaraDB RDS automatically generates a task name.
-     *
-     * @example test01
-     *
      * @var string
      */
     public $taskName;
@@ -132,41 +68,52 @@ class CreateReplicationLinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->replicatorAccount) {
             $res['ReplicatorAccount'] = $this->replicatorAccount;
         }
+
         if (null !== $this->replicatorPassword) {
             $res['ReplicatorPassword'] = $this->replicatorPassword;
         }
+
         if (null !== $this->sourceAddress) {
             $res['SourceAddress'] = $this->sourceAddress;
         }
+
         if (null !== $this->sourceCategory) {
             $res['SourceCategory'] = $this->sourceCategory;
         }
+
         if (null !== $this->sourceInstanceName) {
             $res['SourceInstanceName'] = $this->sourceInstanceName;
         }
+
         if (null !== $this->sourceInstanceRegionId) {
             $res['SourceInstanceRegionId'] = $this->sourceInstanceRegionId;
         }
+
         if (null !== $this->sourcePort) {
             $res['SourcePort'] = $this->sourcePort;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -174,44 +121,54 @@ class CreateReplicationLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateReplicationLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['ReplicatorAccount'])) {
             $model->replicatorAccount = $map['ReplicatorAccount'];
         }
+
         if (isset($map['ReplicatorPassword'])) {
             $model->replicatorPassword = $map['ReplicatorPassword'];
         }
+
         if (isset($map['SourceAddress'])) {
             $model->sourceAddress = $map['SourceAddress'];
         }
+
         if (isset($map['SourceCategory'])) {
             $model->sourceCategory = $map['SourceCategory'];
         }
+
         if (isset($map['SourceInstanceName'])) {
             $model->sourceInstanceName = $map['SourceInstanceName'];
         }
+
         if (isset($map['SourceInstanceRegionId'])) {
             $model->sourceInstanceRegionId = $map['SourceInstanceRegionId'];
         }
+
         if (isset($map['SourcePort'])) {
             $model->sourcePort = $map['SourcePort'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

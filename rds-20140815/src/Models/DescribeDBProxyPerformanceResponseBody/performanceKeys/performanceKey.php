@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyPerformanceResponseBody\performanceKeys;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyPerformanceResponseBody\performanceKeys\performanceKey\values;
-use AlibabaCloud\Tea\Model;
 
 class performanceKey extends Model
 {
     /**
-     * @description The performance parameter.
-     *
-     * @example cpu_ratio
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The service dimension.
-     *
-     * @example reserve_3
-     *
      * @var string
      */
     public $service;
-
     /**
-     * @description The format in which the value of the performance metric is returned.
-     *
-     * @example docker_container_cpu
-     *
      * @var string
      */
     public $valueFormat;
-
     /**
-     * @description The performance metrics.
-     *
      * @var values
      */
     public $values;
@@ -51,44 +34,54 @@ class performanceKey extends Model
 
     public function validate()
     {
+        if (null !== $this->values) {
+            $this->values->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
+
         if (null !== $this->valueFormat) {
             $res['ValueFormat'] = $this->valueFormat;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = null !== $this->values ? $this->values->toMap() : null;
+            $res['Values'] = null !== $this->values ? $this->values->toArray($noStream) : $this->values;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
+
         if (isset($map['ValueFormat'])) {
             $model->valueFormat = $map['ValueFormat'];
         }
+
         if (isset($map['Values'])) {
             $model->values = values::fromMap($map['Values']);
         }

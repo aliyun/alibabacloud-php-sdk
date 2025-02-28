@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesAsCsvResponseBody\items\DBInstanceAttribute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slaveZones extends Model
 {
@@ -18,29 +18,43 @@ class slaveZones extends Model
 
     public function validate()
     {
+        if (\is_array($this->slaveRegion)) {
+            Model::validateArray($this->slaveRegion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slaveRegion) {
-            $res['slaveRegion'] = $this->slaveRegion;
+            if (\is_array($this->slaveRegion)) {
+                $res['slaveRegion'] = [];
+                $n1                 = 0;
+                foreach ($this->slaveRegion as $item1) {
+                    $res['slaveRegion'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slaveZones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['slaveRegion'])) {
             if (!empty($map['slaveRegion'])) {
-                $model->slaveRegion = $map['slaveRegion'];
+                $model->slaveRegion = [];
+                $n1                 = 0;
+                foreach ($map['slaveRegion'] as $item1) {
+                    $model->slaveRegion[$n1++] = $item1;
+                }
             }
         }
 

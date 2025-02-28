@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class createAckEdgeParam extends Model
 {
@@ -12,7 +12,6 @@ class createAckEdgeParam extends Model
      * @var string
      */
     public $clusterId;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class createAckEdgeParam extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->nodePoolId) {
             $res['NodePoolId'] = $this->nodePoolId;
         }
@@ -39,17 +40,18 @@ class createAckEdgeParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createAckEdgeParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NodePoolId'])) {
             $model->nodePoolId = $map['NodePoolId'];
         }

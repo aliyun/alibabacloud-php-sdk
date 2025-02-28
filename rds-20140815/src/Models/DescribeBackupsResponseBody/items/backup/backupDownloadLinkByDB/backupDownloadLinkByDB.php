@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupsResponseBody\items\backup\backupDownloadLinkByDB;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backupDownloadLinkByDB extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * @example dbs
-     *
      * @var string
      */
     public $dataBase;
-
     /**
-     * @description The public URL from which you can download the backup set.
-     *
-     * @example https://cn-hangzhou.bak.rds.aliyuncs.com/custins53664665/hins18676859_2021072909473127987849.zip?Expires=*****&dbList=tb1
-     *
      * @var string
      */
     public $downloadLink;
-
     /**
-     * @description The internal URL from which you can download the backup set.
-     *
-     * @example https://cn-hangzhou-internal.bak.rds.aliyuncs.com/custins53664665/hins18676859_2021072909473127987849.zip?Expires=*****&dbList=tb1
-     *
      * @var string
      */
     public $intranetDownloadLink;
@@ -42,17 +28,20 @@ class backupDownloadLinkByDB extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataBase) {
             $res['DataBase'] = $this->dataBase;
         }
+
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
+
         if (null !== $this->intranetDownloadLink) {
             $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
         }
@@ -60,20 +49,22 @@ class backupDownloadLinkByDB extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupDownloadLinkByDB
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataBase'])) {
             $model->dataBase = $map['DataBase'];
         }
+
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
+
         if (isset($map['IntranetDownloadLink'])) {
             $model->intranetDownloadLink = $map['IntranetDownloadLink'];
         }

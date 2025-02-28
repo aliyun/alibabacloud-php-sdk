@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RebuildReplicationLinkRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example pgm-bp1trqb4p1xd****
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -23,9 +18,10 @@ class RebuildReplicationLinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
@@ -35,11 +31,11 @@ class RebuildReplicationLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RebuildReplicationLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

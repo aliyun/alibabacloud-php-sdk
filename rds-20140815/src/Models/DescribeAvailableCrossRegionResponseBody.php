@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAvailableCrossRegionResponseBody extends Model
 {
     /**
-     * @description An array that consists of destination regions for cross-region backups.
-     *
      * @var regions
      */
     public $regions;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 39265F46-EC77-4036-8AC4-F035F32F6BE2
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeAvailableCrossRegionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->regions) {
+            $this->regions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
+            $res['Regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeAvailableCrossRegionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableCrossRegionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             $model->regions = regions::fromMap($map['Regions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

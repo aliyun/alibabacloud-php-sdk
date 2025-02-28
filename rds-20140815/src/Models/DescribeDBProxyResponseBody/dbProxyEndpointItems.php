@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems\dbProxyEndpointItems;
 
 class dbProxyEndpointItems extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems\dbProxyEndpointItems[]
+     * @var dbProxyEndpointItems[]
      */
     public $dbProxyEndpointItems;
     protected $_name = [
@@ -18,17 +19,21 @@ class dbProxyEndpointItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->dbProxyEndpointItems)) {
+            Model::validateArray($this->dbProxyEndpointItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbProxyEndpointItems) {
-            $res['DbProxyEndpointItems'] = [];
-            if (null !== $this->dbProxyEndpointItems && \is_array($this->dbProxyEndpointItems)) {
-                $n = 0;
-                foreach ($this->dbProxyEndpointItems as $item) {
-                    $res['DbProxyEndpointItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dbProxyEndpointItems)) {
+                $res['DbProxyEndpointItems'] = [];
+                $n1                          = 0;
+                foreach ($this->dbProxyEndpointItems as $item1) {
+                    $res['DbProxyEndpointItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class dbProxyEndpointItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dbProxyEndpointItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbProxyEndpointItems'])) {
             if (!empty($map['DbProxyEndpointItems'])) {
                 $model->dbProxyEndpointItems = [];
-                $n                           = 0;
-                foreach ($map['DbProxyEndpointItems'] as $item) {
-                    $model->dbProxyEndpointItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems\dbProxyEndpointItems::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['DbProxyEndpointItems'] as $item1) {
+                    $model->dbProxyEndpointItems[$n1++] = self::fromMap($item1);
                 }
             }
         }

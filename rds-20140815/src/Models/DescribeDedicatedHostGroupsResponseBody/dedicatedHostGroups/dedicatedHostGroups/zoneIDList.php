@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostGroupsResponseBody\dedicatedHostGroups\dedicatedHostGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zoneIDList extends Model
 {
@@ -18,29 +18,43 @@ class zoneIDList extends Model
 
     public function validate()
     {
+        if (\is_array($this->zoneIDList)) {
+            Model::validateArray($this->zoneIDList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zoneIDList) {
-            $res['ZoneIDList'] = $this->zoneIDList;
+            if (\is_array($this->zoneIDList)) {
+                $res['ZoneIDList'] = [];
+                $n1                = 0;
+                foreach ($this->zoneIDList as $item1) {
+                    $res['ZoneIDList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneIDList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ZoneIDList'])) {
             if (!empty($map['ZoneIDList'])) {
-                $model->zoneIDList = $map['ZoneIDList'];
+                $model->zoneIDList = [];
+                $n1                = 0;
+                foreach ($map['ZoneIDList'] as $item1) {
+                    $model->zoneIDList[$n1++] = $item1;
+                }
             }
         }
 

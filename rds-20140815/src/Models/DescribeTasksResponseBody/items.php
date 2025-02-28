@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTasksResponseBody\items\taskProgressInfo;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskProgressInfo)) {
+            Model::validateArray($this->taskProgressInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskProgressInfo) {
-            $res['TaskProgressInfo'] = [];
-            if (null !== $this->taskProgressInfo && \is_array($this->taskProgressInfo)) {
-                $n = 0;
-                foreach ($this->taskProgressInfo as $item) {
-                    $res['TaskProgressInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskProgressInfo)) {
+                $res['TaskProgressInfo'] = [];
+                $n1                      = 0;
+                foreach ($this->taskProgressInfo as $item1) {
+                    $res['TaskProgressInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskProgressInfo'])) {
             if (!empty($map['TaskProgressInfo'])) {
                 $model->taskProgressInfo = [];
-                $n                       = 0;
-                foreach ($map['TaskProgressInfo'] as $item) {
-                    $model->taskProgressInfo[$n++] = null !== $item ? taskProgressInfo::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['TaskProgressInfo'] as $item1) {
+                    $model->taskProgressInfo[$n1++] = taskProgressInfo::fromMap($item1);
                 }
             }
         }

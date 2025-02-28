@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponseBody\priceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class activityInfo extends Model
 {
     /**
-     * @description The returned message.
-     *
-     * @example Error description
-     *
      * @var string
      */
     public $checkErrMsg;
-
     /**
-     * @description The error code that is returned.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $success;
@@ -42,17 +28,20 @@ class activityInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkErrMsg) {
             $res['CheckErrMsg'] = $this->checkErrMsg;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -60,20 +49,22 @@ class activityInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return activityInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckErrMsg'])) {
             $model->checkErrMsg = $map['CheckErrMsg'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

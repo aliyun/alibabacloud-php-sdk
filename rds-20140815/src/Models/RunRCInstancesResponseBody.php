@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesResponseBody\instanceIdSets;
-use AlibabaCloud\Tea\Model;
 
 class RunRCInstancesResponseBody extends Model
 {
     /**
-     * @description The instance IDs (InstanceIdSet).
-     *
      * @var instanceIdSets
      */
     public $instanceIdSets;
-
     /**
-     * @description The order ID.
-     *
-     * @example 237850846720798
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 535BD857-E88F-5B4F-A18C-FAF59A74741F
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class RunRCInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instanceIdSets) {
+            $this->instanceIdSets->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIdSets) {
-            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toMap() : null;
+            $res['InstanceIdSets'] = null !== $this->instanceIdSets ? $this->instanceIdSets->toArray($noStream) : $this->instanceIdSets;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class RunRCInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunRCInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIdSets'])) {
             $model->instanceIdSets = instanceIdSets::fromMap($map['InstanceIdSets']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

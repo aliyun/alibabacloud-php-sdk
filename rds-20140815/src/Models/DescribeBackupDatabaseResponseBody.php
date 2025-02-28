@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupDatabaseResponseBody extends Model
 {
     /**
-     * @description The name of the database. Format: "db1,db2".
-     *
-     * @example db1,db2
-     *
      * @var string
      */
     public $databaseNames;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeBackupDatabaseResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseNames) {
             $res['DatabaseNames'] = $this->databaseNames;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeBackupDatabaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupDatabaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseNames'])) {
             $model->databaseNames = $map['DatabaseNames'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

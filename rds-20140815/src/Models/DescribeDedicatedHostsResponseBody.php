@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description The host group ID.
-     *
-     * @example dhg-7a9xxxxxxxx
-     *
      * @var string
      */
     public $dedicatedHostGroupId;
-
     /**
-     * @description The host information.
-     *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
-
     /**
-     * @description The request ID.
-     *
-     * @example C860658E-68A6-46C1-AF6E-3AE7C4D3CACF
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class DescribeDedicatedHostsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dedicatedHosts) {
+            $this->dedicatedHosts->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostGroupId) {
             $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
         }
+
         if (null !== $this->dedicatedHosts) {
-            $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toMap() : null;
+            $res['DedicatedHosts'] = null !== $this->dedicatedHosts ? $this->dedicatedHosts->toArray($noStream) : $this->dedicatedHosts;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class DescribeDedicatedHostsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedHostsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostGroupId'])) {
             $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
         }
+
         if (isset($map['DedicatedHosts'])) {
             $model->dedicatedHosts = dedicatedHosts::fromMap($map['DedicatedHosts']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

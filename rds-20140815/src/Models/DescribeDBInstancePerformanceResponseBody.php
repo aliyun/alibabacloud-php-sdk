@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancePerformanceResponseBody\performanceKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rm-uf6wjk5xxxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
-     * @description The end time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-     *
-     * @example 2012-06-19T15:00Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The database engine of the instance.
-     *
-     * @example MySQL
-     *
      * @var string
      */
     public $engine;
-
     /**
-     * @description Details of the performance metrics.
-     *
      * @var performanceKeys
      */
     public $performanceKeys;
-
     /**
-     * @description The request ID.
-     *
-     * @example A5409D02-D661-4BF3-8F3D-0A814D0574E7
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The start time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-     *
-     * @example 2012-06-10T15:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -71,26 +44,35 @@ class DescribeDBInstancePerformanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->performanceKeys) {
+            $this->performanceKeys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toArray($noStream) : $this->performanceKeys;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -98,29 +80,34 @@ class DescribeDBInstancePerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstancePerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['PerformanceKeys'])) {
             $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterGroupResponseBody\relatedCustinsInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedCustinsInfo extends Model
 {
     /**
-     * @description The time when the parameter template was applied.
-     *
-     * @example 2022-10-17T03:19:02Z
-     *
      * @var string
      */
     public $appliedTime;
-
     /**
-     * @description The instance ID.
-     *
-     * @example rm-bp170****
-     *
      * @var string
      */
     public $DBInstanceName;
@@ -32,14 +23,16 @@ class relatedCustinsInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appliedTime) {
             $res['AppliedTime'] = $this->appliedTime;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
@@ -47,17 +40,18 @@ class relatedCustinsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedCustinsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppliedTime'])) {
             $model->appliedTime = $map['AppliedTime'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }

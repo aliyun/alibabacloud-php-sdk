@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems;
 
 class eventItems extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems[]
+     * @var eventItems[]
      */
     public $eventItems;
     protected $_name = [
@@ -18,17 +19,21 @@ class eventItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->eventItems)) {
+            Model::validateArray($this->eventItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventItems) {
-            $res['EventItems'] = [];
-            if (null !== $this->eventItems && \is_array($this->eventItems)) {
-                $n = 0;
-                foreach ($this->eventItems as $item) {
-                    $res['EventItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventItems)) {
+                $res['EventItems'] = [];
+                $n1                = 0;
+                foreach ($this->eventItems as $item1) {
+                    $res['EventItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class eventItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventItems'])) {
             if (!empty($map['EventItems'])) {
                 $model->eventItems = [];
-                $n                 = 0;
-                foreach ($map['EventItems'] as $item) {
-                    $model->eventItems[$n++] = null !== $item ? \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeEventsResponseBody\eventItems\eventItems::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['EventItems'] as $item1) {
+                    $model->eventItems[$n1++] = self::fromMap($item1);
                 }
             }
         }

@@ -4,58 +4,34 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceNetworkExpireTimeRequest extends Model
 {
     /**
-     * @description The retention days of the classic network endpoint. Valid values: **1 to 120**. Unit: days.
-     *
-     * This parameter is required.
-     * @example 7
-     *
      * @var int
      */
     public $classicExpiredDays;
-
     /**
-     * @description The classic network endpoint whose expiration time you want to extend. Two types of classic network endpoints are supported:
-     *
-     *   The internal endpoint of the classic network.
-     *   The read/write splitting endpoint of the classic network.
-     *
-     * This parameter is required.
-     * @example rm-uf6wjk5xxxxx.mysql.rds.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
-
     /**
-     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example rm-uf6wjk5xxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -72,29 +48,36 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classicExpiredDays) {
             $res['ClassicExpiredDays'] = $this->classicExpiredDays;
         }
+
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -102,32 +85,38 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceNetworkExpireTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassicExpiredDays'])) {
             $model->classicExpiredDays = $map['ClassicExpiredDays'];
         }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

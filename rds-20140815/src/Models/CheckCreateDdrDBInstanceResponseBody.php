@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckCreateDdrDBInstanceResponseBody extends Model
 {
     /**
-     * @description Indicates whether the data of the source instance can be restored across regions. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var string
      */
     public $isValid;
-
     /**
-     * @description The request ID.
-     *
-     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +23,16 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isValid) {
             $res['IsValid'] = $this->isValid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +40,18 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckCreateDdrDBInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsValid'])) {
             $model->isValid = $map['IsValid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

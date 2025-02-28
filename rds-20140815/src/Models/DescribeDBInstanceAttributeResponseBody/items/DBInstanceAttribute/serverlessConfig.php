@@ -4,50 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serverlessConfig extends Model
 {
     /**
-     * @description Indicates whether the automatic start and stop feature is enabled for the serverless instance. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * >  After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is automatically resumed.
-     * @example true
-     *
      * @var bool
      */
     public $autoPause;
-
     /**
-     * @description The maximum number of RCUs.
-     *
-     * @example 8
-     *
      * @var float
      */
     public $scaleMax;
-
     /**
-     * @description The minimum number of RDS Capacity Units (RCUs).
-     *
-     * @example 0.5
-     *
      * @var float
      */
     public $scaleMin;
-
     /**
-     * @description Indicates whether the forced scaling feature is enabled for the serverless instance. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * >  In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In rare cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance.
-     * @example false
-     *
      * @var bool
      */
     public $switchForce;
@@ -60,20 +33,24 @@ class serverlessConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPause) {
             $res['AutoPause'] = $this->autoPause;
         }
+
         if (null !== $this->scaleMax) {
             $res['ScaleMax'] = $this->scaleMax;
         }
+
         if (null !== $this->scaleMin) {
             $res['ScaleMin'] = $this->scaleMin;
         }
+
         if (null !== $this->switchForce) {
             $res['SwitchForce'] = $this->switchForce;
         }
@@ -81,23 +58,26 @@ class serverlessConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serverlessConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPause'])) {
             $model->autoPause = $map['AutoPause'];
         }
+
         if (isset($map['ScaleMax'])) {
             $model->scaleMax = $map['ScaleMax'];
         }
+
         if (isset($map['ScaleMin'])) {
             $model->scaleMin = $map['ScaleMin'];
         }
+
         if (isset($map['SwitchForce'])) {
             $model->switchForce = $map['SwitchForce'];
         }

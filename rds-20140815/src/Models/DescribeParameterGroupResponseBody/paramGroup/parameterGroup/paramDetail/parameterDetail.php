@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterGroupResponseBody\paramGroup\parameterGroup\paramDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameterDetail extends Model
 {
     /**
-     * @description The name of the parameter.
-     *
-     * @example back_log
-     *
      * @var string
      */
     public $paramName;
-
     /**
-     * @description The value of the parameter.
-     *
-     * @example 2000
-     *
      * @var string
      */
     public $paramValue;
@@ -32,14 +23,16 @@ class parameterDetail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
+
         if (null !== $this->paramValue) {
             $res['ParamValue'] = $this->paramValue;
         }
@@ -47,17 +40,18 @@ class parameterDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameterDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }
+
         if (isset($map['ParamValue'])) {
             $model->paramValue = $map['ParamValue'];
         }

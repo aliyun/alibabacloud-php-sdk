@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRCDeploymentSetRequest extends Model
 {
     /**
-     * @description The deployment set ID.
-     *
-     * This parameter is required.
-     * @example ds-uf6c8qerk019bj1l****
-     *
      * @var string
      */
     public $deploymentSetId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class DeleteRCDeploymentSetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class DeleteRCDeploymentSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRCDeploymentSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

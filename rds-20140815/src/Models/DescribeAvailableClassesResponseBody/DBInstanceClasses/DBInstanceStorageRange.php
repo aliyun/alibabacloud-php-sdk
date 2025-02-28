@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponseBody\DBInstanceClasses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBInstanceStorageRange extends Model
 {
     /**
-     * @description The maximum storage capacity that is supported for the instance. Unit: GB.
-     *
-     * @example 2000
-     *
      * @var int
      */
     public $maxValue;
-
     /**
-     * @description The minimum storage capacity that is supported for the instance. Unit: GB.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $minValue;
-
     /**
-     * @description The minimum step size at which you can adjust the storage capacity of the instance. The minimum step size is 5 GB.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $step;
@@ -42,17 +28,20 @@ class DBInstanceStorageRange extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxValue) {
             $res['MaxValue'] = $this->maxValue;
         }
+
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -60,20 +49,22 @@ class DBInstanceStorageRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBInstanceStorageRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxValue'])) {
             $model->maxValue = $map['MaxValue'];
         }
+
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

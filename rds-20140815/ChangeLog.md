@@ -1,3 +1,6 @@
+2025-02-28 Version: 9.0.2
+- Generated php 2014-08-15 for Rds.
+
 2025-01-14 Version: 9.0.1
 - Update API CheckServiceLinkedRole: update response param.
 - Update API CreateRCNodePool: update param SystemDisk.

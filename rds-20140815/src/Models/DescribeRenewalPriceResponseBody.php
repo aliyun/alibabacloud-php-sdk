@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody\priceInfo;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponseBody\rules;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRenewalPriceResponseBody extends Model
 {
     /**
-     * @description Details of price information.
-     *
      * @var priceInfo
      */
     public $priceInfo;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DC9F4EF6-D038-4405-B497-1F48E722C9F2
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of the details of the promotion rule.
-     *
      * @var rules
      */
     public $rules;
@@ -40,38 +30,49 @@ class DescribeRenewalPriceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->priceInfo) {
+            $this->priceInfo->validate();
+        }
+        if (null !== $this->rules) {
+            $this->rules->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->priceInfo) {
-            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
+            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toArray($noStream) : $this->priceInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRenewalPriceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }

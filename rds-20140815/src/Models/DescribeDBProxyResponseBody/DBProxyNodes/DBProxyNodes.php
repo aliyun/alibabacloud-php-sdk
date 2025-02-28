@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyNodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBProxyNodes extends Model
 {
     /**
-     * @description The number of cpu cores for the node.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $cpuCores;
-
     /**
-     * @description The proxy node id.
-     *
-     * @example pn-xxxxxxx01
-     *
      * @var string
      */
     public $nodeId;
-
     /**
-     * @description The id of the availability zone where the node is located.
-     *
-     * @example cn-hangzhou-c
-     *
      * @var string
      */
     public $zoneId;
@@ -42,17 +28,20 @@ class DBProxyNodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuCores) {
             $res['cpuCores'] = $this->cpuCores;
         }
+
         if (null !== $this->nodeId) {
             $res['nodeId'] = $this->nodeId;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -60,20 +49,22 @@ class DBProxyNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBProxyNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cpuCores'])) {
             $model->cpuCores = $map['cpuCores'];
         }
+
         if (isset($map['nodeId'])) {
             $model->nodeId = $map['nodeId'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

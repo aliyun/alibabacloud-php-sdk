@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountMaskingPrivilegeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userPrivilege extends Model
 {
@@ -12,12 +12,10 @@ class userPrivilege extends Model
      * @var string
      */
     public $expireTime;
-
     /**
      * @var string
      */
     public $privilege;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class userPrivilege extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->privilege) {
             $res['Privilege'] = $this->privilege;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -48,20 +49,22 @@ class userPrivilege extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userPrivilege
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['Privilege'])) {
             $model->privilege = $map['Privilege'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

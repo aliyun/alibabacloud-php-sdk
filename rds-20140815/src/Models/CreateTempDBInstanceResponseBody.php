@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTempDBInstanceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 248DE93F-8647-4B9D-8287-4A4A0FE56AD5
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The temporary instance ID.
-     *
-     * @example sub138****_rm-******
-     *
      * @var string
      */
     public $tempDBInstanceId;
@@ -32,14 +23,16 @@ class CreateTempDBInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tempDBInstanceId) {
             $res['TempDBInstanceId'] = $this->tempDBInstanceId;
         }
@@ -47,17 +40,18 @@ class CreateTempDBInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTempDBInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TempDBInstanceId'])) {
             $model->tempDBInstanceId = $map['TempDBInstanceId'];
         }

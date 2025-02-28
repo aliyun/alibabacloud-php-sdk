@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateResponseBody\data\template;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The information about the IP whitelist template.
-     *
      * @var template
      */
     public $template;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->template) {
+            $this->template->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->template) {
-            $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+            $res['Template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

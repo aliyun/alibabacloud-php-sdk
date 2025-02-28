@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyDatabaseBetweenInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 803D11AF-C370-465B-AB46-CB3A642DC303
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CopyDatabaseBetweenInstancesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CopyDatabaseBetweenInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyDatabaseBetweenInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

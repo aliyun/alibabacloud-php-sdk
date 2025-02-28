@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class CreateGadInstanceMemberResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 16C62438-491B-5C02-9B49-BA924A1372A2
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of the information returned.
-     *
      * @var result
      */
     public $result;
@@ -31,32 +24,38 @@ class CreateGadInstanceMemberResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGadInstanceMemberResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }
