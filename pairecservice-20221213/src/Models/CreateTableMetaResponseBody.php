@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTableMetaResponseBody extends Model
 {
     /**
-     * @example 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 2
-     *
      * @var string
      */
     public $tableMetaId;
@@ -28,14 +23,16 @@ class CreateTableMetaResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tableMetaId) {
             $res['TableMetaId'] = $this->tableMetaId;
         }
@@ -43,17 +40,18 @@ class CreateTableMetaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTableMetaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TableMetaId'])) {
             $model->tableMetaId = $map['TableMetaId'];
         }

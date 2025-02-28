@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCalculationJobsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2,3,4
-     *
      * @var string
      */
     public $ABMetricIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2023-01-03
-     *
      * @var string
      */
     public $endDate;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-test1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2023-01-01
-     *
      * @var string
      */
     public $startDate;
@@ -52,20 +33,24 @@ class CreateCalculationJobsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ABMetricIds) {
             $res['ABMetricIds'] = $this->ABMetricIds;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -73,23 +58,26 @@ class CreateCalculationJobsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCalculationJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ABMetricIds'])) {
             $model->ABMetricIds = $map['ABMetricIds'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

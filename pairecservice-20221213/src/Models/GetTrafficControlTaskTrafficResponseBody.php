@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetTrafficControlTaskTrafficResponseBody\trafficControlTaskTrafficInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetTrafficControlTaskTrafficResponseBody extends Model
 {
@@ -13,7 +13,6 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
      * @var string
      */
     public $requestId;
-
     /**
      * @var trafficControlTaskTrafficInfo
      */
@@ -25,32 +24,38 @@ class GetTrafficControlTaskTrafficResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->trafficControlTaskTrafficInfo) {
+            $this->trafficControlTaskTrafficInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficControlTaskTrafficInfo) {
-            $res['TrafficControlTaskTrafficInfo'] = null !== $this->trafficControlTaskTrafficInfo ? $this->trafficControlTaskTrafficInfo->toMap() : null;
+            $res['TrafficControlTaskTrafficInfo'] = null !== $this->trafficControlTaskTrafficInfo ? $this->trafficControlTaskTrafficInfo->toArray($noStream) : $this->trafficControlTaskTrafficInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTrafficControlTaskTrafficResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficControlTaskTrafficInfo'])) {
             $model->trafficControlTaskTrafficInfo = trafficControlTaskTrafficInfo::fromMap($map['TrafficControlTaskTrafficInfo']);
         }

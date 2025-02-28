@@ -4,101 +4,64 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTableMetasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListTableMetasResponseBody\tableMetas\fields;
-use AlibabaCloud\Tea\Model;
 
 class tableMetas extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canDelete;
-
     /**
      * @var string
      */
     public $config;
-
     /**
-     * @example this is a test table
-     *
      * @var string
      */
     public $description;
-
     /**
      * @var fields[]
      */
     public $fields;
-
     /**
-     * @example 2021-12-12 12:24:33
-     *
      * @var string
      */
     public $gmtCreateTime;
-
     /**
-     * @example imprecation
-     *
      * @var string
      */
     public $gmtImportedTime;
-
     /**
-     * @example 2021-12-12 12:24:33
-     *
      * @var string
      */
     public $gmtModifiedTime;
-
     /**
-     * @example ABTest
-     *
      * @var string
      */
     public $module;
-
     /**
-     * @example test_table
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example reso-2s416t***
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @example 3
-     *
      * @var string
      */
     public $tableMetaId;
-
     /**
-     * @example table_mysql
-     *
      * @var string
      */
     public $tableName;
-
     /**
-     * @example MaxCompute
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example https://dmc-xxx.com/dm/table/xxx
-     *
      * @var string
      */
     public $url;
@@ -121,56 +84,73 @@ class tableMetas extends Model
 
     public function validate()
     {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canDelete) {
             $res['CanDelete'] = $this->canDelete;
         }
+
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fields) {
-            $res['Fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                $n1            = 0;
+                foreach ($this->fields as $item1) {
+                    $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtImportedTime) {
             $res['GmtImportedTime'] = $this->gmtImportedTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->tableMetaId) {
             $res['TableMetaId'] = $this->tableMetaId;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -178,59 +158,72 @@ class tableMetas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableMetas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanDelete'])) {
             $model->canDelete = $map['CanDelete'];
         }
+
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n             = 0;
-                foreach ($map['Fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? fields::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Fields'] as $item1) {
+                    $model->fields[$n1++] = fields::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtImportedTime'])) {
             $model->gmtImportedTime = $map['GmtImportedTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['TableMetaId'])) {
             $model->tableMetaId = $map['TableMetaId'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

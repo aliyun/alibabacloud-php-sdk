@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends Model
 {
     /**
-     * @example C7D0B48F-0105-52B9-B60A-FA7606E2234D
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncFeatureConsistencyCheckJobReplayLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

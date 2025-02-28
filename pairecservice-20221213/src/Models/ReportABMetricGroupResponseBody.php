@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReportABMetricGroupResponseBody extends Model
 {
@@ -12,15 +12,11 @@ class ReportABMetricGroupResponseBody extends Model
      * @var ExperimentReportValue[]
      */
     public $experimentReport;
-
     /**
      * @var string[]
      */
     public $groupDimension;
-
     /**
-     * @example 59CE7EC6-F268-5D71-9215-32922CC50D72
-     *
      * @var string
      */
     public $requestId;
@@ -32,22 +28,37 @@ class ReportABMetricGroupResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->experimentReport)) {
+            Model::validateArray($this->experimentReport);
+        }
+        if (\is_array($this->groupDimension)) {
+            Model::validateArray($this->groupDimension);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experimentReport) {
-            $res['ExperimentReport'] = [];
-            if (null !== $this->experimentReport && \is_array($this->experimentReport)) {
-                foreach ($this->experimentReport as $key => $val) {
-                    $res['ExperimentReport'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->experimentReport)) {
+                $res['ExperimentReport'] = [];
+                foreach ($this->experimentReport as $key1 => $value1) {
+                    $res['ExperimentReport'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->groupDimension) {
-            $res['GroupDimension'] = $this->groupDimension;
+            if (\is_array($this->groupDimension)) {
+                $res['GroupDimension'] = [];
+                $n1                    = 0;
+                foreach ($this->groupDimension as $item1) {
+                    $res['GroupDimension'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,22 +66,33 @@ class ReportABMetricGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReportABMetricGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExperimentReport'])) {
-            $model->experimentReport = $map['ExperimentReport'];
-        }
-        if (isset($map['GroupDimension'])) {
-            if (!empty($map['GroupDimension'])) {
-                $model->groupDimension = $map['GroupDimension'];
+            if (!empty($map['ExperimentReport'])) {
+                $model->experimentReport = [];
+                foreach ($map['ExperimentReport'] as $key1 => $value1) {
+                    $model->experimentReport[$key1] = ExperimentReportValue::fromMap($value1);
+                }
             }
         }
+
+        if (isset($map['GroupDimension'])) {
+            if (!empty($map['GroupDimension'])) {
+                $model->groupDimension = [];
+                $n1                    = 0;
+                foreach ($map['GroupDimension'] as $item1) {
+                    $model->groupDimension[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends Model
 {
@@ -12,10 +12,7 @@ class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends Model
      * @var string
      */
     public $excludeRequestIdsShrink;
-
     /**
-     * @example pairec-cn-********
-     *
      * @var string
      */
     public $instanceId;
@@ -26,14 +23,16 @@ class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->excludeRequestIdsShrink) {
             $res['ExcludeRequestIds'] = $this->excludeRequestIdsShrink;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -41,17 +40,18 @@ class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFeatureConsistencyCheckJobScoreReportsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludeRequestIds'])) {
             $model->excludeRequestIdsShrink = $map['ExcludeRequestIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

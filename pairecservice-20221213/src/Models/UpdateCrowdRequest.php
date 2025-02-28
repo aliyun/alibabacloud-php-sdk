@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCrowdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example This is a test.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-test1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example xx人群
-     *
      * @var string
      */
     public $name;
@@ -42,17 +28,20 @@ class UpdateCrowdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -60,20 +49,22 @@ class UpdateCrowdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCrowdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneLaboratoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $cloneExperimentGroup;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Daily
-     *
      * @var string
      */
     public $environment;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-abcdefg1234
-     *
      * @var string
      */
     public $instanceId;
@@ -42,17 +28,20 @@ class CloneLaboratoryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloneExperimentGroup) {
             $res['CloneExperimentGroup'] = $this->cloneExperimentGroup;
         }
+
         if (null !== $this->environment) {
             $res['Environment'] = $this->environment;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,20 +49,22 @@ class CloneLaboratoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneLaboratoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloneExperimentGroup'])) {
             $model->cloneExperimentGroup = $map['CloneExperimentGroup'];
         }
+
         if (isset($map['Environment'])) {
             $model->environment = $map['Environment'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

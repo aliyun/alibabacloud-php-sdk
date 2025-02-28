@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteExperimentGroupResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example A009D9BE-C85E-57B2-AE05-BD78BB6EBF50
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteExperimentGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteExperimentGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteExperimentGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

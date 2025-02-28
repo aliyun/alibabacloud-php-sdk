@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateTrafficControlTaskCodeResponseBody extends Model
 {
@@ -12,26 +12,36 @@ class GenerateTrafficControlTaskCodeResponseBody extends Model
      * @var string
      */
     public $code;
-
+    /**
+     * @var bool
+     */
+    public $preNeedConfig;
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'requestId' => 'RequestId',
+        'code'          => 'Code',
+        'preNeedConfig' => 'PreNeedConfig',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
+        if (null !== $this->preNeedConfig) {
+            $res['PreNeedConfig'] = $this->preNeedConfig;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,17 +49,22 @@ class GenerateTrafficControlTaskCodeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateTrafficControlTaskCodeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
+        if (isset($map['PreNeedConfig'])) {
+            $model->preNeedConfig = $map['PreNeedConfig'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

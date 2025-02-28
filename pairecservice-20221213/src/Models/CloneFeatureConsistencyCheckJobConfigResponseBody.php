@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneFeatureConsistencyCheckJobConfigResponseBody extends Model
 {
     /**
-     * @example 4
-     *
      * @var string
      */
     public $featureConsistencyCheckId;
-
     /**
-     * @example 74D958EF-3598-56FA-8296-FF1575CE43DF
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CloneFeatureConsistencyCheckJobConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureConsistencyCheckId) {
             $res['FeatureConsistencyCheckId'] = $this->featureConsistencyCheckId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CloneFeatureConsistencyCheckJobConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneFeatureConsistencyCheckJobConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureConsistencyCheckId'])) {
             $model->featureConsistencyCheckId = $map['FeatureConsistencyCheckId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

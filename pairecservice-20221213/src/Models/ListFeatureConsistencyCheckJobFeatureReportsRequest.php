@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFeatureConsistencyCheckJobFeatureReportsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-********
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 9010
-     *
      * @var string
      */
     public $logItemId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
-     *
      * @var string
      */
     public $logRequestId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1010
-     *
      * @var string
      */
     public $logUserId;
@@ -52,20 +33,24 @@ class ListFeatureConsistencyCheckJobFeatureReportsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->logItemId) {
             $res['LogItemId'] = $this->logItemId;
         }
+
         if (null !== $this->logRequestId) {
             $res['LogRequestId'] = $this->logRequestId;
         }
+
         if (null !== $this->logUserId) {
             $res['LogUserId'] = $this->logUserId;
         }
@@ -73,23 +58,26 @@ class ListFeatureConsistencyCheckJobFeatureReportsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFeatureConsistencyCheckJobFeatureReportsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LogItemId'])) {
             $model->logItemId = $map['LogItemId'];
         }
+
         if (isset($map['LogRequestId'])) {
             $model->logRequestId = $map['LogRequestId'];
         }
+
         if (isset($map['LogUserId'])) {
             $model->logUserId = $map['LogUserId'];
         }

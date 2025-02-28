@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateABMetricGroupResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $ABMetricGroupId;
-
     /**
-     * @example E15A1443-7917-5BE0-AE70-25538ECF398D
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateABMetricGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ABMetricGroupId) {
             $res['ABMetricGroupId'] = $this->ABMetricGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateABMetricGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateABMetricGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ABMetricGroupId'])) {
             $model->ABMetricGroupId = $map['ABMetricGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

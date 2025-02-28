@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceResourceRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @example bucket-test-123
-     *
      * @var string
      */
     public $uri;
@@ -28,14 +23,16 @@ class UpdateInstanceResourceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -43,17 +40,18 @@ class UpdateInstanceResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

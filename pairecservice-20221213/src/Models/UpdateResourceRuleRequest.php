@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourceRuleRequest extends Model
 {
@@ -12,41 +12,27 @@ class UpdateResourceRuleRequest extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $metricOperationType;
-
     /**
      * @var string
      */
     public $metricPullInfo;
-
     /**
      * @var string
      */
     public $metricPullPeriod;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $ruleComputingDefinition;
@@ -62,29 +48,36 @@ class UpdateResourceRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->metricOperationType) {
             $res['MetricOperationType'] = $this->metricOperationType;
         }
+
         if (null !== $this->metricPullInfo) {
             $res['MetricPullInfo'] = $this->metricPullInfo;
         }
+
         if (null !== $this->metricPullPeriod) {
             $res['MetricPullPeriod'] = $this->metricPullPeriod;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ruleComputingDefinition) {
             $res['RuleComputingDefinition'] = $this->ruleComputingDefinition;
         }
@@ -92,32 +85,38 @@ class UpdateResourceRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MetricOperationType'])) {
             $model->metricOperationType = $map['MetricOperationType'];
         }
+
         if (isset($map['MetricPullInfo'])) {
             $model->metricPullInfo = $map['MetricPullInfo'];
         }
+
         if (isset($map['MetricPullPeriod'])) {
             $model->metricPullPeriod = $map['MetricPullPeriod'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RuleComputingDefinition'])) {
             $model->ruleComputingDefinition = $map['RuleComputingDefinition'];
         }

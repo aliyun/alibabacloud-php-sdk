@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
@@ -12,7 +12,6 @@ class content extends Model
      * @var string
      */
     public $fields;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
             $res['Fields'] = $this->fields;
         }
+
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
@@ -39,17 +40,18 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
             $model->fields = $map['Fields'];
         }
+
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }

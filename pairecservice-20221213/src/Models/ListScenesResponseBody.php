@@ -4,28 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListScenesResponseBody\scenes;
-use AlibabaCloud\Tea\Model;
 
 class ListScenesResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example B8987BF7-6028-5B17-80E0-251B7BD67BBA
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var scenes[]
      */
     public $scenes;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -37,23 +29,29 @@ class ListScenesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->scenes)) {
+            Model::validateArray($this->scenes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scenes) {
-            $res['Scenes'] = [];
-            if (null !== $this->scenes && \is_array($this->scenes)) {
-                $n = 0;
-                foreach ($this->scenes as $item) {
-                    $res['Scenes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scenes)) {
+                $res['Scenes'] = [];
+                $n1            = 0;
+                foreach ($this->scenes as $item1) {
+                    $res['Scenes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,26 +59,28 @@ class ListScenesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListScenesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Scenes'])) {
             if (!empty($map['Scenes'])) {
                 $model->scenes = [];
-                $n             = 0;
-                foreach ($map['Scenes'] as $item) {
-                    $model->scenes[$n++] = null !== $item ? scenes::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Scenes'] as $item1) {
+                    $model->scenes[$n1++] = scenes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

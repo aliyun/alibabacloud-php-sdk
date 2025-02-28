@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example bucket-test-123
-     *
      * @var string
      */
     public $uri;
@@ -36,17 +28,20 @@ class resources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -54,20 +49,22 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

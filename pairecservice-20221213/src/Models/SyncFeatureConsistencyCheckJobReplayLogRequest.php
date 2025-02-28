@@ -4,94 +4,47 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example [{\\"Value\\":{\\"FloatFeature\\":0.1}}]
-     *
      * @var string
      */
     public $contextFeatures;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example week_day:1 | userid:3 | itemid:9001 | cate:cat1 | click_5_seq__cate:cat1
-     *
      * @var string
      */
     public $generatedFeatures;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-********
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 9010
-     *
      * @var string
      */
     public $logItemId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
-     *
      * @var string
      */
     public $logRequestId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1693900981465
-     *
      * @var int
      */
     public $logRequestTime;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1010
-     *
      * @var string
      */
     public $logUserId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $rawFeatures;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example video-feed
-     *
      * @var string
      */
     public $sceneName;
@@ -110,38 +63,48 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contextFeatures) {
             $res['ContextFeatures'] = $this->contextFeatures;
         }
+
         if (null !== $this->featureConsistencyCheckJobConfigId) {
             $res['FeatureConsistencyCheckJobConfigId'] = $this->featureConsistencyCheckJobConfigId;
         }
+
         if (null !== $this->generatedFeatures) {
             $res['GeneratedFeatures'] = $this->generatedFeatures;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->logItemId) {
             $res['LogItemId'] = $this->logItemId;
         }
+
         if (null !== $this->logRequestId) {
             $res['LogRequestId'] = $this->logRequestId;
         }
+
         if (null !== $this->logRequestTime) {
             $res['LogRequestTime'] = $this->logRequestTime;
         }
+
         if (null !== $this->logUserId) {
             $res['LogUserId'] = $this->logUserId;
         }
+
         if (null !== $this->rawFeatures) {
             $res['RawFeatures'] = $this->rawFeatures;
         }
+
         if (null !== $this->sceneName) {
             $res['SceneName'] = $this->sceneName;
         }
@@ -149,41 +112,50 @@ class SyncFeatureConsistencyCheckJobReplayLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncFeatureConsistencyCheckJobReplayLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContextFeatures'])) {
             $model->contextFeatures = $map['ContextFeatures'];
         }
+
         if (isset($map['FeatureConsistencyCheckJobConfigId'])) {
             $model->featureConsistencyCheckJobConfigId = $map['FeatureConsistencyCheckJobConfigId'];
         }
+
         if (isset($map['GeneratedFeatures'])) {
             $model->generatedFeatures = $map['GeneratedFeatures'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LogItemId'])) {
             $model->logItemId = $map['LogItemId'];
         }
+
         if (isset($map['LogRequestId'])) {
             $model->logRequestId = $map['LogRequestId'];
         }
+
         if (isset($map['LogRequestTime'])) {
             $model->logRequestTime = $map['LogRequestTime'];
         }
+
         if (isset($map['LogUserId'])) {
             $model->logUserId = $map['LogUserId'];
         }
+
         if (isset($map['RawFeatures'])) {
             $model->rawFeatures = $map['RawFeatures'];
         }
+
         if (isset($map['SceneName'])) {
             $model->sceneName = $map['SceneName'];
         }

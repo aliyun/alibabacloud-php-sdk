@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobScoreReportsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reportsOfScoreDiff extends Model
 {
     /**
-     * @example 4
-     *
      * @var string
      */
     public $logItemId;
-
     /**
-     * @example 323
-     *
      * @var string
      */
     public $logRequestId;
-
     /**
-     * @example 3
-     *
      * @var string
      */
     public $logUserId;
-
     /**
-     * @example 0.00000234
-     *
      * @var string
      */
     public $scoreDiff;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $scoreDiffDetail;
@@ -52,23 +38,28 @@ class reportsOfScoreDiff extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logItemId) {
             $res['LogItemId'] = $this->logItemId;
         }
+
         if (null !== $this->logRequestId) {
             $res['LogRequestId'] = $this->logRequestId;
         }
+
         if (null !== $this->logUserId) {
             $res['LogUserId'] = $this->logUserId;
         }
+
         if (null !== $this->scoreDiff) {
             $res['ScoreDiff'] = $this->scoreDiff;
         }
+
         if (null !== $this->scoreDiffDetail) {
             $res['ScoreDiffDetail'] = $this->scoreDiffDetail;
         }
@@ -76,26 +67,30 @@ class reportsOfScoreDiff extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reportsOfScoreDiff
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogItemId'])) {
             $model->logItemId = $map['LogItemId'];
         }
+
         if (isset($map['LogRequestId'])) {
             $model->logRequestId = $map['LogRequestId'];
         }
+
         if (isset($map['LogUserId'])) {
             $model->logUserId = $map['LogUserId'];
         }
+
         if (isset($map['ScoreDiff'])) {
             $model->scoreDiff = $map['ScoreDiff'];
         }
+
         if (isset($map['ScoreDiffDetail'])) {
             $model->scoreDiffDetail = $map['ScoreDiffDetail'];
         }

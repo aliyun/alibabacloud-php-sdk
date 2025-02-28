@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLaboratoryResponseBody extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $laboratoryId;
-
     /**
-     * @description Id of the request
-     *
-     * @example 42391E6D-822C-58F8-9F7E-D991BB86D6AD
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class CreateLaboratoryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->laboratoryId) {
             $res['LaboratoryId'] = $this->laboratoryId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class CreateLaboratoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLaboratoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaboratoryId'])) {
             $model->laboratoryId = $map['LaboratoryId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

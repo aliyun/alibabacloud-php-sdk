@@ -4,28 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListSubCrowdsResponseBody\subCrowds;
-use AlibabaCloud\Tea\Model;
 
 class ListSubCrowdsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example C5AEB79E-FAA4-5DCE-8CD7-1CAF549ECC3E
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var subCrowds[]
      */
     public $subCrowds;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -37,23 +29,29 @@ class ListSubCrowdsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->subCrowds)) {
+            Model::validateArray($this->subCrowds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->subCrowds) {
-            $res['SubCrowds'] = [];
-            if (null !== $this->subCrowds && \is_array($this->subCrowds)) {
-                $n = 0;
-                foreach ($this->subCrowds as $item) {
-                    $res['SubCrowds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subCrowds)) {
+                $res['SubCrowds'] = [];
+                $n1               = 0;
+                foreach ($this->subCrowds as $item1) {
+                    $res['SubCrowds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,26 +59,28 @@ class ListSubCrowdsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSubCrowdsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SubCrowds'])) {
             if (!empty($map['SubCrowds'])) {
                 $model->subCrowds = [];
-                $n                = 0;
-                foreach ($map['SubCrowds'] as $item) {
-                    $model->subCrowds[$n++] = null !== $item ? subCrowds::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['SubCrowds'] as $item1) {
+                    $model->subCrowds[$n1++] = subCrowds::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

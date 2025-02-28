@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentGroupResponseBody extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $experimentGroupId;
-
     /**
-     * @description Id of the request
-     *
-     * @example A04CB8C0-E74A-5E83-BC61-64D153574EC7
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class CreateExperimentGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experimentGroupId) {
             $res['ExperimentGroupId'] = $this->experimentGroupId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class CreateExperimentGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExperimentGroupId'])) {
             $model->experimentGroupId = $map['ExperimentGroupId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

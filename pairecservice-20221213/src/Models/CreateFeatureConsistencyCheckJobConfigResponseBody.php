@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFeatureConsistencyCheckJobConfigResponseBody extends Model
 {
     /**
-     * @example 4
-     *
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
-
     /**
-     * @example E15A1443-7917-5BE0-AE70-25538ECF398D
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateFeatureConsistencyCheckJobConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureConsistencyCheckJobConfigId) {
             $res['FeatureConsistencyCheckJobConfigId'] = $this->featureConsistencyCheckJobConfigId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateFeatureConsistencyCheckJobConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFeatureConsistencyCheckJobConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureConsistencyCheckJobConfigId'])) {
             $model->featureConsistencyCheckJobConfigId = $map['FeatureConsistencyCheckJobConfigId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

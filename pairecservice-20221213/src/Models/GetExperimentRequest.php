@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetExperimentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-test1
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +18,10 @@ class GetExperimentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class GetExperimentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExperimentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

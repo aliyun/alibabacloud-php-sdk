@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceResourcesRequest extends Model
 {
     /**
-     * @example DataManagement
-     *
      * @var string
      */
     public $category;
-
     /**
-     * @example storage
-     *
      * @var string
      */
     public $group;
-
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $type;
@@ -36,17 +28,20 @@ class ListInstanceResourcesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -54,20 +49,22 @@ class ListInstanceResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

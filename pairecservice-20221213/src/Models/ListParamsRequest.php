@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListParamsRequest extends Model
 {
     /**
-     * @example Daily
-     *
      * @var string
      */
     public $environment;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-abcdefg1234
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example home
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $sceneId;
@@ -64,26 +43,32 @@ class ListParamsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environment) {
             $res['Environment'] = $this->environment;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -91,29 +76,34 @@ class ListParamsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListParamsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Environment'])) {
             $model->environment = $map['Environment'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesRequest extends Model
 {
     /**
-     * @example pairec-test1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example Desc
-     *
      * @var string
      */
     public $order;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example Type
-     *
      * @var string
      */
     public $sortBy;
-
     /**
-     * @example basic
-     *
      * @var string
      */
     public $type;
@@ -60,26 +43,32 @@ class ListInstancesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -87,29 +76,34 @@ class ListInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

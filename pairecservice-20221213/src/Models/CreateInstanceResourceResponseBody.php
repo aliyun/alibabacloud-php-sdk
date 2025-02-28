@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceResourceResponseBody extends Model
 {
     /**
-     * @example 6CF1E160-3F36-5E73-A170-C75504F05BBC
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example reso-2s416t***
-     *
      * @var string
      */
     public $resourceId;
@@ -28,14 +23,16 @@ class CreateInstanceResourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -43,17 +40,18 @@ class CreateInstanceResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

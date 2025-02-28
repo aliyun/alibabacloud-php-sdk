@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobFeatureReportsResponseBody\reportsOfFeatureDiff;
-use AlibabaCloud\Tea\Model;
 
 class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends Model
 {
     /**
-     * @example https://********
-     *
      * @var string
      */
     public $dataPath;
-
     /**
-     * @example oss://********
-     *
      * @var string
      */
     public $ossPath;
-
     /**
      * @var reportsOfFeatureDiff[]
      */
     public $reportsOfFeatureDiff;
-
     /**
-     * @example BBD41FBF-E75C-551A-92FA-CAD654AA006F
-     *
      * @var string
      */
     public $requestId;
@@ -43,26 +34,33 @@ class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->reportsOfFeatureDiff)) {
+            Model::validateArray($this->reportsOfFeatureDiff);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPath) {
             $res['DataPath'] = $this->dataPath;
         }
+
         if (null !== $this->ossPath) {
             $res['OssPath'] = $this->ossPath;
         }
+
         if (null !== $this->reportsOfFeatureDiff) {
-            $res['ReportsOfFeatureDiff'] = [];
-            if (null !== $this->reportsOfFeatureDiff && \is_array($this->reportsOfFeatureDiff)) {
-                $n = 0;
-                foreach ($this->reportsOfFeatureDiff as $item) {
-                    $res['ReportsOfFeatureDiff'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reportsOfFeatureDiff)) {
+                $res['ReportsOfFeatureDiff'] = [];
+                $n1                          = 0;
+                foreach ($this->reportsOfFeatureDiff as $item1) {
+                    $res['ReportsOfFeatureDiff'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,29 +68,32 @@ class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFeatureConsistencyCheckJobFeatureReportsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPath'])) {
             $model->dataPath = $map['DataPath'];
         }
+
         if (isset($map['OssPath'])) {
             $model->ossPath = $map['OssPath'];
         }
+
         if (isset($map['ReportsOfFeatureDiff'])) {
             if (!empty($map['ReportsOfFeatureDiff'])) {
                 $model->reportsOfFeatureDiff = [];
-                $n                           = 0;
-                foreach ($map['ReportsOfFeatureDiff'] as $item) {
-                    $model->reportsOfFeatureDiff[$n++] = null !== $item ? reportsOfFeatureDiff::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ReportsOfFeatureDiff'] as $item1) {
+                    $model->reportsOfFeatureDiff[$n1++] = reportsOfFeatureDiff::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

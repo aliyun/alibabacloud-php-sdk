@@ -4,60 +4,39 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class featureConsistencyCheckJobs extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @example 5
-     *
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
-
     /**
-     * @example feature_consistency_check_1
-     *
      * @var string
      */
     public $featureConsistencyCheckJobConfigName;
-
     /**
-     * @example 4
-     *
      * @var string
      */
     public $featureConsistencyCheckJobId;
-
     /**
-     * @example 2021-12-15T23:24:33.132+08:00
-     *
      * @var string
      */
     public $gmtEndTime;
-
     /**
-     * @example 2021-12-15T23:24:33.132+08:00
-     *
      * @var string
      */
     public $gmtStartTime;
-
     /**
      * @var string[]
      */
     public $logs;
-
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
@@ -74,32 +53,49 @@ class featureConsistencyCheckJobs extends Model
 
     public function validate()
     {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->featureConsistencyCheckJobConfigId) {
             $res['FeatureConsistencyCheckJobConfigId'] = $this->featureConsistencyCheckJobConfigId;
         }
+
         if (null !== $this->featureConsistencyCheckJobConfigName) {
             $res['FeatureConsistencyCheckJobConfigName'] = $this->featureConsistencyCheckJobConfigName;
         }
+
         if (null !== $this->featureConsistencyCheckJobId) {
             $res['FeatureConsistencyCheckJobId'] = $this->featureConsistencyCheckJobId;
         }
+
         if (null !== $this->gmtEndTime) {
             $res['GmtEndTime'] = $this->gmtEndTime;
         }
+
         if (null !== $this->gmtStartTime) {
             $res['GmtStartTime'] = $this->gmtStartTime;
         }
+
         if (null !== $this->logs) {
-            $res['Logs'] = $this->logs;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1          = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -107,37 +103,48 @@ class featureConsistencyCheckJobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return featureConsistencyCheckJobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['FeatureConsistencyCheckJobConfigId'])) {
             $model->featureConsistencyCheckJobConfigId = $map['FeatureConsistencyCheckJobConfigId'];
         }
+
         if (isset($map['FeatureConsistencyCheckJobConfigName'])) {
             $model->featureConsistencyCheckJobConfigName = $map['FeatureConsistencyCheckJobConfigName'];
         }
+
         if (isset($map['FeatureConsistencyCheckJobId'])) {
             $model->featureConsistencyCheckJobId = $map['FeatureConsistencyCheckJobId'];
         }
+
         if (isset($map['GmtEndTime'])) {
             $model->gmtEndTime = $map['GmtEndTime'];
         }
+
         if (isset($map['GmtStartTime'])) {
             $model->gmtStartTime = $map['GmtStartTime'];
         }
+
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
-                $model->logs = $map['Logs'];
+                $model->logs = [];
+                $n1          = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

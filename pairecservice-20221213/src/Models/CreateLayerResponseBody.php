@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLayerResponseBody extends Model
 {
     /**
-     * @example 3
-     *
      * @var string
      */
     public $layerId;
-
     /**
-     * @description Id of the request
-     *
-     * @example 59CE7EC6-F268-5D71-9215-32922CC50D72
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class CreateLayerResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layerId) {
             $res['LayerId'] = $this->layerId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class CreateLayerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLayerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayerId'])) {
             $model->layerId = $map['LayerId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

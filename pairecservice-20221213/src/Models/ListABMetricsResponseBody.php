@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListABMetricsResponseBody\ABMetrics;
-use AlibabaCloud\Tea\Model;
 
 class ListABMetricsResponseBody extends Model
 {
@@ -13,17 +13,11 @@ class ListABMetricsResponseBody extends Model
      * @var ABMetrics[]
      */
     public $ABMetrics;
-
     /**
-     * @example F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -35,23 +29,29 @@ class ListABMetricsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->ABMetrics)) {
+            Model::validateArray($this->ABMetrics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ABMetrics) {
-            $res['ABMetrics'] = [];
-            if (null !== $this->ABMetrics && \is_array($this->ABMetrics)) {
-                $n = 0;
-                foreach ($this->ABMetrics as $item) {
-                    $res['ABMetrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ABMetrics)) {
+                $res['ABMetrics'] = [];
+                $n1               = 0;
+                foreach ($this->ABMetrics as $item1) {
+                    $res['ABMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,26 +59,28 @@ class ListABMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListABMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ABMetrics'])) {
             if (!empty($map['ABMetrics'])) {
                 $model->ABMetrics = [];
-                $n                = 0;
-                foreach ($map['ABMetrics'] as $item) {
-                    $model->ABMetrics[$n++] = null !== $item ? ABMetrics::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['ABMetrics'] as $item1) {
+                    $model->ABMetrics[$n1++] = ABMetrics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLaboratoriesResponseBody\laboratories;
-use AlibabaCloud\Tea\Model;
 
 class ListLaboratoriesResponseBody extends Model
 {
@@ -13,19 +13,11 @@ class ListLaboratoriesResponseBody extends Model
      * @var laboratories[]
      */
     public $laboratories;
-
     /**
-     * @description Id of the request
-     *
-     * @example 1C0898E5-9220-5443-B2D9-445FF0688215
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -37,23 +29,29 @@ class ListLaboratoriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->laboratories)) {
+            Model::validateArray($this->laboratories);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->laboratories) {
-            $res['Laboratories'] = [];
-            if (null !== $this->laboratories && \is_array($this->laboratories)) {
-                $n = 0;
-                foreach ($this->laboratories as $item) {
-                    $res['Laboratories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->laboratories)) {
+                $res['Laboratories'] = [];
+                $n1                  = 0;
+                foreach ($this->laboratories as $item1) {
+                    $res['Laboratories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,26 +59,28 @@ class ListLaboratoriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLaboratoriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Laboratories'])) {
             if (!empty($map['Laboratories'])) {
                 $model->laboratories = [];
-                $n                   = 0;
-                foreach ($map['Laboratories'] as $item) {
-                    $model->laboratories[$n++] = null !== $item ? laboratories::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['Laboratories'] as $item1) {
+                    $model->laboratories[$n1++] = laboratories::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

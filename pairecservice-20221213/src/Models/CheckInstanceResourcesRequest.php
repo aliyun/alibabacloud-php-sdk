@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckInstanceResourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example OSS
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example bucket-test-123
-     *
      * @var string
      */
     public $uri;
@@ -30,14 +23,16 @@ class CheckInstanceResourcesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -45,17 +40,18 @@ class CheckInstanceResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckInstanceResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

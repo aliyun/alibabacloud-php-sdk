@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSubCrowdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-test1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ManualInput
-     *
      * @var string
      */
     public $source;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example user1,user2,user3
-     *
      * @var string
      */
     public $users;
@@ -42,17 +28,20 @@ class CreateSubCrowdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->users) {
             $res['Users'] = $this->users;
         }
@@ -60,20 +49,22 @@ class CreateSubCrowdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSubCrowdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['Users'])) {
             $model->users = $map['Users'];
         }

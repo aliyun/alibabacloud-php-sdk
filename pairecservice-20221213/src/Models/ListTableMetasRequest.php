@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTableMetasRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-test1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ABTest
-     *
      * @var string
      */
     public $module;
-
     /**
-     * @example test1
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example MaxCompute
-     *
      * @var string
      */
     public $type;
@@ -64,26 +43,32 @@ class ListTableMetasRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -91,29 +76,34 @@ class ListTableMetasRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTableMetasRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

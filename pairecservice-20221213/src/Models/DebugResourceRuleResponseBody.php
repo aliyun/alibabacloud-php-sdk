@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DebugResourceRuleResponseBody extends Model
 {
@@ -12,12 +12,10 @@ class DebugResourceRuleResponseBody extends Model
      * @var mixed[]
      */
     public $currentValues;
-
     /**
      * @var mixed[]
      */
     public $outputValues;
-
     /**
      * @var string
      */
@@ -30,17 +28,36 @@ class DebugResourceRuleResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->currentValues)) {
+            Model::validateArray($this->currentValues);
+        }
+        if (\is_array($this->outputValues)) {
+            Model::validateArray($this->outputValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentValues) {
-            $res['CurrentValues'] = $this->currentValues;
+            if (\is_array($this->currentValues)) {
+                $res['CurrentValues'] = [];
+                foreach ($this->currentValues as $key1 => $value1) {
+                    $res['CurrentValues'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->outputValues) {
-            $res['OutputValues'] = $this->outputValues;
+            if (\is_array($this->outputValues)) {
+                $res['OutputValues'] = [];
+                foreach ($this->outputValues as $key1 => $value1) {
+                    $res['OutputValues'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,20 +65,32 @@ class DebugResourceRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DebugResourceRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentValues'])) {
-            $model->currentValues = $map['CurrentValues'];
+            if (!empty($map['CurrentValues'])) {
+                $model->currentValues = [];
+                foreach ($map['CurrentValues'] as $key1 => $value1) {
+                    $model->currentValues[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['OutputValues'])) {
-            $model->outputValues = $map['OutputValues'];
+            if (!empty($map['OutputValues'])) {
+                $model->outputValues = [];
+                foreach ($map['OutputValues'] as $key1 => $value1) {
+                    $model->outputValues[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

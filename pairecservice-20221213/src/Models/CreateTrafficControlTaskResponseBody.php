@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTrafficControlTaskResponseBody extends Model
 {
     /**
-     * @example 42391E6D-822C-58F8-9F7E-D991BB86D6AD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $trafficControlTaskId;
@@ -28,14 +23,16 @@ class CreateTrafficControlTaskResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficControlTaskId) {
             $res['TrafficControlTaskId'] = $this->trafficControlTaskId;
         }
@@ -43,17 +40,18 @@ class CreateTrafficControlTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTrafficControlTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficControlTaskId'])) {
             $model->trafficControlTaskId = $map['TrafficControlTaskId'];
         }

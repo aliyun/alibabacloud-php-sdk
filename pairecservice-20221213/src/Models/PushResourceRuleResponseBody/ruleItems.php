@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleItems extends Model
 {
@@ -12,22 +12,18 @@ class ruleItems extends Model
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $maxValue;
-
     /**
      * @var string
      */
     public $minValue;
-
     /**
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
@@ -42,23 +38,28 @@ class ruleItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->maxValue) {
             $res['MaxValue'] = $this->maxValue;
         }
+
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -66,26 +67,30 @@ class ruleItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['MaxValue'])) {
             $model->maxValue = $map['MaxValue'];
         }
+
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

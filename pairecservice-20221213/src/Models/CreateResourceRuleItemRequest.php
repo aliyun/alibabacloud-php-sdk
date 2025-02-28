@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateResourceRuleItemRequest extends Model
 {
@@ -12,38 +12,23 @@ class CreateResourceRuleItemRequest extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $maxValue;
-
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $minValue;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $value;
@@ -58,26 +43,32 @@ class CreateResourceRuleItemRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->maxValue) {
             $res['MaxValue'] = $this->maxValue;
         }
+
         if (null !== $this->minValue) {
             $res['MinValue'] = $this->minValue;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -85,29 +76,34 @@ class CreateResourceRuleItemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateResourceRuleItemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MaxValue'])) {
             $model->maxValue = $map['MaxValue'];
         }
+
         if (isset($map['MinValue'])) {
             $model->minValue = $map['MinValue'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

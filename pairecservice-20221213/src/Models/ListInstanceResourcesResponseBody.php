@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourcesResponseBody\resources;
-use AlibabaCloud\Tea\Model;
 
 class ListInstanceResourcesResponseBody extends Model
 {
     /**
-     * @example 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var resources[]
      */
     public $resources;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -35,23 +29,29 @@ class ListInstanceResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,26 +59,28 @@ class ListInstanceResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

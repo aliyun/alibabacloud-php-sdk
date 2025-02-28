@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSceneResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example FCF741D8-9C30-578E-807F-B935487DB34A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 3
-     *
      * @var string
      */
     public $sceneId;
@@ -30,14 +23,16 @@ class CreateSceneResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -45,17 +40,18 @@ class CreateSceneResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSceneResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

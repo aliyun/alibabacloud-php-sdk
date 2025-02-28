@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFeatureConsistencyCheckJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example Pre
-     *
      * @var string
      */
     public $environment;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $featureConsistencyCheckJobConfigId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pairec-cn-********
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $samplingDuration;
@@ -52,20 +33,24 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environment) {
             $res['Environment'] = $this->environment;
         }
+
         if (null !== $this->featureConsistencyCheckJobConfigId) {
             $res['FeatureConsistencyCheckJobConfigId'] = $this->featureConsistencyCheckJobConfigId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->samplingDuration) {
             $res['SamplingDuration'] = $this->samplingDuration;
         }
@@ -73,23 +58,26 @@ class CreateFeatureConsistencyCheckJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFeatureConsistencyCheckJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Environment'])) {
             $model->environment = $map['Environment'];
         }
+
         if (isset($map['FeatureConsistencyCheckJobConfigId'])) {
             $model->featureConsistencyCheckJobConfigId = $map['FeatureConsistencyCheckJobConfigId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SamplingDuration'])) {
             $model->samplingDuration = $map['SamplingDuration'];
         }
