@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SavepointFailure extends Model
 {
     /**
-     * @example 1655006835
-     *
      * @var int
      */
     public $failedAt;
-
     /**
      * @var string
      */
     public $message;
-
     /**
      * @var string
      */
@@ -32,17 +28,20 @@ class SavepointFailure extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedAt) {
             $res['failedAt'] = $this->failedAt;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->reason) {
             $res['reason'] = $this->reason;
         }
@@ -50,20 +49,22 @@ class SavepointFailure extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SavepointFailure
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['failedAt'])) {
             $model->failedAt = $map['failedAt'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['reason'])) {
             $model->reason = $map['reason'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ValidateStatementResult extends Model
 {
@@ -12,10 +12,7 @@ class ValidateStatementResult extends Model
      * @var ValidationErrorDetails
      */
     public $errorDetails;
-
     /**
-     * @example "there have some errors""
-     *
      * @var string
      */
     public $validationResult;
@@ -26,14 +23,19 @@ class ValidateStatementResult extends Model
 
     public function validate()
     {
+        if (null !== $this->errorDetails) {
+            $this->errorDetails->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorDetails) {
-            $res['errorDetails'] = null !== $this->errorDetails ? $this->errorDetails->toMap() : null;
+            $res['errorDetails'] = null !== $this->errorDetails ? $this->errorDetails->toArray($noStream) : $this->errorDetails;
         }
+
         if (null !== $this->validationResult) {
             $res['validationResult'] = $this->validationResult;
         }
@@ -41,17 +43,18 @@ class ValidateStatementResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ValidateStatementResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorDetails'])) {
             $model->errorDetails = ValidationErrorDetails::fromMap($map['errorDetails']);
         }
+
         if (isset($map['validationResult'])) {
             $model->validationResult = $map['validationResult'];
         }

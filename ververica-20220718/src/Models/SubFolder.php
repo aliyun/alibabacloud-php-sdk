@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubFolder extends Model
 {
     /**
-     * @example a579aec9-1d5e-3382-9d65-9887ff6cfaff
-     *
      * @var string
      */
     public $folderId;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example 95c0787c-408f-4e1f-88ba-ef0a84a2c2ee
-     *
      * @var string
      */
     public $parentId;
@@ -36,17 +28,20 @@ class SubFolder extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
             $res['folderId'] = $this->folderId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
         }
@@ -54,20 +49,22 @@ class SubFolder extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubFolder
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['folderId'])) {
             $model->folderId = $map['folderId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
         }

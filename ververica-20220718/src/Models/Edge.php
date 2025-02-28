@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Edge extends Model
 {
@@ -12,7 +12,6 @@ class Edge extends Model
      * @var Relation[]
      */
     public $columnLineage;
-
     /**
      * @var Relation[]
      */
@@ -24,26 +23,34 @@ class Edge extends Model
 
     public function validate()
     {
+        if (\is_array($this->columnLineage)) {
+            Model::validateArray($this->columnLineage);
+        }
+        if (\is_array($this->tableLineage)) {
+            Model::validateArray($this->tableLineage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnLineage) {
-            $res['columnLineage'] = [];
-            if (null !== $this->columnLineage && \is_array($this->columnLineage)) {
-                $n = 0;
-                foreach ($this->columnLineage as $item) {
-                    $res['columnLineage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnLineage)) {
+                $res['columnLineage'] = [];
+                $n1                   = 0;
+                foreach ($this->columnLineage as $item1) {
+                    $res['columnLineage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tableLineage) {
-            $res['tableLineage'] = [];
-            if (null !== $this->tableLineage && \is_array($this->tableLineage)) {
-                $n = 0;
-                foreach ($this->tableLineage as $item) {
-                    $res['tableLineage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableLineage)) {
+                $res['tableLineage'] = [];
+                $n1                  = 0;
+                foreach ($this->tableLineage as $item1) {
+                    $res['tableLineage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -51,29 +58,30 @@ class Edge extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Edge
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columnLineage'])) {
             if (!empty($map['columnLineage'])) {
                 $model->columnLineage = [];
-                $n                    = 0;
-                foreach ($map['columnLineage'] as $item) {
-                    $model->columnLineage[$n++] = null !== $item ? Relation::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['columnLineage'] as $item1) {
+                    $model->columnLineage[$n1++] = Relation::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['tableLineage'])) {
             if (!empty($map['tableLineage'])) {
                 $model->tableLineage = [];
-                $n                   = 0;
-                foreach ($map['tableLineage'] as $item) {
-                    $model->tableLineage[$n++] = null !== $item ? Relation::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['tableLineage'] as $item1) {
+                    $model->tableLineage[$n1++] = Relation::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExpertResourceSetting extends Model
 {
@@ -12,7 +12,6 @@ class ExpertResourceSetting extends Model
      * @var BasicResourceSettingSpec
      */
     public $jobmanagerResourceSettingSpec;
-
     /**
      * @var string
      */
@@ -24,14 +23,19 @@ class ExpertResourceSetting extends Model
 
     public function validate()
     {
+        if (null !== $this->jobmanagerResourceSettingSpec) {
+            $this->jobmanagerResourceSettingSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobmanagerResourceSettingSpec) {
-            $res['jobmanagerResourceSettingSpec'] = null !== $this->jobmanagerResourceSettingSpec ? $this->jobmanagerResourceSettingSpec->toMap() : null;
+            $res['jobmanagerResourceSettingSpec'] = null !== $this->jobmanagerResourceSettingSpec ? $this->jobmanagerResourceSettingSpec->toArray($noStream) : $this->jobmanagerResourceSettingSpec;
         }
+
         if (null !== $this->resourcePlan) {
             $res['resourcePlan'] = $this->resourcePlan;
         }
@@ -39,17 +43,18 @@ class ExpertResourceSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExpertResourceSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jobmanagerResourceSettingSpec'])) {
             $model->jobmanagerResourceSettingSpec = BasicResourceSettingSpec::fromMap($map['jobmanagerResourceSettingSpec']);
         }
+
         if (isset($map['resourcePlan'])) {
             $model->resourcePlan = $map['resourcePlan'];
         }

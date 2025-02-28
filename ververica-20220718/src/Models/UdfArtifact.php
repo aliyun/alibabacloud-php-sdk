@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UdfArtifact extends Model
 {
@@ -12,42 +12,34 @@ class UdfArtifact extends Model
      * @var string
      */
     public $artifactType;
-
     /**
      * @var int
      */
     public $createdAt;
-
     /**
      * @var string
      */
     public $creator;
-
     /**
      * @var string[]
      */
     public $dependencyJarUris;
-
     /**
      * @var string
      */
     public $jarUrl;
-
     /**
      * @var int
      */
     public $modifiedAt;
-
     /**
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
     public $namespace;
-
     /**
      * @var UdfClass[]
      */
@@ -66,41 +58,62 @@ class UdfArtifact extends Model
 
     public function validate()
     {
+        if (\is_array($this->dependencyJarUris)) {
+            Model::validateArray($this->dependencyJarUris);
+        }
+        if (\is_array($this->udfClasses)) {
+            Model::validateArray($this->udfClasses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->artifactType) {
             $res['artifactType'] = $this->artifactType;
         }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->dependencyJarUris) {
-            $res['dependencyJarUris'] = $this->dependencyJarUris;
+            if (\is_array($this->dependencyJarUris)) {
+                $res['dependencyJarUris'] = [];
+                $n1                       = 0;
+                foreach ($this->dependencyJarUris as $item1) {
+                    $res['dependencyJarUris'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->jarUrl) {
             $res['jarUrl'] = $this->jarUrl;
         }
+
         if (null !== $this->modifiedAt) {
             $res['modifiedAt'] = $this->modifiedAt;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->udfClasses) {
-            $res['udfClasses'] = [];
-            if (null !== $this->udfClasses && \is_array($this->udfClasses)) {
-                $n = 0;
-                foreach ($this->udfClasses as $item) {
-                    $res['udfClasses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->udfClasses)) {
+                $res['udfClasses'] = [];
+                $n1                = 0;
+                foreach ($this->udfClasses as $item1) {
+                    $res['udfClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -108,46 +121,58 @@ class UdfArtifact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UdfArtifact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['artifactType'])) {
             $model->artifactType = $map['artifactType'];
         }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['dependencyJarUris'])) {
             if (!empty($map['dependencyJarUris'])) {
-                $model->dependencyJarUris = $map['dependencyJarUris'];
+                $model->dependencyJarUris = [];
+                $n1                       = 0;
+                foreach ($map['dependencyJarUris'] as $item1) {
+                    $model->dependencyJarUris[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['jarUrl'])) {
             $model->jarUrl = $map['jarUrl'];
         }
+
         if (isset($map['modifiedAt'])) {
             $model->modifiedAt = $map['modifiedAt'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['udfClasses'])) {
             if (!empty($map['udfClasses'])) {
                 $model->udfClasses = [];
-                $n                 = 0;
-                foreach ($map['udfClasses'] as $item) {
-                    $model->udfClasses[$n++] = null !== $item ? UdfClass::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['udfClasses'] as $item1) {
+                    $model->udfClasses[$n1++] = UdfClass::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDatabasesResponseBody extends Model
 {
@@ -12,38 +12,23 @@ class GetDatabasesResponseBody extends Model
      * @var Database[]
      */
     public $data;
-
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
-
     /**
-     * @example CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -58,32 +43,41 @@ class GetDatabasesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -91,35 +85,40 @@ class GetDatabasesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatabasesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? Database::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = Database::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

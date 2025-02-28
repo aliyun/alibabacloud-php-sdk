@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PeriodicSchedulingPolicy extends Model
 {
@@ -12,40 +12,26 @@ class PeriodicSchedulingPolicy extends Model
      * @var bool
      */
     public $isFinished;
-
     /**
-     * @example 1723195800000
-     *
      * @var int
      */
     public $onlyOnceTriggerTime;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $onlyOnceTriggerTimeIsExpired;
-
     /**
-     * @example DAY
-     *
      * @var string
      */
     public $periodicSchedulingLevel;
-
     /**
      * @var int[]
      */
     public $periodicSchedulingValues;
-
     /**
-     * @example 1723199340000
-     *
      * @var int
      */
     public $periodicTriggerTime;
-
     /**
      * @var BriefResourceSetting
      */
@@ -62,64 +48,93 @@ class PeriodicSchedulingPolicy extends Model
 
     public function validate()
     {
+        if (\is_array($this->periodicSchedulingValues)) {
+            Model::validateArray($this->periodicSchedulingValues);
+        }
+        if (null !== $this->resourceSetting) {
+            $this->resourceSetting->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isFinished) {
             $res['isFinished'] = $this->isFinished;
         }
+
         if (null !== $this->onlyOnceTriggerTime) {
             $res['onlyOnceTriggerTime'] = $this->onlyOnceTriggerTime;
         }
+
         if (null !== $this->onlyOnceTriggerTimeIsExpired) {
             $res['onlyOnceTriggerTimeIsExpired'] = $this->onlyOnceTriggerTimeIsExpired;
         }
+
         if (null !== $this->periodicSchedulingLevel) {
             $res['periodicSchedulingLevel'] = $this->periodicSchedulingLevel;
         }
+
         if (null !== $this->periodicSchedulingValues) {
-            $res['periodicSchedulingValues'] = $this->periodicSchedulingValues;
+            if (\is_array($this->periodicSchedulingValues)) {
+                $res['periodicSchedulingValues'] = [];
+                $n1                              = 0;
+                foreach ($this->periodicSchedulingValues as $item1) {
+                    $res['periodicSchedulingValues'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->periodicTriggerTime) {
             $res['periodicTriggerTime'] = $this->periodicTriggerTime;
         }
+
         if (null !== $this->resourceSetting) {
-            $res['resourceSetting'] = null !== $this->resourceSetting ? $this->resourceSetting->toMap() : null;
+            $res['resourceSetting'] = null !== $this->resourceSetting ? $this->resourceSetting->toArray($noStream) : $this->resourceSetting;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PeriodicSchedulingPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['isFinished'])) {
             $model->isFinished = $map['isFinished'];
         }
+
         if (isset($map['onlyOnceTriggerTime'])) {
             $model->onlyOnceTriggerTime = $map['onlyOnceTriggerTime'];
         }
+
         if (isset($map['onlyOnceTriggerTimeIsExpired'])) {
             $model->onlyOnceTriggerTimeIsExpired = $map['onlyOnceTriggerTimeIsExpired'];
         }
+
         if (isset($map['periodicSchedulingLevel'])) {
             $model->periodicSchedulingLevel = $map['periodicSchedulingLevel'];
         }
+
         if (isset($map['periodicSchedulingValues'])) {
             if (!empty($map['periodicSchedulingValues'])) {
-                $model->periodicSchedulingValues = $map['periodicSchedulingValues'];
+                $model->periodicSchedulingValues = [];
+                $n1                              = 0;
+                foreach ($map['periodicSchedulingValues'] as $item1) {
+                    $model->periodicSchedulingValues[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['periodicTriggerTime'])) {
             $model->periodicTriggerTime = $map['periodicTriggerTime'];
         }
+
         if (isset($map['resourceSetting'])) {
             $model->resourceSetting = BriefResourceSetting::fromMap($map['resourceSetting']);
         }

@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSavepointRequest extends Model
 {
     /**
-     * @description The deployment ID.
-     *
-     * This parameter is required.
-     * @example 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-     *
      * @var string
      */
     public $deploymentId;
-
     /**
-     * @description The description of the savepoint.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description Specifies whether to use the native format mode. Valid values:
-     *
-     *   true: The native format mode is used.
-     *   false: The native format mode is not used.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $nativeFormat;
@@ -44,17 +28,20 @@ class CreateSavepointRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->nativeFormat) {
             $res['nativeFormat'] = $this->nativeFormat;
         }
@@ -62,20 +49,22 @@ class CreateSavepointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSavepointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['nativeFormat'])) {
             $model->nativeFormat = $map['nativeFormat'];
         }

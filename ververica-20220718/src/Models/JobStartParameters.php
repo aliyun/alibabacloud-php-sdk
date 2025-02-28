@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JobStartParameters extends Model
 {
@@ -12,24 +12,18 @@ class JobStartParameters extends Model
      * @var string
      */
     public $deploymentId;
-
     /**
      * @var string
      */
     public $jobId;
-
     /**
      * @var LocalVariable[]
      */
     public $localVariables;
-
     /**
-     * @example default-queue
-     *
      * @var string
      */
     public $resourceQueueName;
-
     /**
      * @var DeploymentRestoreStrategy
      */
@@ -44,62 +38,77 @@ class JobStartParameters extends Model
 
     public function validate()
     {
+        if (\is_array($this->localVariables)) {
+            Model::validateArray($this->localVariables);
+        }
+        if (null !== $this->restoreStrategy) {
+            $this->restoreStrategy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
         }
+
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
         }
+
         if (null !== $this->localVariables) {
-            $res['localVariables'] = [];
-            if (null !== $this->localVariables && \is_array($this->localVariables)) {
-                $n = 0;
-                foreach ($this->localVariables as $item) {
-                    $res['localVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->localVariables)) {
+                $res['localVariables'] = [];
+                $n1                    = 0;
+                foreach ($this->localVariables as $item1) {
+                    $res['localVariables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resourceQueueName) {
             $res['resourceQueueName'] = $this->resourceQueueName;
         }
+
         if (null !== $this->restoreStrategy) {
-            $res['restoreStrategy'] = null !== $this->restoreStrategy ? $this->restoreStrategy->toMap() : null;
+            $res['restoreStrategy'] = null !== $this->restoreStrategy ? $this->restoreStrategy->toArray($noStream) : $this->restoreStrategy;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobStartParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
         }
+
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
         }
+
         if (isset($map['localVariables'])) {
             if (!empty($map['localVariables'])) {
                 $model->localVariables = [];
-                $n                     = 0;
-                foreach ($map['localVariables'] as $item) {
-                    $model->localVariables[$n++] = null !== $item ? LocalVariable::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['localVariables'] as $item1) {
+                    $model->localVariables[$n1++] = LocalVariable::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['resourceQueueName'])) {
             $model->resourceQueueName = $map['resourceQueueName'];
         }
+
         if (isset($map['restoreStrategy'])) {
             $model->restoreStrategy = DeploymentRestoreStrategy::fromMap($map['restoreStrategy']);
         }

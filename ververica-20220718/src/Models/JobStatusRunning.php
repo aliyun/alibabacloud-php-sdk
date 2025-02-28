@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JobStatusRunning extends Model
 {
     /**
-     * @example 4
-     *
      * @var int
      */
     public $observedFlinkJobRestarts;
-
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $observedFlinkJobStatus;
@@ -28,14 +23,16 @@ class JobStatusRunning extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->observedFlinkJobRestarts) {
             $res['observedFlinkJobRestarts'] = $this->observedFlinkJobRestarts;
         }
+
         if (null !== $this->observedFlinkJobStatus) {
             $res['observedFlinkJobStatus'] = $this->observedFlinkJobStatus;
         }
@@ -43,17 +40,18 @@ class JobStatusRunning extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobStatusRunning
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['observedFlinkJobRestarts'])) {
             $model->observedFlinkJobRestarts = $map['observedFlinkJobRestarts'];
         }
+
         if (isset($map['observedFlinkJobStatus'])) {
             $model->observedFlinkJobStatus = $map['observedFlinkJobStatus'];
         }

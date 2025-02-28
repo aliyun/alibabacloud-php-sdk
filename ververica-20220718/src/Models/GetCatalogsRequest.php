@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCatalogsRequest extends Model
 {
     /**
-     * @example paimon
-     *
      * @var string
      */
     public $catalogName;
@@ -20,9 +18,10 @@ class GetCatalogsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogName) {
@@ -32,11 +31,11 @@ class GetCatalogsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCatalogsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

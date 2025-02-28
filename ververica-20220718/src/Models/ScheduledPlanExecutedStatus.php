@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ScheduledPlanExecutedStatus extends Model
 {
     /**
-     * @example HOT_UPDATE
-     *
      * @var string
      */
     public $restartType;
-
     /**
-     * @example UPGRADED
-     *
      * @var string
      */
     public $statusState;
@@ -28,14 +23,16 @@ class ScheduledPlanExecutedStatus extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->restartType) {
             $res['restartType'] = $this->restartType;
         }
+
         if (null !== $this->statusState) {
             $res['statusState'] = $this->statusState;
         }
@@ -43,17 +40,18 @@ class ScheduledPlanExecutedStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ScheduledPlanExecutedStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['restartType'])) {
             $model->restartType = $map['restartType'];
         }
+
         if (isset($map['statusState'])) {
             $model->statusState = $map['statusState'];
         }

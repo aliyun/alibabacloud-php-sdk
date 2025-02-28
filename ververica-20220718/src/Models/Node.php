@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Node extends Model
 {
@@ -12,27 +12,22 @@ class Node extends Model
      * @var string
      */
     public $catalogName;
-
     /**
      * @var string
      */
     public $connector;
-
     /**
      * @var string
      */
     public $databaseName;
-
     /**
      * @var string
      */
     public $id;
-
     /**
      * @var bool
      */
     public $isTemporary;
-
     /**
      * @var LineageTable[]
      */
@@ -48,32 +43,41 @@ class Node extends Model
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['catalogName'] = $this->catalogName;
         }
+
         if (null !== $this->connector) {
             $res['connector'] = $this->connector;
         }
+
         if (null !== $this->databaseName) {
             $res['databaseName'] = $this->databaseName;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->isTemporary) {
             $res['isTemporary'] = $this->isTemporary;
         }
+
         if (null !== $this->tables) {
-            $res['tables'] = [];
-            if (null !== $this->tables && \is_array($this->tables)) {
-                $n = 0;
-                foreach ($this->tables as $item) {
-                    $res['tables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                $n1            = 0;
+                foreach ($this->tables as $item1) {
+                    $res['tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,35 +85,40 @@ class Node extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Node
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['catalogName'])) {
             $model->catalogName = $map['catalogName'];
         }
+
         if (isset($map['connector'])) {
             $model->connector = $map['connector'];
         }
+
         if (isset($map['databaseName'])) {
             $model->databaseName = $map['databaseName'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['isTemporary'])) {
             $model->isTemporary = $map['isTemporary'];
         }
+
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
                 $model->tables = [];
-                $n             = 0;
-                foreach ($map['tables'] as $item) {
-                    $model->tables[$n++] = null !== $item ? LineageTable::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['tables'] as $item1) {
+                    $model->tables[$n1++] = LineageTable::fromMap($item1);
                 }
             }
         }

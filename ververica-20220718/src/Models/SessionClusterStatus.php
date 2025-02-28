@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SessionClusterStatus extends Model
 {
@@ -12,12 +12,10 @@ class SessionClusterStatus extends Model
      * @var string
      */
     public $currentSessionClusterStatus;
-
     /**
      * @var SessionClusterFailureInfo
      */
     public $failure;
-
     /**
      * @var SessionClusterRunningInfo
      */
@@ -30,38 +28,49 @@ class SessionClusterStatus extends Model
 
     public function validate()
     {
+        if (null !== $this->failure) {
+            $this->failure->validate();
+        }
+        if (null !== $this->running) {
+            $this->running->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentSessionClusterStatus) {
             $res['currentSessionClusterStatus'] = $this->currentSessionClusterStatus;
         }
+
         if (null !== $this->failure) {
-            $res['failure'] = null !== $this->failure ? $this->failure->toMap() : null;
+            $res['failure'] = null !== $this->failure ? $this->failure->toArray($noStream) : $this->failure;
         }
+
         if (null !== $this->running) {
-            $res['running'] = null !== $this->running ? $this->running->toMap() : null;
+            $res['running'] = null !== $this->running ? $this->running->toArray($noStream) : $this->running;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SessionClusterStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentSessionClusterStatus'])) {
             $model->currentSessionClusterStatus = $map['currentSessionClusterStatus'];
         }
+
         if (isset($map['failure'])) {
             $model->failure = SessionClusterFailureInfo::fromMap($map['failure']);
         }
+
         if (isset($map['running'])) {
             $model->running = SessionClusterRunningInfo::fromMap($map['running']);
         }

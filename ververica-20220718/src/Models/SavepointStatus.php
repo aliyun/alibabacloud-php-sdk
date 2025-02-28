@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SavepointStatus extends Model
 {
@@ -12,10 +12,7 @@ class SavepointStatus extends Model
      * @var SavepointFailure
      */
     public $failure;
-
     /**
-     * @example COMPLETED
-     *
      * @var string
      */
     public $state;
@@ -26,14 +23,19 @@ class SavepointStatus extends Model
 
     public function validate()
     {
+        if (null !== $this->failure) {
+            $this->failure->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failure) {
-            $res['failure'] = null !== $this->failure ? $this->failure->toMap() : null;
+            $res['failure'] = null !== $this->failure ? $this->failure->toArray($noStream) : $this->failure;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
@@ -41,17 +43,18 @@ class SavepointStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SavepointStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['failure'])) {
             $model->failure = SavepointFailure::fromMap($map['failure']);
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }

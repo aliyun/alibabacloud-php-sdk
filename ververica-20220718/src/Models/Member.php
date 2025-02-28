@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Member extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example user: 181319557522****
-     *
      * @var string
      */
     public $member;
-
     /**
-     * @example VIEWER
-     *
      * @var string
      */
     public $role;
@@ -30,14 +23,16 @@ class Member extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->member) {
             $res['member'] = $this->member;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -45,17 +40,18 @@ class Member extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Member
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['member'])) {
             $model->member = $map['member'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUdfArtifactsRequest extends Model
 {
     /**
-     * @description The name of the JAR or Python file that corresponds to the UDF.
-     *
-     * @example test-udf
-     *
      * @var string
      */
     public $udfArtifactName;
@@ -22,9 +18,10 @@ class GetUdfArtifactsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->udfArtifactName) {
@@ -34,11 +31,11 @@ class GetUdfArtifactsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUdfArtifactsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

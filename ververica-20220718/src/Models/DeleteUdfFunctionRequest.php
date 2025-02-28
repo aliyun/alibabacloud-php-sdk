@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUdfFunctionRequest extends Model
 {
     /**
-     * @description The name of the class that corresponds to the UDF.
-     *
-     * This parameter is required.
-     * @example Category
-     *
      * @var string
      */
     public $className;
-
     /**
-     * @description The name of the resource that corresponds to the UDF that you want to delete.
-     *
-     * This parameter is required.
-     * @example test-udf
-     *
      * @var string
      */
     public $udfArtifactName;
@@ -34,14 +23,16 @@ class DeleteUdfFunctionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->className) {
             $res['className'] = $this->className;
         }
+
         if (null !== $this->udfArtifactName) {
             $res['udfArtifactName'] = $this->udfArtifactName;
         }
@@ -49,17 +40,18 @@ class DeleteUdfFunctionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUdfFunctionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['className'])) {
             $model->className = $map['className'];
         }
+
         if (isset($map['udfArtifactName'])) {
             $model->udfArtifactName = $map['udfArtifactName'];
         }

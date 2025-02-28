@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UdfFunction extends Model
 {
@@ -12,12 +12,10 @@ class UdfFunction extends Model
      * @var string
      */
     public $className;
-
     /**
      * @var string
      */
     public $functionName;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class UdfFunction extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->className) {
             $res['className'] = $this->className;
         }
+
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
         }
+
         if (null !== $this->udfArtifactName) {
             $res['udfArtifactName'] = $this->udfArtifactName;
         }
@@ -48,20 +49,22 @@ class UdfFunction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UdfFunction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['className'])) {
             $model->className = $map['className'];
         }
+
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
         }
+
         if (isset($map['udfArtifactName'])) {
             $model->udfArtifactName = $map['udfArtifactName'];
         }

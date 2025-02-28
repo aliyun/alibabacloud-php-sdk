@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PythonArtifact extends Model
 {
@@ -12,30 +12,23 @@ class PythonArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
-
     /**
      * @var string[]
      */
     public $additionalPythonArchives;
-
     /**
      * @var string[]
      */
     public $additionalPythonLibraries;
-
     /**
      * @var string
      */
     public $entryModule;
-
     /**
      * @var string
      */
     public $mainArgs;
-
     /**
-     * @example https://oss//bucket//test.py
-     *
      * @var string
      */
     public $pythonArtifactUri;
@@ -50,26 +43,59 @@ class PythonArtifact extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalDependencies)) {
+            Model::validateArray($this->additionalDependencies);
+        }
+        if (\is_array($this->additionalPythonArchives)) {
+            Model::validateArray($this->additionalPythonArchives);
+        }
+        if (\is_array($this->additionalPythonLibraries)) {
+            Model::validateArray($this->additionalPythonLibraries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalDependencies) {
-            $res['additionalDependencies'] = $this->additionalDependencies;
+            if (\is_array($this->additionalDependencies)) {
+                $res['additionalDependencies'] = [];
+                $n1                            = 0;
+                foreach ($this->additionalDependencies as $item1) {
+                    $res['additionalDependencies'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->additionalPythonArchives) {
-            $res['additionalPythonArchives'] = $this->additionalPythonArchives;
+            if (\is_array($this->additionalPythonArchives)) {
+                $res['additionalPythonArchives'] = [];
+                $n1                              = 0;
+                foreach ($this->additionalPythonArchives as $item1) {
+                    $res['additionalPythonArchives'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->additionalPythonLibraries) {
-            $res['additionalPythonLibraries'] = $this->additionalPythonLibraries;
+            if (\is_array($this->additionalPythonLibraries)) {
+                $res['additionalPythonLibraries'] = [];
+                $n1                               = 0;
+                foreach ($this->additionalPythonLibraries as $item1) {
+                    $res['additionalPythonLibraries'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->entryModule) {
             $res['entryModule'] = $this->entryModule;
         }
+
         if (null !== $this->mainArgs) {
             $res['mainArgs'] = $this->mainArgs;
         }
+
         if (null !== $this->pythonArtifactUri) {
             $res['pythonArtifactUri'] = $this->pythonArtifactUri;
         }
@@ -77,35 +103,52 @@ class PythonArtifact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PythonArtifact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
-                $model->additionalDependencies = $map['additionalDependencies'];
+                $model->additionalDependencies = [];
+                $n1                            = 0;
+                foreach ($map['additionalDependencies'] as $item1) {
+                    $model->additionalDependencies[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['additionalPythonArchives'])) {
             if (!empty($map['additionalPythonArchives'])) {
-                $model->additionalPythonArchives = $map['additionalPythonArchives'];
+                $model->additionalPythonArchives = [];
+                $n1                              = 0;
+                foreach ($map['additionalPythonArchives'] as $item1) {
+                    $model->additionalPythonArchives[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['additionalPythonLibraries'])) {
             if (!empty($map['additionalPythonLibraries'])) {
-                $model->additionalPythonLibraries = $map['additionalPythonLibraries'];
+                $model->additionalPythonLibraries = [];
+                $n1                               = 0;
+                foreach ($map['additionalPythonLibraries'] as $item1) {
+                    $model->additionalPythonLibraries[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['entryModule'])) {
             $model->entryModule = $map['entryModule'];
         }
+
         if (isset($map['mainArgs'])) {
             $model->mainArgs = $map['mainArgs'];
         }
+
         if (isset($map['pythonArtifactUri'])) {
             $model->pythonArtifactUri = $map['pythonArtifactUri'];
         }

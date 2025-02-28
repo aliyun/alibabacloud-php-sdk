@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MetadataInfo extends Model
 {
@@ -12,7 +12,6 @@ class MetadataInfo extends Model
      * @var string
      */
     public $key;
-
     /**
      * @var bool
      */
@@ -24,14 +23,16 @@ class MetadataInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->virtual) {
             $res['virtual'] = $this->virtual;
         }
@@ -39,17 +40,18 @@ class MetadataInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MetadataInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['virtual'])) {
             $model->virtual = $map['virtual'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WatermarkSpec extends Model
 {
@@ -12,7 +12,6 @@ class WatermarkSpec extends Model
      * @var string
      */
     public $column;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class WatermarkSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->column) {
             $res['column'] = $this->column;
         }
+
         if (null !== $this->watermarkExpression) {
             $res['watermarkExpression'] = $this->watermarkExpression;
         }
@@ -39,17 +40,18 @@ class WatermarkSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WatermarkSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['column'])) {
             $model->column = $map['column'];
         }
+
         if (isset($map['watermarkExpression'])) {
             $model->watermarkExpression = $map['watermarkExpression'];
         }

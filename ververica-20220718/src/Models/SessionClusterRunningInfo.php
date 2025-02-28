@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SessionClusterRunningInfo extends Model
 {
@@ -12,12 +12,10 @@ class SessionClusterRunningInfo extends Model
      * @var int
      */
     public $lastUpdateTime;
-
     /**
      * @var string[]
      */
     public $referenceDeploymentIds;
-
     /**
      * @var int
      */
@@ -30,17 +28,29 @@ class SessionClusterRunningInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->referenceDeploymentIds)) {
+            Model::validateArray($this->referenceDeploymentIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastUpdateTime) {
             $res['lastUpdateTime'] = $this->lastUpdateTime;
         }
+
         if (null !== $this->referenceDeploymentIds) {
-            $res['referenceDeploymentIds'] = $this->referenceDeploymentIds;
+            if (\is_array($this->referenceDeploymentIds)) {
+                $res['referenceDeploymentIds'] = [];
+                $n1                            = 0;
+                foreach ($this->referenceDeploymentIds as $item1) {
+                    $res['referenceDeploymentIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->startedAt) {
             $res['startedAt'] = $this->startedAt;
         }
@@ -48,22 +58,28 @@ class SessionClusterRunningInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SessionClusterRunningInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lastUpdateTime'])) {
             $model->lastUpdateTime = $map['lastUpdateTime'];
         }
+
         if (isset($map['referenceDeploymentIds'])) {
             if (!empty($map['referenceDeploymentIds'])) {
-                $model->referenceDeploymentIds = $map['referenceDeploymentIds'];
+                $model->referenceDeploymentIds = [];
+                $n1                            = 0;
+                foreach ($map['referenceDeploymentIds'] as $item1) {
+                    $model->referenceDeploymentIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['startedAt'])) {
             $model->startedAt = $map['startedAt'];
         }

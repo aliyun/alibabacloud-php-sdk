@@ -4,49 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FlinkApiProxyRequest extends Model
 {
     /**
-     * @description The path of the Flink UI.
-     *
-     * This parameter is required.
-     * @example /jobs/4df35f8e54554b23bf7dcd38a151****
-     *
      * @var string
      */
     public $flinkApiPath;
-
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example default-namespace
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example 5a27a3aa-c5b9-4dc1-8c86-be57d2d6****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   jobs
-     *   sessionclusters
-     *
-     * This parameter is required.
-     * @example jobs
-     *
      * @var string
      */
     public $resourceType;
@@ -59,20 +33,24 @@ class FlinkApiProxyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flinkApiPath) {
             $res['flinkApiPath'] = $this->flinkApiPath;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -80,23 +58,26 @@ class FlinkApiProxyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FlinkApiProxyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['flinkApiPath'])) {
             $model->flinkApiPath = $map['flinkApiPath'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

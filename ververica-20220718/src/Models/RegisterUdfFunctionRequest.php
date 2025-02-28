@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterUdfFunctionRequest extends Model
 {
     /**
-     * @description The name of the class that corresponds to the UDF.
-     *
-     * This parameter is required.
-     * @example orderRank
-     *
      * @var string
      */
     public $className;
-
     /**
-     * @description The name of the UDF. In most cases, the name of the UDF is the same as the class name. You can specify a name for the UDF.
-     *
-     * This parameter is required.
-     * @example orderRank
-     *
      * @var string
      */
     public $functionName;
-
     /**
-     * @description The name of the JAR or Python file that corresponds to the UDF.
-     *
-     * This parameter is required.
-     * @example test-udf
-     *
      * @var string
      */
     public $udfArtifactName;
@@ -45,17 +28,20 @@ class RegisterUdfFunctionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->className) {
             $res['className'] = $this->className;
         }
+
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
         }
+
         if (null !== $this->udfArtifactName) {
             $res['udfArtifactName'] = $this->udfArtifactName;
         }
@@ -63,20 +49,22 @@ class RegisterUdfFunctionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterUdfFunctionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['className'])) {
             $model->className = $map['className'];
         }
+
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
         }
+
         if (isset($map['udfArtifactName'])) {
             $model->udfArtifactName = $map['udfArtifactName'];
         }

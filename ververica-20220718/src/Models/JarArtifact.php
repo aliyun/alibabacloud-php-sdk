@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JarArtifact extends Model
 {
@@ -12,21 +12,14 @@ class JarArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
-
     /**
-     * @example org.apapche.flink.test
-     *
      * @var string
      */
     public $entryClass;
-
     /**
-     * @example https://oss//bucket//test.jar
-     *
      * @var string
      */
     public $jarUri;
-
     /**
      * @var string
      */
@@ -40,20 +33,33 @@ class JarArtifact extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalDependencies)) {
+            Model::validateArray($this->additionalDependencies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalDependencies) {
-            $res['additionalDependencies'] = $this->additionalDependencies;
+            if (\is_array($this->additionalDependencies)) {
+                $res['additionalDependencies'] = [];
+                $n1                            = 0;
+                foreach ($this->additionalDependencies as $item1) {
+                    $res['additionalDependencies'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->entryClass) {
             $res['entryClass'] = $this->entryClass;
         }
+
         if (null !== $this->jarUri) {
             $res['jarUri'] = $this->jarUri;
         }
+
         if (null !== $this->mainArgs) {
             $res['mainArgs'] = $this->mainArgs;
         }
@@ -61,25 +67,32 @@ class JarArtifact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JarArtifact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
-                $model->additionalDependencies = $map['additionalDependencies'];
+                $model->additionalDependencies = [];
+                $n1                            = 0;
+                foreach ($map['additionalDependencies'] as $item1) {
+                    $model->additionalDependencies[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['entryClass'])) {
             $model->entryClass = $map['entryClass'];
         }
+
         if (isset($map['jarUri'])) {
             $model->jarUri = $map['jarUri'];
         }
+
         if (isset($map['mainArgs'])) {
             $model->mainArgs = $map['mainArgs'];
         }

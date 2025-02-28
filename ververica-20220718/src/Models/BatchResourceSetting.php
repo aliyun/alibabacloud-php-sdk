@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchResourceSetting extends Model
 {
@@ -12,10 +12,7 @@ class BatchResourceSetting extends Model
      * @var BasicResourceSetting
      */
     public $basicResourceSetting;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxSlot;
@@ -26,14 +23,19 @@ class BatchResourceSetting extends Model
 
     public function validate()
     {
+        if (null !== $this->basicResourceSetting) {
+            $this->basicResourceSetting->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->basicResourceSetting) {
-            $res['basicResourceSetting'] = null !== $this->basicResourceSetting ? $this->basicResourceSetting->toMap() : null;
+            $res['basicResourceSetting'] = null !== $this->basicResourceSetting ? $this->basicResourceSetting->toArray($noStream) : $this->basicResourceSetting;
         }
+
         if (null !== $this->maxSlot) {
             $res['maxSlot'] = $this->maxSlot;
         }
@@ -41,17 +43,18 @@ class BatchResourceSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchResourceSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['basicResourceSetting'])) {
             $model->basicResourceSetting = BasicResourceSetting::fromMap($map['basicResourceSetting']);
         }
+
         if (isset($map['maxSlot'])) {
             $model->maxSlot = $map['maxSlot'];
         }

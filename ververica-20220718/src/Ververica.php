@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ApplyScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateDeploymentDraftHeaders;
@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultHea
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetHotUpdateJobResultHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetHotUpdateJobResultResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobDiagnosisHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobDiagnosisResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLatestJobStartLogHeaders;
@@ -206,14 +208,16 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateVariableResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ververica extends OpenApiClient
 {
@@ -238,35 +242,42 @@ class Ververica extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 执行定时计划
-     *  *
-     * @param string                    $namespace
-     * @param string                    $scheduledPlanId
-     * @param ApplyScheduledPlanHeaders $headers         ApplyScheduledPlanHeaders
-     * @param RuntimeOptions            $runtime         runtime options for this request RuntimeOptions
+     * 执行定时计划.
      *
-     * @return ApplyScheduledPlanResponse ApplyScheduledPlanResponse
+     * @param headers - ApplyScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyScheduledPlanResponse
+     *
+     * @param string                    $namespace_
+     * @param string                    $scheduledPlanId
+     * @param ApplyScheduledPlanHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ApplyScheduledPlanResponse
      */
-    public function applyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    public function applyScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -274,617 +285,762 @@ class Ververica extends OpenApiClient
             'action'      => 'ApplyScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '%3Aapply',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Aapply',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行定时计划
-     *  *
-     * @param string $namespace
+     * 执行定时计划.
+     *
+     * @returns ApplyScheduledPlanResponse
+     *
+     * @param string $namespace_
      * @param string $scheduledPlanId
      *
-     * @return ApplyScheduledPlanResponse ApplyScheduledPlanResponse
+     * @return ApplyScheduledPlanResponse
      */
-    public function applyScheduledPlan($namespace, $scheduledPlanId)
+    public function applyScheduledPlan($namespace_, $scheduledPlanId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ApplyScheduledPlanHeaders([]);
 
-        return $this->applyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
+        return $this->applyScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime);
     }
 
     /**
-     * @summary Creates a deployment.
-     *  *
-     * @param string                  $namespace
-     * @param CreateDeploymentRequest $request   CreateDeploymentRequest
-     * @param CreateDeploymentHeaders $headers   CreateDeploymentHeaders
-     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     * Creates a deployment.
      *
-     * @return CreateDeploymentResponse CreateDeploymentResponse
+     * @param request - CreateDeploymentRequest
+     * @param headers - CreateDeploymentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeploymentResponse
+     *
+     * @param string                  $namespace_
+     * @param CreateDeploymentRequest $request
+     * @param CreateDeploymentHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDeploymentResponse
      */
-    public function createDeploymentWithOptions($namespace, $request, $headers, $runtime)
+    public function createDeploymentWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeployment',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a deployment.
-     *  *
-     * @param string                  $namespace
-     * @param CreateDeploymentRequest $request   CreateDeploymentRequest
+     * Creates a deployment.
      *
-     * @return CreateDeploymentResponse CreateDeploymentResponse
+     * @param request - CreateDeploymentRequest
+     * @returns CreateDeploymentResponse
+     *
+     * @param string                  $namespace_
+     * @param CreateDeploymentRequest $request
+     *
+     * @return CreateDeploymentResponse
      */
-    public function createDeployment($namespace, $request)
+    public function createDeployment($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateDeploymentHeaders([]);
 
-        return $this->createDeploymentWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createDeploymentWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary create a deploymentDraft
-     *  *
-     * @param string                       $namespace
-     * @param CreateDeploymentDraftRequest $request   CreateDeploymentDraftRequest
-     * @param CreateDeploymentDraftHeaders $headers   CreateDeploymentDraftHeaders
-     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     * create a deploymentDraft.
      *
-     * @return CreateDeploymentDraftResponse CreateDeploymentDraftResponse
+     * @param request - CreateDeploymentDraftRequest
+     * @param headers - CreateDeploymentDraftHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeploymentDraftResponse
+     *
+     * @param string                       $namespace_
+     * @param CreateDeploymentDraftRequest $request
+     * @param CreateDeploymentDraftHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDeploymentDraftResponse
      */
-    public function createDeploymentDraftWithOptions($namespace, $request, $headers, $runtime)
+    public function createDeploymentDraftWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeploymentDraft',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary create a deploymentDraft
-     *  *
-     * @param string                       $namespace
-     * @param CreateDeploymentDraftRequest $request   CreateDeploymentDraftRequest
+     * create a deploymentDraft.
      *
-     * @return CreateDeploymentDraftResponse CreateDeploymentDraftResponse
+     * @param request - CreateDeploymentDraftRequest
+     * @returns CreateDeploymentDraftResponse
+     *
+     * @param string                       $namespace_
+     * @param CreateDeploymentDraftRequest $request
+     *
+     * @return CreateDeploymentDraftResponse
      */
-    public function createDeploymentDraft($namespace, $request)
+    public function createDeploymentDraft($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateDeploymentDraftHeaders([]);
 
-        return $this->createDeploymentDraftWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createDeploymentDraftWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 创建deploymentTarget
-     *  *
-     * @param string                        $namespace
-     * @param CreateDeploymentTargetRequest $request   CreateDeploymentTargetRequest
-     * @param CreateDeploymentTargetHeaders $headers   CreateDeploymentTargetHeaders
-     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     * 创建deploymentTarget.
      *
-     * @return CreateDeploymentTargetResponse CreateDeploymentTargetResponse
+     * @param request - CreateDeploymentTargetRequest
+     * @param headers - CreateDeploymentTargetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeploymentTargetResponse
+     *
+     * @param string                        $namespace_
+     * @param CreateDeploymentTargetRequest $request
+     * @param CreateDeploymentTargetHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDeploymentTargetResponse
      */
-    public function createDeploymentTargetWithOptions($namespace, $request, $headers, $runtime)
+    public function createDeploymentTargetWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentTargetName)) {
-            $query['deploymentTargetName'] = $request->deploymentTargetName;
+        if (null !== $request->deploymentTargetName) {
+            @$query['deploymentTargetName'] = $request->deploymentTargetName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeploymentTarget',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建deploymentTarget
-     *  *
-     * @param string                        $namespace
-     * @param CreateDeploymentTargetRequest $request   CreateDeploymentTargetRequest
+     * 创建deploymentTarget.
      *
-     * @return CreateDeploymentTargetResponse CreateDeploymentTargetResponse
+     * @param request - CreateDeploymentTargetRequest
+     * @returns CreateDeploymentTargetResponse
+     *
+     * @param string                        $namespace_
+     * @param CreateDeploymentTargetRequest $request
+     *
+     * @return CreateDeploymentTargetResponse
      */
-    public function createDeploymentTarget($namespace, $request)
+    public function createDeploymentTarget($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateDeploymentTargetHeaders([]);
 
-        return $this->createDeploymentTargetWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createDeploymentTargetWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary create a folder
-     *  *
-     * @param string              $namespace
-     * @param CreateFolderRequest $request   CreateFolderRequest
-     * @param CreateFolderHeaders $headers   CreateFolderHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * create a folder.
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @param request - CreateFolderRequest
+     * @param headers - CreateFolderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFolderResponse
+     *
+     * @param string              $namespace_
+     * @param CreateFolderRequest $request
+     * @param CreateFolderHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFolderResponse
      */
-    public function createFolderWithOptions($namespace, $request, $headers, $runtime)
+    public function createFolderWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateFolder',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/folder',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary create a folder
-     *  *
-     * @param string              $namespace
-     * @param CreateFolderRequest $request   CreateFolderRequest
+     * create a folder.
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @param request - CreateFolderRequest
+     * @returns CreateFolderResponse
+     *
+     * @param string              $namespace_
+     * @param CreateFolderRequest $request
+     *
+     * @return CreateFolderResponse
      */
-    public function createFolder($namespace, $request)
+    public function createFolder($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateFolderHeaders([]);
 
-        return $this->createFolderWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createFolderWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Adds a user to a namespace as a member and grants permissions to the user.
-     *  *
-     * @param string              $namespace
-     * @param CreateMemberRequest $request   CreateMemberRequest
-     * @param CreateMemberHeaders $headers   CreateMemberHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * Adds a user to a namespace as a member and grants permissions to the user.
      *
-     * @return CreateMemberResponse CreateMemberResponse
+     * @param request - CreateMemberRequest
+     * @param headers - CreateMemberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMemberResponse
+     *
+     * @param string              $namespace_
+     * @param CreateMemberRequest $request
+     * @param CreateMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemberResponse
      */
-    public function createMemberWithOptions($namespace, $request, $headers, $runtime)
+    public function createMemberWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateMember',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a user to a namespace as a member and grants permissions to the user.
-     *  *
-     * @param string              $namespace
-     * @param CreateMemberRequest $request   CreateMemberRequest
+     * Adds a user to a namespace as a member and grants permissions to the user.
      *
-     * @return CreateMemberResponse CreateMemberResponse
+     * @param request - CreateMemberRequest
+     * @returns CreateMemberResponse
+     *
+     * @param string              $namespace_
+     * @param CreateMemberRequest $request
+     *
+     * @return CreateMemberResponse
      */
-    public function createMember($namespace, $request)
+    public function createMember($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateMemberHeaders([]);
 
-        return $this->createMemberWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createMemberWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Creates a savepoint.
-     *  *
-     * @param string                 $namespace
-     * @param CreateSavepointRequest $request   CreateSavepointRequest
-     * @param CreateSavepointHeaders $headers   CreateSavepointHeaders
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * Creates a savepoint.
      *
-     * @return CreateSavepointResponse CreateSavepointResponse
+     * @param request - CreateSavepointRequest
+     * @param headers - CreateSavepointHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSavepointResponse
+     *
+     * @param string                 $namespace_
+     * @param CreateSavepointRequest $request
+     * @param CreateSavepointHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateSavepointResponse
      */
-    public function createSavepointWithOptions($namespace, $request, $headers, $runtime)
+    public function createSavepointWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $body['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$body['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->nativeFormat)) {
-            $body['nativeFormat'] = $request->nativeFormat;
+
+        if (null !== $request->nativeFormat) {
+            @$body['nativeFormat'] = $request->nativeFormat;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSavepoint',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/savepoints',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSavepointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a savepoint.
-     *  *
-     * @param string                 $namespace
-     * @param CreateSavepointRequest $request   CreateSavepointRequest
+     * Creates a savepoint.
      *
-     * @return CreateSavepointResponse CreateSavepointResponse
+     * @param request - CreateSavepointRequest
+     * @returns CreateSavepointResponse
+     *
+     * @param string                 $namespace_
+     * @param CreateSavepointRequest $request
+     *
+     * @return CreateSavepointResponse
      */
-    public function createSavepoint($namespace, $request)
+    public function createSavepoint($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateSavepointHeaders([]);
 
-        return $this->createSavepointWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createSavepointWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 创建定时执行计划
-     *  *
-     * @param string                     $namespace
-     * @param CreateScheduledPlanRequest $request   CreateScheduledPlanRequest
-     * @param CreateScheduledPlanHeaders $headers   CreateScheduledPlanHeaders
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * 创建定时执行计划.
      *
-     * @return CreateScheduledPlanResponse CreateScheduledPlanResponse
+     * @param request - CreateScheduledPlanRequest
+     * @param headers - CreateScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScheduledPlanResponse
+     *
+     * @param string                     $namespace_
+     * @param CreateScheduledPlanRequest $request
+     * @param CreateScheduledPlanHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateScheduledPlanResponse
      */
-    public function createScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    public function createScheduledPlanWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建定时执行计划
-     *  *
-     * @param string                     $namespace
-     * @param CreateScheduledPlanRequest $request   CreateScheduledPlanRequest
+     * 创建定时执行计划.
      *
-     * @return CreateScheduledPlanResponse CreateScheduledPlanResponse
+     * @param request - CreateScheduledPlanRequest
+     * @returns CreateScheduledPlanResponse
+     *
+     * @param string                     $namespace_
+     * @param CreateScheduledPlanRequest $request
+     *
+     * @return CreateScheduledPlanResponse
      */
-    public function createScheduledPlan($namespace, $request)
+    public function createScheduledPlan($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateScheduledPlanHeaders([]);
 
-        return $this->createScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createScheduledPlanWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 创建session集群
-     *  *
-     * @param string                      $namespace
-     * @param CreateSessionClusterRequest $request   CreateSessionClusterRequest
-     * @param CreateSessionClusterHeaders $headers   CreateSessionClusterHeaders
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     * 创建session集群.
      *
-     * @return CreateSessionClusterResponse CreateSessionClusterResponse
+     * @param request - CreateSessionClusterRequest
+     * @param headers - CreateSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSessionClusterResponse
+     *
+     * @param string                      $namespace_
+     * @param CreateSessionClusterRequest $request
+     * @param CreateSessionClusterHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSessionClusterResponse
      */
-    public function createSessionClusterWithOptions($namespace, $request, $headers, $runtime)
+    public function createSessionClusterWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建session集群
-     *  *
-     * @param string                      $namespace
-     * @param CreateSessionClusterRequest $request   CreateSessionClusterRequest
+     * 创建session集群.
      *
-     * @return CreateSessionClusterResponse CreateSessionClusterResponse
+     * @param request - CreateSessionClusterRequest
+     * @returns CreateSessionClusterResponse
+     *
+     * @param string                      $namespace_
+     * @param CreateSessionClusterRequest $request
+     *
+     * @return CreateSessionClusterResponse
      */
-    public function createSessionCluster($namespace, $request)
+    public function createSessionCluster($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateSessionClusterHeaders([]);
 
-        return $this->createSessionClusterWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createSessionClusterWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
-     *  *
-     * @param string                   $namespace
-     * @param CreateUdfArtifactRequest $request   CreateUdfArtifactRequest
-     * @param CreateUdfArtifactHeaders $headers   CreateUdfArtifactHeaders
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
      *
-     * @return CreateUdfArtifactResponse CreateUdfArtifactResponse
+     * @param request - CreateUdfArtifactRequest
+     * @param headers - CreateUdfArtifactHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUdfArtifactResponse
+     *
+     * @param string                   $namespace_
+     * @param CreateUdfArtifactRequest $request
+     * @param CreateUdfArtifactHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateUdfArtifactResponse
      */
-    public function createUdfArtifactWithOptions($namespace, $request, $headers, $runtime)
+    public function createUdfArtifactWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateUdfArtifact',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
-     *  *
-     * @param string                   $namespace
-     * @param CreateUdfArtifactRequest $request   CreateUdfArtifactRequest
+     * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
      *
-     * @return CreateUdfArtifactResponse CreateUdfArtifactResponse
+     * @param request - CreateUdfArtifactRequest
+     * @returns CreateUdfArtifactResponse
+     *
+     * @param string                   $namespace_
+     * @param CreateUdfArtifactRequest $request
+     *
+     * @return CreateUdfArtifactResponse
      */
-    public function createUdfArtifact($namespace, $request)
+    public function createUdfArtifact($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateUdfArtifactHeaders([]);
 
-        return $this->createUdfArtifactWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createUdfArtifactWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Creates a variable.
-     *  *
-     * @param string                $namespace
-     * @param CreateVariableRequest $request   CreateVariableRequest
-     * @param CreateVariableHeaders $headers   CreateVariableHeaders
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * Creates a variable.
      *
-     * @return CreateVariableResponse CreateVariableResponse
+     * @param request - CreateVariableRequest
+     * @param headers - CreateVariableHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVariableResponse
+     *
+     * @param string                $namespace_
+     * @param CreateVariableRequest $request
+     * @param CreateVariableHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateVariableResponse
      */
-    public function createVariableWithOptions($namespace, $request, $headers, $runtime)
+    public function createVariableWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateVariable',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/variables',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVariableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a variable.
-     *  *
-     * @param string                $namespace
-     * @param CreateVariableRequest $request   CreateVariableRequest
+     * Creates a variable.
      *
-     * @return CreateVariableResponse CreateVariableResponse
+     * @param request - CreateVariableRequest
+     * @returns CreateVariableResponse
+     *
+     * @param string                $namespace_
+     * @param CreateVariableRequest $request
+     *
+     * @return CreateVariableResponse
      */
-    public function createVariable($namespace, $request)
+    public function createVariable($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new CreateVariableHeaders([]);
 
-        return $this->createVariableWithOptions($namespace, $request, $headers, $runtime);
+        return $this->createVariableWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes a registered custom connector from a workspace.
-     *  *
-     * @param string                       $namespace
-     * @param string                       $connectorName
-     * @param DeleteCustomConnectorHeaders $headers       DeleteCustomConnectorHeaders
-     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
+     * Deletes a registered custom connector from a workspace.
      *
-     * @return DeleteCustomConnectorResponse DeleteCustomConnectorResponse
+     * @param headers - DeleteCustomConnectorHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomConnectorResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $connectorName
+     * @param DeleteCustomConnectorHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCustomConnectorResponse
      */
-    public function deleteCustomConnectorWithOptions($namespace, $connectorName, $headers, $runtime)
+    public function deleteCustomConnectorWithOptions($namespace_, $connectorName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -892,52 +1048,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteCustomConnector',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/connectors/' . OpenApiUtilClient::getEncodeParam($connectorName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors/' . Url::percentEncode($connectorName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomConnectorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a registered custom connector from a workspace.
-     *  *
-     * @param string $namespace
+     * Deletes a registered custom connector from a workspace.
+     *
+     * @returns DeleteCustomConnectorResponse
+     *
+     * @param string $namespace_
      * @param string $connectorName
      *
-     * @return DeleteCustomConnectorResponse DeleteCustomConnectorResponse
+     * @return DeleteCustomConnectorResponse
      */
-    public function deleteCustomConnector($namespace, $connectorName)
+    public function deleteCustomConnector($namespace_, $connectorName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteCustomConnectorHeaders([]);
 
-        return $this->deleteCustomConnectorWithOptions($namespace, $connectorName, $headers, $runtime);
+        return $this->deleteCustomConnectorWithOptions($namespace_, $connectorName, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes a deployment based on the deployment ID.
-     *  *
-     * @param string                  $namespace
-     * @param string                  $deploymentId
-     * @param DeleteDeploymentHeaders $headers      DeleteDeploymentHeaders
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * Deletes a deployment based on the deployment ID.
      *
-     * @return DeleteDeploymentResponse DeleteDeploymentResponse
+     * @param headers - DeleteDeploymentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDeploymentResponse
+     *
+     * @param string                  $namespace_
+     * @param string                  $deploymentId
+     * @param DeleteDeploymentHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDeploymentResponse
      */
-    public function deleteDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime)
+    public function deleteDeploymentWithOptions($namespace_, $deploymentId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -945,52 +1112,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteDeployment',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a deployment based on the deployment ID.
-     *  *
-     * @param string $namespace
+     * Deletes a deployment based on the deployment ID.
+     *
+     * @returns DeleteDeploymentResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentId
      *
-     * @return DeleteDeploymentResponse DeleteDeploymentResponse
+     * @return DeleteDeploymentResponse
      */
-    public function deleteDeployment($namespace, $deploymentId)
+    public function deleteDeployment($namespace_, $deploymentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteDeploymentHeaders([]);
 
-        return $this->deleteDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
+        return $this->deleteDeploymentWithOptions($namespace_, $deploymentId, $headers, $runtime);
     }
 
     /**
-     * @summary delete a deploymentDraft
-     *  *
-     * @param string                       $namespace
-     * @param string                       $deploymentDraftId
-     * @param DeleteDeploymentDraftHeaders $headers           DeleteDeploymentDraftHeaders
-     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
+     * delete a deploymentDraft.
      *
-     * @return DeleteDeploymentDraftResponse DeleteDeploymentDraftResponse
+     * @param headers - DeleteDeploymentDraftHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDeploymentDraftResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $deploymentDraftId
+     * @param DeleteDeploymentDraftHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDeploymentDraftResponse
      */
-    public function deleteDeploymentDraftWithOptions($namespace, $deploymentDraftId, $headers, $runtime)
+    public function deleteDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -998,52 +1176,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteDeploymentDraft',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/' . OpenApiUtilClient::getEncodeParam($deploymentDraftId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary delete a deploymentDraft
-     *  *
-     * @param string $namespace
+     * delete a deploymentDraft.
+     *
+     * @returns DeleteDeploymentDraftResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentDraftId
      *
-     * @return DeleteDeploymentDraftResponse DeleteDeploymentDraftResponse
+     * @return DeleteDeploymentDraftResponse
      */
-    public function deleteDeploymentDraft($namespace, $deploymentDraftId)
+    public function deleteDeploymentDraft($namespace_, $deploymentDraftId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteDeploymentDraftHeaders([]);
 
-        return $this->deleteDeploymentDraftWithOptions($namespace, $deploymentDraftId, $headers, $runtime);
+        return $this->deleteDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $headers, $runtime);
     }
 
     /**
-     * @summary 删除deploymentTarget
-     *  *
-     * @param string                        $namespace
-     * @param string                        $deploymentTargetName
-     * @param DeleteDeploymentTargetHeaders $headers              DeleteDeploymentTargetHeaders
-     * @param RuntimeOptions                $runtime              runtime options for this request RuntimeOptions
+     * 删除deploymentTarget.
      *
-     * @return DeleteDeploymentTargetResponse DeleteDeploymentTargetResponse
+     * @param headers - DeleteDeploymentTargetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDeploymentTargetResponse
+     *
+     * @param string                        $namespace_
+     * @param string                        $deploymentTargetName
+     * @param DeleteDeploymentTargetHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDeploymentTargetResponse
      */
-    public function deleteDeploymentTargetWithOptions($namespace, $deploymentTargetName, $headers, $runtime)
+    public function deleteDeploymentTargetWithOptions($namespace_, $deploymentTargetName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1051,52 +1240,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteDeploymentTarget',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets/' . OpenApiUtilClient::getEncodeParam($deploymentTargetName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除deploymentTarget
-     *  *
-     * @param string $namespace
+     * 删除deploymentTarget.
+     *
+     * @returns DeleteDeploymentTargetResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentTargetName
      *
-     * @return DeleteDeploymentTargetResponse DeleteDeploymentTargetResponse
+     * @return DeleteDeploymentTargetResponse
      */
-    public function deleteDeploymentTarget($namespace, $deploymentTargetName)
+    public function deleteDeploymentTarget($namespace_, $deploymentTargetName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteDeploymentTargetHeaders([]);
 
-        return $this->deleteDeploymentTargetWithOptions($namespace, $deploymentTargetName, $headers, $runtime);
+        return $this->deleteDeploymentTargetWithOptions($namespace_, $deploymentTargetName, $headers, $runtime);
     }
 
     /**
-     * @summary delete a folder
-     *  *
-     * @param string              $namespace
-     * @param string              $folderId
-     * @param DeleteFolderHeaders $headers   DeleteFolderHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * delete a folder.
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @param headers - DeleteFolderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFolderResponse
+     *
+     * @param string              $namespace_
+     * @param string              $folderId
+     * @param DeleteFolderHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFolderResponse
      */
-    public function deleteFolderWithOptions($namespace, $folderId, $headers, $runtime)
+    public function deleteFolderWithOptions($namespace_, $folderId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1104,52 +1304,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteFolder',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/folder/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary delete a folder
-     *  *
-     * @param string $namespace
+     * delete a folder.
+     *
+     * @returns DeleteFolderResponse
+     *
+     * @param string $namespace_
      * @param string $folderId
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @return DeleteFolderResponse
      */
-    public function deleteFolder($namespace, $folderId)
+    public function deleteFolder($namespace_, $folderId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteFolderHeaders([]);
 
-        return $this->deleteFolderWithOptions($namespace, $folderId, $headers, $runtime);
+        return $this->deleteFolderWithOptions($namespace_, $folderId, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes the information about a job that is not in the running state in a deployment.
-     *  *
-     * @param string           $namespace
-     * @param string           $jobId
-     * @param DeleteJobHeaders $headers   DeleteJobHeaders
-     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     * Deletes the information about a job that is not in the running state in a deployment.
      *
-     * @return DeleteJobResponse DeleteJobResponse
+     * @param headers - DeleteJobHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteJobResponse
+     *
+     * @param string           $namespace_
+     * @param string           $jobId
+     * @param DeleteJobHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteJobResponse
      */
-    public function deleteJobWithOptions($namespace, $jobId, $headers, $runtime)
+    public function deleteJobWithOptions($namespace_, $jobId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1157,52 +1368,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteJob',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the information about a job that is not in the running state in a deployment.
-     *  *
-     * @param string $namespace
+     * Deletes the information about a job that is not in the running state in a deployment.
+     *
+     * @returns DeleteJobResponse
+     *
+     * @param string $namespace_
      * @param string $jobId
      *
-     * @return DeleteJobResponse DeleteJobResponse
+     * @return DeleteJobResponse
      */
-    public function deleteJob($namespace, $jobId)
+    public function deleteJob($namespace_, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteJobHeaders([]);
 
-        return $this->deleteJobWithOptions($namespace, $jobId, $headers, $runtime);
+        return $this->deleteJobWithOptions($namespace_, $jobId, $headers, $runtime);
     }
 
     /**
-     * @summary Revokes the permissions from a member.
-     *  *
-     * @param string              $namespace
-     * @param string              $member
-     * @param DeleteMemberHeaders $headers   DeleteMemberHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * Revokes the permissions from a member.
      *
-     * @return DeleteMemberResponse DeleteMemberResponse
+     * @param headers - DeleteMemberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMemberResponse
+     *
+     * @param string              $namespace_
+     * @param string              $member
+     * @param DeleteMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteMemberResponse
      */
-    public function deleteMemberWithOptions($namespace, $member, $headers, $runtime)
+    public function deleteMemberWithOptions($namespace_, $member, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1210,52 +1432,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteMember',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members/' . OpenApiUtilClient::getEncodeParam($member) . '',
+            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes the permissions from a member.
-     *  *
-     * @param string $namespace
+     * Revokes the permissions from a member.
+     *
+     * @returns DeleteMemberResponse
+     *
+     * @param string $namespace_
      * @param string $member
      *
-     * @return DeleteMemberResponse DeleteMemberResponse
+     * @return DeleteMemberResponse
      */
-    public function deleteMember($namespace, $member)
+    public function deleteMember($namespace_, $member)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteMemberHeaders([]);
 
-        return $this->deleteMemberWithOptions($namespace, $member, $headers, $runtime);
+        return $this->deleteMemberWithOptions($namespace_, $member, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes a savepoint.
-     *  *
-     * @param string                 $namespace
-     * @param string                 $savepointId
-     * @param DeleteSavepointHeaders $headers     DeleteSavepointHeaders
-     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     * Deletes a savepoint.
      *
-     * @return DeleteSavepointResponse DeleteSavepointResponse
+     * @param headers - DeleteSavepointHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSavepointResponse
+     *
+     * @param string                 $namespace_
+     * @param string                 $savepointId
+     * @param DeleteSavepointHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSavepointResponse
      */
-    public function deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime)
+    public function deleteSavepointWithOptions($namespace_, $savepointId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1263,52 +1496,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteSavepoint',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/savepoints/' . OpenApiUtilClient::getEncodeParam($savepointId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSavepointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a savepoint.
-     *  *
-     * @param string $namespace
+     * Deletes a savepoint.
+     *
+     * @returns DeleteSavepointResponse
+     *
+     * @param string $namespace_
      * @param string $savepointId
      *
-     * @return DeleteSavepointResponse DeleteSavepointResponse
+     * @return DeleteSavepointResponse
      */
-    public function deleteSavepoint($namespace, $savepointId)
+    public function deleteSavepoint($namespace_, $savepointId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteSavepointHeaders([]);
 
-        return $this->deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+        return $this->deleteSavepointWithOptions($namespace_, $savepointId, $headers, $runtime);
     }
 
     /**
-     * @summary 删除定时执行计划
-     *  *
-     * @param string                     $namespace
-     * @param string                     $scheduledPlanId
-     * @param DeleteScheduledPlanHeaders $headers         DeleteScheduledPlanHeaders
-     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     * 删除定时执行计划.
      *
-     * @return DeleteScheduledPlanResponse DeleteScheduledPlanResponse
+     * @param headers - DeleteScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteScheduledPlanResponse
+     *
+     * @param string                     $namespace_
+     * @param string                     $scheduledPlanId
+     * @param DeleteScheduledPlanHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScheduledPlanResponse
      */
-    public function deleteScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    public function deleteScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1316,52 +1560,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除定时执行计划
-     *  *
-     * @param string $namespace
+     * 删除定时执行计划.
+     *
+     * @returns DeleteScheduledPlanResponse
+     *
+     * @param string $namespace_
      * @param string $scheduledPlanId
      *
-     * @return DeleteScheduledPlanResponse DeleteScheduledPlanResponse
+     * @return DeleteScheduledPlanResponse
      */
-    public function deleteScheduledPlan($namespace, $scheduledPlanId)
+    public function deleteScheduledPlan($namespace_, $scheduledPlanId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteScheduledPlanHeaders([]);
 
-        return $this->deleteScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
+        return $this->deleteScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime);
     }
 
     /**
-     * @summary 删除session集群
-     *  *
-     * @param string                      $namespace
-     * @param string                      $sessionClusterName
-     * @param DeleteSessionClusterHeaders $headers            DeleteSessionClusterHeaders
-     * @param RuntimeOptions              $runtime            runtime options for this request RuntimeOptions
+     * 删除session集群.
      *
-     * @return DeleteSessionClusterResponse DeleteSessionClusterResponse
+     * @param headers - DeleteSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSessionClusterResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $sessionClusterName
+     * @param DeleteSessionClusterHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteSessionClusterResponse
      */
-    public function deleteSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    public function deleteSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1369,52 +1624,63 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除session集群
-     *  *
-     * @param string $namespace
+     * 删除session集群.
+     *
+     * @returns DeleteSessionClusterResponse
+     *
+     * @param string $namespace_
      * @param string $sessionClusterName
      *
-     * @return DeleteSessionClusterResponse DeleteSessionClusterResponse
+     * @return DeleteSessionClusterResponse
      */
-    public function deleteSessionCluster($namespace, $sessionClusterName)
+    public function deleteSessionCluster($namespace_, $sessionClusterName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteSessionClusterHeaders([]);
 
-        return $this->deleteSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
+        return $this->deleteSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
     }
 
     /**
-     * @summary 删除UdfArtifact
-     *  *
-     * @param string                   $namespace
-     * @param string                   $udfArtifactName
-     * @param DeleteUdfArtifactHeaders $headers         DeleteUdfArtifactHeaders
-     * @param RuntimeOptions           $runtime         runtime options for this request RuntimeOptions
+     * 删除UdfArtifact.
      *
-     * @return DeleteUdfArtifactResponse DeleteUdfArtifactResponse
+     * @param headers - DeleteUdfArtifactHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUdfArtifactResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $udfArtifactName
+     * @param DeleteUdfArtifactHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteUdfArtifactResponse
      */
-    public function deleteUdfArtifactWithOptions($namespace, $udfArtifactName, $headers, $runtime)
+    public function deleteUdfArtifactWithOptions($namespace_, $udfArtifactName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1422,116 +1688,142 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteUdfArtifact',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts/' . OpenApiUtilClient::getEncodeParam($udfArtifactName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除UdfArtifact
-     *  *
-     * @param string $namespace
+     * 删除UdfArtifact.
+     *
+     * @returns DeleteUdfArtifactResponse
+     *
+     * @param string $namespace_
      * @param string $udfArtifactName
      *
-     * @return DeleteUdfArtifactResponse DeleteUdfArtifactResponse
+     * @return DeleteUdfArtifactResponse
      */
-    public function deleteUdfArtifact($namespace, $udfArtifactName)
+    public function deleteUdfArtifact($namespace_, $udfArtifactName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteUdfArtifactHeaders([]);
 
-        return $this->deleteUdfArtifactWithOptions($namespace, $udfArtifactName, $headers, $runtime);
+        return $this->deleteUdfArtifactWithOptions($namespace_, $udfArtifactName, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
-     *  *
-     * @param string                   $namespace
-     * @param string                   $functionName
-     * @param DeleteUdfFunctionRequest $request      DeleteUdfFunctionRequest
-     * @param DeleteUdfFunctionHeaders $headers      DeleteUdfFunctionHeaders
-     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     * Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
      *
-     * @return DeleteUdfFunctionResponse DeleteUdfFunctionResponse
+     * @param request - DeleteUdfFunctionRequest
+     * @param headers - DeleteUdfFunctionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUdfFunctionResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $functionName
+     * @param DeleteUdfFunctionRequest $request
+     * @param DeleteUdfFunctionHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteUdfFunctionResponse
      */
-    public function deleteUdfFunctionWithOptions($namespace, $functionName, $request, $headers, $runtime)
+    public function deleteUdfFunctionWithOptions($namespace_, $functionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->className)) {
-            $query['className'] = $request->className;
+        if (null !== $request->className) {
+            @$query['className'] = $request->className;
         }
-        if (!Utils::isUnset($request->udfArtifactName)) {
-            $query['udfArtifactName'] = $request->udfArtifactName;
+
+        if (null !== $request->udfArtifactName) {
+            @$query['udfArtifactName'] = $request->udfArtifactName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUdfFunction',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts/function/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function/' . Url::percentEncode($functionName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUdfFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
-     *  *
-     * @param string                   $namespace
-     * @param string                   $functionName
-     * @param DeleteUdfFunctionRequest $request      DeleteUdfFunctionRequest
+     * Deletes an existing user-defined function (UDF) from a Realtime Compute for Apache Flink workspace.
      *
-     * @return DeleteUdfFunctionResponse DeleteUdfFunctionResponse
+     * @param request - DeleteUdfFunctionRequest
+     * @returns DeleteUdfFunctionResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $functionName
+     * @param DeleteUdfFunctionRequest $request
+     *
+     * @return DeleteUdfFunctionResponse
      */
-    public function deleteUdfFunction($namespace, $functionName, $request)
+    public function deleteUdfFunction($namespace_, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteUdfFunctionHeaders([]);
 
-        return $this->deleteUdfFunctionWithOptions($namespace, $functionName, $request, $headers, $runtime);
+        return $this->deleteUdfFunctionWithOptions($namespace_, $functionName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Deletes a variable.
-     *  *
-     * @param string                $namespace
-     * @param string                $name
-     * @param DeleteVariableHeaders $headers   DeleteVariableHeaders
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * Deletes a variable.
      *
-     * @return DeleteVariableResponse DeleteVariableResponse
+     * @param headers - DeleteVariableHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVariableResponse
+     *
+     * @param string                $namespace_
+     * @param string                $name
+     * @param DeleteVariableHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteVariableResponse
      */
-    public function deleteVariableWithOptions($namespace, $name, $headers, $runtime)
+    public function deleteVariableWithOptions($namespace_, $name, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -1539,178 +1831,220 @@ class Ververica extends OpenApiClient
             'action'      => 'DeleteVariable',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/variables/' . OpenApiUtilClient::getEncodeParam($name) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVariableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a variable.
-     *  *
-     * @param string $namespace
+     * Deletes a variable.
+     *
+     * @returns DeleteVariableResponse
+     *
+     * @param string $namespace_
      * @param string $name
      *
-     * @return DeleteVariableResponse DeleteVariableResponse
+     * @return DeleteVariableResponse
      */
-    public function deleteVariable($namespace, $name)
+    public function deleteVariable($namespace_, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeleteVariableHeaders([]);
 
-        return $this->deleteVariableWithOptions($namespace, $name, $headers, $runtime);
+        return $this->deleteVariableWithOptions($namespace_, $name, $headers, $runtime);
     }
 
     /**
-     * @summary deploy deploymentDraft async
-     *  *
-     * @param string                            $namespace
-     * @param DeployDeploymentDraftAsyncRequest $request   DeployDeploymentDraftAsyncRequest
-     * @param DeployDeploymentDraftAsyncHeaders $headers   DeployDeploymentDraftAsyncHeaders
-     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
+     * deploy deploymentDraft async.
      *
-     * @return DeployDeploymentDraftAsyncResponse DeployDeploymentDraftAsyncResponse
+     * @param request - DeployDeploymentDraftAsyncRequest
+     * @param headers - DeployDeploymentDraftAsyncHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeployDeploymentDraftAsyncResponse
+     *
+     * @param string                            $namespace_
+     * @param DeployDeploymentDraftAsyncRequest $request
+     * @param DeployDeploymentDraftAsyncHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeployDeploymentDraftAsyncResponse
      */
-    public function deployDeploymentDraftAsyncWithOptions($namespace, $request, $headers, $runtime)
+    public function deployDeploymentDraftAsyncWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'DeployDeploymentDraftAsync',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/async-deploy',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/async-deploy',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeployDeploymentDraftAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeployDeploymentDraftAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeployDeploymentDraftAsyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary deploy deploymentDraft async
-     *  *
-     * @param string                            $namespace
-     * @param DeployDeploymentDraftAsyncRequest $request   DeployDeploymentDraftAsyncRequest
+     * deploy deploymentDraft async.
      *
-     * @return DeployDeploymentDraftAsyncResponse DeployDeploymentDraftAsyncResponse
+     * @param request - DeployDeploymentDraftAsyncRequest
+     * @returns DeployDeploymentDraftAsyncResponse
+     *
+     * @param string                            $namespace_
+     * @param DeployDeploymentDraftAsyncRequest $request
+     *
+     * @return DeployDeploymentDraftAsyncResponse
      */
-    public function deployDeploymentDraftAsync($namespace, $request)
+    public function deployDeploymentDraftAsync($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new DeployDeploymentDraftAsyncHeaders([]);
 
-        return $this->deployDeploymentDraftAsyncWithOptions($namespace, $request, $headers, $runtime);
+        return $this->deployDeploymentDraftAsyncWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 执行sql语句
-     *  *
-     * @param string                     $namespace
-     * @param ExecuteSqlStatementRequest $request   ExecuteSqlStatementRequest
-     * @param ExecuteSqlStatementHeaders $headers   ExecuteSqlStatementHeaders
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * 执行sql语句.
      *
-     * @return ExecuteSqlStatementResponse ExecuteSqlStatementResponse
+     * @param request - ExecuteSqlStatementRequest
+     * @param headers - ExecuteSqlStatementHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteSqlStatementResponse
+     *
+     * @param string                     $namespace_
+     * @param ExecuteSqlStatementRequest $request
+     * @param ExecuteSqlStatementHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExecuteSqlStatementResponse
      */
-    public function executeSqlStatementWithOptions($namespace, $request, $headers, $runtime)
+    public function executeSqlStatementWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ExecuteSqlStatement',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sql-statement/execute',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/execute',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行sql语句
-     *  *
-     * @param string                     $namespace
-     * @param ExecuteSqlStatementRequest $request   ExecuteSqlStatementRequest
+     * 执行sql语句.
      *
-     * @return ExecuteSqlStatementResponse ExecuteSqlStatementResponse
+     * @param request - ExecuteSqlStatementRequest
+     * @returns ExecuteSqlStatementResponse
+     *
+     * @param string                     $namespace_
+     * @param ExecuteSqlStatementRequest $request
+     *
+     * @return ExecuteSqlStatementResponse
      */
-    public function executeSqlStatement($namespace, $request)
+    public function executeSqlStatement($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ExecuteSqlStatementHeaders([]);
 
-        return $this->executeSqlStatementWithOptions($namespace, $request, $headers, $runtime);
+        return $this->executeSqlStatementWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Provides a Flink request proxy.
-     *  *
-     * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
-     * @param FlinkApiProxyHeaders $headers FlinkApiProxyHeaders
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Provides a Flink request proxy.
      *
-     * @return FlinkApiProxyResponse FlinkApiProxyResponse
+     * @param request - FlinkApiProxyRequest
+     * @param headers - FlinkApiProxyHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FlinkApiProxyResponse
+     *
+     * @param FlinkApiProxyRequest $request
+     * @param FlinkApiProxyHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FlinkApiProxyResponse
      */
     public function flinkApiProxyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->flinkApiPath)) {
-            $query['flinkApiPath'] = $request->flinkApiPath;
+        if (null !== $request->flinkApiPath) {
+            @$query['flinkApiPath'] = $request->flinkApiPath;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['resourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'FlinkApiProxy',
@@ -1723,16 +2057,22 @@ class Ververica extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FlinkApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FlinkApiProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FlinkApiProxyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Provides a Flink request proxy.
-     *  *
-     * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
+     * Provides a Flink request proxy.
      *
-     * @return FlinkApiProxyResponse FlinkApiProxyResponse
+     * @param request - FlinkApiProxyRequest
+     * @returns FlinkApiProxyResponse
+     *
+     * @param FlinkApiProxyRequest $request
+     *
+     * @return FlinkApiProxyResponse
      */
     public function flinkApiProxy($request)
     {
@@ -1743,260 +2083,321 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
-     *  *
-     * @param string                                        $namespace
-     * @param string                                        $deploymentId
-     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request      GenerateResourcePlanWithFlinkConfAsyncRequest
-     * @param GenerateResourcePlanWithFlinkConfAsyncHeaders $headers      GenerateResourcePlanWithFlinkConfAsyncHeaders
-     * @param RuntimeOptions                                $runtime      runtime options for this request RuntimeOptions
+     * Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
      *
-     * @return GenerateResourcePlanWithFlinkConfAsyncResponse GenerateResourcePlanWithFlinkConfAsyncResponse
+     * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
+     * @param headers - GenerateResourcePlanWithFlinkConfAsyncHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
+     *
+     * @param string                                        $namespace_
+     * @param string                                        $deploymentId
+     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
+     * @param GenerateResourcePlanWithFlinkConfAsyncHeaders $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
      */
-    public function generateResourcePlanWithFlinkConfAsyncWithOptions($namespace, $deploymentId, $request, $headers, $runtime)
+    public function generateResourcePlanWithFlinkConfAsyncWithOptions($namespace_, $deploymentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'GenerateResourcePlanWithFlinkConfAsync',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '/resource-plan%3AasyncGenerate',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/resource-plan%3AasyncGenerate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateResourcePlanWithFlinkConfAsyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
-     *  *
-     * @param string                                        $namespace
-     * @param string                                        $deploymentId
-     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request      GenerateResourcePlanWithFlinkConfAsyncRequest
+     * Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
      *
-     * @return GenerateResourcePlanWithFlinkConfAsyncResponse GenerateResourcePlanWithFlinkConfAsyncResponse
+     * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
+     * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
+     *
+     * @param string                                        $namespace_
+     * @param string                                        $deploymentId
+     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
+     *
+     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
      */
-    public function generateResourcePlanWithFlinkConfAsync($namespace, $deploymentId, $request)
+    public function generateResourcePlanWithFlinkConfAsync($namespace_, $deploymentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders([]);
 
-        return $this->generateResourcePlanWithFlinkConfAsyncWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
+        return $this->generateResourcePlanWithFlinkConfAsyncWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取应用中的执行定时计划
-     *  *
-     * @param string                         $namespace
-     * @param GetAppliedScheduledPlanRequest $request   GetAppliedScheduledPlanRequest
-     * @param GetAppliedScheduledPlanHeaders $headers   GetAppliedScheduledPlanHeaders
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * 获取应用中的执行定时计划.
      *
-     * @return GetAppliedScheduledPlanResponse GetAppliedScheduledPlanResponse
+     * @param request - GetAppliedScheduledPlanRequest
+     * @param headers - GetAppliedScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppliedScheduledPlanResponse
+     *
+     * @param string                         $namespace_
+     * @param GetAppliedScheduledPlanRequest $request
+     * @param GetAppliedScheduledPlanHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAppliedScheduledPlanResponse
      */
-    public function getAppliedScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    public function getAppliedScheduledPlanWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAppliedScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans%3AgetExecutedScheduledPlan',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans%3AgetExecutedScheduledPlan',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAppliedScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppliedScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppliedScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取应用中的执行定时计划
-     *  *
-     * @param string                         $namespace
-     * @param GetAppliedScheduledPlanRequest $request   GetAppliedScheduledPlanRequest
+     * 获取应用中的执行定时计划.
      *
-     * @return GetAppliedScheduledPlanResponse GetAppliedScheduledPlanResponse
+     * @param request - GetAppliedScheduledPlanRequest
+     * @returns GetAppliedScheduledPlanResponse
+     *
+     * @param string                         $namespace_
+     * @param GetAppliedScheduledPlanRequest $request
+     *
+     * @return GetAppliedScheduledPlanResponse
      */
-    public function getAppliedScheduledPlan($namespace, $request)
+    public function getAppliedScheduledPlan($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetAppliedScheduledPlanHeaders([]);
 
-        return $this->getAppliedScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getAppliedScheduledPlanWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取catalog
-     *  *
-     * @param string             $namespace
-     * @param GetCatalogsRequest $request   GetCatalogsRequest
-     * @param GetCatalogsHeaders $headers   GetCatalogsHeaders
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * 获取catalog.
      *
-     * @return GetCatalogsResponse GetCatalogsResponse
+     * @param request - GetCatalogsRequest
+     * @param headers - GetCatalogsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCatalogsResponse
+     *
+     * @param string             $namespace_
+     * @param GetCatalogsRequest $request
+     * @param GetCatalogsHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCatalogsResponse
      */
-    public function getCatalogsWithOptions($namespace, $request, $headers, $runtime)
+    public function getCatalogsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalogName)) {
-            $query['catalogName'] = $request->catalogName;
+        if (null !== $request->catalogName) {
+            @$query['catalogName'] = $request->catalogName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCatalogs',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/catalogs',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCatalogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取catalog
-     *  *
-     * @param string             $namespace
-     * @param GetCatalogsRequest $request   GetCatalogsRequest
+     * 获取catalog.
      *
-     * @return GetCatalogsResponse GetCatalogsResponse
+     * @param request - GetCatalogsRequest
+     * @returns GetCatalogsResponse
+     *
+     * @param string             $namespace_
+     * @param GetCatalogsRequest $request
+     *
+     * @return GetCatalogsResponse
      */
-    public function getCatalogs($namespace, $request)
+    public function getCatalogs($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetCatalogsHeaders([]);
 
-        return $this->getCatalogsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getCatalogsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取database
-     *  *
-     * @param string              $namespace
-     * @param string              $catalogName
-     * @param GetDatabasesRequest $request     GetDatabasesRequest
-     * @param GetDatabasesHeaders $headers     GetDatabasesHeaders
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * 获取database.
      *
-     * @return GetDatabasesResponse GetDatabasesResponse
+     * @param request - GetDatabasesRequest
+     * @param headers - GetDatabasesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDatabasesResponse
+     *
+     * @param string              $namespace_
+     * @param string              $catalogName
+     * @param GetDatabasesRequest $request
+     * @param GetDatabasesHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDatabasesResponse
      */
-    public function getDatabasesWithOptions($namespace, $catalogName, $request, $headers, $runtime)
+    public function getDatabasesWithOptions($namespace_, $catalogName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseName)) {
-            $query['databaseName'] = $request->databaseName;
+        if (null !== $request->databaseName) {
+            @$query['databaseName'] = $request->databaseName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDatabases',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/catalogs/' . OpenApiUtilClient::getEncodeParam($catalogName) . '/databases',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取database
-     *  *
-     * @param string              $namespace
-     * @param string              $catalogName
-     * @param GetDatabasesRequest $request     GetDatabasesRequest
+     * 获取database.
      *
-     * @return GetDatabasesResponse GetDatabasesResponse
+     * @param request - GetDatabasesRequest
+     * @returns GetDatabasesResponse
+     *
+     * @param string              $namespace_
+     * @param string              $catalogName
+     * @param GetDatabasesRequest $request
+     *
+     * @return GetDatabasesResponse
      */
-    public function getDatabases($namespace, $catalogName, $request)
+    public function getDatabases($namespace_, $catalogName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetDatabasesHeaders([]);
 
-        return $this->getDatabasesWithOptions($namespace, $catalogName, $request, $headers, $runtime);
+        return $this->getDatabasesWithOptions($namespace_, $catalogName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary get deploy deploymentDraft result
-     *  *
-     * @param string                                $namespace
-     * @param string                                $ticketId
-     * @param GetDeployDeploymentDraftResultHeaders $headers   GetDeployDeploymentDraftResultHeaders
-     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
+     * get deploy deploymentDraft result.
      *
-     * @return GetDeployDeploymentDraftResultResponse GetDeployDeploymentDraftResultResponse
+     * @param headers - GetDeployDeploymentDraftResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeployDeploymentDraftResultResponse
+     *
+     * @param string                                $namespace_
+     * @param string                                $ticketId
+     * @param GetDeployDeploymentDraftResultHeaders $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetDeployDeploymentDraftResultResponse
      */
-    public function getDeployDeploymentDraftResultWithOptions($namespace, $ticketId, $headers, $runtime)
+    public function getDeployDeploymentDraftResultWithOptions($namespace_, $ticketId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2004,52 +2405,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetDeployDeploymentDraftResult',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/tickets/' . OpenApiUtilClient::getEncodeParam($ticketId) . '/async-deploy',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/tickets/' . Url::percentEncode($ticketId) . '/async-deploy',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeployDeploymentDraftResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeployDeploymentDraftResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeployDeploymentDraftResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary get deploy deploymentDraft result
-     *  *
-     * @param string $namespace
+     * get deploy deploymentDraft result.
+     *
+     * @returns GetDeployDeploymentDraftResultResponse
+     *
+     * @param string $namespace_
      * @param string $ticketId
      *
-     * @return GetDeployDeploymentDraftResultResponse GetDeployDeploymentDraftResultResponse
+     * @return GetDeployDeploymentDraftResultResponse
      */
-    public function getDeployDeploymentDraftResult($namespace, $ticketId)
+    public function getDeployDeploymentDraftResult($namespace_, $ticketId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetDeployDeploymentDraftResultHeaders([]);
 
-        return $this->getDeployDeploymentDraftResultWithOptions($namespace, $ticketId, $headers, $runtime);
+        return $this->getDeployDeploymentDraftResultWithOptions($namespace_, $ticketId, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the details of a deployment.
-     *  *
-     * @param string               $namespace
-     * @param string               $deploymentId
-     * @param GetDeploymentHeaders $headers      GetDeploymentHeaders
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * Obtains the details of a deployment.
      *
-     * @return GetDeploymentResponse GetDeploymentResponse
+     * @param headers - GetDeploymentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeploymentResponse
+     *
+     * @param string               $namespace_
+     * @param string               $deploymentId
+     * @param GetDeploymentHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDeploymentResponse
      */
-    public function getDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime)
+    public function getDeploymentWithOptions($namespace_, $deploymentId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2057,52 +2469,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetDeployment',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of a deployment.
-     *  *
-     * @param string $namespace
+     * Obtains the details of a deployment.
+     *
+     * @returns GetDeploymentResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentId
      *
-     * @return GetDeploymentResponse GetDeploymentResponse
+     * @return GetDeploymentResponse
      */
-    public function getDeployment($namespace, $deploymentId)
+    public function getDeployment($namespace_, $deploymentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetDeploymentHeaders([]);
 
-        return $this->getDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime);
+        return $this->getDeploymentWithOptions($namespace_, $deploymentId, $headers, $runtime);
     }
 
     /**
-     * @summary get a deploymentDraft
-     *  *
-     * @param string                    $namespace
-     * @param string                    $deploymentDraftId
-     * @param GetDeploymentDraftHeaders $headers           GetDeploymentDraftHeaders
-     * @param RuntimeOptions            $runtime           runtime options for this request RuntimeOptions
+     * get a deploymentDraft.
      *
-     * @return GetDeploymentDraftResponse GetDeploymentDraftResponse
+     * @param headers - GetDeploymentDraftHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeploymentDraftResponse
+     *
+     * @param string                    $namespace_
+     * @param string                    $deploymentDraftId
+     * @param GetDeploymentDraftHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDeploymentDraftResponse
      */
-    public function getDeploymentDraftWithOptions($namespace, $deploymentDraftId, $headers, $runtime)
+    public function getDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2110,235 +2533,290 @@ class Ververica extends OpenApiClient
             'action'      => 'GetDeploymentDraft',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/' . OpenApiUtilClient::getEncodeParam($deploymentDraftId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary get a deploymentDraft
-     *  *
-     * @param string $namespace
+     * get a deploymentDraft.
+     *
+     * @returns GetDeploymentDraftResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentDraftId
      *
-     * @return GetDeploymentDraftResponse GetDeploymentDraftResponse
+     * @return GetDeploymentDraftResponse
      */
-    public function getDeploymentDraft($namespace, $deploymentDraftId)
+    public function getDeploymentDraft($namespace_, $deploymentDraftId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetDeploymentDraftHeaders([]);
 
-        return $this->getDeploymentDraftWithOptions($namespace, $deploymentDraftId, $headers, $runtime);
+        return $this->getDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $headers, $runtime);
     }
 
     /**
-     * @summary get deploymentDraft lock
-     *  *
-     * @param string                        $namespace
-     * @param GetDeploymentDraftLockRequest $request   GetDeploymentDraftLockRequest
-     * @param GetDeploymentDraftLockHeaders $headers   GetDeploymentDraftLockHeaders
-     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     * get deploymentDraft lock.
      *
-     * @return GetDeploymentDraftLockResponse GetDeploymentDraftLockResponse
+     * @param request - GetDeploymentDraftLockRequest
+     * @param headers - GetDeploymentDraftLockHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeploymentDraftLockResponse
+     *
+     * @param string                        $namespace_
+     * @param GetDeploymentDraftLockRequest $request
+     * @param GetDeploymentDraftLockHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDeploymentDraftLockResponse
      */
-    public function getDeploymentDraftLockWithOptions($namespace, $request, $headers, $runtime)
+    public function getDeploymentDraftLockWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentDraftId)) {
-            $query['deploymentDraftId'] = $request->deploymentDraftId;
+        if (null !== $request->deploymentDraftId) {
+            @$query['deploymentDraftId'] = $request->deploymentDraftId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeploymentDraftLock',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/getLock',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/getLock',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeploymentDraftLockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeploymentDraftLockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeploymentDraftLockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary get deploymentDraft lock
-     *  *
-     * @param string                        $namespace
-     * @param GetDeploymentDraftLockRequest $request   GetDeploymentDraftLockRequest
+     * get deploymentDraft lock.
      *
-     * @return GetDeploymentDraftLockResponse GetDeploymentDraftLockResponse
+     * @param request - GetDeploymentDraftLockRequest
+     * @returns GetDeploymentDraftLockResponse
+     *
+     * @param string                        $namespace_
+     * @param GetDeploymentDraftLockRequest $request
+     *
+     * @return GetDeploymentDraftLockResponse
      */
-    public function getDeploymentDraftLock($namespace, $request)
+    public function getDeploymentDraftLock($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetDeploymentDraftLockHeaders([]);
 
-        return $this->getDeploymentDraftLockWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getDeploymentDraftLockWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取运行事件
-     *  *
-     * @param string           $namespace
-     * @param GetEventsRequest $request   GetEventsRequest
-     * @param GetEventsHeaders $headers   GetEventsHeaders
-     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     * 获取运行事件.
      *
-     * @return GetEventsResponse GetEventsResponse
+     * @param request - GetEventsRequest
+     * @param headers - GetEventsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEventsResponse
+     *
+     * @param string           $namespace_
+     * @param GetEventsRequest $request
+     * @param GetEventsHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetEventsResponse
      */
-    public function getEventsWithOptions($namespace, $request, $headers, $runtime)
+    public function getEventsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEvents',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/events',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/events',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取运行事件
-     *  *
-     * @param string           $namespace
-     * @param GetEventsRequest $request   GetEventsRequest
+     * 获取运行事件.
      *
-     * @return GetEventsResponse GetEventsResponse
+     * @param request - GetEventsRequest
+     * @returns GetEventsResponse
+     *
+     * @param string           $namespace_
+     * @param GetEventsRequest $request
+     *
+     * @return GetEventsResponse
      */
-    public function getEvents($namespace, $request)
+    public function getEvents($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetEventsHeaders([]);
 
-        return $this->getEventsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getEventsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary get a folder
-     *  *
-     * @param string           $namespace
-     * @param GetFolderRequest $request   GetFolderRequest
-     * @param GetFolderHeaders $headers   GetFolderHeaders
-     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     * get a folder.
      *
-     * @return GetFolderResponse GetFolderResponse
+     * @param request - GetFolderRequest
+     * @param headers - GetFolderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFolderResponse
+     *
+     * @param string           $namespace_
+     * @param GetFolderRequest $request
+     * @param GetFolderHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetFolderResponse
      */
-    public function getFolderWithOptions($namespace, $request, $headers, $runtime)
+    public function getFolderWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $query['folderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$query['folderId'] = $request->folderId;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFolder',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/folder',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary get a folder
-     *  *
-     * @param string           $namespace
-     * @param GetFolderRequest $request   GetFolderRequest
+     * get a folder.
      *
-     * @return GetFolderResponse GetFolderResponse
+     * @param request - GetFolderRequest
+     * @returns GetFolderResponse
+     *
+     * @param string           $namespace_
+     * @param GetFolderRequest $request
+     *
+     * @return GetFolderResponse
      */
-    public function getFolder($namespace, $request)
+    public function getFolder($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetFolderHeaders([]);
 
-        return $this->getFolderWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getFolderWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
-     *  *
-     * @param string                               $namespace
-     * @param string                               $ticketId
-     * @param GetGenerateResourcePlanResultHeaders $headers   GetGenerateResourcePlanResultHeaders
-     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
+     * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
      *
-     * @return GetGenerateResourcePlanResultResponse GetGenerateResourcePlanResultResponse
+     * @param headers - GetGenerateResourcePlanResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGenerateResourcePlanResultResponse
+     *
+     * @param string                               $namespace_
+     * @param string                               $ticketId
+     * @param GetGenerateResourcePlanResultHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetGenerateResourcePlanResultResponse
      */
-    public function getGenerateResourcePlanResultWithOptions($namespace, $ticketId, $headers, $runtime)
+    public function getGenerateResourcePlanResultWithOptions($namespace_, $ticketId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2346,52 +2824,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetGenerateResourcePlanResult',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/tickets/' . OpenApiUtilClient::getEncodeParam($ticketId) . '/resource-plan%3AasyncGenerate',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/tickets/' . Url::percentEncode($ticketId) . '/resource-plan%3AasyncGenerate',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGenerateResourcePlanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGenerateResourcePlanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGenerateResourcePlanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
-     *  *
-     * @param string $namespace
+     * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
+     *
+     * @returns GetGenerateResourcePlanResultResponse
+     *
+     * @param string $namespace_
      * @param string $ticketId
      *
-     * @return GetGenerateResourcePlanResultResponse GetGenerateResourcePlanResultResponse
+     * @return GetGenerateResourcePlanResultResponse
      */
-    public function getGenerateResourcePlanResult($namespace, $ticketId)
+    public function getGenerateResourcePlanResult($namespace_, $ticketId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetGenerateResourcePlanResultHeaders([]);
 
-        return $this->getGenerateResourcePlanResultWithOptions($namespace, $ticketId, $headers, $runtime);
+        return $this->getGenerateResourcePlanResultWithOptions($namespace_, $ticketId, $headers, $runtime);
     }
 
     /**
-     * @summary 查询动态更新结果
-     *  *
-     * @param string                       $namespace
-     * @param string                       $jobHotUpdateId
-     * @param GetHotUpdateJobResultHeaders $headers        GetHotUpdateJobResultHeaders
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 查询动态更新结果.
      *
-     * @return GetHotUpdateJobResultResponse GetHotUpdateJobResultResponse
+     * @param headers - GetHotUpdateJobResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotUpdateJobResultResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $jobHotUpdateId
+     * @param GetHotUpdateJobResultHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetHotUpdateJobResultResponse
      */
-    public function getHotUpdateJobResultWithOptions($namespace, $jobHotUpdateId, $headers, $runtime)
+    public function getHotUpdateJobResultWithOptions($namespace_, $jobHotUpdateId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2399,52 +2888,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetHotUpdateJobResult',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs/hot-updates/' . OpenApiUtilClient::getEncodeParam($jobHotUpdateId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/hot-updates/' . Url::percentEncode($jobHotUpdateId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotUpdateJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotUpdateJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotUpdateJobResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询动态更新结果
-     *  *
-     * @param string $namespace
+     * 查询动态更新结果.
+     *
+     * @returns GetHotUpdateJobResultResponse
+     *
+     * @param string $namespace_
      * @param string $jobHotUpdateId
      *
-     * @return GetHotUpdateJobResultResponse GetHotUpdateJobResultResponse
+     * @return GetHotUpdateJobResultResponse
      */
-    public function getHotUpdateJobResult($namespace, $jobHotUpdateId)
+    public function getHotUpdateJobResult($namespace_, $jobHotUpdateId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetHotUpdateJobResultHeaders([]);
 
-        return $this->getHotUpdateJobResultWithOptions($namespace, $jobHotUpdateId, $headers, $runtime);
+        return $this->getHotUpdateJobResultWithOptions($namespace_, $jobHotUpdateId, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the details of a job.
-     *  *
-     * @param string         $namespace
-     * @param string         $jobId
-     * @param GetJobHeaders  $headers   GetJobHeaders
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Obtains the details of a job.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param headers - GetJobHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobResponse
+     *
+     * @param string         $namespace_
+     * @param string         $jobId
+     * @param GetJobHeaders  $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
-    public function getJobWithOptions($namespace, $jobId, $headers, $runtime)
+    public function getJobWithOptions($namespace_, $jobId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2452,52 +2952,129 @@ class Ververica extends OpenApiClient
             'action'      => 'GetJob',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of a job.
-     *  *
-     * @param string $namespace
+     * Obtains the details of a job.
+     *
+     * @returns GetJobResponse
+     *
+     * @param string $namespace_
      * @param string $jobId
      *
-     * @return GetJobResponse GetJobResponse
+     * @return GetJobResponse
      */
-    public function getJob($namespace, $jobId)
+    public function getJob($namespace_, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetJobHeaders([]);
 
-        return $this->getJobWithOptions($namespace, $jobId, $headers, $runtime);
+        return $this->getJobWithOptions($namespace_, $jobId, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the latest startup logs of a job.
-     *  *
-     * @param string                      $namespace
-     * @param string                      $deploymentId
-     * @param GetLatestJobStartLogHeaders $headers      GetLatestJobStartLogHeaders
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * 获取作业诊断信息.
      *
-     * @return GetLatestJobStartLogResponse GetLatestJobStartLogResponse
+     * @param headers - GetJobDiagnosisHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobDiagnosisResponse
+     *
+     * @param string                 $namespace_
+     * @param string                 $deploymentId
+     * @param string                 $jobId
+     * @param GetJobDiagnosisHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetJobDiagnosisResponse
      */
-    public function getLatestJobStartLogWithOptions($namespace, $deploymentId, $headers, $runtime)
+    public function getJobDiagnosisWithOptions($namespace_, $deploymentId, $jobId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobDiagnosis',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/jobs/' . Url::percentEncode($jobId) . '/job-diagnoses/lite',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetJobDiagnosisResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取作业诊断信息.
+     *
+     * @returns GetJobDiagnosisResponse
+     *
+     * @param string $namespace_
+     * @param string $deploymentId
+     * @param string $jobId
+     *
+     * @return GetJobDiagnosisResponse
+     */
+    public function getJobDiagnosis($namespace_, $deploymentId, $jobId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetJobDiagnosisHeaders([]);
+
+        return $this->getJobDiagnosisWithOptions($namespace_, $deploymentId, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * Obtains the latest startup logs of a job.
+     *
+     * @param headers - GetLatestJobStartLogHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLatestJobStartLogResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $deploymentId
+     * @param GetLatestJobStartLogHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetLatestJobStartLogResponse
+     */
+    public function getLatestJobStartLogWithOptions($namespace_, $deploymentId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2505,55 +3082,67 @@ class Ververica extends OpenApiClient
             'action'      => 'GetLatestJobStartLog',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '/latest_jobmanager_start_log',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '/latest_jobmanager_start_log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLatestJobStartLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLatestJobStartLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLatestJobStartLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the latest startup logs of a job.
-     *  *
-     * @param string $namespace
+     * Obtains the latest startup logs of a job.
+     *
+     * @returns GetLatestJobStartLogResponse
+     *
+     * @param string $namespace_
      * @param string $deploymentId
      *
-     * @return GetLatestJobStartLogResponse GetLatestJobStartLogResponse
+     * @return GetLatestJobStartLogResponse
      */
-    public function getLatestJobStartLog($namespace, $deploymentId)
+    public function getLatestJobStartLog($namespace_, $deploymentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetLatestJobStartLogHeaders([]);
 
-        return $this->getLatestJobStartLogWithOptions($namespace, $deploymentId, $headers, $runtime);
+        return $this->getLatestJobStartLogWithOptions($namespace_, $deploymentId, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the lineage information of a deployment.
-     *  *
-     * @param GetLineageInfoRequest $request GetLineageInfoRequest
-     * @param GetLineageInfoHeaders $headers GetLineageInfoHeaders
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Obtains the lineage information of a deployment.
      *
-     * @return GetLineageInfoResponse GetLineageInfoResponse
+     * @param request - GetLineageInfoRequest
+     * @param headers - GetLineageInfoHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLineageInfoResponse
+     *
+     * @param GetLineageInfoRequest $request
+     * @param GetLineageInfoHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLineageInfoResponse
      */
     public function getLineageInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'GetLineageInfo',
@@ -2566,16 +3155,22 @@ class Ververica extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLineageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLineageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLineageInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the lineage information of a deployment.
-     *  *
-     * @param GetLineageInfoRequest $request GetLineageInfoRequest
+     * Obtains the lineage information of a deployment.
      *
-     * @return GetLineageInfoResponse GetLineageInfoResponse
+     * @param request - GetLineageInfoRequest
+     * @returns GetLineageInfoResponse
+     *
+     * @param GetLineageInfoRequest $request
+     *
+     * @return GetLineageInfoResponse
      */
     public function getLineageInfo($request)
     {
@@ -2586,24 +3181,30 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of a member.
-     *  *
-     * @param string           $namespace
-     * @param string           $member
-     * @param GetMemberHeaders $headers   GetMemberHeaders
-     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
+     * Queries the permissions of a member.
      *
-     * @return GetMemberResponse GetMemberResponse
+     * @param headers - GetMemberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMemberResponse
+     *
+     * @param string           $namespace_
+     * @param string           $member
+     * @param GetMemberHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMemberResponse
      */
-    public function getMemberWithOptions($namespace, $member, $headers, $runtime)
+    public function getMemberWithOptions($namespace_, $member, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2611,52 +3212,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetMember',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members/' . OpenApiUtilClient::getEncodeParam($member) . '',
+            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members/' . Url::percentEncode($member) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of a member.
-     *  *
-     * @param string $namespace
+     * Queries the permissions of a member.
+     *
+     * @returns GetMemberResponse
+     *
+     * @param string $namespace_
      * @param string $member
      *
-     * @return GetMemberResponse GetMemberResponse
+     * @return GetMemberResponse
      */
-    public function getMember($namespace, $member)
+    public function getMember($namespace_, $member)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetMemberHeaders([]);
 
-        return $this->getMemberWithOptions($namespace, $member, $headers, $runtime);
+        return $this->getMemberWithOptions($namespace_, $member, $headers, $runtime);
     }
 
     /**
-     * @summary Queries details of a savepoint and checkpoint.
-     *  *
-     * @param string              $namespace
-     * @param string              $savepointId
-     * @param GetSavepointHeaders $headers     GetSavepointHeaders
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * Queries details of a savepoint and checkpoint.
      *
-     * @return GetSavepointResponse GetSavepointResponse
+     * @param headers - GetSavepointHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSavepointResponse
+     *
+     * @param string              $namespace_
+     * @param string              $savepointId
+     * @param GetSavepointHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetSavepointResponse
      */
-    public function getSavepointWithOptions($namespace, $savepointId, $headers, $runtime)
+    public function getSavepointWithOptions($namespace_, $savepointId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2664,52 +3276,63 @@ class Ververica extends OpenApiClient
             'action'      => 'GetSavepoint',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/savepoints/' . OpenApiUtilClient::getEncodeParam($savepointId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints/' . Url::percentEncode($savepointId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSavepointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSavepointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details of a savepoint and checkpoint.
-     *  *
-     * @param string $namespace
+     * Queries details of a savepoint and checkpoint.
+     *
+     * @returns GetSavepointResponse
+     *
+     * @param string $namespace_
      * @param string $savepointId
      *
-     * @return GetSavepointResponse GetSavepointResponse
+     * @return GetSavepointResponse
      */
-    public function getSavepoint($namespace, $savepointId)
+    public function getSavepoint($namespace_, $savepointId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetSavepointHeaders([]);
 
-        return $this->getSavepointWithOptions($namespace, $savepointId, $headers, $runtime);
+        return $this->getSavepointWithOptions($namespace_, $savepointId, $headers, $runtime);
     }
 
     /**
-     * @summary 获取session集群
-     *  *
-     * @param string                   $namespace
-     * @param string                   $sessionClusterName
-     * @param GetSessionClusterHeaders $headers            GetSessionClusterHeaders
-     * @param RuntimeOptions           $runtime            runtime options for this request RuntimeOptions
+     * 获取session集群.
      *
-     * @return GetSessionClusterResponse GetSessionClusterResponse
+     * @param headers - GetSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSessionClusterResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $sessionClusterName
+     * @param GetSessionClusterHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSessionClusterResponse
      */
-    public function getSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    public function getSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2717,174 +3340,213 @@ class Ververica extends OpenApiClient
             'action'      => 'GetSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取session集群
-     *  *
-     * @param string $namespace
+     * 获取session集群.
+     *
+     * @returns GetSessionClusterResponse
+     *
+     * @param string $namespace_
      * @param string $sessionClusterName
      *
-     * @return GetSessionClusterResponse GetSessionClusterResponse
+     * @return GetSessionClusterResponse
      */
-    public function getSessionCluster($namespace, $sessionClusterName)
+    public function getSessionCluster($namespace_, $sessionClusterName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetSessionClusterHeaders([]);
 
-        return $this->getSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
+        return $this->getSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
     }
 
     /**
-     * @summary 获取table
-     *  *
-     * @param string           $namespace
+     * 获取table.
+     *
+     * @param request - GetTablesRequest
+     * @param headers - GetTablesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTablesResponse
+     *
+     * @param string           $namespace_
      * @param string           $catalogName
      * @param string           $databaseName
-     * @param GetTablesRequest $request      GetTablesRequest
-     * @param GetTablesHeaders $headers      GetTablesHeaders
-     * @param RuntimeOptions   $runtime      runtime options for this request RuntimeOptions
+     * @param GetTablesRequest $request
+     * @param GetTablesHeaders $headers
+     * @param RuntimeOptions   $runtime
      *
-     * @return GetTablesResponse GetTablesResponse
+     * @return GetTablesResponse
      */
-    public function getTablesWithOptions($namespace, $catalogName, $databaseName, $request, $headers, $runtime)
+    public function getTablesWithOptions($namespace_, $catalogName, $databaseName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->tableName)) {
-            $query['tableName'] = $request->tableName;
+        if (null !== $request->tableName) {
+            @$query['tableName'] = $request->tableName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTables',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/catalogs/' . OpenApiUtilClient::getEncodeParam($catalogName) . '/databases/' . OpenApiUtilClient::getEncodeParam($databaseName) . '/tables',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/catalogs/' . Url::percentEncode($catalogName) . '/databases/' . Url::percentEncode($databaseName) . '/tables',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取table
-     *  *
-     * @param string           $namespace
+     * 获取table.
+     *
+     * @param request - GetTablesRequest
+     * @returns GetTablesResponse
+     *
+     * @param string           $namespace_
      * @param string           $catalogName
      * @param string           $databaseName
-     * @param GetTablesRequest $request      GetTablesRequest
+     * @param GetTablesRequest $request
      *
-     * @return GetTablesResponse GetTablesResponse
+     * @return GetTablesResponse
      */
-    public function getTables($namespace, $catalogName, $databaseName, $request)
+    public function getTables($namespace_, $catalogName, $databaseName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetTablesHeaders([]);
 
-        return $this->getTablesWithOptions($namespace, $catalogName, $databaseName, $request, $headers, $runtime);
+        return $this->getTablesWithOptions($namespace_, $catalogName, $databaseName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
-     *  *
-     * @param string                 $namespace
-     * @param GetUdfArtifactsRequest $request   GetUdfArtifactsRequest
-     * @param GetUdfArtifactsHeaders $headers   GetUdfArtifactsHeaders
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
      *
-     * @return GetUdfArtifactsResponse GetUdfArtifactsResponse
+     * @param request - GetUdfArtifactsRequest
+     * @param headers - GetUdfArtifactsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUdfArtifactsResponse
+     *
+     * @param string                 $namespace_
+     * @param GetUdfArtifactsRequest $request
+     * @param GetUdfArtifactsHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetUdfArtifactsResponse
      */
-    public function getUdfArtifactsWithOptions($namespace, $request, $headers, $runtime)
+    public function getUdfArtifactsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->udfArtifactName)) {
-            $query['udfArtifactName'] = $request->udfArtifactName;
+        if (null !== $request->udfArtifactName) {
+            @$query['udfArtifactName'] = $request->udfArtifactName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUdfArtifacts',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUdfArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUdfArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUdfArtifactsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
-     *  *
-     * @param string                 $namespace
-     * @param GetUdfArtifactsRequest $request   GetUdfArtifactsRequest
+     * Obtains the details of the JAR or Python file that corresponds to the user-defined function (UDF) that you upload and create.
      *
-     * @return GetUdfArtifactsResponse GetUdfArtifactsResponse
+     * @param request - GetUdfArtifactsRequest
+     * @returns GetUdfArtifactsResponse
+     *
+     * @param string                 $namespace_
+     * @param GetUdfArtifactsRequest $request
+     *
+     * @return GetUdfArtifactsResponse
      */
-    public function getUdfArtifacts($namespace, $request)
+    public function getUdfArtifacts($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new GetUdfArtifactsHeaders([]);
 
-        return $this->getUdfArtifactsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->getUdfArtifactsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Dynamically updates parameters or resources of a deployment that is running.
-     *  *
-     * @param string              $namespace
-     * @param string              $jobId
-     * @param HotUpdateJobHeaders $headers   HotUpdateJobHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * Dynamically updates parameters or resources of a deployment that is running.
      *
-     * @return HotUpdateJobResponse HotUpdateJobResponse
+     * @param headers - HotUpdateJobHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HotUpdateJobResponse
+     *
+     * @param string              $namespace_
+     * @param string              $jobId
+     * @param HotUpdateJobHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return HotUpdateJobResponse
      */
-    public function hotUpdateJobWithOptions($namespace, $jobId, $headers, $runtime)
+    public function hotUpdateJobWithOptions($namespace_, $jobId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2892,51 +3554,62 @@ class Ververica extends OpenApiClient
             'action'      => 'HotUpdateJob',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '%3AhotUpdate',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3AhotUpdate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HotUpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HotUpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HotUpdateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Dynamically updates parameters or resources of a deployment that is running.
-     *  *
-     * @param string $namespace
+     * Dynamically updates parameters or resources of a deployment that is running.
+     *
+     * @returns HotUpdateJobResponse
+     *
+     * @param string $namespace_
      * @param string $jobId
      *
-     * @return HotUpdateJobResponse HotUpdateJobResponse
+     * @return HotUpdateJobResponse
      */
-    public function hotUpdateJob($namespace, $jobId)
+    public function hotUpdateJob($namespace_, $jobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new HotUpdateJobHeaders([]);
 
-        return $this->hotUpdateJobWithOptions($namespace, $jobId, $headers, $runtime);
+        return $this->hotUpdateJobWithOptions($namespace_, $jobId, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains a list of existing custom connectors.
-     *  *
-     * @param string                      $namespace
-     * @param ListCustomConnectorsHeaders $headers   ListCustomConnectorsHeaders
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     * Obtains a list of existing custom connectors.
      *
-     * @return ListCustomConnectorsResponse ListCustomConnectorsResponse
+     * @param headers - ListCustomConnectorsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomConnectorsResponse
+     *
+     * @param string                      $namespace_
+     * @param ListCustomConnectorsHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomConnectorsResponse
      */
-    public function listCustomConnectorsWithOptions($namespace, $headers, $runtime)
+    public function listCustomConnectorsWithOptions($namespace_, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -2944,273 +3617,341 @@ class Ververica extends OpenApiClient
             'action'      => 'ListCustomConnectors',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/connectors',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomConnectorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of existing custom connectors.
-     *  *
-     * @param string $namespace
+     * Obtains a list of existing custom connectors.
      *
-     * @return ListCustomConnectorsResponse ListCustomConnectorsResponse
+     * @returns ListCustomConnectorsResponse
+     *
+     * @param string $namespace_
+     *
+     * @return ListCustomConnectorsResponse
      */
-    public function listCustomConnectors($namespace)
+    public function listCustomConnectors($namespace_)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListCustomConnectorsHeaders([]);
 
-        return $this->listCustomConnectorsWithOptions($namespace, $headers, $runtime);
+        return $this->listCustomConnectorsWithOptions($namespace_, $headers, $runtime);
     }
 
     /**
-     * @summary list deploymentDrafts
-     *  *
-     * @param string                      $namespace
-     * @param ListDeploymentDraftsRequest $request   ListDeploymentDraftsRequest
-     * @param ListDeploymentDraftsHeaders $headers   ListDeploymentDraftsHeaders
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     * list deploymentDrafts.
      *
-     * @return ListDeploymentDraftsResponse ListDeploymentDraftsResponse
+     * @param request - ListDeploymentDraftsRequest
+     * @param headers - ListDeploymentDraftsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentDraftsResponse
+     *
+     * @param string                      $namespace_
+     * @param ListDeploymentDraftsRequest $request
+     * @param ListDeploymentDraftsHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDeploymentDraftsResponse
      */
-    public function listDeploymentDraftsWithOptions($namespace, $request, $headers, $runtime)
+    public function listDeploymentDraftsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeploymentDrafts',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentDraftsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentDraftsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentDraftsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary list deploymentDrafts
-     *  *
-     * @param string                      $namespace
-     * @param ListDeploymentDraftsRequest $request   ListDeploymentDraftsRequest
+     * list deploymentDrafts.
      *
-     * @return ListDeploymentDraftsResponse ListDeploymentDraftsResponse
+     * @param request - ListDeploymentDraftsRequest
+     * @returns ListDeploymentDraftsResponse
+     *
+     * @param string                      $namespace_
+     * @param ListDeploymentDraftsRequest $request
+     *
+     * @return ListDeploymentDraftsResponse
      */
-    public function listDeploymentDrafts($namespace, $request)
+    public function listDeploymentDrafts($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListDeploymentDraftsHeaders([]);
 
-        return $this->listDeploymentDraftsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listDeploymentDraftsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
-     *  *
-     * @param string                       $namespace
-     * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
-     * @param ListDeploymentTargetsHeaders $headers   ListDeploymentTargetsHeaders
-     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     * Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
      *
-     * @return ListDeploymentTargetsResponse ListDeploymentTargetsResponse
+     * @param request - ListDeploymentTargetsRequest
+     * @param headers - ListDeploymentTargetsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentTargetsResponse
+     *
+     * @param string                       $namespace_
+     * @param ListDeploymentTargetsRequest $request
+     * @param ListDeploymentTargetsHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDeploymentTargetsResponse
      */
-    public function listDeploymentTargetsWithOptions($namespace, $request, $headers, $runtime)
+    public function listDeploymentTargetsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeploymentTargets',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentTargetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
-     *  *
-     * @param string                       $namespace
-     * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
+     * Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
      *
-     * @return ListDeploymentTargetsResponse ListDeploymentTargetsResponse
+     * @param request - ListDeploymentTargetsRequest
+     * @returns ListDeploymentTargetsResponse
+     *
+     * @param string                       $namespace_
+     * @param ListDeploymentTargetsRequest $request
+     *
+     * @return ListDeploymentTargetsResponse
      */
-    public function listDeploymentTargets($namespace, $request)
+    public function listDeploymentTargets($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListDeploymentTargetsHeaders([]);
 
-        return $this->listDeploymentTargetsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listDeploymentTargetsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains information about all deployments.
-     *  *
-     * @param string                 $namespace
-     * @param ListDeploymentsRequest $request   ListDeploymentsRequest
-     * @param ListDeploymentsHeaders $headers   ListDeploymentsHeaders
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * Obtains information about all deployments.
      *
-     * @return ListDeploymentsResponse ListDeploymentsResponse
+     * @param request - ListDeploymentsRequest
+     * @param headers - ListDeploymentsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentsResponse
+     *
+     * @param string                 $namespace_
+     * @param ListDeploymentsRequest $request
+     * @param ListDeploymentsHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDeploymentsResponse
      */
-    public function listDeploymentsWithOptions($namespace, $request, $headers, $runtime)
+    public function listDeploymentsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->creator)) {
-            $query['creator'] = $request->creator;
+        if (null !== $request->creator) {
+            @$query['creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->executionMode)) {
-            $query['executionMode'] = $request->executionMode;
+
+        if (null !== $request->executionMode) {
+            @$query['executionMode'] = $request->executionMode;
         }
-        if (!Utils::isUnset($request->labelKey)) {
-            $query['labelKey'] = $request->labelKey;
+
+        if (null !== $request->labelKey) {
+            @$query['labelKey'] = $request->labelKey;
         }
-        if (!Utils::isUnset($request->labelValueArray)) {
-            $query['labelValueArray'] = $request->labelValueArray;
+
+        if (null !== $request->labelValueArray) {
+            @$query['labelValueArray'] = $request->labelValueArray;
         }
-        if (!Utils::isUnset($request->modifier)) {
-            $query['modifier'] = $request->modifier;
+
+        if (null !== $request->modifier) {
+            @$query['modifier'] = $request->modifier;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortName)) {
-            $query['sortName'] = $request->sortName;
+
+        if (null !== $request->sortName) {
+            @$query['sortName'] = $request->sortName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeployments',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains information about all deployments.
-     *  *
-     * @param string                 $namespace
-     * @param ListDeploymentsRequest $request   ListDeploymentsRequest
+     * Obtains information about all deployments.
      *
-     * @return ListDeploymentsResponse ListDeploymentsResponse
+     * @param request - ListDeploymentsRequest
+     * @returns ListDeploymentsResponse
+     *
+     * @param string                 $namespace_
+     * @param ListDeploymentsRequest $request
+     *
+     * @return ListDeploymentsResponse
      */
-    public function listDeployments($namespace, $request)
+    public function listDeployments($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListDeploymentsHeaders([]);
 
-        return $this->listDeploymentsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listDeploymentsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 列出有编辑权限的项目空间。
-     *  *
-     * @param ListEditableNamespaceRequest $request ListEditableNamespaceRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 列出有编辑权限的项目空间。
      *
-     * @return ListEditableNamespaceResponse ListEditableNamespaceResponse
+     * @param request - ListEditableNamespaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEditableNamespaceResponse
+     *
+     * @param ListEditableNamespaceRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListEditableNamespaceResponse
      */
     public function listEditableNamespaceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['regionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['workspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEditableNamespace',
@@ -3223,16 +3964,22 @@ class Ververica extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEditableNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEditableNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEditableNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出有编辑权限的项目空间。
-     *  *
-     * @param ListEditableNamespaceRequest $request ListEditableNamespaceRequest
+     * 列出有编辑权限的项目空间。
      *
-     * @return ListEditableNamespaceResponse ListEditableNamespaceResponse
+     * @param request - ListEditableNamespaceRequest
+     * @returns ListEditableNamespaceResponse
+     *
+     * @param ListEditableNamespaceRequest $request
+     *
+     * @return ListEditableNamespaceResponse
      */
     public function listEditableNamespace($request)
     {
@@ -3243,22 +3990,28 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
-     *  *
-     * @param ListEngineVersionMetadataHeaders $headers ListEngineVersionMetadataHeaders
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
      *
-     * @return ListEngineVersionMetadataResponse ListEngineVersionMetadataResponse
+     * @param headers - ListEngineVersionMetadataHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEngineVersionMetadataResponse
+     *
+     * @param ListEngineVersionMetadataHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListEngineVersionMetadataResponse
      */
     public function listEngineVersionMetadataWithOptions($headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -3273,14 +4026,19 @@ class Ververica extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEngineVersionMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEngineVersionMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEngineVersionMetadataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
-     *  *
-     * @return ListEngineVersionMetadataResponse ListEngineVersionMetadataResponse
+     * Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
+     *
+     * @returns ListEngineVersionMetadataResponse
+     *
+     * @return ListEngineVersionMetadataResponse
      */
     public function listEngineVersionMetadata()
     {
@@ -3291,348 +4049,434 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all jobs in a deployment.
-     *  *
-     * @param string          $namespace
-     * @param ListJobsRequest $request   ListJobsRequest
-     * @param ListJobsHeaders $headers   ListJobsHeaders
-     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
+     * Queries the information about all jobs in a deployment.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @param headers - ListJobsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListJobsResponse
+     *
+     * @param string          $namespace_
+     * @param ListJobsRequest $request
+     * @param ListJobsHeaders $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
-    public function listJobsWithOptions($namespace, $request, $headers, $runtime)
+    public function listJobsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortName)) {
-            $query['sortName'] = $request->sortName;
+
+        if (null !== $request->sortName) {
+            @$query['sortName'] = $request->sortName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListJobs',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all jobs in a deployment.
-     *  *
-     * @param string          $namespace
-     * @param ListJobsRequest $request   ListJobsRequest
+     * Queries the information about all jobs in a deployment.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @returns ListJobsResponse
+     *
+     * @param string          $namespace_
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
-    public function listJobs($namespace, $request)
+    public function listJobs($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListJobsHeaders([]);
 
-        return $this->listJobsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listJobsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Queries the mappings between the ID and permissions of a member in a specific namespace.
-     *  *
-     * @param string             $namespace
-     * @param ListMembersRequest $request   ListMembersRequest
-     * @param ListMembersHeaders $headers   ListMembersHeaders
-     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
+     * Queries the mappings between the ID and permissions of a member in a specific namespace.
      *
-     * @return ListMembersResponse ListMembersResponse
+     * @param request - ListMembersRequest
+     * @param headers - ListMembersHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMembersResponse
+     *
+     * @param string             $namespace_
+     * @param ListMembersRequest $request
+     * @param ListMembersHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListMembersResponse
      */
-    public function listMembersWithOptions($namespace, $request, $headers, $runtime)
+    public function listMembersWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMembers',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the mappings between the ID and permissions of a member in a specific namespace.
-     *  *
-     * @param string             $namespace
-     * @param ListMembersRequest $request   ListMembersRequest
+     * Queries the mappings between the ID and permissions of a member in a specific namespace.
      *
-     * @return ListMembersResponse ListMembersResponse
+     * @param request - ListMembersRequest
+     * @returns ListMembersResponse
+     *
+     * @param string             $namespace_
+     * @param ListMembersRequest $request
+     *
+     * @return ListMembersResponse
      */
-    public function listMembers($namespace, $request)
+    public function listMembers($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListMembersHeaders([]);
 
-        return $this->listMembersWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listMembersWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains a list of savepoints or checkpoints.
-     *  *
-     * @param string                $namespace
-     * @param ListSavepointsRequest $request   ListSavepointsRequest
-     * @param ListSavepointsHeaders $headers   ListSavepointsHeaders
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * Obtains a list of savepoints or checkpoints.
      *
-     * @return ListSavepointsResponse ListSavepointsResponse
+     * @param request - ListSavepointsRequest
+     * @param headers - ListSavepointsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSavepointsResponse
+     *
+     * @param string                $namespace_
+     * @param ListSavepointsRequest $request
+     * @param ListSavepointsHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSavepointsResponse
      */
-    public function listSavepointsWithOptions($namespace, $request, $headers, $runtime)
+    public function listSavepointsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['jobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['jobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSavepoints',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/savepoints',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/savepoints',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSavepointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSavepointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSavepointsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of savepoints or checkpoints.
-     *  *
-     * @param string                $namespace
-     * @param ListSavepointsRequest $request   ListSavepointsRequest
+     * Obtains a list of savepoints or checkpoints.
      *
-     * @return ListSavepointsResponse ListSavepointsResponse
+     * @param request - ListSavepointsRequest
+     * @returns ListSavepointsResponse
+     *
+     * @param string                $namespace_
+     * @param ListSavepointsRequest $request
+     *
+     * @return ListSavepointsResponse
      */
-    public function listSavepoints($namespace, $request)
+    public function listSavepoints($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListSavepointsHeaders([]);
 
-        return $this->listSavepointsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listSavepointsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 列表定时执行计划
-     *  *
-     * @param string                   $namespace
-     * @param ListScheduledPlanRequest $request   ListScheduledPlanRequest
-     * @param ListScheduledPlanHeaders $headers   ListScheduledPlanHeaders
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * 列表定时执行计划.
      *
-     * @return ListScheduledPlanResponse ListScheduledPlanResponse
+     * @param request - ListScheduledPlanRequest
+     * @param headers - ListScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScheduledPlanResponse
+     *
+     * @param string                   $namespace_
+     * @param ListScheduledPlanRequest $request
+     * @param ListScheduledPlanHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListScheduledPlanResponse
      */
-    public function listScheduledPlanWithOptions($namespace, $request, $headers, $runtime)
+    public function listScheduledPlanWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表定时执行计划
-     *  *
-     * @param string                   $namespace
-     * @param ListScheduledPlanRequest $request   ListScheduledPlanRequest
+     * 列表定时执行计划.
      *
-     * @return ListScheduledPlanResponse ListScheduledPlanResponse
+     * @param request - ListScheduledPlanRequest
+     * @returns ListScheduledPlanResponse
+     *
+     * @param string                   $namespace_
+     * @param ListScheduledPlanRequest $request
+     *
+     * @return ListScheduledPlanResponse
      */
-    public function listScheduledPlan($namespace, $request)
+    public function listScheduledPlan($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListScheduledPlanHeaders([]);
 
-        return $this->listScheduledPlanWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listScheduledPlanWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取作业资源变更历史
-     *  *
-     * @param string                                  $namespace
-     * @param ListScheduledPlanExecutedHistoryRequest $request   ListScheduledPlanExecutedHistoryRequest
-     * @param ListScheduledPlanExecutedHistoryHeaders $headers   ListScheduledPlanExecutedHistoryHeaders
-     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
+     * 获取作业资源变更历史.
      *
-     * @return ListScheduledPlanExecutedHistoryResponse ListScheduledPlanExecutedHistoryResponse
+     * @param request - ListScheduledPlanExecutedHistoryRequest
+     * @param headers - ListScheduledPlanExecutedHistoryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListScheduledPlanExecutedHistoryResponse
+     *
+     * @param string                                  $namespace_
+     * @param ListScheduledPlanExecutedHistoryRequest $request
+     * @param ListScheduledPlanExecutedHistoryHeaders $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListScheduledPlanExecutedHistoryResponse
      */
-    public function listScheduledPlanExecutedHistoryWithOptions($namespace, $request, $headers, $runtime)
+    public function listScheduledPlanExecutedHistoryWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['deploymentId'] = $request->deploymentId;
+        if (null !== $request->deploymentId) {
+            @$query['deploymentId'] = $request->deploymentId;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['origin'] = $request->origin;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListScheduledPlanExecutedHistory',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/job-resource-upgradings',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/job-resource-upgradings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScheduledPlanExecutedHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduledPlanExecutedHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduledPlanExecutedHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取作业资源变更历史
-     *  *
-     * @param string                                  $namespace
-     * @param ListScheduledPlanExecutedHistoryRequest $request   ListScheduledPlanExecutedHistoryRequest
+     * 获取作业资源变更历史.
      *
-     * @return ListScheduledPlanExecutedHistoryResponse ListScheduledPlanExecutedHistoryResponse
+     * @param request - ListScheduledPlanExecutedHistoryRequest
+     * @returns ListScheduledPlanExecutedHistoryResponse
+     *
+     * @param string                                  $namespace_
+     * @param ListScheduledPlanExecutedHistoryRequest $request
+     *
+     * @return ListScheduledPlanExecutedHistoryResponse
      */
-    public function listScheduledPlanExecutedHistory($namespace, $request)
+    public function listScheduledPlanExecutedHistory($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListScheduledPlanExecutedHistoryHeaders([]);
 
-        return $this->listScheduledPlanExecutedHistoryWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listScheduledPlanExecutedHistoryWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 列举session集群
-     *  *
-     * @param string                     $namespace
-     * @param ListSessionClustersHeaders $headers   ListSessionClustersHeaders
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * 列举session集群.
      *
-     * @return ListSessionClustersResponse ListSessionClustersResponse
+     * @param headers - ListSessionClustersHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSessionClustersResponse
+     *
+     * @param string                     $namespace_
+     * @param ListSessionClustersHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSessionClustersResponse
      */
-    public function listSessionClustersWithOptions($namespace, $headers, $runtime)
+    public function listSessionClustersWithOptions($namespace_, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -3640,355 +4484,437 @@ class Ververica extends OpenApiClient
             'action'      => 'ListSessionClusters',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSessionClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSessionClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列举session集群
-     *  *
-     * @param string $namespace
+     * 列举session集群.
      *
-     * @return ListSessionClustersResponse ListSessionClustersResponse
+     * @returns ListSessionClustersResponse
+     *
+     * @param string $namespace_
+     *
+     * @return ListSessionClustersResponse
      */
-    public function listSessionClusters($namespace)
+    public function listSessionClusters($namespace_)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListSessionClustersHeaders([]);
 
-        return $this->listSessionClustersWithOptions($namespace, $headers, $runtime);
+        return $this->listSessionClustersWithOptions($namespace_, $headers, $runtime);
     }
 
     /**
-     * @summary Obtains a list of variables.
-     *  *
-     * @param string               $namespace
-     * @param ListVariablesRequest $request   ListVariablesRequest
-     * @param ListVariablesHeaders $headers   ListVariablesHeaders
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * Obtains a list of variables.
      *
-     * @return ListVariablesResponse ListVariablesResponse
+     * @param request - ListVariablesRequest
+     * @param headers - ListVariablesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVariablesResponse
+     *
+     * @param string               $namespace_
+     * @param ListVariablesRequest $request
+     * @param ListVariablesHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListVariablesResponse
      */
-    public function listVariablesWithOptions($namespace, $request, $headers, $runtime)
+    public function listVariablesWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['pageIndex'] = $request->pageIndex;
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVariables',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/variables',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVariablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of variables.
-     *  *
-     * @param string               $namespace
-     * @param ListVariablesRequest $request   ListVariablesRequest
+     * Obtains a list of variables.
      *
-     * @return ListVariablesResponse ListVariablesResponse
+     * @param request - ListVariablesRequest
+     * @returns ListVariablesResponse
+     *
+     * @param string               $namespace_
+     * @param ListVariablesRequest $request
+     *
+     * @return ListVariablesResponse
      */
-    public function listVariables($namespace, $request)
+    public function listVariables($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ListVariablesHeaders([]);
 
-        return $this->listVariablesWithOptions($namespace, $request, $headers, $runtime);
+        return $this->listVariablesWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
-     *  *
-     * @param string                         $namespace
-     * @param RegisterCustomConnectorRequest $request   RegisterCustomConnectorRequest
-     * @param RegisterCustomConnectorHeaders $headers   RegisterCustomConnectorHeaders
-     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     * Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
      *
-     * @return RegisterCustomConnectorResponse RegisterCustomConnectorResponse
+     * @param request - RegisterCustomConnectorRequest
+     * @param headers - RegisterCustomConnectorHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterCustomConnectorResponse
+     *
+     * @param string                         $namespace_
+     * @param RegisterCustomConnectorRequest $request
+     * @param RegisterCustomConnectorHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RegisterCustomConnectorResponse
      */
-    public function registerCustomConnectorWithOptions($namespace, $request, $headers, $runtime)
+    public function registerCustomConnectorWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jarUrl)) {
-            $query['jarUrl'] = $request->jarUrl;
+        if (null !== $request->jarUrl) {
+            @$query['jarUrl'] = $request->jarUrl;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterCustomConnector',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/connectors%3Aregister',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/connectors%3Aregister',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterCustomConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterCustomConnectorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
-     *  *
-     * @param string                         $namespace
-     * @param RegisterCustomConnectorRequest $request   RegisterCustomConnectorRequest
+     * Registers a custom connector in a namespace. The registered custom connector can be used in SQL statements.
      *
-     * @return RegisterCustomConnectorResponse RegisterCustomConnectorResponse
+     * @param request - RegisterCustomConnectorRequest
+     * @returns RegisterCustomConnectorResponse
+     *
+     * @param string                         $namespace_
+     * @param RegisterCustomConnectorRequest $request
+     *
+     * @return RegisterCustomConnectorResponse
      */
-    public function registerCustomConnector($namespace, $request)
+    public function registerCustomConnector($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new RegisterCustomConnectorHeaders([]);
 
-        return $this->registerCustomConnectorWithOptions($namespace, $request, $headers, $runtime);
+        return $this->registerCustomConnectorWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
-     *  *
-     * @param string                     $namespace
-     * @param RegisterUdfFunctionRequest $request   RegisterUdfFunctionRequest
-     * @param RegisterUdfFunctionHeaders $headers   RegisterUdfFunctionHeaders
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
+     * Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
      *
-     * @return RegisterUdfFunctionResponse RegisterUdfFunctionResponse
+     * @param request - RegisterUdfFunctionRequest
+     * @param headers - RegisterUdfFunctionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterUdfFunctionResponse
+     *
+     * @param string                     $namespace_
+     * @param RegisterUdfFunctionRequest $request
+     * @param RegisterUdfFunctionHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RegisterUdfFunctionResponse
      */
-    public function registerUdfFunctionWithOptions($namespace, $request, $headers, $runtime)
+    public function registerUdfFunctionWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->className)) {
-            $query['className'] = $request->className;
+        if (null !== $request->className) {
+            @$query['className'] = $request->className;
         }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['functionName'] = $request->functionName;
+
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
         }
-        if (!Utils::isUnset($request->udfArtifactName)) {
-            $query['udfArtifactName'] = $request->udfArtifactName;
+
+        if (null !== $request->udfArtifactName) {
+            @$query['udfArtifactName'] = $request->udfArtifactName;
         }
+
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterUdfFunction',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts/function%3AregisterUdfFunction',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/function%3AregisterUdfFunction',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterUdfFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterUdfFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
-     *  *
-     * @param string                     $namespace
-     * @param RegisterUdfFunctionRequest $request   RegisterUdfFunctionRequest
+     * Registers specific or all of the user-defined functions (UDFs) that are parsed from the JAR files. The registered functions can be used in SQL statements.
      *
-     * @return RegisterUdfFunctionResponse RegisterUdfFunctionResponse
+     * @param request - RegisterUdfFunctionRequest
+     * @returns RegisterUdfFunctionResponse
+     *
+     * @param string                     $namespace_
+     * @param RegisterUdfFunctionRequest $request
+     *
+     * @return RegisterUdfFunctionResponse
      */
-    public function registerUdfFunction($namespace, $request)
+    public function registerUdfFunction($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new RegisterUdfFunctionHeaders([]);
 
-        return $this->registerUdfFunctionWithOptions($namespace, $request, $headers, $runtime);
+        return $this->registerUdfFunctionWithOptions($namespace_, $request, $headers, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Creates and starts a job.
+     *
      * @deprecated OpenAPI StartJob is deprecated
-     *  *
-     * @summary Creates and starts a job.
-     *  *
-     * Deprecated
      *
-     * @param string          $namespace
-     * @param StartJobRequest $request   StartJobRequest
-     * @param StartJobHeaders $headers   StartJobHeaders
-     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
+     * @param request - StartJobRequest
+     * @param headers - StartJobHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartJobResponse
      *
-     * @return StartJobResponse StartJobResponse
+     * @param string          $namespace_
+     * @param StartJobRequest $request
+     * @param StartJobHeaders $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StartJobResponse
      */
-    public function startJobWithOptions($namespace, $request, $headers, $runtime)
+    public function startJobWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'StartJob',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Creates and starts a job.
+     *
      * @deprecated OpenAPI StartJob is deprecated
-     *  *
-     * @summary Creates and starts a job.
-     *  *
-     * Deprecated
      *
-     * @param string          $namespace
-     * @param StartJobRequest $request   StartJobRequest
+     * @param request - StartJobRequest
+     * @returns StartJobResponse
      *
-     * @return StartJobResponse StartJobResponse
+     * @param string          $namespace_
+     * @param StartJobRequest $request
+     *
+     * @return StartJobResponse
      */
-    public function startJob($namespace, $request)
+    public function startJob($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StartJobHeaders([]);
 
-        return $this->startJobWithOptions($namespace, $request, $headers, $runtime);
+        return $this->startJobWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Starts a job.
-     *  *
-     * @param string                    $namespace
-     * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
-     * @param StartJobWithParamsHeaders $headers   StartJobWithParamsHeaders
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * Starts a job.
      *
-     * @return StartJobWithParamsResponse StartJobWithParamsResponse
+     * @param request - StartJobWithParamsRequest
+     * @param headers - StartJobWithParamsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartJobWithParamsResponse
+     *
+     * @param string                    $namespace_
+     * @param StartJobWithParamsRequest $request
+     * @param StartJobWithParamsHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartJobWithParamsResponse
      */
-    public function startJobWithParamsWithOptions($namespace, $request, $headers, $runtime)
+    public function startJobWithParamsWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'StartJobWithParams',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs%3Astart',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs%3Astart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartJobWithParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartJobWithParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartJobWithParamsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a job.
-     *  *
-     * @param string                    $namespace
-     * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
+     * Starts a job.
      *
-     * @return StartJobWithParamsResponse StartJobWithParamsResponse
+     * @param request - StartJobWithParamsRequest
+     * @returns StartJobWithParamsResponse
+     *
+     * @param string                    $namespace_
+     * @param StartJobWithParamsRequest $request
+     *
+     * @return StartJobWithParamsResponse
      */
-    public function startJobWithParams($namespace, $request)
+    public function startJobWithParams($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StartJobWithParamsHeaders([]);
 
-        return $this->startJobWithParamsWithOptions($namespace, $request, $headers, $runtime);
+        return $this->startJobWithParamsWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 启动session集群
-     *  *
-     * @param string                     $namespace
-     * @param string                     $sessionClusterName
-     * @param StartSessionClusterHeaders $headers            StartSessionClusterHeaders
-     * @param RuntimeOptions             $runtime            runtime options for this request RuntimeOptions
+     * 启动session集群.
      *
-     * @return StartSessionClusterResponse StartSessionClusterResponse
+     * @param headers - StartSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartSessionClusterResponse
+     *
+     * @param string                     $namespace_
+     * @param string                     $sessionClusterName
+     * @param StartSessionClusterHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartSessionClusterResponse
      */
-    public function startSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    public function startSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -3996,52 +4922,63 @@ class Ververica extends OpenApiClient
             'action'      => 'StartSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '%3Astart',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动session集群
-     *  *
-     * @param string $namespace
+     * 启动session集群.
+     *
+     * @returns StartSessionClusterResponse
+     *
+     * @param string $namespace_
      * @param string $sessionClusterName
      *
-     * @return StartSessionClusterResponse StartSessionClusterResponse
+     * @return StartSessionClusterResponse
      */
-    public function startSessionCluster($namespace, $sessionClusterName)
+    public function startSessionCluster($namespace_, $sessionClusterName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StartSessionClusterHeaders([]);
 
-        return $this->startSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
+        return $this->startSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
     }
 
     /**
-     * @summary 停止应用执行定时计划
-     *  *
-     * @param string                        $namespace
-     * @param string                        $scheduledPlanId
-     * @param StopApplyScheduledPlanHeaders $headers         StopApplyScheduledPlanHeaders
-     * @param RuntimeOptions                $runtime         runtime options for this request RuntimeOptions
+     * 停止应用执行定时计划.
      *
-     * @return StopApplyScheduledPlanResponse StopApplyScheduledPlanResponse
+     * @param headers - StopApplyScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopApplyScheduledPlanResponse
+     *
+     * @param string                        $namespace_
+     * @param string                        $scheduledPlanId
+     * @param StopApplyScheduledPlanHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StopApplyScheduledPlanResponse
      */
-    public function stopApplyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime)
+    public function stopApplyScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -4049,109 +4986,133 @@ class Ververica extends OpenApiClient
             'action'      => 'StopApplyScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '%3Astop',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '%3Astop',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopApplyScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopApplyScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止应用执行定时计划
-     *  *
-     * @param string $namespace
+     * 停止应用执行定时计划.
+     *
+     * @returns StopApplyScheduledPlanResponse
+     *
+     * @param string $namespace_
      * @param string $scheduledPlanId
      *
-     * @return StopApplyScheduledPlanResponse StopApplyScheduledPlanResponse
+     * @return StopApplyScheduledPlanResponse
      */
-    public function stopApplyScheduledPlan($namespace, $scheduledPlanId)
+    public function stopApplyScheduledPlan($namespace_, $scheduledPlanId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StopApplyScheduledPlanHeaders([]);
 
-        return $this->stopApplyScheduledPlanWithOptions($namespace, $scheduledPlanId, $headers, $runtime);
+        return $this->stopApplyScheduledPlanWithOptions($namespace_, $scheduledPlanId, $headers, $runtime);
     }
 
     /**
-     * @summary Stops a job.
-     *  *
-     * @param string         $namespace
-     * @param string         $jobId
-     * @param StopJobRequest $request   StopJobRequest
-     * @param StopJobHeaders $headers   StopJobHeaders
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Stops a job.
      *
-     * @return StopJobResponse StopJobResponse
+     * @param request - StopJobRequest
+     * @param headers - StopJobHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopJobResponse
+     *
+     * @param string         $namespace_
+     * @param string         $jobId
+     * @param StopJobRequest $request
+     * @param StopJobHeaders $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopJobResponse
      */
-    public function stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime)
+    public function stopJobWithOptions($namespace_, $jobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'StopJob',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '%3Astop',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/jobs/' . Url::percentEncode($jobId) . '%3Astop',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a job.
-     *  *
-     * @param string         $namespace
-     * @param string         $jobId
-     * @param StopJobRequest $request   StopJobRequest
+     * Stops a job.
      *
-     * @return StopJobResponse StopJobResponse
+     * @param request - StopJobRequest
+     * @returns StopJobResponse
+     *
+     * @param string         $namespace_
+     * @param string         $jobId
+     * @param StopJobRequest $request
+     *
+     * @return StopJobResponse
      */
-    public function stopJob($namespace, $jobId, $request)
+    public function stopJob($namespace_, $jobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StopJobHeaders([]);
 
-        return $this->stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime);
+        return $this->stopJobWithOptions($namespace_, $jobId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 停止session集群
-     *  *
-     * @param string                    $namespace
-     * @param string                    $sessionClusterName
-     * @param StopSessionClusterHeaders $headers            StopSessionClusterHeaders
-     * @param RuntimeOptions            $runtime            runtime options for this request RuntimeOptions
+     * 停止session集群.
      *
-     * @return StopSessionClusterResponse StopSessionClusterResponse
+     * @param headers - StopSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopSessionClusterResponse
+     *
+     * @param string                    $namespace_
+     * @param string                    $sessionClusterName
+     * @param StopSessionClusterHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopSessionClusterResponse
      */
-    public function stopSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime)
+    public function stopSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime)
     {
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
@@ -4159,539 +5120,731 @@ class Ververica extends OpenApiClient
             'action'      => 'StopSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '%3Astop',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '%3Astop',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止session集群
-     *  *
-     * @param string $namespace
+     * 停止session集群.
+     *
+     * @returns StopSessionClusterResponse
+     *
+     * @param string $namespace_
      * @param string $sessionClusterName
      *
-     * @return StopSessionClusterResponse StopSessionClusterResponse
+     * @return StopSessionClusterResponse
      */
-    public function stopSessionCluster($namespace, $sessionClusterName)
+    public function stopSessionCluster($namespace_, $sessionClusterName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new StopSessionClusterHeaders([]);
 
-        return $this->stopSessionClusterWithOptions($namespace, $sessionClusterName, $headers, $runtime);
+        return $this->stopSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
     }
 
     /**
-     * @summary Updates information about a deployment.
-     *  *
-     * @param string                  $namespace
-     * @param string                  $deploymentId
-     * @param UpdateDeploymentRequest $request      UpdateDeploymentRequest
-     * @param UpdateDeploymentHeaders $headers      UpdateDeploymentHeaders
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * Updates information about a deployment.
      *
-     * @return UpdateDeploymentResponse UpdateDeploymentResponse
+     * @param request - UpdateDeploymentRequest
+     * @param headers - UpdateDeploymentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeploymentResponse
+     *
+     * @param string                  $namespace_
+     * @param string                  $deploymentId
+     * @param UpdateDeploymentRequest $request
+     * @param UpdateDeploymentHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDeploymentResponse
      */
-    public function updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime)
+    public function updateDeploymentWithOptions($namespace_, $deploymentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeployment',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/' . Url::percentEncode($deploymentId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates information about a deployment.
-     *  *
-     * @param string                  $namespace
-     * @param string                  $deploymentId
-     * @param UpdateDeploymentRequest $request      UpdateDeploymentRequest
+     * Updates information about a deployment.
      *
-     * @return UpdateDeploymentResponse UpdateDeploymentResponse
+     * @param request - UpdateDeploymentRequest
+     * @returns UpdateDeploymentResponse
+     *
+     * @param string                  $namespace_
+     * @param string                  $deploymentId
+     * @param UpdateDeploymentRequest $request
+     *
+     * @return UpdateDeploymentResponse
      */
-    public function updateDeployment($namespace, $deploymentId, $request)
+    public function updateDeployment($namespace_, $deploymentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateDeploymentHeaders([]);
 
-        return $this->updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime);
+        return $this->updateDeploymentWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary update a deploymentDraft
-     *  *
-     * @param string                       $namespace
-     * @param string                       $deploymentDraftId
-     * @param UpdateDeploymentDraftRequest $request           UpdateDeploymentDraftRequest
-     * @param UpdateDeploymentDraftHeaders $headers           UpdateDeploymentDraftHeaders
-     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
+     * update a deploymentDraft.
      *
-     * @return UpdateDeploymentDraftResponse UpdateDeploymentDraftResponse
+     * @param request - UpdateDeploymentDraftRequest
+     * @param headers - UpdateDeploymentDraftHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeploymentDraftResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $deploymentDraftId
+     * @param UpdateDeploymentDraftRequest $request
+     * @param UpdateDeploymentDraftHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDeploymentDraftResponse
      */
-    public function updateDeploymentDraftWithOptions($namespace, $deploymentDraftId, $request, $headers, $runtime)
+    public function updateDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeploymentDraft',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-drafts/' . OpenApiUtilClient::getEncodeParam($deploymentDraftId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-drafts/' . Url::percentEncode($deploymentDraftId) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeploymentDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeploymentDraftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary update a deploymentDraft
-     *  *
-     * @param string                       $namespace
-     * @param string                       $deploymentDraftId
-     * @param UpdateDeploymentDraftRequest $request           UpdateDeploymentDraftRequest
+     * update a deploymentDraft.
      *
-     * @return UpdateDeploymentDraftResponse UpdateDeploymentDraftResponse
+     * @param request - UpdateDeploymentDraftRequest
+     * @returns UpdateDeploymentDraftResponse
+     *
+     * @param string                       $namespace_
+     * @param string                       $deploymentDraftId
+     * @param UpdateDeploymentDraftRequest $request
+     *
+     * @return UpdateDeploymentDraftResponse
      */
-    public function updateDeploymentDraft($namespace, $deploymentDraftId, $request)
+    public function updateDeploymentDraft($namespace_, $deploymentDraftId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateDeploymentDraftHeaders([]);
 
-        return $this->updateDeploymentDraftWithOptions($namespace, $deploymentDraftId, $request, $headers, $runtime);
+        return $this->updateDeploymentDraftWithOptions($namespace_, $deploymentDraftId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 修改deploymentTarget
-     *  *
-     * @param string                        $namespace
-     * @param string                        $deploymentTargetName
-     * @param UpdateDeploymentTargetRequest $request              UpdateDeploymentTargetRequest
-     * @param UpdateDeploymentTargetHeaders $headers              UpdateDeploymentTargetHeaders
-     * @param RuntimeOptions                $runtime              runtime options for this request RuntimeOptions
+     * 修改deploymentTarget.
      *
-     * @return UpdateDeploymentTargetResponse UpdateDeploymentTargetResponse
+     * @param request - UpdateDeploymentTargetRequest
+     * @param headers - UpdateDeploymentTargetHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeploymentTargetResponse
+     *
+     * @param string                        $namespace_
+     * @param string                        $deploymentTargetName
+     * @param UpdateDeploymentTargetRequest $request
+     * @param UpdateDeploymentTargetHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDeploymentTargetResponse
      */
-    public function updateDeploymentTargetWithOptions($namespace, $deploymentTargetName, $request, $headers, $runtime)
+    public function updateDeploymentTargetWithOptions($namespace_, $deploymentTargetName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeploymentTarget',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployment-targets/' . OpenApiUtilClient::getEncodeParam($deploymentTargetName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployment-targets/' . Url::percentEncode($deploymentTargetName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeploymentTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeploymentTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改deploymentTarget
-     *  *
-     * @param string                        $namespace
-     * @param string                        $deploymentTargetName
-     * @param UpdateDeploymentTargetRequest $request              UpdateDeploymentTargetRequest
+     * 修改deploymentTarget.
      *
-     * @return UpdateDeploymentTargetResponse UpdateDeploymentTargetResponse
+     * @param request - UpdateDeploymentTargetRequest
+     * @returns UpdateDeploymentTargetResponse
+     *
+     * @param string                        $namespace_
+     * @param string                        $deploymentTargetName
+     * @param UpdateDeploymentTargetRequest $request
+     *
+     * @return UpdateDeploymentTargetResponse
      */
-    public function updateDeploymentTarget($namespace, $deploymentTargetName, $request)
+    public function updateDeploymentTarget($namespace_, $deploymentTargetName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateDeploymentTargetHeaders([]);
 
-        return $this->updateDeploymentTargetWithOptions($namespace, $deploymentTargetName, $request, $headers, $runtime);
+        return $this->updateDeploymentTargetWithOptions($namespace_, $deploymentTargetName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary update a folder
-     *  *
-     * @param string              $namespace
-     * @param string              $folderId
-     * @param UpdateFolderRequest $request   UpdateFolderRequest
-     * @param UpdateFolderHeaders $headers   UpdateFolderHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * update a folder.
      *
-     * @return UpdateFolderResponse UpdateFolderResponse
+     * @param request - UpdateFolderRequest
+     * @param headers - UpdateFolderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFolderResponse
+     *
+     * @param string              $namespace_
+     * @param string              $folderId
+     * @param UpdateFolderRequest $request
+     * @param UpdateFolderHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateFolderResponse
      */
-    public function updateFolderWithOptions($namespace, $folderId, $request, $headers, $runtime)
+    public function updateFolderWithOptions($namespace_, $folderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFolder',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/folder/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/folder/' . Url::percentEncode($folderId) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary update a folder
-     *  *
-     * @param string              $namespace
-     * @param string              $folderId
-     * @param UpdateFolderRequest $request   UpdateFolderRequest
+     * update a folder.
      *
-     * @return UpdateFolderResponse UpdateFolderResponse
+     * @param request - UpdateFolderRequest
+     * @returns UpdateFolderResponse
+     *
+     * @param string              $namespace_
+     * @param string              $folderId
+     * @param UpdateFolderRequest $request
+     *
+     * @return UpdateFolderResponse
      */
-    public function updateFolder($namespace, $folderId, $request)
+    public function updateFolder($namespace_, $folderId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateFolderHeaders([]);
 
-        return $this->updateFolderWithOptions($namespace, $folderId, $request, $headers, $runtime);
+        return $this->updateFolderWithOptions($namespace_, $folderId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Updates the permissions of one or more members in a specific namespace.
-     *  *
-     * @param string              $namespace
-     * @param UpdateMemberRequest $request   UpdateMemberRequest
-     * @param UpdateMemberHeaders $headers   UpdateMemberHeaders
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * Updates the permissions of one or more members in a specific namespace.
      *
-     * @return UpdateMemberResponse UpdateMemberResponse
+     * @param request - UpdateMemberRequest
+     * @param headers - UpdateMemberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMemberResponse
+     *
+     * @param string              $namespace_
+     * @param UpdateMemberRequest $request
+     * @param UpdateMemberHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemberResponse
      */
-    public function updateMemberWithOptions($namespace, $request, $headers, $runtime)
+    public function updateMemberWithOptions($namespace_, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMember',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gateway/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/members',
+            'pathname'    => '/gateway/v2/namespaces/' . Url::percentEncode($namespace_) . '/members',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the permissions of one or more members in a specific namespace.
-     *  *
-     * @param string              $namespace
-     * @param UpdateMemberRequest $request   UpdateMemberRequest
+     * Updates the permissions of one or more members in a specific namespace.
      *
-     * @return UpdateMemberResponse UpdateMemberResponse
+     * @param request - UpdateMemberRequest
+     * @returns UpdateMemberResponse
+     *
+     * @param string              $namespace_
+     * @param UpdateMemberRequest $request
+     *
+     * @return UpdateMemberResponse
      */
-    public function updateMember($namespace, $request)
+    public function updateMember($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateMemberHeaders([]);
 
-        return $this->updateMemberWithOptions($namespace, $request, $headers, $runtime);
+        return $this->updateMemberWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 更新定时执行计划
-     *  *
-     * @param string                     $namespace
-     * @param string                     $scheduledPlanId
-     * @param UpdateScheduledPlanRequest $request         UpdateScheduledPlanRequest
-     * @param UpdateScheduledPlanHeaders $headers         UpdateScheduledPlanHeaders
-     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     * 更新定时执行计划.
      *
-     * @return UpdateScheduledPlanResponse UpdateScheduledPlanResponse
+     * @param request - UpdateScheduledPlanRequest
+     * @param headers - UpdateScheduledPlanHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateScheduledPlanResponse
+     *
+     * @param string                     $namespace_
+     * @param string                     $scheduledPlanId
+     * @param UpdateScheduledPlanRequest $request
+     * @param UpdateScheduledPlanHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateScheduledPlanResponse
      */
-    public function updateScheduledPlanWithOptions($namespace, $scheduledPlanId, $request, $headers, $runtime)
+    public function updateScheduledPlanWithOptions($namespace_, $scheduledPlanId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateScheduledPlan',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/scheduled-plans/' . OpenApiUtilClient::getEncodeParam($scheduledPlanId) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/scheduled-plans/' . Url::percentEncode($scheduledPlanId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateScheduledPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateScheduledPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新定时执行计划
-     *  *
-     * @param string                     $namespace
-     * @param string                     $scheduledPlanId
-     * @param UpdateScheduledPlanRequest $request         UpdateScheduledPlanRequest
+     * 更新定时执行计划.
      *
-     * @return UpdateScheduledPlanResponse UpdateScheduledPlanResponse
+     * @param request - UpdateScheduledPlanRequest
+     * @returns UpdateScheduledPlanResponse
+     *
+     * @param string                     $namespace_
+     * @param string                     $scheduledPlanId
+     * @param UpdateScheduledPlanRequest $request
+     *
+     * @return UpdateScheduledPlanResponse
      */
-    public function updateScheduledPlan($namespace, $scheduledPlanId, $request)
+    public function updateScheduledPlan($namespace_, $scheduledPlanId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateScheduledPlanHeaders([]);
 
-        return $this->updateScheduledPlanWithOptions($namespace, $scheduledPlanId, $request, $headers, $runtime);
+        return $this->updateScheduledPlanWithOptions($namespace_, $scheduledPlanId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 更新session集群
-     *  *
-     * @param string                      $namespace
-     * @param string                      $sessionClusterName
-     * @param UpdateSessionClusterRequest $request            UpdateSessionClusterRequest
-     * @param UpdateSessionClusterHeaders $headers            UpdateSessionClusterHeaders
-     * @param RuntimeOptions              $runtime            runtime options for this request RuntimeOptions
+     * 更新session集群.
      *
-     * @return UpdateSessionClusterResponse UpdateSessionClusterResponse
+     * @param request - UpdateSessionClusterRequest
+     * @param headers - UpdateSessionClusterHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSessionClusterResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $sessionClusterName
+     * @param UpdateSessionClusterRequest $request
+     * @param UpdateSessionClusterHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateSessionClusterResponse
      */
-    public function updateSessionClusterWithOptions($namespace, $sessionClusterName, $request, $headers, $runtime)
+    public function updateSessionClusterWithOptions($namespace_, $sessionClusterName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSessionCluster',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sessionclusters/' . OpenApiUtilClient::getEncodeParam($sessionClusterName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sessionclusters/' . Url::percentEncode($sessionClusterName) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSessionClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSessionClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新session集群
-     *  *
-     * @param string                      $namespace
-     * @param string                      $sessionClusterName
-     * @param UpdateSessionClusterRequest $request            UpdateSessionClusterRequest
+     * 更新session集群.
      *
-     * @return UpdateSessionClusterResponse UpdateSessionClusterResponse
+     * @param request - UpdateSessionClusterRequest
+     * @returns UpdateSessionClusterResponse
+     *
+     * @param string                      $namespace_
+     * @param string                      $sessionClusterName
+     * @param UpdateSessionClusterRequest $request
+     *
+     * @return UpdateSessionClusterResponse
      */
-    public function updateSessionCluster($namespace, $sessionClusterName, $request)
+    public function updateSessionCluster($namespace_, $sessionClusterName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateSessionClusterHeaders([]);
 
-        return $this->updateSessionClusterWithOptions($namespace, $sessionClusterName, $request, $headers, $runtime);
+        return $this->updateSessionClusterWithOptions($namespace_, $sessionClusterName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Updates the JAR file of the user-defined function (UDF) that you create.
-     *  *
-     * @param string                   $namespace
-     * @param string                   $udfArtifactName
-     * @param UpdateUdfArtifactRequest $request         UpdateUdfArtifactRequest
-     * @param UpdateUdfArtifactHeaders $headers         UpdateUdfArtifactHeaders
-     * @param RuntimeOptions           $runtime         runtime options for this request RuntimeOptions
+     * Updates the JAR file of the user-defined function (UDF) that you create.
      *
-     * @return UpdateUdfArtifactResponse UpdateUdfArtifactResponse
+     * @param request - UpdateUdfArtifactRequest
+     * @param headers - UpdateUdfArtifactHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUdfArtifactResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $udfArtifactName
+     * @param UpdateUdfArtifactRequest $request
+     * @param UpdateUdfArtifactHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateUdfArtifactResponse
      */
-    public function updateUdfArtifactWithOptions($namespace, $udfArtifactName, $request, $headers, $runtime)
+    public function updateUdfArtifactWithOptions($namespace_, $udfArtifactName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'UpdateUdfArtifact',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/udfartifacts/' . OpenApiUtilClient::getEncodeParam($udfArtifactName) . '',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/udfartifacts/' . Url::percentEncode($udfArtifactName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUdfArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUdfArtifactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the JAR file of the user-defined function (UDF) that you create.
-     *  *
-     * @param string                   $namespace
-     * @param string                   $udfArtifactName
-     * @param UpdateUdfArtifactRequest $request         UpdateUdfArtifactRequest
+     * Updates the JAR file of the user-defined function (UDF) that you create.
      *
-     * @return UpdateUdfArtifactResponse UpdateUdfArtifactResponse
+     * @param request - UpdateUdfArtifactRequest
+     * @returns UpdateUdfArtifactResponse
+     *
+     * @param string                   $namespace_
+     * @param string                   $udfArtifactName
+     * @param UpdateUdfArtifactRequest $request
+     *
+     * @return UpdateUdfArtifactResponse
      */
-    public function updateUdfArtifact($namespace, $udfArtifactName, $request)
+    public function updateUdfArtifact($namespace_, $udfArtifactName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new UpdateUdfArtifactHeaders([]);
 
-        return $this->updateUdfArtifactWithOptions($namespace, $udfArtifactName, $request, $headers, $runtime);
+        return $this->updateUdfArtifactWithOptions($namespace_, $udfArtifactName, $request, $headers, $runtime);
     }
 
     /**
-     * @summary Verifies the code of an SQL deployment.
-     *  *
-     * @param string                      $namespace
-     * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest
-     * @param ValidateSqlStatementHeaders $headers   ValidateSqlStatementHeaders
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     * 更新秘钥.
      *
-     * @return ValidateSqlStatementResponse ValidateSqlStatementResponse
+     * @param request - UpdateVariableRequest
+     * @param headers - UpdateVariableHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVariableResponse
+     *
+     * @param string                $namespace_
+     * @param string                $name
+     * @param UpdateVariableRequest $request
+     * @param UpdateVariableHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateVariableResponse
      */
-    public function validateSqlStatementWithOptions($namespace, $request, $headers, $runtime)
+    public function updateVariableWithOptions($namespace_, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $realHeaders = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
+        if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
         }
-        if (!Utils::isUnset($headers->workspace)) {
-            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
         }
+
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body'    => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVariable',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/variables/' . Url::percentEncode($name) . '',
+            'method'      => 'PATCH',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateVariableResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新秘钥.
+     *
+     * @param request - UpdateVariableRequest
+     * @returns UpdateVariableResponse
+     *
+     * @param string                $namespace_
+     * @param string                $name
+     * @param UpdateVariableRequest $request
+     *
+     * @return UpdateVariableResponse
+     */
+    public function updateVariable($namespace_, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateVariableHeaders([]);
+
+        return $this->updateVariableWithOptions($namespace_, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Verifies the code of an SQL deployment.
+     *
+     * @param request - ValidateSqlStatementRequest
+     * @param headers - ValidateSqlStatementHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ValidateSqlStatementResponse
+     *
+     * @param string                      $namespace_
+     * @param ValidateSqlStatementRequest $request
+     * @param ValidateSqlStatementHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ValidateSqlStatementResponse
+     */
+    public function validateSqlStatementWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ValidateSqlStatement',
             'version'     => '2022-07-18',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sql-statement/validate',
+            'pathname'    => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-statement/validate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ValidateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValidateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValidateSqlStatementResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the code of an SQL deployment.
-     *  *
-     * @param string                      $namespace
-     * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest
+     * Verifies the code of an SQL deployment.
      *
-     * @return ValidateSqlStatementResponse ValidateSqlStatementResponse
+     * @param request - ValidateSqlStatementRequest
+     * @returns ValidateSqlStatementResponse
+     *
+     * @param string                      $namespace_
+     * @param ValidateSqlStatementRequest $request
+     *
+     * @return ValidateSqlStatementResponse
      */
-    public function validateSqlStatement($namespace, $request)
+    public function validateSqlStatement($namespace_, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = new ValidateSqlStatementHeaders([]);
 
-        return $this->validateSqlStatementWithOptions($namespace, $request, $headers, $runtime);
+        return $this->validateSqlStatementWithOptions($namespace_, $request, $headers, $runtime);
     }
 }

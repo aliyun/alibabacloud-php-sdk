@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMemberRequest extends Model
 {
     /**
-     * @description The permission information about the member.
-     *
      * @var Member
      */
     public $body;
@@ -20,23 +18,27 @@ class UpdateMemberRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMemberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

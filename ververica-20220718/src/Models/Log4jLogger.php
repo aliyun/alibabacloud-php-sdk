@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Log4jLogger extends Model
 {
     /**
-     * @example ERROR
-     *
      * @var string
      */
     public $loggerLevel;
-
     /**
-     * @example StdOutErrConsoleAppender
-     *
      * @var string
      */
     public $loggerName;
@@ -28,14 +23,16 @@ class Log4jLogger extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loggerLevel) {
             $res['loggerLevel'] = $this->loggerLevel;
         }
+
         if (null !== $this->loggerName) {
             $res['loggerName'] = $this->loggerName;
         }
@@ -43,17 +40,18 @@ class Log4jLogger extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Log4jLogger
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['loggerLevel'])) {
             $model->loggerLevel = $map['loggerLevel'];
         }
+
         if (isset($map['loggerName'])) {
             $model->loggerName = $map['loggerName'];
         }

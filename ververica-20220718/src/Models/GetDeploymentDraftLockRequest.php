@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeploymentDraftLockRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example c84d73be-40ad-4627-8bdd-fa1eba51b234
-     *
      * @var string
      */
     public $deploymentDraftId;
@@ -22,9 +18,10 @@ class GetDeploymentDraftLockRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentDraftId) {
@@ -34,11 +31,11 @@ class GetDeploymentDraftLockRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeploymentDraftLockRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

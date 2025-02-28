@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DraftDeployParams extends Model
 {
@@ -12,15 +12,11 @@ class DraftDeployParams extends Model
      * @var string
      */
     public $deploymentDraftId;
-
     /**
      * @var BriefDeploymentTarget
      */
     public $deploymentTarget;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $skipValidate;
@@ -32,17 +28,23 @@ class DraftDeployParams extends Model
 
     public function validate()
     {
+        if (null !== $this->deploymentTarget) {
+            $this->deploymentTarget->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentDraftId) {
             $res['deploymentDraftId'] = $this->deploymentDraftId;
         }
+
         if (null !== $this->deploymentTarget) {
-            $res['deploymentTarget'] = null !== $this->deploymentTarget ? $this->deploymentTarget->toMap() : null;
+            $res['deploymentTarget'] = null !== $this->deploymentTarget ? $this->deploymentTarget->toArray($noStream) : $this->deploymentTarget;
         }
+
         if (null !== $this->skipValidate) {
             $res['skipValidate'] = $this->skipValidate;
         }
@@ -50,20 +52,22 @@ class DraftDeployParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DraftDeployParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deploymentDraftId'])) {
             $model->deploymentDraftId = $map['deploymentDraftId'];
         }
+
         if (isset($map['deploymentTarget'])) {
             $model->deploymentTarget = BriefDeploymentTarget::fromMap($map['deploymentTarget']);
         }
+
         if (isset($map['skipValidate'])) {
             $model->skipValidate = $map['skipValidate'];
         }

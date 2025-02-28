@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HotUpdateJobFailureInfo extends Model
 {
@@ -12,12 +12,10 @@ class HotUpdateJobFailureInfo extends Model
      * @var string
      */
     public $failureSeverity;
-
     /**
      * @var string
      */
     public $message;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class HotUpdateJobFailureInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failureSeverity) {
             $res['failureSeverity'] = $this->failureSeverity;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->reason) {
             $res['reason'] = $this->reason;
         }
@@ -48,20 +49,22 @@ class HotUpdateJobFailureInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HotUpdateJobFailureInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['failureSeverity'])) {
             $model->failureSeverity = $map['failureSeverity'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['reason'])) {
             $model->reason = $map['reason'];
         }

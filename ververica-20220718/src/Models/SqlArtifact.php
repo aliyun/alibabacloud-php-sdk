@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SqlArtifact extends Model
 {
@@ -12,7 +12,6 @@ class SqlArtifact extends Model
      * @var string[]
      */
     public $additionalDependencies;
-
     /**
      * @var string
      */
@@ -24,14 +23,25 @@ class SqlArtifact extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalDependencies)) {
+            Model::validateArray($this->additionalDependencies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalDependencies) {
-            $res['additionalDependencies'] = $this->additionalDependencies;
+            if (\is_array($this->additionalDependencies)) {
+                $res['additionalDependencies'] = [];
+                $n1                            = 0;
+                foreach ($this->additionalDependencies as $item1) {
+                    $res['additionalDependencies'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sqlScript) {
             $res['sqlScript'] = $this->sqlScript;
         }
@@ -39,19 +49,24 @@ class SqlArtifact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SqlArtifact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalDependencies'])) {
             if (!empty($map['additionalDependencies'])) {
-                $model->additionalDependencies = $map['additionalDependencies'];
+                $model->additionalDependencies = [];
+                $n1                            = 0;
+                foreach ($map['additionalDependencies'] as $item1) {
+                    $model->additionalDependencies[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['sqlScript'])) {
             $model->sqlScript = $map['sqlScript'];
         }

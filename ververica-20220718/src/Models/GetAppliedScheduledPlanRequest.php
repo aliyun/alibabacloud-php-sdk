@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppliedScheduledPlanRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 5737ef81-d2f1-49cf-8752-30910809****
-     *
      * @var string
      */
     public $deploymentId;
@@ -22,9 +18,10 @@ class GetAppliedScheduledPlanRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentId) {
@@ -34,11 +31,11 @@ class GetAppliedScheduledPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppliedScheduledPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

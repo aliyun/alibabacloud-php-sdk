@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SqlStatementExecuteResult extends Model
 {
@@ -12,12 +12,10 @@ class SqlStatementExecuteResult extends Model
      * @var ErrorDetails
      */
     public $errorDetails;
-
     /**
      * @var bool
      */
     public $executeSuccess;
-
     /**
      * @var string
      */
@@ -30,17 +28,23 @@ class SqlStatementExecuteResult extends Model
 
     public function validate()
     {
+        if (null !== $this->errorDetails) {
+            $this->errorDetails->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorDetails) {
-            $res['errorDetails'] = null !== $this->errorDetails ? $this->errorDetails->toMap() : null;
+            $res['errorDetails'] = null !== $this->errorDetails ? $this->errorDetails->toArray($noStream) : $this->errorDetails;
         }
+
         if (null !== $this->executeSuccess) {
             $res['executeSuccess'] = $this->executeSuccess;
         }
+
         if (null !== $this->statement) {
             $res['statement'] = $this->statement;
         }
@@ -48,20 +52,22 @@ class SqlStatementExecuteResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SqlStatementExecuteResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorDetails'])) {
             $model->errorDetails = ErrorDetails::fromMap($map['errorDetails']);
         }
+
         if (isset($map['executeSuccess'])) {
             $model->executeSuccess = $map['executeSuccess'];
         }
+
         if (isset($map['statement'])) {
             $model->statement = $map['statement'];
         }
