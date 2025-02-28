@@ -15,6 +15,10 @@ class CreateDdrInstanceRequest extends Model
     /**
      * @var string
      */
+    public $backupSetRegion;
+    /**
+     * @var string
+     */
     public $clientToken;
     /**
      * @var string
@@ -138,6 +142,7 @@ class CreateDdrInstanceRequest extends Model
     public $zoneId;
     protected $_name = [
         'backupSetId'           => 'BackupSetId',
+        'backupSetRegion'       => 'BackupSetRegion',
         'clientToken'           => 'ClientToken',
         'connectionMode'        => 'ConnectionMode',
         'DBInstanceClass'       => 'DBInstanceClass',
@@ -181,6 +186,10 @@ class CreateDdrInstanceRequest extends Model
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
+        }
+
+        if (null !== $this->backupSetRegion) {
+            $res['BackupSetRegion'] = $this->backupSetRegion;
         }
 
         if (null !== $this->clientToken) {
@@ -320,6 +329,10 @@ class CreateDdrInstanceRequest extends Model
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
+        }
+
+        if (isset($map['BackupSetRegion'])) {
+            $model->backupSetRegion = $map['BackupSetRegion'];
         }
 
         if (isset($map['ClientToken'])) {

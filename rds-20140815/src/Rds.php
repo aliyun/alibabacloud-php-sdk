@@ -4674,6 +4674,10 @@ class Rds extends OpenApiClient
             @$query['BackupSetId'] = $request->backupSetId;
         }
 
+        if (null !== $request->backupSetRegion) {
+            @$query['BackupSetRegion'] = $request->backupSetRegion;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }

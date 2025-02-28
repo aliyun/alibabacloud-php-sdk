@@ -1,3 +1,9 @@
+2025-02-28 Version: 9.0.3
+- Update API CreateDdrInstance: add param BackupSetRegion.
+- Update API CreateDdrInstance: update param DBInstanceClass.
+- Update API CreateDdrInstance: update param DBInstanceStorage.
+
+
 2025-02-28 Version: 9.0.2
 - Generated php 2014-08-15 for Rds.
 
