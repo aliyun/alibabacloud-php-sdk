@@ -153,6 +153,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMessageResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateOrgHonorTemplateResponse;
@@ -172,6 +175,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScenegroupResponse;
@@ -201,6 +207,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSubscribedCalendarShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateThreadResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketResponse;
@@ -662,6 +671,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListFormRemarksShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMessageHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMessageRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMessageResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponse;
@@ -863,6 +875,9 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\RespondEventShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RetrieveRunHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RetrieveRunRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\RetrieveRunResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentResponse;
@@ -4202,6 +4217,97 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 创建消息.
+     *
+     * @param request - CreateMessageRequest
+     * @param headers - CreateMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMessageResponse
+     *
+     * @param CreateMessageRequest $request
+     * @param CreateMessageHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateMessageResponse
+     */
+    public function createMessageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->role) {
+            @$body['role'] = $request->role;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMessage',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ai/v1/assistant/createMessage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateMessageResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建消息.
+     *
+     * @param request - CreateMessageRequest
+     * @returns CreateMessageResponse
+     *
+     * @param CreateMessageRequest $request
+     *
+     * @return CreateMessageResponse
+     */
+    public function createMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateMessageHeaders([]);
+
+        return $this->createMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 新增或更新表单实例.
      *
      * @param request - CreateOrUpdateFormDataRequest
@@ -4653,6 +4759,97 @@ class Aliding extends OpenApiClient
         $headers = new CreateReportHeaders([]);
 
         return $this->createReportWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建运行.
+     *
+     * @param request - CreateRunRequest
+     * @param headers - CreateRunHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRunResponse
+     *
+     * @param CreateRunRequest $request
+     * @param CreateRunHeaders $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateRunResponse
+     */
+    public function createRunWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRun',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ai/v1/assistant/createRun',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateRunResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建运行.
+     *
+     * @param request - CreateRunRequest
+     * @returns CreateRunResponse
+     *
+     * @param CreateRunRequest $request
+     *
+     * @return CreateRunResponse
+     */
+    public function createRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateRunHeaders([]);
+
+        return $this->createRunWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5313,6 +5510,85 @@ class Aliding extends OpenApiClient
         $headers = new CreateSubscribedCalendarHeaders([]);
 
         return $this->createSubscribedCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建线程.
+     *
+     * @param request - CreateThreadRequest
+     * @param headers - CreateThreadHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateThreadResponse
+     *
+     * @param CreateThreadRequest $request
+     * @param CreateThreadHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateThreadResponse
+     */
+    public function createThreadWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateThread',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ai/v1/assistant/createThread',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateThreadResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建线程.
+     *
+     * @param request - CreateThreadRequest
+     * @returns CreateThreadResponse
+     *
+     * @param CreateThreadRequest $request
+     *
+     * @return CreateThreadResponse
+     */
+    public function createThread($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateThreadHeaders([]);
+
+        return $this->createThreadWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -14003,7 +14279,7 @@ class Aliding extends OpenApiClient
         }
 
         if (null !== $headers->accountId) {
-            @$realHeaders['accountId'] = json_encode($headers->accountId, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+            @$realHeaders['accountId'] = '' . $headers->accountId;
         }
 
         $req = new OpenApiRequest([
@@ -14818,6 +15094,97 @@ class Aliding extends OpenApiClient
         $headers = new ListFormRemarksHeaders([]);
 
         return $this->listFormRemarksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询消息.
+     *
+     * @param request - ListMessageRequest
+     * @param headers - ListMessageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMessageResponse
+     *
+     * @param ListMessageRequest $request
+     * @param ListMessageHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListMessageResponse
+     */
+    public function listMessageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
+        }
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
+        }
+
+        if (null !== $request->originalAssistantid) {
+            @$body['originalAssistantid'] = $request->originalAssistantid;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMessage',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ai/v1/assistant/listMessage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListMessageResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消息.
+     *
+     * @param request - ListMessageRequest
+     * @returns ListMessageResponse
+     *
+     * @param ListMessageRequest $request
+     *
+     * @return ListMessageResponse
+     */
+    public function listMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListMessageHeaders([]);
+
+        return $this->listMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -18729,6 +19096,89 @@ class Aliding extends OpenApiClient
         $headers = new RespondEventHeaders([]);
 
         return $this->respondEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询运行.
+     *
+     * @param request - RetrieveRunRequest
+     * @param headers - RetrieveRunHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetrieveRunResponse
+     *
+     * @param RetrieveRunRequest $request
+     * @param RetrieveRunHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RetrieveRunResponse
+     */
+    public function retrieveRunWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assistantId) {
+            @$body['assistantId'] = $request->assistantId;
+        }
+
+        if (null !== $request->originalAssistantId) {
+            @$body['originalAssistantId'] = $request->originalAssistantId;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountId) {
+            @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RetrieveRun',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ai/v1/assistant/retrieveRun',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetrieveRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RetrieveRunResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询运行.
+     *
+     * @param request - RetrieveRunRequest
+     * @returns RetrieveRunResponse
+     *
+     * @param RetrieveRunRequest $request
+     *
+     * @return RetrieveRunResponse
+     */
+    public function retrieveRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RetrieveRunHeaders([]);
+
+        return $this->retrieveRunWithOptions($request, $headers, $runtime);
     }
 
     /**
