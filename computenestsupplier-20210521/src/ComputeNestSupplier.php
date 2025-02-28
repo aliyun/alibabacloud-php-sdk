@@ -22,16 +22,26 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceInstanceS
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceTestCaseRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceTestCaseResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceTestTaskRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceTestTaskResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceUsageResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateSupplierRegistrationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateSupplierRegistrationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceTestCaseRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceTestCaseResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateDefaultServiceTestConfigRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateDefaultServiceTestConfigResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsRequest;
@@ -46,10 +56,16 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResp
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRegistrationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRegistrationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTestTaskRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTestTaskResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetSupplierInformationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetSupplierInformationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\LaunchServiceRequest;
@@ -58,6 +74,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositori
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactRisksRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactRisksResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
@@ -65,18 +83,34 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceLogsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceLogsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceResourcesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceUpgradeHistoryRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceUpgradeHistoryResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestCasesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestCasesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestTaskLogsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestTaskLogsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestTasksRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestTasksResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListSupplierRegistrationsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListSupplierRegistrationsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesRequest;
@@ -117,8 +151,12 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceInstanceS
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceTestCaseRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceTestCaseResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSharedAccountPermissionRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSharedAccountPermissionResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSupplierInformationRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateSupplierInformationResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceShrinkRequest;
@@ -858,6 +896,154 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Create service test case.
+     *
+     * @param request - CreateServiceTestCaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceTestCaseResponse
+     *
+     * @param CreateServiceTestCaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateServiceTestCaseResponse
+     */
+    public function createServiceTestCaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->testCaseName) {
+            @$query['TestCaseName'] = $request->testCaseName;
+        }
+
+        if (null !== $request->testConfig) {
+            @$query['TestConfig'] = $request->testConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceTestCase',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateServiceTestCaseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Create service test case.
+     *
+     * @param request - CreateServiceTestCaseRequest
+     * @returns CreateServiceTestCaseResponse
+     *
+     * @param CreateServiceTestCaseRequest $request
+     *
+     * @return CreateServiceTestCaseResponse
+     */
+    public function createServiceTestCase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceTestCaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建服务测试任务
+     *
+     * @param request - CreateServiceTestTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceTestTaskResponse
+     *
+     * @param CreateServiceTestTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateServiceTestTaskResponse
+     */
+    public function createServiceTestTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskRegionId) {
+            @$query['TaskRegionId'] = $request->taskRegionId;
+        }
+
+        if (null !== $request->testCaseIds) {
+            @$query['TestCaseIds'] = $request->testCaseIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceTestTask',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateServiceTestTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建服务测试任务
+     *
+     * @param request - CreateServiceTestTaskRequest
+     * @returns CreateServiceTestTaskResponse
+     *
+     * @param CreateServiceTestTaskRequest $request
+     *
+     * @return CreateServiceTestTaskResponse
+     */
+    public function createServiceTestTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Create  Service resell application.
      *
      * @param request - CreateServiceUsageRequest
@@ -921,6 +1107,132 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 注册成为服务商.
+     *
+     * @param request - CreateSupplierRegistrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSupplierRegistrationResponse
+     *
+     * @param CreateSupplierRegistrationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateSupplierRegistrationResponse
+     */
+    public function createSupplierRegistrationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactEmail) {
+            @$query['ContactEmail'] = $request->contactEmail;
+        }
+
+        if (null !== $request->contactNumber) {
+            @$query['ContactNumber'] = $request->contactNumber;
+        }
+
+        if (null !== $request->contactPerson) {
+            @$query['ContactPerson'] = $request->contactPerson;
+        }
+
+        if (null !== $request->contactPersonTitle) {
+            @$query['ContactPersonTitle'] = $request->contactPersonTitle;
+        }
+
+        if (null !== $request->enableResellerMode) {
+            @$query['EnableResellerMode'] = $request->enableResellerMode;
+        }
+
+        if (null !== $request->productAnnualRevenue) {
+            @$query['ProductAnnualRevenue'] = $request->productAnnualRevenue;
+        }
+
+        if (null !== $request->productBusiness) {
+            @$query['ProductBusiness'] = $request->productBusiness;
+        }
+
+        if (null !== $request->productDeliveryTypes) {
+            @$query['ProductDeliveryTypes'] = $request->productDeliveryTypes;
+        }
+
+        if (null !== $request->productPublishTime) {
+            @$query['ProductPublishTime'] = $request->productPublishTime;
+        }
+
+        if (null !== $request->productSellTypes) {
+            @$query['ProductSellTypes'] = $request->productSellTypes;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellBusinessDesc) {
+            @$query['ResellBusinessDesc'] = $request->resellBusinessDesc;
+        }
+
+        if (null !== $request->suggestion) {
+            @$query['Suggestion'] = $request->suggestion;
+        }
+
+        if (null !== $request->supplierDesc) {
+            @$query['SupplierDesc'] = $request->supplierDesc;
+        }
+
+        if (null !== $request->supplierLogo) {
+            @$query['SupplierLogo'] = $request->supplierLogo;
+        }
+
+        if (null !== $request->supplierName) {
+            @$query['SupplierName'] = $request->supplierName;
+        }
+
+        if (null !== $request->supplierNameEn) {
+            @$query['SupplierNameEn'] = $request->supplierNameEn;
+        }
+
+        if (null !== $request->supplierUrl) {
+            @$query['SupplierUrl'] = $request->supplierUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSupplierRegistration',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSupplierRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateSupplierRegistrationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 注册成为服务商.
+     *
+     * @param request - CreateSupplierRegistrationRequest
+     * @returns CreateSupplierRegistrationResponse
+     *
+     * @param CreateSupplierRegistrationRequest $request
+     *
+     * @return CreateSupplierRegistrationResponse
+     */
+    public function createSupplierRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSupplierRegistrationWithOptions($request, $runtime);
     }
 
     /**
@@ -1126,6 +1438,68 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 删除服务测试配置.
+     *
+     * @param request - DeleteServiceTestCaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteServiceTestCaseResponse
+     *
+     * @param DeleteServiceTestCaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteServiceTestCaseResponse
+     */
+    public function deleteServiceTestCaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->testCaseId) {
+            @$query['TestCaseId'] = $request->testCaseId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceTestCase',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteServiceTestCaseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除服务测试配置.
+     *
+     * @param request - DeleteServiceTestCaseRequest
+     * @returns DeleteServiceTestCaseResponse
+     *
+     * @param DeleteServiceTestCaseRequest $request
+     *
+     * @return DeleteServiceTestCaseResponse
+     */
+    public function deleteServiceTestCase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceTestCaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Deploys a service instance.
      *
      * @param request - DeployServiceInstanceRequest
@@ -1189,6 +1563,72 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deployServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成默认服务测试配置.
+     *
+     * @param request - GenerateDefaultServiceTestConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateDefaultServiceTestConfigResponse
+     *
+     * @param GenerateDefaultServiceTestConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GenerateDefaultServiceTestConfigResponse
+     */
+    public function generateDefaultServiceTestConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateDefaultServiceTestConfig',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateDefaultServiceTestConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GenerateDefaultServiceTestConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 生成默认服务测试配置.
+     *
+     * @param request - GenerateDefaultServiceTestConfigRequest
+     * @returns GenerateDefaultServiceTestConfigResponse
+     *
+     * @param GenerateDefaultServiceTestConfigRequest $request
+     *
+     * @return GenerateDefaultServiceTestConfigResponse
+     */
+    public function generateDefaultServiceTestConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateDefaultServiceTestConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1726,6 +2166,68 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Get service registration detail.
+     *
+     * @param request - GetServiceRegistrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceRegistrationResponse
+     *
+     * @param GetServiceRegistrationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetServiceRegistrationResponse
+     */
+    public function getServiceRegistrationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->registrationId) {
+            @$query['RegistrationId'] = $request->registrationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceRegistration',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetServiceRegistrationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Get service registration detail.
+     *
+     * @param request - GetServiceRegistrationRequest
+     * @returns GetServiceRegistrationResponse
+     *
+     * @param GetServiceRegistrationRequest $request
+     *
+     * @return GetServiceRegistrationResponse
+     */
+    public function getServiceRegistration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceRegistrationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
@@ -1813,6 +2315,122 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceTemplateParameterConstraintsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取服务测试任务中Cases执行情况.
+     *
+     * @param request - GetServiceTestTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceTestTaskResponse
+     *
+     * @param GetServiceTestTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetServiceTestTaskResponse
+     */
+    public function getServiceTestTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceTestTask',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetServiceTestTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务测试任务中Cases执行情况.
+     *
+     * @param request - GetServiceTestTaskRequest
+     * @returns GetServiceTestTaskResponse
+     *
+     * @param GetServiceTestTaskRequest $request
+     *
+     * @return GetServiceTestTaskResponse
+     */
+    public function getServiceTestTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     *  * @param request GetSupplierInformationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSupplierInformationResponse
+     *
+     * @param GetSupplierInformationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSupplierInformationResponse
+     */
+    public function getSupplierInformationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSupplierInformation',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSupplierInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSupplierInformationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     *  * @param request GetSupplierInformationRequest
+     * @returns GetSupplierInformationResponse
+     *
+     * @param GetSupplierInformationRequest $request
+     *
+     * @return GetSupplierInformationResponse
+     */
+    public function getSupplierInformation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSupplierInformationWithOptions($request, $runtime);
     }
 
     /**
@@ -2096,6 +2714,68 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Get the list of artifact security risks.
+     *
+     * @param request - ListArtifactRisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListArtifactRisksResponse
+     *
+     * @param ListArtifactRisksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListArtifactRisksResponse
+     */
+    public function listArtifactRisksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactId) {
+            @$query['ArtifactId'] = $request->artifactId;
+        }
+
+        if (null !== $request->artifactVersion) {
+            @$query['ArtifactVersion'] = $request->artifactVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListArtifactRisks',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListArtifactRisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListArtifactRisksResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Get the list of artifact security risks.
+     *
+     * @param request - ListArtifactRisksRequest
+     * @returns ListArtifactRisksResponse
+     *
+     * @param ListArtifactRisksRequest $request
+     *
+     * @return ListArtifactRisksResponse
+     */
+    public function listArtifactRisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactRisksWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the version information about a deployment package.
      *
      * @param tmpReq - ListArtifactVersionsRequest
@@ -2336,6 +3016,248 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * “Query logs at various levels, including service instance application, instance, and resource.”.
+     *
+     * @param request - ListServiceInstanceLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceInstanceLogsResponse
+     *
+     * @param ListServiceInstanceLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListServiceInstanceLogsResponse
+     */
+    public function listServiceInstanceLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->logSource) {
+            @$query['LogSource'] = $request->logSource;
+        }
+
+        if (null !== $request->logstore) {
+            @$query['Logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceInstanceLogs',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceInstanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceInstanceLogsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * “Query logs at various levels, including service instance application, instance, and resource.”.
+     *
+     * @param request - ListServiceInstanceLogsRequest
+     * @returns ListServiceInstanceLogsResponse
+     *
+     * @param ListServiceInstanceLogsRequest $request
+     *
+     * @return ListServiceInstanceLogsResponse
+     */
+    public function listServiceInstanceLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询服务实例资源.
+     *
+     * @param request - ListServiceInstanceResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceInstanceResourcesResponse
+     *
+     * @param ListServiceInstanceResourcesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListServiceInstanceResourcesResponse
+     */
+    public function listServiceInstanceResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceARN) {
+            @$query['ResourceARN'] = $request->resourceARN;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        if (null !== $request->serviceInstanceResourceType) {
+            @$query['ServiceInstanceResourceType'] = $request->serviceInstanceResourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceInstanceResources',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceInstanceResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务实例资源.
+     *
+     * @param request - ListServiceInstanceResourcesRequest
+     * @returns ListServiceInstanceResourcesResponse
+     *
+     * @param ListServiceInstanceResourcesRequest $request
+     *
+     * @return ListServiceInstanceResourcesResponse
+     */
+    public function listServiceInstanceResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * View the upgrade history of a service instance.
+     *
+     * @param request - ListServiceInstanceUpgradeHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceInstanceUpgradeHistoryResponse
+     *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListServiceInstanceUpgradeHistoryResponse
+     */
+    public function listServiceInstanceUpgradeHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceInstanceUpgradeHistory',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceInstanceUpgradeHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceInstanceUpgradeHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * View the upgrade history of a service instance.
+     *
+     * @param request - ListServiceInstanceUpgradeHistoryRequest
+     * @returns ListServiceInstanceUpgradeHistoryResponse
+     *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request
+     *
+     * @return ListServiceInstanceUpgradeHistoryResponse
+     */
+    public function listServiceInstanceUpgradeHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceInstanceUpgradeHistoryWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of service instances.
      *
      * @param request - ListServiceInstancesRequest
@@ -2566,6 +3488,232 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 服务测试用例列表.
+     *
+     * @param request - ListServiceTestCasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceTestCasesResponse
+     *
+     * @param ListServiceTestCasesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListServiceTestCasesResponse
+     */
+    public function listServiceTestCasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceTestCases',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceTestCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceTestCasesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 服务测试用例列表.
+     *
+     * @param request - ListServiceTestCasesRequest
+     * @returns ListServiceTestCasesResponse
+     *
+     * @param ListServiceTestCasesRequest $request
+     *
+     * @return ListServiceTestCasesResponse
+     */
+    public function listServiceTestCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceTestCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取服务测试实时日志.
+     *
+     * @param request - ListServiceTestTaskLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceTestTaskLogsResponse
+     *
+     * @param ListServiceTestTaskLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListServiceTestTaskLogsResponse
+     */
+    public function listServiceTestTaskLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceTestTaskLogs',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceTestTaskLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceTestTaskLogsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务测试实时日志.
+     *
+     * @param request - ListServiceTestTaskLogsRequest
+     * @returns ListServiceTestTaskLogsResponse
+     *
+     * @param ListServiceTestTaskLogsRequest $request
+     *
+     * @return ListServiceTestTaskLogsResponse
+     */
+    public function listServiceTestTaskLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceTestTaskLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取任务执行列表.
+     *
+     * @param request - ListServiceTestTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceTestTasksResponse
+     *
+     * @param ListServiceTestTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListServiceTestTasksResponse
+     */
+    public function listServiceTestTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceTestTasks',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceTestTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceTestTasksResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务执行列表.
+     *
+     * @param request - ListServiceTestTasksRequest
+     * @returns ListServiceTestTasksResponse
+     *
+     * @param ListServiceTestTasksRequest $request
+     *
+     * @return ListServiceTestTasksResponse
+     */
+    public function listServiceTestTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceTestTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the applications for using a service.
      *
      * @param request - ListServiceUsagesRequest
@@ -2718,6 +3866,76 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 查询服务商入职审核列表.
+     *
+     * @param request - ListSupplierRegistrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSupplierRegistrationsResponse
+     *
+     * @param ListSupplierRegistrationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSupplierRegistrationsResponse
+     */
+    public function listSupplierRegistrationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSupplierRegistrations',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSupplierRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListSupplierRegistrationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务商入职审核列表.
+     *
+     * @param request - ListSupplierRegistrationsRequest
+     * @returns ListSupplierRegistrationsResponse
+     *
+     * @param ListSupplierRegistrationsRequest $request
+     *
+     * @return ListSupplierRegistrationsResponse
+     */
+    public function listSupplierRegistrations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupplierRegistrationsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询标签键列表.
      *
      * @param request - ListTagKeysRequest
@@ -2781,6 +3999,80 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资源标签.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源标签.
+     *
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -4164,6 +5456,76 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * 修改服务测试用例.
+     *
+     * @param request - UpdateServiceTestCaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateServiceTestCaseResponse
+     *
+     * @param UpdateServiceTestCaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateServiceTestCaseResponse
+     */
+    public function updateServiceTestCaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->testCaseId) {
+            @$query['TestCaseId'] = $request->testCaseId;
+        }
+
+        if (null !== $request->testCaseName) {
+            @$query['TestCaseName'] = $request->testCaseName;
+        }
+
+        if (null !== $request->testConfig) {
+            @$query['TestConfig'] = $request->testConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceTestCase',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateServiceTestCaseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改服务测试用例.
+     *
+     * @param request - UpdateServiceTestCaseRequest
+     * @returns UpdateServiceTestCaseResponse
+     *
+     * @param UpdateServiceTestCaseRequest $request
+     *
+     * @return UpdateServiceTestCaseResponse
+     */
+    public function updateServiceTestCase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceTestCaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Update Service Sharing Permissions.
      *
      * @param request - UpdateSharedAccountPermissionRequest
@@ -4239,6 +5601,88 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSharedAccountPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新供应商全局信息.
+     *
+     * @param request - UpdateSupplierInformationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSupplierInformationResponse
+     *
+     * @param UpdateSupplierInformationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateSupplierInformationResponse
+     */
+    public function updateSupplierInformationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deliverySettings) {
+            @$query['DeliverySettings'] = $request->deliverySettings;
+        }
+
+        if (null !== $request->operationIp) {
+            @$query['OperationIp'] = $request->operationIp;
+        }
+
+        if (null !== $request->operationMfaPresent) {
+            @$query['OperationMfaPresent'] = $request->operationMfaPresent;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->supplierDesc) {
+            @$query['SupplierDesc'] = $request->supplierDesc;
+        }
+
+        if (null !== $request->supplierLogo) {
+            @$query['SupplierLogo'] = $request->supplierLogo;
+        }
+
+        if (null !== $request->supplierUrl) {
+            @$query['SupplierUrl'] = $request->supplierUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSupplierInformation',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSupplierInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateSupplierInformationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新供应商全局信息.
+     *
+     * @param request - UpdateSupplierInformationRequest
+     * @returns UpdateSupplierInformationResponse
+     *
+     * @param UpdateSupplierInformationRequest $request
+     *
+     * @return UpdateSupplierInformationResponse
+     */
+    public function updateSupplierInformation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSupplierInformationWithOptions($request, $runtime);
     }
 
     /**

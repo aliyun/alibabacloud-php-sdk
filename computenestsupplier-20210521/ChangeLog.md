@@ -1,3 +1,8 @@
+2025-02-28 Version: 5.4.0
+- Support API GetServiceRegistration.
+- Support API ListServiceInstanceLogs.
+
+
 2025-01-24 Version: 5.3.0
 - Support API CancelServiceRegistration.
 - Support API ListServiceRegistrations.
