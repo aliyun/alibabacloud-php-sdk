@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\GetExecutionHistoryResponseBody\events;
-use AlibabaCloud\Tea\Model;
 
 class GetExecutionHistoryResponseBody extends Model
 {
     /**
-     * @description The events.
-     *
      * @var events[]
      */
     public $events;
-
     /**
-     * @description You do not need to specify this parameter for the first request. The returned value of **ScheduleEventId** is used as the token for the next query. No value is returned for the last query.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example testRequestId
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class GetExecutionHistoryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['Events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1            = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class GetExecutionHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetExecutionHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
-                $n             = 0;
-                foreach ($map['Events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1++] = events::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

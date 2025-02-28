@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopExecutionRequest extends Model
 {
     /**
-     * @description The reason for stopping the execution. The value must be 1 to 4,096 characters in length.
-     *
-     * @example for test
-     *
      * @var string
      */
     public $cause;
-
     /**
-     * @description The error for stopping the execution. The value must be 1 to 128 characters in length.
-     *
-     * @example nill
-     *
      * @var string
      */
     public $error;
-
     /**
-     * @description The name of the execution to be stopped. You can call the **ListExecutions** operation to obtain the value of this parameter.
-     *
-     * This parameter is required.
-     * @example exec
-     *
      * @var string
      */
     public $executionName;
-
     /**
-     * @description The name of the workflow to be stopped. You can call the **ListFlows** operation to obtain the value of this parameter.
-     *
-     * This parameter is required.
-     * @example flow
-     *
      * @var string
      */
     public $flowName;
@@ -54,20 +33,24 @@ class StopExecutionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cause) {
             $res['Cause'] = $this->cause;
         }
+
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
+
         if (null !== $this->executionName) {
             $res['ExecutionName'] = $this->executionName;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
@@ -75,23 +58,26 @@ class StopExecutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopExecutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cause'])) {
             $model->cause = $map['Cause'];
         }
+
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
+
         if (isset($map['ExecutionName'])) {
             $model->executionName = $map['ExecutionName'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }

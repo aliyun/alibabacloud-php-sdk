@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReportTaskSucceededResponseBody extends Model
 {
     /**
-     * @description The ID of the event.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $eventId;
-
     /**
-     * @description The request ID.
-     *
-     * @example testRequestId
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ReportTaskSucceededResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ReportTaskSucceededResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReportTaskSucceededResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

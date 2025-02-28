@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFlowsRequest extends Model
 {
     /**
-     * @description The number of workflows that you want to query. Valid values: 1 - 999. Default value: 60.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $limit;
-
     /**
-     * @description The token to start the query.
-     *
-     * @example flow_nextxxx
-     *
      * @var string
      */
     public $nextToken;
@@ -32,14 +23,16 @@ class ListFlowsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -47,17 +40,18 @@ class ListFlowsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFlowsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

@@ -1,3 +1,8 @@
+2025-02-28 Version: 1.2.0
+- Support API DescribeRegions.
+- Update API ListExecutions: add param MetadataOnly.
+
+
 2024-08-06 Version: 1.1.3
 - Update API StopExecution: update response param.
 

@@ -4,36 +4,15 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeScheduleRequest extends Model
 {
     /**
-     * @description The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
-     *
-     *   The name can contain letters, digits, underscores (_), and hyphens (-).
-     *   The name must start with a letter or an underscore (_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
-     * This parameter is required.
-     * @example testFlowName
-     *
      * @var string
      */
     public $flowName;
-
     /**
-     * @description The name of the time-based schedule. The name must meet the following conventions:
-     *
-     *   The name can contain letters, digits, underscores (_), and hyphens (-).
-     *   The name must start with a letter or an underscore (_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
-     * This parameter is required.
-     * @example testScheduleName
-     *
      * @var string
      */
     public $scheduleName;
@@ -44,14 +23,16 @@ class DescribeScheduleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+
         if (null !== $this->scheduleName) {
             $res['ScheduleName'] = $this->scheduleName;
         }
@@ -59,17 +40,18 @@ class DescribeScheduleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScheduleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+
         if (isset($map['ScheduleName'])) {
             $model->scheduleName = $map['ScheduleName'];
         }

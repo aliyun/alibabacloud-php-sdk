@@ -4,40 +4,19 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartSyncExecutionRequest extends Model
 {
     /**
-     * @description The name of the execution that you want to start. The name must meet the following conventions:
-     *
-     *   The name can contain letters, digits, underscores (_), and hyphens (-).
-     *   The name must start with a letter or an underscore (_).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
-     * Different from the StartExecution operation, in the synchronous execution mode, the execution name is no longer required to be unique within a flow. You can choose to provide an execution name to identify the current execution. In this case, the system adds a UUID to the current execution name. The used format is {ExecutionName}:{UUID}. If you do not specify the execution name, the system automatically generates an execution name.
-     * @example my_exec_name
-     *
      * @var string
      */
     public $executionName;
-
     /**
-     * @description The name of the workflow to be executed.
-     *
-     * This parameter is required.
-     * @example my_flow_name
-     *
      * @var string
      */
     public $flowName;
-
     /**
-     * @description The input of the execution, which is in the JSON format.
-     *
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $input;
@@ -49,17 +28,20 @@ class StartSyncExecutionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executionName) {
             $res['ExecutionName'] = $this->executionName;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
@@ -67,20 +49,22 @@ class StartSyncExecutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartSyncExecutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecutionName'])) {
             $model->executionName = $map['ExecutionName'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }

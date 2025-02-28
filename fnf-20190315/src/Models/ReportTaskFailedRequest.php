@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReportTaskFailedRequest extends Model
 {
     /**
-     * @description The cause of the failure. The value must be 1 to 4,096 characters in length.
-     *
-     * @example emptyString
-     *
      * @var string
      */
     public $cause;
-
     /**
-     * @description The error code for the failed task. The value must be 1 to 128 characters in length.
-     *
-     * This parameter is required.
-     * @example nill
-     *
      * @var string
      */
     public $error;
-
     /**
-     * @description The token of the task whose execution you want to report. The task token is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event. For more information, see [Service integration modes](https://help.aliyun.com/document_detail/2592915.html).
-     *
-     * This parameter is required.
-     * @example emptyString
-     *
      * @var string
      */
     public $taskToken;
@@ -44,17 +28,20 @@ class ReportTaskFailedRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cause) {
             $res['Cause'] = $this->cause;
         }
+
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
+
         if (null !== $this->taskToken) {
             $res['TaskToken'] = $this->taskToken;
         }
@@ -62,20 +49,22 @@ class ReportTaskFailedRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReportTaskFailedRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cause'])) {
             $model->cause = $map['Cause'];
         }
+
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
+
         if (isset($map['TaskToken'])) {
             $model->taskToken = $map['TaskToken'];
         }

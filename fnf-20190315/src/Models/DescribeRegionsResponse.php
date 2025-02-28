@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ReportTaskFailedResponse extends Model
+class DescribeRegionsResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class ReportTaskFailedResponse extends Model
      */
     public $statusCode;
     /**
-     * @var ReportTaskFailedResponseBody
+     * @var DescribeRegionsResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class ReportTaskFailedResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ReportTaskFailedResponseBody::fromMap($map['body']);
+            $model->body = DescribeRegionsResponseBody::fromMap($map['body']);
         }
 
         return $model;

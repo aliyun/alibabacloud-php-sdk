@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Fnf\V20190315\Models\ListSchedulesResponseBody\schedules;
-use AlibabaCloud\Tea\Model;
 
 class ListSchedulesResponseBody extends Model
 {
     /**
-     * @description The token for the next query.
-     *
-     * @example testNextToken
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example testRequestId
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The time-based schedules that are queried.
-     *
      * @var schedules[]
      */
     public $schedules;
@@ -41,23 +29,29 @@ class ListSchedulesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->schedules)) {
+            Model::validateArray($this->schedules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schedules) {
-            $res['Schedules'] = [];
-            if (null !== $this->schedules && \is_array($this->schedules)) {
-                $n = 0;
-                foreach ($this->schedules as $item) {
-                    $res['Schedules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schedules)) {
+                $res['Schedules'] = [];
+                $n1               = 0;
+                foreach ($this->schedules as $item1) {
+                    $res['Schedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class ListSchedulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSchedulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Schedules'])) {
             if (!empty($map['Schedules'])) {
                 $model->schedules = [];
-                $n                = 0;
-                foreach ($map['Schedules'] as $item) {
-                    $model->schedules[$n++] = null !== $item ? schedules::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Schedules'] as $item1) {
+                    $model->schedules[$n1++] = schedules::fromMap($item1);
                 }
             }
         }

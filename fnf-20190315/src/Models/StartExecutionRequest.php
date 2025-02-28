@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Fnf\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartExecutionRequest extends Model
 {
     /**
-     * @description Specifies that the **TaskToken**-related tasks are called back after the execution in the flow ends.
-     *
-     * @example 12
-     *
      * @var string
      */
     public $callbackFnFTaskToken;
-
     /**
-     * @description The name of the execution. The execution name is unique within a workflow. Configure this parameter based on the following rules:
-     *
-     *   The name must start with a letter or an underscore (_).
-     *   The name can contain letters, digits, underscores (_), and hyphens (-).
-     *   The name is case-sensitive.
-     *   The name must be 1 to 128 characters in length.
-     *
-     * @example exec
-     *
      * @var string
      */
     public $executionName;
-
     /**
-     * @description The name of the workflow to be executed.
-     *
-     * This parameter is required.
-     * @example flow
-     *
      * @var string
      */
     public $flowName;
-
     /**
-     * @description The input of the execution, which is in the JSON format.
-     *
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $input;
@@ -58,20 +33,24 @@ class StartExecutionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callbackFnFTaskToken) {
             $res['CallbackFnFTaskToken'] = $this->callbackFnFTaskToken;
         }
+
         if (null !== $this->executionName) {
             $res['ExecutionName'] = $this->executionName;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
@@ -79,23 +58,26 @@ class StartExecutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartExecutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallbackFnFTaskToken'])) {
             $model->callbackFnFTaskToken = $map['CallbackFnFTaskToken'];
         }
+
         if (isset($map['ExecutionName'])) {
             $model->executionName = $map['ExecutionName'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
