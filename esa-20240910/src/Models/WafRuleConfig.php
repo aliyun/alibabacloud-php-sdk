@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\appPackage;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\appSdk;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\managedRulesets;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\rateLimit;
+use AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\securityLevel;
 
 class WafRuleConfig extends Model
 {
@@ -62,6 +63,10 @@ class WafRuleConfig extends Model
      */
     public $rateLimit;
     /**
+     * @var securityLevel
+     */
+    public $securityLevel;
+    /**
      * @var string[]
      */
     public $sigchl;
@@ -94,6 +99,7 @@ class WafRuleConfig extends Model
         'name'            => 'Name',
         'notes'           => 'Notes',
         'rateLimit'       => 'RateLimit',
+        'securityLevel'   => 'SecurityLevel',
         'sigchl'          => 'Sigchl',
         'status'          => 'Status',
         'timer'           => 'Timer',
@@ -117,6 +123,9 @@ class WafRuleConfig extends Model
         }
         if (null !== $this->rateLimit) {
             $this->rateLimit->validate();
+        }
+        if (null !== $this->securityLevel) {
+            $this->securityLevel->validate();
         }
         if (\is_array($this->sigchl)) {
             Model::validateArray($this->sigchl);
@@ -182,6 +191,10 @@ class WafRuleConfig extends Model
 
         if (null !== $this->rateLimit) {
             $res['RateLimit'] = null !== $this->rateLimit ? $this->rateLimit->toArray($noStream) : $this->rateLimit;
+        }
+
+        if (null !== $this->securityLevel) {
+            $res['SecurityLevel'] = null !== $this->securityLevel ? $this->securityLevel->toArray($noStream) : $this->securityLevel;
         }
 
         if (null !== $this->sigchl) {
@@ -273,6 +286,10 @@ class WafRuleConfig extends Model
 
         if (isset($map['RateLimit'])) {
             $model->rateLimit = rateLimit::fromMap($map['RateLimit']);
+        }
+
+        if (isset($map['SecurityLevel'])) {
+            $model->securityLevel = securityLevel::fromMap($map['SecurityLevel']);
         }
 
         if (isset($map['Sigchl'])) {

@@ -14,9 +14,17 @@ class logics extends Model
      */
     public $attributes;
     /**
+     * @var bool
+     */
+    public $enable;
+    /**
      * @var string
      */
     public $kind;
+    /**
+     * @var string
+     */
+    public $minPlan;
     /**
      * @var bool
      */
@@ -43,7 +51,9 @@ class logics extends Model
     public $validator;
     protected $_name = [
         'attributes' => 'Attributes',
+        'enable'     => 'Enable',
         'kind'       => 'Kind',
+        'minPlan'    => 'MinPlan',
         'negative'   => 'Negative',
         'operator'   => 'Operator',
         'symbol'     => 'Symbol',
@@ -67,8 +77,16 @@ class logics extends Model
             $res['Attributes'] = $this->attributes;
         }
 
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+
         if (null !== $this->kind) {
             $res['Kind'] = $this->kind;
+        }
+
+        if (null !== $this->minPlan) {
+            $res['MinPlan'] = $this->minPlan;
         }
 
         if (null !== $this->negative) {
@@ -110,8 +128,16 @@ class logics extends Model
             $model->attributes = $map['Attributes'];
         }
 
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+
         if (isset($map['Kind'])) {
             $model->kind = $map['Kind'];
+        }
+
+        if (isset($map['MinPlan'])) {
+            $model->minPlan = $map['MinPlan'];
         }
 
         if (isset($map['Negative'])) {

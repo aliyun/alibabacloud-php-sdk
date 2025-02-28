@@ -11,6 +11,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields
 class fields extends Model
 {
     /**
+     * @var bool
+     */
+    public $enable;
+    /**
      * @var string
      */
     public $key;
@@ -22,6 +26,10 @@ class fields extends Model
      * @var logics[]
      */
     public $logics;
+    /**
+     * @var string
+     */
+    public $minPlan;
     /**
      * @var selector
      */
@@ -35,9 +43,11 @@ class fields extends Model
      */
     public $subTip;
     protected $_name = [
+        'enable'   => 'Enable',
         'key'      => 'Key',
         'label'    => 'Label',
         'logics'   => 'Logics',
+        'minPlan'  => 'MinPlan',
         'selector' => 'Selector',
         'sub'      => 'Sub',
         'subTip'   => 'SubTip',
@@ -57,6 +67,10 @@ class fields extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -73,6 +87,10 @@ class fields extends Model
                     $res['Logics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->minPlan) {
+            $res['MinPlan'] = $this->minPlan;
         }
 
         if (null !== $this->selector) {
@@ -98,6 +116,10 @@ class fields extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
@@ -114,6 +136,10 @@ class fields extends Model
                     $model->logics[$n1++] = logics::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['MinPlan'])) {
+            $model->minPlan = $map['MinPlan'];
         }
 
         if (isset($map['Selector'])) {

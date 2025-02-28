@@ -3555,12 +3555,20 @@ class ESA extends OpenApiClient
             @$query['OriginHttpsPort'] = $request->originHttpsPort;
         }
 
+        if (null !== $request->originMtls) {
+            @$query['OriginMtls'] = $request->originMtls;
+        }
+
         if (null !== $request->originScheme) {
             @$query['OriginScheme'] = $request->originScheme;
         }
 
         if (null !== $request->originSni) {
             @$query['OriginSni'] = $request->originSni;
+        }
+
+        if (null !== $request->originVerify) {
+            @$query['OriginVerify'] = $request->originVerify;
         }
 
         if (null !== $request->range) {
@@ -8142,7 +8150,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询套餐实例状态
+     * Query Package Instance Status.
+     *
+     * @remarks
+     * You can only query the status of a package instance after purchasing and creating it.
      *
      * @param request - DescribeRatePlanInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8183,7 +8194,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询套餐实例状态
+     * Query Package Instance Status.
+     *
+     * @remarks
+     * You can only query the status of a package instance after purchasing and creating it.
      *
      * @param request - DescribeRatePlanInstanceStatusRequest
      * @returns DescribeRatePlanInstanceStatusResponse
@@ -17985,12 +17999,20 @@ class ESA extends OpenApiClient
             @$query['OriginHttpsPort'] = $request->originHttpsPort;
         }
 
+        if (null !== $request->originMtls) {
+            @$query['OriginMtls'] = $request->originMtls;
+        }
+
         if (null !== $request->originScheme) {
             @$query['OriginScheme'] = $request->originScheme;
         }
 
         if (null !== $request->originSni) {
             @$query['OriginSni'] = $request->originSni;
+        }
+
+        if (null !== $request->originVerify) {
+            @$query['OriginVerify'] = $request->originVerify;
         }
 
         if (null !== $request->range) {

@@ -17,7 +17,7 @@ class CreateSiteDeliveryTaskResponseBody extends Model
      */
     public $requestId;
     /**
-     * @var string
+     * @var int
      */
     public $siteId;
     /**

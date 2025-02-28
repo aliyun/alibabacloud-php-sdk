@@ -35,11 +35,19 @@ class configs extends Model
     /**
      * @var string
      */
+    public $originMtls;
+    /**
+     * @var string
+     */
     public $originScheme;
     /**
      * @var string
      */
     public $originSni;
+    /**
+     * @var string
+     */
+    public $originVerify;
     /**
      * @var string
      */
@@ -71,8 +79,10 @@ class configs extends Model
         'originHost'      => 'OriginHost',
         'originHttpPort'  => 'OriginHttpPort',
         'originHttpsPort' => 'OriginHttpsPort',
+        'originMtls'      => 'OriginMtls',
         'originScheme'    => 'OriginScheme',
         'originSni'       => 'OriginSni',
+        'originVerify'    => 'OriginVerify',
         'range'           => 'Range',
         'rule'            => 'Rule',
         'ruleEnable'      => 'RuleEnable',
@@ -113,12 +123,20 @@ class configs extends Model
             $res['OriginHttpsPort'] = $this->originHttpsPort;
         }
 
+        if (null !== $this->originMtls) {
+            $res['OriginMtls'] = $this->originMtls;
+        }
+
         if (null !== $this->originScheme) {
             $res['OriginScheme'] = $this->originScheme;
         }
 
         if (null !== $this->originSni) {
             $res['OriginSni'] = $this->originSni;
+        }
+
+        if (null !== $this->originVerify) {
+            $res['OriginVerify'] = $this->originVerify;
         }
 
         if (null !== $this->range) {
@@ -180,12 +198,20 @@ class configs extends Model
             $model->originHttpsPort = $map['OriginHttpsPort'];
         }
 
+        if (isset($map['OriginMtls'])) {
+            $model->originMtls = $map['OriginMtls'];
+        }
+
         if (isset($map['OriginScheme'])) {
             $model->originScheme = $map['OriginScheme'];
         }
 
         if (isset($map['OriginSni'])) {
             $model->originSni = $map['OriginSni'];
+        }
+
+        if (isset($map['OriginVerify'])) {
+            $model->originVerify = $map['OriginVerify'];
         }
 
         if (isset($map['Range'])) {
