@@ -14,6 +14,10 @@ class ModifySqlLogConfigRequest extends Model
      */
     public $enable;
     /**
+     * @var bool
+     */
+    public $enableAudit;
+    /**
      * @var filters[]
      */
     public $filters;
@@ -35,6 +39,7 @@ class ModifySqlLogConfigRequest extends Model
     public $retention;
     protected $_name = [
         'enable'        => 'Enable',
+        'enableAudit'   => 'EnableAudit',
         'filters'       => 'Filters',
         'hotRetention'  => 'HotRetention',
         'instanceId'    => 'InstanceId',
@@ -55,6 +60,10 @@ class ModifySqlLogConfigRequest extends Model
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+
+        if (null !== $this->enableAudit) {
+            $res['EnableAudit'] = $this->enableAudit;
         }
 
         if (null !== $this->filters) {
@@ -96,6 +105,10 @@ class ModifySqlLogConfigRequest extends Model
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+
+        if (isset($map['EnableAudit'])) {
+            $model->enableAudit = $map['EnableAudit'];
         }
 
         if (isset($map['Filters'])) {
