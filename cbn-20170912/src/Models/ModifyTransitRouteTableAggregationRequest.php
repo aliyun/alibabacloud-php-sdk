@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTransitRouteTableAggregationRequest extends Model
+class ModifyTransitRouteTableAggregationRequest extends Model
 {
     /**
      * @var string

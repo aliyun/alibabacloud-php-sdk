@@ -25,6 +25,10 @@ class data extends Model
      */
     public $scope;
     /**
+     * @var string[]
+     */
+    public $scopeList;
+    /**
      * @var string
      */
     public $status;
@@ -41,6 +45,7 @@ class data extends Model
         'name'                             => 'Name',
         'routeType'                        => 'RouteType',
         'scope'                            => 'Scope',
+        'scopeList'                        => 'ScopeList',
         'status'                           => 'Status',
         'trRouteTableId'                   => 'TrRouteTableId',
         'transitRouteTableAggregationCidr' => 'TransitRouteTableAggregationCidr',
@@ -48,6 +53,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->scopeList)) {
+            Model::validateArray($this->scopeList);
+        }
         parent::validate();
     }
 
@@ -68,6 +76,16 @@ class data extends Model
 
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+
+        if (null !== $this->scopeList) {
+            if (\is_array($this->scopeList)) {
+                $res['ScopeList'] = [];
+                $n1               = 0;
+                foreach ($this->scopeList as $item1) {
+                    $res['ScopeList'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -107,6 +125,16 @@ class data extends Model
 
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+
+        if (isset($map['ScopeList'])) {
+            if (!empty($map['ScopeList'])) {
+                $model->scopeList = [];
+                $n1               = 0;
+                foreach ($map['ScopeList'] as $item1) {
+                    $model->scopeList[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['Status'])) {

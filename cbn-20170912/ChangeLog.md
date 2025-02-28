@@ -1,3 +1,6 @@
+2025-02-28 Version: 1.2.4
+- Generated php 2017-09-12 for Cbn.
+
 2025-01-17 Version: 1.2.3
 - Update API CreateTransitRouteTableAggregation: update param TransitRouteTableAggregationScope.
 

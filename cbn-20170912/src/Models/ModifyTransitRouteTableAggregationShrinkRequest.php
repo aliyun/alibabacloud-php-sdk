@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTransitRouteTableAggregationRequest extends Model
+class ModifyTransitRouteTableAggregationShrinkRequest extends Model
 {
     /**
      * @var string
@@ -49,33 +49,30 @@ class CreateTransitRouteTableAggregationRequest extends Model
      */
     public $transitRouteTableAggregationScope;
     /**
-     * @var string[]
+     * @var string
      */
-    public $transitRouteTableAggregationScopeList;
+    public $transitRouteTableAggregationScopeListShrink;
     /**
      * @var string
      */
     public $transitRouteTableId;
     protected $_name = [
-        'clientToken'                             => 'ClientToken',
-        'dryRun'                                  => 'DryRun',
-        'ownerAccount'                            => 'OwnerAccount',
-        'ownerId'                                 => 'OwnerId',
-        'resourceOwnerAccount'                    => 'ResourceOwnerAccount',
-        'resourceOwnerId'                         => 'ResourceOwnerId',
-        'transitRouteTableAggregationCidr'        => 'TransitRouteTableAggregationCidr',
-        'transitRouteTableAggregationDescription' => 'TransitRouteTableAggregationDescription',
-        'transitRouteTableAggregationName'        => 'TransitRouteTableAggregationName',
-        'transitRouteTableAggregationScope'       => 'TransitRouteTableAggregationScope',
-        'transitRouteTableAggregationScopeList'   => 'TransitRouteTableAggregationScopeList',
-        'transitRouteTableId'                     => 'TransitRouteTableId',
+        'clientToken'                                 => 'ClientToken',
+        'dryRun'                                      => 'DryRun',
+        'ownerAccount'                                => 'OwnerAccount',
+        'ownerId'                                     => 'OwnerId',
+        'resourceOwnerAccount'                        => 'ResourceOwnerAccount',
+        'resourceOwnerId'                             => 'ResourceOwnerId',
+        'transitRouteTableAggregationCidr'            => 'TransitRouteTableAggregationCidr',
+        'transitRouteTableAggregationDescription'     => 'TransitRouteTableAggregationDescription',
+        'transitRouteTableAggregationName'            => 'TransitRouteTableAggregationName',
+        'transitRouteTableAggregationScope'           => 'TransitRouteTableAggregationScope',
+        'transitRouteTableAggregationScopeListShrink' => 'TransitRouteTableAggregationScopeList',
+        'transitRouteTableId'                         => 'TransitRouteTableId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->transitRouteTableAggregationScopeList)) {
-            Model::validateArray($this->transitRouteTableAggregationScopeList);
-        }
         parent::validate();
     }
 
@@ -122,14 +119,8 @@ class CreateTransitRouteTableAggregationRequest extends Model
             $res['TransitRouteTableAggregationScope'] = $this->transitRouteTableAggregationScope;
         }
 
-        if (null !== $this->transitRouteTableAggregationScopeList) {
-            if (\is_array($this->transitRouteTableAggregationScopeList)) {
-                $res['TransitRouteTableAggregationScopeList'] = [];
-                $n1                                           = 0;
-                foreach ($this->transitRouteTableAggregationScopeList as $item1) {
-                    $res['TransitRouteTableAggregationScopeList'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->transitRouteTableAggregationScopeListShrink) {
+            $res['TransitRouteTableAggregationScopeList'] = $this->transitRouteTableAggregationScopeListShrink;
         }
 
         if (null !== $this->transitRouteTableId) {
@@ -188,13 +179,7 @@ class CreateTransitRouteTableAggregationRequest extends Model
         }
 
         if (isset($map['TransitRouteTableAggregationScopeList'])) {
-            if (!empty($map['TransitRouteTableAggregationScopeList'])) {
-                $model->transitRouteTableAggregationScopeList = [];
-                $n1                                           = 0;
-                foreach ($map['TransitRouteTableAggregationScopeList'] as $item1) {
-                    $model->transitRouteTableAggregationScopeList[$n1++] = $item1;
-                }
-            }
+            $model->transitRouteTableAggregationScopeListShrink = $map['TransitRouteTableAggregationScopeList'];
         }
 
         if (isset($map['TransitRouteTableId'])) {
