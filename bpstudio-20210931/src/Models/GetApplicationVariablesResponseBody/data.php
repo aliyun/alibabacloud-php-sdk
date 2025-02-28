@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariablesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariablesResponseBody\data\variableList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example ob5epf79uv****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var variableList[]
      */
@@ -27,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->variableList)) {
+            Model::validateArray($this->variableList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->variableList) {
-            $res['VariableList'] = [];
-            if (null !== $this->variableList && \is_array($this->variableList)) {
-                $n = 0;
-                foreach ($this->variableList as $item) {
-                    $res['VariableList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->variableList)) {
+                $res['VariableList'] = [];
+                $n1                  = 0;
+                foreach ($this->variableList as $item1) {
+                    $res['VariableList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['VariableList'])) {
             if (!empty($map['VariableList'])) {
                 $model->variableList = [];
-                $n                   = 0;
-                foreach ($map['VariableList'] as $item) {
-                    $model->variableList[$n++] = null !== $item ? variableList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['VariableList'] as $item1) {
+                    $model->variableList[$n1++] = variableList::fromMap($item1);
                 }
             }
         }

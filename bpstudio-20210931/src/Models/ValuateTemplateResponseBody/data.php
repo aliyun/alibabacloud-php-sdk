@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\ValuateTemplateResponseBody\data\resourceList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The result set of the inquiry.
-     *
      * @var resourceList[]
      */
     public $resourceList;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceList)) {
+            Model::validateArray($this->resourceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceList) {
-            $res['ResourceList'] = [];
-            if (null !== $this->resourceList && \is_array($this->resourceList)) {
-                $n = 0;
-                foreach ($this->resourceList as $item) {
-                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceList)) {
+                $res['ResourceList'] = [];
+                $n1                  = 0;
+                foreach ($this->resourceList as $item1) {
+                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n                   = 0;
-                foreach ($map['ResourceList'] as $item) {
-                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ResourceList'] as $item1) {
+                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
                 }
             }
         }

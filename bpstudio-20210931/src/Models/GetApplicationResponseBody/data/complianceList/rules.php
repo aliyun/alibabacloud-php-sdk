@@ -2,23 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariablesResponseBody\data;
+namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationResponseBody\data\complianceList;
 
 use AlibabaCloud\Dara\Model;
 
-class variableList extends Model
+class rules extends Model
 {
     /**
      * @var string
      */
-    public $value;
+    public $ruleDetail;
     /**
      * @var string
      */
-    public $variable;
+    public $ruleId;
     protected $_name = [
-        'value'    => 'Value',
-        'variable' => 'Variable',
+        'ruleDetail' => 'ruleDetail',
+        'ruleId'     => 'ruleId',
     ];
 
     public function validate()
@@ -29,12 +29,12 @@ class variableList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->ruleDetail) {
+            $res['ruleDetail'] = $this->ruleDetail;
         }
 
-        if (null !== $this->variable) {
-            $res['Variable'] = $this->variable;
+        if (null !== $this->ruleId) {
+            $res['ruleId'] = $this->ruleId;
         }
 
         return $res;
@@ -48,12 +48,12 @@ class variableList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['ruleDetail'])) {
+            $model->ruleDetail = $map['ruleDetail'];
         }
 
-        if (isset($map['Variable'])) {
-            $model->variable = $map['Variable'];
+        if (isset($map['ruleId'])) {
+            $model->ruleId = $map['ruleId'];
         }
 
         return $model;

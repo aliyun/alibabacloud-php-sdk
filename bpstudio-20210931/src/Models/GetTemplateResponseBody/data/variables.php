@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetTemplateResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class variables extends Model
 {
     /**
-     * @description The name of the variable.
-     *
-     * @example instance_name
-     *
      * @var string
      */
     public $attribute;
-
     /**
-     * @description The type of the variable.
-     *
-     * @example String
-     *
      * @var string
      */
     public $dataType;
-
     /**
-     * @description The default value of the variable.
-     *
-     * @example cadt-app-01
-     *
      * @var string
      */
     public $defaultValue;
-
     /**
      * @var string
      */
     public $options;
-
     /**
-     * @description The value of the variable.
-     *
-     * @example ${name}
-     *
      * @var string
      */
     public $variable;
@@ -58,23 +38,28 @@ class variables extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attribute) {
             $res['Attribute'] = $this->attribute;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+
         if (null !== $this->variable) {
             $res['Variable'] = $this->variable;
         }
@@ -82,26 +67,30 @@ class variables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return variables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attribute'])) {
             $model->attribute = $map['Attribute'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
+
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
+
         if (isset($map['Variable'])) {
             $model->variable = $map['Variable'];
         }
