@@ -1,3 +1,7 @@
+2025-03-02 Version: 2.1.3
+- Update API DescribeVaults: add param VaultName.
+
+
 2025-01-24 Version: 2.1.2
 - Update API CreateBackupPlan: add param ClusterId.
 - Update API CreateBackupPlan: add param DataSourceId.

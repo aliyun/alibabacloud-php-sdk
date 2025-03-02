@@ -26,6 +26,10 @@ class snapshots extends Model
      */
     public $bytesTotal;
     /**
+     * @var bool
+     */
+    public $canBeDeleted;
+    /**
      * @var int
      */
     public $completeTime;
@@ -110,6 +114,7 @@ class snapshots extends Model
         'advancedRetentionType' => 'AdvancedRetentionType',
         'backupType'            => 'BackupType',
         'bytesTotal'            => 'BytesTotal',
+        'canBeDeleted'          => 'CanBeDeleted',
         'completeTime'          => 'CompleteTime',
         'createTime'            => 'CreateTime',
         'createdTime'           => 'CreatedTime',
@@ -157,6 +162,10 @@ class snapshots extends Model
 
         if (null !== $this->bytesTotal) {
             $res['BytesTotal'] = $this->bytesTotal;
+        }
+
+        if (null !== $this->canBeDeleted) {
+            $res['CanBeDeleted'] = $this->canBeDeleted;
         }
 
         if (null !== $this->completeTime) {
@@ -264,6 +273,10 @@ class snapshots extends Model
 
         if (isset($map['BytesTotal'])) {
             $model->bytesTotal = $map['BytesTotal'];
+        }
+
+        if (isset($map['CanBeDeleted'])) {
+            $model->canBeDeleted = $map['CanBeDeleted'];
         }
 
         if (isset($map['CompleteTime'])) {

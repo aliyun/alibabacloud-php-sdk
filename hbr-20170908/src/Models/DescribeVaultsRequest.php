@@ -36,6 +36,10 @@ class DescribeVaultsRequest extends Model
     /**
      * @var string
      */
+    public $vaultName;
+    /**
+     * @var string
+     */
     public $vaultRegionId;
     /**
      * @var string
@@ -48,6 +52,7 @@ class DescribeVaultsRequest extends Model
         'status'          => 'Status',
         'tag'             => 'Tag',
         'vaultId'         => 'VaultId',
+        'vaultName'       => 'VaultName',
         'vaultRegionId'   => 'VaultRegionId',
         'vaultType'       => 'VaultType',
     ];
@@ -91,6 +96,10 @@ class DescribeVaultsRequest extends Model
 
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
+        }
+
+        if (null !== $this->vaultName) {
+            $res['VaultName'] = $this->vaultName;
         }
 
         if (null !== $this->vaultRegionId) {
@@ -140,6 +149,10 @@ class DescribeVaultsRequest extends Model
 
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
+        }
+
+        if (isset($map['VaultName'])) {
+            $model->vaultName = $map['VaultName'];
         }
 
         if (isset($map['VaultRegionId'])) {

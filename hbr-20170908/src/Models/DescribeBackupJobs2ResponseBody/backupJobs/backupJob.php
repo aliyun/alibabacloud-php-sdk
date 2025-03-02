@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\detail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\otsDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\paths;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\report;
 
 class backupJob extends Model
 {
@@ -164,6 +165,10 @@ class backupJob extends Model
      */
     public $progress;
     /**
+     * @var report
+     */
+    public $report;
+    /**
      * @var string
      */
     public $sourceType;
@@ -234,6 +239,7 @@ class backupJob extends Model
         'planId'               => 'PlanId',
         'prefix'               => 'Prefix',
         'progress'             => 'Progress',
+        'report'               => 'Report',
         'sourceType'           => 'SourceType',
         'speed'                => 'Speed',
         'speedLimit'           => 'SpeedLimit',
@@ -254,6 +260,9 @@ class backupJob extends Model
         }
         if (null !== $this->paths) {
             $this->paths->validate();
+        }
+        if (null !== $this->report) {
+            $this->report->validate();
         }
         parent::validate();
     }
@@ -411,6 +420,10 @@ class backupJob extends Model
 
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+
+        if (null !== $this->report) {
+            $res['Report'] = null !== $this->report ? $this->report->toArray($noStream) : $this->report;
         }
 
         if (null !== $this->sourceType) {
@@ -606,6 +619,10 @@ class backupJob extends Model
 
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+
+        if (isset($map['Report'])) {
+            $model->report = report::fromMap($map['Report']);
         }
 
         if (isset($map['SourceType'])) {

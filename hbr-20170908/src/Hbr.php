@@ -4675,6 +4675,10 @@ class Hbr extends OpenApiClient
             @$query['VaultId'] = $request->vaultId;
         }
 
+        if (null !== $request->vaultName) {
+            @$query['VaultName'] = $request->vaultName;
+        }
+
         if (null !== $request->vaultRegionId) {
             @$query['VaultRegionId'] = $request->vaultRegionId;
         }
