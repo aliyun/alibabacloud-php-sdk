@@ -5,6 +5,10 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20230101;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberHLRRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberHLRResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberMccMncRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberMccMncResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationUrlRequest;
@@ -46,6 +50,154 @@ class Dytnsapi extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * HLR服务
+     *
+     * @param request - DescribeNumberHLRRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNumberHLRResponse
+     *
+     * @param DescribeNumberHLRRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeNumberHLRResponse
+     */
+    public function describeNumberHLRWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNumberHLR',
+            'version'     => '2023-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNumberHLRResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeNumberHLRResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * HLR服务
+     *
+     * @param request - DescribeNumberHLRRequest
+     * @returns DescribeNumberHLRResponse
+     *
+     * @param DescribeNumberHLRRequest $request
+     *
+     * @return DescribeNumberHLRResponse
+     */
+    public function describeNumberHLR($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNumberHLRWithOptions($request, $runtime);
+    }
+
+    /**
+     * 号码百科国际站号码归属服务
+     *
+     * @param request - DescribeNumberMccMncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNumberMccMncResponse
+     *
+     * @param DescribeNumberMccMncRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeNumberMccMncResponse
+     */
+    public function describeNumberMccMncWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNumberMccMnc',
+            'version'     => '2023-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNumberMccMncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeNumberMccMncResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 号码百科国际站号码归属服务
+     *
+     * @param request - DescribeNumberMccMncRequest
+     * @returns DescribeNumberMccMncResponse
+     *
+     * @param DescribeNumberMccMncRequest $request
+     *
+     * @return DescribeNumberMccMncResponse
+     */
+    public function describeNumberMccMnc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNumberMccMncWithOptions($request, $runtime);
     }
 
     /**
