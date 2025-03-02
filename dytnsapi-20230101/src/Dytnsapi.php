@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20230101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationUrlRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationUrlResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dytnsapi extends OpenApiClient
 {
@@ -39,17 +37,24 @@ class Dytnsapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Obtains the verification result of your phone number.
+     *
+     * @param request - GetPhoneNumberIdentificationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPhoneNumberIdentificationResultResponse
+     *
      * @param GetPhoneNumberIdentificationResultRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -57,34 +62,42 @@ class Dytnsapi extends OpenApiClient
      */
     public function getPhoneNumberIdentificationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authCode)) {
-            $query['AuthCode'] = $request->authCode;
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sessionPayload)) {
-            $query['SessionPayload'] = $request->sessionPayload;
+
+        if (null !== $request->sessionPayload) {
+            @$query['SessionPayload'] = $request->sessionPayload;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPhoneNumberIdentificationResult',
@@ -97,11 +110,19 @@ class Dytnsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPhoneNumberIdentificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhoneNumberIdentificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhoneNumberIdentificationResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Obtains the verification result of your phone number.
+     *
+     * @param request - GetPhoneNumberIdentificationResultRequest
+     * @returns GetPhoneNumberIdentificationResultResponse
+     *
      * @param GetPhoneNumberIdentificationResultRequest $request
      *
      * @return GetPhoneNumberIdentificationResultResponse
@@ -114,6 +135,12 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * Obtains the verification URL of your phone number.
+     *
+     * @param request - GetPhoneNumberIdentificationUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPhoneNumberIdentificationUrlResponse
+     *
      * @param GetPhoneNumberIdentificationUrlRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -121,34 +148,42 @@ class Dytnsapi extends OpenApiClient
      */
     public function getPhoneNumberIdentificationUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authCode)) {
-            $query['AuthCode'] = $request->authCode;
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->rememberPhoneNumber)) {
-            $query['RememberPhoneNumber'] = $request->rememberPhoneNumber;
+
+        if (null !== $request->rememberPhoneNumber) {
+            @$query['RememberPhoneNumber'] = $request->rememberPhoneNumber;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPhoneNumberIdentificationUrl',
@@ -161,11 +196,19 @@ class Dytnsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPhoneNumberIdentificationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhoneNumberIdentificationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhoneNumberIdentificationUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Obtains the verification URL of your phone number.
+     *
+     * @param request - GetPhoneNumberIdentificationUrlRequest
+     * @returns GetPhoneNumberIdentificationUrlResponse
+     *
      * @param GetPhoneNumberIdentificationUrlRequest $request
      *
      * @return GetPhoneNumberIdentificationUrlResponse

@@ -4,46 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20230101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetPhoneNumberIdentificationResultResponseBody extends Model
 {
     /**
-     * @description The return code. Valid values:
-     *
-     *   OK: The request is successful.
-     *   NoIdentificationResult: No verification result is available or the verification failed.
-     *   SessionNotValid: The session is invalid or expired.
-     *   MobileNumberIllegal: The format of the phone number is invalid.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The description of the return code.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 68A40250-50CD-034C-B728-0BD******177
-     *
      * @var string
      */
     public $requestId;
@@ -56,20 +34,27 @@ class GetPhoneNumberIdentificationResultResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -77,23 +62,26 @@ class GetPhoneNumberIdentificationResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPhoneNumberIdentificationResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
