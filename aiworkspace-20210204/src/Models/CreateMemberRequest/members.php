@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateMemberRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class members extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $roles;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 21513926******88039
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +23,25 @@ class members extends Model
 
     public function validate()
     {
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roles) {
-            $res['Roles'] = $this->roles;
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1           = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,19 +49,24 @@ class members extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return members
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
-                $model->roles = $map['Roles'];
+                $model->roles = [];
+                $n1           = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

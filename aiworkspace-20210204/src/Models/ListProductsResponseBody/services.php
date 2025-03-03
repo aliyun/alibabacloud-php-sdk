@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListProductsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class services extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isOpen;
-
     /**
      * @var string
      */
     public $openUrl;
-
     /**
-     * @example oss
-     *
      * @var string
      */
     public $serviceCode;
@@ -34,17 +28,20 @@ class services extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isOpen) {
             $res['IsOpen'] = $this->isOpen;
         }
+
         if (null !== $this->openUrl) {
             $res['OpenUrl'] = $this->openUrl;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
@@ -52,20 +49,22 @@ class services extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return services
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsOpen'])) {
             $model->isOpen = $map['IsOpen'];
         }
+
         if (isset($map['OpenUrl'])) {
             $model->openUrl = $map['OpenUrl'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }

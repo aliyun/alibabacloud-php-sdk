@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Collection extends Model
 {
     /**
-     * @example AI4D
-     *
      * @var string
      */
     public $collectionName;
-
     /**
-     * @example 2021-01-21T17:12:35Z
-     *
      * @var string
      */
     public $gmtCreateTime;
-
     /**
-     * @example 2021-01-21T17:12:35Z
-     *
      * @var string
      */
     public $gmtModifiedTime;
-
     /**
-     * @example 155770209******
-     *
      * @var string
      */
     public $ownerId;
-
     /**
-     * @example 155770209******
-     *
      * @var string
      */
     public $userId;
@@ -52,23 +38,28 @@ class Collection extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectionName) {
             $res['CollectionName'] = $this->collectionName;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -76,26 +67,30 @@ class Collection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Collection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionName'])) {
             $model->collectionName = $map['CollectionName'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

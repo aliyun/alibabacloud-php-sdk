@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersRequest\products;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceProperties extends Model
 {
     /**
-     * @example commodity_type。
-     *
      * @var string
      */
     public $code;
-
     /**
      * @var string
      */
     public $name;
-
     /**
-     * @example oss。
-     *
      * @var string
      */
     public $value;
@@ -34,17 +28,20 @@ class instanceProperties extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,20 +49,22 @@ class instanceProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

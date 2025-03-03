@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateProductOrdersRequest\products;
-use AlibabaCloud\Tea\Model;
 
 class CreateProductOrdersRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
-
     /**
      * @var products[]
      */
@@ -27,20 +24,25 @@ class CreateProductOrdersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->products)) {
+            Model::validateArray($this->products);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->products) {
-            $res['Products'] = [];
-            if (null !== $this->products && \is_array($this->products)) {
-                $n = 0;
-                foreach ($this->products as $item) {
-                    $res['Products'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->products)) {
+                $res['Products'] = [];
+                $n1              = 0;
+                foreach ($this->products as $item1) {
+                    $res['Products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +50,24 @@ class CreateProductOrdersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProductOrdersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['Products'])) {
             if (!empty($map['Products'])) {
                 $model->products = [];
-                $n               = 0;
-                foreach ($map['Products'] as $item) {
-                    $model->products[$n++] = null !== $item ? products::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Products'] as $item1) {
+                    $model->products[$n1++] = products::fromMap($item1);
                 }
             }
         }

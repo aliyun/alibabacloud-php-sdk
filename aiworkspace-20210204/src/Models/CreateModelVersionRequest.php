@@ -4,116 +4,71 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateModelVersionRequest extends Model
 {
     /**
-     * @example Approved
-     *
      * @var string
      */
     public $approvalStatus;
-
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $compressionSpec;
-
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $evaluationSpec;
-
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $extraInfo;
-
     /**
-     * @example SavedModel
-     *
      * @var string
      */
     public $formatType;
-
     /**
-     * @example TensorFlow
-     *
      * @var string
      */
     public $frameworkType;
-
     /**
-     * @example {
-     * }
      * @var mixed[]
      */
     public $inferenceSpec;
-
     /**
      * @var Label[]
      */
     public $labels;
-
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $metrics;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $options;
-
     /**
-     * @example region=cn-shanghai,workspaceId=13**,kind=PipelineRun,id=run-sakdb****jdf
-     *
      * @var string
      */
     public $sourceId;
-
     /**
-     * @example PAIFlow
-     *
      * @var string
      */
     public $sourceType;
-
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $trainingSpec;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/
-     *
      * @var string
      */
     public $uri;
-
     /**
      * @var string
      */
     public $versionDescription;
-
     /**
-     * @example 0.1.0
-     *
      * @var string
      */
     public $versionName;
@@ -138,62 +93,129 @@ class CreateModelVersionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->compressionSpec)) {
+            Model::validateArray($this->compressionSpec);
+        }
+        if (\is_array($this->evaluationSpec)) {
+            Model::validateArray($this->evaluationSpec);
+        }
+        if (\is_array($this->extraInfo)) {
+            Model::validateArray($this->extraInfo);
+        }
+        if (\is_array($this->inferenceSpec)) {
+            Model::validateArray($this->inferenceSpec);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->metrics)) {
+            Model::validateArray($this->metrics);
+        }
+        if (\is_array($this->trainingSpec)) {
+            Model::validateArray($this->trainingSpec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->approvalStatus) {
             $res['ApprovalStatus'] = $this->approvalStatus;
         }
+
         if (null !== $this->compressionSpec) {
-            $res['CompressionSpec'] = $this->compressionSpec;
-        }
-        if (null !== $this->evaluationSpec) {
-            $res['EvaluationSpec'] = $this->evaluationSpec;
-        }
-        if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = $this->extraInfo;
-        }
-        if (null !== $this->formatType) {
-            $res['FormatType'] = $this->formatType;
-        }
-        if (null !== $this->frameworkType) {
-            $res['FrameworkType'] = $this->frameworkType;
-        }
-        if (null !== $this->inferenceSpec) {
-            $res['InferenceSpec'] = $this->inferenceSpec;
-        }
-        if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->compressionSpec)) {
+                $res['CompressionSpec'] = [];
+                foreach ($this->compressionSpec as $key1 => $value1) {
+                    $res['CompressionSpec'][$key1] = $value1;
                 }
             }
         }
-        if (null !== $this->metrics) {
-            $res['Metrics'] = $this->metrics;
+
+        if (null !== $this->evaluationSpec) {
+            if (\is_array($this->evaluationSpec)) {
+                $res['EvaluationSpec'] = [];
+                foreach ($this->evaluationSpec as $key1 => $value1) {
+                    $res['EvaluationSpec'][$key1] = $value1;
+                }
+            }
         }
+
+        if (null !== $this->extraInfo) {
+            if (\is_array($this->extraInfo)) {
+                $res['ExtraInfo'] = [];
+                foreach ($this->extraInfo as $key1 => $value1) {
+                    $res['ExtraInfo'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->formatType) {
+            $res['FormatType'] = $this->formatType;
+        }
+
+        if (null !== $this->frameworkType) {
+            $res['FrameworkType'] = $this->frameworkType;
+        }
+
+        if (null !== $this->inferenceSpec) {
+            if (\is_array($this->inferenceSpec)) {
+                $res['InferenceSpec'] = [];
+                foreach ($this->inferenceSpec as $key1 => $value1) {
+                    $res['InferenceSpec'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->metrics) {
+            if (\is_array($this->metrics)) {
+                $res['Metrics'] = [];
+                foreach ($this->metrics as $key1 => $value1) {
+                    $res['Metrics'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->options) {
             $res['Options'] = $this->options;
         }
+
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->trainingSpec) {
-            $res['TrainingSpec'] = $this->trainingSpec;
+            if (\is_array($this->trainingSpec)) {
+                $res['TrainingSpec'] = [];
+                foreach ($this->trainingSpec as $key1 => $value1) {
+                    $res['TrainingSpec'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
+
         if (null !== $this->versionDescription) {
             $res['VersionDescription'] = $this->versionDescription;
         }
+
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -201,65 +223,110 @@ class CreateModelVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateModelVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApprovalStatus'])) {
             $model->approvalStatus = $map['ApprovalStatus'];
         }
+
         if (isset($map['CompressionSpec'])) {
-            $model->compressionSpec = $map['CompressionSpec'];
-        }
-        if (isset($map['EvaluationSpec'])) {
-            $model->evaluationSpec = $map['EvaluationSpec'];
-        }
-        if (isset($map['ExtraInfo'])) {
-            $model->extraInfo = $map['ExtraInfo'];
-        }
-        if (isset($map['FormatType'])) {
-            $model->formatType = $map['FormatType'];
-        }
-        if (isset($map['FrameworkType'])) {
-            $model->frameworkType = $map['FrameworkType'];
-        }
-        if (isset($map['InferenceSpec'])) {
-            $model->inferenceSpec = $map['InferenceSpec'];
-        }
-        if (isset($map['Labels'])) {
-            if (!empty($map['Labels'])) {
-                $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
+            if (!empty($map['CompressionSpec'])) {
+                $model->compressionSpec = [];
+                foreach ($map['CompressionSpec'] as $key1 => $value1) {
+                    $model->compressionSpec[$key1] = $value1;
                 }
             }
         }
-        if (isset($map['Metrics'])) {
-            $model->metrics = $map['Metrics'];
+
+        if (isset($map['EvaluationSpec'])) {
+            if (!empty($map['EvaluationSpec'])) {
+                $model->evaluationSpec = [];
+                foreach ($map['EvaluationSpec'] as $key1 => $value1) {
+                    $model->evaluationSpec[$key1] = $value1;
+                }
+            }
         }
+
+        if (isset($map['ExtraInfo'])) {
+            if (!empty($map['ExtraInfo'])) {
+                $model->extraInfo = [];
+                foreach ($map['ExtraInfo'] as $key1 => $value1) {
+                    $model->extraInfo[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['FormatType'])) {
+            $model->formatType = $map['FormatType'];
+        }
+
+        if (isset($map['FrameworkType'])) {
+            $model->frameworkType = $map['FrameworkType'];
+        }
+
+        if (isset($map['InferenceSpec'])) {
+            if (!empty($map['InferenceSpec'])) {
+                $model->inferenceSpec = [];
+                foreach ($map['InferenceSpec'] as $key1 => $value1) {
+                    $model->inferenceSpec[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = Label::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['Metrics'])) {
+            if (!empty($map['Metrics'])) {
+                $model->metrics = [];
+                foreach ($map['Metrics'] as $key1 => $value1) {
+                    $model->metrics[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
         }
+
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['TrainingSpec'])) {
-            $model->trainingSpec = $map['TrainingSpec'];
+            if (!empty($map['TrainingSpec'])) {
+                $model->trainingSpec = [];
+                foreach ($map['TrainingSpec'] as $key1 => $value1) {
+                    $model->trainingSpec[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }
+
         if (isset($map['VersionDescription'])) {
             $model->versionDescription = $map['VersionDescription'];
         }
+
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRunsResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $nextPageToken;
-
     /**
      * @var Run[]
      */
     public $runs;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description Id of the request
-     *
-     * @example ADF6D849-*****-7E7030F0CE53
-     *
      * @var string
      */
     public $requestId;
@@ -44,26 +33,33 @@ class ListRunsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->runs)) {
+            Model::validateArray($this->runs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->runs) {
-            $res['Runs'] = [];
-            if (null !== $this->runs && \is_array($this->runs)) {
-                $n = 0;
-                foreach ($this->runs as $item) {
-                    $res['Runs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->runs)) {
+                $res['Runs'] = [];
+                $n1          = 0;
+                foreach ($this->runs as $item1) {
+                    $res['Runs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -71,29 +67,32 @@ class ListRunsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRunsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['Runs'])) {
             if (!empty($map['Runs'])) {
                 $model->runs = [];
-                $n           = 0;
-                foreach ($map['Runs'] as $item) {
-                    $model->runs[$n++] = null !== $item ? Run::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Runs'] as $item1) {
+                    $model->runs[$n1++] = Run::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

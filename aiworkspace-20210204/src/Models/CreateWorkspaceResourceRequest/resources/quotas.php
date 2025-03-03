@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest\resources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quotas extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 232892******92912
-     *
      * @var string
      */
     public $id;
@@ -22,9 +18,10 @@ class quotas extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -34,11 +31,11 @@ class quotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCodeSourceResponseBody extends Model
 {
     /**
-     * @example code-20210111103721-85qz78ia96lu
-     *
      * @var string
      */
     public $codeSourceId;
-
     /**
-     * @example 5A14FA81-DD4E-******-6343FE44B941
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class DeleteCodeSourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeSourceId) {
             $res['CodeSourceId'] = $this->codeSourceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class DeleteCodeSourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCodeSourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeSourceId'])) {
             $model->codeSourceId = $map['CodeSourceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

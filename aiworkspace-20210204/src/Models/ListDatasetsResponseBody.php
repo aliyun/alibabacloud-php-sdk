@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDatasetsResponseBody extends Model
 {
@@ -12,17 +12,11 @@ class ListDatasetsResponseBody extends Model
      * @var Dataset[]
      */
     public $datasets;
-
     /**
-     * @example 5A14FA81-DD4E-******-6343FE44B941
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
@@ -34,23 +28,29 @@ class ListDatasetsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->datasets)) {
+            Model::validateArray($this->datasets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasets) {
-            $res['Datasets'] = [];
-            if (null !== $this->datasets && \is_array($this->datasets)) {
-                $n = 0;
-                foreach ($this->datasets as $item) {
-                    $res['Datasets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->datasets)) {
+                $res['Datasets'] = [];
+                $n1              = 0;
+                foreach ($this->datasets as $item1) {
+                    $res['Datasets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,26 +58,28 @@ class ListDatasetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatasetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
-                $n               = 0;
-                foreach ($map['Datasets'] as $item) {
-                    $model->datasets[$n++] = null !== $item ? Dataset::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Datasets'] as $item1) {
+                    $model->datasets[$n1++] = Dataset::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

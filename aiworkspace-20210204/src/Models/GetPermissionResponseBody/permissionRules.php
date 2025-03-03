@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class permissionRules extends Model
 {
     /**
-     * @example PRIVATE
-     *
      * @var string
      */
     public $accessibility;
-
     /**
-     * @example CREATOR
-     *
      * @var string
      */
     public $entityAccessType;
@@ -28,14 +23,16 @@ class permissionRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->entityAccessType) {
             $res['EntityAccessType'] = $this->entityAccessType;
         }
@@ -43,17 +40,18 @@ class permissionRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return permissionRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['EntityAccessType'])) {
             $model->entityAccessType = $map['EntityAccessType'];
         }

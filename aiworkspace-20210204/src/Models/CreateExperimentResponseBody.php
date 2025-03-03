@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentResponseBody extends Model
 {
@@ -12,10 +12,7 @@ class CreateExperimentResponseBody extends Model
      * @var string
      */
     public $experimentId;
-
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +23,16 @@ class CreateExperimentResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experimentId) {
             $res['ExperimentId'] = $this->experimentId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +40,18 @@ class CreateExperimentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExperimentId'])) {
             $model->experimentId = $map['ExperimentId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

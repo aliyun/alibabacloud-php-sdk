@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPermissionRequest extends Model
 {
     /**
-     * @example PUBLIC
-     *
      * @var string
      */
     public $accessibility;
-
     /**
-     * @example 17915******4216
-     *
      * @var string
      */
     public $creator;
-
     /**
      * @var mixed[]
      */
     public $labels;
-
     /**
      * @var string
      */
     public $option;
-
     /**
      * @var string
      */
@@ -46,23 +38,36 @@ class GetPermissionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->option) {
             $res['Option'] = $this->option;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
@@ -70,26 +75,35 @@ class GetPermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Option'])) {
             $model->option = $map['Option'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }

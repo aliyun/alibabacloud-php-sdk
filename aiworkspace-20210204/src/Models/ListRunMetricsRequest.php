@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRunMetricsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example loss
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $pageToken;
@@ -38,17 +28,20 @@ class ListRunMetricsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->pageToken) {
             $res['PageToken'] = $this->pageToken;
         }
@@ -56,20 +49,22 @@ class ListRunMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRunMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['PageToken'])) {
             $model->pageToken = $map['PageToken'];
         }

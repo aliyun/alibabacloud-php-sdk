@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListImagesRequest extends Model
 {
@@ -12,83 +12,43 @@ class ListImagesRequest extends Model
      * @var string
      */
     public $accessibility;
-
     /**
      * @var string
      */
     public $imageUri;
-
     /**
-     * @example system.framework=XGBoost 1.6.0,system.official=true
-     *
      * @var string
      */
     public $labels;
-
     /**
-     * @example tensorflow_2.9
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example DESC
-     *
      * @var string
      */
     public $order;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @example 155**********904
-     *
-     * @var string
-     */
-    public $parentUserId;
-
     /**
      * @var string
      */
     public $query;
-
     /**
-     * @example GmtCreateTime
-     *
      * @var string
      */
     public $sortBy;
-
     /**
-     * @example 155**********904
-     *
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @example true
-     *
      * @var bool
      */
     public $verbose;
-
     /**
-     * @example 20******55
-     *
      * @var string
      */
     public $workspaceId;
@@ -100,57 +60,60 @@ class ListImagesRequest extends Model
         'order'         => 'Order',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'parentUserId'  => 'ParentUserId',
         'query'         => 'Query',
         'sortBy'        => 'SortBy',
-        'userId'        => 'UserId',
         'verbose'       => 'Verbose',
         'workspaceId'   => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->parentUserId) {
-            $res['ParentUserId'] = $this->parentUserId;
-        }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
+
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -158,50 +121,54 @@ class ListImagesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ParentUserId'])) {
-            $model->parentUserId = $map['ParentUserId'];
-        }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
+
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

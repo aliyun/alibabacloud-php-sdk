@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCodeSourcesResponseBody extends Model
 {
@@ -12,17 +12,11 @@ class ListCodeSourcesResponseBody extends Model
      * @var CodeSourceItem[]
      */
     public $codeSources;
-
     /**
-     * @example 5A14FA81-DD4E-******-6343FE44B941
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -34,23 +28,29 @@ class ListCodeSourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->codeSources)) {
+            Model::validateArray($this->codeSources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeSources) {
-            $res['CodeSources'] = [];
-            if (null !== $this->codeSources && \is_array($this->codeSources)) {
-                $n = 0;
-                foreach ($this->codeSources as $item) {
-                    $res['CodeSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->codeSources)) {
+                $res['CodeSources'] = [];
+                $n1                 = 0;
+                foreach ($this->codeSources as $item1) {
+                    $res['CodeSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,26 +58,28 @@ class ListCodeSourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCodeSourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeSources'])) {
             if (!empty($map['CodeSources'])) {
                 $model->codeSources = [];
-                $n                  = 0;
-                foreach ($map['CodeSources'] as $item) {
-                    $model->codeSources[$n++] = null !== $item ? CodeSourceItem::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['CodeSources'] as $item1) {
+                    $model->codeSources[$n1++] = CodeSourceItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

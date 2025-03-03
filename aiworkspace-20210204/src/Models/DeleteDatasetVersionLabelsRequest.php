@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDatasetVersionLabelsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example key1,key2
-     *
      * @var string
      */
     public $keys;
@@ -22,9 +18,10 @@ class DeleteDatasetVersionLabelsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keys) {
@@ -34,11 +31,11 @@ class DeleteDatasetVersionLabelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDatasetVersionLabelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRunMetricsResponseBody extends Model
 {
@@ -12,19 +12,11 @@ class ListRunMetricsResponseBody extends Model
      * @var RunMetric[]
      */
     public $metrics;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $nextPageToken;
-
     /**
-     * @description Id of the request
-     *
-     * @example ADF6D849-*****-7E7030F0CE53
-     *
      * @var string
      */
     public $requestId;
@@ -36,23 +28,29 @@ class ListRunMetricsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->metrics)) {
+            Model::validateArray($this->metrics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = [];
-            if (null !== $this->metrics && \is_array($this->metrics)) {
-                $n = 0;
-                foreach ($this->metrics as $item) {
-                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metrics)) {
+                $res['Metrics'] = [];
+                $n1             = 0;
+                foreach ($this->metrics as $item1) {
+                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -60,26 +58,28 @@ class ListRunMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRunMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n              = 0;
-                foreach ($map['Metrics'] as $item) {
-                    $model->metrics[$n++] = null !== $item ? RunMetric::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Metrics'] as $item1) {
+                    $model->metrics[$n1++] = RunMetric::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateExperimentRequest extends Model
 {
     /**
-     * @example PRIVATE
-     *
      * @var string
      */
     public $accessibility;
-
     /**
-     * @description 名称
-     *
-     * @example myName
-     *
      * @var string
      */
     public $name;
@@ -30,14 +23,16 @@ class UpdateExperimentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +40,18 @@ class UpdateExperimentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateExperimentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

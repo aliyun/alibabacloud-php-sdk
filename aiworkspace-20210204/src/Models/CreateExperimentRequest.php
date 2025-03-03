@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExperimentRequest extends Model
 {
     /**
-     * @example PRIVATE
-     *
      * @var string
      */
     public $accessibility;
-
     /**
-     * @description Artifact的OSS存储路径
-     *
-     * @example oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/test
-     *
      * @var string
      */
     public $artifactUri;
-
     /**
-     * @description 标签
-     *
      * @var LabelInfo[]
      */
     public $labels;
-
     /**
-     * @description 名称
-     *
-     * This parameter is required.
-     * @example exp-test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description 工作空间ID
-     *
-     * This parameter is required.
-     * @example 478**
-     *
      * @var string
      */
     public $workspaceId;
@@ -60,29 +38,37 @@ class CreateExperimentRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->artifactUri) {
             $res['ArtifactUri'] = $this->artifactUri;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -90,32 +76,36 @@ class CreateExperimentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExperimentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['ArtifactUri'])) {
             $model->artifactUri = $map['ArtifactUri'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? LabelInfo::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = LabelInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

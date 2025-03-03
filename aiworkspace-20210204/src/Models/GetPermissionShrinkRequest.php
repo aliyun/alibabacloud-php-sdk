@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPermissionShrinkRequest extends Model
 {
     /**
-     * @example PUBLIC
-     *
      * @var string
      */
     public $accessibility;
-
     /**
-     * @example 17915******4216
-     *
      * @var string
      */
     public $creator;
-
     /**
      * @var string
      */
     public $labelsShrink;
-
     /**
      * @var string
      */
     public $option;
-
     /**
      * @var string
      */
@@ -46,23 +38,28 @@ class GetPermissionShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->labelsShrink) {
             $res['Labels'] = $this->labelsShrink;
         }
+
         if (null !== $this->option) {
             $res['Option'] = $this->option;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
@@ -70,26 +67,30 @@ class GetPermissionShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPermissionShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['Labels'])) {
             $model->labelsShrink = $map['Labels'];
         }
+
         if (isset($map['Option'])) {
             $model->option = $map['Option'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }

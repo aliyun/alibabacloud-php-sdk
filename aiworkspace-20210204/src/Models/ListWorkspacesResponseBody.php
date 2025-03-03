@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesResponseBody\workspaces;
-use AlibabaCloud\Tea\Model;
 
 class ListWorkspacesResponseBody extends Model
 {
     /**
-     * @example 8D7B2E70-F770-505B-A672-09F1D8F2EC1E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example {
-     * }
      * @var mixed[]
      */
     public $resourceLimits;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
-
     /**
      * @var workspaces[]
      */
@@ -43,26 +34,41 @@ class ListWorkspacesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceLimits)) {
+            Model::validateArray($this->resourceLimits);
+        }
+        if (\is_array($this->workspaces)) {
+            Model::validateArray($this->workspaces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceLimits) {
-            $res['ResourceLimits'] = $this->resourceLimits;
+            if (\is_array($this->resourceLimits)) {
+                $res['ResourceLimits'] = [];
+                foreach ($this->resourceLimits as $key1 => $value1) {
+                    $res['ResourceLimits'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->workspaces) {
-            $res['Workspaces'] = [];
-            if (null !== $this->workspaces && \is_array($this->workspaces)) {
-                $n = 0;
-                foreach ($this->workspaces as $item) {
-                    $res['Workspaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workspaces)) {
+                $res['Workspaces'] = [];
+                $n1                = 0;
+                foreach ($this->workspaces as $item1) {
+                    $res['Workspaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -70,29 +76,37 @@ class ListWorkspacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceLimits'])) {
-            $model->resourceLimits = $map['ResourceLimits'];
+            if (!empty($map['ResourceLimits'])) {
+                $model->resourceLimits = [];
+                foreach ($map['ResourceLimits'] as $key1 => $value1) {
+                    $model->resourceLimits[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['Workspaces'])) {
             if (!empty($map['Workspaces'])) {
                 $model->workspaces = [];
-                $n                 = 0;
-                foreach ($map['Workspaces'] as $item) {
-                    $model->workspaces[$n++] = null !== $item ? workspaces::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Workspaces'] as $item1) {
+                    $model->workspaces[$n1++] = workspaces::fromMap($item1);
                 }
             }
         }

@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProductsRequest extends Model
 {
     /**
-     * @example PAI_isolate
-     *
      * @var string
      */
     public $productCodes;
-
     /**
-     * @example oss
-     *
      * @var string
      */
     public $serviceCodes;
-
     /**
      * @var bool
      */
@@ -34,17 +28,20 @@ class ListProductsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productCodes) {
             $res['ProductCodes'] = $this->productCodes;
         }
+
         if (null !== $this->serviceCodes) {
             $res['ServiceCodes'] = $this->serviceCodes;
         }
+
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
         }
@@ -52,20 +49,22 @@ class ListProductsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProductsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductCodes'])) {
             $model->productCodes = $map['ProductCodes'];
         }
+
         if (isset($map['ServiceCodes'])) {
             $model->serviceCodes = $map['ServiceCodes'];
         }
+
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
         }

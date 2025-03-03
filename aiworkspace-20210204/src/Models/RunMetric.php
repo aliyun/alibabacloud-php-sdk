@@ -4,30 +4,23 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunMetric extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $key;
-
     /**
      * @var int
      */
     public $step;
-
     /**
      * @var int
      */
     public $timestamp;
-
     /**
-     * @description This parameter is required.
-     *
      * @var float
      */
     public $value;
@@ -40,20 +33,24 @@ class RunMetric extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,23 +58,26 @@ class RunMetric extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunMetric
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

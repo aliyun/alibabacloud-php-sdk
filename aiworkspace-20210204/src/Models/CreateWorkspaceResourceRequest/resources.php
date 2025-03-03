@@ -4,76 +4,49 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest\resources\labels;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest\resources\quotas;
-use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example prod
-     *
      * @var string
      */
     public $envType;
-
     /**
-     * @example groupName
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isDefault;
-
     /**
      * @var labels[]
      */
     public $labels;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ResourceName
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example MaxCompute
-     *
      * @var string
      */
     public $productType;
-
     /**
      * @var quotas[]
      */
     public $quotas;
-
     /**
      * @var string
      */
     public $resourceType;
-
     /**
      * @var mixed[]
      */
     public $spec;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $workspaceId;
@@ -92,50 +65,74 @@ class resources extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->quotas)) {
+            Model::validateArray($this->quotas);
+        }
+        if (\is_array($this->spec)) {
+            Model::validateArray($this->spec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1            = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->quotas) {
-            $res['Quotas'] = [];
-            if (null !== $this->quotas && \is_array($this->quotas)) {
-                $n = 0;
-                foreach ($this->quotas as $item) {
-                    $res['Quotas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->quotas)) {
+                $res['Quotas'] = [];
+                $n1            = 0;
+                foreach ($this->quotas as $item1) {
+                    $res['Quotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+            if (\is_array($this->spec)) {
+                $res['Spec'] = [];
+                foreach ($this->spec as $key1 => $value1) {
+                    $res['Spec'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -143,53 +140,67 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = labels::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['Quotas'])) {
             if (!empty($map['Quotas'])) {
                 $model->quotas = [];
-                $n             = 0;
-                foreach ($map['Quotas'] as $item) {
-                    $model->quotas[$n++] = null !== $item ? quotas::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Quotas'] as $item1) {
+                    $model->quotas[$n1++] = quotas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+            if (!empty($map['Spec'])) {
+                $model->spec = [];
+                foreach ($map['Spec'] as $key1 => $value1) {
+                    $model->spec[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListExperimentResponseBody extends Model
 {
@@ -12,24 +12,15 @@ class ListExperimentResponseBody extends Model
      * @var Experiment[]
      */
     public $experiments;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $nextPageToken;
-
     /**
-     * @example 5
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @example 0C6835C5-A424-5AFB-ACC2-F1E3CA1ABF7C
-     *
      * @var string
      */
     public $requestId;
@@ -42,26 +33,33 @@ class ListExperimentResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->experiments)) {
+            Model::validateArray($this->experiments);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experiments) {
-            $res['Experiments'] = [];
-            if (null !== $this->experiments && \is_array($this->experiments)) {
-                $n = 0;
-                foreach ($this->experiments as $item) {
-                    $res['Experiments'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->experiments)) {
+                $res['Experiments'] = [];
+                $n1                 = 0;
+                foreach ($this->experiments as $item1) {
+                    $res['Experiments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -69,29 +67,32 @@ class ListExperimentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExperimentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Experiments'])) {
             if (!empty($map['Experiments'])) {
                 $model->experiments = [];
-                $n                  = 0;
-                foreach ($map['Experiments'] as $item) {
-                    $model->experiments[$n++] = null !== $item ? Experiment::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Experiments'] as $item1) {
+                    $model->experiments[$n1++] = Experiment::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
