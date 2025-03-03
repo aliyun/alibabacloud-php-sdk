@@ -47,6 +47,10 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
     /**
      * @var string
      */
+    public $serviceName;
+    /**
+     * @var string
+     */
     public $userFeatures;
     protected $_name = [
         'featureConsistencyCheckJobConfigId' => 'FeatureConsistencyCheckJobConfigId',
@@ -58,6 +62,7 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
         'logUserId'                          => 'LogUserId',
         'sceneName'                          => 'SceneName',
         'scores'                             => 'Scores',
+        'serviceName'                        => 'ServiceName',
         'userFeatures'                       => 'UserFeatures',
     ];
 
@@ -103,6 +108,10 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
 
         if (null !== $this->scores) {
             $res['Scores'] = $this->scores;
+        }
+
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         if (null !== $this->userFeatures) {
@@ -154,6 +163,10 @@ class BackflowFeatureConsistencyCheckJobDataRequest extends Model
 
         if (isset($map['Scores'])) {
             $model->scores = $map['Scores'];
+        }
+
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         if (isset($map['UserFeatures'])) {

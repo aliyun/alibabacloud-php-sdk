@@ -422,6 +422,10 @@ class PaiRecService extends OpenApiClient
             @$body['Scores'] = $request->scores;
         }
 
+        if (null !== $request->serviceName) {
+            @$body['ServiceName'] = $request->serviceName;
+        }
+
         if (null !== $request->userFeatures) {
             @$body['UserFeatures'] = $request->userFeatures;
         }
