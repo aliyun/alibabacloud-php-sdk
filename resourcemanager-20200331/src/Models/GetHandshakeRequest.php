@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHandshakeRequest extends Model
 {
     /**
-     * @description The ID of the invitation.
-     *
-     * @example h-ycm4rp****
-     *
      * @var string
      */
     public $handshakeId;
@@ -22,9 +18,10 @@ class GetHandshakeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handshakeId) {
@@ -34,11 +31,11 @@ class GetHandshakeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHandshakeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

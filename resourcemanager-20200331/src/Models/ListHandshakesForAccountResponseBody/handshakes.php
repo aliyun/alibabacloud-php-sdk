@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListHandshakesForAccountResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListHandshakesForAccountResponseBody\handshakes\handshake;
-use AlibabaCloud\Tea\Model;
 
 class handshakes extends Model
 {
@@ -19,17 +19,21 @@ class handshakes extends Model
 
     public function validate()
     {
+        if (\is_array($this->handshake)) {
+            Model::validateArray($this->handshake);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handshake) {
-            $res['Handshake'] = [];
-            if (null !== $this->handshake && \is_array($this->handshake)) {
-                $n = 0;
-                foreach ($this->handshake as $item) {
-                    $res['Handshake'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->handshake)) {
+                $res['Handshake'] = [];
+                $n1               = 0;
+                foreach ($this->handshake as $item1) {
+                    $res['Handshake'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class handshakes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return handshakes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Handshake'])) {
             if (!empty($map['Handshake'])) {
                 $model->handshake = [];
-                $n                = 0;
-                foreach ($map['Handshake'] as $item) {
-                    $model->handshake[$n++] = null !== $item ? handshake::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Handshake'] as $item1) {
+                    $model->handshake[$n1++] = handshake::fromMap($item1);
                 }
             }
         }

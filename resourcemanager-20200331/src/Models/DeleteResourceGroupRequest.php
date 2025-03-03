@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group.
-     *
-     * You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID.
-     * @example rg-9gLOoK****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -23,9 +18,10 @@ class DeleteResourceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
@@ -35,11 +31,11 @@ class DeleteResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

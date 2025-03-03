@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyResponseBody\policy;
-use AlibabaCloud\Tea\Model;
 
 class GetPolicyResponseBody extends Model
 {
     /**
-     * @description The information of the policy.
-     *
      * @var policy
      */
     public $policy;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 697852FB-50D7-44D9-9774-530C31EAC572
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->policy) {
+            $this->policy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policy) {
-            $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
+            $res['Policy'] = null !== $this->policy ? $this->policy->toArray($noStream) : $this->policy;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policy'])) {
             $model->policy = policy::fromMap($map['Policy']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

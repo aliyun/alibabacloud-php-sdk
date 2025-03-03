@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * @example cp-jExXAqIYkwHN****
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @description The ID of the object from which you want to detach the access control policy. Access control policies can be attached to the following objects:
-     *
-     *   Root folder
-     *   Subfolders of the Root folder
-     *   Members
-     *
-     * @example fd-ZDNPiT****
-     *
      * @var string
      */
     public $targetId;
@@ -36,14 +23,16 @@ class DetachControlPolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
@@ -51,17 +40,18 @@ class DetachControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResponseBody\resourceGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupResponseBody extends Model
 {
     /**
-     * @description The information of the resource group.
-     *
-     * @example 2D69A58F-345C-4FDE-88E4-BF5189484043
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The display name of the resource group.
-     *
      * @var resourceGroup
      */
     public $resourceGroup;
@@ -31,32 +24,38 @@ class GetResourceGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceGroup) {
+            $this->resourceGroup->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroup) {
-            $res['ResourceGroup'] = null !== $this->resourceGroup ? $this->resourceGroup->toMap() : null;
+            $res['ResourceGroup'] = null !== $this->resourceGroup ? $this->resourceGroup->toArray($noStream) : $this->resourceGroup;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroup'])) {
             $model->resourceGroup = resourceGroup::fromMap($map['ResourceGroup']);
         }

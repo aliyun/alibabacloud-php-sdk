@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason\roleUsages;
-use AlibabaCloud\Tea\Model;
 
 class reason extends Model
 {
     /**
-     * @description Failure information.
-     *
-     * @example Service-Linked Role acs:ram::196813227629****:role/aliyunserviceroleforhdr cannot be deleted as it is in use by hdr.aliyuncs.com.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Use resource information of the service linked role.
-     *
      * @var roleUsages
      */
     public $roleUsages;
@@ -31,32 +24,38 @@ class reason extends Model
 
     public function validate()
     {
+        if (null !== $this->roleUsages) {
+            $this->roleUsages->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->roleUsages) {
-            $res['RoleUsages'] = null !== $this->roleUsages ? $this->roleUsages->toMap() : null;
+            $res['RoleUsages'] = null !== $this->roleUsages ? $this->roleUsages->toArray($noStream) : $this->roleUsages;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RoleUsages'])) {
             $model->roleUsages = roleUsages::fromMap($map['RoleUsages']);
         }

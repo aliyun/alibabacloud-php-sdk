@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason\roleUsages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason\roleUsages\roleUsage\resources;
-use AlibabaCloud\Tea\Model;
 
 class roleUsage extends Model
 {
     /**
-     * @description The IDs of the regions in which the resources are to be queried.
-     *
-     * @example global
-     *
      * @var string
      */
     public $region;
-
     /**
-     * @description The returned resources.
-     *
      * @var resources
      */
     public $resources;
@@ -31,32 +24,38 @@ class roleUsage extends Model
 
     public function validate()
     {
+        if (null !== $this->resources) {
+            $this->resources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+            $res['Resources'] = null !== $this->resources ? $this->resources->toArray($noStream) : $this->resources;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleUsage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Resources'])) {
             $model->resources = resources::fromMap($map['Resources']);
         }

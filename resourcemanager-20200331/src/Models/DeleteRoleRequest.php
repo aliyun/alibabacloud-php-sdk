@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRoleRequest extends Model
 {
     /**
-     * @description The name of the RAM role.
-     *
-     * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
-     * @example ECSAdmin
-     *
      * @var string
      */
     public $roleName;
@@ -23,9 +18,10 @@ class DeleteRoleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleName) {
@@ -35,11 +31,11 @@ class DeleteRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

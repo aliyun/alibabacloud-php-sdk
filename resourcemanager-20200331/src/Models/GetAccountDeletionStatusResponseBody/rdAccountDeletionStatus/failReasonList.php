@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusResponseBody\rdAccountDeletionStatus;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failReasonList extends Model
 {
     /**
-     * @description The description of the check item.
-     *
-     * @example This account has a payer account. Please release the financial relationship of this account first.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the cloud service to which the check item belongs.
-     *
-     * @example Others
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class failReasonList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class failReasonList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failReasonList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

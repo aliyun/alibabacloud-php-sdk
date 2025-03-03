@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyResponseBody\targetAttachments;
-use AlibabaCloud\Tea\Model;
 
 class ListTargetAttachmentsForControlPolicyResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B32BD3D6-1089-41F3-8E70-E0079BC7D760
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The list of objects to which the control policy is attached.
-     *
      * @var targetAttachments
      */
     public $targetAttachments;
-
     /**
-     * @description The total number of objects to which the control policy is attached.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -61,23 +39,31 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->targetAttachments) {
+            $this->targetAttachments->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->targetAttachments) {
-            $res['TargetAttachments'] = null !== $this->targetAttachments ? $this->targetAttachments->toMap() : null;
+            $res['TargetAttachments'] = null !== $this->targetAttachments ? $this->targetAttachments->toArray($noStream) : $this->targetAttachments;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,26 +71,30 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTargetAttachmentsForControlPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TargetAttachments'])) {
             $model->targetAttachments = targetAttachments::fromMap($map['TargetAttachments']);
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListPolicyVersionsResponseBody\policyVersions\policyVersion;
-use AlibabaCloud\Tea\Model;
 
 class policyVersions extends Model
 {
@@ -19,17 +19,21 @@ class policyVersions extends Model
 
     public function validate()
     {
+        if (\is_array($this->policyVersion)) {
+            Model::validateArray($this->policyVersion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyVersion) {
-            $res['PolicyVersion'] = [];
-            if (null !== $this->policyVersion && \is_array($this->policyVersion)) {
-                $n = 0;
-                foreach ($this->policyVersion as $item) {
-                    $res['PolicyVersion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyVersion)) {
+                $res['PolicyVersion'] = [];
+                $n1                   = 0;
+                foreach ($this->policyVersion as $item1) {
+                    $res['PolicyVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class policyVersions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return policyVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyVersion'])) {
             if (!empty($map['PolicyVersion'])) {
                 $model->policyVersion = [];
-                $n                    = 0;
-                foreach ($map['PolicyVersion'] as $item) {
-                    $model->policyVersion[$n++] = null !== $item ? policyVersion::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['PolicyVersion'] as $item1) {
+                    $model->policyVersion[$n1++] = policyVersion::fromMap($item1);
                 }
             }
         }

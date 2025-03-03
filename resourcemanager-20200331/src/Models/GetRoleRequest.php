@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRoleRequest extends Model
 {
     /**
-     * @description The language that is used to return the description of the RAM role. Valid values:
-     *
-     *   en: English
-     *   zh-CN: Chinese
-     *   ja: Japanese
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $language;
-
     /**
-     * @description The name of the RAM role.
-     *
-     * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
-     * @example ECSAdmin
-     *
      * @var string
      */
     public $roleName;
@@ -37,14 +23,16 @@ class GetRoleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -52,17 +40,18 @@ class GetRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

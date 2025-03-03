@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $includeTags;
-
     /**
-     * @description Specifies whether to return the information of tags. Valid values:
-     *
-     *   false (default value)
-     *   true
-     *
-     * @example rg-9gLOoK****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -35,14 +23,16 @@ class GetResourceGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->includeTags) {
             $res['IncludeTags'] = $this->includeTags;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -50,17 +40,18 @@ class GetResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IncludeTags'])) {
             $model->includeTags = $map['IncludeTags'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

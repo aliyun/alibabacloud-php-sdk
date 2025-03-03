@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason\roleUsages\roleUsage;
-use AlibabaCloud\Tea\Model;
 
 class roleUsages extends Model
 {
@@ -19,17 +19,21 @@ class roleUsages extends Model
 
     public function validate()
     {
+        if (\is_array($this->roleUsage)) {
+            Model::validateArray($this->roleUsage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleUsage) {
-            $res['RoleUsage'] = [];
-            if (null !== $this->roleUsage && \is_array($this->roleUsage)) {
-                $n = 0;
-                foreach ($this->roleUsage as $item) {
-                    $res['RoleUsage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roleUsage)) {
+                $res['RoleUsage'] = [];
+                $n1               = 0;
+                foreach ($this->roleUsage as $item1) {
+                    $res['RoleUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class roleUsages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleUsages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleUsage'])) {
             if (!empty($map['RoleUsage'])) {
                 $model->roleUsage = [];
-                $n                = 0;
-                foreach ($map['RoleUsage'] as $item) {
-                    $model->roleUsage[$n++] = null !== $item ? roleUsage::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['RoleUsage'] as $item1) {
+                    $model->roleUsage[$n1++] = roleUsage::fromMap($item1);
                 }
             }
         }

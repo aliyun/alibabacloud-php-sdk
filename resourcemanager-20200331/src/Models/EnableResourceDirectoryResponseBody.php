@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponseBody\resourceDirectory;
-use AlibabaCloud\Tea\Model;
 
 class EnableResourceDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EC2FE94D-A4A2-51A1-A493-5C273A36C46A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information of the resource directory.
-     *
      * @var resourceDirectory
      */
     public $resourceDirectory;
@@ -31,32 +24,38 @@ class EnableResourceDirectoryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceDirectory) {
+            $this->resourceDirectory->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceDirectory) {
-            $res['ResourceDirectory'] = null !== $this->resourceDirectory ? $this->resourceDirectory->toMap() : null;
+            $res['ResourceDirectory'] = null !== $this->resourceDirectory ? $this->resourceDirectory->toArray($noStream) : $this->resourceDirectory;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableResourceDirectoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceDirectory'])) {
             $model->resourceDirectory = resourceDirectory::fromMap($map['ResourceDirectory']);
         }

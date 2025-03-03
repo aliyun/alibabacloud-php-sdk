@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DestroyResourceDirectoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DestroyResourceDirectoryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DestroyResourceDirectoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DestroyResourceDirectoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

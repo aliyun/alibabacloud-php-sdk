@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponseBody\enabledServicePrincipals\enabledServicePrincipal;
-use AlibabaCloud\Tea\Model;
 
 class enabledServicePrincipals extends Model
 {
@@ -19,17 +19,21 @@ class enabledServicePrincipals extends Model
 
     public function validate()
     {
+        if (\is_array($this->enabledServicePrincipal)) {
+            Model::validateArray($this->enabledServicePrincipal);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabledServicePrincipal) {
-            $res['EnabledServicePrincipal'] = [];
-            if (null !== $this->enabledServicePrincipal && \is_array($this->enabledServicePrincipal)) {
-                $n = 0;
-                foreach ($this->enabledServicePrincipal as $item) {
-                    $res['EnabledServicePrincipal'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->enabledServicePrincipal)) {
+                $res['EnabledServicePrincipal'] = [];
+                $n1                             = 0;
+                foreach ($this->enabledServicePrincipal as $item1) {
+                    $res['EnabledServicePrincipal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class enabledServicePrincipals extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enabledServicePrincipals
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnabledServicePrincipal'])) {
             if (!empty($map['EnabledServicePrincipal'])) {
                 $model->enabledServicePrincipal = [];
-                $n                              = 0;
-                foreach ($map['EnabledServicePrincipal'] as $item) {
-                    $model->enabledServicePrincipal[$n++] = null !== $item ? enabledServicePrincipal::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['EnabledServicePrincipal'] as $item1) {
+                    $model->enabledServicePrincipal[$n1++] = enabledServicePrincipal::fromMap($item1);
                 }
             }
         }

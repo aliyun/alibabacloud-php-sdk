@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListFoldersForParentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListFoldersForParentResponseBody\folders\folder;
-use AlibabaCloud\Tea\Model;
 
 class folders extends Model
 {
@@ -19,17 +19,21 @@ class folders extends Model
 
     public function validate()
     {
+        if (\is_array($this->folder)) {
+            Model::validateArray($this->folder);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folder) {
-            $res['Folder'] = [];
-            if (null !== $this->folder && \is_array($this->folder)) {
-                $n = 0;
-                foreach ($this->folder as $item) {
-                    $res['Folder'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->folder)) {
+                $res['Folder'] = [];
+                $n1            = 0;
+                foreach ($this->folder as $item1) {
+                    $res['Folder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class folders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return folders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Folder'])) {
             if (!empty($map['Folder'])) {
                 $model->folder = [];
-                $n             = 0;
-                foreach ($map['Folder'] as $item) {
-                    $model->folder[$n++] = null !== $item ? folder::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Folder'] as $item1) {
+                    $model->folder[$n1++] = folder::fromMap($item1);
                 }
             }
         }

@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTrustedServiceStatusRequest extends Model
 {
     /**
-     * @description The ID of the enterprise management account or delegated administrator account.
-     *
-     *   If you set this parameter to the ID of an enterprise management account, the trusted services that are enabled within the enterprise management account are queried. The default value of this parameter is the ID of an enterprise management account.
-     *   If you set this parameter to the ID of a delegated administrator account, the trusted services that are enabled within the delegated administrator account are queried.
-     *
-     * For more information about trusted services and delegated administrator accounts, see [Overview of trusted services](~~208133~~) and [Delegated administrator accounts](~~208117~~).
-     * @example 177242285274****
-     *
      * @var string
      */
     public $adminAccountId;
-
     /**
-     * @description The number of the page to return.
-     *
-     * Pages start from page 1. Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Valid values: 1 to 100. Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -48,17 +28,20 @@ class ListTrustedServiceStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adminAccountId) {
             $res['AdminAccountId'] = $this->adminAccountId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -66,20 +49,22 @@ class ListTrustedServiceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTrustedServiceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminAccountId'])) {
             $model->adminAccountId = $map['AdminAccountId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

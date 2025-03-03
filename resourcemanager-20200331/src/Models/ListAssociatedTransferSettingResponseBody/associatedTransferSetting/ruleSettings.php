@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAssociatedTransferSettingResponseBody\associatedTransferSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleSettings extends Model
 {
     /**
-     * @description The type of the associated resource.
-     *
-     * @example disk
-     *
      * @var string
      */
     public $associatedResourceType;
-
     /**
-     * @description The service code of the associated resource.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $associatedService;
-
     /**
-     * @description The type of the primary resource.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $masterResourceType;
-
     /**
-     * @description The service code of the primary resource.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $masterService;
-
     /**
-     * @description The status of the Transfer Associated Resources feature. Valid values:
-     *
-     * - Disable: disabled
-     * @example Enable
-     *
      * @var string
      */
     public $status;
@@ -63,23 +38,28 @@ class ruleSettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedResourceType) {
             $res['AssociatedResourceType'] = $this->associatedResourceType;
         }
+
         if (null !== $this->associatedService) {
             $res['AssociatedService'] = $this->associatedService;
         }
+
         if (null !== $this->masterResourceType) {
             $res['MasterResourceType'] = $this->masterResourceType;
         }
+
         if (null !== $this->masterService) {
             $res['MasterService'] = $this->masterService;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -87,26 +67,30 @@ class ruleSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssociatedResourceType'])) {
             $model->associatedResourceType = $map['AssociatedResourceType'];
         }
+
         if (isset($map['AssociatedService'])) {
             $model->associatedService = $map['AssociatedService'];
         }
+
         if (isset($map['MasterResourceType'])) {
             $model->masterResourceType = $map['MasterResourceType'];
         }
+
         if (isset($map['MasterService'])) {
             $model->masterService = $map['MasterService'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

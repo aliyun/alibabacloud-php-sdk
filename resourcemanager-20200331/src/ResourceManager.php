@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AttachControlPolicyRequest;
@@ -26,6 +25,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ChangeAccountEmailRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ChangeAccountEmailResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateAutoGroupingRuleRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateAutoGroupingRuleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateControlPolicyRequest;
@@ -49,6 +50,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountShrinkRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAutoGroupingRuleRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAutoGroupingRuleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderRequest;
@@ -71,8 +74,10 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachControlPolicyRespons
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DetachPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableAssociatedTransferResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableAutoGroupingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableAssociatedTransferResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableAutoGroupingResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponse;
@@ -82,6 +87,9 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusRe
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAutoGroupingRuleRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAutoGroupingRuleResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAutoGroupingStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyEnablementStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyResponse;
@@ -112,6 +120,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAncestorsResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAssociatedTransferSettingResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRulesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAutoGroupingRulesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPoliciesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListControlPolicyAttachmentsForTargetRequest;
@@ -180,6 +190,10 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAssociatedTransferSettingRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAssociatedTransferSettingResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAutoGroupingConfigRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAutoGroupingConfigResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAutoGroupingRuleRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAutoGroupingRuleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateFolderRequest;
@@ -188,11 +202,10 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupRequest
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateResourceGroupResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateRoleRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateRoleResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ResourceManager extends OpenApiClient
 {
@@ -217,34 +230,43 @@ class ResourceManager extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-     *   * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
-     *   *
-     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Accepts an invitation.
      *
-     * @return AcceptHandshakeResponse AcceptHandshakeResponse
+     * @remarks
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+     *
+     * @param request - AcceptHandshakeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AcceptHandshakeResponse
+     *
+     * @param AcceptHandshakeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AcceptHandshakeResponse
      */
     public function acceptHandshakeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->handshakeId)) {
-            $query['HandshakeId'] = $request->handshakeId;
+        if (null !== $request->handshakeId) {
+            @$query['HandshakeId'] = $request->handshakeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AcceptHandshake',
@@ -257,17 +279,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AcceptHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-     *   * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
-     *   *
-     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
+     * Accepts an invitation.
      *
-     * @return AcceptHandshakeResponse AcceptHandshakeResponse
+     * @remarks
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+     *
+     * @param request - AcceptHandshakeRequest
+     * @returns AcceptHandshakeResponse
+     *
+     * @param AcceptHandshakeRequest $request
+     *
+     * @return AcceptHandshakeResponse
      */
     public function acceptHandshake($request)
     {
@@ -277,29 +308,36 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
-     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
-     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
-     *   * A maximum of 10 access control policies can be attached to a folder or member.
-     *   * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     * A maximum of 10 access control policies can be attached to a folder or member.
+     * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
      *
-     * @return AttachControlPolicyResponse AttachControlPolicyResponse
+     * @param request - AttachControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachControlPolicyResponse
+     *
+     * @param AttachControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AttachControlPolicyResponse
      */
     public function attachControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachControlPolicy',
@@ -312,20 +350,27 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
-     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
-     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
-     *   * A maximum of 10 access control policies can be attached to a folder or member.
-     *   * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
+     * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     * A maximum of 10 access control policies can be attached to a folder or member.
+     * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
      *
-     * @return AttachControlPolicyResponse AttachControlPolicyResponse
+     * @param request - AttachControlPolicyRequest
+     * @returns AttachControlPolicyResponse
+     *
+     * @param AttachControlPolicyRequest $request
+     *
+     * @return AttachControlPolicyResponse
      */
     public function attachControlPolicy($request)
     {
@@ -335,34 +380,46 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
-     *   *
-     * @param AttachPolicyRequest $request AttachPolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 为RAM身份授权.
      *
-     * @return AttachPolicyResponse AttachPolicyResponse
+     * @remarks
+     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+     *
+     * @param request - AttachPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachPolicyResponse
+     *
+     * @param AttachPolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AttachPolicyResponse
      */
     public function attachPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->principalName)) {
-            $query['PrincipalName'] = $request->principalName;
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
         }
-        if (!Utils::isUnset($request->principalType)) {
-            $query['PrincipalType'] = $request->principalType;
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachPolicy',
@@ -375,16 +432,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
-     *   *
-     * @param AttachPolicyRequest $request AttachPolicyRequest
+     * 为RAM身份授权.
      *
-     * @return AttachPolicyResponse AttachPolicyResponse
+     * @remarks
+     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+     *
+     * @param request - AttachPolicyRequest
+     * @returns AttachPolicyResponse
+     *
+     * @param AttachPolicyRequest $request
+     *
+     * @return AttachPolicyResponse
      */
     public function attachPolicy($request)
     {
@@ -394,30 +460,40 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
-     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-     *   * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
-     *   *
-     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 设置安全手机号.
      *
-     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
+     * @remarks
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+     *
+     * @param request - BindSecureMobilePhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindSecureMobilePhoneResponse
+     *
+     * @param BindSecureMobilePhoneRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->secureMobilePhone)) {
-            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+
+        if (null !== $request->secureMobilePhone) {
+            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
-        if (!Utils::isUnset($request->verificationCode)) {
-            $query['VerificationCode'] = $request->verificationCode;
+
+        if (null !== $request->verificationCode) {
+            @$query['VerificationCode'] = $request->verificationCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindSecureMobilePhone',
@@ -430,18 +506,27 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindSecureMobilePhoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
-     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-     *   * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
-     *   *
-     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
+     * 设置安全手机号.
      *
-     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
+     * @remarks
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+     *
+     * @param request - BindSecureMobilePhoneRequest
+     * @returns BindSecureMobilePhoneResponse
+     *
+     * @param BindSecureMobilePhoneRequest $request
+     *
+     * @return BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhone($request)
     {
@@ -451,6 +536,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 取消修改邮箱.
+     *
+     * @param request - CancelChangeAccountEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelChangeAccountEmailResponse
+     *
      * @param CancelChangeAccountEmailRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -458,13 +549,14 @@ class ResourceManager extends OpenApiClient
      */
     public function cancelChangeAccountEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelChangeAccountEmail',
@@ -477,11 +569,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 取消修改邮箱.
+     *
+     * @param request - CancelChangeAccountEmailRequest
+     * @returns CancelChangeAccountEmailResponse
+     *
      * @param CancelChangeAccountEmailRequest $request
      *
      * @return CancelChangeAccountEmailResponse
@@ -494,6 +594,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 取消创建云账号类型的成员.
+     *
+     * @param request - CancelCreateCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelCreateCloudAccountResponse
+     *
      * @param CancelCreateCloudAccountRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -501,13 +607,14 @@ class ResourceManager extends OpenApiClient
      */
     public function cancelCreateCloudAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelCreateCloudAccount',
@@ -520,11 +627,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelCreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelCreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelCreateCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 取消创建云账号类型的成员.
+     *
+     * @param request - CancelCreateCloudAccountRequest
+     * @returns CancelCreateCloudAccountResponse
+     *
      * @param CancelCreateCloudAccountRequest $request
      *
      * @return CancelCreateCloudAccountResponse
@@ -537,22 +652,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
-     *   *
-     * @param CancelHandshakeRequest $request CancelHandshakeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Cancels an invitation.
      *
-     * @return CancelHandshakeResponse CancelHandshakeResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+     *
+     * @param request - CancelHandshakeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelHandshakeResponse
+     *
+     * @param CancelHandshakeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelHandshakeResponse
      */
     public function cancelHandshakeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->handshakeId)) {
-            $query['HandshakeId'] = $request->handshakeId;
+        if (null !== $request->handshakeId) {
+            @$query['HandshakeId'] = $request->handshakeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelHandshake',
@@ -565,16 +688,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
-     *   *
-     * @param CancelHandshakeRequest $request CancelHandshakeRequest
+     * Cancels an invitation.
      *
-     * @return CancelHandshakeResponse CancelHandshakeResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+     *
+     * @param request - CancelHandshakeRequest
+     * @returns CancelHandshakeResponse
+     *
+     * @param CancelHandshakeRequest $request
+     *
+     * @return CancelHandshakeResponse
      */
     public function cancelHandshake($request)
     {
@@ -584,6 +716,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 取消升级资源账号.
+     *
+     * @param request - CancelPromoteResourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelPromoteResourceAccountResponse
+     *
      * @param CancelPromoteResourceAccountRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -591,13 +729,14 @@ class ResourceManager extends OpenApiClient
      */
     public function cancelPromoteResourceAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelPromoteResourceAccount',
@@ -610,11 +749,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelPromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelPromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelPromoteResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 取消升级资源账号.
+     *
+     * @param request - CancelPromoteResourceAccountRequest
+     * @returns CancelPromoteResourceAccountResponse
+     *
      * @param CancelPromoteResourceAccountRequest $request
      *
      * @return CancelPromoteResourceAccountResponse
@@ -627,6 +774,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 成员账号设置安全邮箱.
+     *
+     * @param request - ChangeAccountEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeAccountEmailResponse
+     *
      * @param ChangeAccountEmailRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -634,16 +787,18 @@ class ResourceManager extends OpenApiClient
      */
     public function changeAccountEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeAccountEmail',
@@ -656,11 +811,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 成员账号设置安全邮箱.
+     *
+     * @param request - ChangeAccountEmailRequest
+     * @returns ChangeAccountEmailResponse
+     *
      * @param ChangeAccountEmailRequest $request
      *
      * @return ChangeAccountEmailResponse
@@ -673,23 +836,31 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
-     *   * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
-     *   *
-     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Performs a member deletion check.
      *
-     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
+     * @remarks
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+     *
+     * @param request - CheckAccountDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckAccountDeleteResponse
+     *
+     * @param CheckAccountDeleteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckAccountDeleteResponse
      */
     public function checkAccountDeleteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckAccountDelete',
@@ -702,17 +873,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckAccountDeleteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
-     *   * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
-     *   *
-     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
+     * Performs a member deletion check.
      *
-     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
+     * @remarks
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+     *
+     * @param request - CheckAccountDeleteRequest
+     * @returns CheckAccountDeleteResponse
+     *
+     * @param CheckAccountDeleteRequest $request
+     *
+     * @return CheckAccountDeleteResponse
      */
     public function checkAccountDelete($request)
     {
@@ -722,34 +902,153 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
-     *   * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](~~159392~~).
-     *   * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](~~159395~~) .
-     *   * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
-     *   *
-     * @param CreateCloudAccountRequest $request CreateCloudAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a transfer rule. Custom transfer rules and transfer rules for associated resources are supported.
      *
-     * @return CreateCloudAccountResponse CreateCloudAccountResponse
+     * @remarks
+     * You can create up to 10 custom transfer rules. Each custom transfer rule can contain up to 10 content records.
+     *
+     * @param request - CreateAutoGroupingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAutoGroupingRuleResponse
+     *
+     * @param CreateAutoGroupingRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAutoGroupingRuleResponse
+     */
+    public function createAutoGroupingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->excludeRegionIdsScope) {
+            @$query['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$query['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$query['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+
+        if (null !== $request->excludeResourceTypesScope) {
+            @$query['ExcludeResourceTypesScope'] = $request->excludeResourceTypesScope;
+        }
+
+        if (null !== $request->regionIdsScope) {
+            @$query['RegionIdsScope'] = $request->regionIdsScope;
+        }
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$query['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+
+        if (null !== $request->resourceIdsScope) {
+            @$query['ResourceIdsScope'] = $request->resourceIdsScope;
+        }
+
+        if (null !== $request->resourceTypesScope) {
+            @$query['ResourceTypesScope'] = $request->resourceTypesScope;
+        }
+
+        if (null !== $request->ruleContents) {
+            @$query['RuleContents'] = $request->ruleContents;
+        }
+
+        if (null !== $request->ruleDesc) {
+            @$query['RuleDesc'] = $request->ruleDesc;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAutoGroupingRule',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a transfer rule. Custom transfer rules and transfer rules for associated resources are supported.
+     *
+     * @remarks
+     * You can create up to 10 custom transfer rules. Each custom transfer rule can contain up to 10 content records.
+     *
+     * @param request - CreateAutoGroupingRuleRequest
+     * @returns CreateAutoGroupingRuleResponse
+     *
+     * @param CreateAutoGroupingRuleRequest $request
+     *
+     * @return CreateAutoGroupingRuleResponse
+     */
+    public function createAutoGroupingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAutoGroupingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建云账号.
+     *
+     * @remarks
+     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
+     * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
+     * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html) .
+     * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+     *
+     * @param request - CreateCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCloudAccountResponse
+     *
+     * @param CreateCloudAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCloudAccountResponse
      */
     public function createCloudAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $query['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$query['ParentFolderId'] = $request->parentFolderId;
         }
-        if (!Utils::isUnset($request->payerAccountId)) {
-            $query['PayerAccountId'] = $request->payerAccountId;
+
+        if (null !== $request->payerAccountId) {
+            @$query['PayerAccountId'] = $request->payerAccountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCloudAccount',
@@ -762,19 +1061,28 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
-     *   * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](~~159392~~).
-     *   * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](~~159395~~) .
-     *   * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
-     *   *
-     * @param CreateCloudAccountRequest $request CreateCloudAccountRequest
+     * 创建云账号.
      *
-     * @return CreateCloudAccountResponse CreateCloudAccountResponse
+     * @remarks
+     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
+     * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
+     * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html) .
+     * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+     *
+     * @param request - CreateCloudAccountRequest
+     * @returns CreateCloudAccountResponse
+     *
+     * @param CreateCloudAccountRequest $request
+     *
+     * @return CreateCloudAccountResponse
      */
     public function createCloudAccount($request)
     {
@@ -784,31 +1092,40 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
-     *   *
-     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateControlPolicyResponse CreateControlPolicyResponse
+     * @param request - CreateControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateControlPolicyResponse
+     *
+     * @param CreateControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateControlPolicyResponse
      */
     public function createControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->effectScope)) {
-            $query['EffectScope'] = $request->effectScope;
+
+        if (null !== $request->effectScope) {
+            @$query['EffectScope'] = $request->effectScope;
         }
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateControlPolicy',
@@ -821,16 +1138,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
-     *   *
-     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
      *
-     * @return CreateControlPolicyResponse CreateControlPolicyResponse
+     * @param request - CreateControlPolicyRequest
+     * @returns CreateControlPolicyResponse
+     *
+     * @param CreateControlPolicyRequest $request
+     *
+     * @return CreateControlPolicyResponse
      */
     public function createControlPolicy($request)
     {
@@ -840,26 +1164,33 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * >  A maximum of five levels of folders can be created under the root folder.
-     *   * In this example, a folder named `rdFolder` is created under the root folder.
-     *   *
-     * @param CreateFolderRequest $request CreateFolderRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * In this example, a folder named `rdFolder` is created under the root folder.
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @param request - CreateFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFolderResponse
+     *
+     * @param CreateFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFolderResponse
      */
     public function createFolderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->folderName)) {
-            $query['FolderName'] = $request->folderName;
+        if (null !== $request->folderName) {
+            @$query['FolderName'] = $request->folderName;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $query['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$query['ParentFolderId'] = $request->parentFolderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFolder',
@@ -872,17 +1203,24 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * >  A maximum of five levels of folders can be created under the root folder.
-     *   * In this example, a folder named `rdFolder` is created under the root folder.
-     *   *
-     * @param CreateFolderRequest $request CreateFolderRequest
+     * In this example, a folder named `rdFolder` is created under the root folder.
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @param request - CreateFolderRequest
+     * @returns CreateFolderResponse
+     *
+     * @param CreateFolderRequest $request
+     *
+     * @return CreateFolderResponse
      */
     public function createFolder($request)
     {
@@ -892,6 +1230,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a policy.
+     *
+     * @param request - CreatePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePolicyResponse
+     *
      * @param CreatePolicyRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -899,19 +1243,22 @@ class ResourceManager extends OpenApiClient
      */
     public function createPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePolicy',
@@ -924,11 +1271,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a policy.
+     *
+     * @param request - CreatePolicyRequest
+     * @returns CreatePolicyResponse
+     *
      * @param CreatePolicyRequest $request
      *
      * @return CreatePolicyResponse
@@ -941,6 +1296,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 创建权限策略版本.
+     *
+     * @param request - CreatePolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePolicyVersionResponse
+     *
      * @param CreatePolicyVersionRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -948,19 +1309,22 @@ class ResourceManager extends OpenApiClient
      */
     public function createPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyDocument)) {
-            $query['PolicyDocument'] = $request->policyDocument;
+        if (null !== $request->policyDocument) {
+            @$query['PolicyDocument'] = $request->policyDocument;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->setAsDefault)) {
-            $query['SetAsDefault'] = $request->setAsDefault;
+
+        if (null !== $request->setAsDefault) {
+            @$query['SetAsDefault'] = $request->setAsDefault;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePolicyVersion',
@@ -973,11 +1337,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 创建权限策略版本.
+     *
+     * @param request - CreatePolicyVersionRequest
+     * @returns CreatePolicyVersionResponse
+     *
      * @param CreatePolicyVersionRequest $request
      *
      * @return CreatePolicyVersionResponse
@@ -990,38 +1362,50 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
-     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
-     *   *
-     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a member of the resource account type.
      *
-     * @return CreateResourceAccountResponse CreateResourceAccountResponse
+     * @remarks
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *
+     * @param request - CreateResourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateResourceAccountResponse
+     *
+     * @param CreateResourceAccountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateResourceAccountResponse
      */
     public function createResourceAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountNamePrefix)) {
-            $query['AccountNamePrefix'] = $request->accountNamePrefix;
+        if (null !== $request->accountNamePrefix) {
+            @$query['AccountNamePrefix'] = $request->accountNamePrefix;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $query['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$query['ParentFolderId'] = $request->parentFolderId;
         }
-        if (!Utils::isUnset($request->payerAccountId)) {
-            $query['PayerAccountId'] = $request->payerAccountId;
+
+        if (null !== $request->payerAccountId) {
+            @$query['PayerAccountId'] = $request->payerAccountId;
         }
-        if (!Utils::isUnset($request->resellAccountType)) {
-            $query['ResellAccountType'] = $request->resellAccountType;
+
+        if (null !== $request->resellAccountType) {
+            @$query['ResellAccountType'] = $request->resellAccountType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateResourceAccount',
@@ -1034,17 +1418,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
-     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
-     *   *
-     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
+     * Creates a member of the resource account type.
      *
-     * @return CreateResourceAccountResponse CreateResourceAccountResponse
+     * @remarks
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *
+     * @param request - CreateResourceAccountRequest
+     * @returns CreateResourceAccountResponse
+     *
+     * @param CreateResourceAccountRequest $request
+     *
+     * @return CreateResourceAccountResponse
      */
     public function createResourceAccount($request)
     {
@@ -1054,28 +1446,38 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
-     *   *
-     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a resource group.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @remarks
+     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+     *
+     * @param request - CreateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateResourceGroup',
@@ -1088,16 +1490,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
-     *   *
-     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * Creates a resource group.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @remarks
+     * >  A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+     *
+     * @param request - CreateResourceGroupRequest
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroup($request)
     {
@@ -1107,6 +1518,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a RAM role.
+     *
+     * @param request - CreateRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRoleResponse
+     *
      * @param CreateRoleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1114,22 +1531,26 @@ class ResourceManager extends OpenApiClient
      */
     public function createRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->assumeRolePolicyDocument)) {
-            $query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
+        if (null !== $request->assumeRolePolicyDocument) {
+            @$query['AssumeRolePolicyDocument'] = $request->assumeRolePolicyDocument;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->maxSessionDuration)) {
-            $query['MaxSessionDuration'] = $request->maxSessionDuration;
+
+        if (null !== $request->maxSessionDuration) {
+            @$query['MaxSessionDuration'] = $request->maxSessionDuration;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRole',
@@ -1142,11 +1563,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a RAM role.
+     *
+     * @param request - CreateRoleRequest
+     * @returns CreateRoleResponse
+     *
      * @param CreateRoleRequest $request
      *
      * @return CreateRoleResponse
@@ -1159,6 +1588,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 创建服务关联角色.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceLinkedRoleResponse
+     *
      * @param CreateServiceLinkedRoleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1166,19 +1601,22 @@ class ResourceManager extends OpenApiClient
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customSuffix)) {
-            $query['CustomSuffix'] = $request->customSuffix;
+        if (null !== $request->customSuffix) {
+            @$query['CustomSuffix'] = $request->customSuffix;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRole',
@@ -1191,11 +1629,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 创建服务关联角色.
+     *
+     * @param request - CreateServiceLinkedRoleRequest
+     * @returns CreateServiceLinkedRoleResponse
+     *
      * @param CreateServiceLinkedRoleRequest $request
      *
      * @return CreateServiceLinkedRoleResponse
@@ -1208,6 +1654,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Rejects an invitation.
+     *
+     * @param request - DeclineHandshakeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeclineHandshakeResponse
+     *
      * @param DeclineHandshakeRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1215,13 +1667,14 @@ class ResourceManager extends OpenApiClient
      */
     public function declineHandshakeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->handshakeId)) {
-            $query['HandshakeId'] = $request->handshakeId;
+        if (null !== $request->handshakeId) {
+            @$query['HandshakeId'] = $request->handshakeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeclineHandshake',
@@ -1234,11 +1687,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeclineHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Rejects an invitation.
+     *
+     * @param request - DeclineHandshakeRequest
+     * @returns DeclineHandshakeResponse
+     *
      * @param DeclineHandshakeRequest $request
      *
      * @return DeclineHandshakeResponse
@@ -1251,30 +1712,40 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * The ID of the member that you want to delete.
-     *   *
-     * @param DeleteAccountRequest $tmpReq  DeleteAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 账号一键删除.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @remarks
+     * The ID of the member that you want to delete.
+     *
+     * @param tmpReq - DeleteAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccountWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteAccountShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->abandonableCheckId)) {
-            $request->abandonableCheckIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->abandonableCheckId, 'AbandonableCheckId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->abandonableCheckId) {
+            $request->abandonableCheckIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->abandonableCheckId, 'AbandonableCheckId', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->abandonableCheckIdShrink)) {
-            $query['AbandonableCheckId'] = $request->abandonableCheckIdShrink;
+        if (null !== $request->abandonableCheckIdShrink) {
+            @$query['AbandonableCheckId'] = $request->abandonableCheckIdShrink;
         }
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccount',
@@ -1287,16 +1758,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * The ID of the member that you want to delete.
-     *   *
-     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * 账号一键删除.
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @remarks
+     * The ID of the member that you want to delete.
+     *
+     * @param request - DeleteAccountRequest
+     * @returns DeleteAccountResponse
+     *
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1306,23 +1786,89 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](~~208331~~) operation to detach the policy before you delete it.
-     *   * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
-     *   *
-     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a transfer rule.
      *
-     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
+     * @param request - DeleteAutoGroupingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAutoGroupingRuleResponse
+     *
+     * @param DeleteAutoGroupingRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAutoGroupingRuleResponse
+     */
+    public function deleteAutoGroupingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAutoGroupingRule',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a transfer rule.
+     *
+     * @param request - DeleteAutoGroupingRuleRequest
+     * @returns DeleteAutoGroupingRuleResponse
+     *
+     * @param DeleteAutoGroupingRuleRequest $request
+     *
+     * @return DeleteAutoGroupingRuleResponse
+     */
+    public function deleteAutoGroupingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAutoGroupingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除管控策略.
+     *
+     * @remarks
+     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
+     * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+     *
+     * @param request - DeleteControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteControlPolicyResponse
+     *
+     * @param DeleteControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteControlPolicyResponse
      */
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteControlPolicy',
@@ -1335,17 +1881,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](~~208331~~) operation to detach the policy before you delete it.
-     *   * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
-     *   *
-     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
+     * 删除管控策略.
      *
-     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
+     * @remarks
+     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
+     * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+     *
+     * @param request - DeleteControlPolicyRequest
+     * @returns DeleteControlPolicyResponse
+     *
+     * @param DeleteControlPolicyRequest $request
+     *
+     * @return DeleteControlPolicyResponse
      */
     public function deleteControlPolicy($request)
     {
@@ -1355,22 +1910,28 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
-     *   *
-     * @param DeleteFolderRequest $request DeleteFolderRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @param request - DeleteFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFolderResponse
      */
     public function deleteFolderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFolder',
@@ -1383,16 +1944,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
-     *   *
-     * @param DeleteFolderRequest $request DeleteFolderRequest
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @param request - DeleteFolderRequest
+     * @returns DeleteFolderResponse
+     *
+     * @param DeleteFolderRequest $request
+     *
+     * @return DeleteFolderResponse
      */
     public function deleteFolder($request)
     {
@@ -1402,24 +1970,32 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](~~159041~~).
-     *   * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](~~159168~~).
-     *   *
-     * @param DeletePolicyRequest $request DeletePolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 删除权限策略.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @remarks
+     * >
+     * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+     * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+     *
+     * @param request - DeletePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePolicy',
@@ -1432,18 +2008,27 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >
-     *   * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](~~159041~~).
-     *   * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](~~159168~~).
-     *   *
-     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * 删除权限策略.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @remarks
+     * >
+     * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+     * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+     *
+     * @param request - DeletePolicyRequest
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -1453,25 +2038,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >  The default version of a permission policy cannot be deleted.
-     *   *
-     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除权限策略版本.
      *
-     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
+     * @remarks
+     * >  The default version of a permission policy cannot be deleted.
+     *
+     * @param request - DeletePolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePolicyVersionResponse
+     *
+     * @param DeletePolicyVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeletePolicyVersionResponse
      */
     public function deletePolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePolicyVersion',
@@ -1484,16 +2078,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  The default version of a permission policy cannot be deleted.
-     *   *
-     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
+     * 删除权限策略版本.
      *
-     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
+     * @remarks
+     * >  The default version of a permission policy cannot be deleted.
+     *
+     * @param request - DeletePolicyVersionRequest
+     * @returns DeletePolicyVersionResponse
+     *
+     * @param DeletePolicyVersionRequest $request
+     *
+     * @return DeletePolicyVersionResponse
      */
     public function deletePolicyVersion($request)
     {
@@ -1503,23 +2106,31 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >  Before you delete a resource group, you must delete all the resources in it.
-     *   * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
-     *   *
-     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a resource group.
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @remarks
+     * >  Before you delete a resource group, you must delete all the resources in it.
+     * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+     *
+     * @param request - DeleteResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteResourceGroup',
@@ -1532,17 +2143,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  Before you delete a resource group, you must delete all the resources in it.
-     *   * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
-     *   *
-     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
+     * Deletes a resource group.
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @remarks
+     * >  Before you delete a resource group, you must delete all the resources in it.
+     * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+     *
+     * @param request - DeleteResourceGroupRequest
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     *
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroup($request)
     {
@@ -1552,6 +2172,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 删除角色.
+     *
+     * @param request - DeleteRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRoleResponse
+     *
      * @param DeleteRoleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1559,13 +2185,14 @@ class ResourceManager extends OpenApiClient
      */
     public function deleteRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRole',
@@ -1578,11 +2205,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 删除角色.
+     *
+     * @param request - DeleteRoleRequest
+     * @returns DeleteRoleResponse
+     *
      * @param DeleteRoleRequest $request
      *
      * @return DeleteRoleResponse
@@ -1595,6 +2230,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 删除服务关联角色.
+     *
+     * @param request - DeleteServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteServiceLinkedRoleResponse
+     *
      * @param DeleteServiceLinkedRoleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1602,13 +2243,14 @@ class ResourceManager extends OpenApiClient
      */
     public function deleteServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteServiceLinkedRole',
@@ -1621,11 +2263,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 删除服务关联角色.
+     *
+     * @param request - DeleteServiceLinkedRoleRequest
+     * @returns DeleteServiceLinkedRoleResponse
+     *
      * @param DeleteServiceLinkedRoleRequest $request
      *
      * @return DeleteServiceLinkedRoleResponse
@@ -1638,26 +2288,35 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-     *   * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
-     *   *
-     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 注销代理管理员.
      *
-     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
+     * @remarks
+     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+     *
+     * @param request - DeregisterDelegatedAdministratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeregisterDelegatedAdministratorResponse
+     *
+     * @param DeregisterDelegatedAdministratorRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->servicePrincipal)) {
-            $query['ServicePrincipal'] = $request->servicePrincipal;
+
+        if (null !== $request->servicePrincipal) {
+            @$query['ServicePrincipal'] = $request->servicePrincipal;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeregisterDelegatedAdministrator',
@@ -1670,17 +2329,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeregisterDelegatedAdministratorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-     *   * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
-     *   *
-     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
+     * 注销代理管理员.
      *
-     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
+     * @remarks
+     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+     *
+     * @param request - DeregisterDelegatedAdministratorRequest
+     * @returns DeregisterDelegatedAdministratorResponse
+     *
+     * @param DeregisterDelegatedAdministratorRequest $request
+     *
+     * @return DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministrator($request)
     {
@@ -1690,13 +2358,18 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * Before you disable a resource directory, make sure that the following requirements are met:
-     *   * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](~~159431~~).
-     *   * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](~~159432~~).
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+     * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
      *
-     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
+     * @param request - DestroyResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DestroyResourceDirectoryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
@@ -1712,16 +2385,21 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DestroyResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * Before you disable a resource directory, make sure that the following requirements are met:
-     *   * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](~~159431~~).
-     *   * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](~~159432~~).
-     *   *
-     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
+     * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+     * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+     * @returns DestroyResourceDirectoryResponse
+     *
+     * @return DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectory()
     {
@@ -1731,27 +2409,36 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
-     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
-     *   * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
-     *   *
-     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 解绑管控策略.
      *
-     * @return DetachControlPolicyResponse DetachControlPolicyResponse
+     * @remarks
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+     *
+     * @param request - DetachControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachControlPolicyResponse
+     *
+     * @param DetachControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetachControlPolicyResponse
      */
     public function detachControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachControlPolicy',
@@ -1764,18 +2451,27 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
-     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
-     *   * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
-     *   *
-     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
+     * 解绑管控策略.
      *
-     * @return DetachControlPolicyResponse DetachControlPolicyResponse
+     * @remarks
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+     *
+     * @param request - DetachControlPolicyRequest
+     * @returns DetachControlPolicyResponse
+     *
+     * @param DetachControlPolicyRequest $request
+     *
+     * @return DetachControlPolicyResponse
      */
     public function detachControlPolicy($request)
     {
@@ -1785,6 +2481,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 为RAM身份移除权限.
+     *
+     * @param request - DetachPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachPolicyResponse
+     *
      * @param DetachPolicyRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1792,25 +2494,30 @@ class ResourceManager extends OpenApiClient
      */
     public function detachPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->principalName)) {
-            $query['PrincipalName'] = $request->principalName;
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
         }
-        if (!Utils::isUnset($request->principalType)) {
-            $query['PrincipalType'] = $request->principalType;
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachPolicy',
@@ -1823,11 +2530,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 为RAM身份移除权限.
+     *
+     * @param request - DetachPolicyRequest
+     * @returns DetachPolicyResponse
+     *
      * @param DetachPolicyRequest $request
      *
      * @return DetachPolicyResponse
@@ -1840,6 +2555,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Disables the Transfer Associated Resources feature.
+     *
+     * @param request - DisableAssociatedTransferRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableAssociatedTransferResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return DisableAssociatedTransferResponse
@@ -1858,11 +2579,18 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableAssociatedTransferResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Disables the Transfer Associated Resources feature.
+     *
+     * @returns DisableAssociatedTransferResponse
+     *
      * @return DisableAssociatedTransferResponse
      */
     public function disableAssociatedTransfer()
@@ -1873,12 +2601,65 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
-     *   * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Disables the Automatic Resource Transfer feature. After the feature is disabled, existing custom transfer rules and existing transfer rules for associated resources are deleted. However, existing relationships between resources and resource groups are not affected. If you still want to use this feature, you can enable it again 1 minute later.
      *
-     * @return DisableControlPolicyResponse DisableControlPolicyResponse
+     * @param request - DisableAutoGroupingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableAutoGroupingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableAutoGroupingResponse
+     */
+    public function disableAutoGroupingWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DisableAutoGrouping',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DisableAutoGroupingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Disables the Automatic Resource Transfer feature. After the feature is disabled, existing custom transfer rules and existing transfer rules for associated resources are deleted. However, existing relationships between resources and resource groups are not affected. If you still want to use this feature, you can enable it again 1 minute later.
+     *
+     * @returns DisableAutoGroupingResponse
+     *
+     * @return DisableAutoGroupingResponse
+     */
+    public function disableAutoGrouping()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableAutoGroupingWithOptions($runtime);
+    }
+
+    /**
+     * 禁用管控策略.
+     *
+     * @remarks
+     * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
+     * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+     *
+     * @param request - DisableControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableControlPolicyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableControlPolicyResponse
      */
     public function disableControlPolicyWithOptions($runtime)
     {
@@ -1894,15 +2675,22 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 禁用管控策略.
+     *
+     * @remarks
      * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
-     *   * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
-     *   *
-     * @return DisableControlPolicyResponse DisableControlPolicyResponse
+     * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+     * @returns DisableControlPolicyResponse
+     *
+     * @return DisableControlPolicyResponse
      */
     public function disableControlPolicy()
     {
@@ -1912,6 +2700,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Enables the Transfer Associated Resources feature.
+     *
+     * @param request - EnableAssociatedTransferRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableAssociatedTransferResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return EnableAssociatedTransferResponse
@@ -1930,11 +2724,18 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableAssociatedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableAssociatedTransferResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Enables the Transfer Associated Resources feature.
+     *
+     * @returns EnableAssociatedTransferResponse
+     *
      * @return EnableAssociatedTransferResponse
      */
     public function enableAssociatedTransfer()
@@ -1945,11 +2746,64 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables the Automatic Resource Transfer feature. After the feature is enabled, you can create, update, delete, and query transfer rules.
      *
-     * @return EnableControlPolicyResponse EnableControlPolicyResponse
+     * @param request - EnableAutoGroupingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableAutoGroupingResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableAutoGroupingResponse
+     */
+    public function enableAutoGroupingWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EnableAutoGrouping',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableAutoGroupingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return EnableAutoGroupingResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Enables the Automatic Resource Transfer feature. After the feature is enabled, you can create, update, delete, and query transfer rules.
+     *
+     * @returns EnableAutoGroupingResponse
+     *
+     * @return EnableAutoGroupingResponse
+     */
+    public function enableAutoGrouping()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAutoGroupingWithOptions($runtime);
+    }
+
+    /**
+     * Enables the Control Policy feature.
+     *
+     * @remarks
+     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+     *
+     * @param request - EnableControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableControlPolicyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableControlPolicyResponse
      */
     public function enableControlPolicyWithOptions($runtime)
     {
@@ -1965,14 +2819,21 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
-     *   *
-     * @return EnableControlPolicyResponse EnableControlPolicyResponse
+     * Enables the Control Policy feature.
+     *
+     * @remarks
+     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+     * @returns EnableControlPolicyResponse
+     *
+     * @return EnableControlPolicyResponse
      */
     public function enableControlPolicy()
     {
@@ -1982,32 +2843,43 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
-     *   * In this example, the current account is used to enable a resource directory.
-     *   *
-     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 开启RD.
      *
-     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
+     * @remarks
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+     * In this example, the current account is used to enable a resource directory.
+     *
+     * @param request - EnableResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableResourceDirectoryResponse
+     *
+     * @param EnableResourceDirectoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableResourceDirectoryResponse
      */
     public function enableResourceDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableMode)) {
-            $query['EnableMode'] = $request->enableMode;
+        if (null !== $request->enableMode) {
+            @$query['EnableMode'] = $request->enableMode;
         }
-        if (!Utils::isUnset($request->MAName)) {
-            $query['MAName'] = $request->MAName;
+
+        if (null !== $request->MAName) {
+            @$query['MAName'] = $request->MAName;
         }
-        if (!Utils::isUnset($request->MASecureMobilePhone)) {
-            $query['MASecureMobilePhone'] = $request->MASecureMobilePhone;
+
+        if (null !== $request->MASecureMobilePhone) {
+            @$query['MASecureMobilePhone'] = $request->MASecureMobilePhone;
         }
-        if (!Utils::isUnset($request->verificationCode)) {
-            $query['VerificationCode'] = $request->verificationCode;
+
+        if (null !== $request->verificationCode) {
+            @$query['VerificationCode'] = $request->verificationCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableResourceDirectory',
@@ -2020,17 +2892,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
-     *   * In this example, the current account is used to enable a resource directory.
-     *   *
-     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
+     * 开启RD.
      *
-     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
+     * @remarks
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+     * In this example, the current account is used to enable a resource directory.
+     *
+     * @param request - EnableResourceDirectoryRequest
+     * @returns EnableResourceDirectoryResponse
+     *
+     * @param EnableResourceDirectoryRequest $request
+     *
+     * @return EnableResourceDirectoryResponse
      */
     public function enableResourceDirectory($request)
     {
@@ -2040,25 +2921,32 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
-     *   *
-     * @param GetAccountRequest $request GetAccountRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountResponse GetAccountResponse
+     * @param request - GetAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAccountResponse
+     *
+     * @param GetAccountRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetAccountResponse
      */
     public function getAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAccount',
@@ -2071,16 +2959,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
-     *   *
-     * @param GetAccountRequest $request GetAccountRequest
      *
-     * @return GetAccountResponse GetAccountResponse
+     * @param request - GetAccountRequest
+     * @returns GetAccountResponse
+     *
+     * @param GetAccountRequest $request
+     *
+     * @return GetAccountResponse
      */
     public function getAccount($request)
     {
@@ -2090,23 +2985,31 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * After you call the [CheckAccountDelete](~~448542~~) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-     *   * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
-     *   *
-     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the result of a member deletion check.
      *
-     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
+     * @remarks
+     * After you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+     *
+     * @param request - GetAccountDeletionCheckResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAccountDeletionCheckResultResponse
+     *
+     * @param GetAccountDeletionCheckResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAccountDeletionCheckResult',
@@ -2119,17 +3022,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountDeletionCheckResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * After you call the [CheckAccountDelete](~~448542~~) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-     *   * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
-     *   *
-     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
+     * Queries the result of a member deletion check.
      *
-     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
+     * @remarks
+     * After you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+     *
+     * @param request - GetAccountDeletionCheckResultRequest
+     * @returns GetAccountDeletionCheckResultResponse
+     *
+     * @param GetAccountDeletionCheckResultRequest $request
+     *
+     * @return GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResult($request)
     {
@@ -2139,22 +3051,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
-     *   *
-     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取账号删除状态
      *
-     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+     *
+     * @param request - GetAccountDeletionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAccountDeletionStatusResponse
+     *
+     * @param GetAccountDeletionStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAccountDeletionStatus',
@@ -2167,16 +3087,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAccountDeletionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
-     *   *
-     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
+     * 获取账号删除状态
      *
-     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+     *
+     * @param request - GetAccountDeletionStatusRequest
+     * @returns GetAccountDeletionStatusResponse
+     *
+     * @param GetAccountDeletionStatusRequest $request
+     *
+     * @return GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatus($request)
     {
@@ -2186,25 +3115,136 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
-     *   *
-     * @param GetControlPolicyRequest $request GetControlPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a transfer rule.
      *
-     * @return GetControlPolicyResponse GetControlPolicyResponse
+     * @param request - GetAutoGroupingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAutoGroupingRuleResponse
+     *
+     * @param GetAutoGroupingRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAutoGroupingRuleResponse
+     */
+    public function getAutoGroupingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAutoGroupingRule',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about a transfer rule.
+     *
+     * @param request - GetAutoGroupingRuleRequest
+     * @returns GetAutoGroupingRuleResponse
+     *
+     * @param GetAutoGroupingRuleRequest $request
+     *
+     * @return GetAutoGroupingRuleResponse
+     */
+    public function getAutoGroupingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutoGroupingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the status of the Automatic Resource Transfer feature.
+     *
+     * @param request - GetAutoGroupingStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAutoGroupingStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAutoGroupingStatusResponse
+     */
+    public function getAutoGroupingStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAutoGroupingStatus',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAutoGroupingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAutoGroupingStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of the Automatic Resource Transfer feature.
+     *
+     * @returns GetAutoGroupingStatusResponse
+     *
+     * @return GetAutoGroupingStatusResponse
+     */
+    public function getAutoGroupingStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutoGroupingStatusWithOptions($runtime);
+    }
+
+    /**
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
+     *
+     * @param request - GetControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetControlPolicyResponse
+     *
+     * @param GetControlPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetControlPolicyResponse
      */
     public function getControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetControlPolicy',
@@ -2217,16 +3257,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
-     *   *
-     * @param GetControlPolicyRequest $request GetControlPolicyRequest
      *
-     * @return GetControlPolicyResponse GetControlPolicyResponse
+     * @param request - GetControlPolicyRequest
+     * @returns GetControlPolicyResponse
+     *
+     * @param GetControlPolicyRequest $request
+     *
+     * @return GetControlPolicyResponse
      */
     public function getControlPolicy($request)
     {
@@ -2236,6 +3283,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the status of the Control Policy feature.
+     *
+     * @param request - GetControlPolicyEnablementStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetControlPolicyEnablementStatusResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return GetControlPolicyEnablementStatusResponse
@@ -2254,11 +3307,18 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetControlPolicyEnablementStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the status of the Control Policy feature.
+     *
+     * @returns GetControlPolicyEnablementStatusResponse
+     *
      * @return GetControlPolicyEnablementStatusResponse
      */
     public function getControlPolicyEnablementStatus()
@@ -2269,22 +3329,28 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * In this example, the information of the folder `fd-Jyl5U7****` is queried.
-     *   *
-     * @param GetFolderRequest $request GetFolderRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFolderResponse GetFolderResponse
+     * @param request - GetFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFolderResponse
+     *
+     * @param GetFolderRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetFolderResponse
      */
     public function getFolderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFolder',
@@ -2297,16 +3363,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * In this example, the information of the folder `fd-Jyl5U7****` is queried.
-     *   *
-     * @param GetFolderRequest $request GetFolderRequest
      *
-     * @return GetFolderResponse GetFolderResponse
+     * @param request - GetFolderRequest
+     * @returns GetFolderResponse
+     *
+     * @param GetFolderRequest $request
+     *
+     * @return GetFolderResponse
      */
     public function getFolder($request)
     {
@@ -2316,22 +3389,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
-     *   *
-     * @param GetHandshakeRequest $request GetHandshakeRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the information of an invitation.
      *
-     * @return GetHandshakeResponse GetHandshakeResponse
+     * @remarks
+     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+     *
+     * @param request - GetHandshakeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHandshakeResponse
+     *
+     * @param GetHandshakeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetHandshakeResponse
      */
     public function getHandshakeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->handshakeId)) {
-            $query['HandshakeId'] = $request->handshakeId;
+        if (null !== $request->handshakeId) {
+            @$query['HandshakeId'] = $request->handshakeId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHandshake',
@@ -2344,16 +3425,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHandshakeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
-     *   *
-     * @param GetHandshakeRequest $request GetHandshakeRequest
+     * Queries the information of an invitation.
      *
-     * @return GetHandshakeResponse GetHandshakeResponse
+     * @remarks
+     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+     *
+     * @param request - GetHandshakeRequest
+     * @returns GetHandshakeResponse
+     *
+     * @param GetHandshakeRequest $request
+     *
+     * @return GetHandshakeResponse
      */
     public function getHandshake($request)
     {
@@ -2363,6 +3453,10 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param request - GetPayerForAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPayerForAccountResponse
+     *
      * @param GetPayerForAccountRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2370,13 +3464,14 @@ class ResourceManager extends OpenApiClient
      */
     public function getPayerForAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPayerForAccount',
@@ -2389,11 +3484,17 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPayerForAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetPayerForAccountRequest
+     * @returns GetPayerForAccountResponse
+     *
      * @param GetPayerForAccountRequest $request
      *
      * @return GetPayerForAccountResponse
@@ -2406,6 +3507,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a policy.
+     *
+     * @param request - GetPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPolicyResponse
+     *
      * @param GetPolicyRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2413,19 +3520,22 @@ class ResourceManager extends OpenApiClient
      */
     public function getPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPolicy',
@@ -2438,11 +3548,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of a policy.
+     *
+     * @param request - GetPolicyRequest
+     * @returns GetPolicyResponse
+     *
      * @param GetPolicyRequest $request
      *
      * @return GetPolicyResponse
@@ -2455,6 +3573,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 获取权限策略的指定版本.
+     *
+     * @param request - GetPolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPolicyVersionResponse
+     *
      * @param GetPolicyVersionRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2462,19 +3586,22 @@ class ResourceManager extends OpenApiClient
      */
     public function getPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPolicyVersion',
@@ -2487,11 +3614,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 获取权限策略的指定版本.
+     *
+     * @param request - GetPolicyVersionRequest
+     * @returns GetPolicyVersionResponse
+     *
      * @param GetPolicyVersionRequest $request
      *
      * @return GetPolicyVersionResponse
@@ -2504,11 +3639,18 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of.
      *
-     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
+     * @remarks
+     * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+     *
+     * @param request - GetResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceDirectoryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceDirectoryResponse
      */
     public function getResourceDirectoryWithOptions($runtime)
     {
@@ -2524,14 +3666,21 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of.
+     *
+     * @remarks
      * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
-     *   *
-     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
+     * @returns GetResourceDirectoryResponse
+     *
+     * @return GetResourceDirectoryResponse
      */
     public function getResourceDirectory()
     {
@@ -2541,25 +3690,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~159973~~).
-     *   *
-     * @param GetResourceGroupRequest $request GetResourceGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * In this example, the information of the resource group whose ID is `rg-9gLOoK****` is queried.
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/159973.html).
+     *
+     * @param request - GetResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceGroupResponse
+     *
+     * @param GetResourceGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceGroup',
@@ -2572,16 +3730,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * For more information about common request parameters, see [Common parameters](~~159973~~).
-     *   *
-     * @param GetResourceGroupRequest $request GetResourceGroupRequest
+     * In this example, the information of the resource group whose ID is `rg-9gLOoK****` is queried.
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/159973.html).
+     *
+     * @param request - GetResourceGroupRequest
+     * @returns GetResourceGroupResponse
+     *
+     * @param GetResourceGroupRequest $request
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroup($request)
     {
@@ -2591,6 +3758,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a RAM role.
+     *
+     * @param request - GetRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRoleResponse
+     *
      * @param GetRoleRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -2598,16 +3771,18 @@ class ResourceManager extends OpenApiClient
      */
     public function getRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRole',
@@ -2620,11 +3795,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of a RAM role.
+     *
+     * @param request - GetRoleRequest
+     * @returns GetRoleResponse
+     *
      * @param GetRoleRequest $request
      *
      * @return GetRoleResponse
@@ -2637,6 +3820,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Query the status of the deletion task for a service linked role.
+     *
+     * @param request - GetServiceLinkedRoleDeletionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceLinkedRoleDeletionStatusResponse
+     *
      * @param GetServiceLinkedRoleDeletionStatusRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -2644,13 +3833,14 @@ class ResourceManager extends OpenApiClient
      */
     public function getServiceLinkedRoleDeletionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deletionTaskId)) {
-            $query['DeletionTaskId'] = $request->deletionTaskId;
+        if (null !== $request->deletionTaskId) {
+            @$query['DeletionTaskId'] = $request->deletionTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetServiceLinkedRoleDeletionStatus',
@@ -2663,11 +3853,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceLinkedRoleDeletionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Query the status of the deletion task for a service linked role.
+     *
+     * @param request - GetServiceLinkedRoleDeletionStatusRequest
+     * @returns GetServiceLinkedRoleDeletionStatusResponse
+     *
      * @param GetServiceLinkedRoleDeletionStatusRequest $request
      *
      * @return GetServiceLinkedRoleDeletionStatusResponse
@@ -2680,13 +3878,20 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
-     *   * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
-     *   *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables a resource directory. After you enable a resource directory, the system automatically creates a root folder and sets the current account as the enterprise management account of the resource directory. The enterprise management account has all administrative permissions on this resource direc.
      *
-     * @return InitResourceDirectoryResponse InitResourceDirectoryResponse
+     * @remarks
+     * >
+     * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
+     * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+     *
+     * @param request - InitResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InitResourceDirectoryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return InitResourceDirectoryResponse
      */
     public function initResourceDirectoryWithOptions($runtime)
     {
@@ -2702,16 +3907,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InitResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InitResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InitResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Enables a resource directory. After you enable a resource directory, the system automatically creates a root folder and sets the current account as the enterprise management account of the resource directory. The enterprise management account has all administrative permissions on this resource direc.
+     *
+     * @remarks
      * >
-     *   * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
-     *   * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
-     *   *
-     * @return InitResourceDirectoryResponse InitResourceDirectoryResponse
+     * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
+     * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+     * @returns InitResourceDirectoryResponse
+     *
+     * @return InitResourceDirectoryResponse
      */
     public function initResourceDirectory()
     {
@@ -2721,31 +3933,42 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
-     *   *
-     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Invites an account to join a resource directory.
      *
-     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+     *
+     * @param request - InviteAccountToResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InviteAccountToResourceDirectoryResponse
+     *
+     * @param InviteAccountToResourceDirectoryRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->targetEntity)) {
-            $query['TargetEntity'] = $request->targetEntity;
+
+        if (null !== $request->targetEntity) {
+            @$query['TargetEntity'] = $request->targetEntity;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InviteAccountToResourceDirectory',
@@ -2758,16 +3981,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InviteAccountToResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
-     *   *
-     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
+     * Invites an account to join a resource directory.
      *
-     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+     *
+     * @param request - InviteAccountToResourceDirectoryRequest
+     * @returns InviteAccountToResourceDirectoryResponse
+     *
+     * @param InviteAccountToResourceDirectoryRequest $request
+     *
+     * @return InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectory($request)
     {
@@ -2777,31 +4009,42 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
-     *   *
-     * @param ListAccountsRequest $request ListAccountsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries all the members in a resource directory.
      *
-     * @return ListAccountsResponse ListAccountsResponse
+     * @remarks
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *
+     * @param request - ListAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAccountsResponse
+     *
+     * @param ListAccountsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAccounts',
@@ -2814,16 +4057,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
-     *   *
-     * @param ListAccountsRequest $request ListAccountsRequest
+     * Queries all the members in a resource directory.
      *
-     * @return ListAccountsResponse ListAccountsResponse
+     * @remarks
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *
+     * @param request - ListAccountsRequest
+     * @returns ListAccountsResponse
+     *
+     * @param ListAccountsRequest $request
+     *
+     * @return ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -2833,6 +4085,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of members in a folder.
+     *
+     * @param request - ListAccountsForParentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAccountsForParentResponse
+     *
      * @param ListAccountsForParentRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2840,28 +4098,34 @@ class ResourceManager extends OpenApiClient
      */
     public function listAccountsForParentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $query['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$query['ParentFolderId'] = $request->parentFolderId;
         }
-        if (!Utils::isUnset($request->queryKeyword)) {
-            $query['QueryKeyword'] = $request->queryKeyword;
+
+        if (null !== $request->queryKeyword) {
+            @$query['QueryKeyword'] = $request->queryKeyword;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAccountsForParent',
@@ -2874,11 +4138,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAccountsForParentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of members in a folder.
+     *
+     * @param request - ListAccountsForParentRequest
+     * @returns ListAccountsForParentResponse
+     *
      * @param ListAccountsForParentRequest $request
      *
      * @return ListAccountsForParentResponse
@@ -2891,6 +4163,10 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param request - ListAncestorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAncestorsResponse
+     *
      * @param ListAncestorsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2898,13 +4174,14 @@ class ResourceManager extends OpenApiClient
      */
     public function listAncestorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->childId)) {
-            $query['ChildId'] = $request->childId;
+        if (null !== $request->childId) {
+            @$query['ChildId'] = $request->childId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAncestors',
@@ -2917,11 +4194,17 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAncestorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListAncestorsRequest
+     * @returns ListAncestorsResponse
+     *
      * @param ListAncestorsRequest $request
      *
      * @return ListAncestorsResponse
@@ -2934,6 +4217,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the settings of the Transfer Associated Resources feature.
+     *
+     * @param request - ListAssociatedTransferSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAssociatedTransferSettingResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListAssociatedTransferSettingResponse
@@ -2952,11 +4241,18 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAssociatedTransferSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the settings of the Transfer Associated Resources feature.
+     *
+     * @returns ListAssociatedTransferSettingResponse
+     *
      * @return ListAssociatedTransferSettingResponse
      */
     public function listAssociatedTransferSetting()
@@ -2967,31 +4263,116 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
-     *   *
-     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of transfer rules.
      *
-     * @return ListControlPoliciesResponse ListControlPoliciesResponse
+     * @param request - ListAutoGroupingRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAutoGroupingRulesResponse
+     *
+     * @param ListAutoGroupingRulesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAutoGroupingRulesResponse
+     */
+    public function listAutoGroupingRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAutoGroupingRules',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAutoGroupingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAutoGroupingRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of transfer rules.
+     *
+     * @param request - ListAutoGroupingRulesRequest
+     * @returns ListAutoGroupingRulesResponse
+     *
+     * @param ListAutoGroupingRulesRequest $request
+     *
+     * @return ListAutoGroupingRulesResponse
+     */
+    public function listAutoGroupingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAutoGroupingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries access control policies.
+     *
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+     *
+     * @param request - ListControlPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListControlPoliciesResponse
+     *
+     * @param ListControlPoliciesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListControlPoliciesResponse
      */
     public function listControlPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListControlPolicies',
@@ -3004,16 +4385,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListControlPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
-     *   *
-     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
+     * Queries access control policies.
      *
-     * @return ListControlPoliciesResponse ListControlPoliciesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+     *
+     * @param request - ListControlPoliciesRequest
+     * @returns ListControlPoliciesResponse
+     *
+     * @param ListControlPoliciesRequest $request
+     *
+     * @return ListControlPoliciesResponse
      */
     public function listControlPolicies($request)
     {
@@ -3023,25 +4413,32 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
+     * @param request - ListControlPolicyAttachmentsForTargetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListControlPolicyAttachmentsForTargetResponse
+     *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTargetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListControlPolicyAttachmentsForTarget',
@@ -3054,16 +4451,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
      *
-     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
+     * @param request - ListControlPolicyAttachmentsForTargetRequest
+     * @returns ListControlPolicyAttachmentsForTargetResponse
+     *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request
+     *
+     * @return ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTarget($request)
     {
@@ -3073,28 +4477,38 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
-     *   *
-     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 列出所有的代理管理员.
      *
-     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+     *
+     * @param request - ListDelegatedAdministratorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDelegatedAdministratorsResponse
+     *
+     * @param ListDelegatedAdministratorsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministratorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->servicePrincipal)) {
-            $query['ServicePrincipal'] = $request->servicePrincipal;
+
+        if (null !== $request->servicePrincipal) {
+            @$query['ServicePrincipal'] = $request->servicePrincipal;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDelegatedAdministrators',
@@ -3107,16 +4521,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDelegatedAdministratorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
-     *   *
-     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
+     * 列出所有的代理管理员.
      *
-     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+     *
+     * @param request - ListDelegatedAdministratorsRequest
+     * @returns ListDelegatedAdministratorsResponse
+     *
+     * @param ListDelegatedAdministratorsRequest $request
+     *
+     * @return ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministrators($request)
     {
@@ -3126,22 +4549,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
-     *   *
-     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查看指定账号被设置为哪些可信服务的委派管理员.
      *
-     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+     *
+     * @param request - ListDelegatedServicesForAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDelegatedServicesForAccountResponse
+     *
+     * @param ListDelegatedServicesForAccountRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDelegatedServicesForAccount',
@@ -3154,16 +4585,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDelegatedServicesForAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
-     *   *
-     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
+     * 查看指定账号被设置为哪些可信服务的委派管理员.
      *
-     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+     *
+     * @param request - ListDelegatedServicesForAccountRequest
+     * @returns ListDelegatedServicesForAccountResponse
+     *
+     * @param ListDelegatedServicesForAccountRequest $request
+     *
+     * @return ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccount($request)
     {
@@ -3173,31 +4613,40 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * >  You can view the information of only the first-level subfolders of a folder.
-     *   *
-     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFoldersForParentResponse ListFoldersForParentResponse
+     * @param request - ListFoldersForParentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFoldersForParentResponse
+     *
+     * @param ListFoldersForParentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListFoldersForParentResponse
      */
     public function listFoldersForParentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentFolderId)) {
-            $query['ParentFolderId'] = $request->parentFolderId;
+
+        if (null !== $request->parentFolderId) {
+            @$query['ParentFolderId'] = $request->parentFolderId;
         }
-        if (!Utils::isUnset($request->queryKeyword)) {
-            $query['QueryKeyword'] = $request->queryKeyword;
+
+        if (null !== $request->queryKeyword) {
+            @$query['QueryKeyword'] = $request->queryKeyword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFoldersForParent',
@@ -3210,16 +4659,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFoldersForParentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * >  You can view the information of only the first-level subfolders of a folder.
-     *   *
-     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
      *
-     * @return ListFoldersForParentResponse ListFoldersForParentResponse
+     * @param request - ListFoldersForParentRequest
+     * @returns ListFoldersForParentResponse
+     *
+     * @param ListFoldersForParentRequest $request
+     *
+     * @return ListFoldersForParentResponse
      */
     public function listFoldersForParent($request)
     {
@@ -3229,25 +4685,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
-     *   *
-     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the invitations that are associated with an account.
      *
-     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+     *
+     * @param request - ListHandshakesForAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHandshakesForAccountResponse
+     *
+     * @param ListHandshakesForAccountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHandshakesForAccount',
@@ -3260,16 +4725,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHandshakesForAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
-     *   *
-     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
+     * Queries the invitations that are associated with an account.
      *
-     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+     *
+     * @param request - ListHandshakesForAccountRequest
+     * @returns ListHandshakesForAccountResponse
+     *
+     * @param ListHandshakesForAccountRequest $request
+     *
+     * @return ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccount($request)
     {
@@ -3279,6 +4753,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries invitations in a resource directory.
+     *
+     * @param request - ListHandshakesForResourceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHandshakesForResourceDirectoryResponse
+     *
      * @param ListHandshakesForResourceDirectoryRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -3286,16 +4766,18 @@ class ResourceManager extends OpenApiClient
      */
     public function listHandshakesForResourceDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHandshakesForResourceDirectory',
@@ -3308,11 +4790,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHandshakesForResourceDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries invitations in a resource directory.
+     *
+     * @param request - ListHandshakesForResourceDirectoryRequest
+     * @returns ListHandshakesForResourceDirectoryResponse
+     *
      * @param ListHandshakesForResourceDirectoryRequest $request
      *
      * @return ListHandshakesForResourceDirectoryResponse
@@ -3325,6 +4815,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries policies.
+     *
+     * @param request - ListPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPoliciesResponse
+     *
      * @param ListPoliciesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3332,22 +4828,26 @@ class ResourceManager extends OpenApiClient
      */
     public function listPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPolicies',
@@ -3360,11 +4860,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries policies.
+     *
+     * @param request - ListPoliciesRequest
+     * @returns ListPoliciesResponse
+     *
      * @param ListPoliciesRequest $request
      *
      * @return ListPoliciesResponse
@@ -3377,46 +4885,61 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * You can view the following information:
-     *   * *   Policy attachment records under an Alibaba Cloud account or a resource group
-     *   * *   Policies attached to RAM users, RAM user groups, or RAM roles
-     *   * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group.
-     *   *
-     * @param ListPolicyAttachmentsRequest $request ListPolicyAttachmentsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries policy attachment records.
      *
-     * @return ListPolicyAttachmentsResponse ListPolicyAttachmentsResponse
+     * @remarks
+     * You can view the following information:
+     * *   Policy attachment records under an Alibaba Cloud account or a resource group
+     * *   Policies attached to RAM users, RAM user groups, or RAM roles
+     * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group
+     *
+     * @param request - ListPolicyAttachmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPolicyAttachmentsResponse
+     *
+     * @param ListPolicyAttachmentsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPolicyAttachmentsResponse
      */
     public function listPolicyAttachmentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->principalName)) {
-            $query['PrincipalName'] = $request->principalName;
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
         }
-        if (!Utils::isUnset($request->principalType)) {
-            $query['PrincipalType'] = $request->principalType;
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPolicyAttachments',
@@ -3429,19 +4952,28 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPolicyAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPolicyAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPolicyAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * You can view the following information:
-     *   * *   Policy attachment records under an Alibaba Cloud account or a resource group
-     *   * *   Policies attached to RAM users, RAM user groups, or RAM roles
-     *   * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group.
-     *   *
-     * @param ListPolicyAttachmentsRequest $request ListPolicyAttachmentsRequest
+     * Queries policy attachment records.
      *
-     * @return ListPolicyAttachmentsResponse ListPolicyAttachmentsResponse
+     * @remarks
+     * You can view the following information:
+     * *   Policy attachment records under an Alibaba Cloud account or a resource group
+     * *   Policies attached to RAM users, RAM user groups, or RAM roles
+     * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group
+     *
+     * @param request - ListPolicyAttachmentsRequest
+     * @returns ListPolicyAttachmentsResponse
+     *
+     * @param ListPolicyAttachmentsRequest $request
+     *
+     * @return ListPolicyAttachmentsResponse
      */
     public function listPolicyAttachments($request)
     {
@@ -3451,6 +4983,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 查看权限策略版本列表.
+     *
+     * @param request - ListPolicyVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPolicyVersionsResponse
+     *
      * @param ListPolicyVersionsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3458,16 +4996,18 @@ class ResourceManager extends OpenApiClient
      */
     public function listPolicyVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPolicyVersions',
@@ -3480,11 +5020,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPolicyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPolicyVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 查看权限策略版本列表.
+     *
+     * @param request - ListPolicyVersionsRequest
+     * @returns ListPolicyVersionsResponse
+     *
      * @param ListPolicyVersionsRequest $request
      *
      * @return ListPolicyVersionsResponse
@@ -3497,47 +5045,61 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
-     *   * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
-     *   *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceGroups',
@@ -3550,17 +5112,24 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
-     *   * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
-     *   *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -3570,44 +5139,59 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-     *   * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
-     *   *
-     * @param ListResourcesRequest $request ListResourcesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries resources that can be accessed by the current account in resource groups.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @remarks
+     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
+     * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *
+     * @param request - ListResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->resourceTypes)) {
-            $query['ResourceTypes'] = $request->resourceTypes;
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResources',
@@ -3620,17 +5204,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
-     *   * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
-     *   *
-     * @param ListResourcesRequest $request ListResourcesRequest
+     * Queries resources that can be accessed by the current account in resource groups.
      *
-     * @return ListResourcesResponse ListResourcesResponse
+     * @remarks
+     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
+     * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *
+     * @param request - ListResourcesRequest
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     *
+     * @return ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -3640,6 +5233,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries RAM roles.
+     *
+     * @param request - ListRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRolesResponse
+     *
      * @param ListRolesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3647,19 +5246,22 @@ class ResourceManager extends OpenApiClient
      */
     public function listRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRoles',
@@ -3672,11 +5274,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries RAM roles.
+     *
+     * @param request - ListRolesRequest
+     * @returns ListRolesResponse
+     *
      * @param ListRolesRequest $request
      *
      * @return ListRolesResponse
@@ -3689,31 +5299,42 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
-     *   *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 列出所有的Tag key.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+     *
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyFilter)) {
-            $query['KeyFilter'] = $request->keyFilter;
+        if (null !== $request->keyFilter) {
+            @$query['KeyFilter'] = $request->keyFilter;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -3726,16 +5347,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
-     *   *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * 列出所有的Tag key.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+     *
+     * @param request - ListTagKeysRequest
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3745,34 +5375,46 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to resource groups or the members in a resource directory.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -3785,16 +5427,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to resource groups or the members in a resource directory.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+     *
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3804,34 +5455,46 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
-     *   *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 列出所有的Tag values.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+     *
+     * @param request - ListTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->valueFilter)) {
-            $query['ValueFilter'] = $request->valueFilter;
+
+        if (null !== $request->valueFilter) {
+            @$query['ValueFilter'] = $request->valueFilter;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -3844,16 +5507,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
-     *   *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * 列出所有的Tag values.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+     *
+     * @param request - ListTagValuesRequest
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -3863,28 +5535,38 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the objects to which a specific control policy is attached.
      *
-     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
+     * @remarks
+     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+     *
+     * @param request - ListTargetAttachmentsForControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTargetAttachmentsForControlPolicyResponse
+     *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTargetAttachmentsForControlPolicy',
@@ -3897,16 +5579,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
-     *   *
-     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
+     * Queries the objects to which a specific control policy is attached.
      *
-     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
+     * @remarks
+     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+     *
+     * @param request - ListTargetAttachmentsForControlPolicyRequest
+     * @returns ListTargetAttachmentsForControlPolicyResponse
+     *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request
+     *
+     * @return ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicy($request)
     {
@@ -3916,29 +5607,37 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
-     *   * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
-     *   *
-     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
      *
-     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
+     * @param request - ListTrustedServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTrustedServiceStatusResponse
+     *
+     * @param ListTrustedServiceStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adminAccountId)) {
-            $query['AdminAccountId'] = $request->adminAccountId;
+        if (null !== $request->adminAccountId) {
+            @$query['AdminAccountId'] = $request->adminAccountId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTrustedServiceStatus',
@@ -3951,17 +5650,24 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTrustedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
-     *   * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
-     *   *
-     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
+     * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
      *
-     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
+     * @param request - ListTrustedServiceStatusRequest
+     * @returns ListTrustedServiceStatusResponse
+     *
+     * @param ListTrustedServiceStatusRequest $request
+     *
+     * @return ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatus($request)
     {
@@ -3971,6 +5677,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 移动账号.
+     *
+     * @param request - MoveAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveAccountResponse
+     *
      * @param MoveAccountRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3978,16 +5690,18 @@ class ResourceManager extends OpenApiClient
      */
     public function moveAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->destinationFolderId)) {
-            $query['DestinationFolderId'] = $request->destinationFolderId;
+
+        if (null !== $request->destinationFolderId) {
+            @$query['DestinationFolderId'] = $request->destinationFolderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveAccount',
@@ -4000,11 +5714,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 移动账号.
+     *
+     * @param request - MoveAccountRequest
+     * @returns MoveAccountResponse
+     *
      * @param MoveAccountRequest $request
      *
      * @return MoveAccountResponse
@@ -4017,26 +5739,35 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](~~94479~~).
-     *   * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
-     *   *
-     * @param MoveResourcesRequest $request MoveResourcesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Moves resources from one resource group to another. You can move multiple resources that reside in different regions, are used by different Alibaba Cloud services, or belong to different resource groups.
      *
-     * @return MoveResourcesResponse MoveResourcesResponse
+     * @remarks
+     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+     * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+     *
+     * @param request - MoveResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourcesResponse
+     *
+     * @param MoveResourcesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MoveResourcesResponse
      */
     public function moveResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveResources',
@@ -4049,17 +5780,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](~~94479~~).
-     *   * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
-     *   *
-     * @param MoveResourcesRequest $request MoveResourcesRequest
+     * Moves resources from one resource group to another. You can move multiple resources that reside in different regions, are used by different Alibaba Cloud services, or belong to different resource groups.
      *
-     * @return MoveResourcesResponse MoveResourcesResponse
+     * @remarks
+     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+     * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+     *
+     * @param request - MoveResourcesRequest
+     * @returns MoveResourcesResponse
+     *
+     * @param MoveResourcesRequest $request
+     *
+     * @return MoveResourcesResponse
      */
     public function moveResources($request)
     {
@@ -4069,6 +5809,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 升级资源账号.
+     *
+     * @param request - PromoteResourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PromoteResourceAccountResponse
+     *
      * @param PromoteResourceAccountRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4076,16 +5822,18 @@ class ResourceManager extends OpenApiClient
      */
     public function promoteResourceAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PromoteResourceAccount',
@@ -4098,11 +5846,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PromoteResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PromoteResourceAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 升级资源账号.
+     *
+     * @param request - PromoteResourceAccountRequest
+     * @returns PromoteResourceAccountResponse
+     *
      * @param PromoteResourceAccountRequest $request
      *
      * @return PromoteResourceAccountResponse
@@ -4115,30 +5871,37 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
-     *   * When you call this operation, you must take note of the following limits:
-     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
-     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
-     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
-     *   * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
-     *   *
-     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * When you call this operation, you must take note of the following limits:
+     * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+     * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
      *
-     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
+     * @param request - RegisterDelegatedAdministratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterDelegatedAdministratorResponse
+     *
+     * @param RegisterDelegatedAdministratorRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministratorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->servicePrincipal)) {
-            $query['ServicePrincipal'] = $request->servicePrincipal;
+
+        if (null !== $request->servicePrincipal) {
+            @$query['ServicePrincipal'] = $request->servicePrincipal;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterDelegatedAdministrator',
@@ -4151,21 +5914,28 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterDelegatedAdministratorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
-     *   * When you call this operation, you must take note of the following limits:
-     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
-     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
-     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
-     *   * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
-     *   *
-     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
+     * When you call this operation, you must take note of the following limits:
+     * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+     * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
      *
-     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
+     * @param request - RegisterDelegatedAdministratorRequest
+     * @returns RegisterDelegatedAdministratorResponse
+     *
+     * @param RegisterDelegatedAdministratorRequest $request
+     *
+     * @return RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministrator($request)
     {
@@ -4175,22 +5945,28 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
-     *   *
-     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
+     * @param request - RemoveCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveCloudAccountResponse
+     *
+     * @param RemoveCloudAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveCloudAccountResponse
      */
     public function removeCloudAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveCloudAccount',
@@ -4203,16 +5979,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveCloudAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
-     *   *
-     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
      *
-     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
+     * @param request - RemoveCloudAccountRequest
+     * @returns RemoveCloudAccountResponse
+     *
+     * @param RemoveCloudAccountRequest $request
+     *
+     * @return RemoveCloudAccountResponse
      */
     public function removeCloudAccount($request)
     {
@@ -4222,6 +6005,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 重新发送创建云账号的邮箱验证
+     *
+     * @param request - ResendCreateCloudAccountEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResendCreateCloudAccountEmailResponse
+     *
      * @param ResendCreateCloudAccountEmailRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -4229,13 +6018,14 @@ class ResourceManager extends OpenApiClient
      */
     public function resendCreateCloudAccountEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResendCreateCloudAccountEmail',
@@ -4248,11 +6038,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResendCreateCloudAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResendCreateCloudAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResendCreateCloudAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 重新发送创建云账号的邮箱验证
+     *
+     * @param request - ResendCreateCloudAccountEmailRequest
+     * @returns ResendCreateCloudAccountEmailResponse
+     *
      * @param ResendCreateCloudAccountEmailRequest $request
      *
      * @return ResendCreateCloudAccountEmailResponse
@@ -4265,6 +6063,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 重新发送升级资源账号的邮箱验证
+     *
+     * @param request - ResendPromoteResourceAccountEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResendPromoteResourceAccountEmailResponse
+     *
      * @param ResendPromoteResourceAccountEmailRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -4272,13 +6076,14 @@ class ResourceManager extends OpenApiClient
      */
     public function resendPromoteResourceAccountEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResendPromoteResourceAccountEmail',
@@ -4291,11 +6096,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResendPromoteResourceAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResendPromoteResourceAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResendPromoteResourceAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 重新发送升级资源账号的邮箱验证
+     *
+     * @param request - ResendPromoteResourceAccountEmailRequest
+     * @returns ResendPromoteResourceAccountEmailResponse
+     *
      * @param ResendPromoteResourceAccountEmailRequest $request
      *
      * @return ResendPromoteResourceAccountEmailResponse
@@ -4308,6 +6121,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 重新发送确认邮件.
+     *
+     * @param request - RetryChangeAccountEmailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryChangeAccountEmailResponse
+     *
      * @param RetryChangeAccountEmailRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4315,13 +6134,14 @@ class ResourceManager extends OpenApiClient
      */
     public function retryChangeAccountEmailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RetryChangeAccountEmail',
@@ -4334,11 +6154,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryChangeAccountEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 重新发送确认邮件.
+     *
+     * @param request - RetryChangeAccountEmailRequest
+     * @returns RetryChangeAccountEmailResponse
+     *
      * @param RetryChangeAccountEmailRequest $request
      *
      * @return RetryChangeAccountEmailResponse
@@ -4351,26 +6179,35 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-     *   * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
-     *   *
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * 发送绑定安全手机验证码
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @remarks
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+     *
+     * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
+     *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->secureMobilePhone)) {
-            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+
+        if (null !== $request->secureMobilePhone) {
+            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendVerificationCodeForBindSecureMobilePhone',
@@ -4383,17 +6220,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-     *   * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
-     *   *
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
+     * 发送绑定安全手机验证码
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @remarks
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+     *
+     * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
+     * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
+     *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     *
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhone($request)
     {
@@ -4403,22 +6249,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
-     *   *
-     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 发送开启资源目录短信
      *
-     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
+     * @remarks
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *
+     * @param request - SendVerificationCodeForEnableRDRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendVerificationCodeForEnableRDResponse
+     *
+     * @param SendVerificationCodeForEnableRDRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRDWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->secureMobilePhone)) {
-            $query['SecureMobilePhone'] = $request->secureMobilePhone;
+        if (null !== $request->secureMobilePhone) {
+            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendVerificationCodeForEnableRD',
@@ -4431,16 +6285,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendVerificationCodeForEnableRDResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
-     *   *
-     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
+     * 发送开启资源目录短信
      *
-     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
+     * @remarks
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *
+     * @param request - SendVerificationCodeForEnableRDRequest
+     * @returns SendVerificationCodeForEnableRDResponse
+     *
+     * @param SendVerificationCodeForEnableRDRequest $request
+     *
+     * @return SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRD($request)
     {
@@ -4450,6 +6313,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * 设置权限策略默认版本.
+     *
+     * @param request - SetDefaultPolicyVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDefaultPolicyVersionResponse
+     *
      * @param SetDefaultPolicyVersionRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4457,16 +6326,18 @@ class ResourceManager extends OpenApiClient
      */
     public function setDefaultPolicyVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyName)) {
-            $query['PolicyName'] = $request->policyName;
+        if (null !== $request->policyName) {
+            @$query['PolicyName'] = $request->policyName;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultPolicyVersion',
@@ -4479,11 +6350,19 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultPolicyVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultPolicyVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 设置权限策略默认版本.
+     *
+     * @param request - SetDefaultPolicyVersionRequest
+     * @returns SetDefaultPolicyVersionResponse
+     *
      * @param SetDefaultPolicyVersionRequest $request
      *
      * @return SetDefaultPolicyVersionResponse
@@ -4496,22 +6375,30 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
-     *   *
-     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 开启或关闭成员删除许可.
      *
-     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
+     * @remarks
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *
+     * @param request - SetMemberDeletionPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetMemberDeletionPermissionResponse
+     *
+     * @param SetMemberDeletionPermissionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetMemberDeletionPermission',
@@ -4524,16 +6411,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetMemberDeletionPermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
-     *   *
-     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
+     * 开启或关闭成员删除许可.
      *
-     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
+     * @remarks
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *
+     * @param request - SetMemberDeletionPermissionRequest
+     * @returns SetMemberDeletionPermissionResponse
+     *
+     * @param SetMemberDeletionPermissionRequest $request
+     *
+     * @return SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermission($request)
     {
@@ -4543,28 +6439,38 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
-     *   *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resource groups or the members in a resource directory.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -4577,16 +6483,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
-     *   *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resource groups or the members in a resource directory.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+     *
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4596,31 +6511,42 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
-     *   *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resource groups or the members in a resource directory.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -4633,16 +6559,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
-     *   *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resource groups or the members in a resource directory.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+     *
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4652,31 +6587,39 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
-     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
-     *   * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
-     *   *
-     * @param UpdateAccountRequest $request UpdateAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+     * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+     * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
      *
-     * @return UpdateAccountResponse UpdateAccountResponse
+     * @param request - UpdateAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAccountResponse
+     *
+     * @param UpdateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAccountResponse
      */
     public function updateAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->newAccountType)) {
-            $query['NewAccountType'] = $request->newAccountType;
+
+        if (null !== $request->newAccountType) {
+            @$query['NewAccountType'] = $request->newAccountType;
         }
-        if (!Utils::isUnset($request->newDisplayName)) {
-            $query['NewDisplayName'] = $request->newDisplayName;
+
+        if (null !== $request->newDisplayName) {
+            @$query['NewDisplayName'] = $request->newDisplayName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAccount',
@@ -4689,19 +6632,26 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
-     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
-     *   * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
-     *   *
-     * @param UpdateAccountRequest $request UpdateAccountRequest
+     * @remarks
+     *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+     * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+     * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
      *
-     * @return UpdateAccountResponse UpdateAccountResponse
+     * @param request - UpdateAccountRequest
+     * @returns UpdateAccountResponse
+     *
+     * @param UpdateAccountRequest $request
+     *
+     * @return UpdateAccountResponse
      */
     public function updateAccount($request)
     {
@@ -4711,25 +6661,34 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](~~2639129~~).
-     *   *
-     * @param UpdateAssociatedTransferSettingRequest $request UpdateAssociatedTransferSettingRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Updates the settings of the Transfer Associated Resources feature.
      *
-     * @return UpdateAssociatedTransferSettingResponse UpdateAssociatedTransferSettingResponse
+     * @remarks
+     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](https://help.aliyun.com/document_detail/606232.html).
+     *
+     * @param request - UpdateAssociatedTransferSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAssociatedTransferSettingResponse
+     *
+     * @param UpdateAssociatedTransferSettingRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateAssociatedTransferSettingResponse
      */
     public function updateAssociatedTransferSettingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableExistingResourcesTransfer)) {
-            $query['EnableExistingResourcesTransfer'] = $request->enableExistingResourcesTransfer;
+        if (null !== $request->enableExistingResourcesTransfer) {
+            @$query['EnableExistingResourcesTransfer'] = $request->enableExistingResourcesTransfer;
         }
-        if (!Utils::isUnset($request->ruleSettings)) {
-            $query['RuleSettings'] = $request->ruleSettings;
+
+        if (null !== $request->ruleSettings) {
+            @$query['RuleSettings'] = $request->ruleSettings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAssociatedTransferSetting',
@@ -4742,16 +6701,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAssociatedTransferSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAssociatedTransferSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](~~2639129~~).
-     *   *
-     * @param UpdateAssociatedTransferSettingRequest $request UpdateAssociatedTransferSettingRequest
+     * Updates the settings of the Transfer Associated Resources feature.
      *
-     * @return UpdateAssociatedTransferSettingResponse UpdateAssociatedTransferSettingResponse
+     * @remarks
+     * For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](https://help.aliyun.com/document_detail/606232.html).
+     *
+     * @param request - UpdateAssociatedTransferSettingRequest
+     * @returns UpdateAssociatedTransferSettingResponse
+     *
+     * @param UpdateAssociatedTransferSettingRequest $request
+     *
+     * @return UpdateAssociatedTransferSettingResponse
      */
     public function updateAssociatedTransferSetting($request)
     {
@@ -4761,31 +6729,200 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
-     *   *
-     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates the configuration of the Automatic Resource Transfer feature. You can update only the configuration of the Transfer Existing Associated Resources feature.
      *
-     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
+     * @param request - UpdateAutoGroupingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAutoGroupingConfigResponse
+     *
+     * @param UpdateAutoGroupingConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateAutoGroupingConfigResponse
+     */
+    public function updateAutoGroupingConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enableExistingResourcesTransfer) {
+            @$query['EnableExistingResourcesTransfer'] = $request->enableExistingResourcesTransfer;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAutoGroupingConfig',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAutoGroupingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateAutoGroupingConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of the Automatic Resource Transfer feature. You can update only the configuration of the Transfer Existing Associated Resources feature.
+     *
+     * @param request - UpdateAutoGroupingConfigRequest
+     * @returns UpdateAutoGroupingConfigResponse
+     *
+     * @param UpdateAutoGroupingConfigRequest $request
+     *
+     * @return UpdateAutoGroupingConfigResponse
+     */
+    public function updateAutoGroupingConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAutoGroupingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a transfer rule.
+     *
+     * @param request - UpdateAutoGroupingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAutoGroupingRuleResponse
+     *
+     * @param UpdateAutoGroupingRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAutoGroupingRuleResponse
+     */
+    public function updateAutoGroupingRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->excludeRegionIdsScope) {
+            @$query['ExcludeRegionIdsScope'] = $request->excludeRegionIdsScope;
+        }
+
+        if (null !== $request->excludeResourceGroupIdsScope) {
+            @$query['ExcludeResourceGroupIdsScope'] = $request->excludeResourceGroupIdsScope;
+        }
+
+        if (null !== $request->excludeResourceIdsScope) {
+            @$query['ExcludeResourceIdsScope'] = $request->excludeResourceIdsScope;
+        }
+
+        if (null !== $request->excludeResourceTypesScope) {
+            @$query['ExcludeResourceTypesScope'] = $request->excludeResourceTypesScope;
+        }
+
+        if (null !== $request->regionIdsScope) {
+            @$query['RegionIdsScope'] = $request->regionIdsScope;
+        }
+
+        if (null !== $request->resourceGroupIdsScope) {
+            @$query['ResourceGroupIdsScope'] = $request->resourceGroupIdsScope;
+        }
+
+        if (null !== $request->resourceIdsScope) {
+            @$query['ResourceIdsScope'] = $request->resourceIdsScope;
+        }
+
+        if (null !== $request->resourceTypesScope) {
+            @$query['ResourceTypesScope'] = $request->resourceTypesScope;
+        }
+
+        if (null !== $request->ruleContents) {
+            @$query['RuleContents'] = $request->ruleContents;
+        }
+
+        if (null !== $request->ruleDesc) {
+            @$query['RuleDesc'] = $request->ruleDesc;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAutoGroupingRule',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAutoGroupingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateAutoGroupingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a transfer rule.
+     *
+     * @param request - UpdateAutoGroupingRuleRequest
+     * @returns UpdateAutoGroupingRuleResponse
+     *
+     * @param UpdateAutoGroupingRuleRequest $request
+     *
+     * @return UpdateAutoGroupingRuleResponse
+     */
+    public function updateAutoGroupingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAutoGroupingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @remarks
+     * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
+     *
+     * @param request - UpdateControlPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateControlPolicyResponse
+     *
+     * @param UpdateControlPolicyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateControlPolicyResponse
      */
     public function updateControlPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newDescription)) {
-            $query['NewDescription'] = $request->newDescription;
+        if (null !== $request->newDescription) {
+            @$query['NewDescription'] = $request->newDescription;
         }
-        if (!Utils::isUnset($request->newPolicyDocument)) {
-            $query['NewPolicyDocument'] = $request->newPolicyDocument;
+
+        if (null !== $request->newPolicyDocument) {
+            @$query['NewPolicyDocument'] = $request->newPolicyDocument;
         }
-        if (!Utils::isUnset($request->newPolicyName)) {
-            $query['NewPolicyName'] = $request->newPolicyName;
+
+        if (null !== $request->newPolicyName) {
+            @$query['NewPolicyName'] = $request->newPolicyName;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateControlPolicy',
@@ -4798,16 +6935,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateControlPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
-     *   *
-     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
      *
-     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
+     * @param request - UpdateControlPolicyRequest
+     * @returns UpdateControlPolicyResponse
+     *
+     * @param UpdateControlPolicyRequest $request
+     *
+     * @return UpdateControlPolicyResponse
      */
     public function updateControlPolicy($request)
     {
@@ -4817,6 +6961,10 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateFolderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFolderResponse
+     *
      * @param UpdateFolderRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4824,16 +6972,18 @@ class ResourceManager extends OpenApiClient
      */
     public function updateFolderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $query['FolderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->newFolderName)) {
-            $query['NewFolderName'] = $request->newFolderName;
+
+        if (null !== $request->newFolderName) {
+            @$query['NewFolderName'] = $request->newFolderName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateFolder',
@@ -4846,11 +6996,17 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - UpdateFolderRequest
+     * @returns UpdateFolderResponse
+     *
      * @param UpdateFolderRequest $request
      *
      * @return UpdateFolderResponse
@@ -4863,25 +7019,32 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * @remarks
      * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
-     *   *
-     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @param request - UpdateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param UpdateResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newDisplayName)) {
-            $query['NewDisplayName'] = $request->newDisplayName;
+        if (null !== $request->newDisplayName) {
+            @$query['NewDisplayName'] = $request->newDisplayName;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateResourceGroup',
@@ -4894,16 +7057,23 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
-     *   *
-     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @param request - UpdateResourceGroupRequest
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param UpdateResourceGroupRequest $request
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroup($request)
     {
@@ -4913,31 +7083,42 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
-     *   *
-     * @param UpdateRoleRequest $request UpdateRoleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates the information of a Resource Access Management (RAM) role.
      *
-     * @return UpdateRoleResponse UpdateRoleResponse
+     * @remarks
+     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+     *
+     * @param request - UpdateRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRoleResponse
+     *
+     * @param UpdateRoleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newAssumeRolePolicyDocument)) {
-            $query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
+        if (null !== $request->newAssumeRolePolicyDocument) {
+            @$query['NewAssumeRolePolicyDocument'] = $request->newAssumeRolePolicyDocument;
         }
-        if (!Utils::isUnset($request->newDescription)) {
-            $query['NewDescription'] = $request->newDescription;
+
+        if (null !== $request->newDescription) {
+            @$query['NewDescription'] = $request->newDescription;
         }
-        if (!Utils::isUnset($request->newMaxSessionDuration)) {
-            $query['NewMaxSessionDuration'] = $request->newMaxSessionDuration;
+
+        if (null !== $request->newMaxSessionDuration) {
+            @$query['NewMaxSessionDuration'] = $request->newMaxSessionDuration;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRole',
@@ -4950,16 +7131,25 @@ class ResourceManager extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
-     *   *
-     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * Updates the information of a Resource Access Management (RAM) role.
      *
-     * @return UpdateRoleResponse UpdateRoleResponse
+     * @remarks
+     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+     *
+     * @param request - UpdateRoleRequest
+     * @returns UpdateRoleResponse
+     *
+     * @param UpdateRoleRequest $request
+     *
+     * @return UpdateRoleResponse
      */
     public function updateRole($request)
     {

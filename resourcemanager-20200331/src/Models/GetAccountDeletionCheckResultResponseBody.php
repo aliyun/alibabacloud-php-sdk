@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultResponseBody\accountDeletionCheckResultInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetAccountDeletionCheckResultResponseBody extends Model
 {
     /**
-     * @description The result of the deletion check for the member.
-     *
      * @var accountDeletionCheckResultInfo
      */
     public $accountDeletionCheckResultInfo;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 54AC391D-4F7F-5F08-B8D3-0AECDE6EC5BD
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetAccountDeletionCheckResultResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accountDeletionCheckResultInfo) {
+            $this->accountDeletionCheckResultInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountDeletionCheckResultInfo) {
-            $res['AccountDeletionCheckResultInfo'] = null !== $this->accountDeletionCheckResultInfo ? $this->accountDeletionCheckResultInfo->toMap() : null;
+            $res['AccountDeletionCheckResultInfo'] = null !== $this->accountDeletionCheckResultInfo ? $this->accountDeletionCheckResultInfo->toArray($noStream) : $this->accountDeletionCheckResultInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetAccountDeletionCheckResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountDeletionCheckResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountDeletionCheckResultInfo'])) {
             $model->accountDeletionCheckResultInfo = accountDeletionCheckResultInfo::fromMap($map['AccountDeletionCheckResultInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

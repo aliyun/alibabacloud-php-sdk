@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetServiceLinkedRoleDeletionStatusRequest extends Model
 {
     /**
-     * @description The ID of the deletion task.
-     *
-     * @example task/acs-service-role/hdr.aliyuncs.com/AliyunServiceRoleForHdr/c4d22c52-247f-4ee1-83a2-6c0460bd****
-     *
      * @var string
      */
     public $deletionTaskId;
@@ -22,9 +18,10 @@ class GetServiceLinkedRoleDeletionStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deletionTaskId) {
@@ -34,11 +31,11 @@ class GetServiceLinkedRoleDeletionStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceLinkedRoleDeletionStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

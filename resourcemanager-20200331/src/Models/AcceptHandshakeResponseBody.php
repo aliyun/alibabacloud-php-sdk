@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\AcceptHandshakeResponseBody\handshake;
-use AlibabaCloud\Tea\Model;
 
 class AcceptHandshakeResponseBody extends Model
 {
     /**
-     * @description The information of the invitation.
-     *
      * @var handshake
      */
     public $handshake;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 5828C836-3286-49A6-9006-15231BB19342
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class AcceptHandshakeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->handshake) {
+            $this->handshake->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handshake) {
-            $res['Handshake'] = null !== $this->handshake ? $this->handshake->toMap() : null;
+            $res['Handshake'] = null !== $this->handshake ? $this->handshake->toArray($noStream) : $this->handshake;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class AcceptHandshakeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AcceptHandshakeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Handshake'])) {
             $model->handshake = handshake::fromMap($map['Handshake']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

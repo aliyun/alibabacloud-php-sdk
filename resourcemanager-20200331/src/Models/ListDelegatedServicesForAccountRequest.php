@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDelegatedServicesForAccountRequest extends Model
 {
     /**
-     * @description The ID of the member.
-     *
-     * @example 138660628348****
-     *
      * @var string
      */
     public $accountId;
@@ -22,9 +18,10 @@ class ListDelegatedServicesForAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -34,11 +31,11 @@ class ListDelegatedServicesForAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDelegatedServicesForAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

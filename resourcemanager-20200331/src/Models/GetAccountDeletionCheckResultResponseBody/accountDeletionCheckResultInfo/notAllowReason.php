@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultResponseBody\accountDeletionCheckResultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notAllowReason extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example NON_SP_efc
-     *
      * @var string
      */
     public $checkId;
-
     /**
-     * @description The name of the cloud service to which the check item belongs.
-     *
-     * @example Enterprise finance
-     *
      * @var string
      */
     public $checkName;
-
     /**
-     * @description The description of the check item.
-     *
-     * @example This account is an Enterprise Finance associated account. Please remove the financial association of this account before deleting it.
-     *
      * @var string
      */
     public $description;
@@ -42,17 +28,20 @@ class notAllowReason extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->checkName) {
             $res['CheckName'] = $this->checkName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -60,20 +49,22 @@ class notAllowReason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notAllowReason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['CheckName'])) {
             $model->checkName = $map['CheckName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

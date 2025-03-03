@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePolicyVersionRequest extends Model
 {
     /**
-     * @description The document of the policy.
-     *
-     * The document must be 1 to 2,048 characters in length.
-     * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
-     *
      * @var string
      */
     public $policyDocument;
-
     /**
-     * @description The name of the policy.
-     *
-     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
-     * @example OSS-Administrator
-     *
      * @var string
      */
     public $policyName;
-
     /**
-     * @description Specifies whether to set the policy version as the default version. Valid values:
-     *
-     *   false: The policy version is not set as the default version.
-     *   true: The policy version is set as the default version.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $setAsDefault;
@@ -48,17 +28,20 @@ class CreatePolicyVersionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->setAsDefault) {
             $res['SetAsDefault'] = $this->setAsDefault;
         }
@@ -66,20 +49,22 @@ class CreatePolicyVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePolicyVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['SetAsDefault'])) {
             $model->setAsDefault = $map['SetAsDefault'];
         }

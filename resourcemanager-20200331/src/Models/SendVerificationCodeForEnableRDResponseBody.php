@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendVerificationCodeForEnableRDResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EC2FE94D-A4A2-51A1-A493-5C273A36C46A
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SendVerificationCodeForEnableRDResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SendVerificationCodeForEnableRDResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendVerificationCodeForEnableRDResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesResponseBody\resources\resource;
-use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
@@ -19,17 +19,21 @@ class resources extends Model
 
     public function validate()
     {
+        if (\is_array($this->resource)) {
+            Model::validateArray($this->resource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resource) {
-            $res['Resource'] = [];
-            if (null !== $this->resource && \is_array($this->resource)) {
-                $n = 0;
-                foreach ($this->resource as $item) {
-                    $res['Resource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resource)) {
+                $res['Resource'] = [];
+                $n1              = 0;
+                foreach ($this->resource as $item1) {
+                    $res['Resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n               = 0;
-                foreach ($map['Resource'] as $item) {
-                    $model->resource[$n++] = null !== $item ? resource::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Resource'] as $item1) {
+                    $model->resource[$n1++] = resource::fromMap($item1);
                 }
             }
         }

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultResponseBody\accountDeletionCheckResultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class abandonableChecks extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example NON_SP_cs
-     *
      * @var string
      */
     public $checkId;
-
     /**
-     * @description The name of the cloud service to which the check item belongs.
-     *
-     * @example Container Service for Kubernetes
-     *
      * @var string
      */
     public $checkName;
-
     /**
-     * @description The description of the check item.
-     *
-     * @example An instance of a cloud service is running within the member. Submit a ticket to contact Alibaba Cloud technical support.
-     *
      * @var string
      */
     public $description;
@@ -42,17 +28,20 @@ class abandonableChecks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->checkName) {
             $res['CheckName'] = $this->checkName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -60,20 +49,22 @@ class abandonableChecks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return abandonableChecks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['CheckName'])) {
             $model->checkName = $map['CheckName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

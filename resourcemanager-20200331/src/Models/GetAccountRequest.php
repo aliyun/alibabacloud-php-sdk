@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccountRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
-     * @example 181761095690****
-     *
      * @var string
      */
     public $accountId;
-
     /**
-     * @description Specifies whether to return the information of tags. Valid values:
-     *
-     *   false (default value)
-     *   true
-     *
-     * @example true
-     *
      * @var bool
      */
     public $includeTags;
@@ -35,14 +23,16 @@ class GetAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->includeTags) {
             $res['IncludeTags'] = $this->includeTags;
         }
@@ -50,17 +40,18 @@ class GetAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['IncludeTags'])) {
             $model->includeTags = $map['IncludeTags'];
         }

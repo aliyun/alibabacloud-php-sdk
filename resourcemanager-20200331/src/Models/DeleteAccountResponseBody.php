@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccountResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $deletionType;
-
     /**
-     * @example 009429F8-C1C0-5872-B674-A6C2333B9647
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class DeleteAccountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deletionType) {
             $res['DeletionType'] = $this->deletionType;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class DeleteAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeletionType'])) {
             $model->deletionType = $map['DeletionType'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

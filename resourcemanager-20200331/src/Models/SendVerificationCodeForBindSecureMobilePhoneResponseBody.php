@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
 {
     /**
-     * @description The time when the verification code expires.
-     *
-     * @example 2021-12-17T07:38:41.747Z
-     *
      * @var string
      */
     public $expirationDate;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DCD43660-75DD-5D15-B342-1B83FCA5B913
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expirationDate) {
             $res['ExpirationDate'] = $this->expirationDate;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpirationDate'])) {
             $model->expirationDate = $map['ExpirationDate'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusResponseBody\enabledServicePrincipals;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enabledServicePrincipal extends Model
 {
     /**
-     * @description The time when the trusted service was enabled.
-     *
-     * @example 2019-02-18T15:32:10.473Z
-     *
      * @var string
      */
     public $enableTime;
-
     /**
-     * @description The identification of the trusted service.
-     *
-     * @example config.aliyuncs.com
-     *
      * @var string
      */
     public $servicePrincipal;
@@ -32,14 +23,16 @@ class enabledServicePrincipal extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableTime) {
             $res['EnableTime'] = $this->enableTime;
         }
+
         if (null !== $this->servicePrincipal) {
             $res['ServicePrincipal'] = $this->servicePrincipal;
         }
@@ -47,17 +40,18 @@ class enabledServicePrincipal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enabledServicePrincipal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableTime'])) {
             $model->enableTime = $map['EnableTime'];
         }
+
         if (isset($map['ServicePrincipal'])) {
             $model->servicePrincipal = $map['ServicePrincipal'];
         }

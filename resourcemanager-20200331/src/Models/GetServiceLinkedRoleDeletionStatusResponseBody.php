@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetServiceLinkedRoleDeletionStatusResponseBody\reason;
-use AlibabaCloud\Tea\Model;
 
 class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
 {
     /**
-     * @description The reason why the deletion task failed.
-     *
      * @var reason
      */
     public $reason;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 07194EB1-DB50-4513-A51D-99B30D635AEF
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The status of the task.
-     *
-     * - INTERNAL_ERROR
-     * @example FAILED
-     *
      * @var string
      */
     public $status;
@@ -42,17 +29,23 @@ class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->reason) {
+            $this->reason->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reason) {
-            $res['Reason'] = null !== $this->reason ? $this->reason->toMap() : null;
+            $res['Reason'] = null !== $this->reason ? $this->reason->toArray($noStream) : $this->reason;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -60,20 +53,22 @@ class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceLinkedRoleDeletionStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Reason'])) {
             $model->reason = reason::fromMap($map['Reason']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
