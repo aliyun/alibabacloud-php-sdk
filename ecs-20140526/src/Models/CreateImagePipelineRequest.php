@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\advancedOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\tag;
 
@@ -51,6 +52,10 @@ class CreateImagePipelineRequest extends Model
      * @var string
      */
     public $imageName;
+    /**
+     * @var imageOptions
+     */
+    public $imageOptions;
     /**
      * @var importImageOptions
      */
@@ -130,6 +135,7 @@ class CreateImagePipelineRequest extends Model
         'description'             => 'Description',
         'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
+        'imageOptions'            => 'ImageOptions',
         'importImageOptions'      => 'ImportImageOptions',
         'instanceType'            => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
@@ -156,6 +162,9 @@ class CreateImagePipelineRequest extends Model
         }
         if (null !== $this->advancedOptions) {
             $this->advancedOptions->validate();
+        }
+        if (null !== $this->imageOptions) {
+            $this->imageOptions->validate();
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
@@ -216,6 +225,10 @@ class CreateImagePipelineRequest extends Model
 
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
+        }
+
+        if (null !== $this->imageOptions) {
+            $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toArray($noStream) : $this->imageOptions;
         }
 
         if (null !== $this->importImageOptions) {
@@ -353,6 +366,10 @@ class CreateImagePipelineRequest extends Model
 
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
+        }
+
+        if (isset($map['ImageOptions'])) {
+            $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
         }
 
         if (isset($map['ImportImageOptions'])) {

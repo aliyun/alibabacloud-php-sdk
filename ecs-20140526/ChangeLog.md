@@ -1,3 +1,6 @@
+2025-03-03 Version: 6.1.1
+- Generated php 2014-05-26 for Ecs.
+
 2025-02-24 Version: 6.1.0
 - Support API DescribeElasticityAssuranceAutoRenewAttribute.
 - Support API ModifyElasticityAssuranceAutoRenewAttribute.

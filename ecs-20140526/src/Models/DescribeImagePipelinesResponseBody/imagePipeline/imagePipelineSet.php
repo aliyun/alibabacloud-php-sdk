@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\addAccounts;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\advancedOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\toRegionIds;
@@ -53,6 +54,10 @@ class imagePipelineSet extends Model
      * @var string
      */
     public $imageName;
+    /**
+     * @var imageOptions
+     */
+    public $imageOptions;
     /**
      * @var string
      */
@@ -116,6 +121,7 @@ class imagePipelineSet extends Model
         'description'             => 'Description',
         'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
+        'imageOptions'            => 'ImageOptions',
         'imagePipelineId'         => 'ImagePipelineId',
         'importImageOptions'      => 'ImportImageOptions',
         'instanceType'            => 'InstanceType',
@@ -138,6 +144,9 @@ class imagePipelineSet extends Model
         }
         if (null !== $this->advancedOptions) {
             $this->advancedOptions->validate();
+        }
+        if (null !== $this->imageOptions) {
+            $this->imageOptions->validate();
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
@@ -192,6 +201,10 @@ class imagePipelineSet extends Model
 
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
+        }
+
+        if (null !== $this->imageOptions) {
+            $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toArray($noStream) : $this->imageOptions;
         }
 
         if (null !== $this->imagePipelineId) {
@@ -295,6 +308,10 @@ class imagePipelineSet extends Model
 
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
+        }
+
+        if (isset($map['ImageOptions'])) {
+            $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
         }
 
         if (isset($map['ImagePipelineId'])) {

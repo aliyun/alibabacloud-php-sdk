@@ -9,10 +9,15 @@ use AlibabaCloud\Dara\Model;
 class advancedOptions extends Model
 {
     /**
+     * @var string
+     */
+    public $imageNameSuffix;
+    /**
      * @var bool
      */
     public $retainCloudAssistant;
     protected $_name = [
+        'imageNameSuffix'      => 'ImageNameSuffix',
         'retainCloudAssistant' => 'RetainCloudAssistant',
     ];
 
@@ -24,6 +29,10 @@ class advancedOptions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->imageNameSuffix) {
+            $res['ImageNameSuffix'] = $this->imageNameSuffix;
+        }
+
         if (null !== $this->retainCloudAssistant) {
             $res['RetainCloudAssistant'] = $this->retainCloudAssistant;
         }
@@ -39,6 +48,10 @@ class advancedOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageNameSuffix'])) {
+            $model->imageNameSuffix = $map['ImageNameSuffix'];
+        }
+
         if (isset($map['RetainCloudAssistant'])) {
             $model->retainCloudAssistant = $map['RetainCloudAssistant'];
         }

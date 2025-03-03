@@ -6255,6 +6255,10 @@ class Ecs extends OpenApiClient
             @$query['ImageName'] = $request->imageName;
         }
 
+        if (null !== $request->imageOptions) {
+            @$query['ImageOptions'] = $request->imageOptions;
+        }
+
         if (null !== $request->importImageOptions) {
             @$query['ImportImageOptions'] = $request->importImageOptions;
         }
@@ -36081,7 +36085,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Migrates Elastic Compute Service (ECS) instances away from a failed dedicated host.
+     * Migrates Elastic Compute Service (ECS) instances from a failed dedicated host.
      *
      * @remarks
      * If a dedicated host is in the UnderAssessment state, we recommend that you call this operation to migrate ECS instances away from the dedicated host to prevent permanent failures. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the status of a dedicated host.
@@ -36149,7 +36153,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Migrates Elastic Compute Service (ECS) instances away from a failed dedicated host.
+     * Migrates Elastic Compute Service (ECS) instances from a failed dedicated host.
      *
      * @remarks
      * If a dedicated host is in the UnderAssessment state, we recommend that you call this operation to migrate ECS instances away from the dedicated host to prevent permanent failures. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the status of a dedicated host.
