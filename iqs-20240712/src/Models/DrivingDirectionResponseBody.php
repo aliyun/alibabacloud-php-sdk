@@ -17,14 +17,9 @@ class DrivingDirectionResponseBody extends Model
      * @var string
      */
     public $requestId;
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'data'      => 'data',
         'requestId' => 'requestId',
-        'success'   => 'success',
     ];
 
     public function validate()
@@ -52,10 +47,6 @@ class DrivingDirectionResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
-        }
-
         return $res;
     }
 
@@ -79,10 +70,6 @@ class DrivingDirectionResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
         }
 
         return $model;
