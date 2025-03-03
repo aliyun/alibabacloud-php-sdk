@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\ipAllocationPolicy\bondPolicy;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\ipAllocationPolicy\machineTypePolicy;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\ipAllocationPolicy\nodePolicy;
-use AlibabaCloud\Tea\Model;
 
 class ipAllocationPolicy extends Model
 {
     /**
-     * @description Bond policy
-     *
      * @var bondPolicy
      */
     public $bondPolicy;
-
     /**
-     * @description Machine type allocation policy
-     *
      * @var machineTypePolicy[]
      */
     public $machineTypePolicy;
-
     /**
-     * @description Node allocation policy
-     *
      * @var nodePolicy[]
      */
     public $nodePolicy;
@@ -39,29 +31,41 @@ class ipAllocationPolicy extends Model
 
     public function validate()
     {
+        if (null !== $this->bondPolicy) {
+            $this->bondPolicy->validate();
+        }
+        if (\is_array($this->machineTypePolicy)) {
+            Model::validateArray($this->machineTypePolicy);
+        }
+        if (\is_array($this->nodePolicy)) {
+            Model::validateArray($this->nodePolicy);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bondPolicy) {
-            $res['BondPolicy'] = null !== $this->bondPolicy ? $this->bondPolicy->toMap() : null;
+            $res['BondPolicy'] = null !== $this->bondPolicy ? $this->bondPolicy->toArray($noStream) : $this->bondPolicy;
         }
+
         if (null !== $this->machineTypePolicy) {
-            $res['MachineTypePolicy'] = [];
-            if (null !== $this->machineTypePolicy && \is_array($this->machineTypePolicy)) {
-                $n = 0;
-                foreach ($this->machineTypePolicy as $item) {
-                    $res['MachineTypePolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->machineTypePolicy)) {
+                $res['MachineTypePolicy'] = [];
+                $n1                       = 0;
+                foreach ($this->machineTypePolicy as $item1) {
+                    $res['MachineTypePolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nodePolicy) {
-            $res['NodePolicy'] = [];
-            if (null !== $this->nodePolicy && \is_array($this->nodePolicy)) {
-                $n = 0;
-                foreach ($this->nodePolicy as $item) {
-                    $res['NodePolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodePolicy)) {
+                $res['NodePolicy'] = [];
+                $n1                = 0;
+                foreach ($this->nodePolicy as $item1) {
+                    $res['NodePolicy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -69,32 +73,34 @@ class ipAllocationPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipAllocationPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BondPolicy'])) {
             $model->bondPolicy = bondPolicy::fromMap($map['BondPolicy']);
         }
+
         if (isset($map['MachineTypePolicy'])) {
             if (!empty($map['MachineTypePolicy'])) {
                 $model->machineTypePolicy = [];
-                $n                        = 0;
-                foreach ($map['MachineTypePolicy'] as $item) {
-                    $model->machineTypePolicy[$n++] = null !== $item ? machineTypePolicy::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['MachineTypePolicy'] as $item1) {
+                    $model->machineTypePolicy[$n1++] = machineTypePolicy::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NodePolicy'])) {
             if (!empty($map['NodePolicy'])) {
                 $model->nodePolicy = [];
-                $n                 = 0;
-                foreach ($map['NodePolicy'] as $item) {
-                    $model->nodePolicy[$n++] = null !== $item ? nodePolicy::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['NodePolicy'] as $item1) {
+                    $model->nodePolicy[$n1++] = nodePolicy::fromMap($item1);
                 }
             }
         }

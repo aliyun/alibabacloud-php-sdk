@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesResponseBody\nodes;
-use AlibabaCloud\Tea\Model;
 
 class ListFreeNodesResponseBody extends Model
 {
     /**
-     * @description The query token value returned by this call.
-     *
-     * @example a3f2224a5ec7224116c4f5246120abe4
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description List of nodes
-     *
      * @var nodes[]
      */
     public $nodes;
-
     /**
-     * @description Request ID
-     *
-     * @example AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class ListFreeNodesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class ListFreeNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFreeNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

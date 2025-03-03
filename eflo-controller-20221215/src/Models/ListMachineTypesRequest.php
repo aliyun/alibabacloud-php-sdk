@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMachineTypesRequest extends Model
 {
     /**
-     * @description Machine name
-     *
-     * @example efg1.nvga1
-     *
      * @var string
      */
     public $name;
@@ -22,9 +18,10 @@ class ListMachineTypesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class ListMachineTypesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMachineTypesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

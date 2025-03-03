@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest\nodeGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description Node ID
-     *
-     * @example e01poc-cn-zmb2ypjdc01
-     *
      * @var string
      */
     public $nodeId;
@@ -22,9 +18,10 @@ class nodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
@@ -34,11 +31,11 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

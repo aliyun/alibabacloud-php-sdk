@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest\aiJobLogInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest\aiJobLogInfo\aiJobLogs\logs;
-use AlibabaCloud\Tea\Model;
 
 class aiJobLogs extends Model
 {
     /**
-     * @description Instance ID
-     *
-     * @example null
-     *
      * @var string
      */
     public $aiInstance;
-
     /**
-     * @description Log object
-     *
      * @var logs[]
      */
     public $logs;
-
     /**
-     * @description Node ID
-     *
-     * @example e01-tw-p2p2al5u1hn
-     *
      * @var string
      */
     public $nodeId;
@@ -41,23 +29,29 @@ class aiJobLogs extends Model
 
     public function validate()
     {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiInstance) {
             $res['AiInstance'] = $this->aiInstance;
         }
+
         if (null !== $this->logs) {
-            $res['Logs'] = [];
-            if (null !== $this->logs && \is_array($this->logs)) {
-                $n = 0;
-                foreach ($this->logs as $item) {
-                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1          = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -65,26 +59,28 @@ class aiJobLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aiJobLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiInstance'])) {
             $model->aiInstance = $map['AiInstance'];
         }
+
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n           = 0;
-                foreach ($map['Logs'] as $item) {
-                    $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1++] = logs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

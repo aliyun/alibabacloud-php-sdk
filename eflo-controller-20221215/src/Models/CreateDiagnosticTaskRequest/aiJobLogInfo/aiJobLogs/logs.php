@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest\aiJobLogInfo\aiJobLogs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logs extends Model
 {
     /**
-     * @description Sent date, in the format yyyymmdd.
-     *
-     * @example 2024-08-05T10:10:01
-     *
      * @var string
      */
     public $datetime;
-
     /**
-     * @description Log content
-     *
-     * @example success
-     *
      * @var string
      */
     public $logContent;
@@ -32,14 +23,16 @@ class logs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datetime) {
             $res['Datetime'] = $this->datetime;
         }
+
         if (null !== $this->logContent) {
             $res['LogContent'] = $this->logContent;
         }
@@ -47,17 +40,18 @@ class logs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Datetime'])) {
             $model->datetime = $map['Datetime'];
         }
+
         if (isset($map['LogContent'])) {
             $model->logContent = $map['LogContent'];
         }

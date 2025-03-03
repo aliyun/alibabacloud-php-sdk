@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApproveOperationResponseBody extends Model
 {
     /**
-     * @description Error Message
-     *
-     * @example Resource not found
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description Request ID
-     *
-     * @example 8F065DDD-6996-5973-9691-9EC57BD0072E
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ApproveOperationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ApproveOperationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApproveOperationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

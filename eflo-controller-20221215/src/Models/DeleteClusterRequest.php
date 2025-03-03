@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteClusterRequest extends Model
 {
     /**
-     * @description Cluster ID
-     *
-     * This parameter is required.
-     * @example i116913051662373010974
-     *
      * @var string
      */
     public $clusterId;
@@ -23,9 +18,10 @@ class DeleteClusterRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -35,11 +31,11 @@ class DeleteClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
