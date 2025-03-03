@@ -37,6 +37,10 @@ class transcription extends Model
      * @var string
      */
     public $phraseId;
+    /**
+     * @var bool
+     */
+    public $realtimeDiarizationEnabled;
     protected $_name = [
         'additionalStreamOutputLevel' => 'AdditionalStreamOutputLevel',
         'audioEventDetectionEnabled'  => 'AudioEventDetectionEnabled',
@@ -45,6 +49,7 @@ class transcription extends Model
         'model'                       => 'Model',
         'outputLevel'                 => 'OutputLevel',
         'phraseId'                    => 'PhraseId',
+        'realtimeDiarizationEnabled'  => 'RealtimeDiarizationEnabled',
     ];
 
     public function validate()
@@ -86,6 +91,10 @@ class transcription extends Model
             $res['PhraseId'] = $this->phraseId;
         }
 
+        if (null !== $this->realtimeDiarizationEnabled) {
+            $res['RealtimeDiarizationEnabled'] = $this->realtimeDiarizationEnabled;
+        }
+
         return $res;
     }
 
@@ -123,6 +132,10 @@ class transcription extends Model
 
         if (isset($map['PhraseId'])) {
             $model->phraseId = $map['PhraseId'];
+        }
+
+        if (isset($map['RealtimeDiarizationEnabled'])) {
+            $model->realtimeDiarizationEnabled = $map['RealtimeDiarizationEnabled'];
         }
 
         return $model;

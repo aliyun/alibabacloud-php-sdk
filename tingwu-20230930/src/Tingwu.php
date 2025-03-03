@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\Tingwu\V20230930;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTranscriptionPhrasesRequest;
@@ -227,7 +227,7 @@ class Tingwu extends OpenApiClient
             'action'      => 'DeleteTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . URL::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -280,7 +280,7 @@ class Tingwu extends OpenApiClient
             'action'      => 'GetTaskInfo',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/tasks/' . URL::percentEncode($TaskId) . '',
+            'pathname'    => '/openapi/tingwu/v2/tasks/' . Url::percentEncode($TaskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -333,7 +333,7 @@ class Tingwu extends OpenApiClient
             'action'      => 'GetTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . URL::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -453,7 +453,7 @@ class Tingwu extends OpenApiClient
             'action'      => 'UpdateTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . URL::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
