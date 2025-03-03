@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsRequest\targets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deadLetterQueue extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the dead-letter queue. Events that are not processed or whose maximum retries have been exceeded are written to the dead-letter queue.
-     *
-     * @example acs:mns:cn-hangzhou:123456789098****:/queues/deadletterqueue or acs:mq:cn-hangzhou:123456789098****:/instances/MQ_INST_123456789098****_BX8QbBPL/topic/deadlettertopic or acs:alikafka:cn-hangzhou:123456789098****:instance/alikafka_post-cn-123456/topic/deadlettertopic or acs:eventbridge:cn-hangzhou:123456789098****:eventbus/deadletterbus
-     *
      * @var string
      */
     public $arn;
@@ -22,9 +18,10 @@ class deadLetterQueue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
@@ -34,11 +31,11 @@ class deadLetterQueue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deadLetterQueue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

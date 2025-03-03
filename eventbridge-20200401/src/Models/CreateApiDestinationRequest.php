@@ -4,42 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationRequest\httpApiParameters;
-use AlibabaCloud\Tea\Model;
 
 class CreateApiDestinationRequest extends Model
 {
     /**
-     * @description The name of the API destination. The name must be 2 to 127 characters in length.
-     *
-     * This parameter is required.
-     * @example api-destination-name
-     *
      * @var string
      */
     public $apiDestinationName;
-
     /**
-     * @description The name of the connection. The name must be 2 to 127 characters in length.
-     *
-     * This parameter is required.
-     * @example connection-name
-     *
      * @var string
      */
     public $connectionName;
-
     /**
-     * @description The description of the API destination. The description can be up to 255 characters in length.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The parameters that are configured for the API destination.
-     *
-     * This parameter is required.
      * @var httpApiParameters
      */
     public $httpApiParameters;
@@ -52,44 +34,54 @@ class CreateApiDestinationRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->httpApiParameters) {
+            $this->httpApiParameters->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiDestinationName) {
             $res['ApiDestinationName'] = $this->apiDestinationName;
         }
+
         if (null !== $this->connectionName) {
             $res['ConnectionName'] = $this->connectionName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->httpApiParameters) {
-            $res['HttpApiParameters'] = null !== $this->httpApiParameters ? $this->httpApiParameters->toMap() : null;
+            $res['HttpApiParameters'] = null !== $this->httpApiParameters ? $this->httpApiParameters->toArray($noStream) : $this->httpApiParameters;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateApiDestinationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiDestinationName'])) {
             $model->apiDestinationName = $map['ApiDestinationName'];
         }
+
         if (isset($map['ConnectionName'])) {
             $model->connectionName = $map['ConnectionName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HttpApiParameters'])) {
             $model->httpApiParameters = httpApiParameters::fromMap($map['HttpApiParameters']);
         }

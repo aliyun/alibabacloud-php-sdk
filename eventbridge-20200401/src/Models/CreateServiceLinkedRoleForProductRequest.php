@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateServiceLinkedRoleForProductRequest extends Model
 {
     /**
-     * @description The name of the cloud service or the name of the service-linked role with which the cloud service is associated.
-     *
-     * This parameter is required.
-     * @example AliyunServiceRoleForEventBridgeSendToMNS
-     *
      * @var string
      */
     public $productName;
@@ -23,9 +18,10 @@ class CreateServiceLinkedRoleForProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productName) {
@@ -35,11 +31,11 @@ class CreateServiceLinkedRoleForProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceLinkedRoleForProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transforms extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the cloud service, such as the ARN of a Function Compute function.
-     *
-     * @example acs:fc:cn-hangzhou:*****:services/demo-service.LATEST/functions/demo-func
-     *
      * @var string
      */
     public $arn;
@@ -22,9 +18,10 @@ class transforms extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
@@ -34,11 +31,11 @@ class transforms extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transforms
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

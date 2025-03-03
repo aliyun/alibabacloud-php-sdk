@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\runOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class batchWindow extends Model
 {
     /**
-     * @description The maximum number of events that are allowed in the batch window. If this threshold is reached, data in the window is pushed downstream. When multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $countBasedWindow;
-
     /**
-     * @description The maximum period of time during which events are allowed in the batch window. Unit: seconds. If this threshold is reached, data in the window is pushed downstream. When multiple batch windows exist, data is pushed if triggering conditions are met in one of the windows.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $timeBasedWindow;
@@ -32,14 +23,16 @@ class batchWindow extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->countBasedWindow) {
             $res['CountBasedWindow'] = $this->countBasedWindow;
         }
+
         if (null !== $this->timeBasedWindow) {
             $res['TimeBasedWindow'] = $this->timeBasedWindow;
         }
@@ -47,17 +40,18 @@ class batchWindow extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return batchWindow
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CountBasedWindow'])) {
             $model->countBasedWindow = $map['CountBasedWindow'];
         }
+
         if (isset($map['TimeBasedWindow'])) {
             $model->timeBasedWindow = $map['TimeBasedWindow'];
         }

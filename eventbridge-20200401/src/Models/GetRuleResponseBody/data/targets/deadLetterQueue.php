@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data\targets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deadLetterQueue extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
-     *
-     * @example acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/myRocketMQ.source
-     *
      * @var string
      */
     public $arn;
@@ -22,9 +18,10 @@ class deadLetterQueue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
@@ -34,11 +31,11 @@ class deadLetterQueue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deadLetterQueue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceScheduledEventParameters extends Model
 {
     /**
-     * @description The cron expression.
-     *
-     * @example 0 1 * * * *
-     *
      * @var string
      */
     public $schedule;
-
     /**
-     * @description The time zone in which the cron expression is executed.
-     *
-     * @example GMT+0:00
-     *
      * @var string
      */
     public $timeZone;
-
     /**
-     * @description The JSON string.
-     *
-     * @example {"a": "b"}
-     *
      * @var string
      */
     public $userData;
@@ -42,17 +28,20 @@ class sourceScheduledEventParameters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
         }
+
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -60,20 +49,22 @@ class sourceScheduledEventParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceScheduledEventParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];
         }
+
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

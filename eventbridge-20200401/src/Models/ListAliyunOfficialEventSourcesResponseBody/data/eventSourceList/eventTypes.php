@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAliyunOfficialEventSourcesResponseBody\data\eventSourceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventTypes extends Model
 {
     /**
-     * @description The name of the event source.
-     *
-     * @example name
-     *
      * @var string
      */
     public $eventSourceName;
-
     /**
-     * @description The name of the group to which the event type belongs.
-     *
-     * @example aliyuncvc:MeetingEvent
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The full name of the event type.
-     *
-     * @example aliyuncvc:MeetingEvent:MeetingStateEvent
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The short name of the event type.
-     *
-     * @example MeetingStateEvent
-     *
      * @var string
      */
     public $shortName;
@@ -52,20 +33,24 @@ class eventTypes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->shortName) {
             $res['ShortName'] = $this->shortName;
         }
@@ -73,23 +58,26 @@ class eventTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ShortName'])) {
             $model->shortName = $map['ShortName'];
         }

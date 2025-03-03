@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteApiDestinationRequest extends Model
 {
     /**
-     * @description The name of the API destination.
-     *
-     * This parameter is required.
-     * @example ApiDestinationName
-     *
      * @var string
      */
     public $apiDestinationName;
@@ -23,9 +18,10 @@ class DeleteApiDestinationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiDestinationName) {
@@ -35,11 +31,11 @@ class DeleteApiDestinationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteApiDestinationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

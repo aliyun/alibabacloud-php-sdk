@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRocketMQParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitchIds extends Model
 {
     /**
-     * @description The method that you want to use to transform events. Default value: CONSTANT.
-     *
-     * @example CONSTANT
-     *
      * @var string
      */
     public $form;
-
     /**
-     * @description None.
-     *
      * @var string
      */
     public $template;
-
     /**
-     * @description The ID of the vSwitch with which the ApsaraMQ for RocketMQ instance is associated.
-     *
-     * @example vbr-8vb835n3zf9shwlvbwlmp
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,20 @@ class vSwitchIds extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +49,22 @@ class vSwitchIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitchIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

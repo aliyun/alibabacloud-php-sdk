@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateConnectionRequest\authParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiKeyAuthParameters extends Model
 {
     /**
-     * @description The key of the API key.
-     *
-     * @example name
-     *
      * @var string
      */
     public $apiKeyName;
-
     /**
-     * @description The value of the API key.
-     *
-     * @example demo
-     *
      * @var string
      */
     public $apiKeyValue;
@@ -32,14 +23,16 @@ class apiKeyAuthParameters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiKeyName) {
             $res['ApiKeyName'] = $this->apiKeyName;
         }
+
         if (null !== $this->apiKeyValue) {
             $res['ApiKeyValue'] = $this->apiKeyValue;
         }
@@ -47,17 +40,18 @@ class apiKeyAuthParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiKeyAuthParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKeyName'])) {
             $model->apiKeyName = $map['ApiKeyName'];
         }
+
         if (isset($map['ApiKeyValue'])) {
             $model->apiKeyValue = $map['ApiKeyValue'];
         }

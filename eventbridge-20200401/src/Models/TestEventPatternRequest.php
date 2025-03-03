@@ -4,43 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TestEventPatternRequest extends Model
 {
     /**
-     * @description The event.
-     *
-     * This parameter is required.
-     * @example {
-     * "datacontenttype": "application/json;charset=utf-8",
-     * "aliyunaccountid": "*****",
-     * "aliyunpublishtime": "2023-04-****:54:57.939Z",
-     * "data": {
-     * "resourceEventType": "****",
-     * "resourceCreateTime": "****",
-     * "resourceId": "sls-code-***-debug",
-     * "captureTime": "***"
-     * },
-     * "aliyunoriginalaccountid": "****",
-     * "specversion": "1.0",
-     * "aliyuneventbusname": "****",
-     * "id": "295e6bd2-bb72-4f70-****-204a0680ee41",
-     * "source": "acs.sls",
-     * "time": "2023-04-***:37:56Z",
-     * "aliyunregionid": "cn-***",
-     * "type": "sls:Config:****"
-     * }
      * @var string
      */
     public $event;
-
     /**
-     * @description The event pattern.
-     *
-     * This parameter is required.
-     * @example {"key1": "value1"}
-     *
      * @var string
      */
     public $eventPattern;
@@ -51,14 +23,16 @@ class TestEventPatternRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->event) {
             $res['Event'] = $this->event;
         }
+
         if (null !== $this->eventPattern) {
             $res['EventPattern'] = $this->eventPattern;
         }
@@ -66,17 +40,18 @@ class TestEventPatternRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TestEventPatternRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
         }
+
         if (isset($map['EventPattern'])) {
             $model->eventPattern = $map['EventPattern'];
         }

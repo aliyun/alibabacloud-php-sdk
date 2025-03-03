@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeSeries extends Model
 {
     /**
-     * @example {
-     * }
      * @var mixed[]
      */
     public $rowData;
-
     /**
-     * @example 1683561600000
-     *
      * @var string
      */
     public $time;
@@ -28,14 +23,24 @@ class timeSeries extends Model
 
     public function validate()
     {
+        if (\is_array($this->rowData)) {
+            Model::validateArray($this->rowData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rowData) {
-            $res['RowData'] = $this->rowData;
+            if (\is_array($this->rowData)) {
+                $res['RowData'] = [];
+                foreach ($this->rowData as $key1 => $value1) {
+                    $res['RowData'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -43,17 +48,23 @@ class timeSeries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeSeries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RowData'])) {
-            $model->rowData = $map['RowData'];
+            if (!empty($map['RowData'])) {
+                $model->rowData = [];
+                foreach ($map['RowData'] as $key1 => $value1) {
+                    $model->rowData[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
