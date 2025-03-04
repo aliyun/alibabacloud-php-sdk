@@ -25,6 +25,10 @@ class ModifyDiskSpecRequest extends Model
      */
     public $regionId;
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+    /**
      * @var string
      */
     public $rootDiskPerformanceLevel;
@@ -37,6 +41,7 @@ class ModifyDiskSpecRequest extends Model
         'desktopId'                => 'DesktopId',
         'promotionId'              => 'PromotionId',
         'regionId'                 => 'RegionId',
+        'resellerOwnerUid'         => 'ResellerOwnerUid',
         'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
         'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
     ];
@@ -63,6 +68,10 @@ class ModifyDiskSpecRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->rootDiskPerformanceLevel) {
@@ -98,6 +107,10 @@ class ModifyDiskSpecRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['RootDiskPerformanceLevel'])) {

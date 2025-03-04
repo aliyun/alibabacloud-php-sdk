@@ -81,6 +81,10 @@ class describePolicyGroups extends Model
      */
     public $desktopGroupCount;
     /**
+     * @var string
+     */
+    public $deviceConnectHint;
+    /**
      * @var deviceRedirects[]
      */
     public $deviceRedirects;
@@ -283,6 +287,18 @@ class describePolicyGroups extends Model
     /**
      * @var int
      */
+    public $resolutionHeight;
+    /**
+     * @var string
+     */
+    public $resolutionModel;
+    /**
+     * @var int
+     */
+    public $resolutionWidth;
+    /**
+     * @var int
+     */
     public $resourceGroupCount;
     /**
      * @var string
@@ -421,6 +437,7 @@ class describePolicyGroups extends Model
         'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
         'desktopCount'                  => 'DesktopCount',
         'desktopGroupCount'             => 'DesktopGroupCount',
+        'deviceConnectHint'             => 'DeviceConnectHint',
         'deviceRedirects'               => 'DeviceRedirects',
         'deviceRules'                   => 'DeviceRules',
         'displayMode'                   => 'DisplayMode',
@@ -471,6 +488,9 @@ class describePolicyGroups extends Model
         'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
         'remoteCoordinate'              => 'RemoteCoordinate',
         'resetDesktop'                  => 'ResetDesktop',
+        'resolutionHeight'              => 'ResolutionHeight',
+        'resolutionModel'               => 'ResolutionModel',
+        'resolutionWidth'               => 'ResolutionWidth',
         'resourceGroupCount'            => 'ResourceGroupCount',
         'resourceRegionId'              => 'ResourceRegionId',
         'scope'                         => 'Scope',
@@ -640,6 +660,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->desktopGroupCount) {
             $res['DesktopGroupCount'] = $this->desktopGroupCount;
+        }
+
+        if (null !== $this->deviceConnectHint) {
+            $res['DeviceConnectHint'] = $this->deviceConnectHint;
         }
 
         if (null !== $this->deviceRedirects) {
@@ -890,6 +914,18 @@ class describePolicyGroups extends Model
             $res['ResetDesktop'] = $this->resetDesktop;
         }
 
+        if (null !== $this->resolutionHeight) {
+            $res['ResolutionHeight'] = $this->resolutionHeight;
+        }
+
+        if (null !== $this->resolutionModel) {
+            $res['ResolutionModel'] = $this->resolutionModel;
+        }
+
+        if (null !== $this->resolutionWidth) {
+            $res['ResolutionWidth'] = $this->resolutionWidth;
+        }
+
         if (null !== $this->resourceGroupCount) {
             $res['ResourceGroupCount'] = $this->resourceGroupCount;
         }
@@ -1123,6 +1159,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['DesktopGroupCount'])) {
             $model->desktopGroupCount = $map['DesktopGroupCount'];
+        }
+
+        if (isset($map['DeviceConnectHint'])) {
+            $model->deviceConnectHint = $map['DeviceConnectHint'];
         }
 
         if (isset($map['DeviceRedirects'])) {
@@ -1371,6 +1411,18 @@ class describePolicyGroups extends Model
 
         if (isset($map['ResetDesktop'])) {
             $model->resetDesktop = $map['ResetDesktop'];
+        }
+
+        if (isset($map['ResolutionHeight'])) {
+            $model->resolutionHeight = $map['ResolutionHeight'];
+        }
+
+        if (isset($map['ResolutionModel'])) {
+            $model->resolutionModel = $map['ResolutionModel'];
+        }
+
+        if (isset($map['ResolutionWidth'])) {
+            $model->resolutionWidth = $map['ResolutionWidth'];
         }
 
         if (isset($map['ResourceGroupCount'])) {

@@ -1,3 +1,11 @@
+2025-03-04 Version: 4.3.1
+- Update API DescribePolicyGroups: add param PageNumber.
+- Update API DescribePolicyGroups: add param PageSize.
+- Update API DescribePolicyGroups: update response param.
+- Update API ModifyDiskSpec: add param ResellerOwnerUid.
+- Update API RenewNetworkPackages: add param AutoRenew.
+
+
 2025-02-25 Version: 4.3.0
 - Support API ModifyOfficeSiteDnsInfo.
 - Update API DescribeDesktopTypes: add param GpuMemory.

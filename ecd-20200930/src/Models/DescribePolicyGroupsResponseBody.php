@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\descr
 class DescribePolicyGroupsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+    /**
      * @var describePolicyGroups[]
      */
     public $describePolicyGroups;
@@ -18,12 +22,23 @@ class DescribePolicyGroupsResponseBody extends Model
      */
     public $nextToken;
     /**
+     * @var int
+     */
+    public $pageNumber;
+    /**
+     * @var int
+     */
+    public $pageSize;
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'count'                => 'Count',
         'describePolicyGroups' => 'DescribePolicyGroups',
         'nextToken'            => 'NextToken',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'requestId'            => 'RequestId',
     ];
 
@@ -38,6 +53,10 @@ class DescribePolicyGroupsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+
         if (null !== $this->describePolicyGroups) {
             if (\is_array($this->describePolicyGroups)) {
                 $res['DescribePolicyGroups'] = [];
@@ -50,6 +69,14 @@ class DescribePolicyGroupsResponseBody extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->requestId) {
@@ -67,6 +94,10 @@ class DescribePolicyGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+
         if (isset($map['DescribePolicyGroups'])) {
             if (!empty($map['DescribePolicyGroups'])) {
                 $model->describePolicyGroups = [];
@@ -79,6 +110,14 @@ class DescribePolicyGroupsResponseBody extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RequestId'])) {

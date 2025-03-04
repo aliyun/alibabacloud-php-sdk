@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAndBindNasFileSystemRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAndBindNasFileSystemResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAutoSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAutoSnapshotPolicyResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBandwidthResourcePackagesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBandwidthResourcePackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileRequest;
@@ -1467,7 +1469,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 绑定配置组.
+     * Binds a configuration group to resources.
      *
      * @param request - BindConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1516,7 +1518,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 绑定配置组.
+     * Binds a configuration group to resources.
      *
      * @param request - BindConfigGroupRequest
      * @returns BindConfigGroupResponse
@@ -2679,6 +2681,88 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Creates data transfer plans.
+     *
+     * @param request - CreateBandwidthResourcePackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateBandwidthResourcePackagesResponse
+     *
+     * @param CreateBandwidthResourcePackagesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateBandwidthResourcePackagesResponse
+     */
+    public function createBandwidthResourcePackagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->packageSize) {
+            @$query['PackageSize'] = $request->packageSize;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBandwidthResourcePackages',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBandwidthResourcePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateBandwidthResourcePackagesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates data transfer plans.
+     *
+     * @param request - CreateBandwidthResourcePackagesRequest
+     * @returns CreateBandwidthResourcePackagesResponse
+     *
+     * @param CreateBandwidthResourcePackagesRequest $request
+     *
+     * @return CreateBandwidthResourcePackagesResponse
+     */
+    public function createBandwidthResourcePackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBandwidthResourcePackagesWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a custom cloud computer template.
      *
      * @remarks
@@ -3181,7 +3265,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建配置组.
+     * Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
      *
      * @param request - CreateConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3242,7 +3326,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 创建配置组.
+     * Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
      *
      * @param request - CreateConfigGroupRequest
      * @returns CreateConfigGroupResponse
@@ -3259,12 +3343,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud computer pool (formerly desktop group).
+     * Creates a shared group.
      *
      * @remarks
-     * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-     * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
-     * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+     *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
+     * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
      *
      * @param request - CreateDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3525,12 +3608,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud computer pool (formerly desktop group).
+     * Creates a shared group.
      *
      * @remarks
-     * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-     * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
-     * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+     *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
+     * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
      *
      * @param request - CreateDesktopGroupRequest
      * @returns CreateDesktopGroupResponse
@@ -5115,7 +5197,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 删除配置组.
+     * Deletes a configuration group.
      *
      * @param request - DeleteConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5160,7 +5242,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 删除配置组.
+     * Deletes a configuration group.
      *
      * @param request - DeleteConfigGroupRequest
      * @returns DeleteConfigGroupResponse
@@ -6797,7 +6879,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询配置组.
+     * Queries configuration groups.
      *
      * @param request - DescribeConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6870,7 +6952,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询配置组.
+     * Queries configuration groups.
      *
      * @param request - DescribeConfigGroupRequest
      * @returns DescribeConfigGroupResponse
@@ -7689,7 +7771,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the details of the cloud desktop.
+     * Queries the details of cloud computers.
      *
      * @param request - DescribeDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7870,7 +7952,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query the details of the cloud desktop.
+     * Queries the details of cloud computers.
      *
      * @param request - DescribeDesktopsRequest
      * @returns DescribeDesktopsResponse
@@ -7902,6 +7984,14 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customEndTimePeriod) {
+            @$query['CustomEndTimePeriod'] = $request->customEndTimePeriod;
+        }
+
+        if (null !== $request->customStartTimePeriod) {
+            @$query['CustomStartTimePeriod'] = $request->customStartTimePeriod;
+        }
+
         if (null !== $request->desktopGroupId) {
             @$query['DesktopGroupId'] = $request->desktopGroupId;
         }
@@ -9257,7 +9347,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more policies.
+     * Queries the details of a cloud computer policy.
      *
      * @param request - DescribePolicyGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9282,6 +9372,14 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
 
         if (null !== $request->policyGroupId) {
@@ -9318,7 +9416,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more policies.
+     * Queries the details of a cloud computer policy.
      *
      * @param request - DescribePolicyGroupsRequest
      * @returns DescribePolicyGroupsResponse
@@ -9335,7 +9433,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+     * Queries the prices of Elastic Desktop Service (EDS) resources.
      *
      * @remarks
      * ## Usage notes
@@ -9444,7 +9542,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+     * Queries the prices of Elastic Desktop Service (EDS) resources.
      *
      * @remarks
      * ## Usage notes
@@ -9777,6 +9875,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the refund amount for unsubscribing from a cloud computer.
+     *
      * @param request - DescribeRefundPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns DescribeRefundPriceResponse
@@ -9824,6 +9924,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the refund amount for unsubscribing from a cloud computer.
+     *
      * @param request - DescribeRefundPriceRequest
      * @returns DescribeRefundPriceResponse
      *
@@ -10163,7 +10265,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询定时任务配置.
+     * Queries a scheduled task configuration group.
      *
      * @param request - DescribeTimerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10208,7 +10310,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询定时任务配置.
+     * Queries a scheduled task configuration group.
      *
      * @param request - DescribeTimerGroupRequest
      * @returns DescribeTimerGroupResponse
@@ -13721,7 +13823,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改配置组.
+     * Modifies the basic information of a configuration group.
      *
      * @param request - ModifyConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13774,7 +13876,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改配置组.
+     * Modifies the basic information of a configuration group.
      *
      * @param request - ModifyConfigGroupRequest
      * @returns ModifyConfigGroupResponse
@@ -14757,19 +14859,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+     * Changes the performance level (PL) of a system disk or data disk.
      *
      * @remarks
-     * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-     * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-     * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-     * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-     * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-     * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-     * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-     * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-     * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-     * *   The changes do not affect your personal data on the cloud desktop.
+     * When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
+     * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
      *
      * @param request - ModifyDiskSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14798,6 +14892,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         if (null !== $request->rootDiskPerformanceLevel) {
@@ -14830,19 +14928,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+     * Changes the performance level (PL) of a system disk or data disk.
      *
      * @remarks
-     * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-     * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-     * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-     * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-     * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-     * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-     * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-     * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-     * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-     * *   The changes do not affect your personal data on the cloud desktop.
+     * When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
+     * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
      *
      * @param request - ModifyDiskSpecRequest
      * @returns ModifyDiskSpecResponse
@@ -15903,7 +15993,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改定时任务配置.
+     * Modifies a scheduled task configuration group.
      *
      * @param request - ModifyTimerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15960,7 +16050,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改定时任务配置.
+     * Modifies a scheduled task configuration group.
      *
      * @param request - ModifyTimerGroupRequest
      * @returns ModifyTimerGroupResponse
@@ -16587,6 +16677,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Renew a subscription cloud computer pool.
+     *
      * @param request - RenewDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns RenewDesktopGroupResponse
@@ -16646,6 +16738,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Renew a subscription cloud computer pool.
+     *
      * @param request - RenewDesktopGroupRequest
      * @returns RenewDesktopGroupResponse
      *
@@ -16830,6 +16924,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->autoPay) {
             @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
 
         if (null !== $request->networkPackageId) {
@@ -18217,7 +18315,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 解绑配置组.
+     * Unbinds a configuration group from resources.
      *
      * @param request - UnbindConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18266,7 +18364,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 解绑配置组.
+     * Unbinds a configuration group from resources.
      *
      * @param request - UnbindConfigGroupRequest
      * @returns UnbindConfigGroupResponse
@@ -18751,6 +18849,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Wakes up cloud computers.
+     *
+     * @remarks
+     * Only cloud computers that are in the Hibernated state can be waked up.
+     *
      * @param request - WakeupDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns WakeupDesktopsResponse
@@ -18794,6 +18897,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Wakes up cloud computers.
+     *
+     * @remarks
+     * Only cloud computers that are in the Hibernated state can be waked up.
+     *
      * @param request - WakeupDesktopsRequest
      * @returns WakeupDesktopsResponse
      *

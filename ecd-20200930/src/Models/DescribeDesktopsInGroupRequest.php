@@ -9,6 +9,14 @@ use AlibabaCloud\Dara\Model;
 class DescribeDesktopsInGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $customEndTimePeriod;
+    /**
+     * @var int
+     */
+    public $customStartTimePeriod;
+    /**
      * @var string
      */
     public $desktopGroupId;
@@ -33,12 +41,14 @@ class DescribeDesktopsInGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'desktopGroupId' => 'DesktopGroupId',
-        'ignoreDeleted'  => 'IgnoreDeleted',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'payType'        => 'PayType',
-        'regionId'       => 'RegionId',
+        'customEndTimePeriod'   => 'CustomEndTimePeriod',
+        'customStartTimePeriod' => 'CustomStartTimePeriod',
+        'desktopGroupId'        => 'DesktopGroupId',
+        'ignoreDeleted'         => 'IgnoreDeleted',
+        'maxResults'            => 'MaxResults',
+        'nextToken'             => 'NextToken',
+        'payType'               => 'PayType',
+        'regionId'              => 'RegionId',
     ];
 
     public function validate()
@@ -49,6 +59,14 @@ class DescribeDesktopsInGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customEndTimePeriod) {
+            $res['CustomEndTimePeriod'] = $this->customEndTimePeriod;
+        }
+
+        if (null !== $this->customStartTimePeriod) {
+            $res['CustomStartTimePeriod'] = $this->customStartTimePeriod;
+        }
+
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
@@ -84,6 +102,14 @@ class DescribeDesktopsInGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomEndTimePeriod'])) {
+            $model->customEndTimePeriod = $map['CustomEndTimePeriod'];
+        }
+
+        if (isset($map['CustomStartTimePeriod'])) {
+            $model->customStartTimePeriod = $map['CustomStartTimePeriod'];
+        }
+
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }

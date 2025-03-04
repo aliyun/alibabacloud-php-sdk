@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RenewNetworkPackagesRequest extends Model
+class CreateBandwidthResourcePackagesRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $amount;
     /**
      * @var bool
      */
     public $autoPay;
     /**
-     * @var bool
+     * @var int
      */
-    public $autoRenew;
-    /**
-     * @var string[]
-     */
-    public $networkPackageId;
+    public $packageSize;
     /**
      * @var int
      */
@@ -37,42 +37,33 @@ class RenewNetworkPackagesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'autoPay'          => 'AutoPay',
-        'autoRenew'        => 'AutoRenew',
-        'networkPackageId' => 'NetworkPackageId',
-        'period'           => 'Period',
-        'periodUnit'       => 'PeriodUnit',
-        'promotionId'      => 'PromotionId',
-        'regionId'         => 'RegionId',
+        'amount'      => 'Amount',
+        'autoPay'     => 'AutoPay',
+        'packageSize' => 'PackageSize',
+        'period'      => 'Period',
+        'periodUnit'  => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->networkPackageId)) {
-            Model::validateArray($this->networkPackageId);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
+
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
 
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
-        }
-
-        if (null !== $this->networkPackageId) {
-            if (\is_array($this->networkPackageId)) {
-                $res['NetworkPackageId'] = [];
-                $n1                      = 0;
-                foreach ($this->networkPackageId as $item1) {
-                    $res['NetworkPackageId'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->packageSize) {
+            $res['PackageSize'] = $this->packageSize;
         }
 
         if (null !== $this->period) {
@@ -102,22 +93,16 @@ class RenewNetworkPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
+
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
 
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
-        }
-
-        if (isset($map['NetworkPackageId'])) {
-            if (!empty($map['NetworkPackageId'])) {
-                $model->networkPackageId = [];
-                $n1                      = 0;
-                foreach ($map['NetworkPackageId'] as $item1) {
-                    $model->networkPackageId[$n1++] = $item1;
-                }
-            }
+        if (isset($map['PackageSize'])) {
+            $model->packageSize = $map['PackageSize'];
         }
 
         if (isset($map['Period'])) {

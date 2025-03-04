@@ -21,6 +21,14 @@ class DescribePolicyGroupsRequest extends Model
      */
     public $nextToken;
     /**
+     * @var int
+     */
+    public $pageNumber;
+    /**
+     * @var int
+     */
+    public $pageSize;
+    /**
      * @var string[]
      */
     public $policyGroupId;
@@ -36,6 +44,8 @@ class DescribePolicyGroupsRequest extends Model
         'externalPolicyGroupIds' => 'ExternalPolicyGroupIds',
         'maxResults'             => 'MaxResults',
         'nextToken'              => 'NextToken',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
         'policyGroupId'          => 'PolicyGroupId',
         'regionId'               => 'RegionId',
         'scope'                  => 'Scope',
@@ -71,6 +81,14 @@ class DescribePolicyGroupsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->policyGroupId) {
@@ -118,6 +136,14 @@ class DescribePolicyGroupsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['PolicyGroupId'])) {
