@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\VpcIpam\V20230228;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AddIpamPoolCidrResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AssociateIpamResourceDiscoveryRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\AssociateIpamResourceDiscoveryResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamPoolAllocationRequest;
@@ -14,6 +16,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamPoolAllocationResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamPoolRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamPoolResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamResourceDiscoveryRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamResourceDiscoveryResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamScopeResponse;
@@ -24,11 +28,17 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamPoolCidrResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamPoolRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamPoolResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamResourceDiscoveryRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamResourceDiscoveryResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DissociateIpamResourceDiscoveryRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DissociateIpamResourceDiscoveryResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolAllocationRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolAllocationResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolNextAvailableCidrRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolNextAvailableCidrResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceRequest;
@@ -43,6 +53,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceCidrsResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveryAssociationsRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveryAssociationsResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamScopesRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamScopesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamsRequest;
@@ -60,6 +72,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolAllocationResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamPoolResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamResourceDiscoveryRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamResourceDiscoveryResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\UpdateIpamScopeResponse;
@@ -170,6 +184,96 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addIpamPoolCidrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关联资源发现和IPAM实例。
+     *
+     * @param request - AssociateIpamResourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateIpamResourceDiscoveryResponse
+     *
+     * @param AssociateIpamResourceDiscoveryRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return AssociateIpamResourceDiscoveryResponse
+     */
+    public function associateIpamResourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateIpamResourceDiscovery',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AssociateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 关联资源发现和IPAM实例。
+     *
+     * @param request - AssociateIpamResourceDiscoveryRequest
+     * @returns AssociateIpamResourceDiscoveryResponse
+     *
+     * @param AssociateIpamResourceDiscoveryRequest $request
+     *
+     * @return AssociateIpamResourceDiscoveryResponse
+     */
+    public function associateIpamResourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateIpamResourceDiscoveryWithOptions($request, $runtime);
     }
 
     /**
@@ -562,6 +666,108 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createIpamPoolAllocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义类型资源发现。
+     *
+     * @param request - CreateIpamResourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIpamResourceDiscoveryResponse
+     *
+     * @param CreateIpamResourceDiscoveryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateIpamResourceDiscoveryResponse
+     */
+    public function createIpamResourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryDescription) {
+            @$query['IpamResourceDiscoveryDescription'] = $request->ipamResourceDiscoveryDescription;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryName) {
+            @$query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
+        }
+
+        if (null !== $request->operatingRegionList) {
+            @$query['OperatingRegionList'] = $request->operatingRegionList;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIpamResourceDiscovery',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义类型资源发现。
+     *
+     * @param request - CreateIpamResourceDiscoveryRequest
+     * @returns CreateIpamResourceDiscoveryResponse
+     *
+     * @param CreateIpamResourceDiscoveryRequest $request
+     *
+     * @return CreateIpamResourceDiscoveryResponse
+     */
+    public function createIpamResourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIpamResourceDiscoveryWithOptions($request, $runtime);
     }
 
     /**
@@ -967,6 +1173,92 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * 删除自定义类型的资源发现。
+     *
+     * @param request - DeleteIpamResourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIpamResourceDiscoveryResponse
+     *
+     * @param DeleteIpamResourceDiscoveryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteIpamResourceDiscoveryResponse
+     */
+    public function deleteIpamResourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIpamResourceDiscovery',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义类型的资源发现。
+     *
+     * @param request - DeleteIpamResourceDiscoveryRequest
+     * @returns DeleteIpamResourceDiscoveryResponse
+     *
+     * @param DeleteIpamResourceDiscoveryRequest $request
+     *
+     * @return DeleteIpamResourceDiscoveryResponse
+     */
+    public function deleteIpamResourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIpamResourceDiscoveryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DeleteIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns DeleteIpamScopeResponse
@@ -1049,6 +1341,96 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * 解关联资源发现和IPAM实例。
+     *
+     * @param request - DissociateIpamResourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DissociateIpamResourceDiscoveryResponse
+     *
+     * @param DissociateIpamResourceDiscoveryRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DissociateIpamResourceDiscoveryResponse
+     */
+    public function dissociateIpamResourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateIpamResourceDiscovery',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DissociateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DissociateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 解关联资源发现和IPAM实例。
+     *
+     * @param request - DissociateIpamResourceDiscoveryRequest
+     * @returns DissociateIpamResourceDiscoveryResponse
+     *
+     * @param DissociateIpamResourceDiscoveryRequest $request
+     *
+     * @return DissociateIpamResourceDiscoveryResponse
+     */
+    public function dissociateIpamResourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateIpamResourceDiscoveryWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询指定IPAM地址池CIDR分配的信息.
      *
      * @param request - GetIpamPoolAllocationRequest
@@ -1100,6 +1482,60 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIpamPoolAllocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取地址池可用CIDR。
+     *
+     * @param request - GetIpamPoolNextAvailableCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIpamPoolNextAvailableCidrResponse
+     *
+     * @param GetIpamPoolNextAvailableCidrRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetIpamPoolNextAvailableCidrResponse
+     */
+    public function getIpamPoolNextAvailableCidrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIpamPoolNextAvailableCidr',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIpamPoolNextAvailableCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetIpamPoolNextAvailableCidrResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取地址池可用CIDR。
+     *
+     * @param request - GetIpamPoolNextAvailableCidrRequest
+     * @returns GetIpamPoolNextAvailableCidrResponse
+     *
+     * @param GetIpamPoolNextAvailableCidrRequest $request
+     *
+     * @return GetIpamPoolNextAvailableCidrResponse
+     */
+    public function getIpamPoolNextAvailableCidr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpamPoolNextAvailableCidrWithOptions($request, $runtime);
     }
 
     /**
@@ -1622,6 +2058,10 @@ class VpcIpam extends OpenApiClient
             @$query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
         }
 
+        if (null !== $request->isShared) {
+            @$query['IsShared'] = $request->isShared;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -1698,6 +2138,96 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIpamResourceDiscoveriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看资源发现和IPAM的关联关系。
+     *
+     * @param request - ListIpamResourceDiscoveryAssociationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIpamResourceDiscoveryAssociationsResponse
+     *
+     * @param ListIpamResourceDiscoveryAssociationsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListIpamResourceDiscoveryAssociationsResponse
+     */
+    public function listIpamResourceDiscoveryAssociationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ipamId) {
+            @$query['IpamId'] = $request->ipamId;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIpamResourceDiscoveryAssociations',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIpamResourceDiscoveryAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListIpamResourceDiscoveryAssociationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查看资源发现和IPAM的关联关系。
+     *
+     * @param request - ListIpamResourceDiscoveryAssociationsRequest
+     * @returns ListIpamResourceDiscoveryAssociationsResponse
+     *
+     * @param ListIpamResourceDiscoveryAssociationsRequest $request
+     *
+     * @return ListIpamResourceDiscoveryAssociationsResponse
+     */
+    public function listIpamResourceDiscoveryAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpamResourceDiscoveryAssociationsWithOptions($request, $runtime);
     }
 
     /**
@@ -1803,7 +2333,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询ipam.
+     * Queries IP Address Managers (IPAMs).
      *
      * @param request - ListIpamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1884,7 +2414,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询ipam.
+     * Queries IP Address Managers (IPAMs).
      *
      * @param request - ListIpamsRequest
      * @returns ListIpamsResponse
@@ -2536,6 +3066,108 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIpamPoolAllocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新自定义类型资源发现。
+     *
+     * @param request - UpdateIpamResourceDiscoveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIpamResourceDiscoveryResponse
+     *
+     * @param UpdateIpamResourceDiscoveryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateIpamResourceDiscoveryResponse
+     */
+    public function updateIpamResourceDiscoveryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addOperatingRegion) {
+            @$query['AddOperatingRegion'] = $request->addOperatingRegion;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryDescription) {
+            @$query['IpamResourceDiscoveryDescription'] = $request->ipamResourceDiscoveryDescription;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryName) {
+            @$query['IpamResourceDiscoveryName'] = $request->ipamResourceDiscoveryName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->removeOperatingRegion) {
+            @$query['RemoveOperatingRegion'] = $request->removeOperatingRegion;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIpamResourceDiscovery',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIpamResourceDiscoveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateIpamResourceDiscoveryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义类型资源发现。
+     *
+     * @param request - UpdateIpamResourceDiscoveryRequest
+     * @returns UpdateIpamResourceDiscoveryResponse
+     *
+     * @param UpdateIpamResourceDiscoveryRequest $request
+     *
+     * @return UpdateIpamResourceDiscoveryResponse
+     */
+    public function updateIpamResourceDiscovery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIpamResourceDiscoveryWithOptions($request, $runtime);
     }
 
     /**

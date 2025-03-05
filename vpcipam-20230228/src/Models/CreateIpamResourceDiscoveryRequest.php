@@ -2,17 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesResponseBody;
+namespace AlibabaCloud\SDK\VpcIpam\V20230228\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamResourceDiscoveriesResponseBody\ipamResourceDiscoveries\tags;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\CreateIpamResourceDiscoveryRequest\tag;
 
-class ipamResourceDiscoveries extends Model
+class CreateIpamResourceDiscoveryRequest extends Model
 {
     /**
      * @var string
      */
-    public $createTime;
+    public $clientToken;
+    /**
+     * @var bool
+     */
+    public $dryRun;
     /**
      * @var string
      */
@@ -20,19 +24,15 @@ class ipamResourceDiscoveries extends Model
     /**
      * @var string
      */
-    public $ipamResourceDiscoveryId;
-    /**
-     * @var string
-     */
     public $ipamResourceDiscoveryName;
-    /**
-     * @var string
-     */
-    public $ipamResourceDiscoveryStatus;
     /**
      * @var string[]
      */
     public $operatingRegionList;
+    /**
+     * @var string
+     */
+    public $ownerAccount;
     /**
      * @var int
      */
@@ -48,28 +48,28 @@ class ipamResourceDiscoveries extends Model
     /**
      * @var string
      */
-    public $shareType;
+    public $resourceOwnerAccount;
     /**
-     * @var tags[]
+     * @var int
      */
-    public $tags;
+    public $resourceOwnerId;
     /**
-     * @var string
+     * @var tag[]
      */
-    public $type;
+    public $tag;
     protected $_name = [
-        'createTime'                       => 'CreateTime',
+        'clientToken'                      => 'ClientToken',
+        'dryRun'                           => 'DryRun',
         'ipamResourceDiscoveryDescription' => 'IpamResourceDiscoveryDescription',
-        'ipamResourceDiscoveryId'          => 'IpamResourceDiscoveryId',
         'ipamResourceDiscoveryName'        => 'IpamResourceDiscoveryName',
-        'ipamResourceDiscoveryStatus'      => 'IpamResourceDiscoveryStatus',
         'operatingRegionList'              => 'OperatingRegionList',
+        'ownerAccount'                     => 'OwnerAccount',
         'ownerId'                          => 'OwnerId',
         'regionId'                         => 'RegionId',
         'resourceGroupId'                  => 'ResourceGroupId',
-        'shareType'                        => 'ShareType',
-        'tags'                             => 'Tags',
-        'type'                             => 'Type',
+        'resourceOwnerAccount'             => 'ResourceOwnerAccount',
+        'resourceOwnerId'                  => 'ResourceOwnerId',
+        'tag'                              => 'Tag',
     ];
 
     public function validate()
@@ -77,8 +77,8 @@ class ipamResourceDiscoveries extends Model
         if (\is_array($this->operatingRegionList)) {
             Model::validateArray($this->operatingRegionList);
         }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -86,24 +86,20 @@ class ipamResourceDiscoveries extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->ipamResourceDiscoveryDescription) {
             $res['IpamResourceDiscoveryDescription'] = $this->ipamResourceDiscoveryDescription;
         }
 
-        if (null !== $this->ipamResourceDiscoveryId) {
-            $res['IpamResourceDiscoveryId'] = $this->ipamResourceDiscoveryId;
-        }
-
         if (null !== $this->ipamResourceDiscoveryName) {
             $res['IpamResourceDiscoveryName'] = $this->ipamResourceDiscoveryName;
-        }
-
-        if (null !== $this->ipamResourceDiscoveryStatus) {
-            $res['IpamResourceDiscoveryStatus'] = $this->ipamResourceDiscoveryStatus;
         }
 
         if (null !== $this->operatingRegionList) {
@@ -114,6 +110,10 @@ class ipamResourceDiscoveries extends Model
                     $res['OperatingRegionList'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         if (null !== $this->ownerId) {
@@ -128,22 +128,22 @@ class ipamResourceDiscoveries extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1          = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -157,24 +157,20 @@ class ipamResourceDiscoveries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['IpamResourceDiscoveryDescription'])) {
             $model->ipamResourceDiscoveryDescription = $map['IpamResourceDiscoveryDescription'];
         }
 
-        if (isset($map['IpamResourceDiscoveryId'])) {
-            $model->ipamResourceDiscoveryId = $map['IpamResourceDiscoveryId'];
-        }
-
         if (isset($map['IpamResourceDiscoveryName'])) {
             $model->ipamResourceDiscoveryName = $map['IpamResourceDiscoveryName'];
-        }
-
-        if (isset($map['IpamResourceDiscoveryStatus'])) {
-            $model->ipamResourceDiscoveryStatus = $map['IpamResourceDiscoveryStatus'];
         }
 
         if (isset($map['OperatingRegionList'])) {
@@ -185,6 +181,10 @@ class ipamResourceDiscoveries extends Model
                     $model->operatingRegionList[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         if (isset($map['OwnerId'])) {
@@ -199,22 +199,22 @@ class ipamResourceDiscoveries extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n1          = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

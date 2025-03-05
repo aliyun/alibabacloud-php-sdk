@@ -18,6 +18,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
      */
     public $ipamResourceDiscoveryName;
     /**
+     * @var bool
+     */
+    public $isShared;
+    /**
      * @var int
      */
     public $maxResults;
@@ -60,6 +64,7 @@ class ListIpamResourceDiscoveriesRequest extends Model
     protected $_name = [
         'ipamResourceDiscoveryIds'  => 'IpamResourceDiscoveryIds',
         'ipamResourceDiscoveryName' => 'IpamResourceDiscoveryName',
+        'isShared'                  => 'IsShared',
         'maxResults'                => 'MaxResults',
         'nextToken'                 => 'NextToken',
         'ownerAccount'              => 'OwnerAccount',
@@ -98,6 +103,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
 
         if (null !== $this->ipamResourceDiscoveryName) {
             $res['IpamResourceDiscoveryName'] = $this->ipamResourceDiscoveryName;
+        }
+
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
         }
 
         if (null !== $this->maxResults) {
@@ -169,6 +178,10 @@ class ListIpamResourceDiscoveriesRequest extends Model
 
         if (isset($map['IpamResourceDiscoveryName'])) {
             $model->ipamResourceDiscoveryName = $map['IpamResourceDiscoveryName'];
+        }
+
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
         }
 
         if (isset($map['MaxResults'])) {
