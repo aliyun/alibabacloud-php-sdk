@@ -1,3 +1,7 @@
+2025-03-05 Version: 6.0.0
+- Update API ListServiceInstanceResources: delete param ResourceARN.
+
+
 2025-02-28 Version: 5.4.0
 - Support API GetServiceRegistration.
 - Support API ListServiceInstanceLogs.

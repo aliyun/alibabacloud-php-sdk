@@ -27,10 +27,6 @@ class ListServiceInstanceResourcesRequest extends Model
      */
     public $regionId;
     /**
-     * @var string[]
-     */
-    public $resourceARN;
-    /**
      * @var string
      */
     public $serviceInstanceId;
@@ -47,7 +43,6 @@ class ListServiceInstanceResourcesRequest extends Model
         'maxResults'                  => 'MaxResults',
         'nextToken'                   => 'NextToken',
         'regionId'                    => 'RegionId',
-        'resourceARN'                 => 'ResourceARN',
         'serviceInstanceId'           => 'ServiceInstanceId',
         'serviceInstanceResourceType' => 'ServiceInstanceResourceType',
         'tag'                         => 'Tag',
@@ -57,9 +52,6 @@ class ListServiceInstanceResourcesRequest extends Model
     {
         if (\is_array($this->filters)) {
             Model::validateArray($this->filters);
-        }
-        if (\is_array($this->resourceARN)) {
-            Model::validateArray($this->resourceARN);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -90,16 +82,6 @@ class ListServiceInstanceResourcesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->resourceARN) {
-            if (\is_array($this->resourceARN)) {
-                $res['ResourceARN'] = [];
-                $n1                 = 0;
-                foreach ($this->resourceARN as $item1) {
-                    $res['ResourceARN'][$n1++] = $item1;
-                }
-            }
         }
 
         if (null !== $this->serviceInstanceId) {
@@ -151,16 +133,6 @@ class ListServiceInstanceResourcesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['ResourceARN'])) {
-            if (!empty($map['ResourceARN'])) {
-                $model->resourceARN = [];
-                $n1                 = 0;
-                foreach ($map['ResourceARN'] as $item1) {
-                    $model->resourceARN[$n1++] = $item1;
-                }
-            }
         }
 
         if (isset($map['ServiceInstanceId'])) {

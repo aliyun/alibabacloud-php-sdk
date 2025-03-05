@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceDeployDetailsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstanceLogsRequest;
@@ -2926,6 +2928,76 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * Paginated query of distributor information list.
+     *
+     * @param request - ListResellersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResellersResponse
+     *
+     * @param ListResellersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListResellersResponse
+     */
+    public function listResellersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResellers',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResellersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListResellersResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Paginated query of distributor information list.
+     *
+     * @param request - ListResellersRequest
+     * @returns ListResellersResponse
+     *
+     * @param ListResellersRequest $request
+     *
+     * @return ListResellersResponse
+     */
+    public function listResellers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResellersWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询服务实例部署详情.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
@@ -3131,10 +3203,6 @@ class ComputeNestSupplier extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceARN) {
-            @$query['ResourceARN'] = $request->resourceARN;
         }
 
         if (null !== $request->serviceInstanceId) {
