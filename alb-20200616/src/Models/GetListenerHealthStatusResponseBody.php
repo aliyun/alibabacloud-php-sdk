@@ -4,25 +4,43 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusResponseBody\listenerHealthStatus;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusResponseBody\ruleHealthStatus;
+use AlibabaCloud\Tea\Model;
 
 class GetListenerHealthStatusResponseBody extends Model
 {
     /**
+     * @description The health check status of the server groups that are associated with the listener.
+     *
      * @var listenerHealthStatus[]
      */
     public $listenerHealthStatus;
+
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The health check status of the forwarding rules.
+     *
      * @var ruleHealthStatus[]
      */
     public $ruleHealthStatus;
@@ -35,42 +53,32 @@ class GetListenerHealthStatusResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->listenerHealthStatus)) {
-            Model::validateArray($this->listenerHealthStatus);
-        }
-        if (\is_array($this->ruleHealthStatus)) {
-            Model::validateArray($this->ruleHealthStatus);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->listenerHealthStatus) {
-            if (\is_array($this->listenerHealthStatus)) {
-                $res['ListenerHealthStatus'] = [];
-                $n1                          = 0;
-                foreach ($this->listenerHealthStatus as $item1) {
-                    $res['ListenerHealthStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ListenerHealthStatus'] = [];
+            if (null !== $this->listenerHealthStatus && \is_array($this->listenerHealthStatus)) {
+                $n = 0;
+                foreach ($this->listenerHealthStatus as $item) {
+                    $res['ListenerHealthStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->ruleHealthStatus) {
-            if (\is_array($this->ruleHealthStatus)) {
-                $res['RuleHealthStatus'] = [];
-                $n1                      = 0;
-                foreach ($this->ruleHealthStatus as $item1) {
-                    $res['RuleHealthStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleHealthStatus'] = [];
+            if (null !== $this->ruleHealthStatus && \is_array($this->ruleHealthStatus)) {
+                $n = 0;
+                foreach ($this->ruleHealthStatus as $item) {
+                    $res['RuleHealthStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -78,38 +86,35 @@ class GetListenerHealthStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetListenerHealthStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerHealthStatus'])) {
             if (!empty($map['ListenerHealthStatus'])) {
                 $model->listenerHealthStatus = [];
-                $n1                          = 0;
-                foreach ($map['ListenerHealthStatus'] as $item1) {
-                    $model->listenerHealthStatus[$n1++] = listenerHealthStatus::fromMap($item1);
+                $n                           = 0;
+                foreach ($map['ListenerHealthStatus'] as $item) {
+                    $model->listenerHealthStatus[$n++] = null !== $item ? listenerHealthStatus::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RuleHealthStatus'])) {
             if (!empty($map['RuleHealthStatus'])) {
                 $model->ruleHealthStatus = [];
-                $n1                      = 0;
-                foreach ($map['RuleHealthStatus'] as $item1) {
-                    $model->ruleHealthStatus[$n1++] = ruleHealthStatus::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['RuleHealthStatus'] as $item) {
+                    $model->ruleHealthStatus[$n++] = null !== $item ? ruleHealthStatus::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetListenerAttributeRequest extends Model
 {
     /**
+     * @description The listener ID.
+     *
+     * This parameter is required.
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
      * @var string
      */
     public $listenerId;
@@ -18,10 +23,9 @@ class GetListenerAttributeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->listenerId) {
@@ -31,11 +35,11 @@ class GetListenerAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetListenerAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateAScriptsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AScriptIds extends Model
 {
     /**
+     * @description The AScript rule ID.
+     *
+     * @example as-xvq5igaa7uv6vr****
+     *
      * @var string
      */
     public $AScriptId;
@@ -18,10 +22,9 @@ class AScriptIds extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->AScriptId) {
@@ -31,11 +34,11 @@ class AScriptIds extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AScriptIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

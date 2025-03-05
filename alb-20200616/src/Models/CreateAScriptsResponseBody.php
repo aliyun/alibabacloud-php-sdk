@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAScriptsResponseBody\AScriptIds;
+use AlibabaCloud\Tea\Model;
 
 class CreateAScriptsResponseBody extends Model
 {
     /**
+     * @description The AScript rule IDs.
+     *
      * @var AScriptIds[]
      */
     public $AScriptIds;
+
     /**
+     * @description The asynchronous task ID.
+     *
+     * @example 5c607642-535e-4e06-9d77-df53049b****
+     *
      * @var string
      */
     public $jobId;
+
     /**
+     * @description The request ID.
+     *
+     * @example BF0FE763-9603-558F-A55B-0F4B9A3E3C02
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class CreateAScriptsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->AScriptIds)) {
-            Model::validateArray($this->AScriptIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->AScriptIds) {
-            if (\is_array($this->AScriptIds)) {
-                $res['AScriptIds'] = [];
-                $n1                = 0;
-                foreach ($this->AScriptIds as $item1) {
-                    $res['AScriptIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AScriptIds'] = [];
+            if (null !== $this->AScriptIds && \is_array($this->AScriptIds)) {
+                $n = 0;
+                foreach ($this->AScriptIds as $item) {
+                    $res['AScriptIds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class CreateAScriptsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAScriptsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AScriptIds'])) {
             if (!empty($map['AScriptIds'])) {
                 $model->AScriptIds = [];
-                $n1                = 0;
-                foreach ($map['AScriptIds'] as $item1) {
-                    $model->AScriptIds[$n1++] = AScriptIds::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['AScriptIds'] as $item) {
+                    $model->AScriptIds[$n++] = null !== $item ? AScriptIds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

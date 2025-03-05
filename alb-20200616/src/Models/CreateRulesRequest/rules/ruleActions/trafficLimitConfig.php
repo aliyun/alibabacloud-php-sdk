@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class trafficLimitConfig extends Model
 {
@@ -12,6 +12,7 @@ class trafficLimitConfig extends Model
      * @var int
      */
     public $perIpQps;
+
     /**
      * @var int
      */
@@ -23,16 +24,14 @@ class trafficLimitConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->perIpQps) {
             $res['PerIpQps'] = $this->perIpQps;
         }
-
         if (null !== $this->QPS) {
             $res['QPS'] = $this->QPS;
         }
@@ -40,18 +39,17 @@ class trafficLimitConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trafficLimitConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PerIpQps'])) {
             $model->perIpQps = $map['PerIpQps'];
         }
-
         if (isset($map['QPS'])) {
             $model->QPS = $map['QPS'];
         }

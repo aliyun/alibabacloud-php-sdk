@@ -4,31 +4,59 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRuleRequest\ruleActions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class corsConfig extends Model
 {
     /**
+     * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
+     *
+     *   **on**: allows credentials to be carried in CORS requests.
+     *   **off**: does not allow credentials to be carried in CORS requests.
+     *
+     * @example on
+     *
      * @var string
      */
     public $allowCredentials;
+
     /**
+     * @description The trusted headers of CORS requests.
+     *
      * @var string[]
      */
     public $allowHeaders;
+
     /**
+     * @description The trusted HTTP methods of CORS requests.
+     *
      * @var string[]
      */
     public $allowMethods;
+
     /**
+     * @description The trusted origins of CORS requests. You can specify one or more values, or only the wildcard character (`*`).
+     *
+     *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
+     *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.
+     *
      * @var string[]
      */
     public $allowOrigin;
+
     /**
+     * @description The headers that can be exposed.
+     *
      * @var string[]
      */
     public $exposeHeaders;
+
     /**
+     * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
+     *
+     * Valid values: **-1** to **172800**.
+     * @example 1000
+     *
      * @var int
      */
     public $maxAge;
@@ -43,68 +71,26 @@ class corsConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->allowHeaders)) {
-            Model::validateArray($this->allowHeaders);
-        }
-        if (\is_array($this->allowMethods)) {
-            Model::validateArray($this->allowMethods);
-        }
-        if (\is_array($this->allowOrigin)) {
-            Model::validateArray($this->allowOrigin);
-        }
-        if (\is_array($this->exposeHeaders)) {
-            Model::validateArray($this->exposeHeaders);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowCredentials) {
             $res['AllowCredentials'] = $this->allowCredentials;
         }
-
         if (null !== $this->allowHeaders) {
-            if (\is_array($this->allowHeaders)) {
-                $res['AllowHeaders'] = [];
-                $n1                  = 0;
-                foreach ($this->allowHeaders as $item1) {
-                    $res['AllowHeaders'][$n1++] = $item1;
-                }
-            }
+            $res['AllowHeaders'] = $this->allowHeaders;
         }
-
         if (null !== $this->allowMethods) {
-            if (\is_array($this->allowMethods)) {
-                $res['AllowMethods'] = [];
-                $n1                  = 0;
-                foreach ($this->allowMethods as $item1) {
-                    $res['AllowMethods'][$n1++] = $item1;
-                }
-            }
+            $res['AllowMethods'] = $this->allowMethods;
         }
-
         if (null !== $this->allowOrigin) {
-            if (\is_array($this->allowOrigin)) {
-                $res['AllowOrigin'] = [];
-                $n1                 = 0;
-                foreach ($this->allowOrigin as $item1) {
-                    $res['AllowOrigin'][$n1++] = $item1;
-                }
-            }
+            $res['AllowOrigin'] = $this->allowOrigin;
         }
-
         if (null !== $this->exposeHeaders) {
-            if (\is_array($this->exposeHeaders)) {
-                $res['ExposeHeaders'] = [];
-                $n1                   = 0;
-                foreach ($this->exposeHeaders as $item1) {
-                    $res['ExposeHeaders'][$n1++] = $item1;
-                }
-            }
+            $res['ExposeHeaders'] = $this->exposeHeaders;
         }
-
         if (null !== $this->maxAge) {
             $res['MaxAge'] = $this->maxAge;
         }
@@ -112,58 +98,37 @@ class corsConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return corsConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowCredentials'])) {
             $model->allowCredentials = $map['AllowCredentials'];
         }
-
         if (isset($map['AllowHeaders'])) {
             if (!empty($map['AllowHeaders'])) {
-                $model->allowHeaders = [];
-                $n1                  = 0;
-                foreach ($map['AllowHeaders'] as $item1) {
-                    $model->allowHeaders[$n1++] = $item1;
-                }
+                $model->allowHeaders = $map['AllowHeaders'];
             }
         }
-
         if (isset($map['AllowMethods'])) {
             if (!empty($map['AllowMethods'])) {
-                $model->allowMethods = [];
-                $n1                  = 0;
-                foreach ($map['AllowMethods'] as $item1) {
-                    $model->allowMethods[$n1++] = $item1;
-                }
+                $model->allowMethods = $map['AllowMethods'];
             }
         }
-
         if (isset($map['AllowOrigin'])) {
             if (!empty($map['AllowOrigin'])) {
-                $model->allowOrigin = [];
-                $n1                 = 0;
-                foreach ($map['AllowOrigin'] as $item1) {
-                    $model->allowOrigin[$n1++] = $item1;
-                }
+                $model->allowOrigin = $map['AllowOrigin'];
             }
         }
-
         if (isset($map['ExposeHeaders'])) {
             if (!empty($map['ExposeHeaders'])) {
-                $model->exposeHeaders = [];
-                $n1                   = 0;
-                foreach ($map['ExposeHeaders'] as $item1) {
-                    $model->exposeHeaders[$n1++] = $item1;
-                }
+                $model->exposeHeaders = $map['ExposeHeaders'];
             }
         }
-
         if (isset($map['MaxAge'])) {
             $model->maxAge = $map['MaxAge'];
         }

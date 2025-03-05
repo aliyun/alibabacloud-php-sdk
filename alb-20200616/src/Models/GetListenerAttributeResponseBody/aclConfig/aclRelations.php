@@ -4,15 +4,28 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeResponseBody\aclConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class aclRelations extends Model
 {
     /**
+     * @description The ID of the ACL that is associated with the listener.
+     *
+     * @example acl-doc****
+     *
      * @var string
      */
     public $aclId;
+
     /**
+     * @description Indicates whether the ACL is associated with the listener. Valid values:
+     *
+     *   **Associating**
+     *   **Associated**
+     *   **Dissociating**
+     *
+     * @example Associating
+     *
      * @var string
      */
     public $status;
@@ -23,16 +36,14 @@ class aclRelations extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -40,18 +51,17 @@ class aclRelations extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aclRelations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

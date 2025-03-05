@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class connectionDrainConfig extends Model
 {
     /**
+     * @description Indicates whether connection draining is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $connectionDrainEnabled;
+
     /**
+     * @description The timeout period of connection draining.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $connectionDrainTimeout;
@@ -23,16 +35,14 @@ class connectionDrainConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectionDrainEnabled) {
             $res['ConnectionDrainEnabled'] = $this->connectionDrainEnabled;
         }
-
         if (null !== $this->connectionDrainTimeout) {
             $res['ConnectionDrainTimeout'] = $this->connectionDrainTimeout;
         }
@@ -40,18 +50,17 @@ class connectionDrainConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return connectionDrainConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionDrainEnabled'])) {
             $model->connectionDrainEnabled = $map['ConnectionDrainEnabled'];
         }
-
         if (isset($map['ConnectionDrainTimeout'])) {
             $model->connectionDrainTimeout = $map['ConnectionDrainTimeout'];
         }

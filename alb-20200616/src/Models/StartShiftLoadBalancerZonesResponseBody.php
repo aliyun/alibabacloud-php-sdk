@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartShiftLoadBalancerZonesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class StartShiftLoadBalancerZonesResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class StartShiftLoadBalancerZonesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartShiftLoadBalancerZonesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

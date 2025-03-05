@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class quicConfig extends Model
 {
     /**
+     * @description The ID of the QUIC listener that you want to associate with the HTTPS listener. Only HTTPS listeners support this parameter. This parameter is required when **QuicUpgradeEnabled** is set to **true**.
+     *
+     * >  The HTTPS listener and the QUIC listener must be added to the same ALB instance. Make sure that the QUIC listener is not associated with any other listeners.
+     * @example lsn-o4u54y73wq7b******
+     *
      * @var string
      */
     public $quicListenerId;
+
     /**
+     * @description Specifies whether to enable QUIC upgrade. Valid values:
+     *
+     *   **true**: enables QUIC upgrade.
+     *   **false** (default): disables QUIC upgrade.
+     *
+     * >  Only HTTPS listeners support this parameter.
+     * @example false
+     *
      * @var bool
      */
     public $quicUpgradeEnabled;
@@ -23,16 +37,14 @@ class quicConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->quicListenerId) {
             $res['QuicListenerId'] = $this->quicListenerId;
         }
-
         if (null !== $this->quicUpgradeEnabled) {
             $res['QuicUpgradeEnabled'] = $this->quicUpgradeEnabled;
         }
@@ -40,18 +52,17 @@ class quicConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return quicConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuicListenerId'])) {
             $model->quicListenerId = $map['QuicListenerId'];
         }
-
         if (isset($map['QuicUpgradeEnabled'])) {
             $model->quicUpgradeEnabled = $map['QuicUpgradeEnabled'];
         }

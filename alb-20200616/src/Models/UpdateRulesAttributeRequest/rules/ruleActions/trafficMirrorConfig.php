@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions\trafficMirrorConfig\mirrorGroupConfig;
+use AlibabaCloud\Tea\Model;
 
 class trafficMirrorConfig extends Model
 {
@@ -13,6 +13,7 @@ class trafficMirrorConfig extends Model
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
+
     /**
      * @var string
      */
@@ -24,19 +25,14 @@ class trafficMirrorConfig extends Model
 
     public function validate()
     {
-        if (null !== $this->mirrorGroupConfig) {
-            $this->mirrorGroupConfig->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mirrorGroupConfig) {
-            $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toArray($noStream) : $this->mirrorGroupConfig;
+            $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toMap() : null;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -44,18 +40,17 @@ class trafficMirrorConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trafficMirrorConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MirrorGroupConfig'])) {
             $model->mirrorGroupConfig = mirrorGroupConfig::fromMap($map['MirrorGroupConfig']);
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

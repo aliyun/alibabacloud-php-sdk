@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListAclRelationsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclRelationsResponseBody\aclRelations\relatedListeners;
+use AlibabaCloud\Tea\Model;
 
 class aclRelations extends Model
 {
     /**
+     * @description ACL ID
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
+     *
      * @var string
      */
     public $aclId;
+
     /**
+     * @description The listeners that are associated with the ACL.
+     *
      * @var relatedListeners[]
      */
     public $relatedListeners;
@@ -24,25 +31,20 @@ class aclRelations extends Model
 
     public function validate()
     {
-        if (\is_array($this->relatedListeners)) {
-            Model::validateArray($this->relatedListeners);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
-
         if (null !== $this->relatedListeners) {
-            if (\is_array($this->relatedListeners)) {
-                $res['RelatedListeners'] = [];
-                $n1                      = 0;
-                foreach ($this->relatedListeners as $item1) {
-                    $res['RelatedListeners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RelatedListeners'] = [];
+            if (null !== $this->relatedListeners && \is_array($this->relatedListeners)) {
+                $n = 0;
+                foreach ($this->relatedListeners as $item) {
+                    $res['RelatedListeners'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +52,23 @@ class aclRelations extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aclRelations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
-
         if (isset($map['RelatedListeners'])) {
             if (!empty($map['RelatedListeners'])) {
                 $model->relatedListeners = [];
-                $n1                      = 0;
-                foreach ($map['RelatedListeners'] as $item1) {
-                    $model->relatedListeners[$n1++] = relatedListeners::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['RelatedListeners'] as $item) {
+                    $model->relatedListeners[$n++] = null !== $item ? relatedListeners::fromMap($item) : $item;
                 }
             }
         }

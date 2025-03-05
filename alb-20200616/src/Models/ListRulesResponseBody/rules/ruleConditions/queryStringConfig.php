@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleConditions;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleConditions\queryStringConfig\values;
+use AlibabaCloud\Tea\Model;
 
 class queryStringConfig extends Model
 {
     /**
+     * @description The query string.
+     *
      * @var values[]
      */
     public $values;
@@ -19,21 +21,17 @@ class queryStringConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1            = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Values'] = [];
+            if (null !== $this->values && \is_array($this->values)) {
+                $n = 0;
+                foreach ($this->values as $item) {
+                    $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +39,20 @@ class queryStringConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return queryStringConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = values::fromMap($item1);
+                $n             = 0;
+                foreach ($map['Values'] as $item) {
+                    $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }
             }
         }

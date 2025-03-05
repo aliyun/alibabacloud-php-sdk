@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSecurityPolicyRelationsRequest extends Model
 {
     /**
+     * @description The security policy IDs. You can specify up to five IDs.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $securityPolicyIds;
@@ -18,43 +21,29 @@ class ListSecurityPolicyRelationsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->securityPolicyIds)) {
-            Model::validateArray($this->securityPolicyIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityPolicyIds) {
-            if (\is_array($this->securityPolicyIds)) {
-                $res['SecurityPolicyIds'] = [];
-                $n1                       = 0;
-                foreach ($this->securityPolicyIds as $item1) {
-                    $res['SecurityPolicyIds'][$n1++] = $item1;
-                }
-            }
+            $res['SecurityPolicyIds'] = $this->securityPolicyIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSecurityPolicyRelationsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityPolicyIds'])) {
             if (!empty($map['SecurityPolicyIds'])) {
-                $model->securityPolicyIds = [];
-                $n1                       = 0;
-                foreach ($map['SecurityPolicyIds'] as $item1) {
-                    $model->securityPolicyIds[$n1++] = $item1;
-                }
+                $model->securityPolicyIds = $map['SecurityPolicyIds'];
             }
         }
 

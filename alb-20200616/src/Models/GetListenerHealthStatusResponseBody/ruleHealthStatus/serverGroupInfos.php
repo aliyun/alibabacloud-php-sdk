@@ -4,24 +4,41 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusResponseBody\ruleHealthStatus;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerHealthStatusResponseBody\ruleHealthStatus\serverGroupInfos\nonNormalServers;
+use AlibabaCloud\Tea\Model;
 
 class serverGroupInfos extends Model
 {
     /**
+     * @description The action specified for the server group.
+     *
+     * @example TrafficMirror
+     *
      * @var string
      */
     public $actionType;
+
     /**
+     * @description Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $healthCheckEnabled;
+
     /**
+     * @description A list of unhealthy backend servers.
+     *
      * @var nonNormalServers[]
      */
     public $nonNormalServers;
+
     /**
+     * @description The ID of the server group that is associated with the listener.
+     *
+     * @example vsp-bp1qjwo61pqz3ahlt****
+     *
      * @var string
      */
     public $serverGroupId;
@@ -34,33 +51,26 @@ class serverGroupInfos extends Model
 
     public function validate()
     {
-        if (\is_array($this->nonNormalServers)) {
-            Model::validateArray($this->nonNormalServers);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
-
         if (null !== $this->healthCheckEnabled) {
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
-
         if (null !== $this->nonNormalServers) {
-            if (\is_array($this->nonNormalServers)) {
-                $res['NonNormalServers'] = [];
-                $n1                      = 0;
-                foreach ($this->nonNormalServers as $item1) {
-                    $res['NonNormalServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NonNormalServers'] = [];
+            if (null !== $this->nonNormalServers && \is_array($this->nonNormalServers)) {
+                $n = 0;
+                foreach ($this->nonNormalServers as $item) {
+                    $res['NonNormalServers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
@@ -68,32 +78,29 @@ class serverGroupInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serverGroupInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
-
         if (isset($map['HealthCheckEnabled'])) {
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
-
         if (isset($map['NonNormalServers'])) {
             if (!empty($map['NonNormalServers'])) {
                 $model->nonNormalServers = [];
-                $n1                      = 0;
-                foreach ($map['NonNormalServers'] as $item1) {
-                    $model->nonNormalServers[$n1++] = nonNormalServers::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['NonNormalServers'] as $item) {
+                    $model->nonNormalServers[$n++] = null !== $item ? nonNormalServers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }

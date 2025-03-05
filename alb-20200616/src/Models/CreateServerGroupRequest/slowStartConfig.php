@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateServerGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class slowStartConfig extends Model
 {
     /**
+     * @description The duration of a slow start.
+     * Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $slowStartDuration;
+
     /**
+     * @description Specifies whether to enable slow starts. Valid values:
+     *
+     * - false(default)
+     * @example false
+     *
      * @var bool
      */
     public $slowStartEnabled;
@@ -23,16 +33,14 @@ class slowStartConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->slowStartDuration) {
             $res['SlowStartDuration'] = $this->slowStartDuration;
         }
-
         if (null !== $this->slowStartEnabled) {
             $res['SlowStartEnabled'] = $this->slowStartEnabled;
         }
@@ -40,18 +48,17 @@ class slowStartConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return slowStartConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlowStartDuration'])) {
             $model->slowStartDuration = $map['SlowStartDuration'];
         }
-
         if (isset($map['SlowStartEnabled'])) {
             $model->slowStartEnabled = $map['SlowStartEnabled'];
         }

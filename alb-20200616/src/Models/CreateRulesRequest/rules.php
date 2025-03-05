@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\tag;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
@@ -15,22 +15,35 @@ class rules extends Model
      * @var string
      */
     public $direction;
+
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $priority;
+
     /**
+     * @description This parameter is required.
+     *
      * @var ruleActions[]
      */
     public $ruleActions;
+
     /**
+     * @description This parameter is required.
+     *
      * @var ruleConditions[]
      */
     public $ruleConditions;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleName;
+
     /**
      * @var tag[]
      */
@@ -46,59 +59,44 @@ class rules extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleActions)) {
-            Model::validateArray($this->ruleActions);
-        }
-        if (\is_array($this->ruleConditions)) {
-            Model::validateArray($this->ruleConditions);
-        }
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->ruleActions) {
-            if (\is_array($this->ruleActions)) {
-                $res['RuleActions'] = [];
-                $n1                 = 0;
-                foreach ($this->ruleActions as $item1) {
-                    $res['RuleActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleActions'] = [];
+            if (null !== $this->ruleActions && \is_array($this->ruleActions)) {
+                $n = 0;
+                foreach ($this->ruleActions as $item) {
+                    $res['RuleActions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ruleConditions) {
-            if (\is_array($this->ruleConditions)) {
-                $res['RuleConditions'] = [];
-                $n1                    = 0;
-                foreach ($this->ruleConditions as $item1) {
-                    $res['RuleConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleConditions'] = [];
+            if (null !== $this->ruleConditions && \is_array($this->ruleConditions)) {
+                $n = 0;
+                foreach ($this->ruleConditions as $item) {
+                    $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1         = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -106,52 +104,47 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['RuleActions'])) {
             if (!empty($map['RuleActions'])) {
                 $model->ruleActions = [];
-                $n1                 = 0;
-                foreach ($map['RuleActions'] as $item1) {
-                    $model->ruleActions[$n1++] = ruleActions::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['RuleActions'] as $item) {
+                    $model->ruleActions[$n++] = null !== $item ? ruleActions::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RuleConditions'])) {
             if (!empty($map['RuleConditions'])) {
                 $model->ruleConditions = [];
-                $n1                    = 0;
-                foreach ($map['RuleConditions'] as $item1) {
-                    $model->ruleConditions[$n1++] = ruleConditions::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['RuleConditions'] as $item) {
+                    $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }

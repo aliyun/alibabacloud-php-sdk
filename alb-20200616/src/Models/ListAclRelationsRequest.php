@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAclRelationsRequest extends Model
 {
     /**
+     * @description The access control list (ACL) IDs. You can query at most five ACLs in each call.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $aclIds;
@@ -18,43 +21,29 @@ class ListAclRelationsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->aclIds)) {
-            Model::validateArray($this->aclIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclIds) {
-            if (\is_array($this->aclIds)) {
-                $res['AclIds'] = [];
-                $n1            = 0;
-                foreach ($this->aclIds as $item1) {
-                    $res['AclIds'][$n1++] = $item1;
-                }
-            }
+            $res['AclIds'] = $this->aclIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAclRelationsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclIds'])) {
             if (!empty($map['AclIds'])) {
-                $model->aclIds = [];
-                $n1            = 0;
-                foreach ($map['AclIds'] as $item1) {
-                    $model->aclIds[$n1++] = $item1;
-                }
+                $model->aclIds = $map['AclIds'];
             }
         }
 

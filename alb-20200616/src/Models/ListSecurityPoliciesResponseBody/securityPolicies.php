@@ -4,40 +4,76 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesResponseBody\securityPolicies\tags;
+use AlibabaCloud\Tea\Model;
 
 class securityPolicies extends Model
 {
     /**
+     * @description The supported cipher suites.
+     *
      * @var string[]
      */
     public $ciphers;
+
     /**
+     * @description The time when the ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
+     * @example 2023-02-15T07:37:33Z
+     *
      * @var string
      */
     public $createTime;
+
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-atstuj3rtop****
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The ID of the security policy.
+     *
+     * @example rg-atstuj3rtop****
+     *
      * @var string
      */
     public $securityPolicyId;
+
     /**
+     * @description The name of the security policy.
+     *
+     * @example test-secrity
+     *
      * @var string
      */
     public $securityPolicyName;
+
     /**
+     * @description The status of the security policy. Valid values:
+     *
+     *   **Configuring**
+     *   **Available**
+     *
+     * @example Available
+     *
      * @var string
      */
     public $securityPolicyStatus;
+
     /**
+     * @description The supported TLS protocol versions.
+     *
      * @var string[]
      */
     public $TLSVersions;
+
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
@@ -54,67 +90,38 @@ class securityPolicies extends Model
 
     public function validate()
     {
-        if (\is_array($this->ciphers)) {
-            Model::validateArray($this->ciphers);
-        }
-        if (\is_array($this->TLSVersions)) {
-            Model::validateArray($this->TLSVersions);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ciphers) {
-            if (\is_array($this->ciphers)) {
-                $res['Ciphers'] = [];
-                $n1             = 0;
-                foreach ($this->ciphers as $item1) {
-                    $res['Ciphers'][$n1++] = $item1;
-                }
-            }
+            $res['Ciphers'] = $this->ciphers;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
-
         if (null !== $this->securityPolicyName) {
             $res['SecurityPolicyName'] = $this->securityPolicyName;
         }
-
         if (null !== $this->securityPolicyStatus) {
             $res['SecurityPolicyStatus'] = $this->securityPolicyStatus;
         }
-
         if (null !== $this->TLSVersions) {
-            if (\is_array($this->TLSVersions)) {
-                $res['TLSVersions'] = [];
-                $n1                 = 0;
-                foreach ($this->TLSVersions as $item1) {
-                    $res['TLSVersions'][$n1++] = $item1;
-                }
-            }
+            $res['TLSVersions'] = $this->TLSVersions;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1          = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -122,60 +129,45 @@ class securityPolicies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityPolicies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ciphers'])) {
             if (!empty($map['Ciphers'])) {
-                $model->ciphers = [];
-                $n1             = 0;
-                foreach ($map['Ciphers'] as $item1) {
-                    $model->ciphers[$n1++] = $item1;
-                }
+                $model->ciphers = $map['Ciphers'];
             }
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
         }
-
         if (isset($map['SecurityPolicyName'])) {
             $model->securityPolicyName = $map['SecurityPolicyName'];
         }
-
         if (isset($map['SecurityPolicyStatus'])) {
             $model->securityPolicyStatus = $map['SecurityPolicyStatus'];
         }
-
         if (isset($map['TLSVersions'])) {
             if (!empty($map['TLSVersions'])) {
-                $model->TLSVersions = [];
-                $n1                 = 0;
-                foreach ($map['TLSVersions'] as $item1) {
-                    $model->TLSVersions[$n1++] = $item1;
-                }
+                $model->TLSVersions = $map['TLSVersions'];
             }
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

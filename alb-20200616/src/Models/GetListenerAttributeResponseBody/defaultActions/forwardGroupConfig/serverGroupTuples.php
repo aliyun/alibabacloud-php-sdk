@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeResponseBody\defaultActions\forwardGroupConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serverGroupTuples extends Model
 {
     /**
+     * @description The ID of the server group to which requests are forwarded.
+     *
+     * @example rsp-cige6j****
+     *
      * @var string
      */
     public $serverGroupId;
@@ -18,10 +22,9 @@ class serverGroupTuples extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serverGroupId) {
@@ -31,11 +34,11 @@ class serverGroupTuples extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serverGroupTuples
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

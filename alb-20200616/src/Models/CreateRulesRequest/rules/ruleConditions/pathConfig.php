@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pathConfig extends Model
 {
@@ -18,43 +18,29 @@ class pathConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1            = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pathConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1            = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

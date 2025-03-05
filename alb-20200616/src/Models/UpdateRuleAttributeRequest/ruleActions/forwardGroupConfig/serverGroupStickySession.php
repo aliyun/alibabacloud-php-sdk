@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRuleAttributeRequest\ruleActions\forwardGroupConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serverGroupStickySession extends Model
 {
     /**
+     * @description Specifies whether to enable session persistence. Valid values:
+     *
+     *   **true**: enables session persistence.
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enabled;
+
     /**
+     * @description The timeout period of sessions. Unit: seconds Valid values: 1 to 86400.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $timeout;
@@ -23,16 +35,14 @@ class serverGroupStickySession extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -40,18 +50,17 @@ class serverGroupStickySession extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serverGroupStickySession
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

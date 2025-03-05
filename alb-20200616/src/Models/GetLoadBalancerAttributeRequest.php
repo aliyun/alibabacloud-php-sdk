@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetLoadBalancerAttributeRequest extends Model
 {
     /**
+     * @description The ALB instance ID.
+     *
+     * This parameter is required.
+     * @example alb-o9ulmq5hgn68jk****
+     *
      * @var string
      */
     public $loadBalancerId;
@@ -18,10 +23,9 @@ class GetLoadBalancerAttributeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
@@ -31,11 +35,11 @@ class GetLoadBalancerAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetLoadBalancerAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

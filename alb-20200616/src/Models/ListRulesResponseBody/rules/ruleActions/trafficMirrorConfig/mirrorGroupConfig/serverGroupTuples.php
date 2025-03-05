@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleActions\trafficMirrorConfig\mirrorGroupConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class serverGroupTuples extends Model
 {
     /**
+     * @description The ID of the server group.
+     *
+     * @example srg-00mkgijak0w4qgz9****
+     *
      * @var string
      */
     public $serverGroupId;
+
     /**
+     * @description The weight of the server group. Valid values: **0** to **100**.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $weight;
@@ -23,16 +32,14 @@ class serverGroupTuples extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -40,18 +47,17 @@ class serverGroupTuples extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return serverGroupTuples
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
