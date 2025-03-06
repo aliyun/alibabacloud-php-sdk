@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSupportedZonesRequest extends Model
 {
@@ -12,7 +12,10 @@ class DescribeSupportedZonesRequest extends Model
      * @var string
      */
     public $architectureType;
+
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
@@ -23,16 +26,14 @@ class DescribeSupportedZonesRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->architectureType) {
             $res['ArchitectureType'] = $this->architectureType;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -40,18 +41,17 @@ class DescribeSupportedZonesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSupportedZonesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchitectureType'])) {
             $model->architectureType = $map['ArchitectureType'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

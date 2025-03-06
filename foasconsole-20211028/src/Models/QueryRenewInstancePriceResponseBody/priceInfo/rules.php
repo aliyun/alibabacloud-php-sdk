@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryRenewInstancePriceResponseBody\priceInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
+     * @example 买满1年，立享官网价格8.5折优惠。
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @example 587
+     *
      * @var int
      */
     public $ruleId;
@@ -23,16 +28,14 @@ class rules extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -40,18 +43,17 @@ class rules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\storage;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class oss extends Model
 {
     /**
+     * @example oss_flink
+     *
      * @var string
      */
     public $bucket;
@@ -18,10 +20,9 @@ class oss extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucket) {
@@ -31,11 +32,11 @@ class oss extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return oss
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

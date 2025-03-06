@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceResponseBody\orderInfo;
+use AlibabaCloud\Tea\Model;
 
 class CreateInstanceResponseBody extends Model
 {
@@ -13,11 +13,17 @@ class CreateInstanceResponseBody extends Model
      * @var orderInfo
      */
     public $orderInfo;
+
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -29,23 +35,17 @@ class CreateInstanceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->orderInfo) {
-            $this->orderInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderInfo) {
-            $res['OrderInfo'] = null !== $this->orderInfo ? $this->orderInfo->toArray($noStream) : $this->orderInfo;
+            $res['OrderInfo'] = null !== $this->orderInfo ? $this->orderInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -53,22 +53,20 @@ class CreateInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderInfo'])) {
             $model->orderInfo = orderInfo::fromMap($map['OrderInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

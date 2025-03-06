@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryConvertInstancePriceResponseBody\priceInfo;
+use AlibabaCloud\Tea\Model;
 
 class QueryConvertInstancePriceResponseBody extends Model
 {
@@ -13,11 +13,17 @@ class QueryConvertInstancePriceResponseBody extends Model
      * @var priceInfo
      */
     public $priceInfo;
+
     /**
+     * @example 67F33190-946B-1105-B6A1-E2DF0426DD51
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -29,23 +35,17 @@ class QueryConvertInstancePriceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->priceInfo) {
-            $this->priceInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->priceInfo) {
-            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toArray($noStream) : $this->priceInfo;
+            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -53,22 +53,20 @@ class QueryConvertInstancePriceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryConvertInstancePriceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

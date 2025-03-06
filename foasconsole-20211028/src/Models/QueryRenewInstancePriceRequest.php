@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryRenewInstancePriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $duration;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example sc_flinkserverless_public_cn-7e22ae5sess
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
@@ -33,24 +52,20 @@ class QueryRenewInstancePriceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -58,26 +73,23 @@ class QueryRenewInstancePriceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryRenewInstancePriceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

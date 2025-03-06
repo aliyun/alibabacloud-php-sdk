@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\storage\oss;
+use AlibabaCloud\Tea\Model;
 
 class storage extends Model
 {
@@ -13,10 +13,12 @@ class storage extends Model
      * @var bool
      */
     public $fullyManaged;
+
     /**
      * @var string
      */
     public $orderState;
+
     /**
      * @var oss
      */
@@ -29,46 +31,38 @@ class storage extends Model
 
     public function validate()
     {
-        if (null !== $this->oss) {
-            $this->oss->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fullyManaged) {
             $res['FullyManaged'] = $this->fullyManaged;
         }
-
         if (null !== $this->orderState) {
             $res['OrderState'] = $this->orderState;
         }
-
         if (null !== $this->oss) {
-            $res['Oss'] = null !== $this->oss ? $this->oss->toArray($noStream) : $this->oss;
+            $res['Oss'] = null !== $this->oss ? $this->oss->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return storage
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullyManaged'])) {
             $model->fullyManaged = $map['FullyManaged'];
         }
-
         if (isset($map['OrderState'])) {
             $model->orderState = $map['OrderState'];
         }
-
         if (isset($map['Oss'])) {
             $model->oss = oss::fromMap($map['Oss']);
         }

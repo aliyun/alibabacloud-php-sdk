@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\ModifyPrepayNamespaceSpecRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceSpec extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cpu;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $memoryGB;
@@ -23,16 +32,14 @@ class resourceSpec extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
-
         if (null !== $this->memoryGB) {
             $res['MemoryGB'] = $this->memoryGB;
         }
@@ -40,18 +47,17 @@ class resourceSpec extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceSpec
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
-
         if (isset($map['MemoryGB'])) {
             $model->memoryGB = $map['MemoryGB'];
         }
