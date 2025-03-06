@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAlertPlanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 5fb6001a73749c24fd9cb356
+     *
      * @var string
      */
     public $dataSourceId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 18288
+     *
      * @var int
      */
     public $planId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example "1.1.0,1.2.0,1.3.0"
+     *
      * @var string
      */
     public $versions;
@@ -28,20 +42,17 @@ class UpdateAlertPlanRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['dataSourceId'] = $this->dataSourceId;
         }
-
         if (null !== $this->planId) {
             $res['planId'] = $this->planId;
         }
-
         if (null !== $this->versions) {
             $res['versions'] = $this->versions;
         }
@@ -49,22 +60,20 @@ class UpdateAlertPlanRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAlertPlanRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSourceId'])) {
             $model->dataSourceId = $map['dataSourceId'];
         }
-
         if (isset($map['planId'])) {
             $model->planId = $map['planId'];
         }
-
         if (isset($map['versions'])) {
             $model->versions = $map['versions'];
         }

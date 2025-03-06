@@ -4,27 +4,49 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetLaunchTrendRequest extends Model
 {
     /**
+     * @example 1.0.2
+     *
      * @var string
      */
     public $appVersion;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 5fb6001a73749c24fd9cb356
+     *
      * @var string
      */
     public $dataSourceId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 2023-05-03
+     *
      * @var string
      */
     public $endDate;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 2023-05-01
+     *
      * @var string
      */
     public $startDate;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example day
+     *
      * @var string
      */
     public $timeUnit;
@@ -38,28 +60,23 @@ class GetLaunchTrendRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appVersion) {
             $res['appVersion'] = $this->appVersion;
         }
-
         if (null !== $this->dataSourceId) {
             $res['dataSourceId'] = $this->dataSourceId;
         }
-
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
-
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
-
         if (null !== $this->timeUnit) {
             $res['timeUnit'] = $this->timeUnit;
         }
@@ -67,30 +84,26 @@ class GetLaunchTrendRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetLaunchTrendRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appVersion'])) {
             $model->appVersion = $map['appVersion'];
         }
-
         if (isset($map['dataSourceId'])) {
             $model->dataSourceId = $map['dataSourceId'];
         }
-
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
-
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }
-
         if (isset($map['timeUnit'])) {
             $model->timeUnit = $map['timeUnit'];
         }
