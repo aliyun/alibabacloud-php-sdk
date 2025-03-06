@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\mockConfig\mockHeaders;
+use AlibabaCloud\Tea\Model;
 
 class mockConfig extends Model
 {
     /**
+     * @description The header in the mocked response.
+     *
      * @var mockHeaders[]
      */
     public $mockHeaders;
+
     /**
+     * @description The mocked response.
+     *
+     * @example test
+     *
      * @var string
      */
     public $mockResult;
+
     /**
+     * @description The status code in the mocked response.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $mockStatusCode;
@@ -29,29 +41,23 @@ class mockConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->mockHeaders)) {
-            Model::validateArray($this->mockHeaders);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mockHeaders) {
-            if (\is_array($this->mockHeaders)) {
-                $res['MockHeaders'] = [];
-                $n1                 = 0;
-                foreach ($this->mockHeaders as $item1) {
-                    $res['MockHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MockHeaders'] = [];
+            if (null !== $this->mockHeaders && \is_array($this->mockHeaders)) {
+                $n = 0;
+                foreach ($this->mockHeaders as $item) {
+                    $res['MockHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->mockResult) {
             $res['MockResult'] = $this->mockResult;
         }
-
         if (null !== $this->mockStatusCode) {
             $res['MockStatusCode'] = $this->mockStatusCode;
         }
@@ -59,28 +65,26 @@ class mockConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mockConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MockHeaders'])) {
             if (!empty($map['MockHeaders'])) {
                 $model->mockHeaders = [];
-                $n1                 = 0;
-                foreach ($map['MockHeaders'] as $item1) {
-                    $model->mockHeaders[$n1++] = mockHeaders::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['MockHeaders'] as $item) {
+                    $model->mockHeaders[$n++] = null !== $item ? mockHeaders::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MockResult'])) {
             $model->mockResult = $map['MockResult'];
         }
-
         if (isset($map['MockStatusCode'])) {
             $model->mockStatusCode = $map['MockStatusCode'];
         }

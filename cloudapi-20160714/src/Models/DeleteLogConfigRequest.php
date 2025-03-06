@@ -4,14 +4,19 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLogConfigRequest extends Model
 {
     /**
+     * @description The log type. Valid values: **log** and **survey**.
+     *
+     * @example log
+     *
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
@@ -23,16 +28,14 @@ class DeleteLogConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -40,18 +43,17 @@ class DeleteLogConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLogConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

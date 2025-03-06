@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponseBody\modelResults\modelResult;
+use AlibabaCloud\Tea\Model;
 
 class modelResults extends Model
 {
@@ -19,21 +19,17 @@ class modelResults extends Model
 
     public function validate()
     {
-        if (\is_array($this->modelResult)) {
-            Model::validateArray($this->modelResult);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modelResult) {
-            if (\is_array($this->modelResult)) {
-                $res['ModelResult'] = [];
-                $n1                 = 0;
-                foreach ($this->modelResult as $item1) {
-                    $res['ModelResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ModelResult'] = [];
+            if (null !== $this->modelResult && \is_array($this->modelResult)) {
+                $n = 0;
+                foreach ($this->modelResult as $item) {
+                    $res['ModelResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class modelResults extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return modelResults
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelResult'])) {
             if (!empty($map['ModelResult'])) {
                 $model->modelResult = [];
-                $n1                 = 0;
-                foreach ($map['ModelResult'] as $item1) {
-                    $model->modelResult[$n1++] = modelResult::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['ModelResult'] as $item) {
+                    $model->modelResult[$n++] = null !== $item ? modelResult::fromMap($item) : $item;
                 }
             }
         }

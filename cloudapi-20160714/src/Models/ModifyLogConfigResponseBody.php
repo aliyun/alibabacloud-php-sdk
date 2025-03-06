@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyLogConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 75A4ADCB-AA26-51FB-94D4-AB3240040974
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyLogConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyLogConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyLogConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

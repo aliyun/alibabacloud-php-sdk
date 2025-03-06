@@ -4,25 +4,55 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponseBody\apiResults;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponseBody\modelResults;
+use AlibabaCloud\Tea\Model;
 
 class DescribeImportOASTaskResponseBody extends Model
 {
     /**
+     * @description The execution status of the subtask. Valid values:
+     *
+     *   RUNNING
+     *   WAIT
+     *   OVER
+     *   FAIL
+     *   CANCEL
+     *
      * @var apiResults
      */
     public $apiResults;
+
     /**
+     * @description The execution status of the subtask. Valid values:
+     *
+     *   RUNNING
+     *   WAIT
+     *   OVER
+     *   FAIL
+     *   CANCEL
+     *
      * @var modelResults
      */
     public $modelResults;
+
     /**
+     * @description The request ID.
+     *
+     * @example CE5722A6-AE78-4741-A9B0-6C817D360510
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The status of the import task. Valid values:
+     *
+     *   Running
+     *   Finished
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $taskStatus;
@@ -35,30 +65,20 @@ class DescribeImportOASTaskResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->apiResults) {
-            $this->apiResults->validate();
-        }
-        if (null !== $this->modelResults) {
-            $this->modelResults->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiResults) {
-            $res['ApiResults'] = null !== $this->apiResults ? $this->apiResults->toArray($noStream) : $this->apiResults;
+            $res['ApiResults'] = null !== $this->apiResults ? $this->apiResults->toMap() : null;
         }
-
         if (null !== $this->modelResults) {
-            $res['ModelResults'] = null !== $this->modelResults ? $this->modelResults->toArray($noStream) : $this->modelResults;
+            $res['ModelResults'] = null !== $this->modelResults ? $this->modelResults->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
@@ -66,26 +86,23 @@ class DescribeImportOASTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeImportOASTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiResults'])) {
             $model->apiResults = apiResults::fromMap($map['ApiResults']);
         }
-
         if (isset($map['ModelResults'])) {
             $model->modelResults = modelResults::fromMap($map['ModelResults']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }

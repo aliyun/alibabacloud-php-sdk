@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMonitorGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C7E2CBAA-47FF-569F-AF12-B14B80E25422
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteMonitorGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteMonitorGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMonitorGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiHistoryResponseBody\systemParameters\systemParameter;
+use AlibabaCloud\Tea\Model;
 
 class systemParameters extends Model
 {
@@ -19,21 +19,17 @@ class systemParameters extends Model
 
     public function validate()
     {
-        if (\is_array($this->systemParameter)) {
-            Model::validateArray($this->systemParameter);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->systemParameter) {
-            if (\is_array($this->systemParameter)) {
-                $res['SystemParameter'] = [];
-                $n1                     = 0;
-                foreach ($this->systemParameter as $item1) {
-                    $res['SystemParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SystemParameter'] = [];
+            if (null !== $this->systemParameter && \is_array($this->systemParameter)) {
+                $n = 0;
+                foreach ($this->systemParameter as $item) {
+                    $res['SystemParameter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class systemParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return systemParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SystemParameter'])) {
             if (!empty($map['SystemParameter'])) {
                 $model->systemParameter = [];
-                $n1                     = 0;
-                foreach ($map['SystemParameter'] as $item1) {
-                    $model->systemParameter[$n1++] = systemParameter::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['SystemParameter'] as $item) {
+                    $model->systemParameter[$n++] = null !== $item ? systemParameter::fromMap($item) : $item;
                 }
             }
         }

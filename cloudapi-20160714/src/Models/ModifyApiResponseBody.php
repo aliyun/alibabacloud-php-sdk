@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyApiResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C87A26A-6A18-4B8E-8099-705278381A2C
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyApiResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyApiResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyApiResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

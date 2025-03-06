@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDomainWebSocketStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 61A16D46-EC04-5288-8A18-811B0F536CC2
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SetDomainWebSocketStatusResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SetDomainWebSocketStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDomainWebSocketStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

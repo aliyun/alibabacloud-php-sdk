@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeVpcAccessesResponseBody\vpcAccessAttributes\vpcAccessAttribute;
+use AlibabaCloud\Tea\Model;
 
 class vpcAccessAttributes extends Model
 {
@@ -19,21 +19,17 @@ class vpcAccessAttributes extends Model
 
     public function validate()
     {
-        if (\is_array($this->vpcAccessAttribute)) {
-            Model::validateArray($this->vpcAccessAttribute);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcAccessAttribute) {
-            if (\is_array($this->vpcAccessAttribute)) {
-                $res['VpcAccessAttribute'] = [];
-                $n1                        = 0;
-                foreach ($this->vpcAccessAttribute as $item1) {
-                    $res['VpcAccessAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VpcAccessAttribute'] = [];
+            if (null !== $this->vpcAccessAttribute && \is_array($this->vpcAccessAttribute)) {
+                $n = 0;
+                foreach ($this->vpcAccessAttribute as $item) {
+                    $res['VpcAccessAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class vpcAccessAttributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpcAccessAttributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcAccessAttribute'])) {
             if (!empty($map['VpcAccessAttribute'])) {
                 $model->vpcAccessAttribute = [];
-                $n1                        = 0;
-                foreach ($map['VpcAccessAttribute'] as $item1) {
-                    $model->vpcAccessAttribute[$n1++] = vpcAccessAttribute::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['VpcAccessAttribute'] as $item) {
+                    $model->vpcAccessAttribute[$n++] = null !== $item ? vpcAccessAttribute::fromMap($item) : $item;
                 }
             }
         }

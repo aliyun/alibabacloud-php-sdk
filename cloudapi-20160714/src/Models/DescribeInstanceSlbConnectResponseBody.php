@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceSlbConnectResponseBody\instanceSlbConnect;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceSlbConnectResponseBody extends Model
 {
     /**
+     * @description The list of concurrent connections in the instance.
+     *
      * @var instanceSlbConnect
      */
     public $instanceSlbConnect;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example E7FE7172-AA75-5880-B6F7-C00893E9BC06
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class DescribeInstanceSlbConnectResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->instanceSlbConnect) {
-            $this->instanceSlbConnect->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceSlbConnect) {
-            $res['InstanceSlbConnect'] = null !== $this->instanceSlbConnect ? $this->instanceSlbConnect->toArray($noStream) : $this->instanceSlbConnect;
+            $res['InstanceSlbConnect'] = null !== $this->instanceSlbConnect ? $this->instanceSlbConnect->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class DescribeInstanceSlbConnectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceSlbConnectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSlbConnect'])) {
             $model->instanceSlbConnect = instanceSlbConnect::fromMap($map['InstanceSlbConnect']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

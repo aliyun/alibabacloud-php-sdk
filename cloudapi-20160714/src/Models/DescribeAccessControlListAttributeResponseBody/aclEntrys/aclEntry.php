@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeResponseBody\aclEntrys;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class aclEntry extends Model
 {
     /**
+     * @description The entry description.
+     *
+     * @example default
+     *
      * @var string
      */
     public $aclEntryComment;
+
     /**
+     * @description The ACL entry.
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $aclEntryIp;
@@ -23,16 +32,14 @@ class aclEntry extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclEntryComment) {
             $res['AclEntryComment'] = $this->aclEntryComment;
         }
-
         if (null !== $this->aclEntryIp) {
             $res['AclEntryIp'] = $this->aclEntryIp;
         }
@@ -40,18 +47,17 @@ class aclEntry extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aclEntry
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEntryComment'])) {
             $model->aclEntryComment = $map['AclEntryComment'];
         }
-
         if (isset($map['AclEntryIp'])) {
             $model->aclEntryIp = $map['AclEntryIp'];
         }

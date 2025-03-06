@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasResponseBody\pluginSchemas\pluginSchema;
+use AlibabaCloud\Tea\Model;
 
 class pluginSchemas extends Model
 {
@@ -19,21 +19,17 @@ class pluginSchemas extends Model
 
     public function validate()
     {
-        if (\is_array($this->pluginSchema)) {
-            Model::validateArray($this->pluginSchema);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pluginSchema) {
-            if (\is_array($this->pluginSchema)) {
-                $res['PluginSchema'] = [];
-                $n1                  = 0;
-                foreach ($this->pluginSchema as $item1) {
-                    $res['PluginSchema'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PluginSchema'] = [];
+            if (null !== $this->pluginSchema && \is_array($this->pluginSchema)) {
+                $n = 0;
+                foreach ($this->pluginSchema as $item) {
+                    $res['PluginSchema'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class pluginSchemas extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pluginSchemas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PluginSchema'])) {
             if (!empty($map['PluginSchema'])) {
                 $model->pluginSchema = [];
-                $n1                  = 0;
-                foreach ($map['PluginSchema'] as $item1) {
-                    $model->pluginSchema[$n1++] = pluginSchema::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['PluginSchema'] as $item) {
+                    $model->pluginSchema[$n++] = null !== $item ? pluginSchema::fromMap($item) : $item;
                 }
             }
         }

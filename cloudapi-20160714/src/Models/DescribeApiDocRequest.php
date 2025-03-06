@@ -4,23 +4,43 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiDocRequest extends Model
 {
     /**
+     * @description The ID of the API.
+     *
+     * This parameter is required.
+     * @example 3b81fd160f5645e097cc8855d75a1cf6
+     *
      * @var string
      */
     public $apiId;
+
     /**
+     * @description The ID of the API group.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
+     * @description The environment name. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
+     *
+     * If this parameter is not specified, the default value RELEASE is used.
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;
@@ -33,24 +53,20 @@ class DescribeApiDocRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
@@ -58,26 +74,23 @@ class DescribeApiDocRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiDocRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }

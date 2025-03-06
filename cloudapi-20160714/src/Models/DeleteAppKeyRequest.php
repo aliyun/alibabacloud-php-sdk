@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppKeyRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
+     * This parameter is required.
+     * @example 110840611
+     *
      * @var string
      */
     public $appId;
+
     /**
+     * @description The AppKey of the application. The AppKey is used for calling an API.
+     *
+     * This parameter is required.
+     * @example 203708622
+     *
      * @var string
      */
     public $appKey;
@@ -23,16 +34,14 @@ class DeleteAppKeyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
@@ -40,18 +49,17 @@ class DeleteAppKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }

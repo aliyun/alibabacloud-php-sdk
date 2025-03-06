@@ -4,43 +4,88 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class functionComputeConfig extends Model
 {
     /**
+     * @description The root path of the Function Compute service.
+     *
+     * @example https://t*******.ap-*****.fcapp.run/
+     *
      * @var string
      */
     public $fcBaseUrl;
+
     /**
+     * @description The region ID of the Function Compute service.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $fcRegionId;
+
     /**
+     * @description The type of the service in Function Compute.
+     *
+     * @example HttpTrigger
+     *
      * @var string
      */
     public $fcType;
+
     /**
+     * @description The function name that is defined in Function Compute.
+     *
+     * @example edge_function
+     *
      * @var string
      */
     public $functionName;
+
     /**
+     * @description Indicates whether the backend service receives only the service path.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $onlyBusinessPath;
+
     /**
+     * @description The alias of the function.
+     *
+     * @example testQualifier
+     *
      * @var string
      */
     public $qualifier;
+
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is assumed by API Gateway to access Function Compute.
+     *
+     * @example acs:ram::31985*:role/aliyunserviceroleforbastionhostpam
+     *
      * @var string
      */
     public $roleArn;
+
     /**
+     * @description The service name that is defined in Function Compute.
+     *
+     * @example myservice
+     *
      * @var string
      */
     public $serviceName;
+
     /**
+     * @description The name of the trigger.
+     *
+     * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+     * @example test1
+     *
      * @var string
      */
     public $triggerName;
@@ -58,44 +103,35 @@ class functionComputeConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fcBaseUrl) {
             $res['FcBaseUrl'] = $this->fcBaseUrl;
         }
-
         if (null !== $this->fcRegionId) {
             $res['FcRegionId'] = $this->fcRegionId;
         }
-
         if (null !== $this->fcType) {
             $res['FcType'] = $this->fcType;
         }
-
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
-
         if (null !== $this->onlyBusinessPath) {
             $res['OnlyBusinessPath'] = $this->onlyBusinessPath;
         }
-
         if (null !== $this->qualifier) {
             $res['Qualifier'] = $this->qualifier;
         }
-
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-
         if (null !== $this->triggerName) {
             $res['TriggerName'] = $this->triggerName;
         }
@@ -103,46 +139,38 @@ class functionComputeConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return functionComputeConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FcBaseUrl'])) {
             $model->fcBaseUrl = $map['FcBaseUrl'];
         }
-
         if (isset($map['FcRegionId'])) {
             $model->fcRegionId = $map['FcRegionId'];
         }
-
         if (isset($map['FcType'])) {
             $model->fcType = $map['FcType'];
         }
-
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
-
         if (isset($map['OnlyBusinessPath'])) {
             $model->onlyBusinessPath = $map['OnlyBusinessPath'];
         }
-
         if (isset($map['Qualifier'])) {
             $model->qualifier = $map['Qualifier'];
         }
-
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-
         if (isset($map['TriggerName'])) {
             $model->triggerName = $map['TriggerName'];
         }

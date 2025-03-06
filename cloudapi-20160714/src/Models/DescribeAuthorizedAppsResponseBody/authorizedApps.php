@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps\authorizedApp;
+use AlibabaCloud\Tea\Model;
 
 class authorizedApps extends Model
 {
@@ -19,21 +19,17 @@ class authorizedApps extends Model
 
     public function validate()
     {
-        if (\is_array($this->authorizedApp)) {
-            Model::validateArray($this->authorizedApp);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authorizedApp) {
-            if (\is_array($this->authorizedApp)) {
-                $res['AuthorizedApp'] = [];
-                $n1                   = 0;
-                foreach ($this->authorizedApp as $item1) {
-                    $res['AuthorizedApp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AuthorizedApp'] = [];
+            if (null !== $this->authorizedApp && \is_array($this->authorizedApp)) {
+                $n = 0;
+                foreach ($this->authorizedApp as $item) {
+                    $res['AuthorizedApp'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class authorizedApps extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authorizedApps
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizedApp'])) {
             if (!empty($map['AuthorizedApp'])) {
                 $model->authorizedApp = [];
-                $n1                   = 0;
-                foreach ($map['AuthorizedApp'] as $item1) {
-                    $model->authorizedApp[$n1++] = authorizedApp::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['AuthorizedApp'] as $item) {
+                    $model->authorizedApp[$n++] = null !== $item ? authorizedApp::fromMap($item) : $item;
                 }
             }
         }

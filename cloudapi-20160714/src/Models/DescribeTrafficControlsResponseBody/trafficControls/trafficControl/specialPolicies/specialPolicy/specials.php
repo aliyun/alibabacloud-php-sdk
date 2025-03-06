@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponseBody\trafficControls\trafficControl\specialPolicies\specialPolicy;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponseBody\trafficControls\trafficControl\specialPolicies\specialPolicy\specials\special;
+use AlibabaCloud\Tea\Model;
 
 class specials extends Model
 {
@@ -19,21 +19,17 @@ class specials extends Model
 
     public function validate()
     {
-        if (\is_array($this->special)) {
-            Model::validateArray($this->special);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->special) {
-            if (\is_array($this->special)) {
-                $res['Special'] = [];
-                $n1             = 0;
-                foreach ($this->special as $item1) {
-                    $res['Special'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Special'] = [];
+            if (null !== $this->special && \is_array($this->special)) {
+                $n = 0;
+                foreach ($this->special as $item) {
+                    $res['Special'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class specials extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return specials
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Special'])) {
             if (!empty($map['Special'])) {
                 $model->special = [];
-                $n1             = 0;
-                foreach ($map['Special'] as $item1) {
-                    $model->special[$n1++] = special::fromMap($item1);
+                $n              = 0;
+                foreach ($map['Special'] as $item) {
+                    $model->special[$n++] = null !== $item ? special::fromMap($item) : $item;
                 }
             }
         }

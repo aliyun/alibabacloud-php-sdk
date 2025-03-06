@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiResponseBody\serviceConfig\mockHeaders;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mockHeader extends Model
 {
     /**
+     * @description The HTTP header.
+     *
+     * @example Content-Length
+     *
      * @var string
      */
     public $headerName;
+
     /**
+     * @description The value of the HTTP header.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $headerValue;
@@ -23,16 +32,14 @@ class mockHeader extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
         }
-
         if (null !== $this->headerValue) {
             $res['HeaderValue'] = $this->headerValue;
         }
@@ -40,18 +47,17 @@ class mockHeader extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mockHeader
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
         }
-
         if (isset($map['HeaderValue'])) {
             $model->headerValue = $map['HeaderValue'];
         }

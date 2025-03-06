@@ -4,18 +4,28 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetAccessControlListAttributeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example acl-bp1ohqkonqybecf4llbrc
+     *
      * @var string
      */
     public $aclId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example testAcl
+     *
      * @var string
      */
     public $aclName;
+
     /**
      * @var string
      */
@@ -28,20 +38,17 @@ class SetAccessControlListAttributeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
-
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -49,22 +56,20 @@ class SetAccessControlListAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetAccessControlListAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
-
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

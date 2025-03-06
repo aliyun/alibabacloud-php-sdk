@@ -4,27 +4,53 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLogConfigRequest extends Model
 {
     /**
+     * @description Specifies to create a service-linked role.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $createSlr;
+
     /**
+     * @description The log type.
+     *
+     * Valid values:
+     *
+     *   PROVIDER
+     *
+     * @example PROVIDER
+     *
      * @var string
      */
     public $logType;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
+     * @description slslogstore
+     *
+     * This parameter is required.
+     * @example api-gateway
+     *
      * @var string
      */
     public $slsLogStore;
+
     /**
+     * @description The name of the Log Service project.
+     *
+     * This parameter is required.
+     * @example rec-lq-sls
+     *
      * @var string
      */
     public $slsProject;
@@ -38,28 +64,23 @@ class CreateLogConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createSlr) {
             $res['CreateSlr'] = $this->createSlr;
         }
-
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->slsLogStore) {
             $res['SlsLogStore'] = $this->slsLogStore;
         }
-
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
         }
@@ -67,30 +88,26 @@ class CreateLogConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLogConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateSlr'])) {
             $model->createSlr = $map['CreateSlr'];
         }
-
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['SlsLogStore'])) {
             $model->slsLogStore = $map['SlsLogStore'];
         }
-
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
         }

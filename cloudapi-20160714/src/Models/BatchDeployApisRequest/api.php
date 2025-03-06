@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchDeployApisRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class api extends Model
 {
     /**
+     * @description The API ID.
+     *
+     * This parameter is required.
+     * @example 2b35dd68345b472f8051647306a16415
+     *
      * @var string
      */
     public $apiUid;
+
     /**
+     * @description The API group ID.
+     *
+     * This parameter is required.
+     * @example b4f5c342b8bc4ef88ccda0332402e0fa
+     *
      * @var string
      */
     public $groupId;
@@ -23,16 +34,14 @@ class api extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -40,18 +49,17 @@ class api extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return api
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

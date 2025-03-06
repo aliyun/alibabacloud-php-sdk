@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeLogConfigResponseBody\logInfos;
+use AlibabaCloud\Tea\Model;
 
 class DescribeLogConfigResponseBody extends Model
 {
     /**
+     * @description Info of the log config.
+     *
      * @var logInfos
      */
     public $logInfos;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example E3BC2706-ABDB-5B64-A12F-08DFD9E3F339
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class DescribeLogConfigResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->logInfos) {
-            $this->logInfos->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logInfos) {
-            $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toArray($noStream) : $this->logInfos;
+            $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class DescribeLogConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeLogConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogInfos'])) {
             $model->logInfos = logInfos::fromMap($map['LogInfos']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

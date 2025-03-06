@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponseBody\apiHisItems\apiHisItem;
+use AlibabaCloud\Tea\Model;
 
 class apiHisItems extends Model
 {
@@ -19,21 +19,17 @@ class apiHisItems extends Model
 
     public function validate()
     {
-        if (\is_array($this->apiHisItem)) {
-            Model::validateArray($this->apiHisItem);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiHisItem) {
-            if (\is_array($this->apiHisItem)) {
-                $res['ApiHisItem'] = [];
-                $n1                = 0;
-                foreach ($this->apiHisItem as $item1) {
-                    $res['ApiHisItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ApiHisItem'] = [];
+            if (null !== $this->apiHisItem && \is_array($this->apiHisItem)) {
+                $n = 0;
+                foreach ($this->apiHisItem as $item) {
+                    $res['ApiHisItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class apiHisItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiHisItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiHisItem'])) {
             if (!empty($map['ApiHisItem'])) {
                 $model->apiHisItem = [];
-                $n1                = 0;
-                foreach ($map['ApiHisItem'] as $item1) {
-                    $model->apiHisItem[$n1++] = apiHisItem::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['ApiHisItem'] as $item) {
+                    $model->apiHisItem[$n++] = null !== $item ? apiHisItem::fromMap($item) : $item;
                 }
             }
         }

@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SdkGenerateByAppResponseBody extends Model
 {
     /**
+     * @example UEsDBBQACAAIADdwnFQAAAAAAAAAAAAAAAA2AAAAQ0FTREtfSkFWQV8xMjI3NDY2NjY0MzM0MTMzXzE2NTExMjU3MD......
+     *
      * @var string
      */
     public $downloadLink;
+
     /**
+     * @example 61A16D46-EC04-5288-8A18-811B0F536CC2
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +28,14 @@ class SdkGenerateByAppResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downloadLink) {
             $res['DownloadLink'] = $this->downloadLink;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +43,17 @@ class SdkGenerateByAppResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SdkGenerateByAppResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadLink'])) {
             $model->downloadLink = $map['DownloadLink'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

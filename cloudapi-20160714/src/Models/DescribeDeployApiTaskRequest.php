@@ -4,14 +4,20 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDeployApiTaskRequest extends Model
 {
     /**
+     * @description The task ID.
+     *
+     * This parameter is required.
+     * @example 51524fb8f12846d694d0a1de9a0cf274
+     *
      * @var string
      */
     public $operationUid;
+
     /**
      * @var string
      */
@@ -23,16 +29,14 @@ class DescribeDeployApiTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationUid) {
             $res['OperationUid'] = $this->operationUid;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -40,18 +44,17 @@ class DescribeDeployApiTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDeployApiTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationUid'])) {
             $model->operationUid = $map['OperationUid'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

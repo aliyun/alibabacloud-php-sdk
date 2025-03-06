@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveApisAuthoritiesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class RemoveApisAuthoritiesResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class RemoveApisAuthoritiesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveApisAuthoritiesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateVpcInfoTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeUpdateVpcInfoTaskResponseBody\apiUpdateVpcInfoResults\apiUpdateVpcInfoResult;
+use AlibabaCloud\Tea\Model;
 
 class apiUpdateVpcInfoResults extends Model
 {
@@ -19,21 +19,17 @@ class apiUpdateVpcInfoResults extends Model
 
     public function validate()
     {
-        if (\is_array($this->apiUpdateVpcInfoResult)) {
-            Model::validateArray($this->apiUpdateVpcInfoResult);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiUpdateVpcInfoResult) {
-            if (\is_array($this->apiUpdateVpcInfoResult)) {
-                $res['ApiUpdateVpcInfoResult'] = [];
-                $n1                            = 0;
-                foreach ($this->apiUpdateVpcInfoResult as $item1) {
-                    $res['ApiUpdateVpcInfoResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ApiUpdateVpcInfoResult'] = [];
+            if (null !== $this->apiUpdateVpcInfoResult && \is_array($this->apiUpdateVpcInfoResult)) {
+                $n = 0;
+                foreach ($this->apiUpdateVpcInfoResult as $item) {
+                    $res['ApiUpdateVpcInfoResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class apiUpdateVpcInfoResults extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiUpdateVpcInfoResults
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiUpdateVpcInfoResult'])) {
             if (!empty($map['ApiUpdateVpcInfoResult'])) {
                 $model->apiUpdateVpcInfoResult = [];
-                $n1                            = 0;
-                foreach ($map['ApiUpdateVpcInfoResult'] as $item1) {
-                    $model->apiUpdateVpcInfoResult[$n1++] = apiUpdateVpcInfoResult::fromMap($item1);
+                $n                             = 0;
+                foreach ($map['ApiUpdateVpcInfoResult'] as $item) {
+                    $model->apiUpdateVpcInfoResult[$n++] = null !== $item ? apiUpdateVpcInfoResult::fromMap($item) : $item;
                 }
             }
         }

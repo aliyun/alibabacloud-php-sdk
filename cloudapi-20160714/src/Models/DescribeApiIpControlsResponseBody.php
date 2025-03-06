@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiIpControlsResponseBody\apiIpControls;
+use AlibabaCloud\Tea\Model;
 
 class DescribeApiIpControlsResponseBody extends Model
 {
     /**
+     * @description The information about the ACLs. The information is an array of ApiIpControlItem data.
+     *
      * @var apiIpControls
      */
     public $apiIpControls;
+
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
@@ -39,31 +61,23 @@ class DescribeApiIpControlsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->apiIpControls) {
-            $this->apiIpControls->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiIpControls) {
-            $res['ApiIpControls'] = null !== $this->apiIpControls ? $this->apiIpControls->toArray($noStream) : $this->apiIpControls;
+            $res['ApiIpControls'] = null !== $this->apiIpControls ? $this->apiIpControls->toMap() : null;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -71,30 +85,26 @@ class DescribeApiIpControlsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeApiIpControlsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiIpControls'])) {
             $model->apiIpControls = apiIpControls::fromMap($map['ApiIpControls']);
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

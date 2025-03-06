@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AbolishApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AbolishApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AddAccessControlListEntryRequest;
@@ -18,6 +19,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AssociateInstanceWithPrivateDNSRe
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AssociateInstanceWithPrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachApiProductRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachApiProductResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachGroupPluginRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachGroupPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachPluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\AttachPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchAbolishApisRequest;
@@ -255,8 +258,12 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginGroupsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginGroupsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByGroupRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsRequest;
@@ -293,6 +300,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachApiProductRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachApiProductResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachGroupPluginRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachGroupPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DetachPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DisableInstanceAccessControlRequest;
@@ -440,10 +449,11 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UpdatePrivateDNSResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UpdatePrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class CloudAPI extends OpenApiClient
 {
@@ -532,56 +542,46 @@ class CloudAPI extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Unpublishes a specified API from a specified runtime environment.
-     *
-     * @remarks
-     *   This operation is intended for API providers and is the opposite of DeployApi.
+     * @summary Unpublishes a specified API from a specified runtime environment.
+     *  *
+     * @description *   This operation is intended for API providers and is the opposite of DeployApi.
      * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
      * *   An unpublished API cannot be called in the specified runtime environment.
+     *  *
+     * @param AbolishApiRequest $request AbolishApiRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AbolishApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AbolishApiResponse
-     *
-     * @param AbolishApiRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return AbolishApiResponse
+     * @return AbolishApiResponse AbolishApiResponse
      */
     public function abolishApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AbolishApi',
@@ -594,7 +594,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AbolishApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -602,19 +602,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unpublishes a specified API from a specified runtime environment.
-     *
-     * @remarks
-     *   This operation is intended for API providers and is the opposite of DeployApi.
+     * @summary Unpublishes a specified API from a specified runtime environment.
+     *  *
+     * @description *   This operation is intended for API providers and is the opposite of DeployApi.
      * *   An API can be unpublished from a specified runtime environment in under 5 seconds.
      * *   An unpublished API cannot be called in the specified runtime environment.
+     *  *
+     * @param AbolishApiRequest $request AbolishApiRequest
      *
-     * @param request - AbolishApiRequest
-     * @returns AbolishApiResponse
-     *
-     * @param AbolishApiRequest $request
-     *
-     * @return AbolishApiResponse
+     * @return AbolishApiResponse AbolishApiResponse
      */
     public function abolishApi($request)
     {
@@ -624,35 +620,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+     *  *
+     * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddAccessControlListEntryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddAccessControlListEntryResponse
-     *
-     * @param AddAccessControlListEntryRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AddAccessControlListEntryResponse
+     * @return AddAccessControlListEntryResponse AddAccessControlListEntryResponse
      */
     public function addAccessControlListEntryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclEntrys) {
-            @$query['AclEntrys'] = $request->aclEntrys;
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
         }
-
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAccessControlListEntry',
@@ -665,7 +654,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -673,14 +662,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Adds an IP address entry to the access control polocy of an instance.
+     *  *
+     * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
      *
-     * @param request - AddAccessControlListEntryRequest
-     * @returns AddAccessControlListEntryResponse
-     *
-     * @param AddAccessControlListEntryRequest $request
-     *
-     * @return AddAccessControlListEntryResponse
+     * @return AddAccessControlListEntryResponse AddAccessControlListEntryResponse
      */
     public function addAccessControlListEntry($request)
     {
@@ -690,45 +676,36 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a policy to an existing ACL.
-     *
-     * @remarks
-     * When you call this operation, note that:
+     * @summary Adds a policy to an existing ACL.
+     *  *
+     * @description When you call this operation, note that:
      * *   This operation is intended for API providers.
      * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
      * *   A maximum of 100 policies can be added to an ACL.
+     *  *
+     * @param AddIpControlPolicyItemRequest $request AddIpControlPolicyItemRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddIpControlPolicyItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddIpControlPolicyItemResponse
-     *
-     * @param AddIpControlPolicyItemRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return AddIpControlPolicyItemResponse
+     * @return AddIpControlPolicyItemResponse AddIpControlPolicyItemResponse
      */
     public function addIpControlPolicyItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->cidrIp) {
-            @$query['CidrIp'] = $request->cidrIp;
+        if (!Utils::isUnset($request->cidrIp)) {
+            $query['CidrIp'] = $request->cidrIp;
         }
-
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddIpControlPolicyItem',
@@ -741,7 +718,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -749,20 +726,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a policy to an existing ACL.
-     *
-     * @remarks
-     * When you call this operation, note that:
+     * @summary Adds a policy to an existing ACL.
+     *  *
+     * @description When you call this operation, note that:
      * *   This operation is intended for API providers.
      * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
      * *   A maximum of 100 policies can be added to an ACL.
+     *  *
+     * @param AddIpControlPolicyItemRequest $request AddIpControlPolicyItemRequest
      *
-     * @param request - AddIpControlPolicyItemRequest
-     * @returns AddIpControlPolicyItemResponse
-     *
-     * @param AddIpControlPolicyItemRequest $request
-     *
-     * @return AddIpControlPolicyItemResponse
+     * @return AddIpControlPolicyItemResponse AddIpControlPolicyItemResponse
      */
     public function addIpControlPolicyItem($request)
     {
@@ -772,48 +745,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a custom special policy to a specified throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Adds a custom special policy to a specified throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
      * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+     *  *
+     * @param AddTrafficSpecialControlRequest $request AddTrafficSpecialControlRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddTrafficSpecialControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddTrafficSpecialControlResponse
-     *
-     * @param AddTrafficSpecialControlRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AddTrafficSpecialControlResponse
+     * @return AddTrafficSpecialControlResponse AddTrafficSpecialControlResponse
      */
     public function addTrafficSpecialControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->specialKey) {
-            @$query['SpecialKey'] = $request->specialKey;
+        if (!Utils::isUnset($request->specialKey)) {
+            $query['SpecialKey'] = $request->specialKey;
         }
-
-        if (null !== $request->specialType) {
-            @$query['SpecialType'] = $request->specialType;
+        if (!Utils::isUnset($request->specialType)) {
+            $query['SpecialType'] = $request->specialType;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
-        if (null !== $request->trafficValue) {
-            @$query['TrafficValue'] = $request->trafficValue;
+        if (!Utils::isUnset($request->trafficValue)) {
+            $query['TrafficValue'] = $request->trafficValue;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddTrafficSpecialControl',
@@ -826,7 +789,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -834,19 +797,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a custom special policy to a specified throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Adds a custom special policy to a specified throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
      * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+     *  *
+     * @param AddTrafficSpecialControlRequest $request AddTrafficSpecialControlRequest
      *
-     * @param request - AddTrafficSpecialControlRequest
-     * @returns AddTrafficSpecialControlResponse
-     *
-     * @param AddTrafficSpecialControlRequest $request
-     *
-     * @return AddTrafficSpecialControlResponse
+     * @return AddTrafficSpecialControlResponse AddTrafficSpecialControlResponse
      */
     public function addTrafficSpecialControl($request)
     {
@@ -856,46 +815,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Associates an internal domain name resolution with a dedicated instance.
+     * @summary Associates an internal domain name resolution with a dedicated instance.
+     *  *
+     * @description An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
+     *  *
+     * @param AssociateInstanceWithPrivateDNSRequest $tmpReq  AssociateInstanceWithPrivateDNSRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
-     *
-     * @param tmpReq - AssociateInstanceWithPrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AssociateInstanceWithPrivateDNSResponse
-     *
-     * @param AssociateInstanceWithPrivateDNSRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AssociateInstanceWithPrivateDNSResponse
+     * @return AssociateInstanceWithPrivateDNSResponse AssociateInstanceWithPrivateDNSResponse
      */
     public function associateInstanceWithPrivateDNSWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new AssociateInstanceWithPrivateDNSShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->intranetDomains) {
-            $request->intranetDomainsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->intranetDomains)) {
+            $request->intranetDomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
         }
-
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $body = [];
-        if (null !== $request->intranetDomainsShrink) {
-            @$body['IntranetDomains'] = $request->intranetDomainsShrink;
+        if (!Utils::isUnset($request->intranetDomainsShrink)) {
+            $body['IntranetDomains'] = $request->intranetDomainsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateInstanceWithPrivateDNS',
@@ -908,7 +858,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AssociateInstanceWithPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -916,17 +866,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Associates an internal domain name resolution with a dedicated instance.
+     * @summary Associates an internal domain name resolution with a dedicated instance.
+     *  *
+     * @description An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
+     *  *
+     * @param AssociateInstanceWithPrivateDNSRequest $request AssociateInstanceWithPrivateDNSRequest
      *
-     * @remarks
-     * An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
-     *
-     * @param request - AssociateInstanceWithPrivateDNSRequest
-     * @returns AssociateInstanceWithPrivateDNSResponse
-     *
-     * @param AssociateInstanceWithPrivateDNSRequest $request
-     *
-     * @return AssociateInstanceWithPrivateDNSResponse
+     * @return AssociateInstanceWithPrivateDNSResponse AssociateInstanceWithPrivateDNSResponse
      */
     public function associateInstanceWithPrivateDNS($request)
     {
@@ -936,35 +882,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+     * @summary Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+     *  *
+     * @param AttachApiProductRequest $request AttachApiProductRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachApiProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachApiProductResponse
-     *
-     * @param AttachApiProductRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AttachApiProductResponse
+     * @return AttachApiProductResponse AttachApiProductResponse
      */
     public function attachApiProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->apis) {
-            @$query['Apis'] = $request->apis;
+        if (!Utils::isUnset($request->apis)) {
+            $query['Apis'] = $request->apis;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachApiProduct',
@@ -977,7 +916,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -985,14 +924,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+     * @summary Attaches APIs to an API product. If the API product does not exist, the system automatically creates the API product.
+     *  *
+     * @param AttachApiProductRequest $request AttachApiProductRequest
      *
-     * @param request - AttachApiProductRequest
-     * @returns AttachApiProductResponse
-     *
-     * @param AttachApiProductRequest $request
-     *
-     * @return AttachApiProductResponse
+     * @return AttachApiProductResponse AttachApiProductResponse
      */
     public function attachApiProduct($request)
     {
@@ -1002,53 +938,101 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a plug-in to an API.
+     * @summary Attach plugin to API group.
+     *  *
+     * @param AttachGroupPluginRequest $request AttachGroupPluginRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @return AttachGroupPluginResponse AttachGroupPluginResponse
+     */
+    public function attachGroupPluginWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachGroupPlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachGroupPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AttachGroupPluginResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Attach plugin to API group.
+     *  *
+     * @param AttachGroupPluginRequest $request AttachGroupPluginRequest
+     *
+     * @return AttachGroupPluginResponse AttachGroupPluginResponse
+     */
+    public function attachGroupPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachGroupPluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Binds a plug-in to an API.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You can only bind plug-ins to published APIs.
      * *   The plug-in takes effect immediately after it is bound to an API.
      * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+     *  *
+     * @param AttachPluginRequest $request AttachPluginRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachPluginRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachPluginResponse
-     *
-     * @param AttachPluginRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return AttachPluginResponse
+     * @return AttachPluginResponse AttachPluginResponse
      */
     public function attachPluginWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachPlugin',
@@ -1061,7 +1045,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachPluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1069,20 +1053,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a plug-in to an API.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Binds a plug-in to an API.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You can only bind plug-ins to published APIs.
      * *   The plug-in takes effect immediately after it is bound to an API.
      * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
+     *  *
+     * @param AttachPluginRequest $request AttachPluginRequest
      *
-     * @param request - AttachPluginRequest
-     * @returns AttachPluginResponse
-     *
-     * @param AttachPluginRequest $request
-     *
-     * @return AttachPluginResponse
+     * @return AttachPluginResponse AttachPluginResponse
      */
     public function attachPlugin($request)
     {
@@ -1092,31 +1072,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unpublishes multiple published APIs at a time.
+     * @summary Unpublishes multiple published APIs at a time.
+     *  *
+     * @param BatchAbolishApisRequest $request BatchAbolishApisRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchAbolishApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns BatchAbolishApisResponse
-     *
-     * @param BatchAbolishApisRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return BatchAbolishApisResponse
+     * @return BatchAbolishApisResponse BatchAbolishApisResponse
      */
     public function batchAbolishApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->api) {
-            @$query['Api'] = $request->api;
+        if (!Utils::isUnset($request->api)) {
+            $query['Api'] = $request->api;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchAbolishApis',
@@ -1129,7 +1103,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BatchAbolishApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1137,14 +1111,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unpublishes multiple published APIs at a time.
+     * @summary Unpublishes multiple published APIs at a time.
+     *  *
+     * @param BatchAbolishApisRequest $request BatchAbolishApisRequest
      *
-     * @param request - BatchAbolishApisRequest
-     * @returns BatchAbolishApisResponse
-     *
-     * @param BatchAbolishApisRequest $request
-     *
-     * @return BatchAbolishApisResponse
+     * @return BatchAbolishApisResponse BatchAbolishApisResponse
      */
     public function batchAbolishApis($request)
     {
@@ -1154,39 +1125,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes multiple APIs at a time.
+     * @summary Publishes multiple APIs at a time.
+     *  *
+     * @param BatchDeployApisRequest $request BatchDeployApisRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDeployApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns BatchDeployApisResponse
-     *
-     * @param BatchDeployApisRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return BatchDeployApisResponse
+     * @return BatchDeployApisResponse BatchDeployApisResponse
      */
     public function batchDeployApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->api) {
-            @$query['Api'] = $request->api;
+        if (!Utils::isUnset($request->api)) {
+            $query['Api'] = $request->api;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchDeployApis',
@@ -1199,7 +1162,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BatchDeployApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1207,14 +1170,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes multiple APIs at a time.
+     * @summary Publishes multiple APIs at a time.
+     *  *
+     * @param BatchDeployApisRequest $request BatchDeployApisRequest
      *
-     * @param request - BatchDeployApisRequest
-     * @returns BatchDeployApisResponse
-     *
-     * @param BatchDeployApisRequest $request
-     *
-     * @return BatchDeployApisResponse
+     * @return BatchDeployApisResponse BatchDeployApisResponse
      */
     public function batchDeployApis($request)
     {
@@ -1224,35 +1184,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+     *  *
+     * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccessControlListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAccessControlListResponse
-     *
-     * @param CreateAccessControlListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateAccessControlListResponse
+     * @return CreateAccessControlListResponse CreateAccessControlListResponse
      */
     public function createAccessControlListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclName) {
-            @$query['AclName'] = $request->aclName;
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
         }
-
-        if (null !== $request->addressIPVersion) {
-            @$query['AddressIPVersion'] = $request->addressIPVersion;
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessControlList',
@@ -1265,7 +1218,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1273,14 +1226,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Creates an Access Control List (ACL). Each user is allowed to create five ACLs in each region.
+     *  *
+     * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
      *
-     * @param request - CreateAccessControlListRequest
-     * @returns CreateAccessControlListResponse
-     *
-     * @param CreateAccessControlListRequest $request
-     *
-     * @return CreateAccessControlListResponse
+     * @return CreateAccessControlListResponse CreateAccessControlListResponse
      */
     public function createAccessControlList($request)
     {
@@ -1290,143 +1240,110 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates an API.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The name of an API must be unique within an API group.
      * *   A request path must be unique within an API group.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateApiRequest $request CreateApiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateApiResponse
-     *
-     * @param CreateApiRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CreateApiResponse
+     * @return CreateApiResponse CreateApiResponse
      */
     public function createApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowSignatureMethod) {
-            @$query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->appCodeAuthType) {
-            @$query['AppCodeAuthType'] = $request->appCodeAuthType;
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
         }
-
-        if (null !== $request->authType) {
-            @$query['AuthType'] = $request->authType;
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
         }
-
-        if (null !== $request->backendEnable) {
-            @$query['BackendEnable'] = $request->backendEnable;
+        if (!Utils::isUnset($request->backendEnable)) {
+            $query['BackendEnable'] = $request->backendEnable;
         }
-
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->disableInternet) {
-            @$query['DisableInternet'] = $request->disableInternet;
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
         }
-
-        if (null !== $request->forceNonceCheck) {
-            @$query['ForceNonceCheck'] = $request->forceNonceCheck;
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->openIdConnectConfig) {
-            @$query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
+        if (!Utils::isUnset($request->openIdConnectConfig)) {
+            $query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
         }
-
-        if (null !== $request->requestConfig) {
-            @$query['RequestConfig'] = $request->requestConfig;
+        if (!Utils::isUnset($request->requestConfig)) {
+            $query['RequestConfig'] = $request->requestConfig;
         }
-
-        if (null !== $request->resultBodyModel) {
-            @$query['ResultBodyModel'] = $request->resultBodyModel;
+        if (!Utils::isUnset($request->resultBodyModel)) {
+            $query['ResultBodyModel'] = $request->resultBodyModel;
         }
-
-        if (null !== $request->resultType) {
-            @$query['ResultType'] = $request->resultType;
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->serviceConfig) {
-            @$query['ServiceConfig'] = $request->serviceConfig;
+        if (!Utils::isUnset($request->serviceConfig)) {
+            $query['ServiceConfig'] = $request->serviceConfig;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->visibility) {
-            @$query['Visibility'] = $request->visibility;
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
-
-        if (null !== $request->webSocketApiType) {
-            @$query['WebSocketApiType'] = $request->webSocketApiType;
+        if (!Utils::isUnset($request->webSocketApiType)) {
+            $query['WebSocketApiType'] = $request->webSocketApiType;
         }
-
         $body = [];
-        if (null !== $request->constantParameters) {
-            @$body['ConstantParameters'] = $request->constantParameters;
+        if (!Utils::isUnset($request->constantParameters)) {
+            $body['ConstantParameters'] = $request->constantParameters;
         }
-
-        if (null !== $request->errorCodeSamples) {
-            @$body['ErrorCodeSamples'] = $request->errorCodeSamples;
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $body['ErrorCodeSamples'] = $request->errorCodeSamples;
         }
-
-        if (null !== $request->failResultSample) {
-            @$body['FailResultSample'] = $request->failResultSample;
+        if (!Utils::isUnset($request->failResultSample)) {
+            $body['FailResultSample'] = $request->failResultSample;
         }
-
-        if (null !== $request->requestParameters) {
-            @$body['RequestParameters'] = $request->requestParameters;
+        if (!Utils::isUnset($request->requestParameters)) {
+            $body['RequestParameters'] = $request->requestParameters;
         }
-
-        if (null !== $request->resultDescriptions) {
-            @$body['ResultDescriptions'] = $request->resultDescriptions;
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $body['ResultDescriptions'] = $request->resultDescriptions;
         }
-
-        if (null !== $request->resultSample) {
-            @$body['ResultSample'] = $request->resultSample;
+        if (!Utils::isUnset($request->resultSample)) {
+            $body['ResultSample'] = $request->resultSample;
         }
-
-        if (null !== $request->serviceParameters) {
-            @$body['ServiceParameters'] = $request->serviceParameters;
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
         }
-
-        if (null !== $request->serviceParametersMap) {
-            @$body['ServiceParametersMap'] = $request->serviceParametersMap;
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $body['ServiceParametersMap'] = $request->serviceParametersMap;
         }
-
-        if (null !== $request->systemParameters) {
-            @$body['SystemParameters'] = $request->systemParameters;
+        if (!Utils::isUnset($request->systemParameters)) {
+            $body['SystemParameters'] = $request->systemParameters;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateApi',
@@ -1439,7 +1356,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1447,20 +1364,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates an API.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The name of an API must be unique within an API group.
      * *   A request path must be unique within an API group.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateApiRequest $request CreateApiRequest
      *
-     * @param request - CreateApiRequest
-     * @returns CreateApiResponse
-     *
-     * @param CreateApiRequest $request
-     *
-     * @return CreateApiResponse
+     * @return CreateApiResponse CreateApiResponse
      */
     public function createApi($request)
     {
@@ -1470,47 +1383,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建API分组.
+     * @summary 创建API分组
+     *  *
+     * @param CreateApiGroupRequest $request CreateApiGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateApiGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateApiGroupResponse
-     *
-     * @param CreateApiGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateApiGroupResponse
+     * @return CreateApiGroupResponse CreateApiGroupResponse
      */
     public function createApiGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->basePath) {
-            @$query['BasePath'] = $request->basePath;
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApiGroup',
@@ -1523,7 +1426,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1531,14 +1434,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建API分组.
+     * @summary 创建API分组
+     *  *
+     * @param CreateApiGroupRequest $request CreateApiGroupRequest
      *
-     * @param request - CreateApiGroupRequest
-     * @returns CreateApiGroupResponse
-     *
-     * @param CreateApiGroupRequest $request
-     *
-     * @return CreateApiGroupResponse
+     * @return CreateApiGroupResponse CreateApiGroupResponse
      */
     public function createApiGroup($request)
     {
@@ -1548,54 +1448,42 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a variable to an environment.
+     * @summary Adds a variable to an environment.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param CreateApiStageVariableRequest $request CreateApiStageVariableRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - CreateApiStageVariableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateApiStageVariableResponse
-     *
-     * @param CreateApiStageVariableRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateApiStageVariableResponse
+     * @return CreateApiStageVariableResponse CreateApiStageVariableResponse
      */
     public function createApiStageVariableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageId) {
-            @$query['StageId'] = $request->stageId;
+        if (!Utils::isUnset($request->stageId)) {
+            $query['StageId'] = $request->stageId;
         }
-
-        if (null !== $request->stageRouteModel) {
-            @$query['StageRouteModel'] = $request->stageRouteModel;
+        if (!Utils::isUnset($request->stageRouteModel)) {
+            $query['StageRouteModel'] = $request->stageRouteModel;
         }
-
-        if (null !== $request->supportRoute) {
-            @$query['SupportRoute'] = $request->supportRoute;
+        if (!Utils::isUnset($request->supportRoute)) {
+            $query['SupportRoute'] = $request->supportRoute;
         }
-
-        if (null !== $request->variableName) {
-            @$query['VariableName'] = $request->variableName;
+        if (!Utils::isUnset($request->variableName)) {
+            $query['VariableName'] = $request->variableName;
         }
-
-        if (null !== $request->variableValue) {
-            @$query['VariableValue'] = $request->variableValue;
+        if (!Utils::isUnset($request->variableValue)) {
+            $query['VariableValue'] = $request->variableValue;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApiStageVariable',
@@ -1608,7 +1496,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateApiStageVariableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1616,17 +1504,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds a variable to an environment.
+     * @summary Adds a variable to an environment.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param CreateApiStageVariableRequest $request CreateApiStageVariableRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - CreateApiStageVariableRequest
-     * @returns CreateApiStageVariableResponse
-     *
-     * @param CreateApiStageVariableRequest $request
-     *
-     * @return CreateApiStageVariableResponse
+     * @return CreateApiStageVariableResponse CreateApiStageVariableResponse
      */
     public function createApiStageVariable($request)
     {
@@ -1636,63 +1520,50 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an application for calling APIs in API Gateway.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Creates an application for calling APIs in API Gateway.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   Each application has a key-value pair which is used for identity verification when you call an API.
      * *   An application must be authorized to call an API.
      * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
      * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
      * *   You can call this operation up to 50 times per second per account.
+     *  *
+     * @param CreateAppRequest $request CreateAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAppResponse
-     *
-     * @param CreateAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCode) {
-            @$query['AppCode'] = $request->appCode;
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
         }
-
-        if (null !== $request->appKey) {
-            @$query['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->appSecret) {
-            @$query['AppSecret'] = $request->appSecret;
+        if (!Utils::isUnset($request->appSecret)) {
+            $query['AppSecret'] = $request->appSecret;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->extend) {
-            @$query['Extend'] = $request->extend;
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -1705,7 +1576,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1713,22 +1584,18 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an application for calling APIs in API Gateway.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Creates an application for calling APIs in API Gateway.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   Each application has a key-value pair which is used for identity verification when you call an API.
      * *   An application must be authorized to call an API.
      * *   Each application has only one key-value pair, which can be reset if the pair is leaked.
      * *   A maximum of 1,000 applications can be created for each Alibaba Cloud account.
      * *   You can call this operation up to 50 times per second per account.
+     *  *
+     * @param CreateAppRequest $request CreateAppRequest
      *
-     * @param request - CreateAppRequest
-     * @returns CreateAppResponse
-     *
-     * @param CreateAppRequest $request
-     *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createApp($request)
     {
@@ -1738,31 +1605,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds an AppCode to an application.
+     * @summary Adds an AppCode to an application.
+     *  *
+     * @param CreateAppCodeRequest $request CreateAppCodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAppCodeResponse
-     *
-     * @param CreateAppCodeRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAppCodeResponse
+     * @return CreateAppCodeResponse CreateAppCodeResponse
      */
     public function createAppCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCode) {
-            @$query['AppCode'] = $request->appCode;
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAppCode',
@@ -1775,7 +1636,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1783,14 +1644,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds an AppCode to an application.
+     * @summary Adds an AppCode to an application.
+     *  *
+     * @param CreateAppCodeRequest $request CreateAppCodeRequest
      *
-     * @param request - CreateAppCodeRequest
-     * @returns CreateAppCodeResponse
-     *
-     * @param CreateAppCodeRequest $request
-     *
-     * @return CreateAppCodeResponse
+     * @return CreateAppCodeResponse CreateAppCodeResponse
      */
     public function createAppCode($request)
     {
@@ -1800,35 +1658,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds an AppKey and AppSecret pair to an application.
+     * @summary Adds an AppKey and AppSecret pair to an application.
+     *  *
+     * @param CreateAppKeyRequest $request CreateAppKeyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAppKeyResponse
-     *
-     * @param CreateAppKeyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateAppKeyResponse
+     * @return CreateAppKeyResponse CreateAppKeyResponse
      */
     public function createAppKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appKey) {
-            @$query['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
         }
-
-        if (null !== $request->appSecret) {
-            @$query['AppSecret'] = $request->appSecret;
+        if (!Utils::isUnset($request->appSecret)) {
+            $query['AppSecret'] = $request->appSecret;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAppKey',
@@ -1841,7 +1692,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1849,14 +1700,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Adds an AppKey and AppSecret pair to an application.
+     * @summary Adds an AppKey and AppSecret pair to an application.
+     *  *
+     * @param CreateAppKeyRequest $request CreateAppKeyRequest
      *
-     * @param request - CreateAppKeyRequest
-     * @returns CreateAppKeyResponse
-     *
-     * @param CreateAppKeyRequest $request
-     *
-     * @return CreateAppKeyResponse
+     * @return CreateAppKeyResponse CreateAppKeyResponse
      */
     public function createAppKey($request)
     {
@@ -1866,51 +1714,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a backend service in API Gateway.
+     * @summary Creates a backend service in API Gateway.
+     *  *
+     * @param CreateBackendRequest $request CreateBackendRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateBackendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBackendResponse
-     *
-     * @param CreateBackendRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateBackendResponse
+     * @return CreateBackendResponse CreateBackendResponse
      */
     public function createBackendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendName) {
-            @$query['BackendName'] = $request->backendName;
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
         }
-
-        if (null !== $request->backendType) {
-            @$query['BackendType'] = $request->backendType;
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
         }
-
-        if (null !== $request->createEventBridgeServiceLinkedRole) {
-            @$query['CreateEventBridgeServiceLinkedRole'] = $request->createEventBridgeServiceLinkedRole;
+        if (!Utils::isUnset($request->createEventBridgeServiceLinkedRole)) {
+            $query['CreateEventBridgeServiceLinkedRole'] = $request->createEventBridgeServiceLinkedRole;
         }
-
-        if (null !== $request->createSlr) {
-            @$query['CreateSlr'] = $request->createSlr;
+        if (!Utils::isUnset($request->createSlr)) {
+            $query['CreateSlr'] = $request->createSlr;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateBackend',
@@ -1923,7 +1760,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackendResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1931,14 +1768,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a backend service in API Gateway.
+     * @summary Creates a backend service in API Gateway.
+     *  *
+     * @param CreateBackendRequest $request CreateBackendRequest
      *
-     * @param request - CreateBackendRequest
-     * @returns CreateBackendResponse
-     *
-     * @param CreateBackendRequest $request
-     *
-     * @return CreateBackendResponse
+     * @return CreateBackendResponse CreateBackendResponse
      */
     public function createBackend($request)
     {
@@ -1948,47 +1782,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建后端服务在环境上的配置.
+     * @summary 创建后端服务在环境上的配置
+     *  *
+     * @param CreateBackendModelRequest $request CreateBackendModelRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateBackendModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBackendModelResponse
-     *
-     * @param CreateBackendModelRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateBackendModelResponse
+     * @return CreateBackendModelResponse CreateBackendModelResponse
      */
     public function createBackendModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->backendModelData) {
-            @$query['BackendModelData'] = $request->backendModelData;
+        if (!Utils::isUnset($request->backendModelData)) {
+            $query['BackendModelData'] = $request->backendModelData;
         }
-
-        if (null !== $request->backendType) {
-            @$query['BackendType'] = $request->backendType;
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateBackendModel',
@@ -2001,7 +1825,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2009,14 +1833,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建后端服务在环境上的配置.
+     * @summary 创建后端服务在环境上的配置
+     *  *
+     * @param CreateBackendModelRequest $request CreateBackendModelRequest
      *
-     * @param request - CreateBackendModelRequest
-     * @returns CreateBackendModelResponse
-     *
-     * @param CreateBackendModelRequest $request
-     *
-     * @return CreateBackendModelResponse
+     * @return CreateBackendModelResponse CreateBackendModelResponse
      */
     public function createBackendModel($request)
     {
@@ -2026,39 +1847,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a custom dataset.
+     * @summary Creates a custom dataset.
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDatasetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDatasetResponse
-     *
-     * @param CreateDatasetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDatasetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetName) {
-            @$query['DatasetName'] = $request->datasetName;
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
         }
-
-        if (null !== $request->datasetType) {
-            @$query['DatasetType'] = $request->datasetType;
+        if (!Utils::isUnset($request->datasetType)) {
+            $query['DatasetType'] = $request->datasetType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataset',
@@ -2071,7 +1884,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2079,14 +1892,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a custom dataset.
+     * @summary Creates a custom dataset.
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
      *
-     * @param request - CreateDatasetRequest
-     * @returns CreateDatasetResponse
-     *
-     * @param CreateDatasetRequest $request
-     *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDataset($request)
     {
@@ -2096,43 +1906,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建自定义数据集条目.
+     * @summary 创建自定义数据集条目
+     *  *
+     * @param CreateDatasetItemRequest $request CreateDatasetItemRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDatasetItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDatasetItemResponse
-     *
-     * @param CreateDatasetItemRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateDatasetItemResponse
+     * @return CreateDatasetItemResponse CreateDatasetItemResponse
      */
     public function createDatasetItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->expiredTime) {
-            @$query['ExpiredTime'] = $request->expiredTime;
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDatasetItem',
@@ -2145,7 +1946,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2153,14 +1954,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建自定义数据集条目.
+     * @summary 创建自定义数据集条目
+     *  *
+     * @param CreateDatasetItemRequest $request CreateDatasetItemRequest
      *
-     * @param request - CreateDatasetItemRequest
-     * @returns CreateDatasetItemResponse
-     *
-     * @param CreateDatasetItemRequest $request
-     *
-     * @return CreateDatasetItemResponse
+     * @return CreateDatasetItemResponse CreateDatasetItemResponse
      */
     public function createDatasetItem($request)
     {
@@ -2170,79 +1968,61 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API Gateway instance.
+     * @summary Creates an API Gateway instance.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->duration) {
-            @$query['Duration'] = $request->duration;
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
-
-        if (null !== $request->httpsPolicy) {
-            @$query['HttpsPolicy'] = $request->httpsPolicy;
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
         }
-
-        if (null !== $request->instanceCidr) {
-            @$query['InstanceCidr'] = $request->instanceCidr;
+        if (!Utils::isUnset($request->instanceCidr)) {
+            $query['InstanceCidr'] = $request->instanceCidr;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instanceSpec) {
-            @$query['InstanceSpec'] = $request->instanceSpec;
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->pricingCycle) {
-            @$query['PricingCycle'] = $request->pricingCycle;
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->userVpcId) {
-            @$query['UserVpcId'] = $request->userVpcId;
+        if (!Utils::isUnset($request->userVpcId)) {
+            $query['UserVpcId'] = $request->userVpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
-        if (null !== $request->zoneVSwitchSecurityGroup) {
-            @$query['ZoneVSwitchSecurityGroup'] = $request->zoneVSwitchSecurityGroup;
+        if (!Utils::isUnset($request->zoneVSwitchSecurityGroup)) {
+            $query['ZoneVSwitchSecurityGroup'] = $request->zoneVSwitchSecurityGroup;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateInstance',
@@ -2255,7 +2035,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2263,14 +2043,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API Gateway instance.
+     * @summary Creates an API Gateway instance.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @param request - CreateInstanceRequest
-     * @returns CreateInstanceResponse
-     *
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -2280,31 +2057,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建内网域名.
+     * @summary 创建内网域名
+     *  *
+     * @param CreateIntranetDomainRequest $request CreateIntranetDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateIntranetDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateIntranetDomainResponse
-     *
-     * @param CreateIntranetDomainRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateIntranetDomainResponse
+     * @return CreateIntranetDomainResponse CreateIntranetDomainResponse
      */
     public function createIntranetDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIntranetDomain',
@@ -2317,7 +2088,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateIntranetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2325,14 +2096,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建内网域名.
+     * @summary 创建内网域名
+     *  *
+     * @param CreateIntranetDomainRequest $request CreateIntranetDomainRequest
      *
-     * @param request - CreateIntranetDomainRequest
-     * @returns CreateIntranetDomainResponse
-     *
-     * @param CreateIntranetDomainRequest $request
-     *
-     * @return CreateIntranetDomainResponse
+     * @return CreateIntranetDomainResponse CreateIntranetDomainResponse
      */
     public function createIntranetDomain($request)
     {
@@ -2342,49 +2110,39 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) in a region.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates an access control list (ACL) in a region.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
      * *   You can add policies to an ACL when you create the ACL.
      * *   If an ACL does not have any policy, the ACL is ineffective.
+     *  *
+     * @param CreateIpControlRequest $request CreateIpControlRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateIpControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateIpControlResponse
-     *
-     * @param CreateIpControlRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateIpControlResponse
+     * @return CreateIpControlResponse CreateIpControlResponse
      */
     public function createIpControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->ipControlName) {
-            @$query['IpControlName'] = $request->ipControlName;
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
         }
-
-        if (null !== $request->ipControlPolicys) {
-            @$query['IpControlPolicys'] = $request->ipControlPolicys;
+        if (!Utils::isUnset($request->ipControlPolicys)) {
+            $query['IpControlPolicys'] = $request->ipControlPolicys;
         }
-
-        if (null !== $request->ipControlType) {
-            @$query['IpControlType'] = $request->ipControlType;
+        if (!Utils::isUnset($request->ipControlType)) {
+            $query['IpControlType'] = $request->ipControlType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIpControl',
@@ -2397,7 +2155,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2405,20 +2163,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) in a region.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates an access control list (ACL) in a region.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
      * *   You can add policies to an ACL when you create the ACL.
      * *   If an ACL does not have any policy, the ACL is ineffective.
+     *  *
+     * @param CreateIpControlRequest $request CreateIpControlRequest
      *
-     * @param request - CreateIpControlRequest
-     * @returns CreateIpControlResponse
-     *
-     * @param CreateIpControlRequest $request
-     *
-     * @return CreateIpControlResponse
+     * @return CreateIpControlResponse CreateIpControlResponse
      */
     public function createIpControl($request)
     {
@@ -2428,43 +2182,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a Simple Log Service configuration for an API.
+     * @summary Creates a Simple Log Service configuration for an API.
+     *  *
+     * @param CreateLogConfigRequest $request CreateLogConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateLogConfigResponse
-     *
-     * @param CreateLogConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateLogConfigResponse
+     * @return CreateLogConfigResponse CreateLogConfigResponse
      */
     public function createLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->createSlr) {
-            @$query['CreateSlr'] = $request->createSlr;
+        if (!Utils::isUnset($request->createSlr)) {
+            $query['CreateSlr'] = $request->createSlr;
         }
-
-        if (null !== $request->logType) {
-            @$query['LogType'] = $request->logType;
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->slsLogStore) {
-            @$query['SlsLogStore'] = $request->slsLogStore;
+        if (!Utils::isUnset($request->slsLogStore)) {
+            $query['SlsLogStore'] = $request->slsLogStore;
         }
-
-        if (null !== $request->slsProject) {
-            @$query['SlsProject'] = $request->slsProject;
+        if (!Utils::isUnset($request->slsProject)) {
+            $query['SlsProject'] = $request->slsProject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLogConfig',
@@ -2477,7 +2222,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2485,14 +2230,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a Simple Log Service configuration for an API.
+     * @summary Creates a Simple Log Service configuration for an API.
+     *  *
+     * @param CreateLogConfigRequest $request CreateLogConfigRequest
      *
-     * @param request - CreateLogConfigRequest
-     * @returns CreateLogConfigResponse
-     *
-     * @param CreateLogConfigRequest $request
-     *
-     * @return CreateLogConfigResponse
+     * @return CreateLogConfigResponse CreateLogConfigResponse
      */
     public function createLogConfig($request)
     {
@@ -2502,47 +2244,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a model for an API group.
-     *
-     * @remarks
-     *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
+     * @summary Creates a model for an API group.
+     *  *
+     * @description *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
      * *   JSON Schema supports only element attributes of the Object type.
+     *  *
+     * @param CreateModelRequest $request CreateModelRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateModelResponse
-     *
-     * @param CreateModelRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateModelResponse
+     * @return CreateModelResponse CreateModelResponse
      */
     public function createModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->modelName) {
-            @$query['ModelName'] = $request->modelName;
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
         }
-
-        if (null !== $request->schema) {
-            @$query['Schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateModel',
@@ -2555,7 +2287,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2563,18 +2295,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a model for an API group.
-     *
-     * @remarks
-     *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
+     * @summary Creates a model for an API group.
+     *  *
+     * @description *   For more information about the model definition, see [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04?spm=a2c4g.11186623.2.10.2e977ff7p4BpQd).
      * *   JSON Schema supports only element attributes of the Object type.
+     *  *
+     * @param CreateModelRequest $request CreateModelRequest
      *
-     * @param request - CreateModelRequest
-     * @returns CreateModelResponse
-     *
-     * @param CreateModelRequest $request
-     *
-     * @return CreateModelResponse
+     * @return CreateModelResponse CreateModelResponse
      */
     public function createModel($request)
     {
@@ -2584,39 +2312,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Enables CloudMonitor alerting for a specified API group.
+     * @summary Enables CloudMonitor alerting for a specified API group.
+     *  *
+     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateMonitorGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateMonitorGroupResponse
-     *
-     * @param CreateMonitorGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateMonitorGroupResponse
+     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
      */
     public function createMonitorGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->auth) {
-            @$query['Auth'] = $request->auth;
+        if (!Utils::isUnset($request->auth)) {
+            $query['Auth'] = $request->auth;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->rawMonitorGroupId) {
-            @$query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
+        if (!Utils::isUnset($request->rawMonitorGroupId)) {
+            $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateMonitorGroup',
@@ -2629,7 +2349,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2637,14 +2357,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Enables CloudMonitor alerting for a specified API group.
+     * @summary Enables CloudMonitor alerting for a specified API group.
+     *  *
+     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
      *
-     * @param request - CreateMonitorGroupRequest
-     * @returns CreateMonitorGroupResponse
-     *
-     * @param CreateMonitorGroupRequest $request
-     *
-     * @return CreateMonitorGroupResponse
+     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
      */
     public function createMonitorGroup($request)
     {
@@ -2654,53 +2371,42 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
      * *   The plug-in definitions for advanced features are restricted.
      * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+     *  *
+     * @param CreatePluginRequest $request CreatePluginRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePluginRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePluginResponse
-     *
-     * @param CreatePluginRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreatePluginResponse
+     * @return CreatePluginResponse CreatePluginResponse
      */
     public function createPluginWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->pluginData) {
-            @$query['PluginData'] = $request->pluginData;
+        if (!Utils::isUnset($request->pluginData)) {
+            $query['PluginData'] = $request->pluginData;
         }
-
-        if (null !== $request->pluginName) {
-            @$query['PluginName'] = $request->pluginName;
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
         }
-
-        if (null !== $request->pluginType) {
-            @$query['PluginType'] = $request->pluginType;
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePlugin',
@@ -2713,7 +2419,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2721,20 +2427,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Creates a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
      * *   The plug-in definitions for advanced features are restricted.
      * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
+     *  *
+     * @param CreatePluginRequest $request CreatePluginRequest
      *
-     * @param request - CreatePluginRequest
-     * @returns CreatePluginResponse
-     *
-     * @param CreatePluginRequest $request
-     *
-     * @return CreatePluginResponse
+     * @return CreatePluginResponse CreatePluginResponse
      */
     public function createPlugin($request)
     {
@@ -2744,50 +2446,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an internal domain name resolution and adds a resolution record.
+     * @summary Creates an internal domain name resolution and adds a resolution record.
+     *  *
+     * @description An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
+     *  *
+     * @param CreatePrivateDNSRequest $tmpReq  CreatePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
-     *
-     * @param tmpReq - CreatePrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePrivateDNSResponse
-     *
-     * @param CreatePrivateDNSRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreatePrivateDNSResponse
+     * @return CreatePrivateDNSResponse CreatePrivateDNSResponse
      */
     public function createPrivateDNSWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreatePrivateDNSShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->records) {
-            $request->recordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->records)) {
+            $request->recordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
         }
-
         $query = [];
-        if (null !== $request->intranetDomain) {
-            @$query['IntranetDomain'] = $request->intranetDomain;
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $body = [];
-        if (null !== $request->recordsShrink) {
-            @$body['Records'] = $request->recordsShrink;
+        if (!Utils::isUnset($request->recordsShrink)) {
+            $body['Records'] = $request->recordsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePrivateDNS',
@@ -2800,7 +2492,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2808,17 +2500,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an internal domain name resolution and adds a resolution record.
+     * @summary Creates an internal domain name resolution and adds a resolution record.
+     *  *
+     * @description An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
+     *  *
+     * @param CreatePrivateDNSRequest $request CreatePrivateDNSRequest
      *
-     * @remarks
-     * An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
-     *
-     * @param request - CreatePrivateDNSRequest
-     * @returns CreatePrivateDNSResponse
-     *
-     * @param CreatePrivateDNSRequest $request
-     *
-     * @return CreatePrivateDNSResponse
+     * @return CreatePrivateDNSResponse CreatePrivateDNSResponse
      */
     public function createPrivateDNS($request)
     {
@@ -2828,45 +2516,36 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Creates a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
      * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateSignatureRequest $request CreateSignatureRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSignatureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateSignatureResponse
-     *
-     * @param CreateSignatureRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateSignatureResponse
+     * @return CreateSignatureResponse CreateSignatureResponse
      */
     public function createSignatureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureKey) {
-            @$query['SignatureKey'] = $request->signatureKey;
+        if (!Utils::isUnset($request->signatureKey)) {
+            $query['SignatureKey'] = $request->signatureKey;
         }
-
-        if (null !== $request->signatureName) {
-            @$query['SignatureName'] = $request->signatureName;
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
         }
-
-        if (null !== $request->signatureSecret) {
-            @$query['SignatureSecret'] = $request->signatureSecret;
+        if (!Utils::isUnset($request->signatureSecret)) {
+            $query['SignatureSecret'] = $request->signatureSecret;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSignature',
@@ -2879,7 +2558,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2887,20 +2566,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Creates a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
      * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateSignatureRequest $request CreateSignatureRequest
      *
-     * @param request - CreateSignatureRequest
-     * @returns CreateSignatureResponse
-     *
-     * @param CreateSignatureRequest $request
-     *
-     * @return CreateSignatureResponse
+     * @return CreateSignatureResponse CreateSignatureResponse
      */
     public function createSignature($request)
     {
@@ -2910,56 +2585,44 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a custom throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Creates a custom throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateTrafficControlRequest $request CreateTrafficControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTrafficControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateTrafficControlResponse
-     *
-     * @param CreateTrafficControlRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateTrafficControlResponse
+     * @return CreateTrafficControlResponse CreateTrafficControlResponse
      */
     public function createTrafficControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiDefault) {
-            @$query['ApiDefault'] = $request->apiDefault;
+        if (!Utils::isUnset($request->apiDefault)) {
+            $query['ApiDefault'] = $request->apiDefault;
         }
-
-        if (null !== $request->appDefault) {
-            @$query['AppDefault'] = $request->appDefault;
+        if (!Utils::isUnset($request->appDefault)) {
+            $query['AppDefault'] = $request->appDefault;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->trafficControlName) {
-            @$query['TrafficControlName'] = $request->trafficControlName;
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
         }
-
-        if (null !== $request->trafficControlUnit) {
-            @$query['TrafficControlUnit'] = $request->trafficControlUnit;
+        if (!Utils::isUnset($request->trafficControlUnit)) {
+            $query['TrafficControlUnit'] = $request->trafficControlUnit;
         }
-
-        if (null !== $request->userDefault) {
-            @$query['UserDefault'] = $request->userDefault;
+        if (!Utils::isUnset($request->userDefault)) {
+            $query['UserDefault'] = $request->userDefault;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTrafficControl',
@@ -2972,7 +2635,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2980,19 +2643,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a custom throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Creates a custom throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param CreateTrafficControlRequest $request CreateTrafficControlRequest
      *
-     * @param request - CreateTrafficControlRequest
-     * @returns CreateTrafficControlResponse
-     *
-     * @param CreateTrafficControlRequest $request
-     *
-     * @return CreateTrafficControlResponse
+     * @return CreateTrafficControlResponse CreateTrafficControlResponse
      */
     public function createTrafficControl($request)
     {
@@ -3002,31 +2661,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+     *  *
+     * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAccessControlListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAccessControlListResponse
-     *
-     * @param DeleteAccessControlListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteAccessControlListResponse
+     * @return DeleteAccessControlListResponse DeleteAccessControlListResponse
      */
     public function deleteAccessControlListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessControlList',
@@ -3039,7 +2692,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3047,14 +2700,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+     * @summary This feature provides instance-level access control capabilities for dedicated instances. Deletes an access control policy.
+     *  *
+     * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
      *
-     * @param request - DeleteAccessControlListRequest
-     * @returns DeleteAccessControlListResponse
-     *
-     * @param DeleteAccessControlListRequest $request
-     *
-     * @return DeleteAccessControlListResponse
+     * @return DeleteAccessControlListResponse DeleteAccessControlListResponse
      */
     public function deleteAccessControlList($request)
     {
@@ -3064,34 +2714,27 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes all custom special policies of a specified throttling policy.
+     * @summary Deletes all custom special policies of a specified throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DeleteAllTrafficSpecialControlRequest $request DeleteAllTrafficSpecialControlRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DeleteAllTrafficSpecialControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAllTrafficSpecialControlResponse
-     *
-     * @param DeleteAllTrafficSpecialControlRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeleteAllTrafficSpecialControlResponse
+     * @return DeleteAllTrafficSpecialControlResponse DeleteAllTrafficSpecialControlResponse
      */
     public function deleteAllTrafficSpecialControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAllTrafficSpecialControl',
@@ -3104,7 +2747,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAllTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3112,17 +2755,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes all custom special policies of a specified throttling policy.
+     * @summary Deletes all custom special policies of a specified throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DeleteAllTrafficSpecialControlRequest $request DeleteAllTrafficSpecialControlRequest
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DeleteAllTrafficSpecialControlRequest
-     * @returns DeleteAllTrafficSpecialControlResponse
-     *
-     * @param DeleteAllTrafficSpecialControlRequest $request
-     *
-     * @return DeleteAllTrafficSpecialControlResponse
+     * @return DeleteAllTrafficSpecialControlResponse DeleteAllTrafficSpecialControlResponse
      */
     public function deleteAllTrafficSpecialControl($request)
     {
@@ -3132,40 +2771,32 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the definition of a specified API.
-     *
-     * @remarks
-     *   This operation is intended for API providers and cannot be undone after it is complete.
+     * @summary Deletes the definition of a specified API.
+     *  *
+     * @description *   This operation is intended for API providers and cannot be undone after it is complete.
      * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteApiRequest $request DeleteApiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteApiResponse
-     *
-     * @param DeleteApiRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteApiResponse
+     * @return DeleteApiResponse DeleteApiResponse
      */
     public function deleteApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApi',
@@ -3178,7 +2809,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3186,19 +2817,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the definition of a specified API.
-     *
-     * @remarks
-     *   This operation is intended for API providers and cannot be undone after it is complete.
+     * @summary Deletes the definition of a specified API.
+     *  *
+     * @description *   This operation is intended for API providers and cannot be undone after it is complete.
      * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteApiRequest $request DeleteApiRequest
      *
-     * @param request - DeleteApiRequest
-     * @returns DeleteApiResponse
-     *
-     * @param DeleteApiRequest $request
-     *
-     * @return DeleteApiResponse
+     * @return DeleteApiResponse DeleteApiResponse
      */
     public function deleteApi($request)
     {
@@ -3208,42 +2835,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes an API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
      * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
      * *   If the specified API group does not exist, a success response is returned.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteApiGroupRequest $request DeleteApiGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApiGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteApiGroupResponse
-     *
-     * @param DeleteApiGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteApiGroupResponse
+     * @return DeleteApiGroupResponse DeleteApiGroupResponse
      */
     public function deleteApiGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApiGroup',
@@ -3256,7 +2875,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3264,21 +2883,17 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes an API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
      * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
      * *   If the specified API group does not exist, a success response is returned.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteApiGroupRequest $request DeleteApiGroupRequest
      *
-     * @param request - DeleteApiGroupRequest
-     * @returns DeleteApiGroupResponse
-     *
-     * @param DeleteApiGroupRequest $request
-     *
-     * @return DeleteApiGroupResponse
+     * @return DeleteApiGroupResponse DeleteApiGroupResponse
      */
     public function deleteApiGroup($request)
     {
@@ -3288,31 +2903,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+     * @summary Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+     *  *
+     * @param DeleteApiProductRequest $request DeleteApiProductRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApiProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteApiProductResponse
-     *
-     * @param DeleteApiProductRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteApiProductResponse
+     * @return DeleteApiProductResponse DeleteApiProductResponse
      */
     public function deleteApiProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApiProduct',
@@ -3325,7 +2934,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3333,14 +2942,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+     * @summary Deletes an API product. Deleting an API product causes the association between APIs and the deleted API product to be deleted as well. Exercise caution when you delete an API product. If any API in the API product is associated with an application, the API product fails to be deleted.
+     *  *
+     * @param DeleteApiProductRequest $request DeleteApiProductRequest
      *
-     * @param request - DeleteApiProductRequest
-     * @returns DeleteApiProductResponse
-     *
-     * @param DeleteApiProductRequest $request
-     *
-     * @return DeleteApiProductResponse
+     * @return DeleteApiProductResponse DeleteApiProductResponse
      */
     public function deleteApiProduct($request)
     {
@@ -3350,42 +2956,33 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a specified variable in a specified environment.
+     * @summary Deletes a specified variable in a specified environment.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DeleteApiStageVariableRequest $request DeleteApiStageVariableRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DeleteApiStageVariableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteApiStageVariableResponse
-     *
-     * @param DeleteApiStageVariableRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteApiStageVariableResponse
+     * @return DeleteApiStageVariableResponse DeleteApiStageVariableResponse
      */
     public function deleteApiStageVariableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageId) {
-            @$query['StageId'] = $request->stageId;
+        if (!Utils::isUnset($request->stageId)) {
+            $query['StageId'] = $request->stageId;
         }
-
-        if (null !== $request->variableName) {
-            @$query['VariableName'] = $request->variableName;
+        if (!Utils::isUnset($request->variableName)) {
+            $query['VariableName'] = $request->variableName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApiStageVariable',
@@ -3398,7 +2995,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteApiStageVariableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3406,17 +3003,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a specified variable in a specified environment.
+     * @summary Deletes a specified variable in a specified environment.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DeleteApiStageVariableRequest $request DeleteApiStageVariableRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DeleteApiStageVariableRequest
-     * @returns DeleteApiStageVariableResponse
-     *
-     * @param DeleteApiStageVariableRequest $request
-     *
-     * @return DeleteApiStageVariableResponse
+     * @return DeleteApiStageVariableResponse DeleteApiStageVariableResponse
      */
     public function deleteApiStageVariable($request)
     {
@@ -3426,40 +3019,32 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Deletes an application.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   After an application is deleted, the application and its API authorization cannot be restored.
      * *   You can call this operation up to 50 times per second per account.
+     *  *
+     * @param DeleteAppRequest $request DeleteAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAppResponse
-     *
-     * @param DeleteAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeleteAppResponse
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApp',
@@ -3472,7 +3057,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3480,19 +3065,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Deletes an application.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   After an application is deleted, the application and its API authorization cannot be restored.
      * *   You can call this operation up to 50 times per second per account.
+     *  *
+     * @param DeleteAppRequest $request DeleteAppRequest
      *
-     * @param request - DeleteAppRequest
-     * @returns DeleteAppResponse
-     *
-     * @param DeleteAppRequest $request
-     *
-     * @return DeleteAppResponse
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteApp($request)
     {
@@ -3502,31 +3083,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the AppCode of an application.
+     * @summary Deletes the AppCode of an application.
+     *  *
+     * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAppCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAppCodeResponse
-     *
-     * @param DeleteAppCodeRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAppCodeResponse
+     * @return DeleteAppCodeResponse DeleteAppCodeResponse
      */
     public function deleteAppCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCode) {
-            @$query['AppCode'] = $request->appCode;
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppCode',
@@ -3539,7 +3114,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3547,14 +3122,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the AppCode of an application.
+     * @summary Deletes the AppCode of an application.
+     *  *
+     * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
      *
-     * @param request - DeleteAppCodeRequest
-     * @returns DeleteAppCodeResponse
-     *
-     * @param DeleteAppCodeRequest $request
-     *
-     * @return DeleteAppCodeResponse
+     * @return DeleteAppCodeResponse DeleteAppCodeResponse
      */
     public function deleteAppCode($request)
     {
@@ -3564,31 +3136,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the AppKey and AppSecret of an application.
+     * @summary Deletes the AppKey and AppSecret of an application.
+     *  *
+     * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAppKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAppKeyResponse
-     *
-     * @param DeleteAppKeyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteAppKeyResponse
+     * @return DeleteAppKeyResponse DeleteAppKeyResponse
      */
     public function deleteAppKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appKey) {
-            @$query['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppKey',
@@ -3601,7 +3167,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3609,14 +3175,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the AppKey and AppSecret of an application.
+     * @summary Deletes the AppKey and AppSecret of an application.
+     *  *
+     * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
      *
-     * @param request - DeleteAppKeyRequest
-     * @returns DeleteAppKeyResponse
-     *
-     * @param DeleteAppKeyRequest $request
-     *
-     * @return DeleteAppKeyResponse
+     * @return DeleteAppKeyResponse DeleteAppKeyResponse
      */
     public function deleteAppKey($request)
     {
@@ -3626,31 +3189,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a backend service.
+     * @summary Deletes a backend service.
+     *  *
+     * @param DeleteBackendRequest $request DeleteBackendRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackendResponse
-     *
-     * @param DeleteBackendRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteBackendResponse
+     * @return DeleteBackendResponse DeleteBackendResponse
      */
     public function deleteBackendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBackend',
@@ -3663,7 +3220,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackendResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3671,14 +3228,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a backend service.
+     * @summary Deletes a backend service.
+     *  *
+     * @param DeleteBackendRequest $request DeleteBackendRequest
      *
-     * @param request - DeleteBackendRequest
-     * @returns DeleteBackendResponse
-     *
-     * @param DeleteBackendRequest $request
-     *
-     * @return DeleteBackendResponse
+     * @return DeleteBackendResponse DeleteBackendResponse
      */
     public function deleteBackend($request)
     {
@@ -3688,39 +3242,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+     * @summary Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+     *  *
+     * @param DeleteBackendModelRequest $request DeleteBackendModelRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackendModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackendModelResponse
-     *
-     * @param DeleteBackendModelRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteBackendModelResponse
+     * @return DeleteBackendModelResponse DeleteBackendModelResponse
      */
     public function deleteBackendModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->backendModelId) {
-            @$query['BackendModelId'] = $request->backendModelId;
+        if (!Utils::isUnset($request->backendModelId)) {
+            $query['BackendModelId'] = $request->backendModelId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBackendModel',
@@ -3733,7 +3279,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3741,14 +3287,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+     * @summary Deletes the definition of a backend service in an environment. After the definition is deleted, the API that uses the backend service and is published to this environment will be unpublished.
+     *  *
+     * @param DeleteBackendModelRequest $request DeleteBackendModelRequest
      *
-     * @param request - DeleteBackendModelRequest
-     * @returns DeleteBackendModelResponse
-     *
-     * @param DeleteBackendModelRequest $request
-     *
-     * @return DeleteBackendModelResponse
+     * @return DeleteBackendModelResponse DeleteBackendModelResponse
      */
     public function deleteBackendModel($request)
     {
@@ -3758,31 +3301,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除自定义数据集.
+     * @summary 删除自定义数据集
+     *  *
+     * @param DeleteDatasetRequest $request DeleteDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDatasetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDatasetResponse
-     *
-     * @param DeleteDatasetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDatasetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataset',
@@ -3795,7 +3332,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3803,14 +3340,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除自定义数据集.
+     * @summary 删除自定义数据集
+     *  *
+     * @param DeleteDatasetRequest $request DeleteDatasetRequest
      *
-     * @param request - DeleteDatasetRequest
-     * @returns DeleteDatasetResponse
-     *
-     * @param DeleteDatasetRequest $request
-     *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDataset($request)
     {
@@ -3820,35 +3354,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a data entry from a custom dataset.
+     * @summary Deletes a data entry from a custom dataset.
+     *  *
+     * @param DeleteDatasetItemRequest $request DeleteDatasetItemRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDatasetItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDatasetItemResponse
-     *
-     * @param DeleteDatasetItemRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteDatasetItemResponse
+     * @return DeleteDatasetItemResponse DeleteDatasetItemResponse
      */
     public function deleteDatasetItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->datasetItemId) {
-            @$query['DatasetItemId'] = $request->datasetItemId;
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDatasetItem',
@@ -3861,7 +3388,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3869,14 +3396,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a data entry from a custom dataset.
+     * @summary Deletes a data entry from a custom dataset.
+     *  *
+     * @param DeleteDatasetItemRequest $request DeleteDatasetItemRequest
      *
-     * @param request - DeleteDatasetItemRequest
-     * @returns DeleteDatasetItemResponse
-     *
-     * @param DeleteDatasetItemRequest $request
-     *
-     * @return DeleteDatasetItemResponse
+     * @return DeleteDatasetItemResponse DeleteDatasetItemResponse
      */
     public function deleteDatasetItem($request)
     {
@@ -3886,40 +3410,32 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a custom domain name from an API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Unbinds a custom domain name from an API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   If the specified domain name does not exist, a successful response will still appear.
      * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDomainResponse
-     *
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -3932,7 +3448,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3940,19 +3456,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a custom domain name from an API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Unbinds a custom domain name from an API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   If the specified domain name does not exist, a successful response will still appear.
      * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @param request - DeleteDomainRequest
-     * @returns DeleteDomainResponse
-     *
-     * @param DeleteDomainRequest $request
-     *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -3962,39 +3474,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+     * @summary Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+     *  *
+     * @param DeleteDomainCertificateRequest $request DeleteDomainCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDomainCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDomainCertificateResponse
-     *
-     * @param DeleteDomainCertificateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteDomainCertificateResponse
+     * @return DeleteDomainCertificateResponse DeleteDomainCertificateResponse
      */
     public function deleteDomainCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->certificateId) {
-            @$query['CertificateId'] = $request->certificateId;
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomainCertificate',
@@ -4007,7 +3511,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4015,14 +3519,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+     * @summary Deletes the SSL certificate of a specified domain name. This operation is intended for API providers. If the SSL certificate does not exist, a success response is still returned. If the specified API group does not exist, the InvalidGroupId.NotFound error is returned. Access over HTTPS is not supported after the SSL certificate is deleted. Exercise caution when using this API operation.
+     *  *
+     * @param DeleteDomainCertificateRequest $request DeleteDomainCertificateRequest
      *
-     * @param request - DeleteDomainCertificateRequest
-     * @returns DeleteDomainCertificateResponse
-     *
-     * @param DeleteDomainCertificateRequest $request
-     *
-     * @return DeleteDomainCertificateResponse
+     * @return DeleteDomainCertificateResponse DeleteDomainCertificateResponse
      */
     public function deleteDomainCertificate($request)
     {
@@ -4032,31 +3533,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API Gateway instance.
+     * @summary Deletes an API Gateway instance.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteInstanceResponse
-     *
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -4069,7 +3564,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4077,14 +3572,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an API Gateway instance.
+     * @summary Deletes an API Gateway instance.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @param request - DeleteInstanceRequest
-     * @returns DeleteInstanceResponse
-     *
-     * @param DeleteInstanceRequest $request
-     *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -4094,36 +3586,29 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
      * *   If you call this operation on an ACL that does not exist, a success message is returned.
+     *  *
+     * @param DeleteIpControlRequest $request DeleteIpControlRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteIpControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteIpControlResponse
-     *
-     * @param DeleteIpControlRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteIpControlResponse
+     * @return DeleteIpControlResponse DeleteIpControlResponse
      */
     public function deleteIpControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIpControl',
@@ -4136,7 +3621,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4144,19 +3629,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
      * *   If you call this operation on an ACL that does not exist, a success message is returned.
+     *  *
+     * @param DeleteIpControlRequest $request DeleteIpControlRequest
      *
-     * @param request - DeleteIpControlRequest
-     * @returns DeleteIpControlResponse
-     *
-     * @param DeleteIpControlRequest $request
-     *
-     * @return DeleteIpControlResponse
+     * @return DeleteIpControlResponse DeleteIpControlResponse
      */
     public function deleteIpControl($request)
     {
@@ -4166,31 +3647,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Delete the specified log configuration.
+     * @summary Delete the specified log configuration.
+     *  *
+     * @param DeleteLogConfigRequest $request DeleteLogConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteLogConfigResponse
-     *
-     * @param DeleteLogConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteLogConfigResponse
+     * @return DeleteLogConfigResponse DeleteLogConfigResponse
      */
     public function deleteLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->logType) {
-            @$query['LogType'] = $request->logType;
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogConfig',
@@ -4203,7 +3678,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4211,14 +3686,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Delete the specified log configuration.
+     * @summary Delete the specified log configuration.
+     *  *
+     * @param DeleteLogConfigRequest $request DeleteLogConfigRequest
      *
-     * @param request - DeleteLogConfigRequest
-     * @returns DeleteLogConfigResponse
-     *
-     * @param DeleteLogConfigRequest $request
-     *
-     * @return DeleteLogConfigResponse
+     * @return DeleteLogConfigResponse DeleteLogConfigResponse
      */
     public function deleteLogConfig($request)
     {
@@ -4228,31 +3700,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a model.
+     * @summary Deletes a model.
+     *  *
+     * @param DeleteModelRequest $request DeleteModelRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteModelResponse
-     *
-     * @param DeleteModelRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteModelResponse
+     * @return DeleteModelResponse DeleteModelResponse
      */
     public function deleteModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->modelName) {
-            @$query['ModelName'] = $request->modelName;
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteModel',
@@ -4265,7 +3731,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4273,14 +3739,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a model.
+     * @summary Deletes a model.
+     *  *
+     * @param DeleteModelRequest $request DeleteModelRequest
      *
-     * @param request - DeleteModelRequest
-     * @returns DeleteModelResponse
-     *
-     * @param DeleteModelRequest $request
-     *
-     * @return DeleteModelResponse
+     * @return DeleteModelResponse DeleteModelResponse
      */
     public function deleteModel($request)
     {
@@ -4290,35 +3753,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a CloudMonitor application group corresponding to an API group.
+     * @summary Deletes a CloudMonitor application group corresponding to an API group.
+     *  *
+     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteMonitorGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteMonitorGroupResponse
-     *
-     * @param DeleteMonitorGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteMonitorGroupResponse
+     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->rawMonitorGroupId) {
-            @$query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
+        if (!Utils::isUnset($request->rawMonitorGroupId)) {
+            $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMonitorGroup',
@@ -4331,7 +3787,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4339,14 +3795,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a CloudMonitor application group corresponding to an API group.
+     * @summary Deletes a CloudMonitor application group corresponding to an API group.
+     *  *
+     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
      *
-     * @param request - DeleteMonitorGroupRequest
-     * @returns DeleteMonitorGroupResponse
-     *
-     * @param DeleteMonitorGroupRequest $request
-     *
-     * @return DeleteMonitorGroupResponse
+     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroup($request)
     {
@@ -4356,39 +3809,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+     *  *
+     * @param DeletePluginRequest $request DeletePluginRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePluginRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeletePluginResponse
-     *
-     * @param DeletePluginRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeletePluginResponse
+     * @return DeletePluginResponse DeletePluginResponse
      */
     public function deletePluginWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePlugin',
@@ -4401,7 +3846,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeletePluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4409,18 +3854,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Deletes a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
+     *  *
+     * @param DeletePluginRequest $request DeletePluginRequest
      *
-     * @param request - DeletePluginRequest
-     * @returns DeletePluginResponse
-     *
-     * @param DeletePluginRequest $request
-     *
-     * @return DeletePluginResponse
+     * @return DeletePluginResponse DeletePluginResponse
      */
     public function deletePlugin($request)
     {
@@ -4430,39 +3871,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an internal domain name resolution.
+     * @summary Deletes an internal domain name resolution.
+     *  *
+     * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeletePrivateDNSResponse
-     *
-     * @param DeletePrivateDNSRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeletePrivateDNSResponse
+     * @return DeletePrivateDNSResponse DeletePrivateDNSResponse
      */
     public function deletePrivateDNSWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->force) {
-            @$query['Force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
-
-        if (null !== $request->intranetDomain) {
-            @$query['IntranetDomain'] = $request->intranetDomain;
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePrivateDNS',
@@ -4475,7 +3908,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeletePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4483,14 +3916,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an internal domain name resolution.
+     * @summary Deletes an internal domain name resolution.
+     *  *
+     * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
      *
-     * @param request - DeletePrivateDNSRequest
-     * @returns DeletePrivateDNSResponse
-     *
-     * @param DeletePrivateDNSRequest $request
-     *
-     * @return DeletePrivateDNSResponse
+     * @return DeletePrivateDNSResponse DeletePrivateDNSResponse
      */
     public function deletePrivateDNS($request)
     {
@@ -4500,37 +3930,30 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API operation deletes an existing backend signature key.
      * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteSignatureRequest $request DeleteSignatureRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSignatureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteSignatureResponse
-     *
-     * @param DeleteSignatureRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteSignatureResponse
+     * @return DeleteSignatureResponse DeleteSignatureResponse
      */
     public function deleteSignatureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSignature',
@@ -4543,7 +3966,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4551,20 +3974,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API operation deletes an existing backend signature key.
      * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteSignatureRequest $request DeleteSignatureRequest
      *
-     * @param request - DeleteSignatureRequest
-     * @returns DeleteSignatureResponse
-     *
-     * @param DeleteSignatureRequest $request
-     *
-     * @return DeleteSignatureResponse
+     * @return DeleteSignatureResponse DeleteSignatureResponse
      */
     public function deleteSignature($request)
     {
@@ -4574,36 +3993,29 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a custom throttling policy and the special throttling rules in the policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a custom throttling policy and the special throttling rules in the policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteTrafficControlRequest $request DeleteTrafficControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteTrafficControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteTrafficControlResponse
-     *
-     * @param DeleteTrafficControlRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteTrafficControlResponse
+     * @return DeleteTrafficControlResponse DeleteTrafficControlResponse
      */
     public function deleteTrafficControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTrafficControl',
@@ -4616,7 +4028,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4624,19 +4036,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a custom throttling policy and the special throttling rules in the policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a custom throttling policy and the special throttling rules in the policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeleteTrafficControlRequest $request DeleteTrafficControlRequest
      *
-     * @param request - DeleteTrafficControlRequest
-     * @returns DeleteTrafficControlResponse
-     *
-     * @param DeleteTrafficControlRequest $request
-     *
-     * @return DeleteTrafficControlResponse
+     * @return DeleteTrafficControlResponse DeleteTrafficControlResponse
      */
     public function deleteTrafficControl($request)
     {
@@ -4646,43 +4054,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a custom special throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a custom special throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   You can obtain the input parameters required in this operation by calling other APIs.
+     *  *
+     * @param DeleteTrafficSpecialControlRequest $request DeleteTrafficSpecialControlRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteTrafficSpecialControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteTrafficSpecialControlResponse
-     *
-     * @param DeleteTrafficSpecialControlRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteTrafficSpecialControlResponse
+     * @return DeleteTrafficSpecialControlResponse DeleteTrafficSpecialControlResponse
      */
     public function deleteTrafficSpecialControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->specialKey) {
-            @$query['SpecialKey'] = $request->specialKey;
+        if (!Utils::isUnset($request->specialKey)) {
+            $query['SpecialKey'] = $request->specialKey;
         }
-
-        if (null !== $request->specialType) {
-            @$query['SpecialType'] = $request->specialType;
+        if (!Utils::isUnset($request->specialType)) {
+            $query['SpecialType'] = $request->specialType;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTrafficSpecialControl',
@@ -4695,7 +4094,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4703,18 +4102,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a custom special throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a custom special throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   You can obtain the input parameters required in this operation by calling other APIs.
+     *  *
+     * @param DeleteTrafficSpecialControlRequest $request DeleteTrafficSpecialControlRequest
      *
-     * @param request - DeleteTrafficSpecialControlRequest
-     * @returns DeleteTrafficSpecialControlResponse
-     *
-     * @param DeleteTrafficSpecialControlRequest $request
-     *
-     * @return DeleteTrafficSpecialControlResponse
+     * @return DeleteTrafficSpecialControlResponse DeleteTrafficSpecialControlResponse
      */
     public function deleteTrafficSpecialControl($request)
     {
@@ -4724,48 +4119,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes an API to an environment.
-     *
-     * @remarks
-     *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+     * @summary Publishes an API to an environment.
+     *  *
+     * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
      * *   An API is published to a cluster in under 5 seconds.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeployApiRequest $request DeployApiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeployApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeployApiResponse
-     *
-     * @param DeployApiRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return DeployApiResponse
+     * @return DeployApiResponse DeployApiResponse
      */
     public function deployApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeployApi',
@@ -4778,7 +4163,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeployApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4786,19 +4171,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes an API to an environment.
-     *
-     * @remarks
-     *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+     * @summary Publishes an API to an environment.
+     *  *
+     * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
      * *   An API is published to a cluster in under 5 seconds.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param DeployApiRequest $request DeployApiRequest
      *
-     * @param request - DeployApiRequest
-     * @returns DeployApiResponse
-     *
-     * @param DeployApiRequest $request
-     *
-     * @return DeployApiResponse
+     * @return DeployApiResponse DeployApiResponse
      */
     public function deployApi($request)
     {
@@ -4808,31 +4189,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量下线API任务
+     * @summary 查询批量下线API任务
+     *  *
+     * @param DescribeAbolishApiTaskRequest $request DescribeAbolishApiTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAbolishApiTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAbolishApiTaskResponse
-     *
-     * @param DescribeAbolishApiTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAbolishApiTaskResponse
+     * @return DescribeAbolishApiTaskResponse DescribeAbolishApiTaskResponse
      */
     public function describeAbolishApiTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationUid) {
-            @$query['OperationUid'] = $request->operationUid;
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAbolishApiTask',
@@ -4845,7 +4220,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAbolishApiTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4853,14 +4228,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量下线API任务
+     * @summary 查询批量下线API任务
+     *  *
+     * @param DescribeAbolishApiTaskRequest $request DescribeAbolishApiTaskRequest
      *
-     * @param request - DescribeAbolishApiTaskRequest
-     * @returns DescribeAbolishApiTaskResponse
-     *
-     * @param DescribeAbolishApiTaskRequest $request
-     *
-     * @return DescribeAbolishApiTaskResponse
+     * @return DescribeAbolishApiTaskResponse DescribeAbolishApiTaskResponse
      */
     public function describeAbolishApiTask($request)
     {
@@ -4870,31 +4242,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+     * @summary This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+     *  *
+     * @param DescribeAccessControlListAttributeRequest $request DescribeAccessControlListAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAccessControlListAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAccessControlListAttributeResponse
-     *
-     * @param DescribeAccessControlListAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeAccessControlListAttributeResponse
+     * @return DescribeAccessControlListAttributeResponse DescribeAccessControlListAttributeResponse
      */
     public function describeAccessControlListAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessControlListAttribute',
@@ -4907,7 +4273,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4915,14 +4281,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+     * @summary This feature provides instance-level access control for dedicated instances. Queries the details of an access control policy.
+     *  *
+     * @param DescribeAccessControlListAttributeRequest $request DescribeAccessControlListAttributeRequest
      *
-     * @param request - DescribeAccessControlListAttributeRequest
-     * @returns DescribeAccessControlListAttributeResponse
-     *
-     * @param DescribeAccessControlListAttributeRequest $request
-     *
-     * @return DescribeAccessControlListAttributeResponse
+     * @return DescribeAccessControlListAttributeResponse DescribeAccessControlListAttributeResponse
      */
     public function describeAccessControlListAttribute($request)
     {
@@ -4932,43 +4295,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control for dedicated instances. Queries access control policies.
+     * @summary This feature provides instance-level access control for dedicated instances. Queries access control policies.
+     *  *
+     * @param DescribeAccessControlListsRequest $request DescribeAccessControlListsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAccessControlListsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAccessControlListsResponse
-     *
-     * @param DescribeAccessControlListsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAccessControlListsResponse
+     * @return DescribeAccessControlListsResponse DescribeAccessControlListsResponse
      */
     public function describeAccessControlListsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclName) {
-            @$query['AclName'] = $request->aclName;
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
         }
-
-        if (null !== $request->addressIPVersion) {
-            @$query['AddressIPVersion'] = $request->addressIPVersion;
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccessControlLists',
@@ -4981,7 +4335,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAccessControlListsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4989,14 +4343,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control for dedicated instances. Queries access control policies.
+     * @summary This feature provides instance-level access control for dedicated instances. Queries access control policies.
+     *  *
+     * @param DescribeAccessControlListsRequest $request DescribeAccessControlListsRequest
      *
-     * @param request - DescribeAccessControlListsRequest
-     * @returns DescribeAccessControlListsResponse
-     *
-     * @param DescribeAccessControlListsRequest $request
-     *
-     * @return DescribeAccessControlListsResponse
+     * @return DescribeAccessControlListsResponse DescribeAccessControlListsResponse
      */
     public function describeAccessControlLists($request)
     {
@@ -5006,38 +4357,30 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the definition of an API.
+     * @summary Queries the definition of an API.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiRequest $request DescribeApiRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiResponse
-     *
-     * @param DescribeApiRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DescribeApiResponse
+     * @return DescribeApiResponse DescribeApiResponse
      */
     public function describeApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApi',
@@ -5050,7 +4393,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5058,17 +4401,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the definition of an API.
+     * @summary Queries the definition of an API.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiRequest $request DescribeApiRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiRequest
-     * @returns DescribeApiResponse
-     *
-     * @param DescribeApiRequest $request
-     *
-     * @return DescribeApiResponse
+     * @return DescribeApiResponse DescribeApiResponse
      */
     public function describeApi($request)
     {
@@ -5078,45 +4417,36 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the documentation of an API.
-     *
-     * @remarks
-     *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
+     * @summary Queries the documentation of an API.
+     *  *
+     * @description *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
      * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
      * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
      * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+     *  *
+     * @param DescribeApiDocRequest $request DescribeApiDocRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiDocRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiDocResponse
-     *
-     * @param DescribeApiDocRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeApiDocResponse
+     * @return DescribeApiDocResponse DescribeApiDocResponse
      */
     public function describeApiDocWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiDoc',
@@ -5129,7 +4459,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiDocResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5137,20 +4467,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the documentation of an API.
-     *
-     * @remarks
-     *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
+     * @summary Queries the documentation of an API.
+     *  *
+     * @description *   For API callers, the specified API must be a public or authorized private API that has been published to a runtime environment.
      * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
      * *   When you call this operation as an API provider, the definition of the specified API running in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
      * *   Before you call this operation as an API provider, ensure that the API to be queried is a public one or that your application has been authorized to call the API, because authentication on API callers is required.
+     *  *
+     * @param DescribeApiDocRequest $request DescribeApiDocRequest
      *
-     * @param request - DescribeApiDocRequest
-     * @returns DescribeApiDocResponse
-     *
-     * @param DescribeApiDocRequest $request
-     *
-     * @return DescribeApiDocResponse
+     * @return DescribeApiDocResponse DescribeApiDocResponse
      */
     public function describeApiDoc($request)
     {
@@ -5160,38 +4486,30 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiGroupRequest $request DescribeApiGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiGroupResponse
-     *
-     * @param DescribeApiGroupRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeApiGroupResponse
+     * @return DescribeApiGroupResponse DescribeApiGroupResponse
      */
     public function describeApiGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroup',
@@ -5204,7 +4522,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5212,17 +4530,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary You can call this operation to query details about an API group, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiGroupRequest $request DescribeApiGroupRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiGroupRequest
-     * @returns DescribeApiGroupResponse
-     *
-     * @param DescribeApiGroupRequest $request
-     *
-     * @return DescribeApiGroupResponse
+     * @return DescribeApiGroupResponse DescribeApiGroupResponse
      */
     public function describeApiGroup($request)
     {
@@ -5232,31 +4546,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the VPC whitelist that is allowed to access an API group.
+     * @summary Queries the VPC whitelist that is allowed to access an API group.
+     *  *
+     * @param DescribeApiGroupVpcWhitelistRequest $request DescribeApiGroupVpcWhitelistRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiGroupVpcWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiGroupVpcWhitelistResponse
-     *
-     * @param DescribeApiGroupVpcWhitelistRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeApiGroupVpcWhitelistResponse
+     * @return DescribeApiGroupVpcWhitelistResponse DescribeApiGroupVpcWhitelistResponse
      */
     public function describeApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroupVpcWhitelist',
@@ -5269,7 +4577,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiGroupVpcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5277,14 +4585,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the VPC whitelist that is allowed to access an API group.
+     * @summary Queries the VPC whitelist that is allowed to access an API group.
+     *  *
+     * @param DescribeApiGroupVpcWhitelistRequest $request DescribeApiGroupVpcWhitelistRequest
      *
-     * @param request - DescribeApiGroupVpcWhitelistRequest
-     * @returns DescribeApiGroupVpcWhitelistResponse
-     *
-     * @param DescribeApiGroupVpcWhitelistRequest $request
-     *
-     * @return DescribeApiGroupVpcWhitelistResponse
+     * @return DescribeApiGroupVpcWhitelistResponse DescribeApiGroupVpcWhitelistResponse
      */
     public function describeApiGroupVpcWhitelist($request)
     {
@@ -5294,66 +4599,51 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries existing API groups and their basic information.
+     * @summary Queries existing API groups and their basic information.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiGroupsResponse
-     *
-     * @param DescribeApiGroupsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeApiGroupsResponse
+     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
      */
     public function describeApiGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->basePath) {
-            @$query['BasePath'] = $request->basePath;
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
         }
-
-        if (null !== $request->enableTagAuth) {
-            @$query['EnableTagAuth'] = $request->enableTagAuth;
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sort) {
-            @$query['Sort'] = $request->sort;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiGroups',
@@ -5366,7 +4656,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5374,17 +4664,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries existing API groups and their basic information.
+     * @summary Queries existing API groups and their basic information.
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - DescribeApiGroupsRequest
-     * @returns DescribeApiGroupsResponse
-     *
-     * @param DescribeApiGroupsRequest $request
-     *
-     * @return DescribeApiGroupsResponse
+     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
      */
     public function describeApiGroups($request)
     {
@@ -5394,55 +4680,43 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the historical versions of a specified API.
-     *
-     * @remarks
-     *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+     * @summary Queries the historical versions of a specified API.
+     *  *
+     * @description *   This operation is intended for API providers. Only APIs that have been published have historical version records.
      * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
+     *  *
+     * @param DescribeApiHistoriesRequest $request DescribeApiHistoriesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiHistoriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiHistoriesResponse
-     *
-     * @param DescribeApiHistoriesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeApiHistoriesResponse
+     * @return DescribeApiHistoriesResponse DescribeApiHistoriesResponse
      */
     public function describeApiHistoriesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiHistories',
@@ -5455,7 +4729,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5463,18 +4737,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the historical versions of a specified API.
-     *
-     * @remarks
-     *   This operation is intended for API providers. Only APIs that have been published have historical version records.
+     * @summary Queries the historical versions of a specified API.
+     *  *
+     * @description *   This operation is intended for API providers. Only APIs that have been published have historical version records.
      * *   This operation allows you to obtain the historical versions of an API. This operation is always called by other operations.
+     *  *
+     * @param DescribeApiHistoriesRequest $request DescribeApiHistoriesRequest
      *
-     * @param request - DescribeApiHistoriesRequest
-     * @returns DescribeApiHistoriesResponse
-     *
-     * @param DescribeApiHistoriesRequest $request
-     *
-     * @return DescribeApiHistoriesResponse
+     * @return DescribeApiHistoriesResponse DescribeApiHistoriesResponse
      */
     public function describeApiHistories($request)
     {
@@ -5484,48 +4754,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified historical version of a specified API definition.
-     *
-     * @remarks
-     * Queries the details of a specified historical version of a specified API definition.
+     * @summary Queries the details of a specified historical version of a specified API definition.
+     *  *
+     * @description Queries the details of a specified historical version of a specified API definition.
      * *   This API is intended for API providers.
      * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+     *  *
+     * @param DescribeApiHistoryRequest $request DescribeApiHistoryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiHistoryResponse
-     *
-     * @param DescribeApiHistoryRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeApiHistoryResponse
+     * @return DescribeApiHistoryResponse DescribeApiHistoryResponse
      */
     public function describeApiHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->historyVersion) {
-            @$query['HistoryVersion'] = $request->historyVersion;
+        if (!Utils::isUnset($request->historyVersion)) {
+            $query['HistoryVersion'] = $request->historyVersion;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiHistory',
@@ -5538,7 +4798,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5546,19 +4806,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified historical version of a specified API definition.
-     *
-     * @remarks
-     * Queries the details of a specified historical version of a specified API definition.
+     * @summary Queries the details of a specified historical version of a specified API definition.
+     *  *
+     * @description Queries the details of a specified historical version of a specified API definition.
      * *   This API is intended for API providers.
      * *   API Gateway records the time and definition of an API every time the API is published. You can use the version number obtained from other operations to query definition details at a certain publication.
+     *  *
+     * @param DescribeApiHistoryRequest $request DescribeApiHistoryRequest
      *
-     * @param request - DescribeApiHistoryRequest
-     * @returns DescribeApiHistoryResponse
-     *
-     * @param DescribeApiHistoryRequest $request
-     *
-     * @return DescribeApiHistoryResponse
+     * @return DescribeApiHistoryResponse DescribeApiHistoryResponse
      */
     public function describeApiHistory($request)
     {
@@ -5568,52 +4824,41 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   If an optional parameter is not specified, all results are returned on separate pages.
      * ·
+     *  *
+     * @param DescribeApiIpControlsRequest $request DescribeApiIpControlsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiIpControlsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiIpControlsResponse
-     *
-     * @param DescribeApiIpControlsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeApiIpControlsResponse
+     * @return DescribeApiIpControlsResponse DescribeApiIpControlsResponse
      */
     public function describeApiIpControlsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiIpControls',
@@ -5626,7 +4871,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiIpControlsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5634,19 +4879,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the access control lists (ACLs) that are bound to all the APIs in an API group in a specified environment.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   If an optional parameter is not specified, all results are returned on separate pages.
      * ·
+     *  *
+     * @param DescribeApiIpControlsRequest $request DescribeApiIpControlsRequest
      *
-     * @param request - DescribeApiIpControlsRequest
-     * @returns DescribeApiIpControlsResponse
-     *
-     * @param DescribeApiIpControlsRequest $request
-     *
-     * @return DescribeApiIpControlsResponse
+     * @return DescribeApiIpControlsResponse DescribeApiIpControlsResponse
      */
     public function describeApiIpControls($request)
     {
@@ -5656,52 +4897,41 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the response time statistics of an API.
-     *
-     * @remarks
-     * You can call this operation to query the latency metrics in milliseconds for a specified API.
+     * @summary Queries the response time statistics of an API.
+     *  *
+     * @description You can call this operation to query the latency metrics in milliseconds for a specified API.
      * *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiLatencyDataRequest $request DescribeApiLatencyDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiLatencyDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiLatencyDataResponse
-     *
-     * @param DescribeApiLatencyDataRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeApiLatencyDataResponse
+     * @return DescribeApiLatencyDataResponse DescribeApiLatencyDataResponse
      */
     public function describeApiLatencyDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiLatencyData',
@@ -5714,7 +4944,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiLatencyDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5722,19 +4952,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the response time statistics of an API.
-     *
-     * @remarks
-     * You can call this operation to query the latency metrics in milliseconds for a specified API.
+     * @summary Queries the response time statistics of an API.
+     *  *
+     * @description You can call this operation to query the latency metrics in milliseconds for a specified API.
      * *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiLatencyDataRequest $request DescribeApiLatencyDataRequest
      *
-     * @param request - DescribeApiLatencyDataRequest
-     * @returns DescribeApiLatencyDataResponse
-     *
-     * @param DescribeApiLatencyDataRequest $request
-     *
-     * @return DescribeApiLatencyDataResponse
+     * @return DescribeApiLatencyDataResponse DescribeApiLatencyDataResponse
      */
     public function describeApiLatencyData($request)
     {
@@ -5744,35 +4970,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the Alibaba Cloud Marketplace attributes of an API.
+     * @summary Queries the Alibaba Cloud Marketplace attributes of an API.
+     *  *
+     * @param DescribeApiMarketAttributesRequest $request DescribeApiMarketAttributesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiMarketAttributesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiMarketAttributesResponse
-     *
-     * @param DescribeApiMarketAttributesRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeApiMarketAttributesResponse
+     * @return DescribeApiMarketAttributesResponse DescribeApiMarketAttributesResponse
      */
     public function describeApiMarketAttributesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiMarketAttributes',
@@ -5785,7 +5004,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiMarketAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5793,14 +5012,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the Alibaba Cloud Marketplace attributes of an API.
+     * @summary Queries the Alibaba Cloud Marketplace attributes of an API.
+     *  *
+     * @param DescribeApiMarketAttributesRequest $request DescribeApiMarketAttributesRequest
      *
-     * @param request - DescribeApiMarketAttributesRequest
-     * @returns DescribeApiMarketAttributesResponse
-     *
-     * @param DescribeApiMarketAttributesRequest $request
-     *
-     * @return DescribeApiMarketAttributesResponse
+     * @return DescribeApiMarketAttributesResponse DescribeApiMarketAttributesResponse
      */
     public function describeApiMarketAttributes($request)
     {
@@ -5810,39 +5026,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the attached APIs of an API product.
+     * @summary Queries the attached APIs of an API product.
+     *  *
+     * @param DescribeApiProductApisRequest $request DescribeApiProductApisRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiProductApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiProductApisResponse
-     *
-     * @param DescribeApiProductApisRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeApiProductApisResponse
+     * @return DescribeApiProductApisResponse DescribeApiProductApisResponse
      */
     public function describeApiProductApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiProductApis',
@@ -5855,7 +5063,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiProductApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5863,14 +5071,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the attached APIs of an API product.
+     * @summary Queries the attached APIs of an API product.
+     *  *
+     * @param DescribeApiProductApisRequest $request DescribeApiProductApisRequest
      *
-     * @param request - DescribeApiProductApisRequest
-     * @returns DescribeApiProductApisResponse
-     *
-     * @param DescribeApiProductApisRequest $request
-     *
-     * @return DescribeApiProductApisResponse
+     * @return DescribeApiProductApisResponse DescribeApiProductApisResponse
      */
     public function describeApiProductApis($request)
     {
@@ -5880,39 +5085,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries API products by application.
+     * @summary Queries API products by application.
+     *  *
+     * @param DescribeApiProductsByAppRequest $request DescribeApiProductsByAppRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiProductsByAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiProductsByAppResponse
-     *
-     * @param DescribeApiProductsByAppRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeApiProductsByAppResponse
+     * @return DescribeApiProductsByAppResponse DescribeApiProductsByAppResponse
      */
     public function describeApiProductsByAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiProductsByApp',
@@ -5925,7 +5122,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiProductsByAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5933,14 +5130,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries API products by application.
+     * @summary Queries API products by application.
+     *  *
+     * @param DescribeApiProductsByAppRequest $request DescribeApiProductsByAppRequest
      *
-     * @param request - DescribeApiProductsByAppRequest
-     * @returns DescribeApiProductsByAppResponse
-     *
-     * @param DescribeApiProductsByAppRequest $request
-     *
-     * @return DescribeApiProductsByAppResponse
+     * @return DescribeApiProductsByAppResponse DescribeApiProductsByAppResponse
      */
     public function describeApiProductsByApp($request)
     {
@@ -5950,51 +5144,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the QPS statistics of an API.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the QPS statistics of an API.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiQpsDataRequest $request DescribeApiQpsDataRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiQpsDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiQpsDataResponse
-     *
-     * @param DescribeApiQpsDataRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeApiQpsDataResponse
+     * @return DescribeApiQpsDataResponse DescribeApiQpsDataResponse
      */
     public function describeApiQpsDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiQpsData',
@@ -6007,7 +5190,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6015,18 +5198,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the QPS statistics of an API.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the QPS statistics of an API.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiQpsDataRequest $request DescribeApiQpsDataRequest
      *
-     * @param request - DescribeApiQpsDataRequest
-     * @returns DescribeApiQpsDataResponse
-     *
-     * @param DescribeApiQpsDataRequest $request
-     *
-     * @return DescribeApiQpsDataResponse
+     * @return DescribeApiQpsDataResponse DescribeApiQpsDataResponse
      */
     public function describeApiQpsData($request)
     {
@@ -6036,51 +5215,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     *  *
+     * @param DescribeApiSignaturesRequest $request DescribeApiSignaturesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiSignaturesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiSignaturesResponse
-     *
-     * @param DescribeApiSignaturesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeApiSignaturesResponse
+     * @return DescribeApiSignaturesResponse DescribeApiSignaturesResponse
      */
     public function describeApiSignaturesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiSignatures',
@@ -6093,7 +5261,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiSignaturesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6101,18 +5269,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     *  *
+     * @param DescribeApiSignaturesRequest $request DescribeApiSignaturesRequest
      *
-     * @param request - DescribeApiSignaturesRequest
-     * @returns DescribeApiSignaturesResponse
-     *
-     * @param DescribeApiSignaturesRequest $request
-     *
-     * @return DescribeApiSignaturesResponse
+     * @return DescribeApiSignaturesResponse DescribeApiSignaturesResponse
      */
     public function describeApiSignatures($request)
     {
@@ -6122,51 +5286,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policies bound to all members of an API group in a specified environment.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the throttling policies bound to all members of an API group in a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     *  *
+     * @param DescribeApiTrafficControlsRequest $request DescribeApiTrafficControlsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiTrafficControlsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiTrafficControlsResponse
-     *
-     * @param DescribeApiTrafficControlsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeApiTrafficControlsResponse
+     * @return DescribeApiTrafficControlsResponse DescribeApiTrafficControlsResponse
      */
     public function describeApiTrafficControlsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiTrafficControls',
@@ -6179,7 +5332,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiTrafficControlsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6187,18 +5340,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policies bound to all members of an API group in a specified environment.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the throttling policies bound to all members of an API group in a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     *  *
+     * @param DescribeApiTrafficControlsRequest $request DescribeApiTrafficControlsRequest
      *
-     * @param request - DescribeApiTrafficControlsRequest
-     * @returns DescribeApiTrafficControlsResponse
-     *
-     * @param DescribeApiTrafficControlsRequest $request
-     *
-     * @return DescribeApiTrafficControlsResponse
+     * @return DescribeApiTrafficControlsResponse DescribeApiTrafficControlsResponse
      */
     public function describeApiTrafficControls($request)
     {
@@ -6208,51 +5357,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the traffic of an API.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the statistics on the traffic of an API.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiTrafficDataRequest $request DescribeApiTrafficDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApiTrafficDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApiTrafficDataResponse
-     *
-     * @param DescribeApiTrafficDataRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeApiTrafficDataResponse
+     * @return DescribeApiTrafficDataResponse DescribeApiTrafficDataResponse
      */
     public function describeApiTrafficDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiTrafficData',
@@ -6265,7 +5403,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApiTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6273,18 +5411,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the traffic of an API.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the statistics on the traffic of an API.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Only statistics for API calls made in the release environment are collected by default.
+     *  *
+     * @param DescribeApiTrafficDataRequest $request DescribeApiTrafficDataRequest
      *
-     * @param request - DescribeApiTrafficDataRequest
-     * @returns DescribeApiTrafficDataResponse
-     *
-     * @param DescribeApiTrafficDataRequest $request
-     *
-     * @return DescribeApiTrafficDataResponse
+     * @return DescribeApiTrafficDataResponse DescribeApiTrafficDataResponse
      */
     public function describeApiTrafficData($request)
     {
@@ -6294,84 +5428,65 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries a list of APIs that are being defined.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries a list of APIs that are being defined.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
      * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
+     *  *
+     * @param DescribeApisRequest $request DescribeApisRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisResponse
-     *
-     * @param DescribeApisRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeApisResponse
+     * @return DescribeApisResponse DescribeApisResponse
      */
     public function describeApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiMethod) {
-            @$query['ApiMethod'] = $request->apiMethod;
+        if (!Utils::isUnset($request->apiMethod)) {
+            $query['ApiMethod'] = $request->apiMethod;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->apiPath) {
-            @$query['ApiPath'] = $request->apiPath;
+        if (!Utils::isUnset($request->apiPath)) {
+            $query['ApiPath'] = $request->apiPath;
         }
-
-        if (null !== $request->catalogId) {
-            @$query['CatalogId'] = $request->catalogId;
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
         }
-
-        if (null !== $request->enableTagAuth) {
-            @$query['EnableTagAuth'] = $request->enableTagAuth;
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->unDeployed) {
-            @$query['UnDeployed'] = $request->unDeployed;
+        if (!Utils::isUnset($request->unDeployed)) {
+            $query['UnDeployed'] = $request->unDeployed;
         }
-
-        if (null !== $request->visibility) {
-            @$query['Visibility'] = $request->visibility;
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApis',
@@ -6384,7 +5499,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6392,19 +5507,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries a list of APIs that are being defined.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries a list of APIs that are being defined.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
      * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
+     *  *
+     * @param DescribeApisRequest $request DescribeApisRequest
      *
-     * @param request - DescribeApisRequest
-     * @returns DescribeApisResponse
-     *
-     * @param DescribeApisRequest $request
-     *
-     * @return DescribeApisResponse
+     * @return DescribeApisResponse DescribeApisResponse
      */
     public function describeApis($request)
     {
@@ -6414,59 +5525,46 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs with which an application is associated.
+     * @summary Queries the APIs with which an application is associated.
+     *  *
+     * @param DescribeApisByAppRequest $request DescribeApisByAppRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisByAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisByAppResponse
-     *
-     * @param DescribeApisByAppRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeApisByAppResponse
+     * @return DescribeApisByAppResponse DescribeApisByAppResponse
      */
     public function describeApisByAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->apiUid) {
-            @$query['ApiUid'] = $request->apiUid;
+        if (!Utils::isUnset($request->apiUid)) {
+            $query['ApiUid'] = $request->apiUid;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->method) {
-            @$query['Method'] = $request->method;
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->path) {
-            @$query['Path'] = $request->path;
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByApp',
@@ -6479,7 +5577,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisByAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6487,14 +5585,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs with which an application is associated.
+     * @summary Queries the APIs with which an application is associated.
+     *  *
+     * @param DescribeApisByAppRequest $request DescribeApisByAppRequest
      *
-     * @param request - DescribeApisByAppRequest
-     * @returns DescribeApisByAppResponse
-     *
-     * @param DescribeApisByAppRequest $request
-     *
-     * @return DescribeApisByAppResponse
+     * @return DescribeApisByAppResponse DescribeApisByAppResponse
      */
     public function describeApisByApp($request)
     {
@@ -6504,43 +5599,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs in the draft or published state that are created by using a specified backend service.
+     * @summary Queries APIs in the draft or published state that are created by using a specified backend service.
+     *  *
+     * @param DescribeApisByBackendRequest $request DescribeApisByBackendRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisByBackendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisByBackendResponse
-     *
-     * @param DescribeApisByBackendRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeApisByBackendResponse
+     * @return DescribeApisByBackendResponse DescribeApisByBackendResponse
      */
     public function describeApisByBackendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByBackend',
@@ -6553,7 +5639,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisByBackendResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6561,14 +5647,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs in the draft or published state that are created by using a specified backend service.
+     * @summary Queries APIs in the draft or published state that are created by using a specified backend service.
+     *  *
+     * @param DescribeApisByBackendRequest $request DescribeApisByBackendRequest
      *
-     * @param request - DescribeApisByBackendRequest
-     * @returns DescribeApisByBackendResponse
-     *
-     * @param DescribeApisByBackendRequest $request
-     *
-     * @return DescribeApisByBackendResponse
+     * @return DescribeApisByBackendResponse DescribeApisByBackendResponse
      */
     public function describeApisByBackend($request)
     {
@@ -6578,43 +5661,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that are bound to an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the APIs that are bound to an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisByIpControlRequest $request DescribeApisByIpControlRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisByIpControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisByIpControlResponse
-     *
-     * @param DescribeApisByIpControlRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeApisByIpControlResponse
+     * @return DescribeApisByIpControlResponse DescribeApisByIpControlResponse
      */
     public function describeApisByIpControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByIpControl',
@@ -6627,7 +5701,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisByIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6635,18 +5709,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that are bound to an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the APIs that are bound to an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisByIpControlRequest $request DescribeApisByIpControlRequest
      *
-     * @param request - DescribeApisByIpControlRequest
-     * @returns DescribeApisByIpControlResponse
-     *
-     * @param DescribeApisByIpControlRequest $request
-     *
-     * @return DescribeApisByIpControlResponse
+     * @return DescribeApisByIpControlResponse DescribeApisByIpControlResponse
      */
     public function describeApisByIpControl($request)
     {
@@ -6656,43 +5726,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified backend signature key is bound.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the APIs to which a specified backend signature key is bound.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisBySignatureRequest $request DescribeApisBySignatureRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisBySignatureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisBySignatureResponse
-     *
-     * @param DescribeApisBySignatureRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeApisBySignatureResponse
+     * @return DescribeApisBySignatureResponse DescribeApisBySignatureResponse
      */
     public function describeApisBySignatureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisBySignature',
@@ -6705,7 +5766,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisBySignatureResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6713,18 +5774,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified backend signature key is bound.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the APIs to which a specified backend signature key is bound.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The results are returned on separate pages. You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisBySignatureRequest $request DescribeApisBySignatureRequest
      *
-     * @param request - DescribeApisBySignatureRequest
-     * @returns DescribeApisBySignatureResponse
-     *
-     * @param DescribeApisBySignatureRequest $request
-     *
-     * @return DescribeApisBySignatureResponse
+     * @return DescribeApisBySignatureResponse DescribeApisBySignatureResponse
      */
     public function describeApisBySignature($request)
     {
@@ -6734,43 +5791,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified throttling policy is bound.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the APIs to which a specified throttling policy is bound.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisByTrafficControlRequest $request DescribeApisByTrafficControlRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisByTrafficControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisByTrafficControlResponse
-     *
-     * @param DescribeApisByTrafficControlRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeApisByTrafficControlResponse
+     * @return DescribeApisByTrafficControlResponse DescribeApisByTrafficControlResponse
      */
     public function describeApisByTrafficControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByTrafficControl',
@@ -6783,7 +5831,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisByTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6791,18 +5839,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified throttling policy is bound.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the APIs to which a specified throttling policy is bound.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   You can specify PageNumber to obtain the result on the specified page.
+     *  *
+     * @param DescribeApisByTrafficControlRequest $request DescribeApisByTrafficControlRequest
      *
-     * @param request - DescribeApisByTrafficControlRequest
-     * @returns DescribeApisByTrafficControlResponse
-     *
-     * @param DescribeApisByTrafficControlRequest $request
-     *
-     * @return DescribeApisByTrafficControlResponse
+     * @return DescribeApisByTrafficControlResponse DescribeApisByTrafficControlResponse
      */
     public function describeApisByTrafficControl($request)
     {
@@ -6812,39 +5856,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     * @summary Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     *  *
+     * @param DescribeApisByVpcAccessRequest $request DescribeApisByVpcAccessRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisByVpcAccessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisByVpcAccessResponse
-     *
-     * @param DescribeApisByVpcAccessRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeApisByVpcAccessResponse
+     * @return DescribeApisByVpcAccessResponse DescribeApisByVpcAccessResponse
      */
     public function describeApisByVpcAccessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcName) {
-            @$query['VpcName'] = $request->vpcName;
+        if (!Utils::isUnset($request->vpcName)) {
+            $query['VpcName'] = $request->vpcName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisByVpcAccess',
@@ -6857,7 +5893,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisByVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6865,14 +5901,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     * @summary Queries the APIs that are associated with a virtual private cloud (VPC) access authorization in a region.
+     *  *
+     * @param DescribeApisByVpcAccessRequest $request DescribeApisByVpcAccessRequest
      *
-     * @param request - DescribeApisByVpcAccessRequest
-     * @returns DescribeApisByVpcAccessResponse
-     *
-     * @param DescribeApisByVpcAccessRequest $request
-     *
-     * @return DescribeApisByVpcAccessResponse
+     * @return DescribeApisByVpcAccessResponse DescribeApisByVpcAccessResponse
      */
     public function describeApisByVpcAccess($request)
     {
@@ -6882,59 +5915,46 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs by application. The environment information is also returned.
+     * @summary Queries APIs by application. The environment information is also returned.
+     *  *
+     * @param DescribeApisWithStageNameIntegratedByAppRequest $request DescribeApisWithStageNameIntegratedByAppRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeApisWithStageNameIntegratedByAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeApisWithStageNameIntegratedByAppResponse
-     *
-     * @param DescribeApisWithStageNameIntegratedByAppRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeApisWithStageNameIntegratedByAppResponse
+     * @return DescribeApisWithStageNameIntegratedByAppResponse DescribeApisWithStageNameIntegratedByAppResponse
      */
     public function describeApisWithStageNameIntegratedByAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->apiUid) {
-            @$query['ApiUid'] = $request->apiUid;
+        if (!Utils::isUnset($request->apiUid)) {
+            $query['ApiUid'] = $request->apiUid;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->method) {
-            @$query['Method'] = $request->method;
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->path) {
-            @$query['Path'] = $request->path;
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisWithStageNameIntegratedByApp',
@@ -6947,7 +5967,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeApisWithStageNameIntegratedByAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6955,14 +5975,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs by application. The environment information is also returned.
+     * @summary Queries APIs by application. The environment information is also returned.
+     *  *
+     * @param DescribeApisWithStageNameIntegratedByAppRequest $request DescribeApisWithStageNameIntegratedByAppRequest
      *
-     * @param request - DescribeApisWithStageNameIntegratedByAppRequest
-     * @returns DescribeApisWithStageNameIntegratedByAppResponse
-     *
-     * @param DescribeApisWithStageNameIntegratedByAppRequest $request
-     *
-     * @return DescribeApisWithStageNameIntegratedByAppResponse
+     * @return DescribeApisWithStageNameIntegratedByAppResponse DescribeApisWithStageNameIntegratedByAppResponse
      */
     public function describeApisWithStageNameIntegratedByApp($request)
     {
@@ -6972,31 +5989,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps that can be authorized.
+     * @summary Queries the apps that can be authorized.
+     *  *
+     * @param DescribeAppRequest $request DescribeAppRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppResponse
-     *
-     * @param DescribeAppRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DescribeAppResponse
+     * @return DescribeAppResponse DescribeAppResponse
      */
     public function describeAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApp',
@@ -7009,7 +6020,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7017,14 +6028,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps that can be authorized.
+     * @summary Queries the apps that can be authorized.
+     *  *
+     * @param DescribeAppRequest $request DescribeAppRequest
      *
-     * @param request - DescribeAppRequest
-     * @returns DescribeAppResponse
-     *
-     * @param DescribeAppRequest $request
-     *
-     * @return DescribeAppResponse
+     * @return DescribeAppResponse DescribeAppResponse
      */
     public function describeApp($request)
     {
@@ -7034,71 +6042,55 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries apps and their basic information.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries apps and their basic information.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   AppId is optional.
+     *  *
+     * @param DescribeAppAttributesRequest $request DescribeAppAttributesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAppAttributesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppAttributesResponse
-     *
-     * @param DescribeAppAttributesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeAppAttributesResponse
+     * @return DescribeAppAttributesResponse DescribeAppAttributesResponse
      */
     public function describeAppAttributesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCode) {
-            @$query['AppCode'] = $request->appCode;
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appKey) {
-            @$query['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->enableTagAuth) {
-            @$query['EnableTagAuth'] = $request->enableTagAuth;
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
         }
-
-        if (null !== $request->extend) {
-            @$query['Extend'] = $request->extend;
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sort) {
-            @$query['Sort'] = $request->sort;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppAttributes',
@@ -7111,7 +6103,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7119,18 +6111,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries apps and their basic information.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries apps and their basic information.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   AppId is optional.
+     *  *
+     * @param DescribeAppAttributesRequest $request DescribeAppAttributesRequest
      *
-     * @param request - DescribeAppAttributesRequest
-     * @returns DescribeAppAttributesResponse
-     *
-     * @param DescribeAppAttributesRequest $request
-     *
-     * @return DescribeAppAttributesResponse
+     * @return DescribeAppAttributesResponse DescribeAppAttributesResponse
      */
     public function describeAppAttributes($request)
     {
@@ -7140,31 +6128,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the key-related information of an application.
+     * @summary Queries the key-related information of an application.
+     *  *
+     * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAppSecuritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppSecuritiesResponse
-     *
-     * @param DescribeAppSecuritiesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeAppSecuritiesResponse
+     * @return DescribeAppSecuritiesResponse DescribeAppSecuritiesResponse
      */
     public function describeAppSecuritiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppSecurities',
@@ -7177,7 +6159,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppSecuritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7185,14 +6167,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the key-related information of an application.
+     * @summary Queries the key-related information of an application.
+     *  *
+     * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
      *
-     * @param request - DescribeAppSecuritiesRequest
-     * @returns DescribeAppSecuritiesResponse
-     *
-     * @param DescribeAppSecuritiesRequest $request
-     *
-     * @return DescribeAppSecuritiesResponse
+     * @return DescribeAppSecuritiesResponse DescribeAppSecuritiesResponse
      */
     public function describeAppSecurities($request)
     {
@@ -7202,38 +6181,30 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This key is used for authentication when an API call is made.
+     * @summary This key is used for authentication when an API call is made.
+     *  *
+     * @description *   This operation is intended for API callers.
+     *  *
+     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API callers.
-     *
-     * @param request - DescribeAppSecurityRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppSecurityResponse
-     *
-     * @param DescribeAppSecurityRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
      */
     public function describeAppSecurityWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppSecurity',
@@ -7246,7 +6217,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppSecurityResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7254,17 +6225,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This key is used for authentication when an API call is made.
+     * @summary This key is used for authentication when an API call is made.
+     *  *
+     * @description *   This operation is intended for API callers.
+     *  *
+     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
      *
-     * @remarks
-     *   This operation is intended for API callers.
-     *
-     * @param request - DescribeAppSecurityRequest
-     * @returns DescribeAppSecurityResponse
-     *
-     * @param DescribeAppSecurityRequest $request
-     *
-     * @return DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
      */
     public function describeAppSecurity($request)
     {
@@ -7274,48 +6241,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps of a user. App information is returned only to the app owner.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the apps of a user. App information is returned only to the app owner.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
      * *   Each provider can call this operation for a maximum of 200 times every day in a region.
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAppsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppsResponse
-     *
-     * @param DescribeAppsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeAppsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appOwner) {
-            @$query['AppOwner'] = $request->appOwner;
+        if (!Utils::isUnset($request->appOwner)) {
+            $query['AppOwner'] = $request->appOwner;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApps',
@@ -7328,7 +6285,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7336,19 +6293,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps of a user. App information is returned only to the app owner.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries the apps of a user. App information is returned only to the app owner.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   API providers can use the app IDs or their Alibaba Cloud accounts to query app information.
      * *   Each provider can call this operation for a maximum of 200 times every day in a region.
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
      *
-     * @param request - DescribeAppsRequest
-     * @returns DescribeAppsResponse
-     *
-     * @param DescribeAppsRequest $request
-     *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeApps($request)
     {
@@ -7358,43 +6311,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries authorized applications by API product.
+     * @summary Queries authorized applications by API product.
+     *  *
+     * @param DescribeAppsByApiProductRequest $request DescribeAppsByApiProductRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAppsByApiProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAppsByApiProductResponse
-     *
-     * @param DescribeAppsByApiProductRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeAppsByApiProductResponse
+     * @return DescribeAppsByApiProductResponse DescribeAppsByApiProductResponse
      */
     public function describeAppsByApiProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAppsByApiProduct',
@@ -7407,7 +6351,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAppsByApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7415,14 +6359,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries authorized applications by API product.
+     * @summary Queries authorized applications by API product.
+     *  *
+     * @param DescribeAppsByApiProductRequest $request DescribeAppsByApiProductRequest
      *
-     * @param request - DescribeAppsByApiProductRequest
-     * @returns DescribeAppsByApiProductResponse
-     *
-     * @param DescribeAppsByApiProductRequest $request
-     *
-     * @return DescribeAppsByApiProductResponse
+     * @return DescribeAppsByApiProductResponse DescribeAppsByApiProductResponse
      */
     public function describeAppsByApiProduct($request)
     {
@@ -7432,43 +6373,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the authorized APIs of a specified APP.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the authorized APIs of a specified APP.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   The specified application can call all APIs included in the responses.
+     *  *
+     * @param DescribeAuthorizedApisRequest $request DescribeAuthorizedApisRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAuthorizedApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAuthorizedApisResponse
-     *
-     * @param DescribeAuthorizedApisRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAuthorizedApisResponse
+     * @return DescribeAuthorizedApisResponse DescribeAuthorizedApisResponse
      */
     public function describeAuthorizedApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAuthorizedApis',
@@ -7481,7 +6413,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAuthorizedApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7489,18 +6421,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the authorized APIs of a specified APP.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the authorized APIs of a specified APP.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   The specified application can call all APIs included in the responses.
+     *  *
+     * @param DescribeAuthorizedApisRequest $request DescribeAuthorizedApisRequest
      *
-     * @param request - DescribeAuthorizedApisRequest
-     * @returns DescribeAuthorizedApisResponse
-     *
-     * @param DescribeAuthorizedApisRequest $request
-     *
-     * @return DescribeAuthorizedApisResponse
+     * @return DescribeAuthorizedApisResponse DescribeAuthorizedApisResponse
      */
     public function describeAuthorizedApis($request)
     {
@@ -7510,63 +6438,49 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the current apps.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries the current apps.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   All applications included in the responses have access to the specified API.
+     *  *
+     * @param DescribeAuthorizedAppsRequest $request DescribeAuthorizedAppsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAuthorizedAppsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAuthorizedAppsResponse
-     *
-     * @param DescribeAuthorizedAppsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAuthorizedAppsResponse
+     * @return DescribeAuthorizedAppsResponse DescribeAuthorizedAppsResponse
      */
     public function describeAuthorizedAppsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->appOwnerId) {
-            @$query['AppOwnerId'] = $request->appOwnerId;
+        if (!Utils::isUnset($request->appOwnerId)) {
+            $query['AppOwnerId'] = $request->appOwnerId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAuthorizedApps',
@@ -7579,7 +6493,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAuthorizedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7587,18 +6501,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the current apps.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries the current apps.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   All applications included in the responses have access to the specified API.
+     *  *
+     * @param DescribeAuthorizedAppsRequest $request DescribeAuthorizedAppsRequest
      *
-     * @param request - DescribeAuthorizedAppsRequest
-     * @returns DescribeAuthorizedAppsResponse
-     *
-     * @param DescribeAuthorizedAppsRequest $request
-     *
-     * @return DescribeAuthorizedAppsResponse
+     * @return DescribeAuthorizedAppsResponse DescribeAuthorizedAppsResponse
      */
     public function describeAuthorizedApps($request)
     {
@@ -7608,31 +6518,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a backend service and its URL configured for each environment.
+     * @summary Queries the information about a backend service and its URL configured for each environment.
+     *  *
+     * @param DescribeBackendInfoRequest $request DescribeBackendInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackendInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackendInfoResponse
-     *
-     * @param DescribeBackendInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackendInfoResponse
+     * @return DescribeBackendInfoResponse DescribeBackendInfoResponse
      */
     public function describeBackendInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackendInfo',
@@ -7645,7 +6549,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackendInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7653,14 +6557,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a backend service and its URL configured for each environment.
+     * @summary Queries the information about a backend service and its URL configured for each environment.
+     *  *
+     * @param DescribeBackendInfoRequest $request DescribeBackendInfoRequest
      *
-     * @param request - DescribeBackendInfoRequest
-     * @returns DescribeBackendInfoResponse
-     *
-     * @param DescribeBackendInfoRequest $request
-     *
-     * @return DescribeBackendInfoResponse
+     * @return DescribeBackendInfoResponse DescribeBackendInfoResponse
      */
     public function describeBackendInfo($request)
     {
@@ -7670,47 +6571,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend services. You can filter backend services by backend service name and backend service type.
+     * @summary Queries backend services. You can filter backend services by backend service name and backend service type.
+     *  *
+     * @param DescribeBackendListRequest $request DescribeBackendListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackendListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackendListResponse
-     *
-     * @param DescribeBackendListRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackendListResponse
+     * @return DescribeBackendListResponse DescribeBackendListResponse
      */
     public function describeBackendListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendName) {
-            @$query['BackendName'] = $request->backendName;
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
         }
-
-        if (null !== $request->backendType) {
-            @$query['BackendType'] = $request->backendType;
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackendList',
@@ -7723,7 +6614,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackendListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7731,14 +6622,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend services. You can filter backend services by backend service name and backend service type.
+     * @summary Queries backend services. You can filter backend services by backend service name and backend service type.
+     *  *
+     * @param DescribeBackendListRequest $request DescribeBackendListRequest
      *
-     * @param request - DescribeBackendListRequest
-     * @returns DescribeBackendListResponse
-     *
-     * @param DescribeBackendListRequest $request
-     *
-     * @return DescribeBackendListResponse
+     * @return DescribeBackendListResponse DescribeBackendListResponse
      */
     public function describeBackendList($request)
     {
@@ -7748,31 +6636,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a single dataset.
+     * @summary Queries the information about a single dataset.
+     *  *
+     * @param DescribeDatasetInfoRequest $request DescribeDatasetInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDatasetInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDatasetInfoResponse
-     *
-     * @param DescribeDatasetInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDatasetInfoResponse
+     * @return DescribeDatasetInfoResponse DescribeDatasetInfoResponse
      */
     public function describeDatasetInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatasetInfo',
@@ -7785,7 +6667,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7793,14 +6675,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a single dataset.
+     * @summary Queries the information about a single dataset.
+     *  *
+     * @param DescribeDatasetInfoRequest $request DescribeDatasetInfoRequest
      *
-     * @param request - DescribeDatasetInfoRequest
-     * @returns DescribeDatasetInfoResponse
-     *
-     * @param DescribeDatasetInfoRequest $request
-     *
-     * @return DescribeDatasetInfoResponse
+     * @return DescribeDatasetInfoResponse DescribeDatasetInfoResponse
      */
     public function describeDatasetInfo($request)
     {
@@ -7810,39 +6689,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries a data entry in a custom dataset.
+     * @summary Queries a data entry in a custom dataset.
+     *  *
+     * @param DescribeDatasetItemInfoRequest $request DescribeDatasetItemInfoRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDatasetItemInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDatasetItemInfoResponse
-     *
-     * @param DescribeDatasetItemInfoRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDatasetItemInfoResponse
+     * @return DescribeDatasetItemInfoResponse DescribeDatasetItemInfoResponse
      */
     public function describeDatasetItemInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->datasetItemId) {
-            @$query['DatasetItemId'] = $request->datasetItemId;
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->value) {
-            @$query['Value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatasetItemInfo',
@@ -7855,7 +6726,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDatasetItemInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7863,14 +6734,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries a data entry in a custom dataset.
+     * @summary Queries a data entry in a custom dataset.
+     *  *
+     * @param DescribeDatasetItemInfoRequest $request DescribeDatasetItemInfoRequest
      *
-     * @param request - DescribeDatasetItemInfoRequest
-     * @returns DescribeDatasetItemInfoResponse
-     *
-     * @param DescribeDatasetItemInfoRequest $request
-     *
-     * @return DescribeDatasetItemInfoResponse
+     * @return DescribeDatasetItemInfoResponse DescribeDatasetItemInfoResponse
      */
     public function describeDatasetItemInfo($request)
     {
@@ -7880,43 +6748,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the data entries of a custom dataset.
+     * @summary Queries the data entries of a custom dataset.
+     *  *
+     * @param DescribeDatasetItemListRequest $request DescribeDatasetItemListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDatasetItemListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDatasetItemListResponse
-     *
-     * @param DescribeDatasetItemListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDatasetItemListResponse
+     * @return DescribeDatasetItemListResponse DescribeDatasetItemListResponse
      */
     public function describeDatasetItemListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->datasetItemIds) {
-            @$query['DatasetItemIds'] = $request->datasetItemIds;
+        if (!Utils::isUnset($request->datasetItemIds)) {
+            $query['DatasetItemIds'] = $request->datasetItemIds;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatasetItemList',
@@ -7929,7 +6788,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDatasetItemListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7937,14 +6796,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the data entries of a custom dataset.
+     * @summary Queries the data entries of a custom dataset.
+     *  *
+     * @param DescribeDatasetItemListRequest $request DescribeDatasetItemListRequest
      *
-     * @param request - DescribeDatasetItemListRequest
-     * @returns DescribeDatasetItemListResponse
-     *
-     * @param DescribeDatasetItemListRequest $request
-     *
-     * @return DescribeDatasetItemListResponse
+     * @return DescribeDatasetItemListResponse DescribeDatasetItemListResponse
      */
     public function describeDatasetItemList($request)
     {
@@ -7954,43 +6810,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom datasets.
+     * @summary Queries custom datasets.
+     *  *
+     * @param DescribeDatasetListRequest $request DescribeDatasetListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDatasetListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDatasetListResponse
-     *
-     * @param DescribeDatasetListRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDatasetListResponse
+     * @return DescribeDatasetListResponse DescribeDatasetListResponse
      */
     public function describeDatasetListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetIds) {
-            @$query['DatasetIds'] = $request->datasetIds;
+        if (!Utils::isUnset($request->datasetIds)) {
+            $query['DatasetIds'] = $request->datasetIds;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatasetList',
@@ -8003,7 +6850,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8011,14 +6858,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom datasets.
+     * @summary Queries custom datasets.
+     *  *
+     * @param DescribeDatasetListRequest $request DescribeDatasetListRequest
      *
-     * @param request - DescribeDatasetListRequest
-     * @returns DescribeDatasetListResponse
-     *
-     * @param DescribeDatasetListRequest $request
-     *
-     * @return DescribeDatasetListResponse
+     * @return DescribeDatasetListResponse DescribeDatasetListResponse
      */
     public function describeDatasetList($request)
     {
@@ -8028,31 +6872,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the progress of an asynchronous API publishing task.
+     * @summary Queries the progress of an asynchronous API publishing task.
+     *  *
+     * @param DescribeDeployApiTaskRequest $request DescribeDeployApiTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDeployApiTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDeployApiTaskResponse
-     *
-     * @param DescribeDeployApiTaskRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDeployApiTaskResponse
+     * @return DescribeDeployApiTaskResponse DescribeDeployApiTaskResponse
      */
     public function describeDeployApiTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationUid) {
-            @$query['OperationUid'] = $request->operationUid;
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployApiTask',
@@ -8065,7 +6903,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDeployApiTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8073,14 +6911,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the progress of an asynchronous API publishing task.
+     * @summary Queries the progress of an asynchronous API publishing task.
+     *  *
+     * @param DescribeDeployApiTaskRequest $request DescribeDeployApiTaskRequest
      *
-     * @param request - DescribeDeployApiTaskRequest
-     * @returns DescribeDeployApiTaskResponse
-     *
-     * @param DescribeDeployApiTaskRequest $request
-     *
-     * @return DescribeDeployApiTaskResponse
+     * @return DescribeDeployApiTaskResponse DescribeDeployApiTaskResponse
      */
     public function describeDeployApiTask($request)
     {
@@ -8090,39 +6925,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+     * @summary Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+     *  *
+     * @param DescribeDeployedApiRequest $request DescribeDeployedApiRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDeployedApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDeployedApiResponse
-     *
-     * @param DescribeDeployedApiRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDeployedApiResponse
+     * @return DescribeDeployedApiResponse DescribeDeployedApiResponse
      */
     public function describeDeployedApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployedApi',
@@ -8135,7 +6962,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDeployedApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8143,14 +6970,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+     * @summary Queries the definition of an API that takes effect in an environment. The definition may differ from the definition being edited.
+     *  *
+     * @param DescribeDeployedApiRequest $request DescribeDeployedApiRequest
      *
-     * @param request - DescribeDeployedApiRequest
-     * @returns DescribeDeployedApiResponse
-     *
-     * @param DescribeDeployedApiRequest $request
-     *
-     * @return DescribeDeployedApiResponse
+     * @return DescribeDeployedApiResponse DescribeDeployedApiResponse
      */
     public function describeDeployedApi($request)
     {
@@ -8160,70 +6984,54 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that have been published to a specified environment.
+     * @summary Queries the APIs that have been published to a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeDeployedApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDeployedApisResponse
-     *
-     * @param DescribeDeployedApisRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDeployedApisResponse
+     * @return DescribeDeployedApisResponse DescribeDeployedApisResponse
      */
     public function describeDeployedApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiMethod) {
-            @$query['ApiMethod'] = $request->apiMethod;
+        if (!Utils::isUnset($request->apiMethod)) {
+            $query['ApiMethod'] = $request->apiMethod;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->apiPath) {
-            @$query['ApiPath'] = $request->apiPath;
+        if (!Utils::isUnset($request->apiPath)) {
+            $query['ApiPath'] = $request->apiPath;
         }
-
-        if (null !== $request->enableTagAuth) {
-            @$query['EnableTagAuth'] = $request->enableTagAuth;
+        if (!Utils::isUnset($request->enableTagAuth)) {
+            $query['EnableTagAuth'] = $request->enableTagAuth;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeployedApis',
@@ -8236,7 +7044,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDeployedApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8244,17 +7052,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs that have been published to a specified environment.
+     * @summary Queries the APIs that have been published to a specified environment.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeDeployedApisRequest
-     * @returns DescribeDeployedApisResponse
-     *
-     * @param DescribeDeployedApisRequest $request
-     *
-     * @return DescribeDeployedApisResponse
+     * @return DescribeDeployedApisResponse DescribeDeployedApisResponse
      */
     public function describeDeployedApis($request)
     {
@@ -8264,35 +7068,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     *  *
+     * @param DescribeDomainRequest $request DescribeDomainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDomainResponse
-     *
-     * @param DescribeDomainRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeDomainResponse
+     * @return DescribeDomainResponse DescribeDomainResponse
      */
     public function describeDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomain',
@@ -8305,7 +7102,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8313,14 +7110,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * @summary Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     *  *
+     * @param DescribeDomainRequest $request DescribeDomainRequest
      *
-     * @param request - DescribeDomainRequest
-     * @returns DescribeDomainResponse
-     *
-     * @param DescribeDomainRequest $request
-     *
-     * @return DescribeDomainResponse
+     * @return DescribeDomainResponse DescribeDomainResponse
      */
     public function describeDomain($request)
     {
@@ -8330,43 +7124,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the average latency of an API group in an environment.
+     * @summary Queries the average latency of an API group in an environment.
+     *  *
+     * @param DescribeGroupLatencyRequest $request DescribeGroupLatencyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGroupLatencyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGroupLatencyResponse
-     *
-     * @param DescribeGroupLatencyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGroupLatencyResponse
+     * @return DescribeGroupLatencyResponse DescribeGroupLatencyResponse
      */
     public function describeGroupLatencyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeGroupLatency',
@@ -8379,7 +7164,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGroupLatencyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8387,14 +7172,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the average latency of an API group in an environment.
+     * @summary Queries the average latency of an API group in an environment.
+     *  *
+     * @param DescribeGroupLatencyRequest $request DescribeGroupLatencyRequest
      *
-     * @param request - DescribeGroupLatencyRequest
-     * @returns DescribeGroupLatencyResponse
-     *
-     * @param DescribeGroupLatencyRequest $request
-     *
-     * @return DescribeGroupLatencyResponse
+     * @return DescribeGroupLatencyResponse DescribeGroupLatencyResponse
      */
     public function describeGroupLatency($request)
     {
@@ -8404,43 +7186,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the number of requests directed to an API group within a period of time.
+     * @summary Queries the statistics on the number of requests directed to an API group within a period of time.
+     *  *
+     * @param DescribeGroupQpsRequest $request DescribeGroupQpsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGroupQpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGroupQpsResponse
-     *
-     * @param DescribeGroupQpsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeGroupQpsResponse
+     * @return DescribeGroupQpsResponse DescribeGroupQpsResponse
      */
     public function describeGroupQpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeGroupQps',
@@ -8453,7 +7226,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGroupQpsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8461,14 +7234,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the number of requests directed to an API group within a period of time.
+     * @summary Queries the statistics on the number of requests directed to an API group within a period of time.
+     *  *
+     * @param DescribeGroupQpsRequest $request DescribeGroupQpsRequest
      *
-     * @param request - DescribeGroupQpsRequest
-     * @returns DescribeGroupQpsResponse
-     *
-     * @param DescribeGroupQpsRequest $request
-     *
-     * @return DescribeGroupQpsResponse
+     * @return DescribeGroupQpsResponse DescribeGroupQpsResponse
      */
     public function describeGroupQps($request)
     {
@@ -8478,43 +7248,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the traffic of an API group.
+     * @summary Queries the traffic of an API group.
+     *  *
+     * @param DescribeGroupTrafficRequest $request DescribeGroupTrafficRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGroupTrafficRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGroupTrafficResponse
-     *
-     * @param DescribeGroupTrafficRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGroupTrafficResponse
+     * @return DescribeGroupTrafficResponse DescribeGroupTrafficResponse
      */
     public function describeGroupTrafficWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeGroupTraffic',
@@ -8527,7 +7288,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGroupTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8535,14 +7296,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the traffic of an API group.
+     * @summary Queries the traffic of an API group.
+     *  *
+     * @param DescribeGroupTrafficRequest $request DescribeGroupTrafficRequest
      *
-     * @param request - DescribeGroupTrafficRequest
-     * @returns DescribeGroupTrafficResponse
-     *
-     * @param DescribeGroupTrafficRequest $request
-     *
-     * @return DescribeGroupTrafficResponse
+     * @return DescribeGroupTrafficResponse DescribeGroupTrafficResponse
      */
     public function describeGroupTraffic($request)
     {
@@ -8552,51 +7310,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the historical versions of an API.
+     * @summary Queries the historical versions of an API.
+     *  *
+     * @param DescribeHistoryApisRequest $request DescribeHistoryApisRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHistoryApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHistoryApisResponse
-     *
-     * @param DescribeHistoryApisRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeHistoryApisResponse
+     * @return DescribeHistoryApisResponse DescribeHistoryApisResponse
      */
     public function describeHistoryApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHistoryApis',
@@ -8609,7 +7356,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHistoryApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8617,14 +7364,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the historical versions of an API.
+     * @summary Queries the historical versions of an API.
+     *  *
+     * @param DescribeHistoryApisRequest $request DescribeHistoryApisRequest
      *
-     * @param request - DescribeHistoryApisRequest
-     * @returns DescribeHistoryApisResponse
-     *
-     * @param DescribeHistoryApisRequest $request
-     *
-     * @return DescribeHistoryApisResponse
+     * @return DescribeHistoryApisResponse DescribeHistoryApisResponse
      */
     public function describeHistoryApis($request)
     {
@@ -8634,31 +7378,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the result of an OAS API import task.
+     * @summary Queries the result of an OAS API import task.
+     *  *
+     * @param DescribeImportOASTaskRequest $request DescribeImportOASTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeImportOASTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeImportOASTaskResponse
-     *
-     * @param DescribeImportOASTaskRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeImportOASTaskResponse
+     * @return DescribeImportOASTaskResponse DescribeImportOASTaskResponse
      */
     public function describeImportOASTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationId) {
-            @$query['OperationId'] = $request->operationId;
+        if (!Utils::isUnset($request->operationId)) {
+            $query['OperationId'] = $request->operationId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeImportOASTask',
@@ -8671,7 +7409,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeImportOASTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8679,14 +7417,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the result of an OAS API import task.
+     * @summary Queries the result of an OAS API import task.
+     *  *
+     * @param DescribeImportOASTaskRequest $request DescribeImportOASTaskRequest
      *
-     * @param request - DescribeImportOASTaskRequest
-     * @returns DescribeImportOASTaskResponse
-     *
-     * @param DescribeImportOASTaskRequest $request
-     *
-     * @return DescribeImportOASTaskResponse
+     * @return DescribeImportOASTaskResponse DescribeImportOASTaskResponse
      */
     public function describeImportOASTask($request)
     {
@@ -8696,31 +7431,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a dedicated instance cluster.
+     * @summary Queries the information about a dedicated instance cluster.
+     *  *
+     * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceClusterInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceClusterInfoResponse
-     *
-     * @param DescribeInstanceClusterInfoRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeInstanceClusterInfoResponse
+     * @return DescribeInstanceClusterInfoResponse DescribeInstanceClusterInfoResponse
      */
     public function describeInstanceClusterInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceClusterName) {
-            @$query['InstanceClusterName'] = $request->instanceClusterName;
+        if (!Utils::isUnset($request->instanceClusterName)) {
+            $query['InstanceClusterName'] = $request->instanceClusterName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceClusterInfo',
@@ -8733,7 +7462,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceClusterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8741,14 +7470,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the information about a dedicated instance cluster.
+     * @summary Queries the information about a dedicated instance cluster.
+     *  *
+     * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
      *
-     * @param request - DescribeInstanceClusterInfoRequest
-     * @returns DescribeInstanceClusterInfoResponse
-     *
-     * @param DescribeInstanceClusterInfoRequest $request
-     *
-     * @return DescribeInstanceClusterInfoResponse
+     * @return DescribeInstanceClusterInfoResponse DescribeInstanceClusterInfoResponse
      */
     public function describeInstanceClusterInfo($request)
     {
@@ -8758,43 +7484,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries dedicated instance clusters.
+     * @summary Queries dedicated instance clusters.
+     *  *
+     * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceClusterListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceClusterListResponse
-     *
-     * @param DescribeInstanceClusterListRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeInstanceClusterListResponse
+     * @return DescribeInstanceClusterListResponse DescribeInstanceClusterListResponse
      */
     public function describeInstanceClusterListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceClusterId) {
-            @$query['InstanceClusterId'] = $request->instanceClusterId;
+        if (!Utils::isUnset($request->instanceClusterId)) {
+            $query['InstanceClusterId'] = $request->instanceClusterId;
         }
-
-        if (null !== $request->instanceClusterName) {
-            @$query['InstanceClusterName'] = $request->instanceClusterName;
+        if (!Utils::isUnset($request->instanceClusterName)) {
+            $query['InstanceClusterName'] = $request->instanceClusterName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceClusterList',
@@ -8807,7 +7524,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8815,14 +7532,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries dedicated instance clusters.
+     * @summary Queries dedicated instance clusters.
+     *  *
+     * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
      *
-     * @param request - DescribeInstanceClusterListRequest
-     * @returns DescribeInstanceClusterListResponse
-     *
-     * @param DescribeInstanceClusterListRequest $request
-     *
-     * @return DescribeInstanceClusterListResponse
+     * @return DescribeInstanceClusterListResponse DescribeInstanceClusterListResponse
      */
     public function describeInstanceClusterList($request)
     {
@@ -8832,43 +7546,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of lost connections to a dedicated instance within a period of time.
+     * @summary Queries the number of lost connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceDropConnectionsRequest $request DescribeInstanceDropConnectionsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceDropConnectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceDropConnectionsResponse
-     *
-     * @param DescribeInstanceDropConnectionsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeInstanceDropConnectionsResponse
+     * @return DescribeInstanceDropConnectionsResponse DescribeInstanceDropConnectionsResponse
      */
     public function describeInstanceDropConnectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sbcName) {
-            @$query['SbcName'] = $request->sbcName;
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceDropConnections',
@@ -8881,7 +7586,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceDropConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8889,14 +7594,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of lost connections to a dedicated instance within a period of time.
+     * @summary Queries the number of lost connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceDropConnectionsRequest $request DescribeInstanceDropConnectionsRequest
      *
-     * @param request - DescribeInstanceDropConnectionsRequest
-     * @returns DescribeInstanceDropConnectionsResponse
-     *
-     * @param DescribeInstanceDropConnectionsRequest $request
-     *
-     * @return DescribeInstanceDropConnectionsResponse
+     * @return DescribeInstanceDropConnectionsResponse DescribeInstanceDropConnectionsResponse
      */
     public function describeInstanceDropConnections($request)
     {
@@ -8906,43 +7608,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of dropped packets within a period of time.
+     * @summary Queries the number of dropped packets within a period of time.
+     *  *
+     * @param DescribeInstanceDropPacketRequest $request DescribeInstanceDropPacketRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceDropPacketRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceDropPacketResponse
-     *
-     * @param DescribeInstanceDropPacketRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeInstanceDropPacketResponse
+     * @return DescribeInstanceDropPacketResponse DescribeInstanceDropPacketResponse
      */
     public function describeInstanceDropPacketWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sbcName) {
-            @$query['SbcName'] = $request->sbcName;
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceDropPacket',
@@ -8955,7 +7648,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceDropPacketResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8963,14 +7656,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of dropped packets within a period of time.
+     * @summary Queries the number of dropped packets within a period of time.
+     *  *
+     * @param DescribeInstanceDropPacketRequest $request DescribeInstanceDropPacketRequest
      *
-     * @param request - DescribeInstanceDropPacketRequest
-     * @returns DescribeInstanceDropPacketResponse
-     *
-     * @param DescribeInstanceDropPacketRequest $request
-     *
-     * @return DescribeInstanceDropPacketResponse
+     * @return DescribeInstanceDropPacketResponse DescribeInstanceDropPacketResponse
      */
     public function describeInstanceDropPacket($request)
     {
@@ -8980,43 +7670,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+     * @summary Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceHttpCodeRequest $request DescribeInstanceHttpCodeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceHttpCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceHttpCodeResponse
-     *
-     * @param DescribeInstanceHttpCodeRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeInstanceHttpCodeResponse
+     * @return DescribeInstanceHttpCodeResponse DescribeInstanceHttpCodeResponse
      */
     public function describeInstanceHttpCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceHttpCode',
@@ -9029,7 +7710,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceHttpCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9037,14 +7718,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+     * @summary Queries the distribution of HTTP status codes of requests to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceHttpCodeRequest $request DescribeInstanceHttpCodeRequest
      *
-     * @param request - DescribeInstanceHttpCodeRequest
-     * @returns DescribeInstanceHttpCodeResponse
-     *
-     * @param DescribeInstanceHttpCodeRequest $request
-     *
-     * @return DescribeInstanceHttpCodeResponse
+     * @return DescribeInstanceHttpCodeResponse DescribeInstanceHttpCodeResponse
      */
     public function describeInstanceHttpCode($request)
     {
@@ -9054,43 +7732,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the average latency of a dedicated instance over a period of time.
+     * @summary Queries the average latency of a dedicated instance over a period of time.
+     *  *
+     * @param DescribeInstanceLatencyRequest $request DescribeInstanceLatencyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceLatencyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceLatencyResponse
-     *
-     * @param DescribeInstanceLatencyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstanceLatencyResponse
+     * @return DescribeInstanceLatencyResponse DescribeInstanceLatencyResponse
      */
     public function describeInstanceLatencyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceLatency',
@@ -9103,7 +7772,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceLatencyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9111,14 +7780,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the average latency of a dedicated instance over a period of time.
+     * @summary Queries the average latency of a dedicated instance over a period of time.
+     *  *
+     * @param DescribeInstanceLatencyRequest $request DescribeInstanceLatencyRequest
      *
-     * @param request - DescribeInstanceLatencyRequest
-     * @returns DescribeInstanceLatencyResponse
-     *
-     * @param DescribeInstanceLatencyRequest $request
-     *
-     * @return DescribeInstanceLatencyResponse
+     * @return DescribeInstanceLatencyResponse DescribeInstanceLatencyResponse
      */
     public function describeInstanceLatency($request)
     {
@@ -9128,43 +7794,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of new connections to a dedicated instance within a period of time.
+     * @summary Queries the number of new connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceNewConnectionsRequest $request DescribeInstanceNewConnectionsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceNewConnectionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceNewConnectionsResponse
-     *
-     * @param DescribeInstanceNewConnectionsRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeInstanceNewConnectionsResponse
+     * @return DescribeInstanceNewConnectionsResponse DescribeInstanceNewConnectionsResponse
      */
     public function describeInstanceNewConnectionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sbcName) {
-            @$query['SbcName'] = $request->sbcName;
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceNewConnections',
@@ -9177,7 +7834,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceNewConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9185,14 +7842,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of new connections to a dedicated instance within a period of time.
+     * @summary Queries the number of new connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceNewConnectionsRequest $request DescribeInstanceNewConnectionsRequest
      *
-     * @param request - DescribeInstanceNewConnectionsRequest
-     * @returns DescribeInstanceNewConnectionsResponse
-     *
-     * @param DescribeInstanceNewConnectionsRequest $request
-     *
-     * @return DescribeInstanceNewConnectionsResponse
+     * @return DescribeInstanceNewConnectionsResponse DescribeInstanceNewConnectionsResponse
      */
     public function describeInstanceNewConnections($request)
     {
@@ -9202,43 +7856,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+     * @summary Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstancePacketsRequest $request DescribeInstancePacketsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstancePacketsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstancePacketsResponse
-     *
-     * @param DescribeInstancePacketsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstancePacketsResponse
+     * @return DescribeInstancePacketsResponse DescribeInstancePacketsResponse
      */
     public function describeInstancePacketsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sbcName) {
-            @$query['SbcName'] = $request->sbcName;
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstancePackets',
@@ -9251,7 +7896,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstancePacketsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9259,14 +7904,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+     * @summary Queries the numbers of inbound and outbound packets of a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstancePacketsRequest $request DescribeInstancePacketsRequest
      *
-     * @param request - DescribeInstancePacketsRequest
-     * @returns DescribeInstancePacketsResponse
-     *
-     * @param DescribeInstancePacketsRequest $request
-     *
-     * @return DescribeInstancePacketsResponse
+     * @return DescribeInstancePacketsResponse DescribeInstancePacketsResponse
      */
     public function describeInstancePackets($request)
     {
@@ -9276,43 +7918,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of requests to a dedicated instance within a period of time.
+     * @summary Queries the number of requests to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceQpsRequest $request DescribeInstanceQpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceQpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceQpsResponse
-     *
-     * @param DescribeInstanceQpsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeInstanceQpsResponse
+     * @return DescribeInstanceQpsResponse DescribeInstanceQpsResponse
      */
     public function describeInstanceQpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceQps',
@@ -9325,7 +7958,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceQpsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9333,14 +7966,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of requests to a dedicated instance within a period of time.
+     * @summary Queries the number of requests to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceQpsRequest $request DescribeInstanceQpsRequest
      *
-     * @param request - DescribeInstanceQpsRequest
-     * @returns DescribeInstanceQpsResponse
-     *
-     * @param DescribeInstanceQpsRequest $request
-     *
-     * @return DescribeInstanceQpsResponse
+     * @return DescribeInstanceQpsResponse DescribeInstanceQpsResponse
      */
     public function describeInstanceQps($request)
     {
@@ -9350,43 +7980,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of concurrent connections to a dedicated instance within a period of time.
+     * @summary Queries the number of concurrent connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceSlbConnectRequest $request DescribeInstanceSlbConnectRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceSlbConnectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceSlbConnectResponse
-     *
-     * @param DescribeInstanceSlbConnectRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeInstanceSlbConnectResponse
+     * @return DescribeInstanceSlbConnectResponse DescribeInstanceSlbConnectResponse
      */
     public function describeInstanceSlbConnectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->sbcName) {
-            @$query['SbcName'] = $request->sbcName;
+        if (!Utils::isUnset($request->sbcName)) {
+            $query['SbcName'] = $request->sbcName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceSlbConnect',
@@ -9399,7 +8020,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceSlbConnectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9407,14 +8028,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of concurrent connections to a dedicated instance within a period of time.
+     * @summary Queries the number of concurrent connections to a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceSlbConnectRequest $request DescribeInstanceSlbConnectRequest
      *
-     * @param request - DescribeInstanceSlbConnectRequest
-     * @returns DescribeInstanceSlbConnectResponse
-     *
-     * @param DescribeInstanceSlbConnectRequest $request
-     *
-     * @return DescribeInstanceSlbConnectResponse
+     * @return DescribeInstanceSlbConnectResponse DescribeInstanceSlbConnectResponse
      */
     public function describeInstanceSlbConnect($request)
     {
@@ -9424,43 +8042,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the request traffic and response traffic of a dedicated instance within a period of time.
+     * @summary Queries the request traffic and response traffic of a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceTrafficRequest $request DescribeInstanceTrafficRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceTrafficRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceTrafficResponse
-     *
-     * @param DescribeInstanceTrafficRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstanceTrafficResponse
+     * @return DescribeInstanceTrafficResponse DescribeInstanceTrafficResponse
      */
     public function describeInstanceTrafficWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceTraffic',
@@ -9473,7 +8082,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9481,14 +8090,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the request traffic and response traffic of a dedicated instance within a period of time.
+     * @summary Queries the request traffic and response traffic of a dedicated instance within a period of time.
+     *  *
+     * @param DescribeInstanceTrafficRequest $request DescribeInstanceTrafficRequest
      *
-     * @param request - DescribeInstanceTrafficRequest
-     * @returns DescribeInstanceTrafficResponse
-     *
-     * @param DescribeInstanceTrafficRequest $request
-     *
-     * @return DescribeInstanceTrafficResponse
+     * @return DescribeInstanceTrafficResponse DescribeInstanceTrafficResponse
      */
     public function describeInstanceTraffic($request)
     {
@@ -9498,43 +8104,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details of instances in a region. The instances include shared instances and dedicated instances.
+     * @summary Queries the details of instances in a region. The instances include shared instances and dedicated instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstancesResponse
-     *
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->enableTagAuthorization) {
-            @$query['EnableTagAuthorization'] = $request->enableTagAuthorization;
+        if (!Utils::isUnset($request->enableTagAuthorization)) {
+            $query['EnableTagAuthorization'] = $request->enableTagAuthorization;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstances',
@@ -9547,7 +8144,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9555,14 +8152,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details of instances in a region. The instances include shared instances and dedicated instances.
+     * @summary Queries the details of instances in a region. The instances include shared instances and dedicated instances.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @param request - DescribeInstancesRequest
-     * @returns DescribeInstancesResponse
-     *
-     * @param DescribeInstancesRequest $request
-     *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -9572,47 +8166,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the rule entries of an IP address-based traffic control policy.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries the rule entries of an IP address-based traffic control policy.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You can filter the query results by policy ID.
+     *  *
+     * @param DescribeIpControlPolicyItemsRequest $request DescribeIpControlPolicyItemsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIpControlPolicyItemsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeIpControlPolicyItemsResponse
-     *
-     * @param DescribeIpControlPolicyItemsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeIpControlPolicyItemsResponse
+     * @return DescribeIpControlPolicyItemsResponse DescribeIpControlPolicyItemsResponse
      */
     public function describeIpControlPolicyItemsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->policyItemId) {
-            @$query['PolicyItemId'] = $request->policyItemId;
+        if (!Utils::isUnset($request->policyItemId)) {
+            $query['PolicyItemId'] = $request->policyItemId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeIpControlPolicyItems',
@@ -9625,7 +8209,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeIpControlPolicyItemsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9633,18 +8217,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the rule entries of an IP address-based traffic control policy.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries the rule entries of an IP address-based traffic control policy.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You can filter the query results by policy ID.
+     *  *
+     * @param DescribeIpControlPolicyItemsRequest $request DescribeIpControlPolicyItemsRequest
      *
-     * @param request - DescribeIpControlPolicyItemsRequest
-     * @returns DescribeIpControlPolicyItemsResponse
-     *
-     * @param DescribeIpControlPolicyItemsRequest $request
-     *
-     * @return DescribeIpControlPolicyItemsResponse
+     * @return DescribeIpControlPolicyItemsResponse DescribeIpControlPolicyItemsResponse
      */
     public function describeIpControlPolicyItems($request)
     {
@@ -9654,53 +8234,42 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom access control lists (ACLs) on separate pages.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries custom access control lists (ACLs) on separate pages.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      * *   You can filter the query results by ACL ID, name, or type.
      * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
+     *  *
+     * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeIpControlsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeIpControlsResponse
-     *
-     * @param DescribeIpControlsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeIpControlsResponse
+     * @return DescribeIpControlsResponse DescribeIpControlsResponse
      */
     public function describeIpControlsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->ipControlName) {
-            @$query['IpControlName'] = $request->ipControlName;
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
         }
-
-        if (null !== $request->ipControlType) {
-            @$query['IpControlType'] = $request->ipControlType;
+        if (!Utils::isUnset($request->ipControlType)) {
+            $query['IpControlType'] = $request->ipControlType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeIpControls',
@@ -9713,7 +8282,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeIpControlsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9721,20 +8290,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom access control lists (ACLs) on separate pages.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Queries custom access control lists (ACLs) on separate pages.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   This operation is used to query the ACLs in a region. Region is a system parameter.
      * *   You can filter the query results by ACL ID, name, or type.
      * *   This operation cannot be used to query specific policies. If you want to query specific policies, call the [DescribeIpControlPolicyItems](~~DescribeIpControlPolicyItems~~) operation.
+     *  *
+     * @param DescribeIpControlsRequest $request DescribeIpControlsRequest
      *
-     * @param request - DescribeIpControlsRequest
-     * @returns DescribeIpControlsResponse
-     *
-     * @param DescribeIpControlsRequest $request
-     *
-     * @return DescribeIpControlsResponse
+     * @return DescribeIpControlsResponse DescribeIpControlsResponse
      */
     public function describeIpControls($request)
     {
@@ -9744,31 +8309,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询日志配置.
+     * @summary 查询日志配置
+     *  *
+     * @param DescribeLogConfigRequest $request DescribeLogConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLogConfigResponse
-     *
-     * @param DescribeLogConfigRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeLogConfigResponse
+     * @return DescribeLogConfigResponse DescribeLogConfigResponse
      */
     public function describeLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->logType) {
-            @$query['LogType'] = $request->logType;
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLogConfig',
@@ -9781,7 +8340,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9789,14 +8348,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询日志配置.
+     * @summary 查询日志配置
+     *  *
+     * @param DescribeLogConfigRequest $request DescribeLogConfigRequest
      *
-     * @param request - DescribeLogConfigRequest
-     * @returns DescribeLogConfigResponse
-     *
-     * @param DescribeLogConfigRequest $request
-     *
-     * @return DescribeLogConfigResponse
+     * @return DescribeLogConfigResponse DescribeLogConfigResponse
      */
     public function describeLogConfig($request)
     {
@@ -9806,31 +8362,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of remaining ordered relationships for a purchaser.
+     * @summary Queries the number of remaining ordered relationships for a purchaser.
+     *  *
+     * @param DescribeMarketRemainsQuotaRequest $request DescribeMarketRemainsQuotaRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMarketRemainsQuotaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeMarketRemainsQuotaResponse
-     *
-     * @param DescribeMarketRemainsQuotaRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMarketRemainsQuotaResponse
+     * @return DescribeMarketRemainsQuotaResponse DescribeMarketRemainsQuotaResponse
      */
     public function describeMarketRemainsQuotaWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMarketRemainsQuota',
@@ -9843,7 +8393,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeMarketRemainsQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9851,14 +8401,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of remaining ordered relationships for a purchaser.
+     * @summary Queries the number of remaining ordered relationships for a purchaser.
+     *  *
+     * @param DescribeMarketRemainsQuotaRequest $request DescribeMarketRemainsQuotaRequest
      *
-     * @param request - DescribeMarketRemainsQuotaRequest
-     * @returns DescribeMarketRemainsQuotaResponse
-     *
-     * @param DescribeMarketRemainsQuotaRequest $request
-     *
-     * @return DescribeMarketRemainsQuotaResponse
+     * @return DescribeMarketRemainsQuotaResponse DescribeMarketRemainsQuotaResponse
      */
     public function describeMarketRemainsQuota($request)
     {
@@ -9868,50 +8415,39 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the created models of an API group.
+     * @summary Queries the created models of an API group.
+     *  *
+     * @description *   Fuzzy queries are supported.
+     *  *
+     * @param DescribeModelsRequest $request DescribeModelsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   Fuzzy queries are supported.
-     *
-     * @param request - DescribeModelsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeModelsResponse
-     *
-     * @param DescribeModelsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeModelsResponse
+     * @return DescribeModelsResponse DescribeModelsResponse
      */
     public function describeModelsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->modelId) {
-            @$query['ModelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $query['ModelId'] = $request->modelId;
         }
-
-        if (null !== $request->modelName) {
-            @$query['ModelName'] = $request->modelName;
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeModels',
@@ -9924,7 +8460,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeModelsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9932,17 +8468,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the created models of an API group.
+     * @summary Queries the created models of an API group.
+     *  *
+     * @description *   Fuzzy queries are supported.
+     *  *
+     * @param DescribeModelsRequest $request DescribeModelsRequest
      *
-     * @remarks
-     *   Fuzzy queries are supported.
-     *
-     * @param request - DescribeModelsRequest
-     * @returns DescribeModelsResponse
-     *
-     * @param DescribeModelsRequest $request
-     *
-     * @return DescribeModelsResponse
+     * @return DescribeModelsResponse DescribeModelsResponse
      */
     public function describeModels($request)
     {
@@ -9952,63 +8484,49 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified plug-in is bound.
+     * @summary Queries the APIs to which a specified plug-in is bound.
+     *  *
+     * @param DescribePluginApisRequest $request DescribePluginApisRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePluginApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePluginApisResponse
-     *
-     * @param DescribePluginApisRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribePluginApisResponse
+     * @return DescribePluginApisResponse DescribePluginApisResponse
      */
     public function describePluginApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->method) {
-            @$query['Method'] = $request->method;
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->path) {
-            @$query['Path'] = $request->path;
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
         }
-
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginApis',
@@ -10021,7 +8539,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePluginApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10029,14 +8547,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified plug-in is bound.
+     * @summary Queries the APIs to which a specified plug-in is bound.
+     *  *
+     * @param DescribePluginApisRequest $request DescribePluginApisRequest
      *
-     * @param request - DescribePluginApisRequest
-     * @returns DescribePluginApisResponse
-     *
-     * @param DescribePluginApisRequest $request
-     *
-     * @return DescribePluginApisResponse
+     * @return DescribePluginApisResponse DescribePluginApisResponse
      */
     public function describePluginApis($request)
     {
@@ -10046,31 +8561,93 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件列表.
+     * @summary Query the list of groups bound to a plugin based on the plugin ID
+     *  *
+     * @param DescribePluginGroupsRequest $request DescribePluginGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePluginSchemasRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePluginSchemasResponse
+     * @return DescribePluginGroupsResponse DescribePluginGroupsResponse
+     */
+    public function describePluginGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginGroups',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePluginGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribePluginGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query the list of groups bound to a plugin based on the plugin ID
+     *  *
+     * @param DescribePluginGroupsRequest $request DescribePluginGroupsRequest
      *
-     * @param DescribePluginSchemasRequest $request
-     * @param RuntimeOptions               $runtime
+     * @return DescribePluginGroupsResponse DescribePluginGroupsResponse
+     */
+    public function describePluginGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePluginGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询插件列表
+     *  *
+     * @param DescribePluginSchemasRequest $request DescribePluginSchemasRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePluginSchemasResponse
+     * @return DescribePluginSchemasResponse DescribePluginSchemasResponse
      */
     public function describePluginSchemasWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginSchemas',
@@ -10083,7 +8660,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePluginSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10091,14 +8668,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件列表.
+     * @summary 查询插件列表
+     *  *
+     * @param DescribePluginSchemasRequest $request DescribePluginSchemasRequest
      *
-     * @param request - DescribePluginSchemasRequest
-     * @returns DescribePluginSchemasResponse
-     *
-     * @param DescribePluginSchemasRequest $request
-     *
-     * @return DescribePluginSchemasResponse
+     * @return DescribePluginSchemasResponse DescribePluginSchemasResponse
      */
     public function describePluginSchemas($request)
     {
@@ -10108,35 +8682,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件模板
+     * @summary 查询插件模板
+     *  *
+     * @param DescribePluginTemplatesRequest $request DescribePluginTemplatesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePluginTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePluginTemplatesResponse
-     *
-     * @param DescribePluginTemplatesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribePluginTemplatesResponse
+     * @return DescribePluginTemplatesResponse DescribePluginTemplatesResponse
      */
     public function describePluginTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->pluginName) {
-            @$query['PluginName'] = $request->pluginName;
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginTemplates',
@@ -10149,7 +8716,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePluginTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10157,14 +8724,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件模板
+     * @summary 查询插件模板
+     *  *
+     * @param DescribePluginTemplatesRequest $request DescribePluginTemplatesRequest
      *
-     * @param request - DescribePluginTemplatesRequest
-     * @returns DescribePluginTemplatesResponse
-     *
-     * @param DescribePluginTemplatesRequest $request
-     *
-     * @return DescribePluginTemplatesResponse
+     * @return DescribePluginTemplatesResponse DescribePluginTemplatesResponse
      */
     public function describePluginTemplates($request)
     {
@@ -10174,57 +8738,45 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries API Gateway plug-ins and the details of the plug-ins.
-     *
-     * @remarks
-     *   This operation supports pagination.
+     * @summary Queries API Gateway plug-ins and the details of the plug-ins.
+     *  *
+     * @description *   This operation supports pagination.
      * *   This operation allows you to query plug-ins by business type.
      * *   This operation allows you to query plug-ins by ID.
      * *   This operation allows you to query plug-ins by name.
+     *  *
+     * @param DescribePluginsRequest $request DescribePluginsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePluginsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePluginsResponse
-     *
-     * @param DescribePluginsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribePluginsResponse
+     * @return DescribePluginsResponse DescribePluginsResponse
      */
     public function describePluginsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->pluginName) {
-            @$query['PluginName'] = $request->pluginName;
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
         }
-
-        if (null !== $request->pluginType) {
-            @$query['PluginType'] = $request->pluginType;
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePlugins',
@@ -10237,7 +8789,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePluginsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10245,20 +8797,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries API Gateway plug-ins and the details of the plug-ins.
-     *
-     * @remarks
-     *   This operation supports pagination.
+     * @summary Queries API Gateway plug-ins and the details of the plug-ins.
+     *  *
+     * @description *   This operation supports pagination.
      * *   This operation allows you to query plug-ins by business type.
      * *   This operation allows you to query plug-ins by ID.
      * *   This operation allows you to query plug-ins by name.
+     *  *
+     * @param DescribePluginsRequest $request DescribePluginsRequest
      *
-     * @param request - DescribePluginsRequest
-     * @returns DescribePluginsResponse
-     *
-     * @param DescribePluginsRequest $request
-     *
-     * @return DescribePluginsResponse
+     * @return DescribePluginsResponse DescribePluginsResponse
      */
     public function describePlugins($request)
     {
@@ -10268,51 +8816,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are bound to a running API in an environment.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the plug-ins that are bound to a running API in an environment.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   This operation supports pagination.
+     *  *
+     * @param DescribePluginsByApiRequest $request DescribePluginsByApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePluginsByApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePluginsByApiResponse
-     *
-     * @param DescribePluginsByApiRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribePluginsByApiResponse
+     * @return DescribePluginsByApiResponse DescribePluginsByApiResponse
      */
     public function describePluginsByApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePluginsByApi',
@@ -10325,7 +8862,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePluginsByApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10333,18 +8870,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are bound to a running API in an environment.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Queries the plug-ins that are bound to a running API in an environment.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   This operation supports pagination.
+     *  *
+     * @param DescribePluginsByApiRequest $request DescribePluginsByApiRequest
      *
-     * @param request - DescribePluginsByApiRequest
-     * @returns DescribePluginsByApiResponse
-     *
-     * @param DescribePluginsByApiRequest $request
-     *
-     * @return DescribePluginsByApiResponse
+     * @return DescribePluginsByApiResponse DescribePluginsByApiResponse
      */
     public function describePluginsByApi($request)
     {
@@ -10354,31 +8887,87 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+     * @summary Query Plugins Bound to API Group
+     *  *
+     * @param DescribePluginsByGroupRequest $request DescribePluginsByGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePurchasedApiGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePurchasedApiGroupResponse
+     * @return DescribePluginsByGroupResponse DescribePluginsByGroupResponse
+     */
+    public function describePluginsByGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginsByGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePluginsByGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribePluginsByGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query Plugins Bound to API Group
+     *  *
+     * @param DescribePluginsByGroupRequest $request DescribePluginsByGroupRequest
      *
-     * @param DescribePurchasedApiGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @return DescribePluginsByGroupResponse DescribePluginsByGroupResponse
+     */
+    public function describePluginsByGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePluginsByGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApiGroupRequest $request DescribePurchasedApiGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePurchasedApiGroupResponse
+     * @return DescribePurchasedApiGroupResponse DescribePurchasedApiGroupResponse
      */
     public function describePurchasedApiGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApiGroup',
@@ -10391,7 +8980,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePurchasedApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10399,14 +8988,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+     * @summary Queries the details about an API group purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApiGroupRequest $request DescribePurchasedApiGroupRequest
      *
-     * @param request - DescribePurchasedApiGroupRequest
-     * @returns DescribePurchasedApiGroupResponse
-     *
-     * @param DescribePurchasedApiGroupRequest $request
-     *
-     * @return DescribePurchasedApiGroupResponse
+     * @return DescribePurchasedApiGroupResponse DescribePurchasedApiGroupResponse
      */
     public function describePurchasedApiGroup($request)
     {
@@ -10416,35 +9002,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the API groups purchased from Alibaba Cloud Marketplace.
+     * @summary Queries the API groups purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApiGroupsRequest $request DescribePurchasedApiGroupsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePurchasedApiGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePurchasedApiGroupsResponse
-     *
-     * @param DescribePurchasedApiGroupsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribePurchasedApiGroupsResponse
+     * @return DescribePurchasedApiGroupsResponse DescribePurchasedApiGroupsResponse
      */
     public function describePurchasedApiGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApiGroups',
@@ -10457,7 +9036,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePurchasedApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10465,14 +9044,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the API groups purchased from Alibaba Cloud Marketplace.
+     * @summary Queries the API groups purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApiGroupsRequest $request DescribePurchasedApiGroupsRequest
      *
-     * @param request - DescribePurchasedApiGroupsRequest
-     * @returns DescribePurchasedApiGroupsResponse
-     *
-     * @param DescribePurchasedApiGroupsRequest $request
-     *
-     * @return DescribePurchasedApiGroupsResponse
+     * @return DescribePurchasedApiGroupsResponse DescribePurchasedApiGroupsResponse
      */
     public function describePurchasedApiGroups($request)
     {
@@ -10482,55 +9058,43 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApisRequest $request DescribePurchasedApisRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePurchasedApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePurchasedApisResponse
-     *
-     * @param DescribePurchasedApisRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribePurchasedApisResponse
+     * @return DescribePurchasedApisResponse DescribePurchasedApisResponse
      */
     public function describePurchasedApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->visibility) {
-            @$query['Visibility'] = $request->visibility;
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePurchasedApis',
@@ -10543,7 +9107,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePurchasedApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10551,14 +9115,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     * @summary Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     *  *
+     * @param DescribePurchasedApisRequest $request DescribePurchasedApisRequest
      *
-     * @param request - DescribePurchasedApisRequest
-     * @returns DescribePurchasedApisResponse
-     *
-     * @param DescribePurchasedApisRequest $request
-     *
-     * @return DescribePurchasedApisResponse
+     * @return DescribePurchasedApisResponse DescribePurchasedApisResponse
      */
     public function describePurchasedApis($request)
     {
@@ -10568,35 +9129,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the Alibaba Cloud regions that are supported by API Gateway.
-     *
-     * @remarks
-     * This operation queries regions in which API Gateway is available.
+     * @summary Queries the Alibaba Cloud regions that are supported by API Gateway.
+     *  *
+     * @description This operation queries regions in which API Gateway is available.
      * *   This operation is intended for API providers and callers.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -10609,7 +9163,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10617,18 +9171,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the Alibaba Cloud regions that are supported by API Gateway.
-     *
-     * @remarks
-     * This operation queries regions in which API Gateway is available.
+     * @summary Queries the Alibaba Cloud regions that are supported by API Gateway.
+     *  *
+     * @description This operation queries regions in which API Gateway is available.
      * *   This operation is intended for API providers and callers.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -10638,47 +9188,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend signature keys.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries backend signature keys.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+     *  *
+     * @param DescribeSignaturesRequest $request DescribeSignaturesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSignaturesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSignaturesResponse
-     *
-     * @param DescribeSignaturesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSignaturesResponse
+     * @return DescribeSignaturesResponse DescribeSignaturesResponse
      */
     public function describeSignaturesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
-        if (null !== $request->signatureName) {
-            @$query['SignatureName'] = $request->signatureName;
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSignatures',
@@ -10691,7 +9231,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSignaturesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10699,18 +9239,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend signature keys.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries backend signature keys.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+     *  *
+     * @param DescribeSignaturesRequest $request DescribeSignaturesRequest
      *
-     * @param request - DescribeSignaturesRequest
-     * @returns DescribeSignaturesResponse
-     *
-     * @param DescribeSignaturesRequest $request
-     *
-     * @return DescribeSignaturesResponse
+     * @return DescribeSignaturesResponse DescribeSignaturesResponse
      */
     public function describeSignatures($request)
     {
@@ -10720,42 +9256,33 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to a specified API.
+     * @summary Queries the backend signature keys that are bound to a specified API.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeSignaturesByApiRequest $request DescribeSignaturesByApiRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeSignaturesByApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSignaturesByApiResponse
-     *
-     * @param DescribeSignaturesByApiRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeSignaturesByApiResponse
+     * @return DescribeSignaturesByApiResponse DescribeSignaturesByApiResponse
      */
     public function describeSignaturesByApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSignaturesByApi',
@@ -10768,7 +9295,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSignaturesByApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10776,17 +9303,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to a specified API.
+     * @summary Queries the backend signature keys that are bound to a specified API.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeSignaturesByApiRequest $request DescribeSignaturesByApiRequest
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeSignaturesByApiRequest
-     * @returns DescribeSignaturesByApiResponse
-     *
-     * @param DescribeSignaturesByApiRequest $request
-     *
-     * @return DescribeSignaturesByApiResponse
+     * @return DescribeSignaturesByApiResponse DescribeSignaturesByApiResponse
      */
     public function describeSignaturesByApi($request)
     {
@@ -10796,27 +9319,22 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of API Gateway resources in a region.
+     * @summary Queries the number of API Gateway resources in a region.
+     *  *
+     * @param DescribeSummaryDataRequest $request DescribeSummaryDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSummaryDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSummaryDataResponse
-     *
-     * @param DescribeSummaryDataRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSummaryDataResponse
+     * @return DescribeSummaryDataResponse DescribeSummaryDataResponse
      */
     public function describeSummaryDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSummaryData',
@@ -10829,7 +9347,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSummaryDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10837,14 +9355,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the number of API Gateway resources in a region.
+     * @summary Queries the number of API Gateway resources in a region.
+     *  *
+     * @param DescribeSummaryDataRequest $request DescribeSummaryDataRequest
      *
-     * @param request - DescribeSummaryDataRequest
-     * @returns DescribeSummaryDataResponse
-     *
-     * @param DescribeSummaryDataRequest $request
-     *
-     * @return DescribeSummaryDataResponse
+     * @return DescribeSummaryDataResponse DescribeSummaryDataResponse
      */
     public function describeSummaryData($request)
     {
@@ -10854,31 +9369,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the common parameters supported by the system.
-     *
-     * @remarks
-     *   This API is intended for API callers.
+     * @summary Queries the common parameters supported by the system.
+     *  *
+     * @description *   This API is intended for API callers.
      * *   The response of this API contains the system parameters that are optional in API definitions.
+     *  *
+     * @param DescribeSystemParametersRequest $request DescribeSystemParametersRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSystemParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSystemParametersResponse
-     *
-     * @param DescribeSystemParametersRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSystemParametersResponse
+     * @return DescribeSystemParametersResponse DescribeSystemParametersResponse
      */
     public function describeSystemParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSystemParameters',
@@ -10891,7 +9400,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSystemParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10899,18 +9408,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the common parameters supported by the system.
-     *
-     * @remarks
-     *   This API is intended for API callers.
+     * @summary Queries the common parameters supported by the system.
+     *  *
+     * @description *   This API is intended for API callers.
      * *   The response of this API contains the system parameters that are optional in API definitions.
+     *  *
+     * @param DescribeSystemParametersRequest $request DescribeSystemParametersRequest
      *
-     * @param request - DescribeSystemParametersRequest
-     * @returns DescribeSystemParametersResponse
-     *
-     * @param DescribeSystemParametersRequest $request
-     *
-     * @return DescribeSystemParametersResponse
+     * @return DescribeSystemParametersResponse DescribeSystemParametersResponse
      */
     public function describeSystemParameters($request)
     {
@@ -10920,60 +9425,47 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom throttling policies and their details. Conditional queries are supported.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries custom throttling policies and their details. Conditional queries are supported.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
      * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+     *  *
+     * @param DescribeTrafficControlsRequest $request DescribeTrafficControlsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTrafficControlsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeTrafficControlsResponse
-     *
-     * @param DescribeTrafficControlsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeTrafficControlsResponse
+     * @return DescribeTrafficControlsResponse DescribeTrafficControlsResponse
      */
     public function describeTrafficControlsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
-        if (null !== $request->trafficControlName) {
-            @$query['TrafficControlName'] = $request->trafficControlName;
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTrafficControls',
@@ -10986,7 +9478,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTrafficControlsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10994,19 +9486,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries custom throttling policies and their details. Conditional queries are supported.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Queries custom throttling policies and their details. Conditional queries are supported.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
      * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+     *  *
+     * @param DescribeTrafficControlsRequest $request DescribeTrafficControlsRequest
      *
-     * @param request - DescribeTrafficControlsRequest
-     * @returns DescribeTrafficControlsResponse
-     *
-     * @param DescribeTrafficControlsRequest $request
-     *
-     * @return DescribeTrafficControlsResponse
+     * @return DescribeTrafficControlsResponse DescribeTrafficControlsResponse
      */
     public function describeTrafficControls($request)
     {
@@ -11016,42 +9504,33 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policy that is bound to a specific API.
+     * @summary Queries the throttling policy that is bound to a specific API.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeTrafficControlsByApiRequest $request DescribeTrafficControlsByApiRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeTrafficControlsByApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeTrafficControlsByApiResponse
-     *
-     * @param DescribeTrafficControlsByApiRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeTrafficControlsByApiResponse
+     * @return DescribeTrafficControlsByApiResponse DescribeTrafficControlsByApiResponse
      */
     public function describeTrafficControlsByApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTrafficControlsByApi',
@@ -11064,7 +9543,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTrafficControlsByApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11072,17 +9551,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policy that is bound to a specific API.
+     * @summary Queries the throttling policy that is bound to a specific API.
+     *  *
+     * @description *   This API is intended for API providers.
+     *  *
+     * @param DescribeTrafficControlsByApiRequest $request DescribeTrafficControlsByApiRequest
      *
-     * @remarks
-     *   This API is intended for API providers.
-     *
-     * @param request - DescribeTrafficControlsByApiRequest
-     * @returns DescribeTrafficControlsByApiResponse
-     *
-     * @param DescribeTrafficControlsByApiRequest $request
-     *
-     * @return DescribeTrafficControlsByApiResponse
+     * @return DescribeTrafficControlsByApiResponse DescribeTrafficControlsByApiResponse
      */
     public function describeTrafficControlsByApi($request)
     {
@@ -11092,31 +9567,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量更新API后端元定结果.
+     * @summary 查询批量更新API后端元定结果
+     *  *
+     * @param DescribeUpdateBackendTaskRequest $request DescribeUpdateBackendTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUpdateBackendTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeUpdateBackendTaskResponse
-     *
-     * @param DescribeUpdateBackendTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeUpdateBackendTaskResponse
+     * @return DescribeUpdateBackendTaskResponse DescribeUpdateBackendTaskResponse
      */
     public function describeUpdateBackendTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationUid) {
-            @$query['OperationUid'] = $request->operationUid;
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUpdateBackendTask',
@@ -11129,7 +9598,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUpdateBackendTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11137,14 +9606,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量更新API后端元定结果.
+     * @summary 查询批量更新API后端元定结果
+     *  *
+     * @param DescribeUpdateBackendTaskRequest $request DescribeUpdateBackendTaskRequest
      *
-     * @param request - DescribeUpdateBackendTaskRequest
-     * @returns DescribeUpdateBackendTaskResponse
-     *
-     * @param DescribeUpdateBackendTaskRequest $request
-     *
-     * @return DescribeUpdateBackendTaskResponse
+     * @return DescribeUpdateBackendTaskResponse DescribeUpdateBackendTaskResponse
      */
     public function describeUpdateBackendTask($request)
     {
@@ -11154,31 +9620,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询更新VPC授权的任务
+     * @summary 查询更新VPC授权的任务
+     *  *
+     * @param DescribeUpdateVpcInfoTaskRequest $request DescribeUpdateVpcInfoTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUpdateVpcInfoTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeUpdateVpcInfoTaskResponse
-     *
-     * @param DescribeUpdateVpcInfoTaskRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeUpdateVpcInfoTaskResponse
+     * @return DescribeUpdateVpcInfoTaskResponse DescribeUpdateVpcInfoTaskResponse
      */
     public function describeUpdateVpcInfoTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationUid) {
-            @$query['OperationUid'] = $request->operationUid;
+        if (!Utils::isUnset($request->operationUid)) {
+            $query['OperationUid'] = $request->operationUid;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUpdateVpcInfoTask',
@@ -11191,7 +9651,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUpdateVpcInfoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11199,14 +9659,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询更新VPC授权的任务
+     * @summary 查询更新VPC授权的任务
+     *  *
+     * @param DescribeUpdateVpcInfoTaskRequest $request DescribeUpdateVpcInfoTaskRequest
      *
-     * @param request - DescribeUpdateVpcInfoTaskRequest
-     * @returns DescribeUpdateVpcInfoTaskResponse
-     *
-     * @param DescribeUpdateVpcInfoTaskRequest $request
-     *
-     * @return DescribeUpdateVpcInfoTaskResponse
+     * @return DescribeUpdateVpcInfoTaskResponse DescribeUpdateVpcInfoTaskResponse
      */
     public function describeUpdateVpcInfoTask($request)
     {
@@ -11216,63 +9673,49 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries VPC access authorizations.
+     * @summary Queries VPC access authorizations.
+     *  *
+     * @param DescribeVpcAccessesRequest $request DescribeVpcAccessesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcAccessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeVpcAccessesResponse
-     *
-     * @param DescribeVpcAccessesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVpcAccessesResponse
+     * @return DescribeVpcAccessesResponse DescribeVpcAccessesResponse
      */
     public function describeVpcAccessesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accurateQuery) {
-            @$query['AccurateQuery'] = $request->accurateQuery;
+        if (!Utils::isUnset($request->accurateQuery)) {
+            $query['AccurateQuery'] = $request->accurateQuery;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vpcAccessId) {
-            @$query['VpcAccessId'] = $request->vpcAccessId;
+        if (!Utils::isUnset($request->vpcAccessId)) {
+            $query['VpcAccessId'] = $request->vpcAccessId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeVpcAccesses',
@@ -11285,7 +9728,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeVpcAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11293,14 +9736,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries VPC access authorizations.
+     * @summary Queries VPC access authorizations.
+     *  *
+     * @param DescribeVpcAccessesRequest $request DescribeVpcAccessesRequest
      *
-     * @param request - DescribeVpcAccessesRequest
-     * @returns DescribeVpcAccessesResponse
-     *
-     * @param DescribeVpcAccessesRequest $request
-     *
-     * @return DescribeVpcAccessesResponse
+     * @return DescribeVpcAccessesResponse DescribeVpcAccessesResponse
      */
     public function describeVpcAccesses($request)
     {
@@ -11310,31 +9750,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries zones in a region.
+     * @summary Queries zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeZonesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeZonesResponse
-     *
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -11347,7 +9781,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11355,14 +9789,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries zones in a region.
+     * @summary Queries zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @param request - DescribeZonesRequest
-     * @returns DescribeZonesResponse
-     *
-     * @param DescribeZonesRequest $request
-     *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -11372,35 +9803,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Detaches APIs from an API product.
+     * @summary Detaches APIs from an API product.
+     *  *
+     * @param DetachApiProductRequest $request DetachApiProductRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachApiProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachApiProductResponse
-     *
-     * @param DetachApiProductRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DetachApiProductResponse
+     * @return DetachApiProductResponse DetachApiProductResponse
      */
     public function detachApiProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->apis) {
-            @$query['Apis'] = $request->apis;
+        if (!Utils::isUnset($request->apis)) {
+            $query['Apis'] = $request->apis;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachApiProduct',
@@ -11413,7 +9837,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11421,14 +9845,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Detaches APIs from an API product.
+     * @summary Detaches APIs from an API product.
+     *  *
+     * @param DetachApiProductRequest $request DetachApiProductRequest
      *
-     * @param request - DetachApiProductRequest
-     * @returns DetachApiProductResponse
-     *
-     * @param DetachApiProductRequest $request
-     *
-     * @return DetachApiProductResponse
+     * @return DetachApiProductResponse DetachApiProductResponse
      */
     public function detachApiProduct($request)
     {
@@ -11438,43 +9859,93 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 解绑插件.
+     * @summary Unbind group plugin
+     *  *
+     * @param DetachGroupPluginRequest $request DetachGroupPluginRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachPluginRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachPluginResponse
+     * @return DetachGroupPluginResponse DetachGroupPluginResponse
+     */
+    public function detachGroupPluginWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachGroupPlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachGroupPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DetachGroupPluginResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Unbind group plugin
+     *  *
+     * @param DetachGroupPluginRequest $request DetachGroupPluginRequest
      *
-     * @param DetachPluginRequest $request
-     * @param RuntimeOptions      $runtime
+     * @return DetachGroupPluginResponse DetachGroupPluginResponse
+     */
+    public function detachGroupPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachGroupPluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 解绑插件
+     *  *
+     * @param DetachPluginRequest $request DetachPluginRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachPluginResponse
+     * @return DetachPluginResponse DetachPluginResponse
      */
     public function detachPluginWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachPlugin',
@@ -11487,7 +9958,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachPluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11495,14 +9966,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 解绑插件.
+     * @summary 解绑插件
+     *  *
+     * @param DetachPluginRequest $request DetachPluginRequest
      *
-     * @param request - DetachPluginRequest
-     * @returns DetachPluginResponse
-     *
-     * @param DetachPluginRequest $request
-     *
-     * @return DetachPluginResponse
+     * @return DetachPluginResponse DetachPluginResponse
      */
     public function detachPlugin($request)
     {
@@ -11512,39 +9980,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+     *  *
+     * @param DisableInstanceAccessControlRequest $request DisableInstanceAccessControlRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableInstanceAccessControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableInstanceAccessControlResponse
-     *
-     * @param DisableInstanceAccessControlRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DisableInstanceAccessControlResponse
+     * @return DisableInstanceAccessControlResponse DisableInstanceAccessControlResponse
      */
     public function disableInstanceAccessControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->addressIPVersion) {
-            @$query['AddressIPVersion'] = $request->addressIPVersion;
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableInstanceAccessControl',
@@ -11557,7 +10017,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableInstanceAccessControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11565,14 +10025,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Disables access control on an instance.
+     *  *
+     * @param DisableInstanceAccessControlRequest $request DisableInstanceAccessControlRequest
      *
-     * @param request - DisableInstanceAccessControlRequest
-     * @returns DisableInstanceAccessControlResponse
-     *
-     * @param DisableInstanceAccessControlRequest $request
-     *
-     * @return DisableInstanceAccessControlResponse
+     * @return DisableInstanceAccessControlResponse DisableInstanceAccessControlResponse
      */
     public function disableInstanceAccessControl($request)
     {
@@ -11582,43 +10039,35 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Disassociates an internal domain name resolution from a dedicated instance.
+     * @summary Disassociates an internal domain name resolution from a dedicated instance.
+     *  *
+     * @param DissociateInstanceWithPrivateDNSRequest $tmpReq  DissociateInstanceWithPrivateDNSRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DissociateInstanceWithPrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DissociateInstanceWithPrivateDNSResponse
-     *
-     * @param DissociateInstanceWithPrivateDNSRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DissociateInstanceWithPrivateDNSResponse
+     * @return DissociateInstanceWithPrivateDNSResponse DissociateInstanceWithPrivateDNSResponse
      */
     public function dissociateInstanceWithPrivateDNSWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DissociateInstanceWithPrivateDNSShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->intranetDomains) {
-            $request->intranetDomainsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->intranetDomains)) {
+            $request->intranetDomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->intranetDomains, 'IntranetDomains', 'json');
         }
-
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $body = [];
-        if (null !== $request->intranetDomainsShrink) {
-            @$body['IntranetDomains'] = $request->intranetDomainsShrink;
+        if (!Utils::isUnset($request->intranetDomainsShrink)) {
+            $body['IntranetDomains'] = $request->intranetDomainsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DissociateInstanceWithPrivateDNS',
@@ -11631,7 +10080,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DissociateInstanceWithPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11639,14 +10088,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Disassociates an internal domain name resolution from a dedicated instance.
+     * @summary Disassociates an internal domain name resolution from a dedicated instance.
+     *  *
+     * @param DissociateInstanceWithPrivateDNSRequest $request DissociateInstanceWithPrivateDNSRequest
      *
-     * @param request - DissociateInstanceWithPrivateDNSRequest
-     * @returns DissociateInstanceWithPrivateDNSResponse
-     *
-     * @param DissociateInstanceWithPrivateDNSRequest $request
-     *
-     * @return DissociateInstanceWithPrivateDNSResponse
+     * @return DissociateInstanceWithPrivateDNSResponse DissociateInstanceWithPrivateDNSResponse
      */
     public function dissociateInstanceWithPrivateDNS($request)
     {
@@ -11656,55 +10102,44 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Checks the syntax before Swagger-compliant data is imported.
+     * @summary Checks the syntax before Swagger-compliant data is imported.
+     *  *
+     * @param DryRunSwaggerRequest $tmpReq  DryRunSwaggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DryRunSwaggerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DryRunSwaggerResponse
-     *
-     * @param DryRunSwaggerRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DryRunSwaggerResponse
+     * @return DryRunSwaggerResponse DryRunSwaggerResponse
      */
     public function dryRunSwaggerWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DryRunSwaggerShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->globalCondition) {
-            $request->globalConditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->globalCondition)) {
+            $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-
         $query = [];
-        if (null !== $request->dataFormat) {
-            @$query['DataFormat'] = $request->dataFormat;
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
         }
-
-        if (null !== $request->globalConditionShrink) {
-            @$query['GlobalCondition'] = $request->globalConditionShrink;
+        if (!Utils::isUnset($request->globalConditionShrink)) {
+            $query['GlobalCondition'] = $request->globalConditionShrink;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->overwrite) {
-            @$query['Overwrite'] = $request->overwrite;
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $body = [];
-        if (null !== $request->data) {
-            @$body['Data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DryRunSwagger',
@@ -11717,7 +10152,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DryRunSwaggerResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11725,14 +10160,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Checks the syntax before Swagger-compliant data is imported.
+     * @summary Checks the syntax before Swagger-compliant data is imported.
+     *  *
+     * @param DryRunSwaggerRequest $request DryRunSwaggerRequest
      *
-     * @param request - DryRunSwaggerRequest
-     * @returns DryRunSwaggerResponse
-     *
-     * @param DryRunSwaggerRequest $request
-     *
-     * @return DryRunSwaggerResponse
+     * @return DryRunSwaggerResponse DryRunSwaggerResponse
      */
     public function dryRunSwagger($request)
     {
@@ -11742,43 +10174,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
+     *  *
+     * @param EnableInstanceAccessControlRequest $request EnableInstanceAccessControlRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableInstanceAccessControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableInstanceAccessControlResponse
-     *
-     * @param EnableInstanceAccessControlRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return EnableInstanceAccessControlResponse
+     * @return EnableInstanceAccessControlResponse EnableInstanceAccessControlResponse
      */
     public function enableInstanceAccessControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->aclType) {
-            @$query['AclType'] = $request->aclType;
+        if (!Utils::isUnset($request->aclType)) {
+            $query['AclType'] = $request->aclType;
         }
-
-        if (null !== $request->addressIPVersion) {
-            @$query['AddressIPVersion'] = $request->addressIPVersion;
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableInstanceAccessControl',
@@ -11791,7 +10214,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableInstanceAccessControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11799,14 +10222,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
+     *  *
+     * @param EnableInstanceAccessControlRequest $request EnableInstanceAccessControlRequest
      *
-     * @param request - EnableInstanceAccessControlRequest
-     * @returns EnableInstanceAccessControlResponse
-     *
-     * @param EnableInstanceAccessControlRequest $request
-     *
-     * @return EnableInstanceAccessControlResponse
+     * @return EnableInstanceAccessControlResponse EnableInstanceAccessControlResponse
      */
     public function enableInstanceAccessControl($request)
     {
@@ -11816,61 +10236,48 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 导出OAS.
+     * @summary 导出OAS
+     *  *
+     * @param ExportOASRequest $tmpReq  ExportOASRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExportOASRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ExportOASResponse
-     *
-     * @param ExportOASRequest $tmpReq
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ExportOASResponse
+     * @return ExportOASResponse ExportOASResponse
      */
     public function exportOASWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExportOASShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->apiIdList) {
-            $request->apiIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiIdList, 'ApiIdList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->apiIdList)) {
+            $request->apiIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiIdList, 'ApiIdList', 'json');
         }
-
         $query = [];
-        if (null !== $request->apiIdListShrink) {
-            @$query['ApiIdList'] = $request->apiIdListShrink;
+        if (!Utils::isUnset($request->apiIdListShrink)) {
+            $query['ApiIdList'] = $request->apiIdListShrink;
         }
-
-        if (null !== $request->dataFormat) {
-            @$query['DataFormat'] = $request->dataFormat;
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->oasVersion) {
-            @$query['OasVersion'] = $request->oasVersion;
+        if (!Utils::isUnset($request->oasVersion)) {
+            $query['OasVersion'] = $request->oasVersion;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->withXExtensions) {
-            @$query['WithXExtensions'] = $request->withXExtensions;
+        if (!Utils::isUnset($request->withXExtensions)) {
+            $query['WithXExtensions'] = $request->withXExtensions;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExportOAS',
@@ -11883,7 +10290,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExportOASResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11891,14 +10298,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 导出OAS.
+     * @summary 导出OAS
+     *  *
+     * @param ExportOASRequest $request ExportOASRequest
      *
-     * @param request - ExportOASRequest
-     * @returns ExportOASResponse
-     *
-     * @param ExportOASRequest $request
-     *
-     * @return ExportOASResponse
+     * @return ExportOASResponse ExportOASResponse
      */
     public function exportOAS($request)
     {
@@ -11908,65 +10312,51 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Imports APIs based on the OAS standard.
+     * @summary Imports APIs based on the OAS standard.
+     *  *
+     * @param ImportOASRequest $request ImportOASRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ImportOASRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ImportOASResponse
-     *
-     * @param ImportOASRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ImportOASResponse
+     * @return ImportOASResponse ImportOASResponse
      */
     public function importOASWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authType) {
-            @$query['AuthType'] = $request->authType;
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
         }
-
-        if (null !== $request->backendName) {
-            @$query['BackendName'] = $request->backendName;
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ignoreWarning) {
-            @$query['IgnoreWarning'] = $request->ignoreWarning;
+        if (!Utils::isUnset($request->ignoreWarning)) {
+            $query['IgnoreWarning'] = $request->ignoreWarning;
         }
-
-        if (null !== $request->OASVersion) {
-            @$query['OASVersion'] = $request->OASVersion;
+        if (!Utils::isUnset($request->OASVersion)) {
+            $query['OASVersion'] = $request->OASVersion;
         }
-
-        if (null !== $request->overwrite) {
-            @$query['Overwrite'] = $request->overwrite;
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
         }
-
-        if (null !== $request->requestMode) {
-            @$query['RequestMode'] = $request->requestMode;
+        if (!Utils::isUnset($request->requestMode)) {
+            $query['RequestMode'] = $request->requestMode;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->skipDryRun) {
-            @$query['SkipDryRun'] = $request->skipDryRun;
+        if (!Utils::isUnset($request->skipDryRun)) {
+            $query['SkipDryRun'] = $request->skipDryRun;
         }
-
         $body = [];
-        if (null !== $request->data) {
-            @$body['Data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ImportOAS',
@@ -11979,7 +10369,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ImportOASResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11987,14 +10377,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Imports APIs based on the OAS standard.
+     * @summary Imports APIs based on the OAS standard.
+     *  *
+     * @param ImportOASRequest $request ImportOASRequest
      *
-     * @param request - ImportOASRequest
-     * @returns ImportOASResponse
-     *
-     * @param ImportOASRequest $request
-     *
-     * @return ImportOASResponse
+     * @return ImportOASResponse ImportOASResponse
      */
     public function importOAS($request)
     {
@@ -12004,63 +10391,50 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API by importing Swagger-compliant data.
-     *
-     * @remarks
-     *   Alibaba Cloud supports extensions based on Swagger 2.0.
+     * @summary Creates an API by importing Swagger-compliant data.
+     *  *
+     * @description *   Alibaba Cloud supports extensions based on Swagger 2.0.
      * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+     *  *
+     * @param ImportSwaggerRequest $tmpReq  ImportSwaggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ImportSwaggerRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ImportSwaggerResponse
-     *
-     * @param ImportSwaggerRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ImportSwaggerResponse
+     * @return ImportSwaggerResponse ImportSwaggerResponse
      */
     public function importSwaggerWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ImportSwaggerShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->globalCondition) {
-            $request->globalConditionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->globalCondition)) {
+            $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-
         $query = [];
-        if (null !== $request->dataFormat) {
-            @$query['DataFormat'] = $request->dataFormat;
+        if (!Utils::isUnset($request->dataFormat)) {
+            $query['DataFormat'] = $request->dataFormat;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->globalConditionShrink) {
-            @$query['GlobalCondition'] = $request->globalConditionShrink;
+        if (!Utils::isUnset($request->globalConditionShrink)) {
+            $query['GlobalCondition'] = $request->globalConditionShrink;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->overwrite) {
-            @$query['Overwrite'] = $request->overwrite;
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $body = [];
-        if (null !== $request->data) {
-            @$body['Data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ImportSwagger',
@@ -12073,7 +10447,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ImportSwaggerResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12081,18 +10455,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an API by importing Swagger-compliant data.
-     *
-     * @remarks
-     *   Alibaba Cloud supports extensions based on Swagger 2.0.
+     * @summary Creates an API by importing Swagger-compliant data.
+     *  *
+     * @description *   Alibaba Cloud supports extensions based on Swagger 2.0.
      * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+     *  *
+     * @param ImportSwaggerRequest $request ImportSwaggerRequest
      *
-     * @param request - ImportSwaggerRequest
-     * @returns ImportSwaggerResponse
-     *
-     * @param ImportSwaggerRequest $request
-     *
-     * @return ImportSwaggerResponse
+     * @return ImportSwaggerResponse ImportSwaggerResponse
      */
     public function importSwagger($request)
     {
@@ -12102,43 +10472,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries internal domain name resolutions by domain name or resolution type.
+     * @summary Queries internal domain name resolutions by domain name or resolution type.
+     *  *
+     * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListPrivateDNSResponse
-     *
-     * @param ListPrivateDNSRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListPrivateDNSResponse
+     * @return ListPrivateDNSResponse ListPrivateDNSResponse
      */
     public function listPrivateDNSWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->intranetDomain) {
-            @$query['IntranetDomain'] = $request->intranetDomain;
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPrivateDNS',
@@ -12151,7 +10512,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12159,14 +10520,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries internal domain name resolutions by domain name or resolution type.
+     * @summary Queries internal domain name resolutions by domain name or resolution type.
+     *  *
+     * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
      *
-     * @param request - ListPrivateDNSRequest
-     * @returns ListPrivateDNSResponse
-     *
-     * @param ListPrivateDNSRequest $request
-     *
-     * @return ListPrivateDNSResponse
+     * @return ListPrivateDNSResponse ListPrivateDNSResponse
      */
     public function listPrivateDNS($request)
     {
@@ -12176,10 +10534,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the visible resource tags.
-     *
-     * @remarks
-     *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+     * @summary Queries the visible resource tags.
+     *  *
+     * @description *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
      * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
      * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
      * *   You can query both user tags and visible system tags.
@@ -12188,38 +10545,30 @@ class CloudAPI extends OpenApiClient
      * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
      * *   You can query tags of the same type or different types in a single operation.
      * *   You can query all your user types and visible system tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -12232,7 +10581,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12240,10 +10589,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the visible resource tags.
-     *
-     * @remarks
-     *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
+     * @summary Queries the visible resource tags.
+     *  *
+     * @description *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
      * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
      * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
      * *   You can query both user tags and visible system tags.
@@ -12252,13 +10600,10 @@ class CloudAPI extends OpenApiClient
      * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
      * *   You can query tags of the same type or different types in a single operation.
      * *   You can query all your user types and visible system tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -12268,144 +10613,111 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the definition of an API.
-     *
-     * @remarks
-     * *This operation is intended for API providers.**
+     * @summary Modifies the definition of an API.
+     *  *
+     * @description **This operation is intended for API providers.**
      * *   This API operation requires a full update. Updates of partial parameters are not supported.
      * *   When you modify an API name, make sure that the name of each API within the same group is unique.
      * *   When you modify the request path, make sure that each request path within the same group is unique.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyApiRequest $request ModifyApiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiResponse
-     *
-     * @param ModifyApiRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ModifyApiResponse
+     * @return ModifyApiResponse ModifyApiResponse
      */
     public function modifyApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowSignatureMethod) {
-            @$query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
         }
-
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->appCodeAuthType) {
-            @$query['AppCodeAuthType'] = $request->appCodeAuthType;
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
         }
-
-        if (null !== $request->authType) {
-            @$query['AuthType'] = $request->authType;
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
         }
-
-        if (null !== $request->backendEnable) {
-            @$query['BackendEnable'] = $request->backendEnable;
+        if (!Utils::isUnset($request->backendEnable)) {
+            $query['BackendEnable'] = $request->backendEnable;
         }
-
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->disableInternet) {
-            @$query['DisableInternet'] = $request->disableInternet;
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
         }
-
-        if (null !== $request->forceNonceCheck) {
-            @$query['ForceNonceCheck'] = $request->forceNonceCheck;
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->openIdConnectConfig) {
-            @$query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
+        if (!Utils::isUnset($request->openIdConnectConfig)) {
+            $query['OpenIdConnectConfig'] = $request->openIdConnectConfig;
         }
-
-        if (null !== $request->requestConfig) {
-            @$query['RequestConfig'] = $request->requestConfig;
+        if (!Utils::isUnset($request->requestConfig)) {
+            $query['RequestConfig'] = $request->requestConfig;
         }
-
-        if (null !== $request->resultBodyModel) {
-            @$query['ResultBodyModel'] = $request->resultBodyModel;
+        if (!Utils::isUnset($request->resultBodyModel)) {
+            $query['ResultBodyModel'] = $request->resultBodyModel;
         }
-
-        if (null !== $request->resultType) {
-            @$query['ResultType'] = $request->resultType;
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->serviceConfig) {
-            @$query['ServiceConfig'] = $request->serviceConfig;
+        if (!Utils::isUnset($request->serviceConfig)) {
+            $query['ServiceConfig'] = $request->serviceConfig;
         }
-
-        if (null !== $request->visibility) {
-            @$query['Visibility'] = $request->visibility;
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
-
-        if (null !== $request->webSocketApiType) {
-            @$query['WebSocketApiType'] = $request->webSocketApiType;
+        if (!Utils::isUnset($request->webSocketApiType)) {
+            $query['WebSocketApiType'] = $request->webSocketApiType;
         }
-
         $body = [];
-        if (null !== $request->constantParameters) {
-            @$body['ConstantParameters'] = $request->constantParameters;
+        if (!Utils::isUnset($request->constantParameters)) {
+            $body['ConstantParameters'] = $request->constantParameters;
         }
-
-        if (null !== $request->errorCodeSamples) {
-            @$body['ErrorCodeSamples'] = $request->errorCodeSamples;
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $body['ErrorCodeSamples'] = $request->errorCodeSamples;
         }
-
-        if (null !== $request->failResultSample) {
-            @$body['FailResultSample'] = $request->failResultSample;
+        if (!Utils::isUnset($request->failResultSample)) {
+            $body['FailResultSample'] = $request->failResultSample;
         }
-
-        if (null !== $request->requestParameters) {
-            @$body['RequestParameters'] = $request->requestParameters;
+        if (!Utils::isUnset($request->requestParameters)) {
+            $body['RequestParameters'] = $request->requestParameters;
         }
-
-        if (null !== $request->resultDescriptions) {
-            @$body['ResultDescriptions'] = $request->resultDescriptions;
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $body['ResultDescriptions'] = $request->resultDescriptions;
         }
-
-        if (null !== $request->resultSample) {
-            @$body['ResultSample'] = $request->resultSample;
+        if (!Utils::isUnset($request->resultSample)) {
+            $body['ResultSample'] = $request->resultSample;
         }
-
-        if (null !== $request->serviceParameters) {
-            @$body['ServiceParameters'] = $request->serviceParameters;
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
         }
-
-        if (null !== $request->serviceParametersMap) {
-            @$body['ServiceParametersMap'] = $request->serviceParametersMap;
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $body['ServiceParametersMap'] = $request->serviceParametersMap;
         }
-
-        if (null !== $request->systemParameters) {
-            @$body['SystemParameters'] = $request->systemParameters;
+        if (!Utils::isUnset($request->systemParameters)) {
+            $body['SystemParameters'] = $request->systemParameters;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyApi',
@@ -12418,7 +10730,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12426,21 +10738,17 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the definition of an API.
-     *
-     * @remarks
-     * *This operation is intended for API providers.**
+     * @summary Modifies the definition of an API.
+     *  *
+     * @description **This operation is intended for API providers.**
      * *   This API operation requires a full update. Updates of partial parameters are not supported.
      * *   When you modify an API name, make sure that the name of each API within the same group is unique.
      * *   When you modify the request path, make sure that each request path within the same group is unique.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyApiRequest $request ModifyApiRequest
      *
-     * @param request - ModifyApiRequest
-     * @returns ModifyApiResponse
-     *
-     * @param ModifyApiRequest $request
-     *
-     * @return ModifyApiResponse
+     * @return ModifyApiResponse ModifyApiResponse
      */
     public function modifyApi($request)
     {
@@ -12450,167 +10758,127 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     *  *
+     * @param ModifyApiConfigurationRequest $request ModifyApiConfigurationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiConfigurationResponse
-     *
-     * @param ModifyApiConfigurationRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyApiConfigurationResponse
+     * @return ModifyApiConfigurationResponse ModifyApiConfigurationResponse
      */
     public function modifyApiConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowSignatureMethod) {
-            @$query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        if (!Utils::isUnset($request->allowSignatureMethod)) {
+            $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
         }
-
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->apiName) {
-            @$query['ApiName'] = $request->apiName;
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
         }
-
-        if (null !== $request->appCodeAuthType) {
-            @$query['AppCodeAuthType'] = $request->appCodeAuthType;
+        if (!Utils::isUnset($request->appCodeAuthType)) {
+            $query['AppCodeAuthType'] = $request->appCodeAuthType;
         }
-
-        if (null !== $request->authType) {
-            @$query['AuthType'] = $request->authType;
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
         }
-
-        if (null !== $request->backendName) {
-            @$query['BackendName'] = $request->backendName;
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
         }
-
-        if (null !== $request->bodyFormat) {
-            @$query['BodyFormat'] = $request->bodyFormat;
+        if (!Utils::isUnset($request->bodyFormat)) {
+            $query['BodyFormat'] = $request->bodyFormat;
         }
-
-        if (null !== $request->bodyModel) {
-            @$query['BodyModel'] = $request->bodyModel;
+        if (!Utils::isUnset($request->bodyModel)) {
+            $query['BodyModel'] = $request->bodyModel;
         }
-
-        if (null !== $request->contentTypeCategory) {
-            @$query['ContentTypeCategory'] = $request->contentTypeCategory;
+        if (!Utils::isUnset($request->contentTypeCategory)) {
+            $query['ContentTypeCategory'] = $request->contentTypeCategory;
         }
-
-        if (null !== $request->contentTypeValue) {
-            @$query['ContentTypeValue'] = $request->contentTypeValue;
+        if (!Utils::isUnset($request->contentTypeValue)) {
+            $query['ContentTypeValue'] = $request->contentTypeValue;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->disableInternet) {
-            @$query['DisableInternet'] = $request->disableInternet;
+        if (!Utils::isUnset($request->disableInternet)) {
+            $query['DisableInternet'] = $request->disableInternet;
         }
-
-        if (null !== $request->errorCodeSamples) {
-            @$query['ErrorCodeSamples'] = $request->errorCodeSamples;
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
         }
-
-        if (null !== $request->failResultSample) {
-            @$query['FailResultSample'] = $request->failResultSample;
+        if (!Utils::isUnset($request->failResultSample)) {
+            $query['FailResultSample'] = $request->failResultSample;
         }
-
-        if (null !== $request->forceNonceCheck) {
-            @$query['ForceNonceCheck'] = $request->forceNonceCheck;
+        if (!Utils::isUnset($request->forceNonceCheck)) {
+            $query['ForceNonceCheck'] = $request->forceNonceCheck;
         }
-
-        if (null !== $request->functionComputeConfig) {
-            @$query['FunctionComputeConfig'] = $request->functionComputeConfig;
+        if (!Utils::isUnset($request->functionComputeConfig)) {
+            $query['FunctionComputeConfig'] = $request->functionComputeConfig;
         }
-
-        if (null !== $request->httpConfig) {
-            @$query['HttpConfig'] = $request->httpConfig;
+        if (!Utils::isUnset($request->httpConfig)) {
+            $query['HttpConfig'] = $request->httpConfig;
         }
-
-        if (null !== $request->mockConfig) {
-            @$query['MockConfig'] = $request->mockConfig;
+        if (!Utils::isUnset($request->mockConfig)) {
+            $query['MockConfig'] = $request->mockConfig;
         }
-
-        if (null !== $request->modelName) {
-            @$query['ModelName'] = $request->modelName;
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
         }
-
-        if (null !== $request->ossConfig) {
-            @$query['OssConfig'] = $request->ossConfig;
+        if (!Utils::isUnset($request->ossConfig)) {
+            $query['OssConfig'] = $request->ossConfig;
         }
-
-        if (null !== $request->postBodyDescription) {
-            @$query['PostBodyDescription'] = $request->postBodyDescription;
+        if (!Utils::isUnset($request->postBodyDescription)) {
+            $query['PostBodyDescription'] = $request->postBodyDescription;
         }
-
-        if (null !== $request->requestHttpMethod) {
-            @$query['RequestHttpMethod'] = $request->requestHttpMethod;
+        if (!Utils::isUnset($request->requestHttpMethod)) {
+            $query['RequestHttpMethod'] = $request->requestHttpMethod;
         }
-
-        if (null !== $request->requestMode) {
-            @$query['RequestMode'] = $request->requestMode;
+        if (!Utils::isUnset($request->requestMode)) {
+            $query['RequestMode'] = $request->requestMode;
         }
-
-        if (null !== $request->requestParameters) {
-            @$query['RequestParameters'] = $request->requestParameters;
+        if (!Utils::isUnset($request->requestParameters)) {
+            $query['RequestParameters'] = $request->requestParameters;
         }
-
-        if (null !== $request->requestPath) {
-            @$query['RequestPath'] = $request->requestPath;
+        if (!Utils::isUnset($request->requestPath)) {
+            $query['RequestPath'] = $request->requestPath;
         }
-
-        if (null !== $request->requestProtocol) {
-            @$query['RequestProtocol'] = $request->requestProtocol;
+        if (!Utils::isUnset($request->requestProtocol)) {
+            $query['RequestProtocol'] = $request->requestProtocol;
         }
-
-        if (null !== $request->resultSample) {
-            @$query['ResultSample'] = $request->resultSample;
+        if (!Utils::isUnset($request->resultSample)) {
+            $query['ResultSample'] = $request->resultSample;
         }
-
-        if (null !== $request->resultType) {
-            @$query['ResultType'] = $request->resultType;
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->serviceParameters) {
-            @$query['ServiceParameters'] = $request->serviceParameters;
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
         }
-
-        if (null !== $request->serviceParametersMap) {
-            @$query['ServiceParametersMap'] = $request->serviceParametersMap;
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $query['ServiceParametersMap'] = $request->serviceParametersMap;
         }
-
-        if (null !== $request->serviceProtocol) {
-            @$query['ServiceProtocol'] = $request->serviceProtocol;
+        if (!Utils::isUnset($request->serviceProtocol)) {
+            $query['ServiceProtocol'] = $request->serviceProtocol;
         }
-
-        if (null !== $request->serviceTimeout) {
-            @$query['ServiceTimeout'] = $request->serviceTimeout;
+        if (!Utils::isUnset($request->serviceTimeout)) {
+            $query['ServiceTimeout'] = $request->serviceTimeout;
         }
-
-        if (null !== $request->useBackendService) {
-            @$query['UseBackendService'] = $request->useBackendService;
+        if (!Utils::isUnset($request->useBackendService)) {
+            $query['UseBackendService'] = $request->useBackendService;
         }
-
-        if (null !== $request->visibility) {
-            @$query['Visibility'] = $request->visibility;
+        if (!Utils::isUnset($request->visibility)) {
+            $query['Visibility'] = $request->visibility;
         }
-
-        if (null !== $request->vpcConfig) {
-            @$query['VpcConfig'] = $request->vpcConfig;
+        if (!Utils::isUnset($request->vpcConfig)) {
+            $query['VpcConfig'] = $request->vpcConfig;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiConfiguration',
@@ -12623,7 +10891,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12631,14 +10899,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     * @summary Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     *  *
+     * @param ModifyApiConfigurationRequest $request ModifyApiConfigurationRequest
      *
-     * @param request - ModifyApiConfigurationRequest
-     * @returns ModifyApiConfigurationResponse
-     *
-     * @param ModifyApiConfigurationRequest $request
-     *
-     * @return ModifyApiConfigurationResponse
+     * @return ModifyApiConfigurationResponse ModifyApiConfigurationResponse
      */
     public function modifyApiConfiguration($request)
     {
@@ -12648,95 +10913,73 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, or basepath of an existing API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies the name, description, or basepath of an existing API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyApiGroupRequest $request ModifyApiGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiGroupResponse
-     *
-     * @param ModifyApiGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyApiGroupResponse
+     * @return ModifyApiGroupResponse ModifyApiGroupResponse
      */
     public function modifyApiGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->basePath) {
-            @$query['BasePath'] = $request->basePath;
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
         }
-
-        if (null !== $request->compatibleFlags) {
-            @$query['CompatibleFlags'] = $request->compatibleFlags;
+        if (!Utils::isUnset($request->compatibleFlags)) {
+            $query['CompatibleFlags'] = $request->compatibleFlags;
         }
-
-        if (null !== $request->customAppCodeConfig) {
-            @$query['CustomAppCodeConfig'] = $request->customAppCodeConfig;
+        if (!Utils::isUnset($request->customAppCodeConfig)) {
+            $query['CustomAppCodeConfig'] = $request->customAppCodeConfig;
         }
-
-        if (null !== $request->customTraceConfig) {
-            @$query['CustomTraceConfig'] = $request->customTraceConfig;
+        if (!Utils::isUnset($request->customTraceConfig)) {
+            $query['CustomTraceConfig'] = $request->customTraceConfig;
         }
-
-        if (null !== $request->customerConfigs) {
-            @$query['CustomerConfigs'] = $request->customerConfigs;
+        if (!Utils::isUnset($request->customerConfigs)) {
+            $query['CustomerConfigs'] = $request->customerConfigs;
         }
-
-        if (null !== $request->defaultDomain) {
-            @$query['DefaultDomain'] = $request->defaultDomain;
+        if (!Utils::isUnset($request->defaultDomain)) {
+            $query['DefaultDomain'] = $request->defaultDomain;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->filterAppCodeForBackend) {
-            @$query['FilterAppCodeForBackend'] = $request->filterAppCodeForBackend;
+        if (!Utils::isUnset($request->filterAppCodeForBackend)) {
+            $query['FilterAppCodeForBackend'] = $request->filterAppCodeForBackend;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->passthroughHeaders) {
-            @$query['PassthroughHeaders'] = $request->passthroughHeaders;
+        if (!Utils::isUnset($request->passthroughHeaders)) {
+            $query['PassthroughHeaders'] = $request->passthroughHeaders;
         }
-
-        if (null !== $request->rpcPattern) {
-            @$query['RpcPattern'] = $request->rpcPattern;
+        if (!Utils::isUnset($request->rpcPattern)) {
+            $query['RpcPattern'] = $request->rpcPattern;
         }
-
-        if (null !== $request->rpsLimitForServerless) {
-            @$query['RpsLimitForServerless'] = $request->rpsLimitForServerless;
+        if (!Utils::isUnset($request->rpsLimitForServerless)) {
+            $query['RpsLimitForServerless'] = $request->rpsLimitForServerless;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->supportSSE) {
-            @$query['SupportSSE'] = $request->supportSSE;
+        if (!Utils::isUnset($request->supportSSE)) {
+            $query['SupportSSE'] = $request->supportSSE;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->userLogConfig) {
-            @$query['UserLogConfig'] = $request->userLogConfig;
+        if (!Utils::isUnset($request->userLogConfig)) {
+            $query['UserLogConfig'] = $request->userLogConfig;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroup',
@@ -12749,7 +10992,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12757,18 +11000,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, or basepath of an existing API group.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies the name, description, or basepath of an existing API group.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyApiGroupRequest $request ModifyApiGroupRequest
      *
-     * @param request - ModifyApiGroupRequest
-     * @returns ModifyApiGroupResponse
-     *
-     * @param ModifyApiGroupRequest $request
-     *
-     * @return ModifyApiGroupResponse
+     * @return ModifyApiGroupResponse ModifyApiGroupResponse
      */
     public function modifyApiGroup($request)
     {
@@ -12778,43 +11017,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 变更分组实例.
+     * @summary 变更分组实例
+     *  *
+     * @param ModifyApiGroupInstanceRequest $request ModifyApiGroupInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiGroupInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiGroupInstanceResponse
-     *
-     * @param ModifyApiGroupInstanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyApiGroupInstanceResponse
+     * @return ModifyApiGroupInstanceResponse ModifyApiGroupInstanceResponse
      */
     public function modifyApiGroupInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->remark) {
-            @$query['Remark'] = $request->remark;
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->targetInstanceId) {
-            @$query['TargetInstanceId'] = $request->targetInstanceId;
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $query['TargetInstanceId'] = $request->targetInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroupInstance',
@@ -12827,7 +11057,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiGroupInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12835,14 +11065,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 变更分组实例.
+     * @summary 变更分组实例
+     *  *
+     * @param ModifyApiGroupInstanceRequest $request ModifyApiGroupInstanceRequest
      *
-     * @param request - ModifyApiGroupInstanceRequest
-     * @returns ModifyApiGroupInstanceResponse
-     *
-     * @param ModifyApiGroupInstanceRequest $request
-     *
-     * @return ModifyApiGroupInstanceResponse
+     * @return ModifyApiGroupInstanceResponse ModifyApiGroupInstanceResponse
      */
     public function modifyApiGroupInstance($request)
     {
@@ -12852,55 +11079,43 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the network policy of an API group.
+     * @summary Modifies the network policy of an API group.
+     *  *
+     * @param ModifyApiGroupNetworkPolicyRequest $request ModifyApiGroupNetworkPolicyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiGroupNetworkPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiGroupNetworkPolicyResponse
-     *
-     * @param ModifyApiGroupNetworkPolicyRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyApiGroupNetworkPolicyResponse
+     * @return ModifyApiGroupNetworkPolicyResponse ModifyApiGroupNetworkPolicyResponse
      */
     public function modifyApiGroupNetworkPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->httpsPolicy) {
-            @$query['HttpsPolicy'] = $request->httpsPolicy;
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
         }
-
-        if (null !== $request->innerDomainEnable) {
-            @$query['InnerDomainEnable'] = $request->innerDomainEnable;
+        if (!Utils::isUnset($request->innerDomainEnable)) {
+            $query['InnerDomainEnable'] = $request->innerDomainEnable;
         }
-
-        if (null !== $request->internetEnable) {
-            @$query['InternetEnable'] = $request->internetEnable;
+        if (!Utils::isUnset($request->internetEnable)) {
+            $query['InternetEnable'] = $request->internetEnable;
         }
-
-        if (null !== $request->internetIPV6Enable) {
-            @$query['InternetIPV6Enable'] = $request->internetIPV6Enable;
+        if (!Utils::isUnset($request->internetIPV6Enable)) {
+            $query['InternetIPV6Enable'] = $request->internetIPV6Enable;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcIntranetEnable) {
-            @$query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
+        if (!Utils::isUnset($request->vpcIntranetEnable)) {
+            $query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
         }
-
-        if (null !== $request->vpcSlbIntranetEnable) {
-            @$query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
+        if (!Utils::isUnset($request->vpcSlbIntranetEnable)) {
+            $query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroupNetworkPolicy',
@@ -12913,7 +11128,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiGroupNetworkPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12921,14 +11136,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the network policy of an API group.
+     * @summary Modifies the network policy of an API group.
+     *  *
+     * @param ModifyApiGroupNetworkPolicyRequest $request ModifyApiGroupNetworkPolicyRequest
      *
-     * @param request - ModifyApiGroupNetworkPolicyRequest
-     * @returns ModifyApiGroupNetworkPolicyResponse
-     *
-     * @param ModifyApiGroupNetworkPolicyRequest $request
-     *
-     * @return ModifyApiGroupNetworkPolicyResponse
+     * @return ModifyApiGroupNetworkPolicyResponse ModifyApiGroupNetworkPolicyResponse
      */
     public function modifyApiGroupNetworkPolicy($request)
     {
@@ -12938,35 +11150,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the VPC whitelist of an API group.
+     * @summary Modifies the VPC whitelist of an API group.
+     *  *
+     * @param ModifyApiGroupVpcWhitelistRequest $request ModifyApiGroupVpcWhitelistRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyApiGroupVpcWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyApiGroupVpcWhitelistResponse
-     *
-     * @param ModifyApiGroupVpcWhitelistRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyApiGroupVpcWhitelistResponse
+     * @return ModifyApiGroupVpcWhitelistResponse ModifyApiGroupVpcWhitelistResponse
      */
     public function modifyApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcIds) {
-            @$query['VpcIds'] = $request->vpcIds;
+        if (!Utils::isUnset($request->vpcIds)) {
+            $query['VpcIds'] = $request->vpcIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApiGroupVpcWhitelist',
@@ -12979,7 +11184,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyApiGroupVpcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12987,14 +11192,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the VPC whitelist of an API group.
+     * @summary Modifies the VPC whitelist of an API group.
+     *  *
+     * @param ModifyApiGroupVpcWhitelistRequest $request ModifyApiGroupVpcWhitelistRequest
      *
-     * @param request - ModifyApiGroupVpcWhitelistRequest
-     * @returns ModifyApiGroupVpcWhitelistResponse
-     *
-     * @param ModifyApiGroupVpcWhitelistRequest $request
-     *
-     * @return ModifyApiGroupVpcWhitelistResponse
+     * @return ModifyApiGroupVpcWhitelistResponse ModifyApiGroupVpcWhitelistResponse
      */
     public function modifyApiGroupVpcWhitelist($request)
     {
@@ -13004,52 +11206,41 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a specified app.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Modifies a specified app.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyAppRequest $request ModifyAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAppResponse
-     *
-     * @param ModifyAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ModifyAppResponse
+     * @return ModifyAppResponse ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->extend) {
-            @$query['Extend'] = $request->extend;
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApp',
@@ -13062,7 +11253,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13070,19 +11261,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a specified app.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Modifies a specified app.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyAppRequest $request ModifyAppRequest
      *
-     * @param request - ModifyAppRequest
-     * @returns ModifyAppResponse
-     *
-     * @param ModifyAppRequest $request
-     *
-     * @return ModifyAppResponse
+     * @return ModifyAppResponse ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -13092,43 +11279,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务
+     * @summary 修改后端服务
+     *  *
+     * @param ModifyBackendRequest $request ModifyBackendRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyBackendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyBackendResponse
-     *
-     * @param ModifyBackendRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ModifyBackendResponse
+     * @return ModifyBackendResponse ModifyBackendResponse
      */
     public function modifyBackendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->backendName) {
-            @$query['BackendName'] = $request->backendName;
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
         }
-
-        if (null !== $request->backendType) {
-            @$query['BackendType'] = $request->backendType;
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBackend',
@@ -13141,7 +11319,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyBackendResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13149,14 +11327,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务
+     * @summary 修改后端服务
+     *  *
+     * @param ModifyBackendRequest $request ModifyBackendRequest
      *
-     * @param request - ModifyBackendRequest
-     * @returns ModifyBackendResponse
-     *
-     * @param ModifyBackendRequest $request
-     *
-     * @return ModifyBackendResponse
+     * @return ModifyBackendResponse ModifyBackendResponse
      */
     public function modifyBackend($request)
     {
@@ -13166,51 +11341,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务在环境上的定义.
+     * @summary 修改后端服务在环境上的定义
+     *  *
+     * @param ModifyBackendModelRequest $request ModifyBackendModelRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyBackendModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyBackendModelResponse
-     *
-     * @param ModifyBackendModelRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyBackendModelResponse
+     * @return ModifyBackendModelResponse ModifyBackendModelResponse
      */
     public function modifyBackendModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backendId) {
-            @$query['BackendId'] = $request->backendId;
+        if (!Utils::isUnset($request->backendId)) {
+            $query['BackendId'] = $request->backendId;
         }
-
-        if (null !== $request->backendModelData) {
-            @$query['BackendModelData'] = $request->backendModelData;
+        if (!Utils::isUnset($request->backendModelData)) {
+            $query['BackendModelData'] = $request->backendModelData;
         }
-
-        if (null !== $request->backendModelId) {
-            @$query['BackendModelId'] = $request->backendModelId;
+        if (!Utils::isUnset($request->backendModelId)) {
+            $query['BackendModelId'] = $request->backendModelId;
         }
-
-        if (null !== $request->backendType) {
-            @$query['BackendType'] = $request->backendType;
+        if (!Utils::isUnset($request->backendType)) {
+            $query['BackendType'] = $request->backendType;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBackendModel',
@@ -13223,7 +11387,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyBackendModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13231,14 +11395,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务在环境上的定义.
+     * @summary 修改后端服务在环境上的定义
+     *  *
+     * @param ModifyBackendModelRequest $request ModifyBackendModelRequest
      *
-     * @param request - ModifyBackendModelRequest
-     * @returns ModifyBackendModelResponse
-     *
-     * @param ModifyBackendModelRequest $request
-     *
-     * @return ModifyBackendModelResponse
+     * @return ModifyBackendModelResponse ModifyBackendModelResponse
      */
     public function modifyBackendModel($request)
     {
@@ -13248,35 +11409,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a custom dataset.
+     * @summary Modifies the name of a custom dataset.
+     *  *
+     * @param ModifyDatasetRequest $request ModifyDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDatasetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDatasetResponse
-     *
-     * @param ModifyDatasetRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ModifyDatasetResponse
+     * @return ModifyDatasetResponse ModifyDatasetResponse
      */
     public function modifyDatasetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->datasetName) {
-            @$query['DatasetName'] = $request->datasetName;
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataset',
@@ -13289,7 +11443,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13297,14 +11451,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a custom dataset.
+     * @summary Modifies the name of a custom dataset.
+     *  *
+     * @param ModifyDatasetRequest $request ModifyDatasetRequest
      *
-     * @param request - ModifyDatasetRequest
-     * @returns ModifyDatasetResponse
-     *
-     * @param ModifyDatasetRequest $request
-     *
-     * @return ModifyDatasetResponse
+     * @return ModifyDatasetResponse ModifyDatasetResponse
      */
     public function modifyDataset($request)
     {
@@ -13314,43 +11465,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the expiration time and description of a data entry in a custom dataset.
+     * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+     *  *
+     * @param ModifyDatasetItemRequest $request ModifyDatasetItemRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDatasetItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDatasetItemResponse
-     *
-     * @param ModifyDatasetItemRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyDatasetItemResponse
+     * @return ModifyDatasetItemResponse ModifyDatasetItemResponse
      */
     public function modifyDatasetItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->datasetId) {
-            @$query['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
         }
-
-        if (null !== $request->datasetItemId) {
-            @$query['DatasetItemId'] = $request->datasetItemId;
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->expiredTime) {
-            @$query['ExpiredTime'] = $request->expiredTime;
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDatasetItem',
@@ -13363,7 +11505,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13371,14 +11513,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the expiration time and description of a data entry in a custom dataset.
+     * @summary Modifies the expiration time and description of a data entry in a custom dataset.
+     *  *
+     * @param ModifyDatasetItemRequest $request ModifyDatasetItemRequest
      *
-     * @param request - ModifyDatasetItemRequest
-     * @returns ModifyDatasetItemResponse
-     *
-     * @param ModifyDatasetItemRequest $request
-     *
-     * @return ModifyDatasetItemResponse
+     * @return ModifyDatasetItemResponse ModifyDatasetItemResponse
      */
     public function modifyDatasetItem($request)
     {
@@ -13388,77 +11527,60 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of an API Gateway instance.
+     * @summary Modifies the properties of an API Gateway instance.
+     *  *
+     * @param ModifyInstanceAttributeRequest $tmpReq  ModifyInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyInstanceAttributeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->toConnectVpcIpBlock) {
-            $request->toConnectVpcIpBlockShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->toConnectVpcIpBlock, 'ToConnectVpcIpBlock', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->toConnectVpcIpBlock)) {
+            $request->toConnectVpcIpBlockShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->toConnectVpcIpBlock, 'ToConnectVpcIpBlock', 'json');
         }
-
         $query = [];
-        if (null !== $request->deleteVpcIpBlock) {
-            @$query['DeleteVpcIpBlock'] = $request->deleteVpcIpBlock;
+        if (!Utils::isUnset($request->deleteVpcIpBlock)) {
+            $query['DeleteVpcIpBlock'] = $request->deleteVpcIpBlock;
         }
-
-        if (null !== $request->egressIpv6Enable) {
-            @$query['EgressIpv6Enable'] = $request->egressIpv6Enable;
+        if (!Utils::isUnset($request->egressIpv6Enable)) {
+            $query['EgressIpv6Enable'] = $request->egressIpv6Enable;
         }
-
-        if (null !== $request->httpsPolicy) {
-            @$query['HttpsPolicy'] = $request->httpsPolicy;
+        if (!Utils::isUnset($request->httpsPolicy)) {
+            $query['HttpsPolicy'] = $request->httpsPolicy;
         }
-
-        if (null !== $request->IPV6Enabled) {
-            @$query['IPV6Enabled'] = $request->IPV6Enabled;
+        if (!Utils::isUnset($request->IPV6Enabled)) {
+            $query['IPV6Enabled'] = $request->IPV6Enabled;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->intranetSegments) {
-            @$query['IntranetSegments'] = $request->intranetSegments;
+        if (!Utils::isUnset($request->intranetSegments)) {
+            $query['IntranetSegments'] = $request->intranetSegments;
         }
-
-        if (null !== $request->maintainEndTime) {
-            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
         }
-
-        if (null !== $request->maintainStartTime) {
-            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
         }
-
-        if (null !== $request->toConnectVpcIpBlockShrink) {
-            @$query['ToConnectVpcIpBlock'] = $request->toConnectVpcIpBlockShrink;
+        if (!Utils::isUnset($request->toConnectVpcIpBlockShrink)) {
+            $query['ToConnectVpcIpBlock'] = $request->toConnectVpcIpBlockShrink;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vpcSlbIntranetEnable) {
-            @$query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
+        if (!Utils::isUnset($request->vpcSlbIntranetEnable)) {
+            $query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceAttribute',
@@ -13471,7 +11593,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13479,14 +11601,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of an API Gateway instance.
+     * @summary Modifies the properties of an API Gateway instance.
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
-     * @param request - ModifyInstanceAttributeRequest
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $request
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -13496,47 +11615,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the configurations of an API Gateway instance.
+     * @summary Upgrades or downgrades the configurations of an API Gateway instance.
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyInstanceSpecResponse
-     *
-     * @param ModifyInstanceSpecRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceSpec) {
-            @$query['InstanceSpec'] = $request->instanceSpec;
+        if (!Utils::isUnset($request->instanceSpec)) {
+            $query['InstanceSpec'] = $request->instanceSpec;
         }
-
-        if (null !== $request->modifyAction) {
-            @$query['ModifyAction'] = $request->modifyAction;
+        if (!Utils::isUnset($request->modifyAction)) {
+            $query['ModifyAction'] = $request->modifyAction;
         }
-
-        if (null !== $request->skipWaitSwitch) {
-            @$query['SkipWaitSwitch'] = $request->skipWaitSwitch;
+        if (!Utils::isUnset($request->skipWaitSwitch)) {
+            $query['SkipWaitSwitch'] = $request->skipWaitSwitch;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceSpec',
@@ -13549,7 +11658,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13557,14 +11666,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the configurations of an API Gateway instance.
+     * @summary Upgrades or downgrades the configurations of an API Gateway instance.
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
-     * @param request - ModifyInstanceSpecRequest
-     * @returns ModifyInstanceSpecResponse
-     *
-     * @param ModifyInstanceSpecRequest $request
-     *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpec($request)
     {
@@ -13574,47 +11680,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modify instance client VPC config.
+     * @summary Modify instance client VPC config.
+     *  *
+     * @param ModifyInstanceVpcAttributeForConsoleRequest $request ModifyInstanceVpcAttributeForConsoleRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceVpcAttributeForConsoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyInstanceVpcAttributeForConsoleResponse
-     *
-     * @param ModifyInstanceVpcAttributeForConsoleRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return ModifyInstanceVpcAttributeForConsoleResponse
+     * @return ModifyInstanceVpcAttributeForConsoleResponse ModifyInstanceVpcAttributeForConsoleResponse
      */
     public function modifyInstanceVpcAttributeForConsoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->deleteVpcAccess) {
-            @$query['DeleteVpcAccess'] = $request->deleteVpcAccess;
+        if (!Utils::isUnset($request->deleteVpcAccess)) {
+            $query['DeleteVpcAccess'] = $request->deleteVpcAccess;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vpcOwnerId) {
-            @$query['VpcOwnerId'] = $request->vpcOwnerId;
+        if (!Utils::isUnset($request->vpcOwnerId)) {
+            $query['VpcOwnerId'] = $request->vpcOwnerId;
         }
-
-        if (null !== $request->vswitchId) {
-            @$query['VswitchId'] = $request->vswitchId;
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceVpcAttributeForConsole',
@@ -13627,7 +11723,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyInstanceVpcAttributeForConsoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13635,14 +11731,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modify instance client VPC config.
+     * @summary Modify instance client VPC config.
+     *  *
+     * @param ModifyInstanceVpcAttributeForConsoleRequest $request ModifyInstanceVpcAttributeForConsoleRequest
      *
-     * @param request - ModifyInstanceVpcAttributeForConsoleRequest
-     * @returns ModifyInstanceVpcAttributeForConsoleResponse
-     *
-     * @param ModifyInstanceVpcAttributeForConsoleRequest $request
-     *
-     * @return ModifyInstanceVpcAttributeForConsoleResponse
+     * @return ModifyInstanceVpcAttributeForConsoleResponse ModifyInstanceVpcAttributeForConsoleResponse
      */
     public function modifyInstanceVpcAttributeForConsole($request)
     {
@@ -13652,35 +11745,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the VPC domain name policy of an API group.
+     * @summary Modifies the VPC domain name policy of an API group.
+     *  *
+     * @param ModifyIntranetDomainPolicyRequest $request ModifyIntranetDomainPolicyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyIntranetDomainPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyIntranetDomainPolicyResponse
-     *
-     * @param ModifyIntranetDomainPolicyRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyIntranetDomainPolicyResponse
+     * @return ModifyIntranetDomainPolicyResponse ModifyIntranetDomainPolicyResponse
      */
     public function modifyIntranetDomainPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcIntranetEnable) {
-            @$query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
+        if (!Utils::isUnset($request->vpcIntranetEnable)) {
+            $query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyIntranetDomainPolicy',
@@ -13693,7 +11779,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyIntranetDomainPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13701,14 +11787,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the VPC domain name policy of an API group.
+     * @summary Modifies the VPC domain name policy of an API group.
+     *  *
+     * @param ModifyIntranetDomainPolicyRequest $request ModifyIntranetDomainPolicyRequest
      *
-     * @param request - ModifyIntranetDomainPolicyRequest
-     * @returns ModifyIntranetDomainPolicyResponse
-     *
-     * @param ModifyIntranetDomainPolicyRequest $request
-     *
-     * @return ModifyIntranetDomainPolicyResponse
+     * @return ModifyIntranetDomainPolicyResponse ModifyIntranetDomainPolicyResponse
      */
     public function modifyIntranetDomainPolicy($request)
     {
@@ -13718,43 +11801,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+     *  *
+     * @param ModifyIpControlRequest $request ModifyIpControlRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyIpControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyIpControlResponse
-     *
-     * @param ModifyIpControlRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyIpControlResponse
+     * @return ModifyIpControlResponse ModifyIpControlResponse
      */
     public function modifyIpControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->ipControlName) {
-            @$query['IpControlName'] = $request->ipControlName;
+        if (!Utils::isUnset($request->ipControlName)) {
+            $query['IpControlName'] = $request->ipControlName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyIpControl',
@@ -13767,7 +11841,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13775,18 +11849,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+     *  *
+     * @param ModifyIpControlRequest $request ModifyIpControlRequest
      *
-     * @param request - ModifyIpControlRequest
-     * @returns ModifyIpControlResponse
-     *
-     * @param ModifyIpControlRequest $request
-     *
-     * @return ModifyIpControlResponse
+     * @return ModifyIpControlResponse ModifyIpControlResponse
      */
     public function modifyIpControl($request)
     {
@@ -13796,48 +11866,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a policy in an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies a policy in an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The modification immediately takes effect on all the APIs that are bound to the policy.
      * *   This operation causes a full modification of the content of a policy.
+     *  *
+     * @param ModifyIpControlPolicyItemRequest $request ModifyIpControlPolicyItemRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyIpControlPolicyItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyIpControlPolicyItemResponse
-     *
-     * @param ModifyIpControlPolicyItemRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyIpControlPolicyItemResponse
+     * @return ModifyIpControlPolicyItemResponse ModifyIpControlPolicyItemResponse
      */
     public function modifyIpControlPolicyItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->cidrIp) {
-            @$query['CidrIp'] = $request->cidrIp;
+        if (!Utils::isUnset($request->cidrIp)) {
+            $query['CidrIp'] = $request->cidrIp;
         }
-
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->policyItemId) {
-            @$query['PolicyItemId'] = $request->policyItemId;
+        if (!Utils::isUnset($request->policyItemId)) {
+            $query['PolicyItemId'] = $request->policyItemId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyIpControlPolicyItem',
@@ -13850,7 +11910,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13858,19 +11918,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a policy in an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies a policy in an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The modification immediately takes effect on all the APIs that are bound to the policy.
      * *   This operation causes a full modification of the content of a policy.
+     *  *
+     * @param ModifyIpControlPolicyItemRequest $request ModifyIpControlPolicyItemRequest
      *
-     * @param request - ModifyIpControlPolicyItemRequest
-     * @returns ModifyIpControlPolicyItemResponse
-     *
-     * @param ModifyIpControlPolicyItemRequest $request
-     *
-     * @return ModifyIpControlPolicyItemResponse
+     * @return ModifyIpControlPolicyItemResponse ModifyIpControlPolicyItemResponse
      */
     public function modifyIpControlPolicyItem($request)
     {
@@ -13880,39 +11936,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改日志配置.
+     * @summary 修改日志配置
+     *  *
+     * @param ModifyLogConfigRequest $request ModifyLogConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyLogConfigResponse
-     *
-     * @param ModifyLogConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyLogConfigResponse
+     * @return ModifyLogConfigResponse ModifyLogConfigResponse
      */
     public function modifyLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->logType) {
-            @$query['LogType'] = $request->logType;
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->slsLogStore) {
-            @$query['SlsLogStore'] = $request->slsLogStore;
+        if (!Utils::isUnset($request->slsLogStore)) {
+            $query['SlsLogStore'] = $request->slsLogStore;
         }
-
-        if (null !== $request->slsProject) {
-            @$query['SlsProject'] = $request->slsProject;
+        if (!Utils::isUnset($request->slsProject)) {
+            $query['SlsProject'] = $request->slsProject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyLogConfig',
@@ -13925,7 +11973,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13933,14 +11981,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改日志配置.
+     * @summary 修改日志配置
+     *  *
+     * @param ModifyLogConfigRequest $request ModifyLogConfigRequest
      *
-     * @param request - ModifyLogConfigRequest
-     * @returns ModifyLogConfigResponse
-     *
-     * @param ModifyLogConfigRequest $request
-     *
-     * @return ModifyLogConfigResponse
+     * @return ModifyLogConfigResponse ModifyLogConfigResponse
      */
     public function modifyLogConfig($request)
     {
@@ -13950,43 +11995,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Updates the model of an API group.
+     * @summary Updates the model of an API group.
+     *  *
+     * @param ModifyModelRequest $request ModifyModelRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyModelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyModelResponse
-     *
-     * @param ModifyModelRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ModifyModelResponse
+     * @return ModifyModelResponse ModifyModelResponse
      */
     public function modifyModelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->modelName) {
-            @$query['ModelName'] = $request->modelName;
+        if (!Utils::isUnset($request->modelName)) {
+            $query['ModelName'] = $request->modelName;
         }
-
-        if (null !== $request->newModelName) {
-            @$query['NewModelName'] = $request->newModelName;
+        if (!Utils::isUnset($request->newModelName)) {
+            $query['NewModelName'] = $request->newModelName;
         }
-
-        if (null !== $request->schema) {
-            @$query['Schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['Schema'] = $request->schema;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyModel',
@@ -13999,7 +12035,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyModelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14007,14 +12043,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Updates the model of an API group.
+     * @summary Updates the model of an API group.
+     *  *
+     * @param ModifyModelRequest $request ModifyModelRequest
      *
-     * @param request - ModifyModelRequest
-     * @returns ModifyModelResponse
-     *
-     * @param ModifyModelRequest $request
-     *
-     * @return ModifyModelResponse
+     * @return ModifyModelResponse ModifyModelResponse
      */
     public function modifyModel($request)
     {
@@ -14024,51 +12057,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies the information of a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The name of the plug-in must be unique.
+     *  *
+     * @param ModifyPluginRequest $request ModifyPluginRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyPluginRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyPluginResponse
-     *
-     * @param ModifyPluginRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ModifyPluginResponse
+     * @return ModifyPluginResponse ModifyPluginResponse
      */
     public function modifyPluginWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->pluginData) {
-            @$query['PluginData'] = $request->pluginData;
+        if (!Utils::isUnset($request->pluginData)) {
+            $query['PluginData'] = $request->pluginData;
         }
-
-        if (null !== $request->pluginId) {
-            @$query['PluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
         }
-
-        if (null !== $request->pluginName) {
-            @$query['PluginName'] = $request->pluginName;
+        if (!Utils::isUnset($request->pluginName)) {
+            $query['PluginName'] = $request->pluginName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyPlugin',
@@ -14081,7 +12103,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyPluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14089,18 +12111,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a plug-in.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Modifies the information of a plug-in.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The name of the plug-in must be unique.
+     *  *
+     * @param ModifyPluginRequest $request ModifyPluginRequest
      *
-     * @param request - ModifyPluginRequest
-     * @returns ModifyPluginResponse
-     *
-     * @param ModifyPluginRequest $request
-     *
-     * @return ModifyPluginResponse
+     * @return ModifyPluginResponse ModifyPluginResponse
      */
     public function modifyPlugin($request)
     {
@@ -14110,49 +12128,39 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Modifies a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
      * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifySignatureRequest $request ModifySignatureRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifySignatureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifySignatureResponse
-     *
-     * @param ModifySignatureRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifySignatureResponse
+     * @return ModifySignatureResponse ModifySignatureResponse
      */
     public function modifySignatureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
-        if (null !== $request->signatureKey) {
-            @$query['SignatureKey'] = $request->signatureKey;
+        if (!Utils::isUnset($request->signatureKey)) {
+            $query['SignatureKey'] = $request->signatureKey;
         }
-
-        if (null !== $request->signatureName) {
-            @$query['SignatureName'] = $request->signatureName;
+        if (!Utils::isUnset($request->signatureName)) {
+            $query['SignatureName'] = $request->signatureName;
         }
-
-        if (null !== $request->signatureSecret) {
-            @$query['SignatureSecret'] = $request->signatureSecret;
+        if (!Utils::isUnset($request->signatureSecret)) {
+            $query['SignatureSecret'] = $request->signatureSecret;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySignature',
@@ -14165,7 +12173,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifySignatureResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14173,20 +12181,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a backend signature key.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Modifies a backend signature key.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
      * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifySignatureRequest $request ModifySignatureRequest
      *
-     * @param request - ModifySignatureRequest
-     * @returns ModifySignatureResponse
-     *
-     * @param ModifySignatureRequest $request
-     *
-     * @return ModifySignatureResponse
+     * @return ModifySignatureResponse ModifySignatureResponse
      */
     public function modifySignature($request)
     {
@@ -14196,60 +12200,47 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a custom throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Modifies the settings of a custom throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The modifications take effect on the bound APIs instantly.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyTrafficControlRequest $request ModifyTrafficControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyTrafficControlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyTrafficControlResponse
-     *
-     * @param ModifyTrafficControlRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyTrafficControlResponse
+     * @return ModifyTrafficControlResponse ModifyTrafficControlResponse
      */
     public function modifyTrafficControlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiDefault) {
-            @$query['ApiDefault'] = $request->apiDefault;
+        if (!Utils::isUnset($request->apiDefault)) {
+            $query['ApiDefault'] = $request->apiDefault;
         }
-
-        if (null !== $request->appDefault) {
-            @$query['AppDefault'] = $request->appDefault;
+        if (!Utils::isUnset($request->appDefault)) {
+            $query['AppDefault'] = $request->appDefault;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
-        if (null !== $request->trafficControlName) {
-            @$query['TrafficControlName'] = $request->trafficControlName;
+        if (!Utils::isUnset($request->trafficControlName)) {
+            $query['TrafficControlName'] = $request->trafficControlName;
         }
-
-        if (null !== $request->trafficControlUnit) {
-            @$query['TrafficControlUnit'] = $request->trafficControlUnit;
+        if (!Utils::isUnset($request->trafficControlUnit)) {
+            $query['TrafficControlUnit'] = $request->trafficControlUnit;
         }
-
-        if (null !== $request->userDefault) {
-            @$query['UserDefault'] = $request->userDefault;
+        if (!Utils::isUnset($request->userDefault)) {
+            $query['UserDefault'] = $request->userDefault;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyTrafficControl',
@@ -14262,7 +12253,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14270,19 +12261,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a custom throttling policy.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Modifies the settings of a custom throttling policy.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The modifications take effect on the bound APIs instantly.
      * *   The QPS limit on this operation is 50 per user.
+     *  *
+     * @param ModifyTrafficControlRequest $request ModifyTrafficControlRequest
      *
-     * @param request - ModifyTrafficControlRequest
-     * @returns ModifyTrafficControlResponse
-     *
-     * @param ModifyTrafficControlRequest $request
-     *
-     * @return ModifyTrafficControlResponse
+     * @return ModifyTrafficControlResponse ModifyTrafficControlResponse
      */
     public function modifyTrafficControl($request)
     {
@@ -14292,59 +12279,46 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     *  *
+     * @param ModifyVpcAccessAndUpdateApisRequest $request ModifyVpcAccessAndUpdateApisRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcAccessAndUpdateApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyVpcAccessAndUpdateApisResponse
-     *
-     * @param ModifyVpcAccessAndUpdateApisRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyVpcAccessAndUpdateApisResponse
+     * @return ModifyVpcAccessAndUpdateApisResponse ModifyVpcAccessAndUpdateApisResponse
      */
     public function modifyVpcAccessAndUpdateApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->needBatchWork) {
-            @$query['NeedBatchWork'] = $request->needBatchWork;
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->refresh) {
-            @$query['Refresh'] = $request->refresh;
+        if (!Utils::isUnset($request->refresh)) {
+            $query['Refresh'] = $request->refresh;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vpcTargetHostName) {
-            @$query['VpcTargetHostName'] = $request->vpcTargetHostName;
+        if (!Utils::isUnset($request->vpcTargetHostName)) {
+            $query['VpcTargetHostName'] = $request->vpcTargetHostName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyVpcAccessAndUpdateApis',
@@ -14357,7 +12331,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyVpcAccessAndUpdateApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14365,14 +12339,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     * @summary Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     *  *
+     * @param ModifyVpcAccessAndUpdateApisRequest $request ModifyVpcAccessAndUpdateApisRequest
      *
-     * @param request - ModifyVpcAccessAndUpdateApisRequest
-     * @returns ModifyVpcAccessAndUpdateApisResponse
-     *
-     * @param ModifyVpcAccessAndUpdateApisRequest $request
-     *
-     * @return ModifyVpcAccessAndUpdateApisResponse
+     * @return ModifyVpcAccessAndUpdateApisResponse ModifyVpcAccessAndUpdateApisResponse
      */
     public function modifyVpcAccessAndUpdateApis($request)
     {
@@ -14382,15 +12353,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 开通API网关服务
+     * @summary 开通API网关服务
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - OpenApiGatewayServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns OpenApiGatewayServiceResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return OpenApiGatewayServiceResponse
+     * @return OpenApiGatewayServiceResponse OpenApiGatewayServiceResponse
      */
     public function openApiGatewayServiceWithOptions($runtime)
     {
@@ -14406,7 +12373,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return OpenApiGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14414,11 +12381,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 开通API网关服务
-     *
-     * @returns OpenApiGatewayServiceResponse
-     *
-     * @return OpenApiGatewayServiceResponse
+     * @summary 开通API网关服务
+     *  *
+     * @return OpenApiGatewayServiceResponse OpenApiGatewayServiceResponse
      */
     public function openApiGatewayService()
     {
@@ -14428,31 +12393,25 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the request logs of a user.
+     * @summary Queries the request logs of a user.
+     *  *
+     * @param QueryRequestLogsRequest $request QueryRequestLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryRequestLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns QueryRequestLogsResponse
-     *
-     * @param QueryRequestLogsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryRequestLogsResponse
+     * @return QueryRequestLogsResponse QueryRequestLogsResponse
      */
     public function queryRequestLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->requestLogId) {
-            @$query['RequestLogId'] = $request->requestLogId;
+        if (!Utils::isUnset($request->requestLogId)) {
+            $query['RequestLogId'] = $request->requestLogId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryRequestLogs',
@@ -14465,7 +12424,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryRequestLogsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14473,14 +12432,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the request logs of a user.
+     * @summary Queries the request logs of a user.
+     *  *
+     * @param QueryRequestLogsRequest $request QueryRequestLogsRequest
      *
-     * @param request - QueryRequestLogsRequest
-     * @returns QueryRequestLogsResponse
-     *
-     * @param QueryRequestLogsRequest $request
-     *
-     * @return QueryRequestLogsResponse
+     * @return QueryRequestLogsResponse QueryRequestLogsResponse
      */
     public function queryRequestLogs($request)
     {
@@ -14490,41 +12446,33 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Reactivates a custom domain name whose validity status is Abnormal.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Reactivates a custom domain name whose validity status is Abnormal.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
      * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
      * *   You can call this operation to reactivate the domain name to resume normal access.
+     *  *
+     * @param ReactivateDomainRequest $request ReactivateDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReactivateDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ReactivateDomainResponse
-     *
-     * @param ReactivateDomainRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ReactivateDomainResponse
+     * @return ReactivateDomainResponse ReactivateDomainResponse
      */
     public function reactivateDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReactivateDomain',
@@ -14537,7 +12485,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ReactivateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14545,20 +12493,16 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Reactivates a custom domain name whose validity status is Abnormal.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Reactivates a custom domain name whose validity status is Abnormal.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
      * *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to call APIs.
      * *   You can call this operation to reactivate the domain name to resume normal access.
+     *  *
+     * @param ReactivateDomainRequest $request ReactivateDomainRequest
      *
-     * @param request - ReactivateDomainRequest
-     * @returns ReactivateDomainResponse
-     *
-     * @param ReactivateDomainRequest $request
-     *
-     * @return ReactivateDomainResponse
+     * @return ReactivateDomainResponse ReactivateDomainResponse
      */
     public function reactivateDomain($request)
     {
@@ -14568,35 +12512,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除访问控制策略中IP条目.
+     * @summary 删除访问控制策略中IP条目
+     *  *
+     * @param RemoveAccessControlListEntryRequest $request RemoveAccessControlListEntryRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveAccessControlListEntryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveAccessControlListEntryResponse
-     *
-     * @param RemoveAccessControlListEntryRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RemoveAccessControlListEntryResponse
+     * @return RemoveAccessControlListEntryResponse RemoveAccessControlListEntryResponse
      */
     public function removeAccessControlListEntryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclEntrys) {
-            @$query['AclEntrys'] = $request->aclEntrys;
+        if (!Utils::isUnset($request->aclEntrys)) {
+            $query['AclEntrys'] = $request->aclEntrys;
         }
-
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveAccessControlListEntry',
@@ -14609,7 +12546,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveAccessControlListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14617,14 +12554,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除访问控制策略中IP条目.
+     * @summary 删除访问控制策略中IP条目
+     *  *
+     * @param RemoveAccessControlListEntryRequest $request RemoveAccessControlListEntryRequest
      *
-     * @param request - RemoveAccessControlListEntryRequest
-     * @returns RemoveAccessControlListEntryResponse
-     *
-     * @param RemoveAccessControlListEntryRequest $request
-     *
-     * @return RemoveAccessControlListEntryResponse
+     * @return RemoveAccessControlListEntryResponse RemoveAccessControlListEntryResponse
      */
     public function removeAccessControlListEntry($request)
     {
@@ -14634,41 +12568,33 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on API products from an application.
+     * @summary Revokes permissions on API products from an application.
+     *  *
+     * @param RemoveApiProductsAuthoritiesRequest $tmpReq  RemoveApiProductsAuthoritiesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - RemoveApiProductsAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveApiProductsAuthoritiesResponse
-     *
-     * @param RemoveApiProductsAuthoritiesRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RemoveApiProductsAuthoritiesResponse
+     * @return RemoveApiProductsAuthoritiesResponse RemoveApiProductsAuthoritiesResponse
      */
     public function removeApiProductsAuthoritiesWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new RemoveApiProductsAuthoritiesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->apiProductIds) {
-            $request->apiProductIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiProductIds, 'ApiProductIds', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->apiProductIds)) {
+            $request->apiProductIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiProductIds, 'ApiProductIds', 'simple');
         }
-
         $query = [];
-        if (null !== $request->apiProductIdsShrink) {
-            @$query['ApiProductIds'] = $request->apiProductIdsShrink;
+        if (!Utils::isUnset($request->apiProductIdsShrink)) {
+            $query['ApiProductIds'] = $request->apiProductIdsShrink;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveApiProductsAuthorities',
@@ -14681,7 +12607,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveApiProductsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14689,14 +12615,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on API products from an application.
+     * @summary Revokes permissions on API products from an application.
+     *  *
+     * @param RemoveApiProductsAuthoritiesRequest $request RemoveApiProductsAuthoritiesRequest
      *
-     * @param request - RemoveApiProductsAuthoritiesRequest
-     * @returns RemoveApiProductsAuthoritiesResponse
-     *
-     * @param RemoveApiProductsAuthoritiesRequest $request
-     *
-     * @return RemoveApiProductsAuthoritiesResponse
+     * @return RemoveApiProductsAuthoritiesResponse RemoveApiProductsAuthoritiesResponse
      */
     public function removeApiProductsAuthorities($request)
     {
@@ -14706,51 +12629,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on multiple APIs from a specified application.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Revokes the access permissions on multiple APIs from a specified application.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     *  *
+     * @param RemoveApisAuthoritiesRequest $request RemoveApisAuthoritiesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveApisAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveApisAuthoritiesResponse
-     *
-     * @param RemoveApisAuthoritiesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RemoveApisAuthoritiesResponse
+     * @return RemoveApisAuthoritiesResponse RemoveApisAuthoritiesResponse
      */
     public function removeApisAuthoritiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveApisAuthorities',
@@ -14763,7 +12675,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveApisAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14771,18 +12683,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on multiple APIs from a specified application.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Revokes the access permissions on multiple APIs from a specified application.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     *  *
+     * @param RemoveApisAuthoritiesRequest $request RemoveApisAuthoritiesRequest
      *
-     * @param request - RemoveApisAuthoritiesRequest
-     * @returns RemoveApisAuthoritiesResponse
-     *
-     * @param RemoveApisAuthoritiesRequest $request
-     *
-     * @return RemoveApisAuthoritiesResponse
+     * @return RemoveApisAuthoritiesResponse RemoveApisAuthoritiesResponse
      */
     public function removeApisAuthorities($request)
     {
@@ -14792,47 +12700,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     *  *
+     * @param RemoveAppsAuthoritiesRequest $request RemoveAppsAuthoritiesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveAppsAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveAppsAuthoritiesResponse
-     *
-     * @param RemoveAppsAuthoritiesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RemoveAppsAuthoritiesResponse
+     * @return RemoveAppsAuthoritiesResponse RemoveAppsAuthoritiesResponse
      */
     public function removeAppsAuthoritiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->appIds) {
-            @$query['AppIds'] = $request->appIds;
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveAppsAuthorities',
@@ -14845,7 +12743,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveAppsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14853,18 +12751,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     *  *
+     * @param RemoveAppsAuthoritiesRequest $request RemoveAppsAuthoritiesRequest
      *
-     * @param request - RemoveAppsAuthoritiesRequest
-     * @returns RemoveAppsAuthoritiesResponse
-     *
-     * @param RemoveAppsAuthoritiesRequest $request
-     *
-     * @return RemoveAppsAuthoritiesResponse
+     * @return RemoveAppsAuthoritiesResponse RemoveAppsAuthoritiesResponse
      */
     public function removeAppsAuthorities($request)
     {
@@ -14874,47 +12768,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds an API from an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Unbinds an API from an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+     *  *
+     * @param RemoveIpControlApisRequest $request RemoveIpControlApisRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveIpControlApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveIpControlApisResponse
-     *
-     * @param RemoveIpControlApisRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RemoveIpControlApisResponse
+     * @return RemoveIpControlApisResponse RemoveIpControlApisResponse
      */
     public function removeIpControlApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveIpControlApis',
@@ -14927,7 +12811,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveIpControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14935,18 +12819,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds an API from an access control list (ACL).
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Unbinds an API from an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+     *  *
+     * @param RemoveIpControlApisRequest $request RemoveIpControlApisRequest
      *
-     * @param request - RemoveIpControlApisRequest
-     * @returns RemoveIpControlApisResponse
-     *
-     * @param RemoveIpControlApisRequest $request
-     *
-     * @return RemoveIpControlApisResponse
+     * @return RemoveIpControlApisResponse RemoveIpControlApisResponse
      */
     public function removeIpControlApis($request)
     {
@@ -14956,38 +12836,30 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Removes one or more policies from an access control list (ACL).
+     * @summary Removes one or more policies from an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param RemoveIpControlPolicyItemRequest $request RemoveIpControlPolicyItemRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - RemoveIpControlPolicyItemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveIpControlPolicyItemResponse
-     *
-     * @param RemoveIpControlPolicyItemRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RemoveIpControlPolicyItemResponse
+     * @return RemoveIpControlPolicyItemResponse RemoveIpControlPolicyItemResponse
      */
     public function removeIpControlPolicyItemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->policyItemIds) {
-            @$query['PolicyItemIds'] = $request->policyItemIds;
+        if (!Utils::isUnset($request->policyItemIds)) {
+            $query['PolicyItemIds'] = $request->policyItemIds;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveIpControlPolicyItem',
@@ -15000,7 +12872,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15008,17 +12880,13 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Removes one or more policies from an access control list (ACL).
+     * @summary Removes one or more policies from an access control list (ACL).
+     *  *
+     * @description *   This operation is intended for API providers.
+     *  *
+     * @param RemoveIpControlPolicyItemRequest $request RemoveIpControlPolicyItemRequest
      *
-     * @remarks
-     *   This operation is intended for API providers.
-     *
-     * @param request - RemoveIpControlPolicyItemRequest
-     * @returns RemoveIpControlPolicyItemResponse
-     *
-     * @param RemoveIpControlPolicyItemRequest $request
-     *
-     * @return RemoveIpControlPolicyItemResponse
+     * @return RemoveIpControlPolicyItemResponse RemoveIpControlPolicyItemResponse
      */
     public function removeIpControlPolicyItem($request)
     {
@@ -15028,47 +12896,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a backend signature key from APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Unbinds a backend signature key from APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
+     *  *
+     * @param RemoveSignatureApisRequest $request RemoveSignatureApisRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveSignatureApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveSignatureApisResponse
-     *
-     * @param RemoveSignatureApisRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RemoveSignatureApisResponse
+     * @return RemoveSignatureApisResponse RemoveSignatureApisResponse
      */
     public function removeSignatureApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveSignatureApis',
@@ -15081,7 +12939,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveSignatureApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15089,18 +12947,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a backend signature key from APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Unbinds a backend signature key from APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
+     *  *
+     * @param RemoveSignatureApisRequest $request RemoveSignatureApisRequest
      *
-     * @param request - RemoveSignatureApisRequest
-     * @returns RemoveSignatureApisResponse
-     *
-     * @param RemoveSignatureApisRequest $request
-     *
-     * @return RemoveSignatureApisResponse
+     * @return RemoveSignatureApisResponse RemoveSignatureApisResponse
      */
     public function removeSignatureApis($request)
     {
@@ -15110,47 +12964,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a specified throttling policy from APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Unbinds a specified throttling policy from APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+     *  *
+     * @param RemoveTrafficControlApisRequest $request RemoveTrafficControlApisRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveTrafficControlApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveTrafficControlApisResponse
-     *
-     * @param RemoveTrafficControlApisRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return RemoveTrafficControlApisResponse
+     * @return RemoveTrafficControlApisResponse RemoveTrafficControlApisResponse
      */
     public function removeTrafficControlApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveTrafficControlApis',
@@ -15163,7 +13007,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveTrafficControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15171,18 +13015,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a specified throttling policy from APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Unbinds a specified throttling policy from APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+     *  *
+     * @param RemoveTrafficControlApisRequest $request RemoveTrafficControlApisRequest
      *
-     * @param request - RemoveTrafficControlApisRequest
-     * @returns RemoveTrafficControlApisResponse
-     *
-     * @param RemoveTrafficControlApisRequest $request
-     *
-     * @return RemoveTrafficControlApisResponse
+     * @return RemoveTrafficControlApisResponse RemoveTrafficControlApisResponse
      */
     public function removeTrafficControlApis($request)
     {
@@ -15192,48 +13032,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC authorization without unpublishing the associated APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Revokes the permissions of API Gateway to access your VPC instance.
      * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+     *  *
+     * @param RemoveVpcAccessRequest $request RemoveVpcAccessRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveVpcAccessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveVpcAccessResponse
-     *
-     * @param RemoveVpcAccessRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RemoveVpcAccessResponse
+     * @return RemoveVpcAccessResponse RemoveVpcAccessResponse
      */
     public function removeVpcAccessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->needBatchWork) {
-            @$query['NeedBatchWork'] = $request->needBatchWork;
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveVpcAccess',
@@ -15246,7 +13076,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15254,19 +13084,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC authorization without unpublishing the associated APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Deletes a VPC authorization without unpublishing the associated APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   Revokes the permissions of API Gateway to access your VPC instance.
      * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
+     *  *
+     * @param RemoveVpcAccessRequest $request RemoveVpcAccessRequest
      *
-     * @param request - RemoveVpcAccessRequest
-     * @returns RemoveVpcAccessResponse
-     *
-     * @param RemoveVpcAccessRequest $request
-     *
-     * @return RemoveVpcAccessResponse
+     * @return RemoveVpcAccessResponse RemoveVpcAccessResponse
      */
     public function removeVpcAccess($request)
     {
@@ -15276,43 +13102,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除VPC授权并下线关联API.
+     * @summary 删除VPC授权并下线关联API
+     *  *
+     * @param RemoveVpcAccessAndAbolishApisRequest $request RemoveVpcAccessAndAbolishApisRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveVpcAccessAndAbolishApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveVpcAccessAndAbolishApisResponse
-     *
-     * @param RemoveVpcAccessAndAbolishApisRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return RemoveVpcAccessAndAbolishApisResponse
+     * @return RemoveVpcAccessAndAbolishApisResponse RemoveVpcAccessAndAbolishApisResponse
      */
     public function removeVpcAccessAndAbolishApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->needBatchWork) {
-            @$query['NeedBatchWork'] = $request->needBatchWork;
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveVpcAccessAndAbolishApis',
@@ -15325,7 +13142,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveVpcAccessAndAbolishApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15333,14 +13150,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除VPC授权并下线关联API.
+     * @summary 删除VPC授权并下线关联API
+     *  *
+     * @param RemoveVpcAccessAndAbolishApisRequest $request RemoveVpcAccessAndAbolishApisRequest
      *
-     * @param request - RemoveVpcAccessAndAbolishApisRequest
-     * @returns RemoveVpcAccessAndAbolishApisResponse
-     *
-     * @param RemoveVpcAccessAndAbolishApisRequest $request
-     *
-     * @return RemoveVpcAccessAndAbolishApisResponse
+     * @return RemoveVpcAccessAndAbolishApisResponse RemoveVpcAccessAndAbolishApisResponse
      */
     public function removeVpcAccessAndAbolishApis($request)
     {
@@ -15350,35 +13164,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the AppCode of an application. You can call this operation only once per minute.
+     * @summary Resets the AppCode of an application. You can call this operation only once per minute.
+     *  *
+     * @param ResetAppCodeRequest $request ResetAppCodeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetAppCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResetAppCodeResponse
-     *
-     * @param ResetAppCodeRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ResetAppCodeResponse
+     * @return ResetAppCodeResponse ResetAppCodeResponse
      */
     public function resetAppCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appCode) {
-            @$query['AppCode'] = $request->appCode;
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
         }
-
-        if (null !== $request->newAppCode) {
-            @$query['NewAppCode'] = $request->newAppCode;
+        if (!Utils::isUnset($request->newAppCode)) {
+            $query['NewAppCode'] = $request->newAppCode;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAppCode',
@@ -15391,7 +13198,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15399,14 +13206,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the AppCode of an application. You can call this operation only once per minute.
+     * @summary Resets the AppCode of an application. You can call this operation only once per minute.
+     *  *
+     * @param ResetAppCodeRequest $request ResetAppCodeRequest
      *
-     * @param request - ResetAppCodeRequest
-     * @returns ResetAppCodeResponse
-     *
-     * @param ResetAppCodeRequest $request
-     *
-     * @return ResetAppCodeResponse
+     * @return ResetAppCodeResponse ResetAppCodeResponse
      */
     public function resetAppCode($request)
     {
@@ -15416,44 +13220,35 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the key of an application.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Resets the key of an application.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
      * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
+     *  *
+     * @param ResetAppSecretRequest $request ResetAppSecretRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetAppSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResetAppSecretResponse
-     *
-     * @param ResetAppSecretRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ResetAppSecretResponse
+     * @return ResetAppSecretResponse ResetAppSecretResponse
      */
     public function resetAppSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appKey) {
-            @$query['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
         }
-
-        if (null !== $request->newAppKey) {
-            @$query['NewAppKey'] = $request->newAppKey;
+        if (!Utils::isUnset($request->newAppKey)) {
+            $query['NewAppKey'] = $request->newAppKey;
         }
-
-        if (null !== $request->newAppSecret) {
-            @$query['NewAppSecret'] = $request->newAppSecret;
+        if (!Utils::isUnset($request->newAppSecret)) {
+            $query['NewAppSecret'] = $request->newAppSecret;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAppSecret',
@@ -15466,7 +13261,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15474,19 +13269,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the key of an application.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Resets the key of an application.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   A new secret is automatically generated after you have called this operation. This secret cannot be customized.
      * *   The results returned by this operation do not contain the application secret. You can obtain the secret by calling DescribeAppSecurity.
+     *  *
+     * @param ResetAppSecretRequest $request ResetAppSecretRequest
      *
-     * @param request - ResetAppSecretRequest
-     * @returns ResetAppSecretResponse
-     *
-     * @param ResetAppSecretRequest $request
-     *
-     * @return ResetAppSecretResponse
+     * @return ResetAppSecretResponse ResetAppSecretResponse
      */
     public function resetAppSecret($request)
     {
@@ -15496,35 +13287,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据APP生成SDK.
+     * @summary 根据APP生成SDK
+     *  *
+     * @param SdkGenerateByAppRequest $request SdkGenerateByAppRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SdkGenerateByAppRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SdkGenerateByAppResponse
-     *
-     * @param SdkGenerateByAppRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SdkGenerateByAppResponse
+     * @return SdkGenerateByAppResponse SdkGenerateByAppResponse
      */
     public function sdkGenerateByAppWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SdkGenerateByApp',
@@ -15537,7 +13321,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SdkGenerateByAppResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15545,14 +13329,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据APP生成SDK.
+     * @summary 根据APP生成SDK
+     *  *
+     * @param SdkGenerateByAppRequest $request SdkGenerateByAppRequest
      *
-     * @param request - SdkGenerateByAppRequest
-     * @returns SdkGenerateByAppResponse
-     *
-     * @param SdkGenerateByAppRequest $request
-     *
-     * @return SdkGenerateByAppResponse
+     * @return SdkGenerateByAppResponse SdkGenerateByAppResponse
      */
     public function sdkGenerateByApp($request)
     {
@@ -15562,35 +13343,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 生成与App关联的API的SDK.
+     * @summary 生成与App关联的API的SDK
+     *  *
+     * @param SdkGenerateByAppForRegionRequest $request SdkGenerateByAppForRegionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SdkGenerateByAppForRegionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SdkGenerateByAppForRegionResponse
-     *
-     * @param SdkGenerateByAppForRegionRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SdkGenerateByAppForRegionResponse
+     * @return SdkGenerateByAppForRegionResponse SdkGenerateByAppForRegionResponse
      */
     public function sdkGenerateByAppForRegionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SdkGenerateByAppForRegion',
@@ -15603,7 +13377,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SdkGenerateByAppForRegionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15611,14 +13385,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 生成与App关联的API的SDK.
+     * @summary 生成与App关联的API的SDK
+     *  *
+     * @param SdkGenerateByAppForRegionRequest $request SdkGenerateByAppForRegionRequest
      *
-     * @param request - SdkGenerateByAppForRegionRequest
-     * @returns SdkGenerateByAppForRegionResponse
-     *
-     * @param SdkGenerateByAppForRegionRequest $request
-     *
-     * @return SdkGenerateByAppForRegionResponse
+     * @return SdkGenerateByAppForRegionResponse SdkGenerateByAppForRegionResponse
      */
     public function sdkGenerateByAppForRegion($request)
     {
@@ -15628,35 +13399,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据分组生成SDK.
+     * @summary 根据分组生成SDK
+     *  *
+     * @param SdkGenerateByGroupRequest $request SdkGenerateByGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SdkGenerateByGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SdkGenerateByGroupResponse
-     *
-     * @param SdkGenerateByGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SdkGenerateByGroupResponse
+     * @return SdkGenerateByGroupResponse SdkGenerateByGroupResponse
      */
     public function sdkGenerateByGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SdkGenerateByGroup',
@@ -15669,7 +13433,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SdkGenerateByGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15677,14 +13441,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据分组生成SDK.
+     * @summary 根据分组生成SDK
+     *  *
+     * @param SdkGenerateByGroupRequest $request SdkGenerateByGroupRequest
      *
-     * @param request - SdkGenerateByGroupRequest
-     * @returns SdkGenerateByGroupResponse
-     *
-     * @param SdkGenerateByGroupRequest $request
-     *
-     * @return SdkGenerateByGroupResponse
+     * @return SdkGenerateByGroupResponse SdkGenerateByGroupResponse
      */
     public function sdkGenerateByGroup($request)
     {
@@ -15694,35 +13455,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改访问控制策略的名称.
+     * @summary 修改访问控制策略的名称
+     *  *
+     * @param SetAccessControlListAttributeRequest $request SetAccessControlListAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetAccessControlListAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetAccessControlListAttributeResponse
-     *
-     * @param SetAccessControlListAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return SetAccessControlListAttributeResponse
+     * @return SetAccessControlListAttributeResponse SetAccessControlListAttributeResponse
      */
     public function setAccessControlListAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->aclName) {
-            @$query['AclName'] = $request->aclName;
+        if (!Utils::isUnset($request->aclName)) {
+            $query['AclName'] = $request->aclName;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetAccessControlListAttribute',
@@ -15735,7 +13489,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetAccessControlListAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15743,14 +13497,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改访问控制策略的名称.
+     * @summary 修改访问控制策略的名称
+     *  *
+     * @param SetAccessControlListAttributeRequest $request SetAccessControlListAttributeRequest
      *
-     * @param request - SetAccessControlListAttributeRequest
-     * @returns SetAccessControlListAttributeResponse
-     *
-     * @param SetAccessControlListAttributeRequest $request
-     *
-     * @return SetAccessControlListAttributeResponse
+     * @return SetAccessControlListAttributeResponse SetAccessControlListAttributeResponse
      */
     public function setAccessControlListAttribute($request)
     {
@@ -15760,49 +13511,39 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Grants permissions on API products to an application.
+     * @summary Grants permissions on API products to an application.
+     *  *
+     * @param SetApiProductsAuthoritiesRequest $tmpReq  SetApiProductsAuthoritiesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SetApiProductsAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetApiProductsAuthoritiesResponse
-     *
-     * @param SetApiProductsAuthoritiesRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SetApiProductsAuthoritiesResponse
+     * @return SetApiProductsAuthoritiesResponse SetApiProductsAuthoritiesResponse
      */
     public function setApiProductsAuthoritiesWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SetApiProductsAuthoritiesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->apiProductIds) {
-            $request->apiProductIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiProductIds, 'ApiProductIds', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->apiProductIds)) {
+            $request->apiProductIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->apiProductIds, 'ApiProductIds', 'simple');
         }
-
         $query = [];
-        if (null !== $request->apiProductIdsShrink) {
-            @$query['ApiProductIds'] = $request->apiProductIdsShrink;
+        if (!Utils::isUnset($request->apiProductIdsShrink)) {
+            $query['ApiProductIds'] = $request->apiProductIdsShrink;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->authValidTime) {
-            @$query['AuthValidTime'] = $request->authValidTime;
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApiProductsAuthorities',
@@ -15815,7 +13556,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetApiProductsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15823,14 +13564,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Grants permissions on API products to an application.
+     * @summary Grants permissions on API products to an application.
+     *  *
+     * @param SetApiProductsAuthoritiesRequest $request SetApiProductsAuthoritiesRequest
      *
-     * @param request - SetApiProductsAuthoritiesRequest
-     * @returns SetApiProductsAuthoritiesResponse
-     *
-     * @param SetApiProductsAuthoritiesRequest $request
-     *
-     * @return SetApiProductsAuthoritiesResponse
+     * @return SetApiProductsAuthoritiesResponse SetApiProductsAuthoritiesResponse
      */
     public function setApiProductsAuthorities($request)
     {
@@ -15840,56 +13578,44 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Authorizes a specified application to call multiple APIs.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Authorizes a specified application to call multiple APIs.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   API providers can authorize all applications to call their APIs.
      * *   API callers can authorize their own applications to call the APIs that they have purchased.
+     *  *
+     * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetApisAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetApisAuthoritiesResponse
-     *
-     * @param SetApisAuthoritiesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetApisAuthoritiesResponse
+     * @return SetApisAuthoritiesResponse SetApisAuthoritiesResponse
      */
     public function setApisAuthoritiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->authValidTime) {
-            @$query['AuthValidTime'] = $request->authValidTime;
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApisAuthorities',
@@ -15902,7 +13628,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetApisAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15910,19 +13636,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Authorizes a specified application to call multiple APIs.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Authorizes a specified application to call multiple APIs.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   API providers can authorize all applications to call their APIs.
      * *   API callers can authorize their own applications to call the APIs that they have purchased.
+     *  *
+     * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
      *
-     * @param request - SetApisAuthoritiesRequest
-     * @returns SetApisAuthoritiesResponse
-     *
-     * @param SetApisAuthoritiesRequest $request
-     *
-     * @return SetApisAuthoritiesResponse
+     * @return SetApisAuthoritiesResponse SetApisAuthoritiesResponse
      */
     public function setApisAuthorities($request)
     {
@@ -15932,43 +13654,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Authorizes multiple applications to call APIs in an API product.
+     * @summary Authorizes multiple applications to call APIs in an API product.
+     *  *
+     * @param SetAppsAuthToApiProductRequest $request SetAppsAuthToApiProductRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetAppsAuthToApiProductRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetAppsAuthToApiProductResponse
-     *
-     * @param SetAppsAuthToApiProductRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return SetAppsAuthToApiProductResponse
+     * @return SetAppsAuthToApiProductResponse SetAppsAuthToApiProductResponse
      */
     public function setAppsAuthToApiProductWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiProductId) {
-            @$query['ApiProductId'] = $request->apiProductId;
+        if (!Utils::isUnset($request->apiProductId)) {
+            $query['ApiProductId'] = $request->apiProductId;
         }
-
-        if (null !== $request->appIds) {
-            @$query['AppIds'] = $request->appIds;
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
         }
-
-        if (null !== $request->authValidTime) {
-            @$query['AuthValidTime'] = $request->authValidTime;
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetAppsAuthToApiProduct',
@@ -15981,7 +13694,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetAppsAuthToApiProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -15989,14 +13702,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Authorizes multiple applications to call APIs in an API product.
+     * @summary Authorizes multiple applications to call APIs in an API product.
+     *  *
+     * @param SetAppsAuthToApiProductRequest $request SetAppsAuthToApiProductRequest
      *
-     * @param request - SetAppsAuthToApiProductRequest
-     * @returns SetAppsAuthToApiProductResponse
-     *
-     * @param SetAppsAuthToApiProductRequest $request
-     *
-     * @return SetAppsAuthToApiProductResponse
+     * @return SetAppsAuthToApiProductResponse SetAppsAuthToApiProductResponse
      */
     public function setAppsAuthToApiProduct($request)
     {
@@ -16006,56 +13716,44 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Grants access permissions on a specified API to multiple applications.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Grants access permissions on a specified API to multiple applications.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   API providers can authorize all applications to call their APIs.
      * *   API callers can authorize their own applications to call the APIs that they have purchased.
+     *  *
+     * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetAppsAuthoritiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetAppsAuthoritiesResponse
-     *
-     * @param SetAppsAuthoritiesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetAppsAuthoritiesResponse
+     * @return SetAppsAuthoritiesResponse SetAppsAuthoritiesResponse
      */
     public function setAppsAuthoritiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->appIds) {
-            @$query['AppIds'] = $request->appIds;
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
         }
-
-        if (null !== $request->authValidTime) {
-            @$query['AuthValidTime'] = $request->authValidTime;
+        if (!Utils::isUnset($request->authValidTime)) {
+            $query['AuthValidTime'] = $request->authValidTime;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetAppsAuthorities',
@@ -16068,7 +13766,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetAppsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16076,19 +13774,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Grants access permissions on a specified API to multiple applications.
-     *
-     * @remarks
-     *   This operation is intended for API providers and callers.
+     * @summary Grants access permissions on a specified API to multiple applications.
+     *  *
+     * @description *   This operation is intended for API providers and callers.
      * *   API providers can authorize all applications to call their APIs.
      * *   API callers can authorize their own applications to call the APIs that they have purchased.
+     *  *
+     * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
      *
-     * @param request - SetAppsAuthoritiesRequest
-     * @returns SetAppsAuthoritiesResponse
-     *
-     * @param SetAppsAuthoritiesRequest $request
-     *
-     * @return SetAppsAuthoritiesResponse
+     * @return SetAppsAuthoritiesResponse SetAppsAuthoritiesResponse
      */
     public function setAppsAuthorities($request)
     {
@@ -16098,47 +13792,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a custom domain name to a specified API group.
+     * @summary Binds a custom domain name to a specified API group.
+     *  *
+     * @param SetDomainRequest $request SetDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetDomainResponse
-     *
-     * @param SetDomainRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return SetDomainResponse
+     * @return SetDomainResponse SetDomainResponse
      */
     public function setDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bindStageName) {
-            @$query['BindStageName'] = $request->bindStageName;
+        if (!Utils::isUnset($request->bindStageName)) {
+            $query['BindStageName'] = $request->bindStageName;
         }
-
-        if (null !== $request->customDomainType) {
-            @$query['CustomDomainType'] = $request->customDomainType;
+        if (!Utils::isUnset($request->customDomainType)) {
+            $query['CustomDomainType'] = $request->customDomainType;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->isForce) {
-            @$query['IsForce'] = $request->isForce;
+        if (!Utils::isUnset($request->isForce)) {
+            $query['IsForce'] = $request->isForce;
         }
-
-        if (null !== $request->isHttpRedirectToHttps) {
-            @$query['IsHttpRedirectToHttps'] = $request->isHttpRedirectToHttps;
+        if (!Utils::isUnset($request->isHttpRedirectToHttps)) {
+            $query['IsHttpRedirectToHttps'] = $request->isHttpRedirectToHttps;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDomain',
@@ -16151,7 +13835,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16159,14 +13843,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a custom domain name to a specified API group.
+     * @summary Binds a custom domain name to a specified API group.
+     *  *
+     * @param SetDomainRequest $request SetDomainRequest
      *
-     * @param request - SetDomainRequest
-     * @returns SetDomainResponse
-     *
-     * @param SetDomainRequest $request
-     *
-     * @return SetDomainResponse
+     * @return SetDomainResponse SetDomainResponse
      */
     public function setDomain($request)
     {
@@ -16176,68 +13857,53 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Uploads an SSL certificate for a specified custom domain name.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Uploads an SSL certificate for a specified custom domain name.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The SSL certificate must match the custom domain name.
      * *   After the SSL certificate is bound, HTTPS-based API services become available.
+     *  *
+     * @param SetDomainCertificateRequest $request SetDomainCertificateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDomainCertificateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetDomainCertificateResponse
-     *
-     * @param SetDomainCertificateRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetDomainCertificateResponse
+     * @return SetDomainCertificateResponse SetDomainCertificateResponse
      */
     public function setDomainCertificateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->caCertificateBody) {
-            @$query['CaCertificateBody'] = $request->caCertificateBody;
+        if (!Utils::isUnset($request->caCertificateBody)) {
+            $query['CaCertificateBody'] = $request->caCertificateBody;
         }
-
-        if (null !== $request->certificateBody) {
-            @$query['CertificateBody'] = $request->certificateBody;
+        if (!Utils::isUnset($request->certificateBody)) {
+            $query['CertificateBody'] = $request->certificateBody;
         }
-
-        if (null !== $request->certificateName) {
-            @$query['CertificateName'] = $request->certificateName;
+        if (!Utils::isUnset($request->certificateName)) {
+            $query['CertificateName'] = $request->certificateName;
         }
-
-        if (null !== $request->certificatePrivateKey) {
-            @$query['CertificatePrivateKey'] = $request->certificatePrivateKey;
+        if (!Utils::isUnset($request->certificatePrivateKey)) {
+            $query['CertificatePrivateKey'] = $request->certificatePrivateKey;
         }
-
-        if (null !== $request->clientCertSDnPassThrough) {
-            @$query['ClientCertSDnPassThrough'] = $request->clientCertSDnPassThrough;
+        if (!Utils::isUnset($request->clientCertSDnPassThrough)) {
+            $query['ClientCertSDnPassThrough'] = $request->clientCertSDnPassThrough;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sslOcspEnable) {
-            @$query['SslOcspEnable'] = $request->sslOcspEnable;
+        if (!Utils::isUnset($request->sslOcspEnable)) {
+            $query['SslOcspEnable'] = $request->sslOcspEnable;
         }
-
-        if (null !== $request->sslVerifyDepth) {
-            @$query['SslVerifyDepth'] = $request->sslVerifyDepth;
+        if (!Utils::isUnset($request->sslVerifyDepth)) {
+            $query['SslVerifyDepth'] = $request->sslVerifyDepth;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDomainCertificate',
@@ -16250,7 +13916,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16258,19 +13924,15 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Uploads an SSL certificate for a specified custom domain name.
-     *
-     * @remarks
-     *   This operation is intended for API providers.
+     * @summary Uploads an SSL certificate for a specified custom domain name.
+     *  *
+     * @description *   This operation is intended for API providers.
      * *   The SSL certificate must match the custom domain name.
      * *   After the SSL certificate is bound, HTTPS-based API services become available.
+     *  *
+     * @param SetDomainCertificateRequest $request SetDomainCertificateRequest
      *
-     * @param request - SetDomainCertificateRequest
-     * @returns SetDomainCertificateResponse
-     *
-     * @param SetDomainCertificateRequest $request
-     *
-     * @return SetDomainCertificateResponse
+     * @return SetDomainCertificateResponse SetDomainCertificateResponse
      */
     public function setDomainCertificate($request)
     {
@@ -16280,43 +13942,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Enables or disables WebSocket for a custom domain name.
+     * @summary Enables or disables WebSocket for a custom domain name.
+     *  *
+     * @param SetDomainWebSocketStatusRequest $request SetDomainWebSocketStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDomainWebSocketStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetDomainWebSocketStatusResponse
-     *
-     * @param SetDomainWebSocketStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SetDomainWebSocketStatusResponse
+     * @return SetDomainWebSocketStatusResponse SetDomainWebSocketStatusResponse
      */
     public function setDomainWebSocketStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionValue) {
-            @$query['ActionValue'] = $request->actionValue;
+        if (!Utils::isUnset($request->actionValue)) {
+            $query['ActionValue'] = $request->actionValue;
         }
-
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->WSSEnable) {
-            @$query['WSSEnable'] = $request->WSSEnable;
+        if (!Utils::isUnset($request->WSSEnable)) {
+            $query['WSSEnable'] = $request->WSSEnable;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDomainWebSocketStatus',
@@ -16329,7 +13982,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDomainWebSocketStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16337,14 +13990,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Enables or disables WebSocket for a custom domain name.
+     * @summary Enables or disables WebSocket for a custom domain name.
+     *  *
+     * @param SetDomainWebSocketStatusRequest $request SetDomainWebSocketStatusRequest
      *
-     * @param request - SetDomainWebSocketStatusRequest
-     * @returns SetDomainWebSocketStatusResponse
-     *
-     * @param SetDomainWebSocketStatusRequest $request
-     *
-     * @return SetDomainWebSocketStatusResponse
+     * @return SetDomainWebSocketStatusResponse SetDomainWebSocketStatusResponse
      */
     public function setDomainWebSocketStatus($request)
     {
@@ -16354,35 +14004,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 设置分组授权AppCode.
+     * @summary 设置分组授权AppCode
+     *  *
+     * @param SetGroupAuthAppCodeRequest $request SetGroupAuthAppCodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetGroupAuthAppCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetGroupAuthAppCodeResponse
-     *
-     * @param SetGroupAuthAppCodeRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SetGroupAuthAppCodeResponse
+     * @return SetGroupAuthAppCodeResponse SetGroupAuthAppCodeResponse
      */
     public function setGroupAuthAppCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authAppCode) {
-            @$query['AuthAppCode'] = $request->authAppCode;
+        if (!Utils::isUnset($request->authAppCode)) {
+            $query['AuthAppCode'] = $request->authAppCode;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetGroupAuthAppCode',
@@ -16395,7 +14038,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetGroupAuthAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16403,14 +14046,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 设置分组授权AppCode.
+     * @summary 设置分组授权AppCode
+     *  *
+     * @param SetGroupAuthAppCodeRequest $request SetGroupAuthAppCodeRequest
      *
-     * @param request - SetGroupAuthAppCodeRequest
-     * @returns SetGroupAuthAppCodeResponse
-     *
-     * @param SetGroupAuthAppCodeRequest $request
-     *
-     * @return SetGroupAuthAppCodeResponse
+     * @return SetGroupAuthAppCodeResponse SetGroupAuthAppCodeResponse
      */
     public function setGroupAuthAppCode($request)
     {
@@ -16420,47 +14060,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a binding relationship between specified access control lists (ACLs) and APIs.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Creates a binding relationship between specified access control lists (ACLs) and APIs.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   A maximum of 100 APIs can be bound at a time.
+     *  *
+     * @param SetIpControlApisRequest $request SetIpControlApisRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetIpControlApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetIpControlApisResponse
-     *
-     * @param SetIpControlApisRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SetIpControlApisResponse
+     * @return SetIpControlApisResponse SetIpControlApisResponse
      */
     public function setIpControlApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->ipControlId) {
-            @$query['IpControlId'] = $request->ipControlId;
+        if (!Utils::isUnset($request->ipControlId)) {
+            $query['IpControlId'] = $request->ipControlId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetIpControlApis',
@@ -16473,7 +14103,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetIpControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16481,18 +14111,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a binding relationship between specified access control lists (ACLs) and APIs.
-     *
-     * @remarks
-     *   This operation is intended for API callers.
+     * @summary Creates a binding relationship between specified access control lists (ACLs) and APIs.
+     *  *
+     * @description *   This operation is intended for API callers.
      * *   A maximum of 100 APIs can be bound at a time.
+     *  *
+     * @param SetIpControlApisRequest $request SetIpControlApisRequest
      *
-     * @param request - SetIpControlApisRequest
-     * @returns SetIpControlApisResponse
-     *
-     * @param SetIpControlApisRequest $request
-     *
-     * @return SetIpControlApisResponse
+     * @return SetIpControlApisResponse SetIpControlApisResponse
      */
     public function setIpControlApis($request)
     {
@@ -16502,43 +14128,34 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a signature key to APIs.
+     * @summary Binds a signature key to APIs.
+     *  *
+     * @param SetSignatureApisRequest $request SetSignatureApisRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetSignatureApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetSignatureApisResponse
-     *
-     * @param SetSignatureApisRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SetSignatureApisResponse
+     * @return SetSignatureApisResponse SetSignatureApisResponse
      */
     public function setSignatureApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->signatureId) {
-            @$query['SignatureId'] = $request->signatureId;
+        if (!Utils::isUnset($request->signatureId)) {
+            $query['SignatureId'] = $request->signatureId;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetSignatureApis',
@@ -16551,7 +14168,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetSignatureApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16559,14 +14176,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a signature key to APIs.
+     * @summary Binds a signature key to APIs.
+     *  *
+     * @param SetSignatureApisRequest $request SetSignatureApisRequest
      *
-     * @param request - SetSignatureApisRequest
-     * @returns SetSignatureApisResponse
-     *
-     * @param SetSignatureApisRequest $request
-     *
-     * @return SetSignatureApisResponse
+     * @return SetSignatureApisResponse SetSignatureApisResponse
      */
     public function setSignatureApis($request)
     {
@@ -16576,47 +14190,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a throttling policy to APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Binds a throttling policy to APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+     *  *
+     * @param SetTrafficControlApisRequest $request SetTrafficControlApisRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetTrafficControlApisRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetTrafficControlApisResponse
-     *
-     * @param SetTrafficControlApisRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SetTrafficControlApisResponse
+     * @return SetTrafficControlApisResponse SetTrafficControlApisResponse
      */
     public function setTrafficControlApisWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiIds) {
-            @$query['ApiIds'] = $request->apiIds;
+        if (!Utils::isUnset($request->apiIds)) {
+            $query['ApiIds'] = $request->apiIds;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
-        if (null !== $request->trafficControlId) {
-            @$query['TrafficControlId'] = $request->trafficControlId;
+        if (!Utils::isUnset($request->trafficControlId)) {
+            $query['TrafficControlId'] = $request->trafficControlId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetTrafficControlApis',
@@ -16629,7 +14233,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetTrafficControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16637,18 +14241,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a throttling policy to APIs.
-     *
-     * @remarks
-     *   This API is intended for API providers.
+     * @summary Binds a throttling policy to APIs.
+     *  *
+     * @description *   This API is intended for API providers.
      * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+     *  *
+     * @param SetTrafficControlApisRequest $request SetTrafficControlApisRequest
      *
-     * @param request - SetTrafficControlApisRequest
-     * @returns SetTrafficControlApisResponse
-     *
-     * @param SetTrafficControlApisRequest $request
-     *
-     * @return SetTrafficControlApisResponse
+     * @return SetTrafficControlApisResponse SetTrafficControlApisResponse
      */
     public function setTrafficControlApis($request)
     {
@@ -16658,59 +14258,46 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) access authorization and enables reverse access.
-     *
-     * @remarks
-     * This operation is intended for API providers.
+     * @summary Creates a virtual private cloud (VPC) access authorization and enables reverse access.
+     *  *
+     * @description * This operation is intended for API providers.
      * * This operation is used to authorize API Gateway to access your VPC instance.
+     *  *
+     * @param SetVpcAccessRequest $request SetVpcAccessRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetVpcAccessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetVpcAccessResponse
-     *
-     * @param SetVpcAccessRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SetVpcAccessResponse
+     * @return SetVpcAccessResponse SetVpcAccessResponse
      */
     public function setVpcAccessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vpcTargetHostName) {
-            @$query['VpcTargetHostName'] = $request->vpcTargetHostName;
+        if (!Utils::isUnset($request->vpcTargetHostName)) {
+            $query['VpcTargetHostName'] = $request->vpcTargetHostName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetVpcAccess',
@@ -16723,7 +14310,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16731,18 +14318,14 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) access authorization and enables reverse access.
-     *
-     * @remarks
-     * This operation is intended for API providers.
+     * @summary Creates a virtual private cloud (VPC) access authorization and enables reverse access.
+     *  *
+     * @description * This operation is intended for API providers.
      * * This operation is used to authorize API Gateway to access your VPC instance.
+     *  *
+     * @param SetVpcAccessRequest $request SetVpcAccessRequest
      *
-     * @param request - SetVpcAccessRequest
-     * @returns SetVpcAccessResponse
-     *
-     * @param SetVpcAccessRequest $request
-     *
-     * @return SetVpcAccessResponse
+     * @return SetVpcAccessResponse SetVpcAccessResponse
      */
     public function setVpcAccess($request)
     {
@@ -16752,39 +14335,31 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Specifies a wildcard domain name template for a bound custom domain name.
+     * @summary Specifies a wildcard domain name template for a bound custom domain name.
+     *  *
+     * @param SetWildcardDomainPatternsRequest $request SetWildcardDomainPatternsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetWildcardDomainPatternsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetWildcardDomainPatternsResponse
-     *
-     * @param SetWildcardDomainPatternsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SetWildcardDomainPatternsResponse
+     * @return SetWildcardDomainPatternsResponse SetWildcardDomainPatternsResponse
      */
     public function setWildcardDomainPatternsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domainName) {
-            @$query['DomainName'] = $request->domainName;
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->wildcardDomainPatterns) {
-            @$query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
+        if (!Utils::isUnset($request->wildcardDomainPatterns)) {
+            $query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetWildcardDomainPatterns',
@@ -16797,7 +14372,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetWildcardDomainPatternsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16805,14 +14380,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Specifies a wildcard domain name template for a bound custom domain name.
+     * @summary Specifies a wildcard domain name template for a bound custom domain name.
+     *  *
+     * @param SetWildcardDomainPatternsRequest $request SetWildcardDomainPatternsRequest
      *
-     * @param request - SetWildcardDomainPatternsRequest
-     * @returns SetWildcardDomainPatternsResponse
-     *
-     * @param SetWildcardDomainPatternsRequest $request
-     *
-     * @return SetWildcardDomainPatternsResponse
+     * @return SetWildcardDomainPatternsResponse SetWildcardDomainPatternsResponse
      */
     public function setWildcardDomainPatterns($request)
     {
@@ -16822,47 +14394,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Switches the definition of an API in a specified runtime environment to a historical version.
+     * @summary Switches the definition of an API in a specified runtime environment to a historical version.
+     *  *
+     * @param SwitchApiRequest $request SwitchApiRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SwitchApiResponse
-     *
-     * @param SwitchApiRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return SwitchApiResponse
+     * @return SwitchApiResponse SwitchApiResponse
      */
     public function switchApiWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->apiId) {
-            @$query['ApiId'] = $request->apiId;
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->historyVersion) {
-            @$query['HistoryVersion'] = $request->historyVersion;
+        if (!Utils::isUnset($request->historyVersion)) {
+            $query['HistoryVersion'] = $request->historyVersion;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->stageName) {
-            @$query['StageName'] = $request->stageName;
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SwitchApi',
@@ -16875,7 +14437,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SwitchApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16883,14 +14445,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Switches the definition of an API in a specified runtime environment to a historical version.
+     * @summary Switches the definition of an API in a specified runtime environment to a historical version.
+     *  *
+     * @param SwitchApiRequest $request SwitchApiRequest
      *
-     * @param request - SwitchApiRequest
-     * @returns SwitchApiResponse
-     *
-     * @param SwitchApiRequest $request
-     *
-     * @return SwitchApiResponse
+     * @return SwitchApiResponse SwitchApiResponse
      */
     public function switchApi($request)
     {
@@ -16900,46 +14459,37 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a tag-resource relationship.
-     *
-     * @remarks
-     *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+     * @summary Creates a tag-resource relationship.
+     *  *
+     * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
      * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
      * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
      * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
      * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -16952,7 +14502,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -16960,21 +14510,17 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a tag-resource relationship.
-     *
-     * @remarks
-     *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
+     * @summary Creates a tag-resource relationship.
+     *  *
+     * @description *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
      * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
      * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
      * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
      * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -16984,50 +14530,40 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
-     *
-     * @remarks
-     *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+     * @summary Removes tags from resources.
+     *  *
+     * @description *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
      * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
      * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
      * *   When tag keys are specified, the All parameter is invalid.
      * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -17040,7 +14576,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -17048,21 +14584,17 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
-     *
-     * @remarks
-     *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
+     * @summary Removes tags from resources.
+     *  *
+     * @description *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
      * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
      * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
      * *   When tag keys are specified, the All parameter is invalid.
      * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -17072,47 +14604,38 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies an internal domain name resolution.
+     * @summary Modifies an internal domain name resolution.
+     *  *
+     * @param UpdatePrivateDNSRequest $tmpReq  UpdatePrivateDNSRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdatePrivateDNSRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePrivateDNSResponse
-     *
-     * @param UpdatePrivateDNSRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdatePrivateDNSResponse
+     * @return UpdatePrivateDNSResponse UpdatePrivateDNSResponse
      */
     public function updatePrivateDNSWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdatePrivateDNSShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->records) {
-            $request->recordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->records)) {
+            $request->recordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
         }
-
         $query = [];
-        if (null !== $request->intranetDomain) {
-            @$query['IntranetDomain'] = $request->intranetDomain;
+        if (!Utils::isUnset($request->intranetDomain)) {
+            $query['IntranetDomain'] = $request->intranetDomain;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $body = [];
-        if (null !== $request->recordsShrink) {
-            @$body['Records'] = $request->recordsShrink;
+        if (!Utils::isUnset($request->recordsShrink)) {
+            $body['Records'] = $request->recordsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePrivateDNS',
@@ -17125,7 +14648,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePrivateDNSResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -17133,14 +14656,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies an internal domain name resolution.
+     * @summary Modifies an internal domain name resolution.
+     *  *
+     * @param UpdatePrivateDNSRequest $request UpdatePrivateDNSRequest
      *
-     * @param request - UpdatePrivateDNSRequest
-     * @returns UpdatePrivateDNSResponse
-     *
-     * @param UpdatePrivateDNSRequest $request
-     *
-     * @return UpdatePrivateDNSResponse
+     * @return UpdatePrivateDNSResponse UpdatePrivateDNSResponse
      */
     public function updatePrivateDNS($request)
     {
@@ -17150,35 +14670,28 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+     * @summary Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+     *  *
+     * @param ValidateVpcConnectivityRequest $request ValidateVpcConnectivityRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ValidateVpcConnectivityRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ValidateVpcConnectivityResponse
-     *
-     * @param ValidateVpcConnectivityRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ValidateVpcConnectivityResponse
+     * @return ValidateVpcConnectivityResponse ValidateVpcConnectivityResponse
      */
     public function validateVpcConnectivityWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcAccessId) {
-            @$query['VpcAccessId'] = $request->vpcAccessId;
+        if (!Utils::isUnset($request->vpcAccessId)) {
+            $query['VpcAccessId'] = $request->vpcAccessId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ValidateVpcConnectivity',
@@ -17191,7 +14704,7 @@ class CloudAPI extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ValidateVpcConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -17199,14 +14712,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+     * @summary Tests the network connectivity between an API Gateway instance and a port on an Elastic Compute Service (ECS) or Server Load Balance (SLB) instance in a virtual private cloud (VPC) access authorization.
+     *  *
+     * @param ValidateVpcConnectivityRequest $request ValidateVpcConnectivityRequest
      *
-     * @param request - ValidateVpcConnectivityRequest
-     * @returns ValidateVpcConnectivityResponse
-     *
-     * @param ValidateVpcConnectivityRequest $request
-     *
-     * @return ValidateVpcConnectivityResponse
+     * @return ValidateVpcConnectivityResponse ValidateVpcConnectivityResponse
      */
     public function validateVpcConnectivity($request)
     {

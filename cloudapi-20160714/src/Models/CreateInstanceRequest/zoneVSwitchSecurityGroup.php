@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zoneVSwitchSecurityGroup extends Model
 {
     /**
+     * @description The IPv4 CIDR block for the vSwitch.
+     *
+     * @example 192.168.9.0/24
+     *
      * @var string
      */
     public $cidrBlock;
+
     /**
+     * @description The ID of the security group. Services in the same security group can access each other.
+     *
+     * @example sg-2ze2ql9nozv8q7kmlt6e
+     *
      * @var string
      */
     public $securityGroupId;
+
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-0xi349n11cxogmvm866tb
+     *
      * @var string
      */
     public $vSwitchId;
+
     /**
+     * @description The zone ID.
+     *
+     * @example cn-beijing-c
+     *
      * @var string
      */
     public $zoneId;
@@ -33,24 +52,20 @@ class zoneVSwitchSecurityGroup extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
-
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -58,26 +73,23 @@ class zoneVSwitchSecurityGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zoneVSwitchSecurityGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
-
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

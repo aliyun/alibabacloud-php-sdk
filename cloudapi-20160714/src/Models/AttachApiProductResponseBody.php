@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachApiProductResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example BA20890E-75C7-41BC-9C8B-73276B58F550
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class AttachApiProductResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class AttachApiProductResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachApiProductResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

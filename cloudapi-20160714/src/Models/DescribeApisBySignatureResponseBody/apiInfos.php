@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisBySignatureResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisBySignatureResponseBody\apiInfos\apiInfo;
+use AlibabaCloud\Tea\Model;
 
 class apiInfos extends Model
 {
@@ -19,21 +19,17 @@ class apiInfos extends Model
 
     public function validate()
     {
-        if (\is_array($this->apiInfo)) {
-            Model::validateArray($this->apiInfo);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiInfo) {
-            if (\is_array($this->apiInfo)) {
-                $res['ApiInfo'] = [];
-                $n1             = 0;
-                foreach ($this->apiInfo as $item1) {
-                    $res['ApiInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ApiInfo'] = [];
+            if (null !== $this->apiInfo && \is_array($this->apiInfo)) {
+                $n = 0;
+                foreach ($this->apiInfo as $item) {
+                    $res['ApiInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class apiInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apiInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiInfo'])) {
             if (!empty($map['ApiInfo'])) {
                 $model->apiInfo = [];
-                $n1             = 0;
-                foreach ($map['ApiInfo'] as $item1) {
-                    $model->apiInfo[$n1++] = apiInfo::fromMap($item1);
+                $n              = 0;
+                foreach ($map['ApiInfo'] as $item) {
+                    $model->apiInfo[$n++] = null !== $item ? apiInfo::fromMap($item) : $item;
                 }
             }
         }

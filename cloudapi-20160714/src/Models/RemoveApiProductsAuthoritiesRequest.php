@@ -4,18 +4,28 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveApiProductsAuthoritiesRequest extends Model
 {
     /**
+     * @description The API products.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $apiProductIds;
+
     /**
+     * @description The application ID.
+     *
+     * This parameter is required.
+     * @example 110982490
+     *
      * @var int
      */
     public $appId;
+
     /**
      * @var string
      */
@@ -28,29 +38,17 @@ class RemoveApiProductsAuthoritiesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->apiProductIds)) {
-            Model::validateArray($this->apiProductIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiProductIds) {
-            if (\is_array($this->apiProductIds)) {
-                $res['ApiProductIds'] = [];
-                $n1                   = 0;
-                foreach ($this->apiProductIds as $item1) {
-                    $res['ApiProductIds'][$n1++] = $item1;
-                }
-            }
+            $res['ApiProductIds'] = $this->apiProductIds;
         }
-
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -58,28 +56,22 @@ class RemoveApiProductsAuthoritiesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveApiProductsAuthoritiesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductIds'])) {
             if (!empty($map['ApiProductIds'])) {
-                $model->apiProductIds = [];
-                $n1                   = 0;
-                foreach ($map['ApiProductIds'] as $item1) {
-                    $model->apiProductIds[$n1++] = $item1;
-                }
+                $model->apiProductIds = $map['ApiProductIds'];
             }
         }
-
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

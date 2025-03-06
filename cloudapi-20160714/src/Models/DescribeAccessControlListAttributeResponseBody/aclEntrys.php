@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeResponseBody\aclEntrys\aclEntry;
+use AlibabaCloud\Tea\Model;
 
 class aclEntrys extends Model
 {
@@ -19,21 +19,17 @@ class aclEntrys extends Model
 
     public function validate()
     {
-        if (\is_array($this->aclEntry)) {
-            Model::validateArray($this->aclEntry);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclEntry) {
-            if (\is_array($this->aclEntry)) {
-                $res['AclEntry'] = [];
-                $n1              = 0;
-                foreach ($this->aclEntry as $item1) {
-                    $res['AclEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AclEntry'] = [];
+            if (null !== $this->aclEntry && \is_array($this->aclEntry)) {
+                $n = 0;
+                foreach ($this->aclEntry as $item) {
+                    $res['AclEntry'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class aclEntrys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aclEntrys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEntry'])) {
             if (!empty($map['AclEntry'])) {
                 $model->aclEntry = [];
-                $n1              = 0;
-                foreach ($map['AclEntry'] as $item1) {
-                    $model->aclEntry[$n1++] = aclEntry::fromMap($item1);
+                $n               = 0;
+                foreach ($map['AclEntry'] as $item) {
+                    $model->aclEntry[$n++] = null !== $item ? aclEntry::fromMap($item) : $item;
                 }
             }
         }

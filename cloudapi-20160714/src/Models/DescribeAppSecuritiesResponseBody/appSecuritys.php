@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecuritiesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecuritiesResponseBody\appSecuritys\appSecurity;
+use AlibabaCloud\Tea\Model;
 
 class appSecuritys extends Model
 {
@@ -19,21 +19,17 @@ class appSecuritys extends Model
 
     public function validate()
     {
-        if (\is_array($this->appSecurity)) {
-            Model::validateArray($this->appSecurity);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appSecurity) {
-            if (\is_array($this->appSecurity)) {
-                $res['AppSecurity'] = [];
-                $n1                 = 0;
-                foreach ($this->appSecurity as $item1) {
-                    $res['AppSecurity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AppSecurity'] = [];
+            if (null !== $this->appSecurity && \is_array($this->appSecurity)) {
+                $n = 0;
+                foreach ($this->appSecurity as $item) {
+                    $res['AppSecurity'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class appSecuritys extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appSecuritys
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppSecurity'])) {
             if (!empty($map['AppSecurity'])) {
                 $model->appSecurity = [];
-                $n1                 = 0;
-                foreach ($map['AppSecurity'] as $item1) {
-                    $model->appSecurity[$n1++] = appSecurity::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['AppSecurity'] as $item) {
+                    $model->appSecurity[$n++] = null !== $item ? appSecurity::fromMap($item) : $item;
                 }
             }
         }

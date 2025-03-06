@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyApiGroupNetworkPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4E707B25-5119-5ACF-9D26-7D2A2762F05C
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyApiGroupNetworkPolicyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyApiGroupNetworkPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyApiGroupNetworkPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

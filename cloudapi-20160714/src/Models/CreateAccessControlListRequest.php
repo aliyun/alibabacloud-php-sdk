@@ -4,18 +4,32 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAccessControlListRequest extends Model
 {
     /**
+     * @description The name of the ACL. The name must be 1 to 30 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name must be unique within the region.
+     *
+     * This parameter is required.
+     * @example testAcl
+     *
      * @var string
      */
     public $aclName;
+
     /**
+     * @description The IP protocol version of the ACL. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $addressIPVersion;
+
     /**
      * @var string
      */
@@ -28,20 +42,17 @@ class CreateAccessControlListRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
         }
-
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -49,22 +60,20 @@ class CreateAccessControlListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAccessControlListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
         }
-
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

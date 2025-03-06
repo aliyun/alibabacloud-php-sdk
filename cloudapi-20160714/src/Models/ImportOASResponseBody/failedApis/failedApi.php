@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody\failedApis;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failedApi extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example Invalid Api Definition.
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @description The HTTP method configured when you created the API.
+     *
+     * @example POST
+     *
      * @var string
      */
     public $httpMethod;
+
     /**
+     * @description The request path configured when you created the API.
+     *
+     * @example /st1
+     *
      * @var string
      */
     public $path;
@@ -28,20 +42,17 @@ class failedApi extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -49,22 +60,20 @@ class failedApi extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failedApi
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

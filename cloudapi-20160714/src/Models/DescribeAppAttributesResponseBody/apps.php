@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppAttributesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppAttributesResponseBody\apps\appAttribute;
+use AlibabaCloud\Tea\Model;
 
 class apps extends Model
 {
@@ -19,21 +19,17 @@ class apps extends Model
 
     public function validate()
     {
-        if (\is_array($this->appAttribute)) {
-            Model::validateArray($this->appAttribute);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appAttribute) {
-            if (\is_array($this->appAttribute)) {
-                $res['AppAttribute'] = [];
-                $n1                  = 0;
-                foreach ($this->appAttribute as $item1) {
-                    $res['AppAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AppAttribute'] = [];
+            if (null !== $this->appAttribute && \is_array($this->appAttribute)) {
+                $n = 0;
+                foreach ($this->appAttribute as $item) {
+                    $res['AppAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class apps extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return apps
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppAttribute'])) {
             if (!empty($map['AppAttribute'])) {
                 $model->appAttribute = [];
-                $n1                  = 0;
-                foreach ($map['AppAttribute'] as $item1) {
-                    $model->appAttribute[$n1++] = appAttribute::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['AppAttribute'] as $item) {
+                    $model->appAttribute[$n++] = null !== $item ? appAttribute::fromMap($item) : $item;
                 }
             }
         }

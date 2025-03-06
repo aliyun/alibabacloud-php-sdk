@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zookeeperConfig extends Model
 {
     /**
+     * @description The connection URL of the ZooKeeper server.
+     *
+     * @example http://192.168.1.xxx:2181
+     *
      * @var string
      */
     public $connectString;
+
     /**
+     * @description The namespace.
+     *
+     * @example provider
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description Service name
+     *
+     * @example service
+     *
      * @var string
      */
     public $serviceName;
@@ -28,20 +42,17 @@ class zookeeperConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -49,22 +60,20 @@ class zookeeperConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zookeeperConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
