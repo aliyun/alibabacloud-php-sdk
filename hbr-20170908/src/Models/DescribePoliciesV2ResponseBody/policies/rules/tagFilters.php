@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2ResponseBody\policies\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagFilters extends Model
 {
     /**
+     * @description Tag key
+     *
+     * @example env
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description Tag matching rules, supporting: - **EQUAL**: Matches both the tag key and tag value. - **NOT**: Matches the tag key but not the tag value.
+     *
+     * @example EQUAL
+     *
      * @var string
      */
     public $operator;
+
     /**
+     * @description Tag value.
+     *
+     * @example prod
+     *
      * @var string
      */
     public $value;
@@ -28,20 +42,17 @@ class tagFilters extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,22 +60,20 @@ class tagFilters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagFilters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAirEcsInstanceRequest extends Model
 {
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-uf6ir9y******hvisj
+     *
      * @var string
      */
     public $ecsInstanceId;
+
     /**
+     * @description The data sources for which the client needs to be uninstalled.
+     *
      * @var string[]
      */
     public $uninstallClientSourceTypes;
@@ -23,51 +30,35 @@ class DeleteAirEcsInstanceRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->uninstallClientSourceTypes)) {
-            Model::validateArray($this->uninstallClientSourceTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
-
         if (null !== $this->uninstallClientSourceTypes) {
-            if (\is_array($this->uninstallClientSourceTypes)) {
-                $res['UninstallClientSourceTypes'] = [];
-                $n1                                = 0;
-                foreach ($this->uninstallClientSourceTypes as $item1) {
-                    $res['UninstallClientSourceTypes'][$n1++] = $item1;
-                }
-            }
+            $res['UninstallClientSourceTypes'] = $this->uninstallClientSourceTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAirEcsInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }
-
         if (isset($map['UninstallClientSourceTypes'])) {
             if (!empty($map['UninstallClientSourceTypes'])) {
-                $model->uninstallClientSourceTypes = [];
-                $n1                                = 0;
-                foreach ($map['UninstallClientSourceTypes'] as $item1) {
-                    $model->uninstallClientSourceTypes[$n1++] = $item1;
-                }
+                $model->uninstallClientSourceTypes = $map['UninstallClientSourceTypes'];
             }
         }
 

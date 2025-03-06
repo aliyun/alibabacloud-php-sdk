@@ -4,27 +4,57 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddContainerClusterRequest extends Model
 {
     /**
+     * @description The type of the cluster. Only Container Service for Kubernetes (ACK) clusters are supported.
+     *
+     * This parameter is required.
+     * @example ACK
+     *
      * @var string
      */
     public $clusterType;
+
     /**
+     * @description The description of the cluster.
+     *
+     * @example description ack pv backup
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the cluster that you want to register.
+     *
+     * This parameter is required.
+     * @example cca8f35f0e0d84540b49d994511c2c87a
+     *
      * @var string
      */
     public $identifier;
+
     /**
+     * @description The name of the cluster.
+     *
+     * @example ack_pv_backup_location
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The network type of the cluster. Valid values:
+     *
+     *   **CLASSIC**: the classic network
+     *   **VPC**: a virtual private cloud (VPC)
+     *
+     * This parameter is required.
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
@@ -38,28 +68,23 @@ class AddContainerClusterRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
@@ -67,30 +92,26 @@ class AddContainerClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddContainerClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }

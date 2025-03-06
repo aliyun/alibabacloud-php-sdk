@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUdmEcsInstanceRequest extends Model
 {
     /**
+     * @description The ID of the ECS instance.
+     *
+     * This parameter is required.
+     * @example i-2zed************tlrm
+     *
      * @var string
      */
     public $instanceId;
@@ -18,10 +23,9 @@ class DeleteUdmEcsInstanceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +35,11 @@ class DeleteUdmEcsInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUdmEcsInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,27 +4,54 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateContainerClusterRequest extends Model
 {
     /**
+     * @description Cluster ID.
+     *
+     * This parameter is required.
+     * @example cc-000**************134
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Cluster description.
+     *
+     * @example description ack pv backup
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description Cluster name.
+     *
+     * @example ack_pv_backup_location
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description Network type, with possible values including:
+     * **CLASSIC**: Classic Network.
+     * **VPC**: Virtual Private Cloud.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
+
     /**
+     * @description Whether to regenerate the token.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $renewToken;
@@ -38,28 +65,23 @@ class UpdateContainerClusterRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
-
         if (null !== $this->renewToken) {
             $res['RenewToken'] = $this->renewToken;
         }
@@ -67,30 +89,26 @@ class UpdateContainerClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateContainerClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-
         if (isset($map['RenewToken'])) {
             $model->renewToken = $map['RenewToken'];
         }

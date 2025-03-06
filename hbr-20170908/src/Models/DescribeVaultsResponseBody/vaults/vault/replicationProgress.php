@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class replicationProgress extends Model
 {
     /**
+     * @description The progress of historical data synchronization from the backup vault to the mirror vault. Valid values: 0 to 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $historicalReplicationProgress;
+
     /**
+     * @description The latest synchronization time of incremental data in the mirror vault.
+     *
+     * @example 1579413159
+     *
      * @var int
      */
     public $newReplicationProgress;
@@ -23,16 +32,14 @@ class replicationProgress extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->historicalReplicationProgress) {
             $res['HistoricalReplicationProgress'] = $this->historicalReplicationProgress;
         }
-
         if (null !== $this->newReplicationProgress) {
             $res['NewReplicationProgress'] = $this->newReplicationProgress;
         }
@@ -40,18 +47,17 @@ class replicationProgress extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return replicationProgress
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HistoricalReplicationProgress'])) {
             $model->historicalReplicationProgress = $map['HistoricalReplicationProgress'];
         }
-
         if (isset($map['NewReplicationProgress'])) {
             $model->newReplicationProgress = $map['NewReplicationProgress'];
         }

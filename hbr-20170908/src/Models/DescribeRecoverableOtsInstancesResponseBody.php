@@ -4,28 +4,53 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeRecoverableOtsInstancesResponseBody\otsInstances;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRecoverableOtsInstancesResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
+
     /**
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The list of Tablestore instances that can be restored and the tables in the instances.
+     *
      * @var otsInstances[]
      */
     public $otsInstances;
+
     /**
+     * @description The request ID.
+     *
+     * @example 14DC089E-5DD3-5028-AEDB-93D78E11DB2A
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -39,37 +64,29 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->otsInstances)) {
-            Model::validateArray($this->otsInstances);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->otsInstances) {
-            if (\is_array($this->otsInstances)) {
-                $res['OtsInstances'] = [];
-                $n1                  = 0;
-                foreach ($this->otsInstances as $item1) {
-                    $res['OtsInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OtsInstances'] = [];
+            if (null !== $this->otsInstances && \is_array($this->otsInstances)) {
+                $n = 0;
+                foreach ($this->otsInstances as $item) {
+                    $res['OtsInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -77,36 +94,32 @@ class DescribeRecoverableOtsInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRecoverableOtsInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['OtsInstances'])) {
             if (!empty($map['OtsInstances'])) {
                 $model->otsInstances = [];
-                $n1                  = 0;
-                foreach ($map['OtsInstances'] as $item1) {
-                    $model->otsInstances[$n1++] = otsInstances::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['OtsInstances'] as $item) {
+                    $model->otsInstances[$n++] = null !== $item ? otsInstances::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

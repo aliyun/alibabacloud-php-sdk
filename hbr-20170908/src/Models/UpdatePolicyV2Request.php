@@ -4,24 +4,41 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePolicyV2Request extends Model
 {
     /**
+     * @description The description of the backup policy.
+     *
+     * @example Data is backed up at 10:00:00 every day and replicated to the China (Shanghai) region for geo-redundancy.
+     *
      * @var string
      */
     public $policyDescription;
+
     /**
+     * @description The ID of the backup policy.
+     *
+     * @example po-000************viy
+     *
      * @var string
      */
     public $policyId;
+
     /**
+     * @description The name of the backup policy.
+     *
+     * @example Daily Local Backup + Remote Backup
+     *
      * @var string
      */
     public $policyName;
+
     /**
+     * @description The rules in the backup policy.
+     *
      * @var rules[]
      */
     public $rules;
@@ -34,33 +51,26 @@ class UpdatePolicyV2Request extends Model
 
     public function validate()
     {
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyDescription) {
             $res['PolicyDescription'] = $this->policyDescription;
         }
-
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
-
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1           = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +78,29 @@ class UpdatePolicyV2Request extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePolicyV2Request
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyDescription'])) {
             $model->policyDescription = $map['PolicyDescription'];
         }
-
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
-
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }

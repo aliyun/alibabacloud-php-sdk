@@ -4,48 +4,95 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\detail\diskNativeSnapshotIdList;
+use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
     /**
+     * @description The information about the remote replication failure.
+     *
+     * @example ECS.CreatingSnapshot
+     *
      * @var string
      */
     public $destinationNativeSnapshotErrorMessage;
+
     /**
+     * @description The ID of the remote replication snapshot.
+     *
+     * @example s-******************
+     *
      * @var string
      */
     public $destinationNativeSnapshotId;
+
     /**
+     * @description The progress of the remote replication.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $destinationNativeSnapshotProgress;
+
     /**
+     * @description The state of the remote replication.
+     *
+     * @example COMPLETE
+     *
      * @var string
      */
     public $destinationNativeSnapshotStatus;
+
     /**
+     * @description The retention period of the remote replication backup.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $destinationRetention;
+
     /**
+     * @description The ID of the remote replication backup.
+     *
+     * @example s-******************
+     *
      * @var string
      */
     public $destinationSnapshotId;
+
     /**
+     * @description The mapping between snapshots and disks.
+     *
      * @var diskNativeSnapshotIdList
      */
     public $diskNativeSnapshotIdList;
+
     /**
+     * @description Indicates whether remote replication is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $doCopy;
+
     /**
+     * @description The ecs instance infos.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $instanceInfos;
+
     /**
+     * @description The ID of the backup snapshot.
+     *
+     * @example s-******************
+     *
      * @var string
      */
     public $nativeSnapshotId;
@@ -64,59 +111,38 @@ class detail extends Model
 
     public function validate()
     {
-        if (null !== $this->diskNativeSnapshotIdList) {
-            $this->diskNativeSnapshotIdList->validate();
-        }
-        if (\is_array($this->instanceInfos)) {
-            Model::validateArray($this->instanceInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->destinationNativeSnapshotErrorMessage) {
             $res['DestinationNativeSnapshotErrorMessage'] = $this->destinationNativeSnapshotErrorMessage;
         }
-
         if (null !== $this->destinationNativeSnapshotId) {
             $res['DestinationNativeSnapshotId'] = $this->destinationNativeSnapshotId;
         }
-
         if (null !== $this->destinationNativeSnapshotProgress) {
             $res['DestinationNativeSnapshotProgress'] = $this->destinationNativeSnapshotProgress;
         }
-
         if (null !== $this->destinationNativeSnapshotStatus) {
             $res['DestinationNativeSnapshotStatus'] = $this->destinationNativeSnapshotStatus;
         }
-
         if (null !== $this->destinationRetention) {
             $res['DestinationRetention'] = $this->destinationRetention;
         }
-
         if (null !== $this->destinationSnapshotId) {
             $res['DestinationSnapshotId'] = $this->destinationSnapshotId;
         }
-
         if (null !== $this->diskNativeSnapshotIdList) {
-            $res['DiskNativeSnapshotIdList'] = null !== $this->diskNativeSnapshotIdList ? $this->diskNativeSnapshotIdList->toArray($noStream) : $this->diskNativeSnapshotIdList;
+            $res['DiskNativeSnapshotIdList'] = null !== $this->diskNativeSnapshotIdList ? $this->diskNativeSnapshotIdList->toMap() : null;
         }
-
         if (null !== $this->doCopy) {
             $res['DoCopy'] = $this->doCopy;
         }
-
         if (null !== $this->instanceInfos) {
-            if (\is_array($this->instanceInfos)) {
-                $res['InstanceInfos'] = [];
-                foreach ($this->instanceInfos as $key1 => $value1) {
-                    $res['InstanceInfos'][$key1] = $value1;
-                }
-            }
+            $res['InstanceInfos'] = $this->instanceInfos;
         }
-
         if (null !== $this->nativeSnapshotId) {
             $res['NativeSnapshotId'] = $this->nativeSnapshotId;
         }
@@ -124,55 +150,41 @@ class detail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationNativeSnapshotErrorMessage'])) {
             $model->destinationNativeSnapshotErrorMessage = $map['DestinationNativeSnapshotErrorMessage'];
         }
-
         if (isset($map['DestinationNativeSnapshotId'])) {
             $model->destinationNativeSnapshotId = $map['DestinationNativeSnapshotId'];
         }
-
         if (isset($map['DestinationNativeSnapshotProgress'])) {
             $model->destinationNativeSnapshotProgress = $map['DestinationNativeSnapshotProgress'];
         }
-
         if (isset($map['DestinationNativeSnapshotStatus'])) {
             $model->destinationNativeSnapshotStatus = $map['DestinationNativeSnapshotStatus'];
         }
-
         if (isset($map['DestinationRetention'])) {
             $model->destinationRetention = $map['DestinationRetention'];
         }
-
         if (isset($map['DestinationSnapshotId'])) {
             $model->destinationSnapshotId = $map['DestinationSnapshotId'];
         }
-
         if (isset($map['DiskNativeSnapshotIdList'])) {
             $model->diskNativeSnapshotIdList = diskNativeSnapshotIdList::fromMap($map['DiskNativeSnapshotIdList']);
         }
-
         if (isset($map['DoCopy'])) {
             $model->doCopy = $map['DoCopy'];
         }
-
         if (isset($map['InstanceInfos'])) {
-            if (!empty($map['InstanceInfos'])) {
-                $model->instanceInfos = [];
-                foreach ($map['InstanceInfos'] as $key1 => $value1) {
-                    $model->instanceInfos[$key1] = $value1;
-                }
-            }
+            $model->instanceInfos = $map['InstanceInfos'];
         }
-
         if (isset($map['NativeSnapshotId'])) {
             $model->nativeSnapshotId = $map['NativeSnapshotId'];
         }

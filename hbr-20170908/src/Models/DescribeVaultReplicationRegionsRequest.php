@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVaultReplicationRegionsRequest extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 01W3ZZOQ
+     *
      * @var string
      */
     public $token;
+
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example v-00030j3c******sn
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $vaultId;
@@ -23,16 +34,14 @@ class DescribeVaultReplicationRegionsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
-
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -40,18 +49,17 @@ class DescribeVaultReplicationRegionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVaultReplicationRegionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }
-
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

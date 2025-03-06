@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePolicyBindingsShrinkRequest extends Model
 {
     /**
+     * @description The data sources that you want to bind to the backup policy.
+     *
      * @var string
      */
     public $policyBindingListShrink;
+
     /**
+     * @description The ID of the backup policy.
+     *
+     * @example po-000************8ep
+     *
      * @var string
      */
     public $policyId;
@@ -23,16 +30,14 @@ class CreatePolicyBindingsShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyBindingListShrink) {
             $res['PolicyBindingList'] = $this->policyBindingListShrink;
         }
-
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -40,18 +45,17 @@ class CreatePolicyBindingsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePolicyBindingsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyBindingList'])) {
             $model->policyBindingListShrink = $map['PolicyBindingList'];
         }
-
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

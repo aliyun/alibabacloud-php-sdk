@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsResponseBody\snapshots\snapshot;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class paths extends Model
 {
@@ -18,43 +18,29 @@ class paths extends Model
 
     public function validate()
     {
-        if (\is_array($this->path)) {
-            Model::validateArray($this->path);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->path) {
-            if (\is_array($this->path)) {
-                $res['Path'] = [];
-                $n1          = 0;
-                foreach ($this->path as $item1) {
-                    $res['Path'][$n1++] = $item1;
-                }
-            }
+            $res['Path'] = $this->path;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return paths
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             if (!empty($map['Path'])) {
-                $model->path = [];
-                $n1          = 0;
-                foreach ($map['Path'] as $item1) {
-                    $model->path[$n1++] = $item1;
-                }
+                $model->path = $map['Path'];
             }
         }
 

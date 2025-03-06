@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTempFileDownloadLinkRequest extends Model
 {
     /**
+     * @description The key that is used to download a file.
+     *
+     * This parameter is required.
+     * @example temp/1797733170015112/report/r-000jdzknbp39cnf9hs99/r-000jdzknbp39cnf9hs99-total.csv
+     *
      * @var string
      */
     public $tempFileKey;
@@ -18,10 +23,9 @@ class GetTempFileDownloadLinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tempFileKey) {
@@ -31,11 +35,11 @@ class GetTempFileDownloadLinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTempFileDownloadLinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

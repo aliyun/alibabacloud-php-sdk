@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTaskRequest extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmvywqfey5njq
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The ID of the job.
+     *
+     * @example t-*********************
+     *
      * @var string
      */
     public $taskId;
+
     /**
+     * @description The access token.
+     *
+     * @example 01W3ZZOQ
+     *
      * @var string
      */
     public $token;
@@ -28,20 +42,17 @@ class DescribeTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -49,22 +60,20 @@ class DescribeTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

@@ -4,27 +4,52 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateVaultRequest extends Model
 {
     /**
+     * @description The description of the backup vault. The description must be 0 to 255 characters in length.
+     *
+     * @example vault description
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm2fa2xeiebyy
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The ID of the backup vault.
+     *
+     * This parameter is required.
+     * @example v-*********************
+     *
      * @var string
      */
     public $vaultId;
+
     /**
+     * @description The name of the backup vault. The name must be 1 to 64 characters in length.
+     *
+     * @example vaultname
+     *
      * @var string
      */
     public $vaultName;
+
     /**
+     * @description Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $wormEnabled;
@@ -38,28 +63,23 @@ class UpdateVaultRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
-
         if (null !== $this->vaultName) {
             $res['VaultName'] = $this->vaultName;
         }
-
         if (null !== $this->wormEnabled) {
             $res['WormEnabled'] = $this->wormEnabled;
         }
@@ -67,30 +87,26 @@ class UpdateVaultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateVaultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }
-
         if (isset($map['VaultName'])) {
             $model->vaultName = $map['VaultName'];
         }
-
         if (isset($map['WormEnabled'])) {
             $model->wormEnabled = $map['WormEnabled'];
         }

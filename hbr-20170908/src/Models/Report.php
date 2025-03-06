@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Report extends Model
 {
     /**
+     * @example temp/report/r-0000dnz7p4pk31u6madf_failed.csv
+     *
      * @var string
      */
     public $failedFiles;
+
     /**
+     * @example temp/report/r-0000dnz7p4pk31u6madf_skipped.csv
+     *
      * @var string
      */
     public $skippedFiles;
+
     /**
+     * @example temp/report/r-0000dnz7p4pk31u6madf_success.csv
+     *
      * @var string
      */
     public $successFiles;
+
     /**
+     * @example temp/report/r-0000dnz7p4pk31u6madf_total.csv
+     *
      * @var string
      */
     public $totalFiles;
@@ -33,24 +44,20 @@ class Report extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedFiles) {
             $res['FailedFiles'] = $this->failedFiles;
         }
-
         if (null !== $this->skippedFiles) {
             $res['SkippedFiles'] = $this->skippedFiles;
         }
-
         if (null !== $this->successFiles) {
             $res['SuccessFiles'] = $this->successFiles;
         }
-
         if (null !== $this->totalFiles) {
             $res['TotalFiles'] = $this->totalFiles;
         }
@@ -58,26 +65,23 @@ class Report extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Report
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedFiles'])) {
             $model->failedFiles = $map['FailedFiles'];
         }
-
         if (isset($map['SkippedFiles'])) {
             $model->skippedFiles = $map['SkippedFiles'];
         }
-
         if (isset($map['SuccessFiles'])) {
             $model->successFiles = $map['SuccessFiles'];
         }
-
         if (isset($map['TotalFiles'])) {
             $model->totalFiles = $map['TotalFiles'];
         }

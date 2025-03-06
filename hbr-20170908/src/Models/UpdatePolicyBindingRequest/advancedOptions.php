@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\commonFileSystemDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\ossDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyBindingRequest\advancedOptions\udmDetail;
+use AlibabaCloud\Tea\Model;
 
 class advancedOptions extends Model
 {
     /**
+     * @description The details about large-scale file system backup.
+     *
      * @var commonFileSystemDetail
      */
     public $commonFileSystemDetail;
+
     /**
+     * @description The details about Object Storage Service (OSS) backup.
+     *
      * @var ossDetail
      */
     public $ossDetail;
+
     /**
+     * @description The details about Elastic Compute Service (ECS) instance backup.
+     *
      * @var udmDetail
      */
     public $udmDetail;
@@ -31,52 +39,38 @@ class advancedOptions extends Model
 
     public function validate()
     {
-        if (null !== $this->commonFileSystemDetail) {
-            $this->commonFileSystemDetail->validate();
-        }
-        if (null !== $this->ossDetail) {
-            $this->ossDetail->validate();
-        }
-        if (null !== $this->udmDetail) {
-            $this->udmDetail->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commonFileSystemDetail) {
-            $res['CommonFileSystemDetail'] = null !== $this->commonFileSystemDetail ? $this->commonFileSystemDetail->toArray($noStream) : $this->commonFileSystemDetail;
+            $res['CommonFileSystemDetail'] = null !== $this->commonFileSystemDetail ? $this->commonFileSystemDetail->toMap() : null;
         }
-
         if (null !== $this->ossDetail) {
-            $res['OssDetail'] = null !== $this->ossDetail ? $this->ossDetail->toArray($noStream) : $this->ossDetail;
+            $res['OssDetail'] = null !== $this->ossDetail ? $this->ossDetail->toMap() : null;
         }
-
         if (null !== $this->udmDetail) {
-            $res['UdmDetail'] = null !== $this->udmDetail ? $this->udmDetail->toArray($noStream) : $this->udmDetail;
+            $res['UdmDetail'] = null !== $this->udmDetail ? $this->udmDetail->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return advancedOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommonFileSystemDetail'])) {
             $model->commonFileSystemDetail = commonFileSystemDetail::fromMap($map['CommonFileSystemDetail']);
         }
-
         if (isset($map['OssDetail'])) {
             $model->ossDetail = ossDetail::fromMap($map['OssDetail']);
         }
-
         if (isset($map['UdmDetail'])) {
             $model->udmDetail = udmDetail::fromMap($map['UdmDetail']);
         }

@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class trialInfo extends Model
 {
     /**
+     * @description Indicates whether you are billed based on the pay-as-you-go method after the free trial ends.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $keepAfterTrialExpiration;
+
     /**
+     * @description The expiration time of the free trial.
+     *
+     * @example 1584597600
+     *
      * @var int
      */
     public $trialExpireTime;
+
     /**
+     * @description The start time of the free trial.
+     *
+     * @example 1579413159
+     *
      * @var int
      */
     public $trialStartTime;
+
     /**
+     * @description The time when the free-trial backup vault is released.
+     *
+     * @example 1594965600
+     *
      * @var int
      */
     public $trialVaultReleaseTime;
@@ -33,24 +52,20 @@ class trialInfo extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keepAfterTrialExpiration) {
             $res['KeepAfterTrialExpiration'] = $this->keepAfterTrialExpiration;
         }
-
         if (null !== $this->trialExpireTime) {
             $res['TrialExpireTime'] = $this->trialExpireTime;
         }
-
         if (null !== $this->trialStartTime) {
             $res['TrialStartTime'] = $this->trialStartTime;
         }
-
         if (null !== $this->trialVaultReleaseTime) {
             $res['TrialVaultReleaseTime'] = $this->trialVaultReleaseTime;
         }
@@ -58,26 +73,23 @@ class trialInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trialInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeepAfterTrialExpiration'])) {
             $model->keepAfterTrialExpiration = $map['KeepAfterTrialExpiration'];
         }
-
         if (isset($map['TrialExpireTime'])) {
             $model->trialExpireTime = $map['TrialExpireTime'];
         }
-
         if (isset($map['TrialStartTime'])) {
             $model->trialStartTime = $map['TrialStartTime'];
         }
-
         if (isset($map['TrialVaultReleaseTime'])) {
             $model->trialVaultReleaseTime = $map['TrialVaultReleaseTime'];
         }

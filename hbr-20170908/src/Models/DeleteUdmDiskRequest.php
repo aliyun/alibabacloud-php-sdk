@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUdmDiskRequest extends Model
 {
     /**
+     * @description The disk ID.
+     *
+     * @example d-bp15************xy70
+     *
      * @var string
      */
     public $diskId;
@@ -18,10 +22,9 @@ class DeleteUdmDiskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->diskId) {
@@ -31,11 +34,11 @@ class DeleteUdmDiskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUdmDiskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

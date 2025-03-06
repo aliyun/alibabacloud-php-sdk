@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelRestoreJobRequest extends Model
 {
     /**
+     * @description The ID of the restore job.
+     *
+     * This parameter is required.
+     * @example r-*********************
+     *
      * @var string
      */
     public $restoreId;
+
     /**
+     * @description The ID of the backup vault.
+     *
+     * This parameter is required.
+     * @example v-*********************
+     *
      * @var string
      */
     public $vaultId;
@@ -23,16 +34,14 @@ class CancelRestoreJobRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->restoreId) {
             $res['RestoreId'] = $this->restoreId;
         }
-
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -40,18 +49,17 @@ class CancelRestoreJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelRestoreJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RestoreId'])) {
             $model->restoreId = $map['RestoreId'];
         }
-
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

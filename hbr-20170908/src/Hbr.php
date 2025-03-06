@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobRequest;
@@ -183,10 +184,12 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\UpgradeBackupClientsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpgradeBackupClientsShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpgradeClientRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpgradeClientResponse;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Hbr extends OpenApiClient
 {
@@ -245,55 +248,45 @@ class Hbr extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Registers a Container Service for Kubernetes (ACK) cluster.
+     * @summary Registers a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param AddContainerClusterRequest $request AddContainerClusterRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddContainerClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddContainerClusterResponse
-     *
-     * @param AddContainerClusterRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AddContainerClusterResponse
+     * @return AddContainerClusterResponse AddContainerClusterResponse
      */
     public function addContainerClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterType) {
-            @$query['ClusterType'] = $request->clusterType;
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddContainerCluster',
@@ -306,7 +299,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddContainerClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -314,14 +307,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Registers a Container Service for Kubernetes (ACK) cluster.
+     * @summary Registers a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param AddContainerClusterRequest $request AddContainerClusterRequest
      *
-     * @param request - AddContainerClusterRequest
-     * @returns AddContainerClusterResponse
-     *
-     * @param AddContainerClusterRequest $request
-     *
-     * @return AddContainerClusterResponse
+     * @return AddContainerClusterResponse AddContainerClusterResponse
      */
     public function addContainerCluster($request)
     {
@@ -331,31 +321,25 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a backup job.
+     * @summary Cancels a backup job.
+     *  *
+     * @param CancelBackupJobRequest $request CancelBackupJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelBackupJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelBackupJobResponse
-     *
-     * @param CancelBackupJobRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CancelBackupJobResponse
+     * @return CancelBackupJobResponse CancelBackupJobResponse
      */
     public function cancelBackupJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelBackupJob',
@@ -368,7 +352,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelBackupJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -376,14 +360,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a backup job.
+     * @summary Cancels a backup job.
+     *  *
+     * @param CancelBackupJobRequest $request CancelBackupJobRequest
      *
-     * @param request - CancelBackupJobRequest
-     * @returns CancelBackupJobResponse
-     *
-     * @param CancelBackupJobRequest $request
-     *
-     * @return CancelBackupJobResponse
+     * @return CancelBackupJobResponse CancelBackupJobResponse
      */
     public function cancelBackupJob($request)
     {
@@ -393,31 +374,25 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a restore job.
+     * @summary Cancels a restore job.
+     *  *
+     * @param CancelRestoreJobRequest $request CancelRestoreJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelRestoreJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelRestoreJobResponse
-     *
-     * @param CancelRestoreJobRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CancelRestoreJobResponse
+     * @return CancelRestoreJobResponse CancelRestoreJobResponse
      */
     public function cancelRestoreJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->restoreId) {
-            @$query['RestoreId'] = $request->restoreId;
+        if (!Utils::isUnset($request->restoreId)) {
+            $query['RestoreId'] = $request->restoreId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelRestoreJob',
@@ -430,7 +405,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelRestoreJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -438,14 +413,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a restore job.
+     * @summary Cancels a restore job.
+     *  *
+     * @param CancelRestoreJobRequest $request CancelRestoreJobRequest
      *
-     * @param request - CancelRestoreJobRequest
-     * @returns CancelRestoreJobResponse
-     *
-     * @param CancelRestoreJobRequest $request
-     *
-     * @return CancelRestoreJobResponse
+     * @return CancelRestoreJobResponse CancelRestoreJobResponse
      */
     public function cancelRestoreJob($request)
     {
@@ -455,40 +427,32 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which an instance belongs.
-     *
-     * @remarks
-     *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @description *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
      * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
      * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->newResourceGroupId) {
-            @$body['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $body['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$body['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -501,7 +465,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -509,19 +473,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which an instance belongs.
-     *
-     * @remarks
-     *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @description *   In the Cloud Backup console, you can use resource groups to manage resources such as backup vaults, Cloud Backup clients, and SAP HANA instances.
      * *   A resource is a cloud service entity that you create on Alibaba Cloud, such as an Elastic Compute Service (ECS) instance, a backup vault, or an SAP HANA instance.
      * *   You can sort resources owned by your Alibaba Cloud account into various resource groups. Resource groups facilitate resource management among multiple projects or applications within your Alibaba Cloud account and simplify permission management.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @param request - ChangeResourceGroupRequest
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -531,35 +491,28 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Checks whether the user has permissions to access the current resource or page.
+     * @summary Checks whether the user has permissions to access the current resource or page.
+     *  *
+     * @param CheckRoleRequest $request CheckRoleRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckRoleResponse
-     *
-     * @param CheckRoleRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CheckRoleResponse
+     * @return CheckRoleResponse CheckRoleResponse
      */
     public function checkRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkRoleType) {
-            @$query['CheckRoleType'] = $request->checkRoleType;
+        if (!Utils::isUnset($request->checkRoleType)) {
+            $query['CheckRoleType'] = $request->checkRoleType;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckRole',
@@ -572,7 +525,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckRoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -580,14 +533,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Checks whether the user has permissions to access the current resource or page.
+     * @summary Checks whether the user has permissions to access the current resource or page.
+     *  *
+     * @param CheckRoleRequest $request CheckRoleRequest
      *
-     * @param request - CheckRoleRequest
-     * @returns CheckRoleResponse
-     *
-     * @param CheckRoleRequest $request
-     *
-     * @return CheckRoleResponse
+     * @return CheckRoleResponse CheckRoleResponse
      */
     public function checkRole($request)
     {
@@ -597,101 +547,78 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup job.
+     * @summary Creates a backup job.
+     *  *
+     * @param CreateBackupJobRequest $tmpReq  CreateBackupJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateBackupJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBackupJobResponse
-     *
-     * @param CreateBackupJobRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateBackupJobResponse
+     * @return CreateBackupJobResponse CreateBackupJobResponse
      */
     public function createBackupJobWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateBackupJobShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->detail) {
-            $request->detailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->detail)) {
+            $request->detailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
         }
-
         $query = [];
-        if (null !== $request->backupType) {
-            @$query['BackupType'] = $request->backupType;
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->containerClusterId) {
-            @$query['ContainerClusterId'] = $request->containerClusterId;
+        if (!Utils::isUnset($request->containerClusterId)) {
+            $query['ContainerClusterId'] = $request->containerClusterId;
         }
-
-        if (null !== $request->containerResources) {
-            @$query['ContainerResources'] = $request->containerResources;
+        if (!Utils::isUnset($request->containerResources)) {
+            $query['ContainerResources'] = $request->containerResources;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->detailShrink) {
-            @$query['Detail'] = $request->detailShrink;
+        if (!Utils::isUnset($request->detailShrink)) {
+            $query['Detail'] = $request->detailShrink;
         }
-
-        if (null !== $request->exclude) {
-            @$query['Exclude'] = $request->exclude;
+        if (!Utils::isUnset($request->exclude)) {
+            $query['Exclude'] = $request->exclude;
         }
-
-        if (null !== $request->include) {
-            @$query['Include'] = $request->include;
+        if (!Utils::isUnset($request->include_)) {
+            $query['Include'] = $request->include_;
         }
-
-        if (null !== $request->initiatedByAck) {
-            @$query['InitiatedByAck'] = $request->initiatedByAck;
+        if (!Utils::isUnset($request->initiatedByAck)) {
+            $query['InitiatedByAck'] = $request->initiatedByAck;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobName) {
-            @$query['JobName'] = $request->jobName;
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
         }
-
-        if (null !== $request->options) {
-            @$query['Options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $query['Options'] = $request->options;
         }
-
-        if (null !== $request->retention) {
-            @$query['Retention'] = $request->retention;
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->speedLimit) {
-            @$query['SpeedLimit'] = $request->speedLimit;
+        if (!Utils::isUnset($request->speedLimit)) {
+            $query['SpeedLimit'] = $request->speedLimit;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateBackupJob',
@@ -704,7 +631,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackupJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -712,14 +639,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup job.
+     * @summary Creates a backup job.
+     *  *
+     * @param CreateBackupJobRequest $request CreateBackupJobRequest
      *
-     * @param request - CreateBackupJobRequest
-     * @returns CreateBackupJobResponse
-     *
-     * @param CreateBackupJobRequest $request
-     *
-     * @return CreateBackupJobResponse
+     * @return CreateBackupJobResponse CreateBackupJobResponse
      */
     public function createBackupJob($request)
     {
@@ -729,173 +653,133 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Create a backup plan.
-     *
-     * @remarks
-     * - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+     * @summary Create a backup plan.
+     *  *
+     * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
      * - A backup plan supports only one type of data source.
      * - A backup plan supports only a single fixed interval backup cycle strategy.
      * - A backup plan can back up to only one backup vault.
+     *  *
+     * @param CreateBackupPlanRequest $tmpReq  CreateBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBackupPlanResponse
-     *
-     * @param CreateBackupPlanRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateBackupPlanResponse
+     * @return CreateBackupPlanResponse CreateBackupPlanResponse
      */
     public function createBackupPlanWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateBackupPlanShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->destDataSourceDetail) {
-            $request->destDataSourceDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destDataSourceDetail, 'DestDataSourceDetail', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destDataSourceDetail)) {
+            $request->destDataSourceDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destDataSourceDetail, 'DestDataSourceDetail', 'json');
         }
-
-        if (null !== $tmpReq->detail) {
-            $request->detailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
+        if (!Utils::isUnset($tmpReq->detail)) {
+            $request->detailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
         }
-
-        if (null !== $tmpReq->otsDetail) {
-            $request->otsDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
+        if (!Utils::isUnset($tmpReq->otsDetail)) {
+            $request->otsDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
         }
-
         $query = [];
-        if (null !== $request->backupType) {
-            @$query['BackupType'] = $request->backupType;
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
         }
-
-        if (null !== $request->bucket) {
-            @$query['Bucket'] = $request->bucket;
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
         }
-
-        if (null !== $request->changeListPath) {
-            @$query['ChangeListPath'] = $request->changeListPath;
+        if (!Utils::isUnset($request->changeListPath)) {
+            $query['ChangeListPath'] = $request->changeListPath;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->createTime) {
-            @$query['CreateTime'] = $request->createTime;
+        if (!Utils::isUnset($request->createTime)) {
+            $query['CreateTime'] = $request->createTime;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->destDataSourceDetailShrink) {
-            @$query['DestDataSourceDetail'] = $request->destDataSourceDetailShrink;
+        if (!Utils::isUnset($request->destDataSourceDetailShrink)) {
+            $query['DestDataSourceDetail'] = $request->destDataSourceDetailShrink;
         }
-
-        if (null !== $request->destDataSourceId) {
-            @$query['DestDataSourceId'] = $request->destDataSourceId;
+        if (!Utils::isUnset($request->destDataSourceId)) {
+            $query['DestDataSourceId'] = $request->destDataSourceId;
         }
-
-        if (null !== $request->destSourceType) {
-            @$query['DestSourceType'] = $request->destSourceType;
+        if (!Utils::isUnset($request->destSourceType)) {
+            $query['DestSourceType'] = $request->destSourceType;
         }
-
-        if (null !== $request->detailShrink) {
-            @$query['Detail'] = $request->detailShrink;
+        if (!Utils::isUnset($request->detailShrink)) {
+            $query['Detail'] = $request->detailShrink;
         }
-
-        if (null !== $request->disabled) {
-            @$query['Disabled'] = $request->disabled;
+        if (!Utils::isUnset($request->disabled)) {
+            $query['Disabled'] = $request->disabled;
         }
-
-        if (null !== $request->fileSystemId) {
-            @$query['FileSystemId'] = $request->fileSystemId;
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
         }
-
-        if (null !== $request->keepLatestSnapshots) {
-            @$query['KeepLatestSnapshots'] = $request->keepLatestSnapshots;
+        if (!Utils::isUnset($request->keepLatestSnapshots)) {
+            $query['KeepLatestSnapshots'] = $request->keepLatestSnapshots;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->prefix) {
-            @$query['Prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
         }
-
-        if (null !== $request->retention) {
-            @$query['Retention'] = $request->retention;
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
         }
-
-        if (null !== $request->schedule) {
-            @$query['Schedule'] = $request->schedule;
+        if (!Utils::isUnset($request->schedule)) {
+            $query['Schedule'] = $request->schedule;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->udmRegionId) {
-            @$query['UdmRegionId'] = $request->udmRegionId;
+        if (!Utils::isUnset($request->udmRegionId)) {
+            $query['UdmRegionId'] = $request->udmRegionId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $body = [];
-        if (null !== $request->dataSourceId) {
-            @$body['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->exclude) {
-            @$body['Exclude'] = $request->exclude;
+        if (!Utils::isUnset($request->exclude)) {
+            $body['Exclude'] = $request->exclude;
         }
-
-        if (null !== $request->include) {
-            @$body['Include'] = $request->include;
+        if (!Utils::isUnset($request->include_)) {
+            $body['Include'] = $request->include_;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$body['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->options) {
-            @$body['Options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $body['Options'] = $request->options;
         }
-
-        if (null !== $request->otsDetailShrink) {
-            @$body['OtsDetail'] = $request->otsDetailShrink;
+        if (!Utils::isUnset($request->otsDetailShrink)) {
+            $body['OtsDetail'] = $request->otsDetailShrink;
         }
-
-        if (null !== $request->path) {
-            @$body['Path'] = $request->path;
+        if (!Utils::isUnset($request->path)) {
+            $body['Path'] = $request->path;
         }
-
-        if (null !== $request->rule) {
-            @$body['Rule'] = $request->rule;
+        if (!Utils::isUnset($request->rule)) {
+            $body['Rule'] = $request->rule;
         }
-
-        if (null !== $request->speedLimit) {
-            @$body['SpeedLimit'] = $request->speedLimit;
+        if (!Utils::isUnset($request->speedLimit)) {
+            $body['SpeedLimit'] = $request->speedLimit;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateBackupPlan',
@@ -908,7 +792,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -916,20 +800,16 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Create a backup plan.
-     *
-     * @remarks
-     * - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+     * @summary Create a backup plan.
+     *  *
+     * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
      * - A backup plan supports only one type of data source.
      * - A backup plan supports only a single fixed interval backup cycle strategy.
      * - A backup plan can back up to only one backup vault.
+     *  *
+     * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
      *
-     * @param request - CreateBackupPlanRequest
-     * @returns CreateBackupPlanResponse
-     *
-     * @param CreateBackupPlanRequest $request
-     *
-     * @return CreateBackupPlanResponse
+     * @return CreateBackupPlanResponse CreateBackupPlanResponse
      */
     public function createBackupPlan($request)
     {
@@ -939,58 +819,45 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Installs one or more Cloud Backup clients on specified instances.
+     * @summary Installs one or more Cloud Backup clients on specified instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
+     *  *
+     * @param CreateClientsRequest $request CreateClientsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
-     *
-     * @param request - CreateClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateClientsResponse
-     *
-     * @param CreateClientsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateClientsResponse
+     * @return CreateClientsResponse CreateClientsResponse
      */
     public function createClientsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertSetting) {
-            @$query['AlertSetting'] = $request->alertSetting;
+        if (!Utils::isUnset($request->alertSetting)) {
+            $query['AlertSetting'] = $request->alertSetting;
         }
-
-        if (null !== $request->clientInfo) {
-            @$query['ClientInfo'] = $request->clientInfo;
+        if (!Utils::isUnset($request->clientInfo)) {
+            $query['ClientInfo'] = $request->clientInfo;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->useHttps) {
-            @$query['UseHttps'] = $request->useHttps;
+        if (!Utils::isUnset($request->useHttps)) {
+            $query['UseHttps'] = $request->useHttps;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateClients',
@@ -1003,7 +870,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1011,17 +878,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Installs one or more Cloud Backup clients on specified instances.
+     * @summary Installs one or more Cloud Backup clients on specified instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
+     *  *
+     * @param CreateClientsRequest $request CreateClientsRequest
      *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
-     *
-     * @param request - CreateClientsRequest
-     * @returns CreateClientsResponse
-     *
-     * @param CreateClientsRequest $request
-     *
-     * @return CreateClientsResponse
+     * @return CreateClientsResponse CreateClientsResponse
      */
     public function createClients($request)
     {
@@ -1031,61 +894,48 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup plan for an SAP HANA instance.
-     *
-     * @remarks
-     *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Creates a backup plan for an SAP HANA instance.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   You can specify only one type of data source in a backup plan.
      * *   You can specify only one interval as a backup cycle in a backup plan.
      * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
+     * @param CreateHanaBackupPlanRequest $request CreateHanaBackupPlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateHanaBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateHanaBackupPlanResponse
-     *
-     * @param CreateHanaBackupPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateHanaBackupPlanResponse
+     * @return CreateHanaBackupPlanResponse CreateHanaBackupPlanResponse
      */
     public function createHanaBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupPrefix) {
-            @$query['BackupPrefix'] = $request->backupPrefix;
+        if (!Utils::isUnset($request->backupPrefix)) {
+            $query['BackupPrefix'] = $request->backupPrefix;
         }
-
-        if (null !== $request->backupType) {
-            @$query['BackupType'] = $request->backupType;
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->schedule) {
-            @$query['Schedule'] = $request->schedule;
+        if (!Utils::isUnset($request->schedule)) {
+            $query['Schedule'] = $request->schedule;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateHanaBackupPlan',
@@ -1098,7 +948,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateHanaBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1106,20 +956,16 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup plan for an SAP HANA instance.
-     *
-     * @remarks
-     *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Creates a backup plan for an SAP HANA instance.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   You can specify only one type of data source in a backup plan.
      * *   You can specify only one interval as a backup cycle in a backup plan.
      * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
+     * @param CreateHanaBackupPlanRequest $request CreateHanaBackupPlanRequest
      *
-     * @param request - CreateHanaBackupPlanRequest
-     * @returns CreateHanaBackupPlanResponse
-     *
-     * @param CreateHanaBackupPlanRequest $request
-     *
-     * @return CreateHanaBackupPlanResponse
+     * @return CreateHanaBackupPlanResponse CreateHanaBackupPlanResponse
      */
     public function createHanaBackupPlan($request)
     {
@@ -1129,86 +975,66 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Registers an SAP HANA instance.
+     * @summary Registers an SAP HANA instance.
+     *  *
+     * @description To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
+     *  *
+     * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
-     *
-     * @param request - CreateHanaInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateHanaInstanceResponse
-     *
-     * @param CreateHanaInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateHanaInstanceResponse
+     * @return CreateHanaInstanceResponse CreateHanaInstanceResponse
      */
     public function createHanaInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertSetting) {
-            @$query['AlertSetting'] = $request->alertSetting;
+        if (!Utils::isUnset($request->alertSetting)) {
+            $query['AlertSetting'] = $request->alertSetting;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->ecsInstanceId) {
-            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-
-        if (null !== $request->hanaName) {
-            @$query['HanaName'] = $request->hanaName;
+        if (!Utils::isUnset($request->hanaName)) {
+            $query['HanaName'] = $request->hanaName;
         }
-
-        if (null !== $request->host) {
-            @$query['Host'] = $request->host;
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
-
-        if (null !== $request->instanceNumber) {
-            @$query['InstanceNumber'] = $request->instanceNumber;
+        if (!Utils::isUnset($request->instanceNumber)) {
+            $query['InstanceNumber'] = $request->instanceNumber;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sid) {
-            @$query['Sid'] = $request->sid;
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
         }
-
-        if (null !== $request->useSsl) {
-            @$query['UseSsl'] = $request->useSsl;
+        if (!Utils::isUnset($request->useSsl)) {
+            $query['UseSsl'] = $request->useSsl;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->validateCertificate) {
-            @$query['ValidateCertificate'] = $request->validateCertificate;
+        if (!Utils::isUnset($request->validateCertificate)) {
+            $query['ValidateCertificate'] = $request->validateCertificate;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateHanaInstance',
@@ -1221,7 +1047,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateHanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1229,17 +1055,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Registers an SAP HANA instance.
+     * @summary Registers an SAP HANA instance.
+     *  *
+     * @description To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
+     *  *
+     * @param CreateHanaInstanceRequest $request CreateHanaInstanceRequest
      *
-     * @remarks
-     * To register an SAP HANA instance, you must configure the SAP HANA connection information. After the SAP HANA instance is registered, Cloud Backup installs a backup client on the node of the SAP HANA instance.
-     *
-     * @param request - CreateHanaInstanceRequest
-     * @returns CreateHanaInstanceResponse
-     *
-     * @param CreateHanaInstanceRequest $request
-     *
-     * @return CreateHanaInstanceResponse
+     * @return CreateHanaInstanceResponse CreateHanaInstanceResponse
      */
     public function createHanaInstance($request)
     {
@@ -1249,98 +1071,75 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a restore job for an SAP HANA database.
+     * @summary Creates a restore job for an SAP HANA database.
+     *  *
+     * @description If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
+     *  *
+     * @param CreateHanaRestoreRequest $request CreateHanaRestoreRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
-     *
-     * @param request - CreateHanaRestoreRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateHanaRestoreResponse
-     *
-     * @param CreateHanaRestoreRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateHanaRestoreResponse
+     * @return CreateHanaRestoreResponse CreateHanaRestoreResponse
      */
     public function createHanaRestoreWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupPrefix) {
-            @$query['BackupPrefix'] = $request->backupPrefix;
+        if (!Utils::isUnset($request->backupPrefix)) {
+            $query['BackupPrefix'] = $request->backupPrefix;
         }
-
-        if (null !== $request->checkAccess) {
-            @$query['CheckAccess'] = $request->checkAccess;
+        if (!Utils::isUnset($request->checkAccess)) {
+            $query['CheckAccess'] = $request->checkAccess;
         }
-
-        if (null !== $request->clearLog) {
-            @$query['ClearLog'] = $request->clearLog;
+        if (!Utils::isUnset($request->clearLog)) {
+            $query['ClearLog'] = $request->clearLog;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->logPosition) {
-            @$query['LogPosition'] = $request->logPosition;
+        if (!Utils::isUnset($request->logPosition)) {
+            $query['LogPosition'] = $request->logPosition;
         }
-
-        if (null !== $request->masterClientId) {
-            @$query['MasterClientId'] = $request->masterClientId;
+        if (!Utils::isUnset($request->masterClientId)) {
+            $query['MasterClientId'] = $request->masterClientId;
         }
-
-        if (null !== $request->mode) {
-            @$query['Mode'] = $request->mode;
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
         }
-
-        if (null !== $request->recoveryPointInTime) {
-            @$query['RecoveryPointInTime'] = $request->recoveryPointInTime;
+        if (!Utils::isUnset($request->recoveryPointInTime)) {
+            $query['RecoveryPointInTime'] = $request->recoveryPointInTime;
         }
-
-        if (null !== $request->sidAdmin) {
-            @$query['SidAdmin'] = $request->sidAdmin;
+        if (!Utils::isUnset($request->sidAdmin)) {
+            $query['SidAdmin'] = $request->sidAdmin;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceClusterId) {
-            @$query['SourceClusterId'] = $request->sourceClusterId;
+        if (!Utils::isUnset($request->sourceClusterId)) {
+            $query['SourceClusterId'] = $request->sourceClusterId;
         }
-
-        if (null !== $request->systemCopy) {
-            @$query['SystemCopy'] = $request->systemCopy;
+        if (!Utils::isUnset($request->systemCopy)) {
+            $query['SystemCopy'] = $request->systemCopy;
         }
-
-        if (null !== $request->useCatalog) {
-            @$query['UseCatalog'] = $request->useCatalog;
+        if (!Utils::isUnset($request->useCatalog)) {
+            $query['UseCatalog'] = $request->useCatalog;
         }
-
-        if (null !== $request->useDelta) {
-            @$query['UseDelta'] = $request->useDelta;
+        if (!Utils::isUnset($request->useDelta)) {
+            $query['UseDelta'] = $request->useDelta;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
-        if (null !== $request->volumeId) {
-            @$query['VolumeId'] = $request->volumeId;
+        if (!Utils::isUnset($request->volumeId)) {
+            $query['VolumeId'] = $request->volumeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateHanaRestore',
@@ -1353,7 +1152,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateHanaRestoreResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1361,17 +1160,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a restore job for an SAP HANA database.
+     * @summary Creates a restore job for an SAP HANA database.
+     *  *
+     * @description If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
+     *  *
+     * @param CreateHanaRestoreRequest $request CreateHanaRestoreRequest
      *
-     * @remarks
-     * If you call this operation to restore a database, the database is restored to a specified state. Proceed with caution. For more information, see [Restore databases to an SAP HANA instance](https://help.aliyun.com/document_detail/101178.html).
-     *
-     * @param request - CreateHanaRestoreRequest
-     * @returns CreateHanaRestoreResponse
-     *
-     * @param CreateHanaRestoreRequest $request
-     *
-     * @return CreateHanaRestoreResponse
+     * @return CreateHanaRestoreResponse CreateHanaRestoreResponse
      */
     public function createHanaRestore($request)
     {
@@ -1381,43 +1176,35 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Binds one or more data sources to a backup policy.
-     *
-     * @remarks
-     *   You can bind data sources to only one policy in each request.
+     * @summary Binds one or more data sources to a backup policy.
+     *  *
+     * @description *   You can bind data sources to only one policy in each request.
      * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+     *  *
+     * @param CreatePolicyBindingsRequest $tmpReq  CreatePolicyBindingsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreatePolicyBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePolicyBindingsResponse
-     *
-     * @param CreatePolicyBindingsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreatePolicyBindingsResponse
+     * @return CreatePolicyBindingsResponse CreatePolicyBindingsResponse
      */
     public function createPolicyBindingsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreatePolicyBindingsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->policyBindingList) {
-            $request->policyBindingListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policyBindingList, 'PolicyBindingList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->policyBindingList)) {
+            $request->policyBindingListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyBindingList, 'PolicyBindingList', 'json');
         }
-
         $query = [];
-        if (null !== $request->policyBindingListShrink) {
-            @$query['PolicyBindingList'] = $request->policyBindingListShrink;
+        if (!Utils::isUnset($request->policyBindingListShrink)) {
+            $query['PolicyBindingList'] = $request->policyBindingListShrink;
         }
-
         $body = [];
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePolicyBindings',
@@ -1430,7 +1217,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePolicyBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1438,18 +1225,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Binds one or more data sources to a backup policy.
-     *
-     * @remarks
-     *   You can bind data sources to only one policy in each request.
+     * @summary Binds one or more data sources to a backup policy.
+     *  *
+     * @description *   You can bind data sources to only one policy in each request.
      * *   Elastic Compute Service (ECS) instances can be bound to only one policy.
+     *  *
+     * @param CreatePolicyBindingsRequest $request CreatePolicyBindingsRequest
      *
-     * @param request - CreatePolicyBindingsRequest
-     * @returns CreatePolicyBindingsResponse
-     *
-     * @param CreatePolicyBindingsRequest $request
-     *
-     * @return CreatePolicyBindingsResponse
+     * @return CreatePolicyBindingsResponse CreatePolicyBindingsResponse
      */
     public function createPolicyBindings($request)
     {
@@ -1459,51 +1242,41 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy.
-     *
-     * @remarks
-     * A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Creates a backup policy.
+     *  *
+     * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
      * *   You can specify only one interval as a backup cycle in a backup policy.
      * *   Each backup policy allows you to back up data to only one backup vault.
+     *  *
+     * @param CreatePolicyV2Request $tmpReq  CreatePolicyV2Request
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreatePolicyV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePolicyV2Response
-     *
-     * @param CreatePolicyV2Request $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreatePolicyV2Response
+     * @return CreatePolicyV2Response CreatePolicyV2Response
      */
     public function createPolicyV2WithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreatePolicyV2ShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->rules) {
-            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
-
         $body = [];
-        if (null !== $request->policyDescription) {
-            @$body['PolicyDescription'] = $request->policyDescription;
+        if (!Utils::isUnset($request->policyDescription)) {
+            $body['PolicyDescription'] = $request->policyDescription;
         }
-
-        if (null !== $request->policyName) {
-            @$body['PolicyName'] = $request->policyName;
+        if (!Utils::isUnset($request->policyName)) {
+            $body['PolicyName'] = $request->policyName;
         }
-
-        if (null !== $request->policyType) {
-            @$body['PolicyType'] = $request->policyType;
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
         }
-
-        if (null !== $request->rulesShrink) {
-            @$body['Rules'] = $request->rulesShrink;
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $body['Rules'] = $request->rulesShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePolicyV2',
@@ -1516,7 +1289,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePolicyV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1524,20 +1297,16 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy.
-     *
-     * @remarks
-     * A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Creates a backup policy.
+     *  *
+     * @description A backup policy records the information required for backup. After you execute a backup policy, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   A backup policy supports multiple data sources. The data sources can be only Elastic Compute Service (ECS) instances.
      * *   You can specify only one interval as a backup cycle in a backup policy.
      * *   Each backup policy allows you to back up data to only one backup vault.
+     *  *
+     * @param CreatePolicyV2Request $request CreatePolicyV2Request
      *
-     * @param request - CreatePolicyV2Request
-     * @returns CreatePolicyV2Response
-     *
-     * @param CreatePolicyV2Request $request
-     *
-     * @return CreatePolicyV2Response
+     * @return CreatePolicyV2Response CreatePolicyV2Response
      */
     public function createPolicyV2($request)
     {
@@ -1547,62 +1316,48 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a mirror vault.
+     * @summary Creates a mirror vault.
+     *  *
+     * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
+     *  *
+     * @param CreateReplicationVaultRequest $request CreateReplicationVaultRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
-     *
-     * @param request - CreateReplicationVaultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateReplicationVaultResponse
-     *
-     * @param CreateReplicationVaultRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateReplicationVaultResponse
+     * @return CreateReplicationVaultResponse CreateReplicationVaultResponse
      */
     public function createReplicationVaultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->encryptType) {
-            @$query['EncryptType'] = $request->encryptType;
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
         }
-
-        if (null !== $request->kmsKeyId) {
-            @$query['KmsKeyId'] = $request->kmsKeyId;
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
-
-        if (null !== $request->redundancyType) {
-            @$query['RedundancyType'] = $request->redundancyType;
+        if (!Utils::isUnset($request->redundancyType)) {
+            $query['RedundancyType'] = $request->redundancyType;
         }
-
-        if (null !== $request->replicationSourceRegionId) {
-            @$query['ReplicationSourceRegionId'] = $request->replicationSourceRegionId;
+        if (!Utils::isUnset($request->replicationSourceRegionId)) {
+            $query['ReplicationSourceRegionId'] = $request->replicationSourceRegionId;
         }
-
-        if (null !== $request->replicationSourceVaultId) {
-            @$query['ReplicationSourceVaultId'] = $request->replicationSourceVaultId;
+        if (!Utils::isUnset($request->replicationSourceVaultId)) {
+            $query['ReplicationSourceVaultId'] = $request->replicationSourceVaultId;
         }
-
-        if (null !== $request->vaultName) {
-            @$query['VaultName'] = $request->vaultName;
+        if (!Utils::isUnset($request->vaultName)) {
+            $query['VaultName'] = $request->vaultName;
         }
-
-        if (null !== $request->vaultRegionId) {
-            @$query['VaultRegionId'] = $request->vaultRegionId;
+        if (!Utils::isUnset($request->vaultRegionId)) {
+            $query['VaultRegionId'] = $request->vaultRegionId;
         }
-
-        if (null !== $request->vaultStorageClass) {
-            @$query['VaultStorageClass'] = $request->vaultStorageClass;
+        if (!Utils::isUnset($request->vaultStorageClass)) {
+            $query['VaultStorageClass'] = $request->vaultStorageClass;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateReplicationVault',
@@ -1615,7 +1370,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateReplicationVaultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1623,17 +1378,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a mirror vault.
+     * @summary Creates a mirror vault.
+     *  *
+     * @description After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
+     *  *
+     * @param CreateReplicationVaultRequest $request CreateReplicationVaultRequest
      *
-     * @remarks
-     * After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state.Call this operation in the region where the mirror vault resides, which is specified by the VaultRegionId parameter.
-     *
-     * @param request - CreateReplicationVaultRequest
-     * @returns CreateReplicationVaultResponse
-     *
-     * @param CreateReplicationVaultRequest $request
-     *
-     * @return CreateReplicationVaultResponse
+     * @return CreateReplicationVaultResponse CreateReplicationVaultResponse
      */
     public function createReplicationVault($request)
     {
@@ -1643,151 +1394,116 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Create a restore job.
-     *
-     * @remarks
-     * - Create a restore job based on the selected snapshot and the restore destination.
+     * @summary Create a restore job.
+     *  *
+     * @description - Create a restore job based on the selected snapshot and the restore destination.
      * - Currently, the data source type must match the restore destination data source type.
+     *  *
+     * @param CreateRestoreJobRequest $tmpReq  CreateRestoreJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateRestoreJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateRestoreJobResponse
-     *
-     * @param CreateRestoreJobRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateRestoreJobResponse
+     * @return CreateRestoreJobResponse CreateRestoreJobResponse
      */
     public function createRestoreJobWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateRestoreJobShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->failbackDetail) {
-            $request->failbackDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->failbackDetail, 'FailbackDetail', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->failbackDetail)) {
+            $request->failbackDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->failbackDetail, 'FailbackDetail', 'json');
         }
-
-        if (null !== $tmpReq->otsDetail) {
-            $request->otsDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
+        if (!Utils::isUnset($tmpReq->otsDetail)) {
+            $request->otsDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
         }
-
-        if (null !== $tmpReq->udmDetail) {
-            $request->udmDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->udmDetail, 'UdmDetail', 'json');
+        if (!Utils::isUnset($tmpReq->udmDetail)) {
+            $request->udmDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->udmDetail, 'UdmDetail', 'json');
         }
-
         $query = [];
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->failbackDetailShrink) {
-            @$query['FailbackDetail'] = $request->failbackDetailShrink;
+        if (!Utils::isUnset($request->failbackDetailShrink)) {
+            $query['FailbackDetail'] = $request->failbackDetailShrink;
         }
-
-        if (null !== $request->initiatedByAck) {
-            @$query['InitiatedByAck'] = $request->initiatedByAck;
+        if (!Utils::isUnset($request->initiatedByAck)) {
+            $query['InitiatedByAck'] = $request->initiatedByAck;
         }
-
-        if (null !== $request->options) {
-            @$query['Options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $query['Options'] = $request->options;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
-        if (null !== $request->snapshotHash) {
-            @$query['SnapshotHash'] = $request->snapshotHash;
+        if (!Utils::isUnset($request->snapshotHash)) {
+            $query['SnapshotHash'] = $request->snapshotHash;
         }
-
-        if (null !== $request->snapshotId) {
-            @$query['SnapshotId'] = $request->snapshotId;
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->targetBucket) {
-            @$query['TargetBucket'] = $request->targetBucket;
+        if (!Utils::isUnset($request->targetBucket)) {
+            $query['TargetBucket'] = $request->targetBucket;
         }
-
-        if (null !== $request->targetContainer) {
-            @$query['TargetContainer'] = $request->targetContainer;
+        if (!Utils::isUnset($request->targetContainer)) {
+            $query['TargetContainer'] = $request->targetContainer;
         }
-
-        if (null !== $request->targetContainerClusterId) {
-            @$query['TargetContainerClusterId'] = $request->targetContainerClusterId;
+        if (!Utils::isUnset($request->targetContainerClusterId)) {
+            $query['TargetContainerClusterId'] = $request->targetContainerClusterId;
         }
-
-        if (null !== $request->targetCreateTime) {
-            @$query['TargetCreateTime'] = $request->targetCreateTime;
+        if (!Utils::isUnset($request->targetCreateTime)) {
+            $query['TargetCreateTime'] = $request->targetCreateTime;
         }
-
-        if (null !== $request->targetFileSystemId) {
-            @$query['TargetFileSystemId'] = $request->targetFileSystemId;
+        if (!Utils::isUnset($request->targetFileSystemId)) {
+            $query['TargetFileSystemId'] = $request->targetFileSystemId;
         }
-
-        if (null !== $request->targetInstanceName) {
-            @$query['TargetInstanceName'] = $request->targetInstanceName;
+        if (!Utils::isUnset($request->targetInstanceName)) {
+            $query['TargetInstanceName'] = $request->targetInstanceName;
         }
-
-        if (null !== $request->targetPrefix) {
-            @$query['TargetPrefix'] = $request->targetPrefix;
+        if (!Utils::isUnset($request->targetPrefix)) {
+            $query['TargetPrefix'] = $request->targetPrefix;
         }
-
-        if (null !== $request->targetTableName) {
-            @$query['TargetTableName'] = $request->targetTableName;
+        if (!Utils::isUnset($request->targetTableName)) {
+            $query['TargetTableName'] = $request->targetTableName;
         }
-
-        if (null !== $request->targetTime) {
-            @$query['TargetTime'] = $request->targetTime;
+        if (!Utils::isUnset($request->targetTime)) {
+            $query['TargetTime'] = $request->targetTime;
         }
-
-        if (null !== $request->udmDetailShrink) {
-            @$query['UdmDetail'] = $request->udmDetailShrink;
+        if (!Utils::isUnset($request->udmDetailShrink)) {
+            $query['UdmDetail'] = $request->udmDetailShrink;
         }
-
-        if (null !== $request->udmRegionId) {
-            @$query['UdmRegionId'] = $request->udmRegionId;
+        if (!Utils::isUnset($request->udmRegionId)) {
+            $query['UdmRegionId'] = $request->udmRegionId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $body = [];
-        if (null !== $request->exclude) {
-            @$body['Exclude'] = $request->exclude;
+        if (!Utils::isUnset($request->exclude)) {
+            $body['Exclude'] = $request->exclude;
         }
-
-        if (null !== $request->include) {
-            @$body['Include'] = $request->include;
+        if (!Utils::isUnset($request->include_)) {
+            $body['Include'] = $request->include_;
         }
-
-        if (null !== $request->otsDetailShrink) {
-            @$body['OtsDetail'] = $request->otsDetailShrink;
+        if (!Utils::isUnset($request->otsDetailShrink)) {
+            $body['OtsDetail'] = $request->otsDetailShrink;
         }
-
-        if (null !== $request->targetInstanceId) {
-            @$body['TargetInstanceId'] = $request->targetInstanceId;
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $body['TargetInstanceId'] = $request->targetInstanceId;
         }
-
-        if (null !== $request->targetPath) {
-            @$body['TargetPath'] = $request->targetPath;
+        if (!Utils::isUnset($request->targetPath)) {
+            $body['TargetPath'] = $request->targetPath;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRestoreJob',
@@ -1800,7 +1516,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateRestoreJobResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1808,18 +1524,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Create a restore job.
-     *
-     * @remarks
-     * - Create a restore job based on the selected snapshot and the restore destination.
+     * @summary Create a restore job.
+     *  *
+     * @description - Create a restore job based on the selected snapshot and the restore destination.
      * - Currently, the data source type must match the restore destination data source type.
+     *  *
+     * @param CreateRestoreJobRequest $request CreateRestoreJobRequest
      *
-     * @param request - CreateRestoreJobRequest
-     * @returns CreateRestoreJobResponse
-     *
-     * @param CreateRestoreJobRequest $request
-     *
-     * @return CreateRestoreJobResponse
+     * @return CreateRestoreJobResponse CreateRestoreJobResponse
      */
     public function createRestoreJob($request)
     {
@@ -1829,32 +1541,26 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Generates the parameters and signature required for a file upload URL.
-     *
-     * @remarks
-     * 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
+     * @summary Generates the parameters and signature required for a file upload URL.
+     *  *
+     * @description 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
      * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
      * 3.  The system periodically deletes files that are uploaded to OSS.
+     *  *
+     * @param CreateTempFileUploadUrlRequest $request CreateTempFileUploadUrlRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTempFileUploadUrlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateTempFileUploadUrlResponse
-     *
-     * @param CreateTempFileUploadUrlRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateTempFileUploadUrlResponse
+     * @return CreateTempFileUploadUrlResponse CreateTempFileUploadUrlResponse
      */
     public function createTempFileUploadUrlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fileName) {
-            @$query['FileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTempFileUploadUrl',
@@ -1867,7 +1573,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateTempFileUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1875,19 +1581,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Generates the parameters and signature required for a file upload URL.
-     *
-     * @remarks
-     * 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
+     * @summary Generates the parameters and signature required for a file upload URL.
+     *  *
+     * @description 1.  You can directly upload a file to Object Storage Service (OSS) by using a form based on the returned value of this operation.
      * 2.  For more information about how to upload a file to OSS by using a form, see OSS documentation.
      * 3.  The system periodically deletes files that are uploaded to OSS.
+     *  *
+     * @param CreateTempFileUploadUrlRequest $request CreateTempFileUploadUrlRequest
      *
-     * @param request - CreateTempFileUploadUrlRequest
-     * @returns CreateTempFileUploadUrlResponse
-     *
-     * @param CreateTempFileUploadUrlRequest $request
-     *
-     * @return CreateTempFileUploadUrlResponse
+     * @return CreateTempFileUploadUrlResponse CreateTempFileUploadUrlResponse
      */
     public function createTempFileUploadUrl($request)
     {
@@ -1897,61 +1599,48 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup vault.
-     *
-     * @remarks
-     *   Each Alibaba Cloud account can create up to 100 backup vaults.
+     * @summary Creates a backup vault.
+     *  *
+     * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
      * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
      *     **
      *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+     *  *
+     * @param CreateVaultRequest $request CreateVaultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVaultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateVaultResponse
-     *
-     * @param CreateVaultRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateVaultResponse
+     * @return CreateVaultResponse CreateVaultResponse
      */
     public function createVaultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->encryptType) {
-            @$query['EncryptType'] = $request->encryptType;
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
         }
-
-        if (null !== $request->kmsKeyId) {
-            @$query['KmsKeyId'] = $request->kmsKeyId;
+        if (!Utils::isUnset($request->kmsKeyId)) {
+            $query['KmsKeyId'] = $request->kmsKeyId;
         }
-
-        if (null !== $request->vaultName) {
-            @$query['VaultName'] = $request->vaultName;
+        if (!Utils::isUnset($request->vaultName)) {
+            $query['VaultName'] = $request->vaultName;
         }
-
-        if (null !== $request->vaultRegionId) {
-            @$query['VaultRegionId'] = $request->vaultRegionId;
+        if (!Utils::isUnset($request->vaultRegionId)) {
+            $query['VaultRegionId'] = $request->vaultRegionId;
         }
-
-        if (null !== $request->vaultStorageClass) {
-            @$query['VaultStorageClass'] = $request->vaultStorageClass;
+        if (!Utils::isUnset($request->vaultStorageClass)) {
+            $query['VaultStorageClass'] = $request->vaultStorageClass;
         }
-
-        if (null !== $request->vaultType) {
-            @$query['VaultType'] = $request->vaultType;
+        if (!Utils::isUnset($request->vaultType)) {
+            $query['VaultType'] = $request->vaultType;
         }
-
-        if (null !== $request->wormEnabled) {
-            @$query['WormEnabled'] = $request->wormEnabled;
+        if (!Utils::isUnset($request->wormEnabled)) {
+            $query['WormEnabled'] = $request->wormEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateVault',
@@ -1964,7 +1653,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateVaultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1972,20 +1661,16 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Creates a backup vault.
-     *
-     * @remarks
-     *   Each Alibaba Cloud account can create up to 100 backup vaults.
+     * @summary Creates a backup vault.
+     *  *
+     * @description *   Each Alibaba Cloud account can create up to 100 backup vaults.
      * *   After a backup vault is created, the backup vault is in the INITIALIZING state, and the system automatically runs an initialization task to initialize the backup vault. After the initialization task is completed, the backup vault is in the CREATED state. A backup job can use a backup vault to store backup data only if the backup vault is in the CREATED state.
      *     **
      *     **Note** Before you call this operation, make sure that you fully understand the billing of Cloud Backup.
+     *  *
+     * @param CreateVaultRequest $request CreateVaultRequest
      *
-     * @param request - CreateVaultRequest
-     * @returns CreateVaultResponse
-     *
-     * @param CreateVaultRequest $request
-     *
-     * @return CreateVaultResponse
+     * @return CreateVaultResponse CreateVaultResponse
      */
     public function createVault($request)
     {
@@ -1995,37 +1680,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     *  *
+     * @param DeleteAirEcsInstanceRequest $tmpReq  DeleteAirEcsInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteAirEcsInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAirEcsInstanceResponse
-     *
-     * @param DeleteAirEcsInstanceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteAirEcsInstanceResponse
+     * @return DeleteAirEcsInstanceResponse DeleteAirEcsInstanceResponse
      */
     public function deleteAirEcsInstanceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteAirEcsInstanceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->uninstallClientSourceTypes) {
-            $request->uninstallClientSourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->uninstallClientSourceTypes, 'UninstallClientSourceTypes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->uninstallClientSourceTypes)) {
+            $request->uninstallClientSourceTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uninstallClientSourceTypes, 'UninstallClientSourceTypes', 'json');
         }
-
         $query = [];
-        if (null !== $request->ecsInstanceId) {
-            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
         }
-
-        if (null !== $request->uninstallClientSourceTypesShrink) {
-            @$query['UninstallClientSourceTypes'] = $request->uninstallClientSourceTypesShrink;
+        if (!Utils::isUnset($request->uninstallClientSourceTypesShrink)) {
+            $query['UninstallClientSourceTypes'] = $request->uninstallClientSourceTypesShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAirEcsInstance',
@@ -2038,7 +1716,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAirEcsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2046,14 +1724,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     *  *
+     * @param DeleteAirEcsInstanceRequest $request DeleteAirEcsInstanceRequest
      *
-     * @param request - DeleteAirEcsInstanceRequest
-     * @returns DeleteAirEcsInstanceResponse
-     *
-     * @param DeleteAirEcsInstanceRequest $request
-     *
-     * @return DeleteAirEcsInstanceResponse
+     * @return DeleteAirEcsInstanceResponse DeleteAirEcsInstanceResponse
      */
     public function deleteAirEcsInstance($request)
     {
@@ -2063,34 +1738,28 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a Cloud Backup client.
-     *
-     * @remarks
-     *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+     * @summary Deletes a Cloud Backup client.
+     *  *
+     * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
      * *   When you perform this operation, resources that are associated with the client are also deleted, including:
      *     *   Backup plans
      *     *   Backup jobs
      *     *   Snapshots
+     *  *
+     * @param DeleteBackupClientRequest $request DeleteBackupClientRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackupClientRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackupClientResponse
-     *
-     * @param DeleteBackupClientRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteBackupClientResponse
+     * @return DeleteBackupClientResponse DeleteBackupClientResponse
      */
     public function deleteBackupClientWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBackupClient',
@@ -2103,7 +1772,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackupClientResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2111,21 +1780,17 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a Cloud Backup client.
-     *
-     * @remarks
-     *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
+     * @summary Deletes a Cloud Backup client.
+     *  *
+     * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
      * *   When you perform this operation, resources that are associated with the client are also deleted, including:
      *     *   Backup plans
      *     *   Backup jobs
      *     *   Snapshots
+     *  *
+     * @param DeleteBackupClientRequest $request DeleteBackupClientRequest
      *
-     * @param request - DeleteBackupClientRequest
-     * @returns DeleteBackupClientResponse
-     *
-     * @param DeleteBackupClientRequest $request
-     *
-     * @return DeleteBackupClientResponse
+     * @return DeleteBackupClientResponse DeleteBackupClientResponse
      */
     public function deleteBackupClient($request)
     {
@@ -2135,36 +1800,29 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes the resources that are related to one or more HBR clients.
+     * @summary Deletes the resources that are related to one or more HBR clients.
+     *  *
+     * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+     *  *
+     * @param DeleteBackupClientResourceRequest $tmpReq  DeleteBackupClientResourceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
-     *
-     * @param tmpReq - DeleteBackupClientResourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackupClientResourceResponse
-     *
-     * @param DeleteBackupClientResourceRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteBackupClientResourceResponse
+     * @return DeleteBackupClientResourceResponse DeleteBackupClientResourceResponse
      */
     public function deleteBackupClientResourceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteBackupClientResourceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->clientIds) {
-            $request->clientIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clientIds)) {
+            $request->clientIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientIdsShrink) {
-            @$query['ClientIds'] = $request->clientIdsShrink;
+        if (!Utils::isUnset($request->clientIdsShrink)) {
+            $query['ClientIds'] = $request->clientIdsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBackupClientResource',
@@ -2177,7 +1835,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackupClientResourceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2185,17 +1843,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes the resources that are related to one or more HBR clients.
+     * @summary Deletes the resources that are related to one or more HBR clients.
+     *  *
+     * @description This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
+     *  *
+     * @param DeleteBackupClientResourceRequest $request DeleteBackupClientResourceRequest
      *
-     * @remarks
-     * This operation deletes only the resources that are related to HBR clients. The resources include backup plans, backup jobs, and backup snapshots. The operation does not delete HBR clients.
-     *
-     * @param request - DeleteBackupClientResourceRequest
-     * @returns DeleteBackupClientResourceResponse
-     *
-     * @param DeleteBackupClientResourceRequest $request
-     *
-     * @return DeleteBackupClientResourceResponse
+     * @return DeleteBackupClientResourceResponse DeleteBackupClientResourceResponse
      */
     public function deleteBackupClientResource($request)
     {
@@ -2205,43 +1859,34 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup plan.
-     *
-     * @remarks
-     *   If you delete a backup plan, the backup jobs are also deleted.
+     * @summary Deletes a backup plan.
+     *  *
+     * @description *   If you delete a backup plan, the backup jobs are also deleted.
      * *   If you delete a backup plan, the created snapshot files are not deleted.
+     *  *
+     * @param DeleteBackupPlanRequest $request DeleteBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackupPlanResponse
-     *
-     * @param DeleteBackupPlanRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteBackupPlanResponse
+     * @return DeleteBackupPlanResponse DeleteBackupPlanResponse
      */
     public function deleteBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->requireNoRunningJobs) {
-            @$query['RequireNoRunningJobs'] = $request->requireNoRunningJobs;
+        if (!Utils::isUnset($request->requireNoRunningJobs)) {
+            $query['RequireNoRunningJobs'] = $request->requireNoRunningJobs;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBackupPlan',
@@ -2254,7 +1899,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2262,18 +1907,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup plan.
-     *
-     * @remarks
-     *   If you delete a backup plan, the backup jobs are also deleted.
+     * @summary Deletes a backup plan.
+     *  *
+     * @description *   If you delete a backup plan, the backup jobs are also deleted.
      * *   If you delete a backup plan, the created snapshot files are not deleted.
+     *  *
+     * @param DeleteBackupPlanRequest $request DeleteBackupPlanRequest
      *
-     * @param request - DeleteBackupPlanRequest
-     * @returns DeleteBackupPlanResponse
-     *
-     * @param DeleteBackupPlanRequest $request
-     *
-     * @return DeleteBackupPlanResponse
+     * @return DeleteBackupPlanResponse DeleteBackupPlanResponse
      */
     public function deleteBackupPlan($request)
     {
@@ -2283,33 +1924,26 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteClientRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteClientResponse
+     * @param DeleteClientRequest $request DeleteClientRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param DeleteClientRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteClientResponse
+     * @return DeleteClientResponse DeleteClientResponse
      */
     public function deleteClientWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteClient',
@@ -2322,7 +1956,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteClientResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2330,12 +1964,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @param request - DeleteClientRequest
-     * @returns DeleteClientResponse
+     * @param DeleteClientRequest $request DeleteClientRequest
      *
-     * @param DeleteClientRequest $request
-     *
-     * @return DeleteClientResponse
+     * @return DeleteClientResponse DeleteClientResponse
      */
     public function deleteClient($request)
     {
@@ -2345,39 +1976,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an SAP HANA backup plan.
+     * @summary Deletes an SAP HANA backup plan.
+     *  *
+     * @param DeleteHanaBackupPlanRequest $request DeleteHanaBackupPlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteHanaBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteHanaBackupPlanResponse
-     *
-     * @param DeleteHanaBackupPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteHanaBackupPlanResponse
+     * @return DeleteHanaBackupPlanResponse DeleteHanaBackupPlanResponse
      */
     public function deleteHanaBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteHanaBackupPlan',
@@ -2390,7 +2013,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteHanaBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2398,14 +2021,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an SAP HANA backup plan.
+     * @summary Deletes an SAP HANA backup plan.
+     *  *
+     * @param DeleteHanaBackupPlanRequest $request DeleteHanaBackupPlanRequest
      *
-     * @param request - DeleteHanaBackupPlanRequest
-     * @returns DeleteHanaBackupPlanResponse
-     *
-     * @param DeleteHanaBackupPlanRequest $request
-     *
-     * @return DeleteHanaBackupPlanResponse
+     * @return DeleteHanaBackupPlanResponse DeleteHanaBackupPlanResponse
      */
     public function deleteHanaBackupPlan($request)
     {
@@ -2415,42 +2035,33 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an SAP HANA instance.
+     * @summary Deletes an SAP HANA instance.
+     *  *
+     * @description If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
+     *  *
+     * @param DeleteHanaInstanceRequest $request DeleteHanaInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
-     *
-     * @param request - DeleteHanaInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteHanaInstanceResponse
-     *
-     * @param DeleteHanaInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteHanaInstanceResponse
+     * @return DeleteHanaInstanceResponse DeleteHanaInstanceResponse
      */
     public function deleteHanaInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sid) {
-            @$query['Sid'] = $request->sid;
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteHanaInstance',
@@ -2463,7 +2074,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteHanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2471,17 +2082,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an SAP HANA instance.
+     * @summary Deletes an SAP HANA instance.
+     *  *
+     * @description If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
+     *  *
+     * @param DeleteHanaInstanceRequest $request DeleteHanaInstanceRequest
      *
-     * @remarks
-     * If you delete an SAP HANA instance, the existing backup data is also deleted and the running backup and restore jobs fail to be completed. Before you delete the SAP HANA instance, make sure that you no longer need the backup data of the instance and no backup or restore jobs are running for the instance. To delete an SAP HANA instance, you must specify the security identifier (SID) of the instance. The SID is three characters in length and starts with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
-     *
-     * @param request - DeleteHanaInstanceRequest
-     * @returns DeleteHanaInstanceResponse
-     *
-     * @param DeleteHanaInstanceRequest $request
-     *
-     * @return DeleteHanaInstanceResponse
+     * @return DeleteHanaInstanceResponse DeleteHanaInstanceResponse
      */
     public function deleteHanaInstance($request)
     {
@@ -2491,43 +2098,35 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyBindingRequest $tmpReq  DeletePolicyBindingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeletePolicyBindingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeletePolicyBindingResponse
-     *
-     * @param DeletePolicyBindingRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeletePolicyBindingResponse
+     * @return DeletePolicyBindingResponse DeletePolicyBindingResponse
      */
     public function deletePolicyBindingWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeletePolicyBindingShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->dataSourceIds) {
-            $request->dataSourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIds, 'DataSourceIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataSourceIds)) {
+            $request->dataSourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIds, 'DataSourceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $body = [];
-        if (null !== $request->dataSourceIdsShrink) {
-            @$body['DataSourceIds'] = $request->dataSourceIdsShrink;
+        if (!Utils::isUnset($request->dataSourceIdsShrink)) {
+            $body['DataSourceIds'] = $request->dataSourceIdsShrink;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeletePolicyBinding',
@@ -2540,7 +2139,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeletePolicyBindingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2548,14 +2147,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     * @summary Disassociates one or more data sources from a backup policy. After you disassociate the data sources from the backup policy, the backup policy no longer protects the data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyBindingRequest $request DeletePolicyBindingRequest
      *
-     * @param request - DeletePolicyBindingRequest
-     * @returns DeletePolicyBindingResponse
-     *
-     * @param DeletePolicyBindingRequest $request
-     *
-     * @return DeletePolicyBindingResponse
+     * @return DeletePolicyBindingResponse DeletePolicyBindingResponse
      */
     public function deletePolicyBinding($request)
     {
@@ -2565,30 +2161,24 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup policy.
+     * @summary Deletes a backup policy.
+     *  *
+     * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyV2Request $request DeletePolicyV2Request
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
-     *
-     * @param request - DeletePolicyV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeletePolicyV2Response
-     *
-     * @param DeletePolicyV2Request $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeletePolicyV2Response
+     * @return DeletePolicyV2Response DeletePolicyV2Response
      */
     public function deletePolicyV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeletePolicyV2',
@@ -2601,7 +2191,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeletePolicyV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2609,17 +2199,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup policy.
+     * @summary Deletes a backup policy.
+     *  *
+     * @description If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
+     *  *
+     * @param DeletePolicyV2Request $request DeletePolicyV2Request
      *
-     * @remarks
-     * If you delete a backup policy, the backup policy is disassociated with all data sources. Proceed with caution.
-     *
-     * @param request - DeletePolicyV2Request
-     * @returns DeletePolicyV2Response
-     *
-     * @param DeletePolicyV2Request $request
-     *
-     * @return DeletePolicyV2Response
+     * @return DeletePolicyV2Response DeletePolicyV2Response
      */
     public function deletePolicyV2($request)
     {
@@ -2629,54 +2215,42 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup snapshot.
+     * @summary Deletes a backup snapshot.
+     *  *
+     * @description If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
+     *  *
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
-     *
-     * @param request - DeleteSnapshotRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteSnapshotResponse
-     *
-     * @param DeleteSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->force) {
-            @$query['Force'] = $request->force;
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->snapshotId) {
-            @$query['SnapshotId'] = $request->snapshotId;
+        if (!Utils::isUnset($request->snapshotId)) {
+            $query['SnapshotId'] = $request->snapshotId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshot',
@@ -2689,7 +2263,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2697,17 +2271,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup snapshot.
+     * @summary Deletes a backup snapshot.
+     *  *
+     * @description If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
+     *  *
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
-     * @remarks
-     * If you delete the most recent backup snapshot for a data source, you must set the Force parameter to `true`. Otherwise, an error occurs.
-     *
-     * @param request - DeleteSnapshotRequest
-     * @returns DeleteSnapshotResponse
-     *
-     * @param DeleteSnapshotRequest $request
-     *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshot($request)
     {
@@ -2717,27 +2287,22 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a protected disk.
+     * @summary Cancels a protected disk.
+     *  *
+     * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUdmDiskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteUdmDiskResponse
-     *
-     * @param DeleteUdmDiskRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteUdmDiskResponse
+     * @return DeleteUdmDiskResponse DeleteUdmDiskResponse
      */
     public function deleteUdmDiskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->diskId) {
-            @$query['DiskId'] = $request->diskId;
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUdmDisk',
@@ -2750,7 +2315,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteUdmDiskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2758,14 +2323,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Cancels a protected disk.
+     * @summary Cancels a protected disk.
+     *  *
+     * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
      *
-     * @param request - DeleteUdmDiskRequest
-     * @returns DeleteUdmDiskResponse
-     *
-     * @param DeleteUdmDiskRequest $request
-     *
-     * @return DeleteUdmDiskResponse
+     * @return DeleteUdmDiskResponse DeleteUdmDiskResponse
      */
     public function deleteUdmDisk($request)
     {
@@ -2775,27 +2337,22 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Stops protection for Elastic Compute Service (ECS) instance backup.
+     * @summary Stops protection for Elastic Compute Service (ECS) instance backup.
+     *  *
+     * @param DeleteUdmEcsInstanceRequest $request DeleteUdmEcsInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUdmEcsInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteUdmEcsInstanceResponse
-     *
-     * @param DeleteUdmEcsInstanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteUdmEcsInstanceResponse
+     * @return DeleteUdmEcsInstanceResponse DeleteUdmEcsInstanceResponse
      */
     public function deleteUdmEcsInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUdmEcsInstance',
@@ -2808,7 +2365,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteUdmEcsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2816,14 +2373,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Stops protection for Elastic Compute Service (ECS) instance backup.
+     * @summary Stops protection for Elastic Compute Service (ECS) instance backup.
+     *  *
+     * @param DeleteUdmEcsInstanceRequest $request DeleteUdmEcsInstanceRequest
      *
-     * @param request - DeleteUdmEcsInstanceRequest
-     * @returns DeleteUdmEcsInstanceResponse
-     *
-     * @param DeleteUdmEcsInstanceRequest $request
-     *
-     * @return DeleteUdmEcsInstanceResponse
+     * @return DeleteUdmEcsInstanceResponse DeleteUdmEcsInstanceResponse
      */
     public function deleteUdmEcsInstance($request)
     {
@@ -2833,39 +2387,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup vault.
-     *
-     * @remarks
-     *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
+     * @summary Deletes a backup vault.
+     *  *
+     * @description *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
      * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include the Cloud Backup client of the old version, backup plans, backup jobs, snapshots, and restore jobs.
+     *  *
+     * @param DeleteVaultRequest $request DeleteVaultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVaultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteVaultResponse
-     *
-     * @param DeleteVaultRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteVaultResponse
+     * @return DeleteVaultResponse DeleteVaultResponse
      */
     public function deleteVaultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteVault',
@@ -2878,7 +2424,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteVaultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2886,18 +2432,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes a backup vault.
-     *
-     * @remarks
-     *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
+     * @summary Deletes a backup vault.
+     *  *
+     * @description *   You cannot delete a backup vault within 2 hours after the backup vault is created or a backup vault that is in the INITIALIZING state.
      * *   After you delete a backup vault, all resources that are associated with the backup vault are deleted. The resources include the Cloud Backup client of the old version, backup plans, backup jobs, snapshots, and restore jobs.
+     *  *
+     * @param DeleteVaultRequest $request DeleteVaultRequest
      *
-     * @param request - DeleteVaultRequest
-     * @returns DeleteVaultResponse
-     *
-     * @param DeleteVaultRequest $request
-     *
-     * @return DeleteVaultResponse
+     * @return DeleteVaultResponse DeleteVaultResponse
      */
     public function deleteVault($request)
     {
@@ -2907,75 +2449,59 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more HBR clients that meet the specified conditions.
+     * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+     *  *
+     * @param DescribeBackupClientsRequest $tmpReq  DescribeBackupClientsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribeBackupClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupClientsResponse
-     *
-     * @param DescribeBackupClientsRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeBackupClientsResponse
+     * @return DescribeBackupClientsResponse DescribeBackupClientsResponse
      */
     public function describeBackupClientsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeBackupClientsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->clientIds) {
-            $request->clientIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clientIds)) {
+            $request->clientIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
         }
-
-        if (null !== $tmpReq->instanceIds) {
-            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientType) {
-            @$query['ClientType'] = $request->clientType;
+        if (!Utils::isUnset($request->clientType)) {
+            $query['ClientType'] = $request->clientType;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $body = [];
-        if (null !== $request->clientIdsShrink) {
-            @$body['ClientIds'] = $request->clientIdsShrink;
+        if (!Utils::isUnset($request->clientIdsShrink)) {
+            $body['ClientIds'] = $request->clientIdsShrink;
         }
-
-        if (null !== $request->instanceIdsShrink) {
-            @$body['InstanceIds'] = $request->instanceIdsShrink;
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $body['InstanceIds'] = $request->instanceIdsShrink;
         }
-
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupClients',
@@ -2988,7 +2514,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2996,14 +2522,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more HBR clients that meet the specified conditions.
+     * @summary Queries the information about one or more HBR clients that meet the specified conditions.
+     *  *
+     * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      *
-     * @param request - DescribeBackupClientsRequest
-     * @returns DescribeBackupClientsResponse
-     *
-     * @param DescribeBackupClientsRequest $request
-     *
-     * @return DescribeBackupClientsResponse
+     * @return DescribeBackupClientsResponse DescribeBackupClientsResponse
      */
     public function describeBackupClients($request)
     {
@@ -3013,43 +2536,34 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup jobs that meet the specified conditions.
+     * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+     *  *
+     * @param DescribeBackupJobs2Request $request DescribeBackupJobs2Request
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupJobs2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupJobs2Response
-     *
-     * @param DescribeBackupJobs2Request $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackupJobs2Response
+     * @return DescribeBackupJobs2Response DescribeBackupJobs2Response
      */
     public function describeBackupJobs2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sortDirection) {
-            @$query['SortDirection'] = $request->sortDirection;
+        if (!Utils::isUnset($request->sortDirection)) {
+            $query['SortDirection'] = $request->sortDirection;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupJobs2',
@@ -3062,7 +2576,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupJobs2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3070,14 +2584,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup jobs that meet the specified conditions.
+     * @summary Queries the information about one or more backup jobs that meet the specified conditions.
+     *  *
+     * @param DescribeBackupJobs2Request $request DescribeBackupJobs2Request
      *
-     * @param request - DescribeBackupJobs2Request
-     * @returns DescribeBackupJobs2Response
-     *
-     * @param DescribeBackupJobs2Request $request
-     *
-     * @return DescribeBackupJobs2Response
+     * @return DescribeBackupJobs2Response DescribeBackupJobs2Response
      */
     public function describeBackupJobs2($request)
     {
@@ -3087,39 +2598,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup plans that meet the specified conditions.
+     * @summary Queries the information about one or more backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeBackupPlansRequest $request DescribeBackupPlansRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupPlansRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupPlansResponse
-     *
-     * @param DescribeBackupPlansRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackupPlansResponse
+     * @return DescribeBackupPlansResponse DescribeBackupPlansResponse
      */
     public function describeBackupPlansWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupPlans',
@@ -3132,7 +2635,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupPlansResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3140,14 +2643,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup plans that meet the specified conditions.
+     * @summary Queries the information about one or more backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeBackupPlansRequest $request DescribeBackupPlansRequest
      *
-     * @param request - DescribeBackupPlansRequest
-     * @returns DescribeBackupPlansResponse
-     *
-     * @param DescribeBackupPlansRequest $request
-     *
-     * @return DescribeBackupPlansResponse
+     * @return DescribeBackupPlansResponse DescribeBackupPlansResponse
      */
     public function describeBackupPlans($request)
     {
@@ -3157,58 +2657,45 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more Cloud Backup clients that meet the specified conditions.
+     * @summary Queries one or more Cloud Backup clients that meet the specified conditions.
+     *  *
+     * @description This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
+     *  *
+     * @param DescribeClientsRequest $request DescribeClientsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
-     *
-     * @param request - DescribeClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeClientsResponse
-     *
-     * @param DescribeClientsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeClientsResponse
+     * @return DescribeClientsResponse DescribeClientsResponse
      */
     public function describeClientsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->clientType) {
-            @$query['ClientType'] = $request->clientType;
+        if (!Utils::isUnset($request->clientType)) {
+            $query['ClientType'] = $request->clientType;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeClients',
@@ -3221,7 +2708,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3229,17 +2716,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more Cloud Backup clients that meet the specified conditions.
+     * @summary Queries one or more Cloud Backup clients that meet the specified conditions.
+     *  *
+     * @description This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
+     *  *
+     * @param DescribeClientsRequest $request DescribeClientsRequest
      *
-     * @remarks
-     * This operation is applicable only to SAP HANA backup. For Cloud Backup clients of other data sources, call the DescribeBackupClients operation.
-     *
-     * @param request - DescribeClientsRequest
-     * @returns DescribeClientsResponse
-     *
-     * @param DescribeClientsRequest $request
-     *
-     * @return DescribeClientsResponse
+     * @return DescribeClientsResponse DescribeClientsResponse
      */
     public function describeClients($request)
     {
@@ -3249,42 +2732,33 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more container clusters that meet the specified conditions.
+     * @summary Queries one or more container clusters that meet the specified conditions.
+     *  *
+     * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeContainerClusterRequest $request DescribeContainerClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
-     *
-     * @param request - DescribeContainerClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeContainerClusterResponse
-     *
-     * @param DescribeContainerClusterRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeContainerClusterResponse
+     * @return DescribeContainerClusterResponse DescribeContainerClusterResponse
      */
     public function describeContainerClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->identifier) {
-            @$query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeContainerCluster',
@@ -3297,7 +2771,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeContainerClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3305,17 +2779,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more container clusters that meet the specified conditions.
+     * @summary Queries one or more container clusters that meet the specified conditions.
+     *  *
+     * @description You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeContainerClusterRequest $request DescribeContainerClusterRequest
      *
-     * @remarks
-     * You can call this operation to query only Container Service for Kubernetes (ACK) clusters.
-     *
-     * @param request - DescribeContainerClusterRequest
-     * @returns DescribeContainerClusterResponse
-     *
-     * @param DescribeContainerClusterRequest $request
-     *
-     * @return DescribeContainerClusterResponse
+     * @return DescribeContainerClusterResponse DescribeContainerClusterResponse
      */
     public function describeContainerCluster($request)
     {
@@ -3325,31 +2795,25 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about the accounts used in cross-account backup.
+     * @summary Queries the information about the accounts used in cross-account backup.
+     *  *
+     * @param DescribeCrossAccountsRequest $request DescribeCrossAccountsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCrossAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeCrossAccountsResponse
-     *
-     * @param DescribeCrossAccountsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeCrossAccountsResponse
+     * @return DescribeCrossAccountsResponse DescribeCrossAccountsResponse
      */
     public function describeCrossAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCrossAccounts',
@@ -3362,7 +2826,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeCrossAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3370,14 +2834,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about the accounts used in cross-account backup.
+     * @summary Queries the information about the accounts used in cross-account backup.
+     *  *
+     * @param DescribeCrossAccountsRequest $request DescribeCrossAccountsRequest
      *
-     * @param request - DescribeCrossAccountsRequest
-     * @returns DescribeCrossAccountsResponse
-     *
-     * @param DescribeCrossAccountsRequest $request
-     *
-     * @return DescribeCrossAccountsResponse
+     * @return DescribeCrossAccountsResponse DescribeCrossAccountsResponse
      */
     public function describeCrossAccounts($request)
     {
@@ -3387,47 +2848,37 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA backup plans that meet the specified conditions.
+     * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeHanaBackupPlansRequest $request DescribeHanaBackupPlansRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHanaBackupPlansRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaBackupPlansResponse
-     *
-     * @param DescribeHanaBackupPlansRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeHanaBackupPlansResponse
+     * @return DescribeHanaBackupPlansResponse DescribeHanaBackupPlansResponse
      */
     public function describeHanaBackupPlansWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaBackupPlans',
@@ -3440,7 +2891,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaBackupPlansResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3448,14 +2899,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA backup plans that meet the specified conditions.
+     * @summary Queries one or more SAP HANA backup plans that meet the specified conditions.
+     *  *
+     * @param DescribeHanaBackupPlansRequest $request DescribeHanaBackupPlansRequest
      *
-     * @param request - DescribeHanaBackupPlansRequest
-     * @returns DescribeHanaBackupPlansResponse
-     *
-     * @param DescribeHanaBackupPlansRequest $request
-     *
-     * @return DescribeHanaBackupPlansResponse
+     * @return DescribeHanaBackupPlansResponse DescribeHanaBackupPlansResponse
      */
     public function describeHanaBackupPlans($request)
     {
@@ -3465,38 +2913,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup parameters of an SAP HANA database.
+     * @summary Queries the backup parameters of an SAP HANA database.
+     *  *
+     * @description If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
+     *  *
+     * @param DescribeHanaBackupSettingRequest $request DescribeHanaBackupSettingRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
-     *
-     * @param request - DescribeHanaBackupSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaBackupSettingResponse
-     *
-     * @param DescribeHanaBackupSettingRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeHanaBackupSettingResponse
+     * @return DescribeHanaBackupSettingResponse DescribeHanaBackupSettingResponse
      */
     public function describeHanaBackupSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaBackupSetting',
@@ -3509,7 +2949,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaBackupSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3517,17 +2957,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup parameters of an SAP HANA database.
+     * @summary Queries the backup parameters of an SAP HANA database.
+     *  *
+     * @description If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
+     *  *
+     * @param DescribeHanaBackupSettingRequest $request DescribeHanaBackupSettingRequest
      *
-     * @remarks
-     * If you want to query the backup retention period of a database, you can call the DescribeHanaRetentionSetting operation.
-     *
-     * @param request - DescribeHanaBackupSettingRequest
-     * @returns DescribeHanaBackupSettingResponse
-     *
-     * @param DescribeHanaBackupSettingRequest $request
-     *
-     * @return DescribeHanaBackupSettingResponse
+     * @return DescribeHanaBackupSettingResponse DescribeHanaBackupSettingResponse
      */
     public function describeHanaBackupSetting($request)
     {
@@ -3537,94 +2973,72 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA backups that meet the specified conditions.
+     * @summary Queries one or more SAP HANA backups that meet the specified conditions.
+     *  *
+     * @description After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
+     *  *
+     * @param DescribeHanaBackupsAsyncRequest $request DescribeHanaBackupsAsyncRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
-     *
-     * @param request - DescribeHanaBackupsAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaBackupsAsyncResponse
-     *
-     * @param DescribeHanaBackupsAsyncRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeHanaBackupsAsyncResponse
+     * @return DescribeHanaBackupsAsyncResponse DescribeHanaBackupsAsyncResponse
      */
     public function describeHanaBackupsAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->includeDifferential) {
-            @$query['IncludeDifferential'] = $request->includeDifferential;
+        if (!Utils::isUnset($request->includeDifferential)) {
+            $query['IncludeDifferential'] = $request->includeDifferential;
         }
-
-        if (null !== $request->includeIncremental) {
-            @$query['IncludeIncremental'] = $request->includeIncremental;
+        if (!Utils::isUnset($request->includeIncremental)) {
+            $query['IncludeIncremental'] = $request->includeIncremental;
         }
-
-        if (null !== $request->includeLog) {
-            @$query['IncludeLog'] = $request->includeLog;
+        if (!Utils::isUnset($request->includeLog)) {
+            $query['IncludeLog'] = $request->includeLog;
         }
-
-        if (null !== $request->logPosition) {
-            @$query['LogPosition'] = $request->logPosition;
+        if (!Utils::isUnset($request->logPosition)) {
+            $query['LogPosition'] = $request->logPosition;
         }
-
-        if (null !== $request->mode) {
-            @$query['Mode'] = $request->mode;
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->recoveryPointInTime) {
-            @$query['RecoveryPointInTime'] = $request->recoveryPointInTime;
+        if (!Utils::isUnset($request->recoveryPointInTime)) {
+            $query['RecoveryPointInTime'] = $request->recoveryPointInTime;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceClusterId) {
-            @$query['SourceClusterId'] = $request->sourceClusterId;
+        if (!Utils::isUnset($request->sourceClusterId)) {
+            $query['SourceClusterId'] = $request->sourceClusterId;
         }
-
-        if (null !== $request->systemCopy) {
-            @$query['SystemCopy'] = $request->systemCopy;
+        if (!Utils::isUnset($request->systemCopy)) {
+            $query['SystemCopy'] = $request->systemCopy;
         }
-
-        if (null !== $request->useBackint) {
-            @$query['UseBackint'] = $request->useBackint;
+        if (!Utils::isUnset($request->useBackint)) {
+            $query['UseBackint'] = $request->useBackint;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
-        if (null !== $request->volumeId) {
-            @$query['VolumeId'] = $request->volumeId;
+        if (!Utils::isUnset($request->volumeId)) {
+            $query['VolumeId'] = $request->volumeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaBackupsAsync',
@@ -3637,7 +3051,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaBackupsAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3645,17 +3059,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA backups that meet the specified conditions.
+     * @summary Queries one or more SAP HANA backups that meet the specified conditions.
+     *  *
+     * @description After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
+     *  *
+     * @param DescribeHanaBackupsAsyncRequest $request DescribeHanaBackupsAsyncRequest
      *
-     * @remarks
-     * After you call the DescribeHanaBackupsAsync operation to query the SAP HANA backups that meet the specified conditions, call the DescribeTask operation to query the final result.
-     *
-     * @param request - DescribeHanaBackupsAsyncRequest
-     * @returns DescribeHanaBackupsAsyncResponse
-     *
-     * @param DescribeHanaBackupsAsyncRequest $request
-     *
-     * @return DescribeHanaBackupsAsyncResponse
+     * @return DescribeHanaBackupsAsyncResponse DescribeHanaBackupsAsyncResponse
      */
     public function describeHanaBackupsAsync($request)
     {
@@ -3665,46 +3075,36 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about SAP HANA databases.
+     * @summary Queries the information about SAP HANA databases.
+     *  *
+     * @description After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
+     *  *
+     * @param DescribeHanaDatabasesRequest $request DescribeHanaDatabasesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
-     *
-     * @param request - DescribeHanaDatabasesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaDatabasesResponse
-     *
-     * @param DescribeHanaDatabasesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeHanaDatabasesResponse
+     * @return DescribeHanaDatabasesResponse DescribeHanaDatabasesResponse
      */
     public function describeHanaDatabasesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaDatabases',
@@ -3717,7 +3117,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3725,17 +3125,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about SAP HANA databases.
+     * @summary Queries the information about SAP HANA databases.
+     *  *
+     * @description After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
+     *  *
+     * @param DescribeHanaDatabasesRequest $request DescribeHanaDatabasesRequest
      *
-     * @remarks
-     * After you register an SAP HANA instance and install a Cloud Backup client on the instance, you can call this operation to query the information about SAP HANA databases. You can call the StartHanaDatabaseAsync operation to start a database and call the StopHanaDatabaseAsync operation to stop a database.
-     *
-     * @param request - DescribeHanaDatabasesRequest
-     * @returns DescribeHanaDatabasesResponse
-     *
-     * @param DescribeHanaDatabasesRequest $request
-     *
-     * @return DescribeHanaDatabasesResponse
+     * @return DescribeHanaDatabasesResponse DescribeHanaDatabasesResponse
      */
     public function describeHanaDatabases($request)
     {
@@ -3745,49 +3141,39 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA instances that meet the specified conditions.
+     * @summary Queries one or more SAP HANA instances that meet the specified conditions.
+     *  *
+     * @param DescribeHanaInstancesRequest $request DescribeHanaInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHanaInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaInstancesResponse
-     *
-     * @param DescribeHanaInstancesRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeHanaInstancesResponse
+     * @return DescribeHanaInstancesResponse DescribeHanaInstancesResponse
      */
     public function describeHanaInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $body = [];
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaInstances',
@@ -3800,7 +3186,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3808,14 +3194,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA instances that meet the specified conditions.
+     * @summary Queries one or more SAP HANA instances that meet the specified conditions.
+     *  *
+     * @param DescribeHanaInstancesRequest $request DescribeHanaInstancesRequest
      *
-     * @param request - DescribeHanaInstancesRequest
-     * @returns DescribeHanaInstancesResponse
-     *
-     * @param DescribeHanaInstancesRequest $request
-     *
-     * @return DescribeHanaInstancesResponse
+     * @return DescribeHanaInstancesResponse DescribeHanaInstancesResponse
      */
     public function describeHanaInstances($request)
     {
@@ -3825,59 +3208,46 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     * @summary Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeHanaRestoresRequest $request DescribeHanaRestoresRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHanaRestoresRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaRestoresResponse
-     *
-     * @param DescribeHanaRestoresRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHanaRestoresResponse
+     * @return DescribeHanaRestoresResponse DescribeHanaRestoresResponse
      */
     public function describeHanaRestoresWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->restoreId) {
-            @$query['RestoreId'] = $request->restoreId;
+        if (!Utils::isUnset($request->restoreId)) {
+            $query['RestoreId'] = $request->restoreId;
         }
-
-        if (null !== $request->restoreStatus) {
-            @$query['RestoreStatus'] = $request->restoreStatus;
+        if (!Utils::isUnset($request->restoreStatus)) {
+            $query['RestoreStatus'] = $request->restoreStatus;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaRestores',
@@ -3890,7 +3260,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaRestoresResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3898,14 +3268,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     * @summary Queries one or more SAP HANA restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeHanaRestoresRequest $request DescribeHanaRestoresRequest
      *
-     * @param request - DescribeHanaRestoresRequest
-     * @returns DescribeHanaRestoresResponse
-     *
-     * @param DescribeHanaRestoresRequest $request
-     *
-     * @return DescribeHanaRestoresResponse
+     * @return DescribeHanaRestoresResponse DescribeHanaRestoresResponse
      */
     public function describeHanaRestores($request)
     {
@@ -3915,39 +3282,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup retention period of an SAP HANA database.
-     *
-     * @remarks
-     *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
+     * @summary Queries the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
      * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
+     * @param DescribeHanaRetentionSettingRequest $request DescribeHanaRetentionSettingRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHanaRetentionSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeHanaRetentionSettingResponse
-     *
-     * @param DescribeHanaRetentionSettingRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeHanaRetentionSettingResponse
+     * @return DescribeHanaRetentionSettingResponse DescribeHanaRetentionSettingResponse
      */
     public function describeHanaRetentionSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHanaRetentionSetting',
@@ -3960,7 +3319,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHanaRetentionSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3968,18 +3327,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup retention period of an SAP HANA database.
-     *
-     * @remarks
-     *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
+     * @summary Queries the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to query the backup parameters of a database, you can call the DescribeHanaBackupSetting operation.
      * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
+     * @param DescribeHanaRetentionSettingRequest $request DescribeHanaRetentionSettingRequest
      *
-     * @param request - DescribeHanaRetentionSettingRequest
-     * @returns DescribeHanaRetentionSettingResponse
-     *
-     * @param DescribeHanaRetentionSettingRequest $request
-     *
-     * @return DescribeHanaRetentionSettingResponse
+     * @return DescribeHanaRetentionSettingResponse DescribeHanaRetentionSettingResponse
      */
     public function describeHanaRetentionSetting($request)
     {
@@ -3989,64 +3344,50 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the details about Tablestore instances that are backed up.
+     * @summary Queries the details about Tablestore instances that are backed up.
+     *  *
+     * @param DescribeOtsTableSnapshotsRequest $request DescribeOtsTableSnapshotsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeOtsTableSnapshotsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeOtsTableSnapshotsResponse
-     *
-     * @param DescribeOtsTableSnapshotsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeOtsTableSnapshotsResponse
+     * @return DescribeOtsTableSnapshotsResponse DescribeOtsTableSnapshotsResponse
      */
     public function describeOtsTableSnapshotsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
         $body = [];
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->limit) {
-            @$body['Limit'] = $request->limit;
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
         $bodyFlat = [];
-        if (null !== $request->otsInstances) {
-            @$bodyFlat['OtsInstances'] = $request->otsInstances;
+        if (!Utils::isUnset($request->otsInstances)) {
+            $bodyFlat['OtsInstances'] = $request->otsInstances;
         }
-
-        if (null !== $request->snapshotIds) {
-            @$bodyFlat['SnapshotIds'] = $request->snapshotIds;
+        if (!Utils::isUnset($request->snapshotIds)) {
+            $bodyFlat['SnapshotIds'] = $request->snapshotIds;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        $body = Dara::merge([
-        ], $body, Utils::query($bodyFlat));
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeOtsTableSnapshots',
@@ -4059,7 +3400,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeOtsTableSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4067,14 +3408,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the details about Tablestore instances that are backed up.
+     * @summary Queries the details about Tablestore instances that are backed up.
+     *  *
+     * @param DescribeOtsTableSnapshotsRequest $request DescribeOtsTableSnapshotsRequest
      *
-     * @param request - DescribeOtsTableSnapshotsRequest
-     * @returns DescribeOtsTableSnapshotsResponse
-     *
-     * @param DescribeOtsTableSnapshotsRequest $request
-     *
-     * @return DescribeOtsTableSnapshotsResponse
+     * @return DescribeOtsTableSnapshotsResponse DescribeOtsTableSnapshotsResponse
      */
     public function describeOtsTableSnapshots($request)
     {
@@ -4084,35 +3422,28 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more backup policies.
+     * @summary Queries one or more backup policies.
+     *  *
+     * @param DescribePoliciesV2Request $request DescribePoliciesV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePoliciesV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePoliciesV2Response
-     *
-     * @param DescribePoliciesV2Request $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribePoliciesV2Response
+     * @return DescribePoliciesV2Response DescribePoliciesV2Response
      */
     public function describePoliciesV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribePoliciesV2',
@@ -4125,7 +3456,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePoliciesV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4133,14 +3464,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more backup policies.
+     * @summary Queries one or more backup policies.
+     *  *
+     * @param DescribePoliciesV2Request $request DescribePoliciesV2Request
      *
-     * @param request - DescribePoliciesV2Request
-     * @returns DescribePoliciesV2Response
-     *
-     * @param DescribePoliciesV2Request $request
-     *
-     * @return DescribePoliciesV2Response
+     * @return DescribePoliciesV2Response DescribePoliciesV2Response
      */
     public function describePoliciesV2($request)
     {
@@ -4150,55 +3478,44 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+     * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+     *  *
+     * @param DescribePolicyBindingsRequest $tmpReq  DescribePolicyBindingsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribePolicyBindingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePolicyBindingsResponse
-     *
-     * @param DescribePolicyBindingsRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribePolicyBindingsResponse
+     * @return DescribePolicyBindingsResponse DescribePolicyBindingsResponse
      */
     public function describePolicyBindingsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribePolicyBindingsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->dataSourceIds) {
-            $request->dataSourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIds, 'DataSourceIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataSourceIds)) {
+            $request->dataSourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataSourceIds, 'DataSourceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $body = [];
-        if (null !== $request->dataSourceIdsShrink) {
-            @$body['DataSourceIds'] = $request->dataSourceIdsShrink;
+        if (!Utils::isUnset($request->dataSourceIdsShrink)) {
+            $body['DataSourceIds'] = $request->dataSourceIdsShrink;
         }
-
-        if (null !== $request->maxResults) {
-            @$body['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribePolicyBindings',
@@ -4211,7 +3528,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePolicyBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4219,14 +3536,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+     * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
+     *  *
+     * @param DescribePolicyBindingsRequest $request DescribePolicyBindingsRequest
      *
-     * @param request - DescribePolicyBindingsRequest
-     * @returns DescribePolicyBindingsResponse
-     *
-     * @param DescribePolicyBindingsRequest $request
-     *
-     * @return DescribePolicyBindingsResponse
+     * @return DescribePolicyBindingsResponse DescribePolicyBindingsResponse
      */
     public function describePolicyBindings($request)
     {
@@ -4236,35 +3550,28 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the tables of a restorable Tablestore instance.
+     * @summary Queries the tables of a restorable Tablestore instance.
+     *  *
+     * @param DescribeRecoverableOtsInstancesRequest $request DescribeRecoverableOtsInstancesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRecoverableOtsInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRecoverableOtsInstancesResponse
-     *
-     * @param DescribeRecoverableOtsInstancesRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeRecoverableOtsInstancesResponse
+     * @return DescribeRecoverableOtsInstancesResponse DescribeRecoverableOtsInstancesResponse
      */
     public function describeRecoverableOtsInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRecoverableOtsInstances',
@@ -4277,7 +3584,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRecoverableOtsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4285,14 +3592,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the tables of a restorable Tablestore instance.
+     * @summary Queries the tables of a restorable Tablestore instance.
+     *  *
+     * @param DescribeRecoverableOtsInstancesRequest $request DescribeRecoverableOtsInstancesRequest
      *
-     * @param request - DescribeRecoverableOtsInstancesRequest
-     * @returns DescribeRecoverableOtsInstancesResponse
-     *
-     * @param DescribeRecoverableOtsInstancesRequest $request
-     *
-     * @return DescribeRecoverableOtsInstancesResponse
+     * @return DescribeRecoverableOtsInstancesResponse DescribeRecoverableOtsInstancesResponse
      */
     public function describeRecoverableOtsInstances($request)
     {
@@ -4302,15 +3606,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries available regions.
+     * @summary Queries available regions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -4326,7 +3626,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4334,11 +3634,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries available regions.
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @return DescribeRegionsResponse
+     * @summary Queries available regions.
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -4348,39 +3646,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more restore jobs that meet the specified conditions.
+     * @summary Queries one or more restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeRestoreJobs2Request $request DescribeRestoreJobs2Request
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRestoreJobs2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRestoreJobs2Response
-     *
-     * @param DescribeRestoreJobs2Request $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRestoreJobs2Response
+     * @return DescribeRestoreJobs2Response DescribeRestoreJobs2Response
      */
     public function describeRestoreJobs2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRestoreJobs2',
@@ -4393,7 +3683,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRestoreJobs2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4401,14 +3691,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries one or more restore jobs that meet the specified conditions.
+     * @summary Queries one or more restore jobs that meet the specified conditions.
+     *  *
+     * @param DescribeRestoreJobs2Request $request DescribeRestoreJobs2Request
      *
-     * @param request - DescribeRestoreJobs2Request
-     * @returns DescribeRestoreJobs2Response
-     *
-     * @param DescribeRestoreJobs2Request $request
-     *
-     * @return DescribeRestoreJobs2Response
+     * @return DescribeRestoreJobs2Response DescribeRestoreJobs2Response
      */
     public function describeRestoreJobs2($request)
     {
@@ -4418,35 +3705,28 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries an asynchronous job.
+     * @summary Queries an asynchronous job.
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeTaskResponse
-     *
-     * @param DescribeTaskRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTask',
@@ -4459,7 +3739,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4467,14 +3747,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries an asynchronous job.
+     * @summary Queries an asynchronous job.
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
      *
-     * @param request - DescribeTaskRequest
-     * @returns DescribeTaskResponse
-     *
-     * @param DescribeTaskRequest $request
-     *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTask($request)
     {
@@ -4484,63 +3761,50 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DescribeUdmSnapshotsRequest $tmpReq  DescribeUdmSnapshotsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribeUdmSnapshotsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeUdmSnapshotsResponse
-     *
-     * @param DescribeUdmSnapshotsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeUdmSnapshotsResponse
+     * @return DescribeUdmSnapshotsResponse DescribeUdmSnapshotsResponse
      */
     public function describeUdmSnapshotsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeUdmSnapshotsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->snapshotIds) {
-            $request->snapshotIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->snapshotIds, 'SnapshotIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->snapshotIds)) {
+            $request->snapshotIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->snapshotIds, 'SnapshotIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->diskId) {
-            @$query['DiskId'] = $request->diskId;
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->udmRegionId) {
-            @$query['UdmRegionId'] = $request->udmRegionId;
+        if (!Utils::isUnset($request->udmRegionId)) {
+            $query['UdmRegionId'] = $request->udmRegionId;
         }
-
         $body = [];
-        if (null !== $request->snapshotIdsShrink) {
-            @$body['SnapshotIds'] = $request->snapshotIdsShrink;
+        if (!Utils::isUnset($request->snapshotIdsShrink)) {
+            $body['SnapshotIds'] = $request->snapshotIdsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeUdmSnapshots',
@@ -4553,7 +3817,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUdmSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4561,14 +3825,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     * @summary Queries the backup snapshots of an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DescribeUdmSnapshotsRequest $request DescribeUdmSnapshotsRequest
      *
-     * @param request - DescribeUdmSnapshotsRequest
-     * @returns DescribeUdmSnapshotsResponse
-     *
-     * @param DescribeUdmSnapshotsRequest $request
-     *
-     * @return DescribeUdmSnapshotsResponse
+     * @return DescribeUdmSnapshotsResponse DescribeUdmSnapshotsResponse
      */
     public function describeUdmSnapshots($request)
     {
@@ -4578,31 +3839,25 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the regions that support cross-region replication.
+     * @summary Queries the regions that support cross-region replication.
+     *  *
+     * @param DescribeVaultReplicationRegionsRequest $request DescribeVaultReplicationRegionsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVaultReplicationRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeVaultReplicationRegionsResponse
-     *
-     * @param DescribeVaultReplicationRegionsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeVaultReplicationRegionsResponse
+     * @return DescribeVaultReplicationRegionsResponse DescribeVaultReplicationRegionsResponse
      */
     public function describeVaultReplicationRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->token) {
-            @$query['Token'] = $request->token;
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeVaultReplicationRegions',
@@ -4615,7 +3870,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeVaultReplicationRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4623,14 +3878,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the regions that support cross-region replication.
+     * @summary Queries the regions that support cross-region replication.
+     *  *
+     * @param DescribeVaultReplicationRegionsRequest $request DescribeVaultReplicationRegionsRequest
      *
-     * @param request - DescribeVaultReplicationRegionsRequest
-     * @returns DescribeVaultReplicationRegionsResponse
-     *
-     * @param DescribeVaultReplicationRegionsRequest $request
-     *
-     * @return DescribeVaultReplicationRegionsResponse
+     * @return DescribeVaultReplicationRegionsResponse DescribeVaultReplicationRegionsResponse
      */
     public function describeVaultReplicationRegions($request)
     {
@@ -4640,61 +3892,48 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup vaults that meet the specified conditions.
+     * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+     *  *
+     * @param DescribeVaultsRequest $request DescribeVaultsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVaultsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeVaultsResponse
-     *
-     * @param DescribeVaultsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeVaultsResponse
+     * @return DescribeVaultsResponse DescribeVaultsResponse
      */
     public function describeVaultsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
-        if (null !== $request->vaultName) {
-            @$query['VaultName'] = $request->vaultName;
+        if (!Utils::isUnset($request->vaultName)) {
+            $query['VaultName'] = $request->vaultName;
         }
-
-        if (null !== $request->vaultRegionId) {
-            @$query['VaultRegionId'] = $request->vaultRegionId;
+        if (!Utils::isUnset($request->vaultRegionId)) {
+            $query['VaultRegionId'] = $request->vaultRegionId;
         }
-
-        if (null !== $request->vaultType) {
-            @$query['VaultType'] = $request->vaultType;
+        if (!Utils::isUnset($request->vaultType)) {
+            $query['VaultType'] = $request->vaultType;
         }
-
         $body = [];
-        if (null !== $request->tag) {
-            @$body['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeVaults',
@@ -4707,7 +3946,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeVaultsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4715,14 +3954,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup vaults that meet the specified conditions.
+     * @summary Queries the information about one or more backup vaults that meet the specified conditions.
+     *  *
+     * @param DescribeVaultsRequest $request DescribeVaultsRequest
      *
-     * @param request - DescribeVaultsRequest
-     * @returns DescribeVaultsResponse
-     *
-     * @param DescribeVaultsRequest $request
-     *
-     * @return DescribeVaultsResponse
+     * @return DescribeVaultsResponse DescribeVaultsResponse
      */
     public function describeVaults($request)
     {
@@ -4732,47 +3968,37 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an internal mount target created by Cloud Backup.
-     *
-     * @remarks
-     *   If the request is successful, the mount target is deleted.
+     * @summary Deletes an internal mount target created by Cloud Backup.
+     *  *
+     * @description *   If the request is successful, the mount target is deleted.
      * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+     *  *
+     * @param DetachNasFileSystemRequest $request DetachNasFileSystemRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachNasFileSystemRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachNasFileSystemResponse
-     *
-     * @param DetachNasFileSystemRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetachNasFileSystemResponse
+     * @return DetachNasFileSystemResponse DetachNasFileSystemResponse
      */
     public function detachNasFileSystemWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->createTime) {
-            @$query['CreateTime'] = $request->createTime;
+        if (!Utils::isUnset($request->createTime)) {
+            $query['CreateTime'] = $request->createTime;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->fileSystemId) {
-            @$query['FileSystemId'] = $request->fileSystemId;
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachNasFileSystem',
@@ -4785,7 +4011,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachNasFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4793,18 +4019,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Deletes an internal mount target created by Cloud Backup.
-     *
-     * @remarks
-     *   If the request is successful, the mount target is deleted.
+     * @summary Deletes an internal mount target created by Cloud Backup.
+     *  *
+     * @description *   If the request is successful, the mount target is deleted.
      * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
+     *  *
+     * @param DetachNasFileSystemRequest $request DetachNasFileSystemRequest
      *
-     * @param request - DetachNasFileSystemRequest
-     * @returns DetachNasFileSystemResponse
-     *
-     * @param DetachNasFileSystemRequest $request
-     *
-     * @return DetachNasFileSystemResponse
+     * @return DetachNasFileSystemResponse DetachNasFileSystemResponse
      */
     public function detachNasFileSystem($request)
     {
@@ -4814,38 +4036,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disables a backup plan.
+     * @summary Disables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+     *  *
+     * @param DisableBackupPlanRequest $request DisableBackupPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
-     *
-     * @param request - DisableBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableBackupPlanResponse
-     *
-     * @param DisableBackupPlanRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DisableBackupPlanResponse
+     * @return DisableBackupPlanResponse DisableBackupPlanResponse
      */
     public function disableBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableBackupPlan',
@@ -4858,7 +4072,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4866,17 +4080,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disables a backup plan.
+     * @summary Disables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
+     *  *
+     * @param DisableBackupPlanRequest $request DisableBackupPlanRequest
      *
-     * @remarks
-     * After you call this operation, the backup plan is suspended. In the DescribeBackupPlans operation, the Disabled parameter is set to true.
-     *
-     * @param request - DisableBackupPlanRequest
-     * @returns DisableBackupPlanResponse
-     *
-     * @param DisableBackupPlanRequest $request
-     *
-     * @return DisableBackupPlanResponse
+     * @return DisableBackupPlanResponse DisableBackupPlanResponse
      */
     public function disableBackupPlan($request)
     {
@@ -4886,42 +4096,33 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disables an SAP HANA backup plan.
+     * @summary Disables an SAP HANA backup plan.
+     *  *
+     * @description To enable the backup plan again, call the EnableHanaBackupPlan operation.
+     *  *
+     * @param DisableHanaBackupPlanRequest $request DisableHanaBackupPlanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To enable the backup plan again, call the EnableHanaBackupPlan operation.
-     *
-     * @param request - DisableHanaBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableHanaBackupPlanResponse
-     *
-     * @param DisableHanaBackupPlanRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DisableHanaBackupPlanResponse
+     * @return DisableHanaBackupPlanResponse DisableHanaBackupPlanResponse
      */
     public function disableHanaBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableHanaBackupPlan',
@@ -4934,7 +4135,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableHanaBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4942,17 +4143,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Disables an SAP HANA backup plan.
+     * @summary Disables an SAP HANA backup plan.
+     *  *
+     * @description To enable the backup plan again, call the EnableHanaBackupPlan operation.
+     *  *
+     * @param DisableHanaBackupPlanRequest $request DisableHanaBackupPlanRequest
      *
-     * @remarks
-     * To enable the backup plan again, call the EnableHanaBackupPlan operation.
-     *
-     * @param request - DisableHanaBackupPlanRequest
-     * @returns DisableHanaBackupPlanResponse
-     *
-     * @param DisableHanaBackupPlanRequest $request
-     *
-     * @return DisableHanaBackupPlanResponse
+     * @return DisableHanaBackupPlanResponse DisableHanaBackupPlanResponse
      */
     public function disableHanaBackupPlan($request)
     {
@@ -4962,38 +4159,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Enables a backup plan.
+     * @summary Enables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+     *  *
+     * @param EnableBackupPlanRequest $request EnableBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
-     *
-     * @param request - EnableBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableBackupPlanResponse
-     *
-     * @param EnableBackupPlanRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return EnableBackupPlanResponse
+     * @return EnableBackupPlanResponse EnableBackupPlanResponse
      */
     public function enableBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableBackupPlan',
@@ -5006,7 +4195,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5014,17 +4203,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Enables a backup plan.
+     * @summary Enables a backup plan.
+     *  *
+     * @description After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
+     *  *
+     * @param EnableBackupPlanRequest $request EnableBackupPlanRequest
      *
-     * @remarks
-     * After you call this operation, the backup plan is restarted (Disabled is set to false in the DescribeBackupPlans operation). Cloud Backup continues to perform backups based on the policy specified in the backup plan.
-     *
-     * @param request - EnableBackupPlanRequest
-     * @returns EnableBackupPlanResponse
-     *
-     * @param EnableBackupPlanRequest $request
-     *
-     * @return EnableBackupPlanResponse
+     * @return EnableBackupPlanResponse EnableBackupPlanResponse
      */
     public function enableBackupPlan($request)
     {
@@ -5034,42 +4219,33 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Enables an SAP HANA backup plan.
+     * @summary Enables an SAP HANA backup plan.
+     *  *
+     * @description To disable the backup plan again, call the DisableHanaBackupPlan operation.
+     *  *
+     * @param EnableHanaBackupPlanRequest $request EnableHanaBackupPlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To disable the backup plan again, call the DisableHanaBackupPlan operation.
-     *
-     * @param request - EnableHanaBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableHanaBackupPlanResponse
-     *
-     * @param EnableHanaBackupPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return EnableHanaBackupPlanResponse
+     * @return EnableHanaBackupPlanResponse EnableHanaBackupPlanResponse
      */
     public function enableHanaBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableHanaBackupPlan',
@@ -5082,7 +4258,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableHanaBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5090,17 +4266,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Enables an SAP HANA backup plan.
+     * @summary Enables an SAP HANA backup plan.
+     *  *
+     * @description To disable the backup plan again, call the DisableHanaBackupPlan operation.
+     *  *
+     * @param EnableHanaBackupPlanRequest $request EnableHanaBackupPlanRequest
      *
-     * @remarks
-     * To disable the backup plan again, call the DisableHanaBackupPlan operation.
-     *
-     * @param request - EnableHanaBackupPlanRequest
-     * @returns EnableHanaBackupPlanResponse
-     *
-     * @param EnableHanaBackupPlanRequest $request
-     *
-     * @return EnableHanaBackupPlanResponse
+     * @return EnableHanaBackupPlanResponse EnableHanaBackupPlanResponse
      */
     public function enableHanaBackupPlan($request)
     {
@@ -5110,39 +4282,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Executes a backup plan.
+     * @summary Executes a backup plan.
+     *  *
+     * @param ExecuteBackupPlanRequest $request ExecuteBackupPlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExecuteBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ExecuteBackupPlanResponse
-     *
-     * @param ExecuteBackupPlanRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ExecuteBackupPlanResponse
+     * @return ExecuteBackupPlanResponse ExecuteBackupPlanResponse
      */
     public function executeBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->ruleId) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteBackupPlan',
@@ -5155,7 +4319,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExecuteBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5163,14 +4327,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Executes a backup plan.
+     * @summary Executes a backup plan.
+     *  *
+     * @param ExecuteBackupPlanRequest $request ExecuteBackupPlanRequest
      *
-     * @param request - ExecuteBackupPlanRequest
-     * @returns ExecuteBackupPlanResponse
-     *
-     * @param ExecuteBackupPlanRequest $request
-     *
-     * @return ExecuteBackupPlanResponse
+     * @return ExecuteBackupPlanResponse ExecuteBackupPlanResponse
      */
     public function executeBackupPlan($request)
     {
@@ -5180,41 +4341,33 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Execute a policy for one or all bound data sources.
+     * @summary Execute a policy for one or all bound data sources.
+     *  *
+     * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExecutePolicyV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ExecutePolicyV2Response
-     *
-     * @param ExecutePolicyV2Request $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ExecutePolicyV2Response
+     * @return ExecutePolicyV2Response ExecutePolicyV2Response
      */
     public function executePolicyV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ruleId) {
-            @$query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $body = [];
-        if (null !== $request->dataSourceId) {
-            @$body['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExecutePolicyV2',
@@ -5227,7 +4380,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExecutePolicyV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5235,14 +4388,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Execute a policy for one or all bound data sources.
+     * @summary Execute a policy for one or all bound data sources.
+     *  *
+     * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
      *
-     * @param request - ExecutePolicyV2Request
-     * @returns ExecutePolicyV2Response
-     *
-     * @param ExecutePolicyV2Request $request
-     *
-     * @return ExecutePolicyV2Response
+     * @return ExecutePolicyV2Response ExecutePolicyV2Response
      */
     public function executePolicyV2($request)
     {
@@ -5252,39 +4402,31 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Generates a Resource Access Management (RAM) policy.
+     * @summary Generates a Resource Access Management (RAM) policy.
+     *  *
+     * @param GenerateRamPolicyRequest $request GenerateRamPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenerateRamPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GenerateRamPolicyResponse
-     *
-     * @param GenerateRamPolicyRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GenerateRamPolicyResponse
+     * @return GenerateRamPolicyResponse GenerateRamPolicyResponse
      */
     public function generateRamPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionType) {
-            @$query['ActionType'] = $request->actionType;
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
         }
-
-        if (null !== $request->requireBasePolicy) {
-            @$query['RequireBasePolicy'] = $request->requireBasePolicy;
+        if (!Utils::isUnset($request->requireBasePolicy)) {
+            $query['RequireBasePolicy'] = $request->requireBasePolicy;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateRamPolicy',
@@ -5297,7 +4439,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateRamPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5305,14 +4447,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Generates a Resource Access Management (RAM) policy.
+     * @summary Generates a Resource Access Management (RAM) policy.
+     *  *
+     * @param GenerateRamPolicyRequest $request GenerateRamPolicyRequest
      *
-     * @param request - GenerateRamPolicyRequest
-     * @returns GenerateRamPolicyResponse
-     *
-     * @param GenerateRamPolicyRequest $request
-     *
-     * @return GenerateRamPolicyResponse
+     * @return GenerateRamPolicyResponse GenerateRamPolicyResponse
      */
     public function generateRamPolicy($request)
     {
@@ -5322,27 +4461,22 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Obtains download links of files such as job reports.
+     * @summary Obtains download links of files such as job reports.
+     *  *
+     * @param GetTempFileDownloadLinkRequest $request GetTempFileDownloadLinkRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetTempFileDownloadLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetTempFileDownloadLinkResponse
-     *
-     * @param GetTempFileDownloadLinkRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetTempFileDownloadLinkResponse
+     * @return GetTempFileDownloadLinkResponse GetTempFileDownloadLinkResponse
      */
     public function getTempFileDownloadLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->tempFileKey) {
-            @$query['TempFileKey'] = $request->tempFileKey;
+        if (!Utils::isUnset($request->tempFileKey)) {
+            $query['TempFileKey'] = $request->tempFileKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTempFileDownloadLink',
@@ -5355,7 +4489,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTempFileDownloadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5363,14 +4497,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Obtains download links of files such as job reports.
+     * @summary Obtains download links of files such as job reports.
+     *  *
+     * @param GetTempFileDownloadLinkRequest $request GetTempFileDownloadLinkRequest
      *
-     * @param request - GetTempFileDownloadLinkRequest
-     * @returns GetTempFileDownloadLinkResponse
-     *
-     * @param GetTempFileDownloadLinkRequest $request
-     *
-     * @return GetTempFileDownloadLinkResponse
+     * @return GetTempFileDownloadLinkResponse GetTempFileDownloadLinkResponse
      */
     public function getTempFileDownloadLink($request)
     {
@@ -5380,50 +4511,40 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
+     * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
      * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
+     * @param InstallBackupClientsRequest $tmpReq  InstallBackupClientsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - InstallBackupClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns InstallBackupClientsResponse
-     *
-     * @param InstallBackupClientsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return InstallBackupClientsResponse
+     * @return InstallBackupClientsResponse InstallBackupClientsResponse
      */
     public function installBackupClientsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new InstallBackupClientsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->instanceIds) {
-            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->instanceIdsShrink) {
-            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallBackupClients',
@@ -5436,7 +4557,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return InstallBackupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5444,19 +4565,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
+     * @summary Installs an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to install an HBR client on an ECS instance.
      * *   You can call the [DescribeTask](https://help.aliyun.com/document_detail/431265.html) operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 60 seconds after you call the InstallBackupClients operation to install HBR clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
+     * @param InstallBackupClientsRequest $request InstallBackupClientsRequest
      *
-     * @param request - InstallBackupClientsRequest
-     * @returns InstallBackupClientsResponse
-     *
-     * @param InstallBackupClientsRequest $request
-     *
-     * @return InstallBackupClientsResponse
+     * @return InstallBackupClientsResponse InstallBackupClientsResponse
      */
     public function installBackupClients($request)
     {
@@ -5466,15 +4583,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Activates Cloud Backup.
+     * @summary Activates Cloud Backup.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - OpenHbrServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns OpenHbrServiceResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return OpenHbrServiceResponse
+     * @return OpenHbrServiceResponse OpenHbrServiceResponse
      */
     public function openHbrServiceWithOptions($runtime)
     {
@@ -5490,7 +4603,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return OpenHbrServiceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5498,11 +4611,9 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Activates Cloud Backup.
-     *
-     * @returns OpenHbrServiceResponse
-     *
-     * @return OpenHbrServiceResponse
+     * @summary Activates Cloud Backup.
+     *  *
+     * @return OpenHbrServiceResponse OpenHbrServiceResponse
      */
     public function openHbrService()
     {
@@ -5512,53 +4623,42 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup snapshots that meet the specified conditions.
+     * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+     *  *
+     * @param SearchHistoricalSnapshotsRequest $tmpReq  SearchHistoricalSnapshotsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SearchHistoricalSnapshotsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SearchHistoricalSnapshotsResponse
-     *
-     * @param SearchHistoricalSnapshotsRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SearchHistoricalSnapshotsResponse
+     * @return SearchHistoricalSnapshotsResponse SearchHistoricalSnapshotsResponse
      */
     public function searchHistoricalSnapshotsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SearchHistoricalSnapshotsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->query) {
-            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-
         $query = [];
-        if (null !== $request->limit) {
-            @$query['Limit'] = $request->limit;
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->queryShrink) {
-            @$query['Query'] = $request->queryShrink;
+        if (!Utils::isUnset($request->queryShrink)) {
+            $query['Query'] = $request->queryShrink;
         }
-
-        if (null !== $request->sortBy) {
-            @$query['SortBy'] = $request->sortBy;
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchHistoricalSnapshots',
@@ -5571,7 +4671,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SearchHistoricalSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5579,14 +4679,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more backup snapshots that meet the specified conditions.
+     * @summary Queries the information about one or more backup snapshots that meet the specified conditions.
+     *  *
+     * @param SearchHistoricalSnapshotsRequest $request SearchHistoricalSnapshotsRequest
      *
-     * @param request - SearchHistoricalSnapshotsRequest
-     * @returns SearchHistoricalSnapshotsResponse
-     *
-     * @param SearchHistoricalSnapshotsRequest $request
-     *
-     * @return SearchHistoricalSnapshotsResponse
+     * @return SearchHistoricalSnapshotsResponse SearchHistoricalSnapshotsResponse
      */
     public function searchHistoricalSnapshots($request)
     {
@@ -5596,38 +4693,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Starts an SAP HANA database.
+     * @summary Starts an SAP HANA database.
+     *  *
+     * @description To stop the database again, call the StopHanaDatabaseAsync operation.
+     *  *
+     * @param StartHanaDatabaseAsyncRequest $request StartHanaDatabaseAsyncRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To stop the database again, call the StopHanaDatabaseAsync operation.
-     *
-     * @param request - StartHanaDatabaseAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns StartHanaDatabaseAsyncResponse
-     *
-     * @param StartHanaDatabaseAsyncRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return StartHanaDatabaseAsyncResponse
+     * @return StartHanaDatabaseAsyncResponse StartHanaDatabaseAsyncResponse
      */
     public function startHanaDatabaseAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartHanaDatabaseAsync',
@@ -5640,7 +4729,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StartHanaDatabaseAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5648,17 +4737,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Starts an SAP HANA database.
+     * @summary Starts an SAP HANA database.
+     *  *
+     * @description To stop the database again, call the StopHanaDatabaseAsync operation.
+     *  *
+     * @param StartHanaDatabaseAsyncRequest $request StartHanaDatabaseAsyncRequest
      *
-     * @remarks
-     * To stop the database again, call the StopHanaDatabaseAsync operation.
-     *
-     * @param request - StartHanaDatabaseAsyncRequest
-     * @returns StartHanaDatabaseAsyncResponse
-     *
-     * @param StartHanaDatabaseAsyncRequest $request
-     *
-     * @return StartHanaDatabaseAsyncResponse
+     * @return StartHanaDatabaseAsyncResponse StartHanaDatabaseAsyncResponse
      */
     public function startHanaDatabaseAsync($request)
     {
@@ -5668,38 +4753,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Stops an SAP HANA database.
+     * @summary Stops an SAP HANA database.
+     *  *
+     * @description To start the database again, call the StartHanaDatabaseAsync operation.
+     *  *
+     * @param StopHanaDatabaseAsyncRequest $request StopHanaDatabaseAsyncRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To start the database again, call the StartHanaDatabaseAsync operation.
-     *
-     * @param request - StopHanaDatabaseAsyncRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns StopHanaDatabaseAsyncResponse
-     *
-     * @param StopHanaDatabaseAsyncRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return StopHanaDatabaseAsyncResponse
+     * @return StopHanaDatabaseAsyncResponse StopHanaDatabaseAsyncResponse
      */
     public function stopHanaDatabaseAsyncWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopHanaDatabaseAsync',
@@ -5712,7 +4789,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StopHanaDatabaseAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5720,17 +4797,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Stops an SAP HANA database.
+     * @summary Stops an SAP HANA database.
+     *  *
+     * @description To start the database again, call the StartHanaDatabaseAsync operation.
+     *  *
+     * @param StopHanaDatabaseAsyncRequest $request StopHanaDatabaseAsyncRequest
      *
-     * @remarks
-     * To start the database again, call the StartHanaDatabaseAsync operation.
-     *
-     * @param request - StopHanaDatabaseAsyncRequest
-     * @returns StopHanaDatabaseAsyncResponse
-     *
-     * @param StopHanaDatabaseAsyncRequest $request
-     *
-     * @return StopHanaDatabaseAsyncResponse
+     * @return StopHanaDatabaseAsyncResponse StopHanaDatabaseAsyncResponse
      */
     public function stopHanaDatabaseAsync($request)
     {
@@ -5740,58 +4813,46 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
+     * @summary Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
      * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
+     * @param UninstallBackupClientsRequest $tmpReq  UninstallBackupClientsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UninstallBackupClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UninstallBackupClientsResponse
-     *
-     * @param UninstallBackupClientsRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UninstallBackupClientsResponse
+     * @return UninstallBackupClientsResponse UninstallBackupClientsResponse
      */
     public function uninstallBackupClientsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UninstallBackupClientsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->clientIds) {
-            $request->clientIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clientIds)) {
+            $request->clientIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
         }
-
-        if (null !== $tmpReq->instanceIds) {
-            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientIdsShrink) {
-            @$query['ClientIds'] = $request->clientIdsShrink;
+        if (!Utils::isUnset($request->clientIdsShrink)) {
+            $query['ClientIds'] = $request->clientIdsShrink;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->instanceIdsShrink) {
-            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallBackupClients',
@@ -5804,7 +4865,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UninstallBackupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5812,19 +4873,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
+     * @summary Uninstalls a Cloud Backup client from one or more Elastic Compute Service (ECS) instance.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to uninstall a backup client from an ECS instance.
      * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes. We recommend that you call the DescribeTask operation to run the first query 30 seconds after you call the UninstallBackupClients operation to uninstall backup clients. Then, run the next queries at an interval of 30 seconds.
+     *  *
+     * @param UninstallBackupClientsRequest $request UninstallBackupClientsRequest
      *
-     * @param request - UninstallBackupClientsRequest
-     * @returns UninstallBackupClientsResponse
-     *
-     * @param UninstallBackupClientsRequest $request
-     *
-     * @return UninstallBackupClientsResponse
+     * @return UninstallBackupClientsResponse UninstallBackupClientsResponse
      */
     public function uninstallBackupClients($request)
     {
@@ -5834,38 +4891,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Uninstalls an HBR client.
+     * @summary Uninstalls an HBR client.
+     *  *
+     * @description If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
+     *  *
+     * @param UninstallClientRequest $request UninstallClientRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
-     *
-     * @param request - UninstallClientRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UninstallClientResponse
-     *
-     * @param UninstallClientRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UninstallClientResponse
+     * @return UninstallClientResponse UninstallClientResponse
      */
     public function uninstallClientWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallClient',
@@ -5878,7 +4927,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UninstallClientResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5886,17 +4935,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Uninstalls an HBR client.
+     * @summary Uninstalls an HBR client.
+     *  *
+     * @description If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
+     *  *
+     * @param UninstallClientRequest $request UninstallClientRequest
      *
-     * @remarks
-     * If you call this operation, the specified HBR client is uninstalled. To reinstall the HBR client, call the CreateClients operation.
-     *
-     * @param request - UninstallClientRequest
-     * @returns UninstallClientResponse
-     *
-     * @param UninstallClientRequest $request
-     *
-     * @return UninstallClientResponse
+     * @return UninstallClientResponse UninstallClientResponse
      */
     public function uninstallClient($request)
     {
@@ -5906,107 +4951,83 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates a backup plan.
+     * @summary Updates a backup plan.
+     *  *
+     * @param UpdateBackupPlanRequest $tmpReq  UpdateBackupPlanRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateBackupPlanResponse
-     *
-     * @param UpdateBackupPlanRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateBackupPlanResponse
+     * @return UpdateBackupPlanResponse UpdateBackupPlanResponse
      */
     public function updateBackupPlanWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateBackupPlanShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->detail) {
-            $request->detailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->detail)) {
+            $request->detailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detail, 'Detail', 'json');
         }
-
-        if (null !== $tmpReq->otsDetail) {
-            $request->otsDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
+        if (!Utils::isUnset($tmpReq->otsDetail)) {
+            $request->otsDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otsDetail, 'OtsDetail', 'json');
         }
-
         $query = [];
-        if (null !== $request->changeListPath) {
-            @$query['ChangeListPath'] = $request->changeListPath;
+        if (!Utils::isUnset($request->changeListPath)) {
+            $query['ChangeListPath'] = $request->changeListPath;
         }
-
-        if (null !== $request->detailShrink) {
-            @$query['Detail'] = $request->detailShrink;
+        if (!Utils::isUnset($request->detailShrink)) {
+            $query['Detail'] = $request->detailShrink;
         }
-
-        if (null !== $request->keepLatestSnapshots) {
-            @$query['KeepLatestSnapshots'] = $request->keepLatestSnapshots;
+        if (!Utils::isUnset($request->keepLatestSnapshots)) {
+            $query['KeepLatestSnapshots'] = $request->keepLatestSnapshots;
         }
-
-        if (null !== $request->path) {
-            @$query['Path'] = $request->path;
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->prefix) {
-            @$query['Prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->prefix)) {
+            $query['Prefix'] = $request->prefix;
         }
-
-        if (null !== $request->retention) {
-            @$query['Retention'] = $request->retention;
+        if (!Utils::isUnset($request->retention)) {
+            $query['Retention'] = $request->retention;
         }
-
-        if (null !== $request->schedule) {
-            @$query['Schedule'] = $request->schedule;
+        if (!Utils::isUnset($request->schedule)) {
+            $query['Schedule'] = $request->schedule;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->speedLimit) {
-            @$query['SpeedLimit'] = $request->speedLimit;
+        if (!Utils::isUnset($request->speedLimit)) {
+            $query['SpeedLimit'] = $request->speedLimit;
         }
-
-        if (null !== $request->updatePaths) {
-            @$query['UpdatePaths'] = $request->updatePaths;
+        if (!Utils::isUnset($request->updatePaths)) {
+            $query['UpdatePaths'] = $request->updatePaths;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $body = [];
-        if (null !== $request->exclude) {
-            @$body['Exclude'] = $request->exclude;
+        if (!Utils::isUnset($request->exclude)) {
+            $body['Exclude'] = $request->exclude;
         }
-
-        if (null !== $request->include) {
-            @$body['Include'] = $request->include;
+        if (!Utils::isUnset($request->include_)) {
+            $body['Include'] = $request->include_;
         }
-
-        if (null !== $request->options) {
-            @$body['Options'] = $request->options;
+        if (!Utils::isUnset($request->options)) {
+            $body['Options'] = $request->options;
         }
-
-        if (null !== $request->otsDetailShrink) {
-            @$body['OtsDetail'] = $request->otsDetailShrink;
+        if (!Utils::isUnset($request->otsDetailShrink)) {
+            $body['OtsDetail'] = $request->otsDetailShrink;
         }
-
-        if (null !== $request->rule) {
-            @$body['Rule'] = $request->rule;
+        if (!Utils::isUnset($request->rule)) {
+            $body['Rule'] = $request->rule;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateBackupPlan',
@@ -6019,7 +5040,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6027,14 +5048,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates a backup plan.
+     * @summary Updates a backup plan.
+     *  *
+     * @param UpdateBackupPlanRequest $request UpdateBackupPlanRequest
      *
-     * @param request - UpdateBackupPlanRequest
-     * @returns UpdateBackupPlanResponse
-     *
-     * @param UpdateBackupPlanRequest $request
-     *
-     * @return UpdateBackupPlanResponse
+     * @return UpdateBackupPlanResponse UpdateBackupPlanResponse
      */
     public function updateBackupPlan($request)
     {
@@ -6044,82 +5062,63 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of an HBR client.
+     * @summary Updates the configurations of an HBR client.
+     *  *
+     * @description You can call this operation to update the configurations of both the old and new HBR clients.
+     *  *
+     * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to update the configurations of both the old and new HBR clients.
-     *
-     * @param request - UpdateClientSettingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateClientSettingsResponse
-     *
-     * @param UpdateClientSettingsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateClientSettingsResponse
+     * @return UpdateClientSettingsResponse UpdateClientSettingsResponse
      */
     public function updateClientSettingsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertOnPartialComplete) {
-            @$query['AlertOnPartialComplete'] = $request->alertOnPartialComplete;
+        if (!Utils::isUnset($request->alertOnPartialComplete)) {
+            $query['AlertOnPartialComplete'] = $request->alertOnPartialComplete;
         }
-
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->dataNetworkType) {
-            @$query['DataNetworkType'] = $request->dataNetworkType;
+        if (!Utils::isUnset($request->dataNetworkType)) {
+            $query['DataNetworkType'] = $request->dataNetworkType;
         }
-
-        if (null !== $request->dataProxySetting) {
-            @$query['DataProxySetting'] = $request->dataProxySetting;
+        if (!Utils::isUnset($request->dataProxySetting)) {
+            $query['DataProxySetting'] = $request->dataProxySetting;
         }
-
-        if (null !== $request->maxCpuCore) {
-            @$query['MaxCpuCore'] = $request->maxCpuCore;
+        if (!Utils::isUnset($request->maxCpuCore)) {
+            $query['MaxCpuCore'] = $request->maxCpuCore;
         }
-
-        if (null !== $request->maxMemory) {
-            @$query['MaxMemory'] = $request->maxMemory;
+        if (!Utils::isUnset($request->maxMemory)) {
+            $query['MaxMemory'] = $request->maxMemory;
         }
-
-        if (null !== $request->maxWorker) {
-            @$query['MaxWorker'] = $request->maxWorker;
+        if (!Utils::isUnset($request->maxWorker)) {
+            $query['MaxWorker'] = $request->maxWorker;
         }
-
-        if (null !== $request->proxyHost) {
-            @$query['ProxyHost'] = $request->proxyHost;
+        if (!Utils::isUnset($request->proxyHost)) {
+            $query['ProxyHost'] = $request->proxyHost;
         }
-
-        if (null !== $request->proxyPassword) {
-            @$query['ProxyPassword'] = $request->proxyPassword;
+        if (!Utils::isUnset($request->proxyPassword)) {
+            $query['ProxyPassword'] = $request->proxyPassword;
         }
-
-        if (null !== $request->proxyPort) {
-            @$query['ProxyPort'] = $request->proxyPort;
+        if (!Utils::isUnset($request->proxyPort)) {
+            $query['ProxyPort'] = $request->proxyPort;
         }
-
-        if (null !== $request->proxyUser) {
-            @$query['ProxyUser'] = $request->proxyUser;
+        if (!Utils::isUnset($request->proxyUser)) {
+            $query['ProxyUser'] = $request->proxyUser;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->useHttps) {
-            @$query['UseHttps'] = $request->useHttps;
+        if (!Utils::isUnset($request->useHttps)) {
+            $query['UseHttps'] = $request->useHttps;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateClientSettings',
@@ -6132,7 +5131,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateClientSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6140,17 +5139,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of an HBR client.
+     * @summary Updates the configurations of an HBR client.
+     *  *
+     * @description You can call this operation to update the configurations of both the old and new HBR clients.
+     *  *
+     * @param UpdateClientSettingsRequest $request UpdateClientSettingsRequest
      *
-     * @remarks
-     * You can call this operation to update the configurations of both the old and new HBR clients.
-     *
-     * @param request - UpdateClientSettingsRequest
-     * @returns UpdateClientSettingsResponse
-     *
-     * @param UpdateClientSettingsRequest $request
-     *
-     * @return UpdateClientSettingsResponse
+     * @return UpdateClientSettingsResponse UpdateClientSettingsResponse
      */
     public function updateClientSettings($request)
     {
@@ -6160,43 +5155,34 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Update container cluster information, including the container cluster name, network type, etc.
+     * @summary Update container cluster information, including the container cluster name, network type, etc.
+     *  *
+     * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateContainerClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateContainerClusterResponse
-     *
-     * @param UpdateContainerClusterRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpdateContainerClusterResponse
+     * @return UpdateContainerClusterResponse UpdateContainerClusterResponse
      */
     public function updateContainerClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->renewToken) {
-            @$query['RenewToken'] = $request->renewToken;
+        if (!Utils::isUnset($request->renewToken)) {
+            $query['RenewToken'] = $request->renewToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateContainerCluster',
@@ -6209,7 +5195,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateContainerClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6217,14 +5203,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Update container cluster information, including the container cluster name, network type, etc.
+     * @summary Update container cluster information, including the container cluster name, network type, etc.
+     *  *
+     * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
      *
-     * @param request - UpdateContainerClusterRequest
-     * @returns UpdateContainerClusterResponse
-     *
-     * @param UpdateContainerClusterRequest $request
-     *
-     * @return UpdateContainerClusterResponse
+     * @return UpdateContainerClusterResponse UpdateContainerClusterResponse
      */
     public function updateContainerCluster($request)
     {
@@ -6234,57 +5217,45 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates an SAP HANA backup plan.
-     *
-     * @remarks
-     *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Updates an SAP HANA backup plan.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   You can specify only one type of data source in a backup plan.
      * *   You can specify only one interval as a backup cycle in a backup plan.
      * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
+     * @param UpdateHanaBackupPlanRequest $request UpdateHanaBackupPlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateHanaBackupPlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateHanaBackupPlanResponse
-     *
-     * @param UpdateHanaBackupPlanRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateHanaBackupPlanResponse
+     * @return UpdateHanaBackupPlanResponse UpdateHanaBackupPlanResponse
      */
     public function updateHanaBackupPlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupPrefix) {
-            @$query['BackupPrefix'] = $request->backupPrefix;
+        if (!Utils::isUnset($request->backupPrefix)) {
+            $query['BackupPrefix'] = $request->backupPrefix;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->planId) {
-            @$query['PlanId'] = $request->planId;
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
         }
-
-        if (null !== $request->planName) {
-            @$query['PlanName'] = $request->planName;
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->schedule) {
-            @$query['Schedule'] = $request->schedule;
+        if (!Utils::isUnset($request->schedule)) {
+            $query['Schedule'] = $request->schedule;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateHanaBackupPlan',
@@ -6297,7 +5268,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateHanaBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6305,20 +5276,16 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates an SAP HANA backup plan.
-     *
-     * @remarks
-     *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
+     * @summary Updates an SAP HANA backup plan.
+     *  *
+     * @description *   A backup plan defines the data source, backup policy, and other configurations. After you execute a backup plan, a backup job is generated to record the backup progress and the backup result. If a backup job is completed, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
      * *   You can specify only one type of data source in a backup plan.
      * *   You can specify only one interval as a backup cycle in a backup plan.
      * *   Each backup plan allows you to back up data to only one backup vault.
+     *  *
+     * @param UpdateHanaBackupPlanRequest $request UpdateHanaBackupPlanRequest
      *
-     * @param request - UpdateHanaBackupPlanRequest
-     * @returns UpdateHanaBackupPlanResponse
-     *
-     * @param UpdateHanaBackupPlanRequest $request
-     *
-     * @return UpdateHanaBackupPlanResponse
+     * @return UpdateHanaBackupPlanResponse UpdateHanaBackupPlanResponse
      */
     public function updateHanaBackupPlan($request)
     {
@@ -6328,66 +5295,51 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the backup parameters of an SAP HANA database.
+     * @summary Updates the backup parameters of an SAP HANA database.
+     *  *
+     * @description You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
+     *  *
+     * @param UpdateHanaBackupSettingRequest $request UpdateHanaBackupSettingRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
-     *
-     * @param request - UpdateHanaBackupSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateHanaBackupSettingResponse
-     *
-     * @param UpdateHanaBackupSettingRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateHanaBackupSettingResponse
+     * @return UpdateHanaBackupSettingResponse UpdateHanaBackupSettingResponse
      */
     public function updateHanaBackupSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->catalogBackupParameterFile) {
-            @$query['CatalogBackupParameterFile'] = $request->catalogBackupParameterFile;
+        if (!Utils::isUnset($request->catalogBackupParameterFile)) {
+            $query['CatalogBackupParameterFile'] = $request->catalogBackupParameterFile;
         }
-
-        if (null !== $request->catalogBackupUsingBackint) {
-            @$query['CatalogBackupUsingBackint'] = $request->catalogBackupUsingBackint;
+        if (!Utils::isUnset($request->catalogBackupUsingBackint)) {
+            $query['CatalogBackupUsingBackint'] = $request->catalogBackupUsingBackint;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->dataBackupParameterFile) {
-            @$query['DataBackupParameterFile'] = $request->dataBackupParameterFile;
+        if (!Utils::isUnset($request->dataBackupParameterFile)) {
+            $query['DataBackupParameterFile'] = $request->dataBackupParameterFile;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->enableAutoLogBackup) {
-            @$query['EnableAutoLogBackup'] = $request->enableAutoLogBackup;
+        if (!Utils::isUnset($request->enableAutoLogBackup)) {
+            $query['EnableAutoLogBackup'] = $request->enableAutoLogBackup;
         }
-
-        if (null !== $request->logBackupParameterFile) {
-            @$query['LogBackupParameterFile'] = $request->logBackupParameterFile;
+        if (!Utils::isUnset($request->logBackupParameterFile)) {
+            $query['LogBackupParameterFile'] = $request->logBackupParameterFile;
         }
-
-        if (null !== $request->logBackupTimeout) {
-            @$query['LogBackupTimeout'] = $request->logBackupTimeout;
+        if (!Utils::isUnset($request->logBackupTimeout)) {
+            $query['LogBackupTimeout'] = $request->logBackupTimeout;
         }
-
-        if (null !== $request->logBackupUsingBackint) {
-            @$query['LogBackupUsingBackint'] = $request->logBackupUsingBackint;
+        if (!Utils::isUnset($request->logBackupUsingBackint)) {
+            $query['LogBackupUsingBackint'] = $request->logBackupUsingBackint;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateHanaBackupSetting',
@@ -6400,7 +5352,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateHanaBackupSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6408,17 +5360,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the backup parameters of an SAP HANA database.
+     * @summary Updates the backup parameters of an SAP HANA database.
+     *  *
+     * @description You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
+     *  *
+     * @param UpdateHanaBackupSettingRequest $request UpdateHanaBackupSettingRequest
      *
-     * @remarks
-     * You can call the UpdateHanaRetentionSetting operation to update the backup retention period of a database.
-     *
-     * @param request - UpdateHanaBackupSettingRequest
-     * @returns UpdateHanaBackupSettingResponse
-     *
-     * @param UpdateHanaBackupSettingRequest $request
-     *
-     * @return UpdateHanaBackupSettingResponse
+     * @return UpdateHanaBackupSettingResponse UpdateHanaBackupSettingResponse
      */
     public function updateHanaBackupSetting($request)
     {
@@ -6428,67 +5376,52 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates an SAP HANA instance.
+     * @summary Updates an SAP HANA instance.
+     *  *
+     * @param UpdateHanaInstanceRequest $request UpdateHanaInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateHanaInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateHanaInstanceResponse
-     *
-     * @param UpdateHanaInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateHanaInstanceResponse
+     * @return UpdateHanaInstanceResponse UpdateHanaInstanceResponse
      */
     public function updateHanaInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alertSetting) {
-            @$query['AlertSetting'] = $request->alertSetting;
+        if (!Utils::isUnset($request->alertSetting)) {
+            $query['AlertSetting'] = $request->alertSetting;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->hanaName) {
-            @$query['HanaName'] = $request->hanaName;
+        if (!Utils::isUnset($request->hanaName)) {
+            $query['HanaName'] = $request->hanaName;
         }
-
-        if (null !== $request->host) {
-            @$query['Host'] = $request->host;
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
         }
-
-        if (null !== $request->instanceNumber) {
-            @$query['InstanceNumber'] = $request->instanceNumber;
+        if (!Utils::isUnset($request->instanceNumber)) {
+            $query['InstanceNumber'] = $request->instanceNumber;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->useSsl) {
-            @$query['UseSsl'] = $request->useSsl;
+        if (!Utils::isUnset($request->useSsl)) {
+            $query['UseSsl'] = $request->useSsl;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->validateCertificate) {
-            @$query['ValidateCertificate'] = $request->validateCertificate;
+        if (!Utils::isUnset($request->validateCertificate)) {
+            $query['ValidateCertificate'] = $request->validateCertificate;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateHanaInstance',
@@ -6501,7 +5434,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateHanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6509,14 +5442,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates an SAP HANA instance.
+     * @summary Updates an SAP HANA instance.
+     *  *
+     * @param UpdateHanaInstanceRequest $request UpdateHanaInstanceRequest
      *
-     * @param request - UpdateHanaInstanceRequest
-     * @returns UpdateHanaInstanceResponse
-     *
-     * @param UpdateHanaInstanceRequest $request
-     *
-     * @return UpdateHanaInstanceResponse
+     * @return UpdateHanaInstanceResponse UpdateHanaInstanceResponse
      */
     public function updateHanaInstance($request)
     {
@@ -6526,51 +5456,40 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the backup retention period of an SAP HANA database.
-     *
-     * @remarks
-     *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
+     * @summary Updates the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
      * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
+     * @param UpdateHanaRetentionSettingRequest $request UpdateHanaRetentionSettingRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateHanaRetentionSettingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateHanaRetentionSettingResponse
-     *
-     * @param UpdateHanaRetentionSettingRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateHanaRetentionSettingResponse
+     * @return UpdateHanaRetentionSettingResponse UpdateHanaRetentionSettingResponse
      */
     public function updateHanaRetentionSettingWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->databaseName) {
-            @$query['DatabaseName'] = $request->databaseName;
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
         }
-
-        if (null !== $request->disabled) {
-            @$query['Disabled'] = $request->disabled;
+        if (!Utils::isUnset($request->disabled)) {
+            $query['Disabled'] = $request->disabled;
         }
-
-        if (null !== $request->retentionDays) {
-            @$query['RetentionDays'] = $request->retentionDays;
+        if (!Utils::isUnset($request->retentionDays)) {
+            $query['RetentionDays'] = $request->retentionDays;
         }
-
-        if (null !== $request->schedule) {
-            @$query['Schedule'] = $request->schedule;
+        if (!Utils::isUnset($request->schedule)) {
+            $query['Schedule'] = $request->schedule;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateHanaRetentionSetting',
@@ -6583,7 +5502,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateHanaRetentionSettingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6591,18 +5510,14 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the backup retention period of an SAP HANA database.
-     *
-     * @remarks
-     *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
+     * @summary Updates the backup retention period of an SAP HANA database.
+     *  *
+     * @description *   If you want to update the backup parameters of a database, you can call the UpdateHanaBackupSetting operation.
      * *   Cloud Backup deletes the expired catalogs and data that are related to Backint and file backup. The deleted catalogs and data cannot be restored. We recommend that you set the retention period based on your business requirements.
+     *  *
+     * @param UpdateHanaRetentionSettingRequest $request UpdateHanaRetentionSettingRequest
      *
-     * @param request - UpdateHanaRetentionSettingRequest
-     * @returns UpdateHanaRetentionSettingResponse
-     *
-     * @param UpdateHanaRetentionSettingRequest $request
-     *
-     * @return UpdateHanaRetentionSettingResponse
+     * @return UpdateHanaRetentionSettingResponse UpdateHanaRetentionSettingResponse
      */
     public function updateHanaRetentionSetting($request)
     {
@@ -6612,71 +5527,56 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Modifies the association between a backup policy and a data source.
+     * @summary Modifies the association between a backup policy and a data source.
+     *  *
+     * @param UpdatePolicyBindingRequest $tmpReq  UpdatePolicyBindingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdatePolicyBindingRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePolicyBindingResponse
-     *
-     * @param UpdatePolicyBindingRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdatePolicyBindingResponse
+     * @return UpdatePolicyBindingResponse UpdatePolicyBindingResponse
      */
     public function updatePolicyBindingWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdatePolicyBindingShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->advancedOptions) {
-            $request->advancedOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedOptions, 'AdvancedOptions', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->advancedOptions)) {
+            $request->advancedOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->advancedOptions, 'AdvancedOptions', 'json');
         }
-
         $query = [];
-        if (null !== $request->advancedOptionsShrink) {
-            @$query['AdvancedOptions'] = $request->advancedOptionsShrink;
+        if (!Utils::isUnset($request->advancedOptionsShrink)) {
+            $query['AdvancedOptions'] = $request->advancedOptionsShrink;
         }
-
-        if (null !== $request->disabled) {
-            @$query['Disabled'] = $request->disabled;
+        if (!Utils::isUnset($request->disabled)) {
+            $query['Disabled'] = $request->disabled;
         }
-
-        if (null !== $request->exclude) {
-            @$query['Exclude'] = $request->exclude;
+        if (!Utils::isUnset($request->exclude)) {
+            $query['Exclude'] = $request->exclude;
         }
-
-        if (null !== $request->include) {
-            @$query['Include'] = $request->include;
+        if (!Utils::isUnset($request->include_)) {
+            $query['Include'] = $request->include_;
         }
-
-        if (null !== $request->policyBindingDescription) {
-            @$query['PolicyBindingDescription'] = $request->policyBindingDescription;
+        if (!Utils::isUnset($request->policyBindingDescription)) {
+            $query['PolicyBindingDescription'] = $request->policyBindingDescription;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->speedLimit) {
-            @$query['SpeedLimit'] = $request->speedLimit;
+        if (!Utils::isUnset($request->speedLimit)) {
+            $query['SpeedLimit'] = $request->speedLimit;
         }
-
         $body = [];
-        if (null !== $request->dataSourceId) {
-            @$body['DataSourceId'] = $request->dataSourceId;
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePolicyBinding',
@@ -6689,7 +5589,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePolicyBindingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6697,14 +5597,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Modifies the association between a backup policy and a data source.
+     * @summary Modifies the association between a backup policy and a data source.
+     *  *
+     * @param UpdatePolicyBindingRequest $request UpdatePolicyBindingRequest
      *
-     * @param request - UpdatePolicyBindingRequest
-     * @returns UpdatePolicyBindingResponse
-     *
-     * @param UpdatePolicyBindingRequest $request
-     *
-     * @return UpdatePolicyBindingResponse
+     * @return UpdatePolicyBindingResponse UpdatePolicyBindingResponse
      */
     public function updatePolicyBinding($request)
     {
@@ -6714,48 +5611,38 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Modifies a backup policy.
+     * @summary Modifies a backup policy.
+     *  *
+     * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+     *  *
+     * @param UpdatePolicyV2Request $tmpReq  UpdatePolicyV2Request
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
-     *
-     * @param tmpReq - UpdatePolicyV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePolicyV2Response
-     *
-     * @param UpdatePolicyV2Request $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdatePolicyV2Response
+     * @return UpdatePolicyV2Response UpdatePolicyV2Response
      */
     public function updatePolicyV2WithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdatePolicyV2ShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->rules) {
-            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
-
         $body = [];
-        if (null !== $request->policyDescription) {
-            @$body['PolicyDescription'] = $request->policyDescription;
+        if (!Utils::isUnset($request->policyDescription)) {
+            $body['PolicyDescription'] = $request->policyDescription;
         }
-
-        if (null !== $request->policyId) {
-            @$body['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->policyName) {
-            @$body['PolicyName'] = $request->policyName;
+        if (!Utils::isUnset($request->policyName)) {
+            $body['PolicyName'] = $request->policyName;
         }
-
-        if (null !== $request->rulesShrink) {
-            @$body['Rules'] = $request->rulesShrink;
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $body['Rules'] = $request->rulesShrink;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePolicyV2',
@@ -6768,7 +5655,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePolicyV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6776,17 +5663,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Modifies a backup policy.
+     * @summary Modifies a backup policy.
+     *  *
+     * @description If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
+     *  *
+     * @param UpdatePolicyV2Request $request UpdatePolicyV2Request
      *
-     * @remarks
-     * If you modify a backup policy, the modification takes effect on all data sources that are bound to the backup policy. Proceed with caution.
-     *
-     * @param request - UpdatePolicyV2Request
-     * @returns UpdatePolicyV2Response
-     *
-     * @param UpdatePolicyV2Request $request
-     *
-     * @return UpdatePolicyV2Response
+     * @return UpdatePolicyV2Response UpdatePolicyV2Response
      */
     public function updatePolicyV2($request)
     {
@@ -6796,43 +5679,34 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about the backup vault.
+     * @summary Updates the configuration information about the backup vault.
+     *  *
+     * @param UpdateVaultRequest $request UpdateVaultRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateVaultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateVaultResponse
-     *
-     * @param UpdateVaultRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return UpdateVaultResponse
+     * @return UpdateVaultResponse UpdateVaultResponse
      */
     public function updateVaultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
-        if (null !== $request->vaultName) {
-            @$query['VaultName'] = $request->vaultName;
+        if (!Utils::isUnset($request->vaultName)) {
+            $query['VaultName'] = $request->vaultName;
         }
-
-        if (null !== $request->wormEnabled) {
-            @$query['WormEnabled'] = $request->wormEnabled;
+        if (!Utils::isUnset($request->wormEnabled)) {
+            $query['WormEnabled'] = $request->wormEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateVault',
@@ -6845,7 +5719,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateVaultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6853,14 +5727,11 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about the backup vault.
+     * @summary Updates the configuration information about the backup vault.
+     *  *
+     * @param UpdateVaultRequest $request UpdateVaultRequest
      *
-     * @param request - UpdateVaultRequest
-     * @returns UpdateVaultResponse
-     *
-     * @param UpdateVaultRequest $request
-     *
-     * @return UpdateVaultResponse
+     * @return UpdateVaultResponse UpdateVaultResponse
      */
     public function updateVault($request)
     {
@@ -6870,58 +5741,46 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
+     * @summary Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
      * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes.
+     *  *
+     * @param UpgradeBackupClientsRequest $tmpReq  UpgradeBackupClientsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpgradeBackupClientsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpgradeBackupClientsResponse
-     *
-     * @param UpgradeBackupClientsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpgradeBackupClientsResponse
+     * @return UpgradeBackupClientsResponse UpgradeBackupClientsResponse
      */
     public function upgradeBackupClientsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpgradeBackupClientsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->clientIds) {
-            $request->clientIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->clientIds)) {
+            $request->clientIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clientIds, 'ClientIds', 'json');
         }
-
-        if (null !== $tmpReq->instanceIds) {
-            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientIdsShrink) {
-            @$query['ClientIds'] = $request->clientIdsShrink;
+        if (!Utils::isUnset($request->clientIdsShrink)) {
+            $query['ClientIds'] = $request->clientIdsShrink;
         }
-
-        if (null !== $request->crossAccountRoleName) {
-            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        if (!Utils::isUnset($request->crossAccountRoleName)) {
+            $query['CrossAccountRoleName'] = $request->crossAccountRoleName;
         }
-
-        if (null !== $request->crossAccountType) {
-            @$query['CrossAccountType'] = $request->crossAccountType;
+        if (!Utils::isUnset($request->crossAccountType)) {
+            $query['CrossAccountType'] = $request->crossAccountType;
         }
-
-        if (null !== $request->crossAccountUserId) {
-            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        if (!Utils::isUnset($request->crossAccountUserId)) {
+            $query['CrossAccountUserId'] = $request->crossAccountUserId;
         }
-
-        if (null !== $request->instanceIdsShrink) {
-            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeBackupClients',
@@ -6934,7 +5793,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeBackupClientsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6942,19 +5801,15 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
+     * @summary Upgrades an HBR client on one or more Elastic Compute Service (ECS) instances.
+     *  *
+     * @description *   This operation creates an asynchronous job at the backend and calls Cloud Assistant to upgrade an HBR client that is installed on an ECS instance.
      * *   You can call the DescribeTask operation to query the execution result of an asynchronous job.
      * *   The timeout period of an asynchronous job is 15 minutes.
+     *  *
+     * @param UpgradeBackupClientsRequest $request UpgradeBackupClientsRequest
      *
-     * @param request - UpgradeBackupClientsRequest
-     * @returns UpgradeBackupClientsResponse
-     *
-     * @param UpgradeBackupClientsRequest $request
-     *
-     * @return UpgradeBackupClientsResponse
+     * @return UpgradeBackupClientsResponse UpgradeBackupClientsResponse
      */
     public function upgradeBackupClients($request)
     {
@@ -6964,38 +5819,30 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Upgrades the Cloud Backup client.
+     * @summary Upgrades the Cloud Backup client.
+     *  *
+     * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+     *  *
+     * @param UpgradeClientRequest $request UpgradeClientRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
-     *
-     * @param request - UpgradeClientRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpgradeClientResponse
-     *
-     * @param UpgradeClientRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpgradeClientResponse
+     * @return UpgradeClientResponse UpgradeClientResponse
      */
     public function upgradeClientWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->vaultId) {
-            @$query['VaultId'] = $request->vaultId;
+        if (!Utils::isUnset($request->vaultId)) {
+            $query['VaultId'] = $request->vaultId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeClient',
@@ -7008,7 +5855,7 @@ class Hbr extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeClientResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7016,17 +5863,13 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Upgrades the Cloud Backup client.
+     * @summary Upgrades the Cloud Backup client.
+     *  *
+     * @description You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
+     *  *
+     * @param UpgradeClientRequest $request UpgradeClientRequest
      *
-     * @remarks
-     * You can call this operation to upgrade a Cloud Backup client to the latest version. After the Cloud Backup client is upgraded, the version of the client cannot be rolled back.
-     *
-     * @param request - UpgradeClientRequest
-     * @returns UpgradeClientResponse
-     *
-     * @param UpgradeClientRequest $request
-     *
-     * @return UpgradeClientResponse
+     * @return UpgradeClientResponse UpgradeClientResponse
      */
     public function upgradeClient($request)
     {

@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePoliciesV2ResponseBody\policies\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dataSourceFilters extends Model
 {
     /**
+     * @description Deprecated.
+     *
      * @var string[]
      */
     public $dataSourceIds;
+
     /**
+     * @description Data source type. The value range is as follows:
+     * - **UDM_ECS**: Indicates ECS server backup.
+     * - **OSS**: Indicates OSS backup.
+     * - **NAS**: Indicates Alibaba Cloud NAS backup.
+     * - **ECS_FILE**: Indicates ECS file backup.
+     * - **OTS**: Indicates Tablestore backup.
+     * @example UDM_ECS
+     *
      * @var string
      */
     public $sourceType;
@@ -23,25 +34,14 @@ class dataSourceFilters extends Model
 
     public function validate()
     {
-        if (\is_array($this->dataSourceIds)) {
-            Model::validateArray($this->dataSourceIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceIds) {
-            if (\is_array($this->dataSourceIds)) {
-                $res['DataSourceIds'] = [];
-                $n1                   = 0;
-                foreach ($this->dataSourceIds as $item1) {
-                    $res['DataSourceIds'][$n1++] = $item1;
-                }
-            }
+            $res['DataSourceIds'] = $this->dataSourceIds;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -49,24 +49,19 @@ class dataSourceFilters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataSourceFilters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceIds'])) {
             if (!empty($map['DataSourceIds'])) {
-                $model->dataSourceIds = [];
-                $n1                   = 0;
-                foreach ($map['DataSourceIds'] as $item1) {
-                    $model->dataSourceIds[$n1++] = $item1;
-                }
+                $model->dataSourceIds = $map['DataSourceIds'];
             }
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

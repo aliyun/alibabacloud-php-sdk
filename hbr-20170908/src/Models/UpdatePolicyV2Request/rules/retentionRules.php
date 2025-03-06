@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class retentionRules extends Model
 {
     /**
+     * @description The type of the special retention rule. Valid values:
+     *
+     *   **WEEKLY**: retains weekly backups
+     *   **MONTHLY**: retains monthly backups
+     *   **YEARLY**: retains yearly backups
+     *
+     * @example YEARLY
+     *
      * @var string
      */
     public $advancedRetentionType;
+
     /**
+     * @description The special retention period of backups. Minimum value: 1. Unit: days.
+     *
+     * @example 365
+     *
      * @var int
      */
     public $retention;
+
     /**
+     * @description Specifies which backup is retained based on the special retention rule. Only the first backup can be retained.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $whichSnapshot;
@@ -28,20 +46,17 @@ class retentionRules extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->advancedRetentionType) {
             $res['AdvancedRetentionType'] = $this->advancedRetentionType;
         }
-
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
-
         if (null !== $this->whichSnapshot) {
             $res['WhichSnapshot'] = $this->whichSnapshot;
         }
@@ -49,22 +64,20 @@ class retentionRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return retentionRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdvancedRetentionType'])) {
             $model->advancedRetentionType = $map['AdvancedRetentionType'];
         }
-
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
-
         if (isset($map['WhichSnapshot'])) {
             $model->whichSnapshot = $map['WhichSnapshot'];
         }

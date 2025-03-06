@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fileDetail extends Model
 {
     /**
+     * @description Whether to use advanced policies. Values:
+     * - **true**: Use.
+     * - **false**: Do not use.
+     * @example false
+     *
      * @var bool
      */
     public $advPolicy;
+
     /**
+     * @description Whether to enable VSS (Windows) functionality. Values:
+     * - **true**: Enable.
+     * - **false**: Disable.
+     * @example false
+     *
      * @var bool
      */
     public $useVSS;
@@ -23,16 +34,14 @@ class fileDetail extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->advPolicy) {
             $res['AdvPolicy'] = $this->advPolicy;
         }
-
         if (null !== $this->useVSS) {
             $res['UseVSS'] = $this->useVSS;
         }
@@ -40,18 +49,17 @@ class fileDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fileDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdvPolicy'])) {
             $model->advPolicy = $map['AdvPolicy'];
         }
-
         if (isset($map['UseVSS'])) {
             $model->useVSS = $map['UseVSS'];
         }

@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupJobs2ResponseBody\backupJobs\backupJob\otsDetail\tableNames;
+use AlibabaCloud\Tea\Model;
 
 class otsDetail extends Model
 {
     /**
+     * @description The names of the destination tables in the Tablestore instance.
+     *
      * @var tableNames
      */
     public $tableNames;
@@ -19,27 +21,23 @@ class otsDetail extends Model
 
     public function validate()
     {
-        if (null !== $this->tableNames) {
-            $this->tableNames->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tableNames) {
-            $res['TableNames'] = null !== $this->tableNames ? $this->tableNames->toArray($noStream) : $this->tableNames;
+            $res['TableNames'] = null !== $this->tableNames ? $this->tableNames->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return otsDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

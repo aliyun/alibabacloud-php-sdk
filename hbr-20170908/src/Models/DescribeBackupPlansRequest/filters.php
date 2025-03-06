@@ -4,15 +4,32 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filters extends Model
 {
     /**
+     * @description The keys in the filter. Valid values:
+     *
+     *   **regionId**: the ID of a region
+     *   **planId**: the ID of a backup plan
+     *   **sourceType**: the type of a data source
+     *   **vaultId**: the ID of a backup vault
+     *   **instanceName**: the name of an instance
+     *   **instanceId**: the ID of an instance
+     *   **planName**: the name of a backup plan
+     *
+     * @example vaultId
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The values that you want to match in the filter.
+     *
+     * @example ["v-*********************"]
+     *
      * @var string[]
      */
     public $values;
@@ -23,51 +40,35 @@ class filters extends Model
 
     public function validate()
     {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1            = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1++] = $item1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1            = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1++] = $item1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

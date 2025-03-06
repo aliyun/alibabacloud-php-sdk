@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAirEcsInstanceShrinkRequest extends Model
 {
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-uf6ir9y******hvisj
+     *
      * @var string
      */
     public $ecsInstanceId;
+
     /**
+     * @description The data sources for which the client needs to be uninstalled.
+     *
      * @var string
      */
     public $uninstallClientSourceTypesShrink;
@@ -23,16 +30,14 @@ class DeleteAirEcsInstanceShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
-
         if (null !== $this->uninstallClientSourceTypesShrink) {
             $res['UninstallClientSourceTypes'] = $this->uninstallClientSourceTypesShrink;
         }
@@ -40,18 +45,17 @@ class DeleteAirEcsInstanceShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAirEcsInstanceShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }
-
         if (isset($map['UninstallClientSourceTypes'])) {
             $model->uninstallClientSourceTypesShrink = $map['UninstallClientSourceTypes'];
         }

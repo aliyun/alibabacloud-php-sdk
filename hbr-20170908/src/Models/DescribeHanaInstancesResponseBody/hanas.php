@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaInstancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaInstancesResponseBody\hanas\hana;
+use AlibabaCloud\Tea\Model;
 
 class hanas extends Model
 {
@@ -19,21 +19,17 @@ class hanas extends Model
 
     public function validate()
     {
-        if (\is_array($this->hana)) {
-            Model::validateArray($this->hana);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hana) {
-            if (\is_array($this->hana)) {
-                $res['Hana'] = [];
-                $n1          = 0;
-                foreach ($this->hana as $item1) {
-                    $res['Hana'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Hana'] = [];
+            if (null !== $this->hana && \is_array($this->hana)) {
+                $n = 0;
+                foreach ($this->hana as $item) {
+                    $res['Hana'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class hanas extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hanas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hana'])) {
             if (!empty($map['Hana'])) {
                 $model->hana = [];
-                $n1          = 0;
-                foreach ($map['Hana'] as $item1) {
-                    $model->hana[$n1++] = hana::fromMap($item1);
+                $n           = 0;
+                foreach ($map['Hana'] as $item) {
+                    $model->hana[$n++] = null !== $item ? hana::fromMap($item) : $item;
                 }
             }
         }

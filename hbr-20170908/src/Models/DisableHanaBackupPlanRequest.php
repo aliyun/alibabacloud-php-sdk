@@ -4,23 +4,45 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableHanaBackupPlanRequest extends Model
 {
     /**
+     * @description The ID of the SAP HANA instance.
+     *
+     * This parameter is required.
+     * @example cl-0003tu******y5oc
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description The ID of the backup plan.
+     *
+     * This parameter is required.
+     * @example pl-0006o11ectqr650ceoct
+     *
      * @var string
      */
     public $planId;
+
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm3erpwweavki
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The ID of the backup vault.
+     *
+     * This parameter is required.
+     * @example v-000f9z******vilrr
+     *
      * @var string
      */
     public $vaultId;
@@ -33,24 +55,20 @@ class DisableHanaBackupPlanRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -58,26 +76,23 @@ class DisableHanaBackupPlanRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableHanaBackupPlanRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }
