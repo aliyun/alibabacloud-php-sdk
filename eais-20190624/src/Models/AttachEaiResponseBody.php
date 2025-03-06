@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachEaiResponseBody extends Model
 {
     /**
+     * @example i-wz93g6pyat2g7t7o****
+     *
      * @var string
      */
     public $clientInstanceId;
+
     /**
+     * @example eais-sz8t15a7gt7z7j7i****
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
+
     /**
+     * @example C3BCB7DA-BEB6-4982-A765-6EA61EC84474
+     *
      * @var string
      */
     public $requestId;
@@ -28,20 +36,17 @@ class AttachEaiResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientInstanceId) {
             $res['ClientInstanceId'] = $this->clientInstanceId;
         }
-
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +54,20 @@ class AttachEaiResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachEaiResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientInstanceId'])) {
             $model->clientInstanceId = $map['ClientInstanceId'];
         }
-
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

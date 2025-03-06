@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachEaiResponseBody extends Model
 {
     /**
+     * @example 04DEB304-2436-4CB9-BB63-468BCEA03D9D
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +20,9 @@ class DetachEaiResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DetachEaiResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachEaiResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

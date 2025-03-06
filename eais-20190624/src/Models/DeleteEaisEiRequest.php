@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEaisEiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example eais-hzu00xufs1c8j5nn****
+     *
      * @var string
      */
     public $eiInstanceId;
+
     /**
+     * @example false
+     *
      * @var bool
      */
     public $force;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,20 +40,17 @@ class DeleteEaisEiRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eiInstanceId) {
             $res['EiInstanceId'] = $this->eiInstanceId;
         }
-
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +58,20 @@ class DeleteEaisEiRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEaisEiRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EiInstanceId'])) {
             $model->eiInstanceId = $map['EiInstanceId'];
         }
-
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

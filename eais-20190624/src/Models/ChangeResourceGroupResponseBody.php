@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
+     * @example C3BCB7DA-BEB6-4982-A765-6EA61EC8****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +20,9 @@ class ChangeResourceGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ChangeResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

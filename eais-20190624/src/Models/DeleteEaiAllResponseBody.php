@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEaiAllResponseBody extends Model
 {
     /**
+     * @example AD4EA714-A35B-4710-BF92-8275BCDDB69F
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +20,9 @@ class DeleteEaiAllResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteEaiAllResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEaiAllResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

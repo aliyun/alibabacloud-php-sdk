@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachEaiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example i-wz93g6pyat2g7t7o****
+     *
      * @var string
      */
     public $clientInstanceId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example eais-sz8t15a7gt7z7j7i****
+     *
      * @var string
      */
     public $elasticAcceleratedInstanceId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -28,20 +42,17 @@ class AttachEaiRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientInstanceId) {
             $res['ClientInstanceId'] = $this->clientInstanceId;
         }
-
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +60,20 @@ class AttachEaiRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachEaiRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientInstanceId'])) {
             $model->clientInstanceId = $map['ClientInstanceId'];
         }
-
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

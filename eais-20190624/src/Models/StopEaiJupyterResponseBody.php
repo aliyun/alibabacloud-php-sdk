@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eais\V20190624\Models\StopEaiJupyterResponseBody\accessDeniedDetail;
+use AlibabaCloud\Tea\Model;
 
 class StopEaiJupyterResponseBody extends Model
 {
@@ -13,7 +13,10 @@ class StopEaiJupyterResponseBody extends Model
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
+
     /**
+     * @example F5FEB9AA-C108-577C-AB3D-D13524AF****
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +27,14 @@ class StopEaiJupyterResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->accessDeniedDetail) {
-            $this->accessDeniedDetail->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
-            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +42,17 @@ class StopEaiJupyterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopEaiJupyterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
