@@ -15,12 +15,16 @@ use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\DeleteSymRecordsShrinkRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetErrorMinuteStatTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetErrorMinuteStatTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNativePageTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNativePageTrendResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkMinuteTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkMinuteTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetStatTrendRequest;
@@ -137,6 +141,65 @@ class Umengapm extends OpenApiClient
         $headers = [];
 
         return $this->deleteSymRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取分钟粒度稳定性统计数据
+     *  *
+     * @param GetErrorMinuteStatTrendRequest $request GetErrorMinuteStatTrendRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetErrorMinuteStatTrendResponse GetErrorMinuteStatTrendResponse
+     */
+    public function getErrorMinuteStatTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetErrorMinuteStatTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/GetErrorMinuteStatTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetErrorMinuteStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetErrorMinuteStatTrendResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取分钟粒度稳定性统计数据
+     *  *
+     * @param GetErrorMinuteStatTrendRequest $request GetErrorMinuteStatTrendRequest
+     *
+     * @return GetErrorMinuteStatTrendResponse GetErrorMinuteStatTrendResponse
+     */
+    public function getErrorMinuteStatTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getErrorMinuteStatTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -332,6 +395,62 @@ class Umengapm extends OpenApiClient
         $headers = [];
 
         return $this->getNativePageTrendWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取分钟粒度网络统计数据
+     *  *
+     * @param GetNetworkMinuteTrendRequest $request GetNetworkMinuteTrendRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetNetworkMinuteTrendResponse GetNetworkMinuteTrendResponse
+     */
+    public function getNetworkMinuteTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNetworkMinuteTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/getNetworkMinuteTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetNetworkMinuteTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetNetworkMinuteTrendResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取分钟粒度网络统计数据
+     *  *
+     * @param GetNetworkMinuteTrendRequest $request GetNetworkMinuteTrendRequest
+     *
+     * @return GetNetworkMinuteTrendResponse GetNetworkMinuteTrendResponse
+     */
+    public function getNetworkMinuteTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNetworkMinuteTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
