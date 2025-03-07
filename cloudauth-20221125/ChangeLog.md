@@ -1,3 +1,7 @@
+2025-03-07 Version: 1.2.0
+- Support API EntElementVerifyV2.
+
+
 2023-08-24 Version: 1.1.1
 - Generated php 2022-11-25 for Cloudauth.
 

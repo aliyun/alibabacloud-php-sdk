@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyV2Request;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyV2Response;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyRequest;
@@ -52,10 +54,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param EntElementVerifyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 企业要素核验
+     *  *
+     * @param EntElementVerifyRequest $request EntElementVerifyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntElementVerifyResponse
+     * @return EntElementVerifyResponse EntElementVerifyResponse
      */
     public function entElementVerifyWithOptions($request, $runtime)
     {
@@ -102,14 +106,19 @@ class Cloudauth extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EntElementVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EntElementVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EntElementVerifyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EntElementVerifyRequest $request
+     * @summary 企业要素核验
+     *  *
+     * @param EntElementVerifyRequest $request EntElementVerifyRequest
      *
-     * @return EntElementVerifyResponse
+     * @return EntElementVerifyResponse EntElementVerifyResponse
      */
     public function entElementVerify($request)
     {
@@ -119,10 +128,86 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param EntRiskQueryRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 企业要素验证V2
+     *  *
+     * @param EntElementVerifyV2Request $request EntElementVerifyV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntRiskQueryResponse
+     * @return EntElementVerifyV2Response EntElementVerifyV2Response
+     */
+    public function entElementVerifyV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->entName)) {
+            $query['EntName'] = $request->entName;
+        }
+        if (!Utils::isUnset($request->infoVerifyType)) {
+            $query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+        if (!Utils::isUnset($request->legalPersonCertNo)) {
+            $query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+        if (!Utils::isUnset($request->legalPersonName)) {
+            $query['LegalPersonName'] = $request->legalPersonName;
+        }
+        if (!Utils::isUnset($request->licenseNo)) {
+            $query['LicenseNo'] = $request->licenseNo;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->userAuthorization)) {
+            $query['UserAuthorization'] = $request->userAuthorization;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EntElementVerifyV2',
+            'version'     => '2022-11-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EntElementVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return EntElementVerifyV2Response::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 企业要素验证V2
+     *  *
+     * @param EntElementVerifyV2Request $request EntElementVerifyV2Request
+     *
+     * @return EntElementVerifyV2Response EntElementVerifyV2Response
+     */
+    public function entElementVerifyV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->entElementVerifyV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 企业经营异常查询
+     *  *
+     * @param EntRiskQueryRequest $request EntRiskQueryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EntRiskQueryResponse EntRiskQueryResponse
      */
     public function entRiskQueryWithOptions($request, $runtime)
     {
@@ -160,14 +245,19 @@ class Cloudauth extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EntRiskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EntRiskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EntRiskQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EntRiskQueryRequest $request
+     * @summary 企业经营异常查询
+     *  *
+     * @param EntRiskQueryRequest $request EntRiskQueryRequest
      *
-     * @return EntRiskQueryResponse
+     * @return EntRiskQueryResponse EntRiskQueryResponse
      */
     public function entRiskQuery($request)
     {
@@ -177,10 +267,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param EntVerifyRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 企业认证
+     *  *
+     * @param EntVerifyRequest $request EntVerifyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EntVerifyResponse
+     * @return EntVerifyResponse EntVerifyResponse
      */
     public function entVerifyWithOptions($request, $runtime)
     {
@@ -239,14 +331,19 @@ class Cloudauth extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EntVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EntVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EntVerifyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EntVerifyRequest $request
+     * @summary 企业认证
+     *  *
+     * @param EntVerifyRequest $request EntVerifyRequest
      *
-     * @return EntVerifyResponse
+     * @return EntVerifyResponse EntVerifyResponse
      */
     public function entVerify($request)
     {

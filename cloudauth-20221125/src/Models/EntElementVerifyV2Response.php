@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauth\V20221125\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class EntRiskQueryResponse extends Model
+class EntElementVerifyV2Response extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class EntRiskQueryResponse extends Model
     public $statusCode;
 
     /**
-     * @var EntRiskQueryResponseBody
+     * @var EntElementVerifyV2ResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class EntRiskQueryResponse extends Model
     /**
      * @param array $map
      *
-     * @return EntRiskQueryResponse
+     * @return EntElementVerifyV2Response
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class EntRiskQueryResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = EntRiskQueryResponseBody::fromMap($map['body']);
+            $model->body = EntElementVerifyV2ResponseBody::fromMap($map['body']);
         }
 
         return $model;
