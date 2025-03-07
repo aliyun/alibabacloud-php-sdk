@@ -148,6 +148,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunRequest;
@@ -173,6 +175,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesShrinkRequest;
@@ -368,8 +373,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTenantMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -425,8 +433,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddTenantMembersBySourceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTenantMembersBySourceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTenantMembersBySourceUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -482,8 +493,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -539,8 +553,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckDataSourceConnectivityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -589,8 +606,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckDataSourceConnectivityByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckDataSourceConnectivityByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckDataSourceConnectivityByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -646,8 +666,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -703,8 +726,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -760,8 +786,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -817,8 +846,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -874,8 +906,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -931,8 +966,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -988,8 +1026,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1045,8 +1086,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1105,8 +1149,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateNodeSupplementResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNodeSupplementResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNodeSupplementResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1162,8 +1209,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePipelineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePipelineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePipelineNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1219,8 +1269,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateStreamBatchJobMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStreamBatchJobMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStreamBatchJobMappingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1276,8 +1329,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1329,8 +1385,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1386,8 +1445,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1442,8 +1504,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1492,8 +1557,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1545,8 +1613,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1602,8 +1673,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1655,8 +1729,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1705,8 +1782,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1762,8 +1842,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteAdHocTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1822,8 +1905,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteManualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteManualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteManualNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1882,8 +1968,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return FixDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FixDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FixDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1935,8 +2024,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1994,8 +2086,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAdHocTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdHocTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdHocTaskLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2050,8 +2145,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAdHocTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdHocTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdHocTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2100,8 +2198,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAlertEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAlertEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAlertEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2159,8 +2260,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBatchTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBatchTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBatchTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2215,8 +2319,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBatchTaskInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBatchTaskInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBatchTaskInfoByVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2268,8 +2375,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBatchTaskUdfLineagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2321,8 +2431,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBatchTaskVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBatchTaskVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBatchTaskVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2374,8 +2487,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBizEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBizEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBizEntityInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2430,8 +2546,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBizEntityInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBizEntityInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBizEntityInfoByVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2480,8 +2599,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBizUnitInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBizUnitInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBizUnitInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2536,8 +2658,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetClusterQueueInfoByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterQueueInfoByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterQueueInfoByEnvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2586,8 +2711,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDataDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataDomainInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2645,8 +2773,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDevObjectDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDevObjectDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDevObjectDependencyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2698,8 +2829,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDirectoryTreeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2764,8 +2898,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2833,8 +2970,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceUpDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2890,8 +3030,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetLatestSubmitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLatestSubmitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLatestSubmitDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2937,8 +3080,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMyRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMyRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMyRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2994,8 +3140,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMyTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMyTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMyTenantsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3063,8 +3212,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetNodeUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNodeUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNodeUpDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3116,8 +3268,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOperationSubmitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOperationSubmitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOperationSubmitStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3172,8 +3327,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3228,8 +3386,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalInstanceLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3281,8 +3442,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3334,8 +3498,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalNodeByOutputNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalNodeByOutputNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalNodeByOutputNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3387,8 +3554,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalNodeContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalNodeContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalNodeContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3440,8 +3610,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPhysicalNodeOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPhysicalNodeOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPhysicalNodeOperationLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3490,8 +3663,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetProjectProduceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectProduceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectProduceUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3552,8 +3728,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetQueueEngineVersionByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQueueEngineVersionByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQueueEngineVersionByEnvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3568,6 +3747,62 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getQueueEngineVersionByEnvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取计算源对应集群的spark客户信息
+     *  *
+     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     */
+    public function getSparkLocalClientInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->envEnum)) {
+            $query['EnvEnum'] = $request->envEnum;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkLocalClientInfo',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSparkLocalClientInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetSparkLocalClientInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取计算源对应集群的spark客户信息
+     *  *
+     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
+     *
+     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     */
+    public function getSparkLocalClientInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkLocalClientInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -3605,8 +3840,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSupplementDagrunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSupplementDagrunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSupplementDagrunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3658,8 +3896,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSupplementDagrunInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSupplementDagrunInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSupplementDagrunInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3708,8 +3949,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserBySourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserBySourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserBySourceIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3758,8 +4002,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3815,8 +4062,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3872,8 +4122,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GrantResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GrantResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GrantResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3919,8 +4172,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAddableRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddableRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddableRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3976,8 +4232,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAddableUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddableUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddableUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4033,8 +4292,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlertEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4090,8 +4352,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAlertNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlertNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlertNotificationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4106,6 +4371,66 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAlertNotificationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询应用已申请的API的具体的字段列表
+     *  *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $tmpReq  ListAuthorizedDataServiceApiDetailsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     */
+    public function listAuthorizedDataServiceApiDetailsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAuthorizedDataServiceApiDetailsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizedDataServiceApiDetails',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAuthorizedDataServiceApiDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAuthorizedDataServiceApiDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询应用已申请的API的具体的字段列表
+     *  *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $request ListAuthorizedDataServiceApiDetailsRequest
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     */
+    public function listAuthorizedDataServiceApiDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedDataServiceApiDetailsWithOptions($request, $runtime);
     }
 
     /**
@@ -4147,8 +4472,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListBizEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListBizEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListBizEntitiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4194,8 +4522,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListBizUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListBizUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListBizUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4251,8 +4582,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4308,8 +4642,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataSourceWithConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourceWithConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceWithConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4365,8 +4702,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4425,8 +4765,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4485,8 +4828,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListNodeDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodeDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodeDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4545,8 +4891,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4602,8 +4951,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublishRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4659,8 +5011,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListResourcePermissionOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcePermissionOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcePermissionOperationLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4716,8 +5071,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourcePermissionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4773,8 +5131,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSubmitRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSubmitRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSubmitRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4830,8 +5191,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTenantMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4887,8 +5251,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4944,8 +5311,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5000,8 +5370,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OfflineBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OfflineBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OfflineBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5057,8 +5430,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OfflineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OfflineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OfflineBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5114,8 +5490,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnlineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnlineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnlineBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5174,8 +5553,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5231,8 +5613,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ParseBatchTaskDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ParseBatchTaskDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ParseBatchTaskDependencyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5291,8 +5676,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PausePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PausePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PausePhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5348,8 +5736,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishObjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishObjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishObjectListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5405,8 +5796,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveTenantMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5462,8 +5856,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5522,8 +5919,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResumePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumePhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5579,8 +5979,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RevokeResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5632,8 +6035,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StopAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAdHocTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5689,8 +6095,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5746,8 +6155,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5803,8 +6215,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5860,8 +6275,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBatchTaskUdfLineagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5917,8 +6335,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5974,8 +6395,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6031,8 +6455,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6088,8 +6515,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDataSourceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataSourceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataSourceBasicInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6145,8 +6575,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDataSourceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataSourceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataSourceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6201,8 +6634,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateFileDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFileDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFileDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6257,8 +6693,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateFileNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFileNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFileNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6314,8 +6753,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTenantMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6371,8 +6813,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6424,8 +6869,11 @@ class Dataphinpublic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserGroupSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserGroupSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserGroupSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
