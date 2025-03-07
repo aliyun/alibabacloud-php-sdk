@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MediaConvertAudio extends Model
 {
@@ -12,22 +12,27 @@ class MediaConvertAudio extends Model
      * @var int
      */
     public $bitrate;
+
     /**
      * @var int
      */
     public $channels;
+
     /**
      * @var string
      */
     public $codec;
+
     /**
      * @var string
      */
     public $profile;
+
     /**
      * @var bool
      */
     public $remove;
+
     /**
      * @var string
      */
@@ -43,32 +48,26 @@ class MediaConvertAudio extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
-
         if (null !== $this->channels) {
             $res['Channels'] = $this->channels;
         }
-
         if (null !== $this->codec) {
             $res['Codec'] = $this->codec;
         }
-
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
         }
-
         if (null !== $this->remove) {
             $res['Remove'] = $this->remove;
         }
-
         if (null !== $this->samplerate) {
             $res['Samplerate'] = $this->samplerate;
         }
@@ -76,34 +75,29 @@ class MediaConvertAudio extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MediaConvertAudio
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
-
         if (isset($map['Channels'])) {
             $model->channels = $map['Channels'];
         }
-
         if (isset($map['Codec'])) {
             $model->codec = $map['Codec'];
         }
-
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
         }
-
         if (isset($map['Remove'])) {
             $model->remove = $map['Remove'];
         }
-
         if (isset($map['Samplerate'])) {
             $model->samplerate = $map['Samplerate'];
         }

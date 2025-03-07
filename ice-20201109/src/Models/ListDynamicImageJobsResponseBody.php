@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponseBody\jobs;
+use AlibabaCloud\Tea\Model;
 
 class ListDynamicImageJobsResponseBody extends Model
 {
     /**
+     * @description The list of jobs.
+     *
      * @var jobs[]
      */
     public $jobs;
+
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example ****cdb3e74639973036bc84****
+     *
      * @var string
      */
     public $nextPageToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class ListDynamicImageJobsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->jobs)) {
-            Model::validateArray($this->jobs);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobs) {
-            if (\is_array($this->jobs)) {
-                $res['Jobs'] = [];
-                $n1          = 0;
-                foreach ($this->jobs as $item1) {
-                    $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Jobs'] = [];
+            if (null !== $this->jobs && \is_array($this->jobs)) {
+                $n = 0;
+                foreach ($this->jobs as $item) {
+                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class ListDynamicImageJobsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDynamicImageJobsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n1          = 0;
-                foreach ($map['Jobs'] as $item1) {
-                    $model->jobs[$n1++] = jobs::fromMap($item1);
+                $n           = 0;
+                foreach ($map['Jobs'] as $item) {
+                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

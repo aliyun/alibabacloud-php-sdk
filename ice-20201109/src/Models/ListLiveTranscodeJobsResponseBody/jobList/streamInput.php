@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveTranscodeJobsResponseBody\jobList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class streamInput extends Model
 {
     /**
+     * @description The URL of the input stream.
+     *
+     * @example rtmp://mydomain/app/stream1
+     *
      * @var string
      */
     public $inputUrl;
+
     /**
+     * @description The type of the input stream.
+     *
+     * @example rtmp
+     *
      * @var string
      */
     public $type;
@@ -23,16 +32,14 @@ class streamInput extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputUrl) {
             $res['InputUrl'] = $this->inputUrl;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +47,17 @@ class streamInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return streamInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputUrl'])) {
             $model->inputUrl = $map['InputUrl'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

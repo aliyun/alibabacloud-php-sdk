@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSourceLocationRequest extends Model
 {
     /**
+     * @description The name of the source location.
+     *
+     * This parameter is required.
+     * @example MySourceLocation
+     *
      * @var string
      */
     public $sourceLocationName;
@@ -18,10 +23,9 @@ class GetSourceLocationRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceLocationName) {
@@ -31,11 +35,11 @@ class GetSourceLocationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSourceLocationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

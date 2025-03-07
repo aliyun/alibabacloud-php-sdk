@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowInputResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
     /**
+     * @description The source URL.
+     *
+     * @example rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
+     *
      * @var string
      */
     public $inputUrl;
@@ -18,10 +22,9 @@ class content extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputUrl) {
@@ -31,11 +34,11 @@ class content extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return content
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

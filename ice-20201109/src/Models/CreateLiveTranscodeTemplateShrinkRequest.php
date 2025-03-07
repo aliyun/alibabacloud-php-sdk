@@ -4,19 +4,38 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveTranscodeTemplateShrinkRequest extends Model
 {
     /**
+     * @description The name of the template.
+     *
+     * This parameter is required.
+     * @example my template
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The configuration of the template.
+     *
      * @var string
      */
     public $templateConfigShrink;
+
     /**
+     * @description The type of the template. Valid values:
+     *
+     *   normal
+     *   narrow-band
+     *   audio-only
+     *   origin
+     *
+     * This parameter is required.
+     * @example normal
+     *
      * @var string
      */
     public $type;
@@ -28,20 +47,17 @@ class CreateLiveTranscodeTemplateShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->templateConfigShrink) {
             $res['TemplateConfig'] = $this->templateConfigShrink;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -49,22 +65,20 @@ class CreateLiveTranscodeTemplateShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveTranscodeTemplateShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TemplateConfig'])) {
             $model->templateConfigShrink = $map['TemplateConfig'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

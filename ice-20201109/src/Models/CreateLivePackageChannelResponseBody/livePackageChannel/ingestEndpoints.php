@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageChannelResponseBody\livePackageChannel;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ingestEndpoints extends Model
 {
     /**
+     * @description The ingest endpoint ID.
+     *
+     * @example ingest1
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The password.
+     *
+     * @example 2F9e******b569c8
+     *
      * @var string
      */
     public $password;
+
     /**
+     * @description The ingest endpoint URL.
+     *
+     * @example http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
+     *
      * @var string
      */
     public $url;
+
     /**
+     * @description The username.
+     *
+     * @example us12******das
+     *
      * @var string
      */
     public $username;
@@ -33,24 +52,20 @@ class ingestEndpoints extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -58,26 +73,23 @@ class ingestEndpoints extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ingestEndpoints
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

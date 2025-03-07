@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCategoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateCategoryResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateCategoryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCategoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

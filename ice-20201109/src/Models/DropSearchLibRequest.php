@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DropSearchLibRequest extends Model
 {
     /**
+     * @description The name of the search library.
+     *
+     * This parameter is required.
+     * @example test1
+     *
      * @var string
      */
     public $searchLibName;
@@ -18,10 +23,9 @@ class DropSearchLibRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->searchLibName) {
@@ -31,11 +35,11 @@ class DropSearchLibRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DropSearchLibRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

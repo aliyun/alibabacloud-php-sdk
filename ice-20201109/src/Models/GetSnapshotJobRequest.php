@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSnapshotJobRequest extends Model
 {
     /**
+     * @description The ID of the snapshot job.
+     *
+     * This parameter is required.
+     * @example ****d80e4e4044975745c14b****
+     *
      * @var string
      */
     public $jobId;
@@ -18,10 +23,9 @@ class GetSnapshotJobRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +35,11 @@ class GetSnapshotJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSnapshotJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

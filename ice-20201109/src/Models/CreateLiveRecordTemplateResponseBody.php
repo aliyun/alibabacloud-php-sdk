@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveRecordTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 0622C702-41BE-467E-AF2E-883D4517962E
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The template ID.
+     *
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $templateId;
@@ -23,16 +32,14 @@ class CreateLiveRecordTemplateResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -40,18 +47,17 @@ class CreateLiveRecordTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveRecordTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

@@ -4,44 +4,84 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelResponseBody\livePackageChannel\ingestEndpoints;
+use AlibabaCloud\Tea\Model;
 
 class livePackageChannel extends Model
 {
     /**
+     * @description The channel name.
+     *
+     * @example channel-1
+     *
      * @var string
      */
     public $channelName;
+
     /**
+     * @description The time when the channel was created.
+     *
+     * @example 2024-07-16T02:24:42Z
+     *
      * @var string
      */
     public $createTime;
+
     /**
+     * @description The channel description. It can be up to 1,000 characters in length.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The channel group name.
+     *
+     * @example channel-group-1
+     *
      * @var string
      */
     public $groupName;
+
     /**
+     * @description The ingest endpoints.
+     *
      * @var ingestEndpoints[]
      */
     public $ingestEndpoints;
+
     /**
+     * @description The time when the channel was last modified.
+     *
+     * @example 2024-07-16T02:24:42Z
+     *
      * @var string
      */
     public $lastModified;
+
     /**
+     * @description The ingest protocol. Only HLS is supported.
+     *
+     * @example HLS
+     *
      * @var string
      */
     public $protocol;
+
     /**
+     * @description The number of segments.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $segmentCount;
+
     /**
+     * @description The segment duration.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $segmentDuration;
@@ -59,53 +99,41 @@ class livePackageChannel extends Model
 
     public function validate()
     {
-        if (\is_array($this->ingestEndpoints)) {
-            Model::validateArray($this->ingestEndpoints);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->ingestEndpoints) {
-            if (\is_array($this->ingestEndpoints)) {
-                $res['IngestEndpoints'] = [];
-                $n1                     = 0;
-                foreach ($this->ingestEndpoints as $item1) {
-                    $res['IngestEndpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['IngestEndpoints'] = [];
+            if (null !== $this->ingestEndpoints && \is_array($this->ingestEndpoints)) {
+                $n = 0;
+                foreach ($this->ingestEndpoints as $item) {
+                    $res['IngestEndpoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->lastModified) {
             $res['LastModified'] = $this->lastModified;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-
         if (null !== $this->segmentCount) {
             $res['SegmentCount'] = $this->segmentCount;
         }
-
         if (null !== $this->segmentDuration) {
             $res['SegmentDuration'] = $this->segmentDuration;
         }
@@ -113,52 +141,44 @@ class livePackageChannel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return livePackageChannel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['IngestEndpoints'])) {
             if (!empty($map['IngestEndpoints'])) {
                 $model->ingestEndpoints = [];
-                $n1                     = 0;
-                foreach ($map['IngestEndpoints'] as $item1) {
-                    $model->ingestEndpoints[$n1++] = ingestEndpoints::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['IngestEndpoints'] as $item) {
+                    $model->ingestEndpoints[$n++] = null !== $item ? ingestEndpoints::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LastModified'])) {
             $model->lastModified = $map['LastModified'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-
         if (isset($map['SegmentCount'])) {
             $model->segmentCount = $map['SegmentCount'];
         }
-
         if (isset($map['SegmentDuration'])) {
             $model->segmentDuration = $map['SegmentDuration'];
         }

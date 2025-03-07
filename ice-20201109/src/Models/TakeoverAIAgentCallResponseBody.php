@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TakeoverAIAgentCallResponseBody extends Model
 {
     /**
+     * @description The ID of the ARTC channel.
+     *
+     * @example 70f22d5784194938a7e387052f2b3208
+     *
      * @var string
      */
     public $channelId;
+
     /**
+     * @description The ID of the human agent.
+     *
+     * @example uid2
+     *
      * @var string
      */
     public $humanAgentUserId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The ARTC token.
+     *
+     * @example eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+     *
      * @var string
      */
     public $token;
@@ -33,24 +52,20 @@ class TakeoverAIAgentCallResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-
         if (null !== $this->humanAgentUserId) {
             $res['HumanAgentUserId'] = $this->humanAgentUserId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -58,26 +73,23 @@ class TakeoverAIAgentCallResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TakeoverAIAgentCallResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-
         if (isset($map['HumanAgentUserId'])) {
             $model->humanAgentUserId = $map['HumanAgentUserId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

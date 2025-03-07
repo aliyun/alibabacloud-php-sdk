@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCustomizedVoiceRequest extends Model
 {
     /**
+     * @description The media asset ID of the sample audio file.
+     *
+     * @example ****4d5e829d498aaf966b119348****
+     *
      * @var string
      */
     public $demoAudioMediaId;
+
     /**
+     * @description The voice ID.
+     *
+     * This parameter is required.
+     * @example xiaozhuan
+     *
      * @var string
      */
     public $voiceId;
@@ -23,16 +33,14 @@ class UpdateCustomizedVoiceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->demoAudioMediaId) {
             $res['DemoAudioMediaId'] = $this->demoAudioMediaId;
         }
-
         if (null !== $this->voiceId) {
             $res['VoiceId'] = $this->voiceId;
         }
@@ -40,18 +48,17 @@ class UpdateCustomizedVoiceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCustomizedVoiceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DemoAudioMediaId'])) {
             $model->demoAudioMediaId = $map['DemoAudioMediaId'];
         }
-
         if (isset($map['VoiceId'])) {
             $model->voiceId = $map['VoiceId'];
         }

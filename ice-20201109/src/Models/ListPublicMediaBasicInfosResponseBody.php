@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosResponseBody\mediaInfos;
+use AlibabaCloud\Tea\Model;
 
 class ListPublicMediaBasicInfosResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @description The media assets that meet the specified conditions.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
+
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******B7-7F87-4792-BFE9-63CD21******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of media assets that meet the specified conditions.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
@@ -39,37 +61,29 @@ class ListPublicMediaBasicInfosResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->mediaInfos)) {
-            Model::validateArray($this->mediaInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->mediaInfos) {
-            if (\is_array($this->mediaInfos)) {
-                $res['MediaInfos'] = [];
-                $n1                = 0;
-                foreach ($this->mediaInfos as $item1) {
-                    $res['MediaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MediaInfos'] = [];
+            if (null !== $this->mediaInfos && \is_array($this->mediaInfos)) {
+                $n = 0;
+                foreach ($this->mediaInfos as $item) {
+                    $res['MediaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +91,32 @@ class ListPublicMediaBasicInfosResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPublicMediaBasicInfosResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n1                = 0;
-                foreach ($map['MediaInfos'] as $item1) {
-                    $model->mediaInfos[$n1++] = mediaInfos::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['MediaInfos'] as $item) {
+                    $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

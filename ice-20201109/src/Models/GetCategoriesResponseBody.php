@@ -4,25 +4,40 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponseBody\category;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponseBody\subCategories;
+use AlibabaCloud\Tea\Model;
 
 class GetCategoriesResponseBody extends Model
 {
     /**
+     * @description The information about the category.
+     *
      * @var category
      */
     public $category;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The subcategories in the category.
+     *
      * @var subCategories
      */
     public $subCategories;
+
     /**
+     * @description The total number of subcategories.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $subTotal;
@@ -35,30 +50,20 @@ class GetCategoriesResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->category) {
-            $this->category->validate();
-        }
-        if (null !== $this->subCategories) {
-            $this->subCategories->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
-            $res['Category'] = null !== $this->category ? $this->category->toArray($noStream) : $this->category;
+            $res['Category'] = null !== $this->category ? $this->category->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->subCategories) {
-            $res['SubCategories'] = null !== $this->subCategories ? $this->subCategories->toArray($noStream) : $this->subCategories;
+            $res['SubCategories'] = null !== $this->subCategories ? $this->subCategories->toMap() : null;
         }
-
         if (null !== $this->subTotal) {
             $res['SubTotal'] = $this->subTotal;
         }
@@ -66,26 +71,23 @@ class GetCategoriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCategoriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = category::fromMap($map['Category']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SubCategories'])) {
             $model->subCategories = subCategories::fromMap($map['SubCategories']);
         }
-
         if (isset($map['SubTotal'])) {
             $model->subTotal = $map['SubTotal'];
         }

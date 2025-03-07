@@ -4,19 +4,34 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMediaFromSearchLibRequest extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
+     * This parameter is required.
+     * @example ****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $mediaId;
+
     /**
+     * @description The message body.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $msgBody;
+
     /**
+     * @description The name of the search library. Default value: ims-default-search-lib.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $searchLibName;
@@ -28,20 +43,17 @@ class DeleteMediaFromSearchLibRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
-
         if (null !== $this->msgBody) {
             $res['MsgBody'] = $this->msgBody;
         }
-
         if (null !== $this->searchLibName) {
             $res['SearchLibName'] = $this->searchLibName;
         }
@@ -49,22 +61,20 @@ class DeleteMediaFromSearchLibRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMediaFromSearchLibRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
-
         if (isset($map['MsgBody'])) {
             $model->msgBody = $map['MsgBody'];
         }
-
         if (isset($map['SearchLibName'])) {
             $model->searchLibName = $map['SearchLibName'];
         }

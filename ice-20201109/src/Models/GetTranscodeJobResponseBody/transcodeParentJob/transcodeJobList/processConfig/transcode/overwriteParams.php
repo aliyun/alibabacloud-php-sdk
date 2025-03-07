@@ -4,36 +4,51 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\audio;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\container;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\muxConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\transConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\video;
+use AlibabaCloud\Tea\Model;
 
 class overwriteParams extends Model
 {
     /**
+     * @description The audio settings.
+     *
      * @var audio
      */
     public $audio;
+
     /**
+     * @description The encapsulation format settings.
+     *
      * @var container
      */
     public $container;
+
     /**
+     * @description The encapsulation settings.
+     *
      * @var muxConfig
      */
     public $muxConfig;
+
     /**
      * @var string[]
      */
     public $tags;
+
     /**
+     * @description The conditional transcoding configurations.
+     *
      * @var transConfig
      */
     public $transConfig;
+
     /**
+     * @description The video settings.
+     *
      * @var video
      */
     public $video;
@@ -48,95 +63,56 @@ class overwriteParams extends Model
 
     public function validate()
     {
-        if (null !== $this->audio) {
-            $this->audio->validate();
-        }
-        if (null !== $this->container) {
-            $this->container->validate();
-        }
-        if (null !== $this->muxConfig) {
-            $this->muxConfig->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        if (null !== $this->transConfig) {
-            $this->transConfig->validate();
-        }
-        if (null !== $this->video) {
-            $this->video->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->audio) {
-            $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
+            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
         }
-
         if (null !== $this->container) {
-            $res['Container'] = null !== $this->container ? $this->container->toArray($noStream) : $this->container;
+            $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
         }
-
         if (null !== $this->muxConfig) {
-            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toArray($noStream) : $this->muxConfig;
+            $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                foreach ($this->tags as $key1 => $value1) {
-                    $res['Tags'][$key1] = $value1;
-                }
-            }
+            $res['Tags'] = $this->tags;
         }
-
         if (null !== $this->transConfig) {
-            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toArray($noStream) : $this->transConfig;
+            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
         }
-
         if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
+            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return overwriteParams
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
-
         if (isset($map['Container'])) {
             $model->container = container::fromMap($map['Container']);
         }
-
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
         }
-
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                foreach ($map['Tags'] as $key1 => $value1) {
-                    $model->tags[$key1] = $value1;
-                }
-            }
+            $model->tags = $map['Tags'];
         }
-
         if (isset($map['TransConfig'])) {
             $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
-
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);
         }

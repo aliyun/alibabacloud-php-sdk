@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateLiveRecordTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 0F3D5C03-4B6E-5F40-B7F6-B1956776E7D3
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateLiveRecordTemplateResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateLiveRecordTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateLiveRecordTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

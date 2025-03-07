@@ -4,30 +4,50 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest\inputs;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest\output;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest\scheduleConfig;
+use AlibabaCloud\Tea\Model;
 
 class SubmitPackageJobRequest extends Model
 {
     /**
+     * @description The input of the job.
+     *
+     * This parameter is required.
      * @var inputs[]
      */
     public $inputs;
+
     /**
+     * @description The name of the job.
+     *
+     * @example job-name
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The output of the job.
+     *
+     * This parameter is required.
      * @var output
      */
     public $output;
+
     /**
+     * @description The scheduling settings.
+     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
+
     /**
+     * @description The user-defined data.
+     *
+     * @example {"param": "value"}
+     *
      * @var string
      */
     public $userData;
@@ -41,43 +61,29 @@ class SubmitPackageJobRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->inputs)) {
-            Model::validateArray($this->inputs);
-        }
-        if (null !== $this->output) {
-            $this->output->validate();
-        }
-        if (null !== $this->scheduleConfig) {
-            $this->scheduleConfig->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputs) {
-            if (\is_array($this->inputs)) {
-                $res['Inputs'] = [];
-                $n1            = 0;
-                foreach ($this->inputs as $item1) {
-                    $res['Inputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Inputs'] = [];
+            if (null !== $this->inputs && \is_array($this->inputs)) {
+                $n = 0;
+                foreach ($this->inputs as $item) {
+                    $res['Inputs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->output) {
-            $res['Output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
+            $res['Output'] = null !== $this->output ? $this->output->toMap() : null;
         }
-
         if (null !== $this->scheduleConfig) {
-            $res['ScheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toArray($noStream) : $this->scheduleConfig;
+            $res['ScheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toMap() : null;
         }
-
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -85,36 +91,32 @@ class SubmitPackageJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitPackageJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n1            = 0;
-                foreach ($map['Inputs'] as $item1) {
-                    $model->inputs[$n1++] = inputs::fromMap($item1);
+                $n             = 0;
+                foreach ($map['Inputs'] as $item) {
+                    $model->inputs[$n++] = null !== $item ? inputs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Output'])) {
             $model->output = output::fromMap($map['Output']);
         }
-
         if (isset($map['ScheduleConfig'])) {
             $model->scheduleConfig = scheduleConfig::fromMap($map['ScheduleConfig']);
         }
-
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

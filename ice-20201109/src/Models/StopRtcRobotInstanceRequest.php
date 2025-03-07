@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopRtcRobotInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 727dc0e296014bb58670940a3da95592
+     *
      * @var string
      */
     public $instanceId;
@@ -18,10 +22,9 @@ class StopRtcRobotInstanceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +34,11 @@ class StopRtcRobotInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopRtcRobotInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

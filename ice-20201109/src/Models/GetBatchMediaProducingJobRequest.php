@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetBatchMediaProducingJobRequest extends Model
 {
     /**
+     * @description The ID of the quick video production job.
+     *
+     * @example ****b4549d46c88681030f6e****
+     *
      * @var string
      */
     public $jobId;
@@ -18,10 +22,9 @@ class GetBatchMediaProducingJobRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +34,11 @@ class GetBatchMediaProducingJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetBatchMediaProducingJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

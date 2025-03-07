@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveRecordTemplateShrinkRequest extends Model
 {
     /**
+     * @description The name of the template.
+     *
+     * This parameter is required.
      * @var string
      */
     public $name;
+
     /**
+     * @description The list of recording formats.
+     *
+     * This parameter is required.
      * @var string
      */
     public $recordFormatShrink;
@@ -23,16 +30,14 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->recordFormatShrink) {
             $res['RecordFormat'] = $this->recordFormatShrink;
         }
@@ -40,18 +45,17 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveRecordTemplateShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RecordFormat'])) {
             $model->recordFormatShrink = $map['RecordFormat'];
         }

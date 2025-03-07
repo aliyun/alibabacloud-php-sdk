@@ -4,24 +4,37 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceResponseBody\mediaClipList;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaClipByFaceResponseBody\mediaClipList\occurrencesInfos\trackData;
+use AlibabaCloud\Tea\Model;
 
 class occurrencesInfos extends Model
 {
     /**
+     * @description The end time of the clip. Unit: seconds. The value is of the Float type.
+     *
+     * @example 69.06635
+     *
      * @var float
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $expression;
+
     /**
+     * @description The start time of the clip. Unit: seconds. The value is of the Float type.
+     *
+     * @example 61.066353
+     *
      * @var float
      */
     public $startTime;
+
     /**
+     * @description The information about the face in the clip.
+     *
      * @var trackData[]
      */
     public $trackData;
@@ -34,33 +47,26 @@ class occurrencesInfos extends Model
 
     public function validate()
     {
-        if (\is_array($this->trackData)) {
-            Model::validateArray($this->trackData);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->trackData) {
-            if (\is_array($this->trackData)) {
-                $res['TrackData'] = [];
-                $n1               = 0;
-                foreach ($this->trackData as $item1) {
-                    $res['TrackData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TrackData'] = [];
+            if (null !== $this->trackData && \is_array($this->trackData)) {
+                $n = 0;
+                foreach ($this->trackData as $item) {
+                    $res['TrackData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +74,29 @@ class occurrencesInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return occurrencesInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['TrackData'])) {
             if (!empty($map['TrackData'])) {
                 $model->trackData = [];
-                $n1               = 0;
-                foreach ($map['TrackData'] as $item1) {
-                    $model->trackData[$n1++] = trackData::fromMap($item1);
+                $n                = 0;
+                foreach ($map['TrackData'] as $item) {
+                    $model->trackData[$n++] = null !== $item ? trackData::fromMap($item) : $item;
                 }
             }
         }

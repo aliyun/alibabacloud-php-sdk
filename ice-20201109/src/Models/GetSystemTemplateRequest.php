@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSystemTemplateRequest extends Model
 {
     /**
+     * @description The template ID.
+     *
+     * This parameter is required.
+     * @example S00000001-100060
+     *
      * @var string
      */
     public $templateId;
@@ -18,10 +23,9 @@ class GetSystemTemplateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -31,11 +35,11 @@ class GetSystemTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSystemTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

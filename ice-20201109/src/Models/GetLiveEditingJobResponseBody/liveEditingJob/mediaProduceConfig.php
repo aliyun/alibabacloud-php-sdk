@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponseBody\liveEditingJob;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mediaProduceConfig extends Model
 {
     /**
+     * @description The editing mode. Default value: Accurate.
+     *
+     * @example Accurate
+     *
      * @var string
      */
     public $mode;
@@ -18,10 +22,9 @@ class mediaProduceConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mode) {
@@ -31,11 +34,11 @@ class mediaProduceConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mediaProduceConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

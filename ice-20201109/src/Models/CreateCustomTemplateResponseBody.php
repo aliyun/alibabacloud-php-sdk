@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateResponseBody\customTemplate;
+use AlibabaCloud\Tea\Model;
 
 class CreateCustomTemplateResponseBody extends Model
 {
     /**
+     * @description The template information.
+     *
      * @var customTemplate
      */
     public $customTemplate;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreateCustomTemplateResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->customTemplate) {
-            $this->customTemplate->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customTemplate) {
-            $res['CustomTemplate'] = null !== $this->customTemplate ? $this->customTemplate->toArray($noStream) : $this->customTemplate;
+            $res['CustomTemplate'] = null !== $this->customTemplate ? $this->customTemplate->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreateCustomTemplateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCustomTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomTemplate'])) {
             $model->customTemplate = customTemplate::fromMap($map['CustomTemplate']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

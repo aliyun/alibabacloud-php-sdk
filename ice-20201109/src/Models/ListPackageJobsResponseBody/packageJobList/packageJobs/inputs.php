@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponseBody\packageJobList\packageJobs;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponseBody\packageJobList\packageJobs\inputs\input;
+use AlibabaCloud\Tea\Model;
 
 class inputs extends Model
 {
     /**
+     * @description The information about the input stream file.
+     *
      * @var input
      */
     public $input;
@@ -19,27 +21,23 @@ class inputs extends Model
 
     public function validate()
     {
-        if (null !== $this->input) {
-            $this->input->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return inputs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

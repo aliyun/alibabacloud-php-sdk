@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponseBody\workflowTask;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkflowTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ******0C-7870-15FE-B96F-8880BB******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about the workflow task.
+     *
      * @var workflowTask
      */
     public $workflowTask;
@@ -24,38 +31,32 @@ class GetWorkflowTaskResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->workflowTask) {
-            $this->workflowTask->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->workflowTask) {
-            $res['WorkflowTask'] = null !== $this->workflowTask ? $this->workflowTask->toArray($noStream) : $this->workflowTask;
+            $res['WorkflowTask'] = null !== $this->workflowTask ? $this->workflowTask->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkflowTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['WorkflowTask'])) {
             $model->workflowTask = workflowTask::fromMap($map['WorkflowTask']);
         }

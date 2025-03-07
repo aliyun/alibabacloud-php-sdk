@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceAbJobListResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
     /**
+     * @example oss://bucket/dir/
+     *
      * @var string
      */
     public $media;
+
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $type;
@@ -23,16 +28,14 @@ class output extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->media) {
             $res['Media'] = $this->media;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +43,17 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = $map['Media'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

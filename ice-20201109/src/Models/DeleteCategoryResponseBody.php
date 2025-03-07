@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCategoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ****63E8B7C7-4812-46AD-0FA56029AC86****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteCategoryResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteCategoryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCategoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

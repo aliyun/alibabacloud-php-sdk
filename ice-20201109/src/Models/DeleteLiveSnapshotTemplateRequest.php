@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLiveSnapshotTemplateRequest extends Model
 {
     /**
+     * @description The template ID.
+     *
+     * This parameter is required.
+     * @example ****a046-263c-3560-978a-fb287782****
+     *
      * @var string
      */
     public $templateId;
@@ -18,10 +23,9 @@ class DeleteLiveSnapshotTemplateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -31,11 +35,11 @@ class DeleteLiveSnapshotTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLiveSnapshotTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

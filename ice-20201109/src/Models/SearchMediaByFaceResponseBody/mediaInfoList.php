@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaByFaceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mediaInfoList extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
+     * @example 3b187b3620c8490886cfc2a9578c****
+     *
      * @var string
      */
     public $mediaId;
@@ -18,10 +22,9 @@ class mediaInfoList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mediaId) {
@@ -31,11 +34,11 @@ class mediaInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mediaInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

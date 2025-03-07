@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobResponseBody\data\customizedVoiceJob;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The information about the human voice cloning job.
+     *
      * @var customizedVoiceJob
      */
     public $customizedVoiceJob;
@@ -19,27 +21,23 @@ class data extends Model
 
     public function validate()
     {
-        if (null !== $this->customizedVoiceJob) {
-            $this->customizedVoiceJob->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customizedVoiceJob) {
-            $res['CustomizedVoiceJob'] = null !== $this->customizedVoiceJob ? $this->customizedVoiceJob->toArray($noStream) : $this->customizedVoiceJob;
+            $res['CustomizedVoiceJob'] = null !== $this->customizedVoiceJob ? $this->customizedVoiceJob->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

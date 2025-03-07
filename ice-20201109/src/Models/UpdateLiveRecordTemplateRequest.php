@@ -4,20 +4,35 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveRecordTemplateRequest\recordFormat;
+use AlibabaCloud\Tea\Model;
 
 class UpdateLiveRecordTemplateRequest extends Model
 {
     /**
+     * @description The template name.
+     *
+     * This parameter is required.
+     * @example test template
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The list of recording formats.
+     *
+     * This parameter is required.
      * @var recordFormat[]
      */
     public $recordFormat;
+
     /**
+     * @description The template ID.
+     *
+     * This parameter is required.
+     * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+     *
      * @var string
      */
     public $templateId;
@@ -29,29 +44,23 @@ class UpdateLiveRecordTemplateRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->recordFormat)) {
-            Model::validateArray($this->recordFormat);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->recordFormat) {
-            if (\is_array($this->recordFormat)) {
-                $res['RecordFormat'] = [];
-                $n1                  = 0;
-                foreach ($this->recordFormat as $item1) {
-                    $res['RecordFormat'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RecordFormat'] = [];
+            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
+                $n = 0;
+                foreach ($this->recordFormat as $item) {
+                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -59,28 +68,26 @@ class UpdateLiveRecordTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateLiveRecordTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n1                  = 0;
-                foreach ($map['RecordFormat'] as $item1) {
-                    $model->recordFormat[$n1++] = recordFormat::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['RecordFormat'] as $item) {
+                    $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

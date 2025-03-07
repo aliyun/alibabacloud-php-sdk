@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveEditingJobResponseBody\liveEditingJob;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class liveStreamConfig extends Model
 {
     /**
+     * @description The name of the application to which the live stream belongs.
+     *
+     * @example app
+     *
      * @var string
      */
     public $appName;
+
     /**
+     * @description The domain name of the live stream.
+     *
+     * @example domain.com
+     *
      * @var string
      */
     public $domainName;
+
     /**
+     * @description The name of the live stream.
+     *
+     * @example streamName
+     *
      * @var string
      */
     public $streamName;
@@ -28,20 +42,17 @@ class liveStreamConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -49,22 +60,20 @@ class liveStreamConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return liveStreamConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

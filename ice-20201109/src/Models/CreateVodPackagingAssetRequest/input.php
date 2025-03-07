@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingAssetRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class input extends Model
 {
     /**
+     * @description The URL of the media file. Only M3U8 files stored in OSS are supported.
+     *
      * @var string
      */
     public $media;
+
     /**
+     * @description The input type. Only Object Storage Service (OSS) is supported.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $type;
@@ -23,16 +30,14 @@ class input extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->media) {
             $res['Media'] = $this->media;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +45,17 @@ class input extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return input
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = $map['Media'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

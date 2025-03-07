@@ -4,23 +4,40 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSnapshotUrlsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The list of snapshot URLs.
+     *
      * @var string[]
      */
     public $snapshotUrls;
+
     /**
+     * @description The total number of snapshots.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $total;
+
     /**
+     * @description The URL of the WebVTT file.
+     *
+     * @example http://test-bucket.oss-cn-shanghai.aliyuncs.com/ouoput.vtt
+     *
      * @var string
      */
     public $webVTTUrl;
@@ -33,33 +50,20 @@ class GetSnapshotUrlsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->snapshotUrls)) {
-            Model::validateArray($this->snapshotUrls);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->snapshotUrls) {
-            if (\is_array($this->snapshotUrls)) {
-                $res['SnapshotUrls'] = [];
-                $n1                  = 0;
-                foreach ($this->snapshotUrls as $item1) {
-                    $res['SnapshotUrls'][$n1++] = $item1;
-                }
-            }
+            $res['SnapshotUrls'] = $this->snapshotUrls;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-
         if (null !== $this->webVTTUrl) {
             $res['WebVTTUrl'] = $this->webVTTUrl;
         }
@@ -67,32 +71,25 @@ class GetSnapshotUrlsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSnapshotUrlsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SnapshotUrls'])) {
             if (!empty($map['SnapshotUrls'])) {
-                $model->snapshotUrls = [];
-                $n1                  = 0;
-                foreach ($map['SnapshotUrls'] as $item1) {
-                    $model->snapshotUrls[$n1++] = $item1;
-                }
+                $model->snapshotUrls = $map['SnapshotUrls'];
             }
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-
         if (isset($map['WebVTTUrl'])) {
             $model->webVTTUrl = $map['WebVTTUrl'];
         }

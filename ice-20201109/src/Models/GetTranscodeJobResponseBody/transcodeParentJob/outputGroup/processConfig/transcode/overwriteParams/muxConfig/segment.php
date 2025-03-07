@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\muxConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class segment extends Model
 {
     /**
+     * @description The segment length.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $duration;
+
     /**
+     * @description The forced segmentation point in time.
+     *
+     * @example 2,3
+     *
      * @var string
      */
     public $forceSegTime;
@@ -23,16 +32,14 @@ class segment extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->forceSegTime) {
             $res['ForceSegTime'] = $this->forceSegTime;
         }
@@ -40,18 +47,17 @@ class segment extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return segment
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['ForceSegTime'])) {
             $model->forceSegTime = $map['ForceSegTime'];
         }

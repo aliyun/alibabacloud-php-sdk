@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RegisterMediaInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the media asset in IMS.
+     *
+     * @example ******b48fb04483915d4f2cd8******
+     *
      * @var string
      */
     public $mediaId;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******5A-CAAC-4850-A3AF-B74606******
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class RegisterMediaInfoResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class RegisterMediaInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RegisterMediaInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

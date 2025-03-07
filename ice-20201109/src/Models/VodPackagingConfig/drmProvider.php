@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\VodPackagingConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class drmProvider extends Model
 {
@@ -12,14 +12,17 @@ class drmProvider extends Model
      * @var string
      */
     public $encryptionMethod;
+
     /**
      * @var string
      */
     public $IV;
+
     /**
      * @var string[]
      */
     public $systemIds;
+
     /**
      * @var string
      */
@@ -33,33 +36,20 @@ class drmProvider extends Model
 
     public function validate()
     {
-        if (\is_array($this->systemIds)) {
-            Model::validateArray($this->systemIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->encryptionMethod) {
             $res['EncryptionMethod'] = $this->encryptionMethod;
         }
-
         if (null !== $this->IV) {
             $res['IV'] = $this->IV;
         }
-
         if (null !== $this->systemIds) {
-            if (\is_array($this->systemIds)) {
-                $res['SystemIds'] = [];
-                $n1               = 0;
-                foreach ($this->systemIds as $item1) {
-                    $res['SystemIds'][$n1++] = $item1;
-                }
-            }
+            $res['SystemIds'] = $this->systemIds;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -67,32 +57,25 @@ class drmProvider extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return drmProvider
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptionMethod'])) {
             $model->encryptionMethod = $map['EncryptionMethod'];
         }
-
         if (isset($map['IV'])) {
             $model->IV = $map['IV'];
         }
-
         if (isset($map['SystemIds'])) {
             if (!empty($map['SystemIds'])) {
-                $model->systemIds = [];
-                $n1               = 0;
-                foreach ($map['SystemIds'] as $item1) {
-                    $model->systemIds[$n1++] = $item1;
-                }
+                $model->systemIds = $map['SystemIds'];
             }
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

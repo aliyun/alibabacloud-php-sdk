@@ -4,20 +4,36 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob\videoCensorConfig\outputFile;
+use AlibabaCloud\Tea\Model;
 
 class videoCensorConfig extends Model
 {
     /**
+     * @description The moderation template. Default value: common. The default value indicates that the default template is used.
+     *
+     * >  If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, the UID of the template is returned.
+     * @example common
+     *
      * @var string
      */
     public $bizType;
+
     /**
+     * @description The information about output snapshots.
+     *
      * @var outputFile
      */
     public $outputFile;
+
     /**
+     * @description Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
+     *
+     *   **true**: The video content needs to be moderated.
+     *   **false**: The video content does not need to be moderated.
+     *
+     * @example true
+     *
      * @var string
      */
     public $videoCensor;
@@ -29,23 +45,17 @@ class videoCensorConfig extends Model
 
     public function validate()
     {
-        if (null !== $this->outputFile) {
-            $this->outputFile->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-
         if (null !== $this->outputFile) {
-            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toArray($noStream) : $this->outputFile;
+            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
         }
-
         if (null !== $this->videoCensor) {
             $res['VideoCensor'] = $this->videoCensor;
         }
@@ -53,22 +63,20 @@ class videoCensorConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return videoCensorConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-
         if (isset($map['OutputFile'])) {
             $model->outputFile = outputFile::fromMap($map['OutputFile']);
         }
-
         if (isset($map['VideoCensor'])) {
             $model->videoCensor = $map['VideoCensor'];
         }

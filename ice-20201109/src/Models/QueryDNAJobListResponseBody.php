@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListResponseBody\jobList;
+use AlibabaCloud\Tea\Model;
 
 class QueryDNAJobListResponseBody extends Model
 {
     /**
+     * @description The queried media fingerprint analysis jobs.
+     *
      * @var jobList[]
      */
     public $jobList;
+
     /**
+     * @description The request ID.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class QueryDNAJobListResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->jobList)) {
-            Model::validateArray($this->jobList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobList) {
-            if (\is_array($this->jobList)) {
-                $res['JobList'] = [];
-                $n1             = 0;
-                foreach ($this->jobList as $item1) {
-                    $res['JobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['JobList'] = [];
+            if (null !== $this->jobList && \is_array($this->jobList)) {
+                $n = 0;
+                foreach ($this->jobList as $item) {
+                    $res['JobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class QueryDNAJobListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDNAJobListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobList'])) {
             if (!empty($map['JobList'])) {
                 $model->jobList = [];
-                $n1             = 0;
-                foreach ($map['JobList'] as $item1) {
-                    $model->jobList[$n1++] = jobList::fromMap($item1);
+                $n              = 0;
+                foreach ($map['JobList'] as $item) {
+                    $model->jobList[$n++] = null !== $item ? jobList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

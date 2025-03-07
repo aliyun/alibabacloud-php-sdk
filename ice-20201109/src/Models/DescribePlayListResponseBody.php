@@ -4,28 +4,42 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayListResponseBody\playList;
+use AlibabaCloud\Tea\Model;
 
 class DescribePlayListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var playList[]
      */
     public $playList;
+
     /**
+     * @description Id
+     *
+     * @example B960580D-26FA-5547-8AFC-3CDC812DBF27
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 49
+     *
      * @var int
      */
     public $totalNum;
@@ -39,37 +53,29 @@ class DescribePlayListResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->playList)) {
-            Model::validateArray($this->playList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->playList) {
-            if (\is_array($this->playList)) {
-                $res['PlayList'] = [];
-                $n1              = 0;
-                foreach ($this->playList as $item1) {
-                    $res['PlayList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PlayList'] = [];
+            if (null !== $this->playList && \is_array($this->playList)) {
+                $n = 0;
+                foreach ($this->playList as $item) {
+                    $res['PlayList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -77,36 +83,32 @@ class DescribePlayListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePlayListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['PlayList'])) {
             if (!empty($map['PlayList'])) {
                 $model->playList = [];
-                $n1              = 0;
-                foreach ($map['PlayList'] as $item1) {
-                    $model->playList[$n1++] = playList::fromMap($item1);
+                $n               = 0;
+                foreach ($map['PlayList'] as $item) {
+                    $model->playList[$n++] = null !== $item ? playList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

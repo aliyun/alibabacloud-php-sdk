@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody\mediaCensorJobList\mediaCensorJob;
+use AlibabaCloud\Tea\Model;
 
 class mediaCensorJobList extends Model
 {
@@ -19,21 +19,17 @@ class mediaCensorJobList extends Model
 
     public function validate()
     {
-        if (\is_array($this->mediaCensorJob)) {
-            Model::validateArray($this->mediaCensorJob);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mediaCensorJob) {
-            if (\is_array($this->mediaCensorJob)) {
-                $res['MediaCensorJob'] = [];
-                $n1                    = 0;
-                foreach ($this->mediaCensorJob as $item1) {
-                    $res['MediaCensorJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MediaCensorJob'] = [];
+            if (null !== $this->mediaCensorJob && \is_array($this->mediaCensorJob)) {
+                $n = 0;
+                foreach ($this->mediaCensorJob as $item) {
+                    $res['MediaCensorJob'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class mediaCensorJobList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mediaCensorJobList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaCensorJob'])) {
             if (!empty($map['MediaCensorJob'])) {
                 $model->mediaCensorJob = [];
-                $n1                    = 0;
-                foreach ($map['MediaCensorJob'] as $item1) {
-                    $model->mediaCensorJob[$n1++] = mediaCensorJob::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['MediaCensorJob'] as $item) {
+                    $model->mediaCensorJob[$n++] = null !== $item ? mediaCensorJob::fromMap($item) : $item;
                 }
             }
         }

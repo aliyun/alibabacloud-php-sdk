@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetEditingProjectMaterialsRequest extends Model
 {
     /**
+     * @description The ID of the online editing project.
+     *
+     * This parameter is required.
+     * @example *****fb2101cb318*****
+     *
      * @var string
      */
     public $projectId;
@@ -18,10 +23,9 @@ class GetEditingProjectMaterialsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectId) {
@@ -31,11 +35,11 @@ class GetEditingProjectMaterialsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEditingProjectMaterialsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

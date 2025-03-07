@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkflowTaskRequest extends Model
 {
     /**
+     * @description The ID of the workflow task.
+     *
+     * @example ******4215e042b3966ca5441e******
+     *
      * @var string
      */
     public $taskId;
@@ -18,10 +22,9 @@ class GetWorkflowTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +34,11 @@ class GetWorkflowTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkflowTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

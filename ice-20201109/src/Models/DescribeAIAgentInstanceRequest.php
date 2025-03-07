@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAIAgentInstanceRequest extends Model
 {
     /**
+     * @description The ID of the AI agent that you want to query.
+     *
+     * This parameter is required.
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $instanceId;
@@ -18,10 +23,9 @@ class DescribeAIAgentInstanceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +35,11 @@ class DescribeAIAgentInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAIAgentInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

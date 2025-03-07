@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nonExistIds extends Model
 {
@@ -18,43 +18,29 @@ class nonExistIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->string)) {
-            Model::validateArray($this->string);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->string) {
-            if (\is_array($this->string)) {
-                $res['String'] = [];
-                $n1            = 0;
-                foreach ($this->string as $item1) {
-                    $res['String'][$n1++] = $item1;
-                }
-            }
+            $res['String'] = $this->string;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nonExistIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['String'])) {
             if (!empty($map['String'])) {
-                $model->string = [];
-                $n1            = 0;
-                foreach ($map['String'] as $item1) {
-                    $model->string[$n1++] = $item1;
-                }
+                $model->string = $map['String'];
             }
         }
 

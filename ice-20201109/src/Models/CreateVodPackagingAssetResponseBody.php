@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVodPackagingAssetResponseBody extends Model
 {
     /**
+     * @description The information about the asset.
+     *
      * @var VodPackagingAsset
      */
     public $asset;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;
@@ -23,19 +30,14 @@ class CreateVodPackagingAssetResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->asset) {
-            $this->asset->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->asset) {
-            $res['Asset'] = null !== $this->asset ? $this->asset->toArray($noStream) : $this->asset;
+            $res['Asset'] = null !== $this->asset ? $this->asset->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,18 +45,17 @@ class CreateVodPackagingAssetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVodPackagingAssetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Asset'])) {
             $model->asset = VodPackagingAsset::fromMap($map['Asset']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

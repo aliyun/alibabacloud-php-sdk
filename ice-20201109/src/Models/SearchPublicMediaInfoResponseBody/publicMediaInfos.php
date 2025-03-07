@@ -4,24 +4,33 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoResponseBody\publicMediaInfos\mediaInfo;
+use AlibabaCloud\Tea\Model;
 
 class publicMediaInfos extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $authorized;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $favorite;
+
     /**
      * @var mediaInfo
      */
     public $mediaInfo;
+
     /**
+     * @example 100
+     *
      * @var string
      */
     public $remainingAuthTime;
@@ -34,27 +43,20 @@ class publicMediaInfos extends Model
 
     public function validate()
     {
-        if (null !== $this->mediaInfo) {
-            $this->mediaInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authorized) {
             $res['Authorized'] = $this->authorized;
         }
-
         if (null !== $this->favorite) {
             $res['Favorite'] = $this->favorite;
         }
-
         if (null !== $this->mediaInfo) {
-            $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toArray($noStream) : $this->mediaInfo;
+            $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toMap() : null;
         }
-
         if (null !== $this->remainingAuthTime) {
             $res['RemainingAuthTime'] = $this->remainingAuthTime;
         }
@@ -62,26 +64,23 @@ class publicMediaInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return publicMediaInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Authorized'])) {
             $model->authorized = $map['Authorized'];
         }
-
         if (isset($map['Favorite'])) {
             $model->favorite = $map['Favorite'];
         }
-
         if (isset($map['MediaInfo'])) {
             $model->mediaInfo = mediaInfo::fromMap($map['MediaInfo']);
         }
-
         if (isset($map['RemainingAuthTime'])) {
             $model->remainingAuthTime = $map['RemainingAuthTime'];
         }

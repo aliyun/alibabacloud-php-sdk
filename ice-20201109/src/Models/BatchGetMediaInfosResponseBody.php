@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponseBody\mediaInfos;
+use AlibabaCloud\Tea\Model;
 
 class BatchGetMediaInfosResponseBody extends Model
 {
     /**
+     * @description The queried media assets.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class BatchGetMediaInfosResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->mediaInfos)) {
-            Model::validateArray($this->mediaInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mediaInfos) {
-            if (\is_array($this->mediaInfos)) {
-                $res['MediaInfos'] = [];
-                $n1                = 0;
-                foreach ($this->mediaInfos as $item1) {
-                    $res['MediaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MediaInfos'] = [];
+            if (null !== $this->mediaInfos && \is_array($this->mediaInfos)) {
+                $n = 0;
+                foreach ($this->mediaInfos as $item) {
+                    $res['MediaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class BatchGetMediaInfosResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchGetMediaInfosResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n1                = 0;
-                foreach ($map['MediaInfos'] as $item1) {
-                    $model->mediaInfos[$n1++] = mediaInfos::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['MediaInfos'] as $item) {
+                    $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

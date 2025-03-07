@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBResponseBody\DBInfo;
+use AlibabaCloud\Tea\Model;
 
 class CreateDNADBResponseBody extends Model
 {
     /**
+     * @description The details of the media fingerprint library.
+     *
      * @var DBInfo
      */
     public $DBInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example 25818875-5F78-4A13-BEF6-D7393642CA58
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreateDNADBResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->DBInfo) {
-            $this->DBInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInfo) {
-            $res['DBInfo'] = null !== $this->DBInfo ? $this->DBInfo->toArray($noStream) : $this->DBInfo;
+            $res['DBInfo'] = null !== $this->DBInfo ? $this->DBInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreateDNADBResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDNADBResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInfo'])) {
             $model->DBInfo = DBInfo::fromMap($map['DBInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

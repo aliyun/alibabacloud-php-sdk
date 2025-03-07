@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceResponseBody\data\customizedVoice;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The personalized human voice.
+     *
      * @var customizedVoice
      */
     public $customizedVoice;
@@ -19,27 +21,23 @@ class data extends Model
 
     public function validate()
     {
-        if (null !== $this->customizedVoice) {
-            $this->customizedVoice->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customizedVoice) {
-            $res['CustomizedVoice'] = null !== $this->customizedVoice ? $this->customizedVoice->toArray($noStream) : $this->customizedVoice;
+            $res['CustomizedVoice'] = null !== $this->customizedVoice ? $this->customizedVoice->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

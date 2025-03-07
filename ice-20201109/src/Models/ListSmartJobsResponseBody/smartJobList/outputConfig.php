@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponseBody\smartJobList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class outputConfig extends Model
 {
     /**
+     * @description The Object Storage Service (OSS) bucket.
+     *
+     * @example test-bucket
+     *
      * @var string
      */
     public $bucket;
+
     /**
+     * @description The OSS object.
+     *
+     * @example test-object
+     *
      * @var string
      */
     public $object;
@@ -23,16 +32,14 @@ class outputConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
-
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
@@ -40,18 +47,17 @@ class outputConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return outputConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
-
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }

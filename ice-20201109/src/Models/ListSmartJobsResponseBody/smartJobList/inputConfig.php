@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponseBody\smartJobList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class inputConfig extends Model
 {
     /**
+     * @description The information about the input file.
+     *
+     * @example oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * @var string
      */
     public $inputFile;
+
     /**
+     * @description The keyword information.
+     *
+     * @example 测试关键词
+     *
      * @var string
      */
     public $keyword;
@@ -23,16 +32,14 @@ class inputConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
         }
-
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -40,18 +47,17 @@ class inputConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return inputConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
         }
-
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }

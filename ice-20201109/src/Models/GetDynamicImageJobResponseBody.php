@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDynamicImageJobResponseBody\dynamicImageJob;
+use AlibabaCloud\Tea\Model;
 
 class GetDynamicImageJobResponseBody extends Model
 {
     /**
+     * @description The information about the snapshot job.
+     *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******36-3C1E-4417-BDB2-1E034F******
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetDynamicImageJobResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->dynamicImageJob) {
-            $this->dynamicImageJob->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dynamicImageJob) {
-            $res['DynamicImageJob'] = null !== $this->dynamicImageJob ? $this->dynamicImageJob->toArray($noStream) : $this->dynamicImageJob;
+            $res['DynamicImageJob'] = null !== $this->dynamicImageJob ? $this->dynamicImageJob->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetDynamicImageJobResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDynamicImageJobResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicImageJob'])) {
             $model->dynamicImageJob = dynamicImageJob::fromMap($map['DynamicImageJob']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

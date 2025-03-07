@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePipelineRequest extends Model
 {
     /**
+     * @description The ID of the MPS queue.
+     *
+     * This parameter is required.
+     * @example ****96e8864746a0b6f3****
+     *
      * @var string
      */
     public $pipelineId;
@@ -18,10 +23,9 @@ class DeletePipelineRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipelineId) {
@@ -31,11 +35,11 @@ class DeletePipelineRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePipelineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

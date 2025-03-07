@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMediaConnectFlowResponseBody extends Model
 {
     /**
+     * @description The response body.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $content;
+
     /**
+     * @description The call description.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 5AEC17BD-D80B-5F78-BE1B-F07DFA0C8622
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The returned error code. A value of `0` indicates the call is successful.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $retCode;
@@ -33,24 +52,20 @@ class DeleteMediaConnectFlowResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->retCode) {
             $res['RetCode'] = $this->retCode;
         }
@@ -58,26 +73,23 @@ class DeleteMediaConnectFlowResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMediaConnectFlowResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RetCode'])) {
             $model->retCode = $map['RetCode'];
         }

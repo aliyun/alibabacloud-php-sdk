@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEditingProjectsRequest extends Model
 {
     /**
+     * @description The ID of the online editing project. You can specify multiple IDs separated with commas (,).
+     *
+     * @example ****fb2101bf24bf41cb318787dc****,****87dcfb2101bf24bf41cb3187****
+     *
      * @var string
      */
     public $projectIds;
@@ -18,10 +22,9 @@ class DeleteEditingProjectsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectIds) {
@@ -31,11 +34,11 @@ class DeleteEditingProjectsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEditingProjectsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopAIAgentInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $instanceId;
@@ -18,10 +22,9 @@ class StopAIAgentInstanceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +34,11 @@ class StopAIAgentInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopAIAgentInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

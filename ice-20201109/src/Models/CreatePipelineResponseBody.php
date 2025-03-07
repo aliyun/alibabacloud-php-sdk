@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreatePipelineResponseBody\pipeline;
+use AlibabaCloud\Tea\Model;
 
 class CreatePipelineResponseBody extends Model
 {
     /**
+     * @description The information about the MPS queue.
+     *
      * @var pipeline
      */
     public $pipeline;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreatePipelineResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->pipeline) {
-            $this->pipeline->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipeline) {
-            $res['Pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
+            $res['Pipeline'] = null !== $this->pipeline ? $this->pipeline->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreatePipelineResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePipelineResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pipeline'])) {
             $model->pipeline = pipeline::fromMap($map['Pipeline']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

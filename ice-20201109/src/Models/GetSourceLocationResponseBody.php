@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSourceLocationResponseBody extends Model
 {
     /**
+     * @description **Request ID**
+     *
+     * @example xxx-xxxx-xxxxx-xxxx
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The source location information.
+     *
      * @var ChannelAssemblySourceLocation
      */
     public $sourceLocation;
@@ -23,38 +30,32 @@ class GetSourceLocationResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->sourceLocation) {
-            $this->sourceLocation->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->sourceLocation) {
-            $res['SourceLocation'] = null !== $this->sourceLocation ? $this->sourceLocation->toArray($noStream) : $this->sourceLocation;
+            $res['SourceLocation'] = null !== $this->sourceLocation ? $this->sourceLocation->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSourceLocationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SourceLocation'])) {
             $model->sourceLocation = ChannelAssemblySourceLocation::fromMap($map['SourceLocation']);
         }

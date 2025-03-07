@@ -4,23 +4,57 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveSnapshotTemplateRequest extends Model
 {
     /**
+     * @description The naming format of the snapshot captured in overwrite mode.
+     *
+     *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+     *   It cannot exceed 255 characters in length.
+     *   The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
+     *   Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+     *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+     *
+     * @example snapshot/{JobId}.jpg
+     *
      * @var string
      */
     public $overwriteFormat;
+
     /**
+     * @description The naming format of the snapshot captured in time series mode.
+     *
+     *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+     *   It cannot exceed 255 characters in length.
+     *   The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
+     *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+     *
+     * @example snapshot/{JobId}/{UnixTimestamp}.jpg
+     *
      * @var string
      */
     public $sequenceFormat;
+
     /**
+     * @description The name of the template.
+     *
+     *   It cannot exceed 128 characters in length.
+     *
+     * This parameter is required.
      * @var string
      */
     public $templateName;
+
     /**
+     * @description The interval between two adjacent snapshots. Unit: seconds.
+     *
+     *   Valid values: [5,3600].
+     *
+     * This parameter is required.
+     * @example 5
+     *
      * @var int
      */
     public $timeInterval;
@@ -33,24 +67,20 @@ class CreateLiveSnapshotTemplateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->overwriteFormat) {
             $res['OverwriteFormat'] = $this->overwriteFormat;
         }
-
         if (null !== $this->sequenceFormat) {
             $res['SequenceFormat'] = $this->sequenceFormat;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
-
         if (null !== $this->timeInterval) {
             $res['TimeInterval'] = $this->timeInterval;
         }
@@ -58,26 +88,23 @@ class CreateLiveSnapshotTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveSnapshotTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OverwriteFormat'])) {
             $model->overwriteFormat = $map['OverwriteFormat'];
         }
-
         if (isset($map['SequenceFormat'])) {
             $model->sequenceFormat = $map['SequenceFormat'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
-
         if (isset($map['TimeInterval'])) {
             $model->timeInterval = $map['TimeInterval'];
         }

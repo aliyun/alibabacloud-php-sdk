@@ -4,20 +4,39 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateRequest\templateConfig;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveTranscodeTemplateRequest extends Model
 {
     /**
+     * @description The name of the template.
+     *
+     * This parameter is required.
+     * @example my template
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The configuration of the template.
+     *
      * @var templateConfig
      */
     public $templateConfig;
+
     /**
+     * @description The type of the template. Valid values:
+     *
+     *   normal
+     *   narrow-band
+     *   audio-only
+     *   origin
+     *
+     * This parameter is required.
+     * @example normal
+     *
      * @var string
      */
     public $type;
@@ -29,23 +48,17 @@ class CreateLiveTranscodeTemplateRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->templateConfig) {
-            $this->templateConfig->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toArray($noStream) : $this->templateConfig;
+            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -53,22 +66,20 @@ class CreateLiveTranscodeTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveTranscodeTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = templateConfig::fromMap($map['TemplateConfig']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

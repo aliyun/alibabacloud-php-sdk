@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLivePackageOriginEndpointResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 5D87B753-0250-5D9D-B248-D40C3271F864
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteLivePackageOriginEndpointResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteLivePackageOriginEndpointResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLivePackageOriginEndpointResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MediaConvertInput extends Model
 {
@@ -12,6 +12,7 @@ class MediaConvertInput extends Model
      * @var MediaObject
      */
     public $inputFile;
+
     /**
      * @var string
      */
@@ -23,19 +24,14 @@ class MediaConvertInput extends Model
 
     public function validate()
     {
-        if (null !== $this->inputFile) {
-            $this->inputFile->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputFile) {
-            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toArray($noStream) : $this->inputFile;
+            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,18 +39,17 @@ class MediaConvertInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MediaConvertInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputFile'])) {
             $model->inputFile = MediaObject::fromMap($map['InputFile']);
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

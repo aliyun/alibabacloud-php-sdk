@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAIAgentInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateAIAgentInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateAIAgentInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAIAgentInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

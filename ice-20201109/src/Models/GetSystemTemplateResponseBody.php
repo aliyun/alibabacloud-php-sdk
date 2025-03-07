@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSystemTemplateResponseBody\systemTemplate;
+use AlibabaCloud\Tea\Model;
 
 class GetSystemTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The template information.
+     *
      * @var systemTemplate
      */
     public $systemTemplate;
@@ -24,38 +31,32 @@ class GetSystemTemplateResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->systemTemplate) {
-            $this->systemTemplate->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->systemTemplate) {
-            $res['SystemTemplate'] = null !== $this->systemTemplate ? $this->systemTemplate->toArray($noStream) : $this->systemTemplate;
+            $res['SystemTemplate'] = null !== $this->systemTemplate ? $this->systemTemplate->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSystemTemplateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SystemTemplate'])) {
             $model->systemTemplate = systemTemplate::fromMap($map['SystemTemplate']);
         }

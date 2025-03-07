@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNotifyConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 39f8e0bc005e4f309379701645f4****
+     *
      * @var string
      */
     public $AIAgentId;
@@ -18,10 +22,9 @@ class DescribeNotifyConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->AIAgentId) {
@@ -31,11 +34,11 @@ class DescribeNotifyConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNotifyConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

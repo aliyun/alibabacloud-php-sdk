@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSourceResponseBody extends Model
 {
     /**
+     * @description **Request ID**
+     *
+     * @example xxx-xxxx-xxxxx-xxxx
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The source information.
+     *
      * @var ChannelAssemblySource
      */
     public $source;
@@ -23,38 +30,32 @@ class CreateSourceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->source) {
-            $this->source->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->source) {
-            $res['Source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
+            $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Source'])) {
             $model->source = ChannelAssemblySource::fromMap($map['Source']);
         }

@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DecryptKMSDataKeyRequest extends Model
 {
     /**
+     * @description The ciphertext that you want to decrypt.
+     *
+     * This parameter is required.
+     * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
+     *
      * @var string
      */
     public $ciphertextBlob;
@@ -18,10 +23,9 @@ class DecryptKMSDataKeyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ciphertextBlob) {
@@ -31,11 +35,11 @@ class DecryptKMSDataKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DecryptKMSDataKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

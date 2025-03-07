@@ -1,3 +1,7 @@
+2025-03-07 Version: 4.1.0
+- Support API SendMessageChatText.
+
+
 2025-02-14 Version: 4.0.0
 - Support API AddAdInsertion.
 - Support API AddMediaConnectFlowInput.

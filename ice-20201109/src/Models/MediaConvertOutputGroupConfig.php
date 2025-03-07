@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MediaConvertOutputGroupConfig extends Model
 {
@@ -12,10 +12,12 @@ class MediaConvertOutputGroupConfig extends Model
      * @var string
      */
     public $manifestName;
+
     /**
      * @var MediaObject
      */
     public $outputFileBase;
+
     /**
      * @var string
      */
@@ -28,23 +30,17 @@ class MediaConvertOutputGroupConfig extends Model
 
     public function validate()
     {
-        if (null !== $this->outputFileBase) {
-            $this->outputFileBase->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->manifestName) {
             $res['ManifestName'] = $this->manifestName;
         }
-
         if (null !== $this->outputFileBase) {
-            $res['OutputFileBase'] = null !== $this->outputFileBase ? $this->outputFileBase->toArray($noStream) : $this->outputFileBase;
+            $res['OutputFileBase'] = null !== $this->outputFileBase ? $this->outputFileBase->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,22 +48,20 @@ class MediaConvertOutputGroupConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MediaConvertOutputGroupConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ManifestName'])) {
             $model->manifestName = $map['ManifestName'];
         }
-
         if (isset($map['OutputFileBase'])) {
             $model->outputFileBase = MediaObject::fromMap($map['OutputFileBase']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

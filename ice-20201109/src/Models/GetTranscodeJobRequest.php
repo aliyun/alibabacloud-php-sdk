@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTranscodeJobRequest extends Model
 {
     /**
+     * @description The job ID.
+     *
+     * @example ab4802364a2e49208c99efab82dfa8e8
+     *
      * @var string
      */
     public $parentJobId;
@@ -18,10 +22,9 @@ class GetTranscodeJobRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->parentJobId) {
@@ -31,11 +34,11 @@ class GetTranscodeJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTranscodeJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

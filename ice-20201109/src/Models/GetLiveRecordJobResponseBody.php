@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveRecordJobResponseBody\recordJob;
+use AlibabaCloud\Tea\Model;
 
 class GetLiveRecordJobResponseBody extends Model
 {
     /**
+     * @description The details of the recording job.
+     *
      * @var recordJob
      */
     public $recordJob;
+
     /**
+     * @description The request ID.
+     *
+     * @example B57A046C-CE33-5FBB-B57A-D2B89ACF6907
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetLiveRecordJobResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->recordJob) {
-            $this->recordJob->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordJob) {
-            $res['RecordJob'] = null !== $this->recordJob ? $this->recordJob->toArray($noStream) : $this->recordJob;
+            $res['RecordJob'] = null !== $this->recordJob ? $this->recordJob->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetLiveRecordJobResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetLiveRecordJobResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordJob'])) {
             $model->recordJob = recordJob::fromMap($map['RecordJob']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

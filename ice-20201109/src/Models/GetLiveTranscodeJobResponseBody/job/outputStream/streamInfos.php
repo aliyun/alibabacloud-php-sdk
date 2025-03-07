@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponseBody\job\outputStream;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class streamInfos extends Model
 {
     /**
+     * @description The URL of the output stream.
+     *
+     * @example rtmp://mydomain/app/mytranscode1
+     *
      * @var string
      */
     public $outputUrl;
+
     /**
+     * @description The type of the output stream protocol. Only the RTMP protocol is supported.
+     *
+     * @example rtmp
+     *
      * @var string
      */
     public $type;
@@ -23,16 +32,14 @@ class streamInfos extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->outputUrl) {
             $res['OutputUrl'] = $this->outputUrl;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +47,17 @@ class streamInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return streamInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutputUrl'])) {
             $model->outputUrl = $map['OutputUrl'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

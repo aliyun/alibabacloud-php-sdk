@@ -4,39 +4,80 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateProgramRequest extends Model
 {
     /**
+     * @description The information about ad breaks.
+     *
+     * @example [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
+     *
      * @var string
      */
     public $adBreaks;
+
     /**
+     * @description The name of the channel.
+     *
+     * This parameter is required.
+     * @example MyChannel
+     *
      * @var string
      */
     public $channelName;
+
     /**
+     * @description Extracts a clip from the source.
+     *
+     * @example {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
+     *
      * @var string
      */
     public $clipRange;
+
     /**
+     * @description The name of the program.
+     *
+     * This parameter is required.
+     * @example program1
+     *
      * @var string
      */
     public $programName;
+
     /**
+     * @description The name of the source location.
+     *
+     * @example MySourceLcation
+     *
      * @var string
      */
     public $sourceLocationName;
+
     /**
+     * @description The name of the source.
+     *
+     * @example MySource
+     *
      * @var string
      */
     public $sourceName;
+
     /**
+     * @description The source type of the program. Valid values: vodSource and liveSource.
+     *
+     * @example vodSource
+     *
      * @var string
      */
     public $sourceType;
+
     /**
+     * @description The program transition method.
+     *
+     * @example {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}
+     *
      * @var string
      */
     public $transition;
@@ -53,40 +94,32 @@ class UpdateProgramRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->adBreaks) {
             $res['AdBreaks'] = $this->adBreaks;
         }
-
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
-
         if (null !== $this->clipRange) {
             $res['ClipRange'] = $this->clipRange;
         }
-
         if (null !== $this->programName) {
             $res['ProgramName'] = $this->programName;
         }
-
         if (null !== $this->sourceLocationName) {
             $res['SourceLocationName'] = $this->sourceLocationName;
         }
-
         if (null !== $this->sourceName) {
             $res['SourceName'] = $this->sourceName;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-
         if (null !== $this->transition) {
             $res['Transition'] = $this->transition;
         }
@@ -94,42 +127,35 @@ class UpdateProgramRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateProgramRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdBreaks'])) {
             $model->adBreaks = $map['AdBreaks'];
         }
-
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
-
         if (isset($map['ClipRange'])) {
             $model->clipRange = $map['ClipRange'];
         }
-
         if (isset($map['ProgramName'])) {
             $model->programName = $map['ProgramName'];
         }
-
         if (isset($map['SourceLocationName'])) {
             $model->sourceLocationName = $map['SourceLocationName'];
         }
-
         if (isset($map['SourceName'])) {
             $model->sourceName = $map['SourceName'];
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-
         if (isset($map['Transition'])) {
             $model->transition = $map['Transition'];
         }

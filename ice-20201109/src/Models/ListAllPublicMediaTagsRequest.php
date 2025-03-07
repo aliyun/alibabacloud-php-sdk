@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAllPublicMediaTagsRequest extends Model
 {
     /**
+     * @description The business type of the media asset.
+     *
+     * @example "sticker"
+     *
      * @var string
      */
     public $businessType;
+
     /**
+     * @description The entity ID, which is used to distinguish between media assets of different types in the public domain.
+     *
+     * Set this parameter to Copyright_Music, which indicates music in the public domain.
+     * @example Copyright_Music
+     *
      * @var string
      */
     public $entityId;
@@ -23,16 +33,14 @@ class ListAllPublicMediaTagsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
@@ -40,18 +48,17 @@ class ListAllPublicMediaTagsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAllPublicMediaTagsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }

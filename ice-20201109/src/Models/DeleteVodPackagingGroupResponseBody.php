@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVodPackagingGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 13cbb83e-043c-4728-ac35-*****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteVodPackagingGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteVodPackagingGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVodPackagingGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

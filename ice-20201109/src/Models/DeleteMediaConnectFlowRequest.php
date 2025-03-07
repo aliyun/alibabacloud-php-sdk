@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMediaConnectFlowRequest extends Model
 {
     /**
+     * @description The flow ID.
+     *
+     * This parameter is required.
+     * @example 0381f478-7d53-4076-9d5f-27680a6f73e7
+     *
      * @var string
      */
     public $flowId;
@@ -18,10 +23,9 @@ class DeleteMediaConnectFlowRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->flowId) {
@@ -31,11 +35,11 @@ class DeleteMediaConnectFlowRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMediaConnectFlowRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

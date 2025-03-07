@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateChannelResponseBody extends Model
 {
     /**
+     * @description The channel information.
+     *
      * @var ChannelAssemblyChannel
      */
     public $channel;
+
     /**
+     * @description **Request ID**
+     *
+     * @example xxx-xxxx-xxxxx-xxxx
+     *
      * @var string
      */
     public $requestId;
@@ -23,19 +30,14 @@ class UpdateChannelResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->channel) {
-            $this->channel->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
-            $res['Channel'] = null !== $this->channel ? $this->channel->toArray($noStream) : $this->channel;
+            $res['Channel'] = null !== $this->channel ? $this->channel->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,18 +45,17 @@ class UpdateChannelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateChannelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = ChannelAssemblyChannel::fromMap($map['Channel']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSystemTemplatesResponseBody\systemTemplateList;
+use AlibabaCloud\Tea\Model;
 
 class ListSystemTemplatesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The queried templates.
+     *
      * @var systemTemplateList[]
      */
     public $systemTemplateList;
+
     /**
+     * @description The total number of templates.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $total;
@@ -29,29 +41,23 @@ class ListSystemTemplatesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->systemTemplateList)) {
-            Model::validateArray($this->systemTemplateList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->systemTemplateList) {
-            if (\is_array($this->systemTemplateList)) {
-                $res['SystemTemplateList'] = [];
-                $n1                        = 0;
-                foreach ($this->systemTemplateList as $item1) {
-                    $res['SystemTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SystemTemplateList'] = [];
+            if (null !== $this->systemTemplateList && \is_array($this->systemTemplateList)) {
+                $n = 0;
+                foreach ($this->systemTemplateList as $item) {
+                    $res['SystemTemplateList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -59,28 +65,26 @@ class ListSystemTemplatesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSystemTemplatesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SystemTemplateList'])) {
             if (!empty($map['SystemTemplateList'])) {
                 $model->systemTemplateList = [];
-                $n1                        = 0;
-                foreach ($map['SystemTemplateList'] as $item1) {
-                    $model->systemTemplateList[$n1++] = systemTemplateList::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['SystemTemplateList'] as $item) {
+                    $model->systemTemplateList[$n++] = null !== $item ? systemTemplateList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

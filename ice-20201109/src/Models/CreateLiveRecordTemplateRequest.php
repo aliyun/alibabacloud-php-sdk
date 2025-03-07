@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateRequest\recordFormat;
+use AlibabaCloud\Tea\Model;
 
 class CreateLiveRecordTemplateRequest extends Model
 {
     /**
+     * @description The name of the template.
+     *
+     * This parameter is required.
      * @var string
      */
     public $name;
+
     /**
+     * @description The list of recording formats.
+     *
+     * This parameter is required.
      * @var recordFormat[]
      */
     public $recordFormat;
@@ -24,25 +31,20 @@ class CreateLiveRecordTemplateRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->recordFormat)) {
-            Model::validateArray($this->recordFormat);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->recordFormat) {
-            if (\is_array($this->recordFormat)) {
-                $res['RecordFormat'] = [];
-                $n1                  = 0;
-                foreach ($this->recordFormat as $item1) {
-                    $res['RecordFormat'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RecordFormat'] = [];
+            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
+                $n = 0;
+                foreach ($this->recordFormat as $item) {
+                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +52,23 @@ class CreateLiveRecordTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateLiveRecordTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n1                  = 0;
-                foreach ($map['RecordFormat'] as $item1) {
-                    $model->recordFormat[$n1++] = recordFormat::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['RecordFormat'] as $item) {
+                    $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
                 }
             }
         }

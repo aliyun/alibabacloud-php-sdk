@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\transcodeJobList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scheduleConfig extends Model
 {
     /**
+     * @description The ID of the MPS queue to which the job was submitted.
+     *
+     * @example e37ebee5d98b4781897f6086e89f9c56
+     *
      * @var string
      */
     public $pipelineId;
+
     /**
+     * @description The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $priority;
@@ -23,16 +32,14 @@ class scheduleConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
@@ -40,18 +47,17 @@ class scheduleConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scheduleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }

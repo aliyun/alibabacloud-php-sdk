@@ -4,17 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateRequest\templateConfig\audioParams;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveTranscodeTemplateRequest\templateConfig\videoParams;
+use AlibabaCloud\Tea\Model;
 
 class templateConfig extends Model
 {
     /**
+     * @description The audio parameters.
+     *
      * @var audioParams
      */
     public $audioParams;
+
     /**
+     * @description The video parameters.
+     *
      * @var videoParams
      */
     public $videoParams;
@@ -25,41 +30,32 @@ class templateConfig extends Model
 
     public function validate()
     {
-        if (null !== $this->audioParams) {
-            $this->audioParams->validate();
-        }
-        if (null !== $this->videoParams) {
-            $this->videoParams->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->audioParams) {
-            $res['AudioParams'] = null !== $this->audioParams ? $this->audioParams->toArray($noStream) : $this->audioParams;
+            $res['AudioParams'] = null !== $this->audioParams ? $this->audioParams->toMap() : null;
         }
-
         if (null !== $this->videoParams) {
-            $res['VideoParams'] = null !== $this->videoParams ? $this->videoParams->toArray($noStream) : $this->videoParams;
+            $res['VideoParams'] = null !== $this->videoParams ? $this->videoParams->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return templateConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioParams'])) {
             $model->audioParams = audioParams::fromMap($map['AudioParams']);
         }
-
         if (isset($map['VideoParams'])) {
             $model->videoParams = videoParams::fromMap($map['VideoParams']);
         }

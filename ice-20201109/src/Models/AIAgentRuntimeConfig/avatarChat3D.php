@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentRuntimeConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class avatarChat3D extends Model
 {
@@ -12,10 +12,12 @@ class avatarChat3D extends Model
      * @var string
      */
     public $agentUserId;
+
     /**
      * @var string
      */
     public $authToken;
+
     /**
      * @var string
      */
@@ -28,20 +30,17 @@ class avatarChat3D extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentUserId) {
             $res['AgentUserId'] = $this->agentUserId;
         }
-
         if (null !== $this->authToken) {
             $res['AuthToken'] = $this->authToken;
         }
-
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
@@ -49,22 +48,20 @@ class avatarChat3D extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return avatarChat3D
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentUserId'])) {
             $model->agentUserId = $map['AgentUserId'];
         }
-
         if (isset($map['AuthToken'])) {
             $model->authToken = $map['AuthToken'];
         }
-
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }

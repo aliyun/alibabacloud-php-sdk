@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddFavoritePublicMediaResponseBody extends Model
 {
@@ -12,7 +12,10 @@ class AddFavoritePublicMediaResponseBody extends Model
      * @var string[]
      */
     public $ignoredList;
+
     /**
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +26,14 @@ class AddFavoritePublicMediaResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->ignoredList)) {
-            Model::validateArray($this->ignoredList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ignoredList) {
-            if (\is_array($this->ignoredList)) {
-                $res['IgnoredList'] = [];
-                $n1                 = 0;
-                foreach ($this->ignoredList as $item1) {
-                    $res['IgnoredList'][$n1++] = $item1;
-                }
-            }
+            $res['IgnoredList'] = $this->ignoredList;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +41,19 @@ class AddFavoritePublicMediaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddFavoritePublicMediaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoredList'])) {
             if (!empty($map['IgnoredList'])) {
-                $model->ignoredList = [];
-                $n1                 = 0;
-                foreach ($map['IgnoredList'] as $item1) {
-                    $model->ignoredList[$n1++] = $item1;
-                }
+                $model->ignoredList = $map['IgnoredList'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

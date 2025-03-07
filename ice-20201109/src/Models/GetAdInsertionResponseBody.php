@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponseBody\config;
+use AlibabaCloud\Tea\Model;
 
 class GetAdInsertionResponseBody extends Model
 {
     /**
+     * @description The ad insertion configuration.
+     *
      * @var config
      */
     public $config;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example ******3B-0E1A-586A-AC29-742247******
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetAdInsertionResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->config) {
-            $this->config->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetAdInsertionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAdInsertionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

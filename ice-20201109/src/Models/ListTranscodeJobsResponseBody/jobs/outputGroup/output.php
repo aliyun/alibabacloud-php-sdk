@@ -4,19 +4,36 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponseBody\jobs\outputGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
     /**
+     * @description The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, the ID of a media asset is returned.
+     *
+     * @example oss://bucket/path/to/video.mp4
+     *
      * @var string
      */
     public $media;
+
     /**
+     * @description The URL of the transcoded output stream. This parameter is required only when the output is a media asset.
+     *
+     * @example oss://bucket/path/to/{MediaId}/{JobId}.mp4
+     *
      * @var string
      */
     public $outputUrl;
+
     /**
+     * @description The type of the media object. Valid values:
+     *
+     *   OSS: an OSS object.
+     *   Media: a media asset.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $type;
@@ -28,20 +45,17 @@ class output extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->media) {
             $res['Media'] = $this->media;
         }
-
         if (null !== $this->outputUrl) {
             $res['OutputUrl'] = $this->outputUrl;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -49,22 +63,20 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = $map['Media'];
         }
-
         if (isset($map['OutputUrl'])) {
             $model->outputUrl = $map['OutputUrl'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

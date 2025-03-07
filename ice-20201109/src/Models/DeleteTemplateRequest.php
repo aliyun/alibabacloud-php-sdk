@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTemplateRequest extends Model
 {
     /**
+     * @description The IDs of the templates that you want to delete. Separate multiple IDs with commas (,).
+     *
+     * @example ****20b48fb04483915d4f2cd8ac****,****20b48fb04483915d4f2cd8ac****
+     *
      * @var string
      */
     public $templateIds;
@@ -18,10 +22,9 @@ class DeleteTemplateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->templateIds) {
@@ -31,11 +34,11 @@ class DeleteTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

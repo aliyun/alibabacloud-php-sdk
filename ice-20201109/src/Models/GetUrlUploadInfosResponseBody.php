@@ -4,20 +4,30 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosResponseBody\URLUploadInfoList;
+use AlibabaCloud\Tea\Model;
 
 class GetUrlUploadInfosResponseBody extends Model
 {
     /**
+     * @description The job IDs or upload URLs that do not exist.
+     *
      * @var string[]
      */
     public $nonExists;
+
     /**
+     * @description The request ID.
+     *
+     * @example ******11-DB8D-4A9A-875B-275798******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The details about URL-based upload jobs.
+     *
      * @var URLUploadInfoList[]
      */
     public $URLUploadInfoList;
@@ -29,38 +39,23 @@ class GetUrlUploadInfosResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->nonExists)) {
-            Model::validateArray($this->nonExists);
-        }
-        if (\is_array($this->URLUploadInfoList)) {
-            Model::validateArray($this->URLUploadInfoList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nonExists) {
-            if (\is_array($this->nonExists)) {
-                $res['NonExists'] = [];
-                $n1               = 0;
-                foreach ($this->nonExists as $item1) {
-                    $res['NonExists'][$n1++] = $item1;
-                }
-            }
+            $res['NonExists'] = $this->nonExists;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->URLUploadInfoList) {
-            if (\is_array($this->URLUploadInfoList)) {
-                $res['URLUploadInfoList'] = [];
-                $n1                       = 0;
-                foreach ($this->URLUploadInfoList as $item1) {
-                    $res['URLUploadInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['URLUploadInfoList'] = [];
+            if (null !== $this->URLUploadInfoList && \is_array($this->URLUploadInfoList)) {
+                $n = 0;
+                foreach ($this->URLUploadInfoList as $item) {
+                    $res['URLUploadInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,34 +63,28 @@ class GetUrlUploadInfosResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUrlUploadInfosResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExists'])) {
             if (!empty($map['NonExists'])) {
-                $model->nonExists = [];
-                $n1               = 0;
-                foreach ($map['NonExists'] as $item1) {
-                    $model->nonExists[$n1++] = $item1;
-                }
+                $model->nonExists = $map['NonExists'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['URLUploadInfoList'])) {
             if (!empty($map['URLUploadInfoList'])) {
                 $model->URLUploadInfoList = [];
-                $n1                       = 0;
-                foreach ($map['URLUploadInfoList'] as $item1) {
-                    $model->URLUploadInfoList[$n1++] = URLUploadInfoList::fromMap($item1);
+                $n                        = 0;
+                foreach ($map['URLUploadInfoList'] as $item) {
+                    $model->URLUploadInfoList[$n++] = null !== $item ? URLUploadInfoList::fromMap($item) : $item;
                 }
             }
         }

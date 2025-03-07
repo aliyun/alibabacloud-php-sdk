@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListSmartJobsResponseBody\smartJobList;
+use AlibabaCloud\Tea\Model;
 
 class ListSmartJobsResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned on a single page. The value is set to the maximum number of entries returned on each page except for the last page. Valid example: 10,10,5. Invalid example: 10,5,10.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $maxResults;
+
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example CBB6BC61D08
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example ****9262E3DA-07FA-4862-FCBB6BC61D08*****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The queried intelligent jobs.
+     *
      * @var smartJobList[]
      */
     public $smartJobList;
+
     /**
+     * @description Optional. The total number of entries returned. By default, this parameter is not returned.
+     *
+     * @example 110
+     *
      * @var string
      */
     public $totalCount;
@@ -39,37 +61,29 @@ class ListSmartJobsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->smartJobList)) {
-            Model::validateArray($this->smartJobList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->smartJobList) {
-            if (\is_array($this->smartJobList)) {
-                $res['SmartJobList'] = [];
-                $n1                  = 0;
-                foreach ($this->smartJobList as $item1) {
-                    $res['SmartJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SmartJobList'] = [];
+            if (null !== $this->smartJobList && \is_array($this->smartJobList)) {
+                $n = 0;
+                foreach ($this->smartJobList as $item) {
+                    $res['SmartJobList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +91,32 @@ class ListSmartJobsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSmartJobsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SmartJobList'])) {
             if (!empty($map['SmartJobList'])) {
                 $model->smartJobList = [];
-                $n1                  = 0;
-                foreach ($map['SmartJobList'] as $item1) {
-                    $model->smartJobList[$n1++] = smartJobList::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['SmartJobList'] as $item) {
+                    $model->smartJobList[$n++] = null !== $item ? smartJobList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

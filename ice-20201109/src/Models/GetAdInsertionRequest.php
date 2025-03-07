@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAdInsertionRequest extends Model
 {
     /**
+     * @description The name of the ad insertion configuration that you want to query.
+     *
+     * This parameter is required.
+     * @example my_ad
+     *
      * @var string
      */
     public $name;
@@ -18,10 +23,9 @@ class GetAdInsertionRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +35,11 @@ class GetAdInsertionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAdInsertionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
