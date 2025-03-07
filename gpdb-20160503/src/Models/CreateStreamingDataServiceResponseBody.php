@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateStreamingDataServiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The real-time data service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceId;
@@ -23,16 +32,14 @@ class CreateStreamingDataServiceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
@@ -40,18 +47,17 @@ class CreateStreamingDataServiceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateStreamingDataServiceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }

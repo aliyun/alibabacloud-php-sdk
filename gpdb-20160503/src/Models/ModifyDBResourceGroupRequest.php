@@ -4,20 +4,30 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBResourceGroupRequest\resourceGroupItems;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBResourceGroupRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description The information about the resource group.
+     *
+     * This parameter is required.
      * @var resourceGroupItems[]
      */
     public $resourceGroupItems;
@@ -29,29 +39,23 @@ class ModifyDBResourceGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceGroupItems)) {
-            Model::validateArray($this->resourceGroupItems);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceGroupItems) {
-            if (\is_array($this->resourceGroupItems)) {
-                $res['ResourceGroupItems'] = [];
-                $n1                        = 0;
-                foreach ($this->resourceGroupItems as $item1) {
-                    $res['ResourceGroupItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceGroupItems'] = [];
+            if (null !== $this->resourceGroupItems && \is_array($this->resourceGroupItems)) {
+                $n = 0;
+                foreach ($this->resourceGroupItems as $item) {
+                    $res['ResourceGroupItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +63,26 @@ class ModifyDBResourceGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBResourceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceGroupItems'])) {
             if (!empty($map['ResourceGroupItems'])) {
                 $model->resourceGroupItems = [];
-                $n1                        = 0;
-                foreach ($map['ResourceGroupItems'] as $item1) {
-                    $model->resourceGroupItems[$n1++] = resourceGroupItems::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['ResourceGroupItems'] as $item) {
+                    $model->resourceGroupItems[$n++] = null !== $item ? resourceGroupItems::fromMap($item) : $item;
                 }
             }
         }

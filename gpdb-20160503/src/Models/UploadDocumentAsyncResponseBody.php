@@ -4,23 +4,43 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadDocumentAsyncResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
+     * @example 231460f8-75dc-405e-a669-0c5204887e91
+     *
      * @var string
      */
     public $jobId;
+
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description API execution status, with the following values:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
+     * @example success
+     *
      * @var string
      */
     public $status;
@@ -33,24 +53,20 @@ class UploadDocumentAsyncResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -58,26 +74,23 @@ class UploadDocumentAsyncResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadDocumentAsyncResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

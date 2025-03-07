@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRolesResponseBody\roleList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRolesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The roles.
+     *
      * @var roleList
      */
     public $roleList;
@@ -24,38 +31,32 @@ class DescribeRolesResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->roleList) {
-            $this->roleList->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->roleList) {
-            $res['RoleList'] = null !== $this->roleList ? $this->roleList->toArray($noStream) : $this->roleList;
+            $res['RoleList'] = null !== $this->roleList ? $this->roleList->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRolesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RoleList'])) {
             $model->roleList = roleList::fromMap($map['RoleList']);
         }

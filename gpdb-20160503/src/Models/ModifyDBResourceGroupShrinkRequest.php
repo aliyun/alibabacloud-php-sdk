@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBResourceGroupShrinkRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description The information about the resource group.
+     *
+     * This parameter is required.
      * @var string
      */
     public $resourceGroupItemsShrink;
@@ -28,20 +38,17 @@ class ModifyDBResourceGroupShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceGroupItemsShrink) {
             $res['ResourceGroupItems'] = $this->resourceGroupItemsShrink;
         }
@@ -49,22 +56,20 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBResourceGroupShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceGroupItems'])) {
             $model->resourceGroupItemsShrink = $map['ResourceGroupItems'];
         }

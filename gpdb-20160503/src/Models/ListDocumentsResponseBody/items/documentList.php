@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsResponseBody\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class documentList extends Model
 {
     /**
+     * @description The name of the document.
+     *
+     * @example music.txt
+     *
      * @var string
      */
     public $fileName;
+
     /**
+     * @description The source of the document.
+     *
+     * @example http://oss.xxx/music.txt
+     *
      * @var string
      */
     public $source;
@@ -23,16 +32,14 @@ class documentList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -40,18 +47,17 @@ class documentList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return documentList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

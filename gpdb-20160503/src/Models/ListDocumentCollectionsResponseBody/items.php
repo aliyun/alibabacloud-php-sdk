@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsResponseBody\items\collectionList;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,21 +19,17 @@ class items extends Model
 
     public function validate()
     {
-        if (\is_array($this->collectionList)) {
-            Model::validateArray($this->collectionList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->collectionList) {
-            if (\is_array($this->collectionList)) {
-                $res['CollectionList'] = [];
-                $n1                    = 0;
-                foreach ($this->collectionList as $item1) {
-                    $res['CollectionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CollectionList'] = [];
+            if (null !== $this->collectionList && \is_array($this->collectionList)) {
+                $n = 0;
+                foreach ($this->collectionList as $item) {
+                    $res['CollectionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectionList'])) {
             if (!empty($map['CollectionList'])) {
                 $model->collectionList = [];
-                $n1                    = 0;
-                foreach ($map['CollectionList'] as $item1) {
-                    $model->collectionList[$n1++] = collectionList::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['CollectionList'] as $item) {
+                    $model->collectionList[$n++] = null !== $item ? collectionList::fromMap($item) : $item;
                 }
             }
         }

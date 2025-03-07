@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,21 +19,17 @@ class items extends Model
 
     public function validate()
     {
-        if (\is_array($this->DBInstanceAttribute)) {
-            Model::validateArray($this->DBInstanceAttribute);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceAttribute) {
-            if (\is_array($this->DBInstanceAttribute)) {
-                $res['DBInstanceAttribute'] = [];
-                $n1                         = 0;
-                foreach ($this->DBInstanceAttribute as $item1) {
-                    $res['DBInstanceAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DBInstanceAttribute'] = [];
+            if (null !== $this->DBInstanceAttribute && \is_array($this->DBInstanceAttribute)) {
+                $n = 0;
+                foreach ($this->DBInstanceAttribute as $item) {
+                    $res['DBInstanceAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceAttribute'])) {
             if (!empty($map['DBInstanceAttribute'])) {
                 $model->DBInstanceAttribute = [];
-                $n1                         = 0;
-                foreach ($map['DBInstanceAttribute'] as $item1) {
-                    $model->DBInstanceAttribute[$n1++] = DBInstanceAttribute::fromMap($item1);
+                $n                          = 0;
+                foreach ($map['DBInstanceAttribute'] as $item) {
+                    $model->DBInstanceAttribute[$n++] = null !== $item ? DBInstanceAttribute::fromMap($item) : $item;
                 }
             }
         }

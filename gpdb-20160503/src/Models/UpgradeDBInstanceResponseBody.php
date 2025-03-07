@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpgradeDBInstanceResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
+     * @description The order ID.
+     *
+     * @example *********
+     *
      * @var string
      */
     public $orderId;
+
     /**
+     * @description The request ID.
+     *
+     * @example 25C11EE5-B7E8-481A-A07C-BD**********
+     *
      * @var string
      */
     public $requestId;
@@ -28,20 +42,17 @@ class UpgradeDBInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +60,20 @@ class UpgradeDBInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpgradeDBInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

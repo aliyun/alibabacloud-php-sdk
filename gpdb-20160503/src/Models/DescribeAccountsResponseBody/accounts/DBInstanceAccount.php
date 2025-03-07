@@ -4,27 +4,55 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponseBody\accounts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DBInstanceAccount extends Model
 {
     /**
+     * @description The description of the account.
+     *
+     * @example testuser
+     *
      * @var string
      */
     public $accountDescription;
+
     /**
+     * @description The name of the account.
+     *
+     * @example testuser
+     *
      * @var string
      */
     public $accountName;
+
     /**
+     * @description The state of the account.
+     *
+     *   **0**: The account is being created.
+     *   **1**: The account is in use.
+     *   **3**: The account is being deleted.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $accountStatus;
+
     /**
+     * @description The type of the database account. Valid values: Super and Normal. Super indicates a privileged account and Normal indicates a standard account.
+     *
+     * @example Super
+     *
      * @var string
      */
     public $accountType;
+
     /**
+     * @description The ID of the instance.
+     *
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -38,28 +66,23 @@ class DBInstanceAccount extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountDescription) {
             $res['AccountDescription'] = $this->accountDescription;
         }
-
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
         }
-
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -67,30 +90,26 @@ class DBInstanceAccount extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBInstanceAccount
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountDescription'])) {
             $model->accountDescription = $map['AccountDescription'];
         }
-
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
         }
-
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

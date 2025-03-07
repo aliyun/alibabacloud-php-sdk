@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class indices extends Model
 {
@@ -18,21 +18,17 @@ class indices extends Model
 
     public function validate()
     {
-        if (\is_array($this->indices)) {
-            Model::validateArray($this->indices);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->indices) {
-            if (\is_array($this->indices)) {
-                $res['Indices'] = [];
-                $n1             = 0;
-                foreach ($this->indices as $item1) {
-                    $res['Indices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Indices'] = [];
+            if (null !== $this->indices && \is_array($this->indices)) {
+                $n = 0;
+                foreach ($this->indices as $item) {
+                    $res['Indices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -40,20 +36,20 @@ class indices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return indices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
                 $model->indices = [];
-                $n1             = 0;
-                foreach ($map['Indices'] as $item1) {
-                    $model->indices[$n1++] = \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices\indices::fromMap($item1);
+                $n              = 0;
+                foreach ($map['Indices'] as $item) {
+                    $model->indices[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices\indices::fromMap($item) : $item;
                 }
             }
         }

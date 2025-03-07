@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class adbpgInstanceColdDataGb extends Model
 {
     /**
+     * @description The total amount of cold data storage. Unit: GB.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $value;
@@ -18,10 +22,9 @@ class adbpgInstanceColdDataGb extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->value) {
@@ -31,11 +34,11 @@ class adbpgInstanceColdDataGb extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return adbpgInstanceColdDataGb
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

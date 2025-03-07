@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -18,10 +23,9 @@ class DescribeBackupPolicyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
@@ -31,11 +35,11 @@ class DescribeBackupPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBackupPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceAttributeResponseBody\items;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The queried instance.
+     *
      * @var items
      */
     public $items;
+
     /**
+     * @description Request ID.
+     *
+     * @example 5E6EDEB8-D73E-5F2D-B948-86C8AEB05A68
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->items) {
-            $this->items->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBInstanceAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

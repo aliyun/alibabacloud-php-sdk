@@ -4,52 +4,107 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponseBody\vpcs;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponseBody\vpcs\vpc\vSwitchs;
+use AlibabaCloud\Tea\Model;
 
 class vpc extends Model
 {
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * @example null
+     *
      * @var string
      */
     public $aliUid;
+
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * @example null
+     *
      * @var string
      */
     public $bid;
+
     /**
+     * @description The CIDR block of the VPC.
+     *
+     * @example 10.**.**.0/8
+     *
      * @var string
      */
     public $cidrBlock;
+
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * @example null
+     *
      * @var string
      */
     public $gmtCreate;
+
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * @example null
+     *
      * @var string
      */
     public $gmtModified;
+
     /**
+     * @description Indicates whether the VPC is the default VPC. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
+
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
+
     /**
+     * @description The state of the VPC. If **Available** is returned, the VPC is available.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The queried vSwitches.
+     *
      * @var vSwitchs[]
      */
     public $vSwitchs;
+
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $vpcId;
+
     /**
+     * @description The name of the VPC.
+     *
+     * @example vpc-name
+     *
      * @var string
      */
     public $vpcName;
@@ -69,61 +124,47 @@ class vpc extends Model
 
     public function validate()
     {
-        if (\is_array($this->vSwitchs)) {
-            Model::validateArray($this->vSwitchs);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
-
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
         }
-
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
-
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->vSwitchs) {
-            if (\is_array($this->vSwitchs)) {
-                $res['VSwitchs'] = [];
-                $n1              = 0;
-                foreach ($this->vSwitchs as $item1) {
-                    $res['VSwitchs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VSwitchs'] = [];
+            if (null !== $this->vSwitchs && \is_array($this->vSwitchs)) {
+                $n = 0;
+                foreach ($this->vSwitchs as $item) {
+                    $res['VSwitchs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
         }
@@ -131,60 +172,50 @@ class vpc extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpc
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
-
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
         }
-
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
-
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['VSwitchs'])) {
             if (!empty($map['VSwitchs'])) {
                 $model->vSwitchs = [];
-                $n1              = 0;
-                foreach ($map['VSwitchs'] as $item1) {
-                    $model->vSwitchs[$n1++] = vSwitchs::fromMap($item1);
+                $n               = 0;
+                foreach ($map['VSwitchs'] as $item) {
+                    $model->vSwitchs[$n++] = null !== $item ? vSwitchs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
         }

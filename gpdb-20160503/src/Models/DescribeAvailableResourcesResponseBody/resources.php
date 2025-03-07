@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponseBody\resources\supportedEngines;
+use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
     /**
+     * @description The available engine version and specifications.
+     *
      * @var supportedEngines[]
      */
     public $supportedEngines;
+
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
@@ -24,25 +31,20 @@ class resources extends Model
 
     public function validate()
     {
-        if (\is_array($this->supportedEngines)) {
-            Model::validateArray($this->supportedEngines);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedEngines) {
-            if (\is_array($this->supportedEngines)) {
-                $res['SupportedEngines'] = [];
-                $n1                      = 0;
-                foreach ($this->supportedEngines as $item1) {
-                    $res['SupportedEngines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SupportedEngines'] = [];
+            if (null !== $this->supportedEngines && \is_array($this->supportedEngines)) {
+                $n = 0;
+                foreach ($this->supportedEngines as $item) {
+                    $res['SupportedEngines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -50,24 +52,23 @@ class resources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedEngines'])) {
             if (!empty($map['SupportedEngines'])) {
                 $model->supportedEngines = [];
-                $n1                      = 0;
-                foreach ($map['SupportedEngines'] as $item1) {
-                    $model->supportedEngines[$n1++] = supportedEngines::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['SupportedEngines'] as $item) {
+                    $model->supportedEngines[$n++] = null !== $item ? supportedEngines::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

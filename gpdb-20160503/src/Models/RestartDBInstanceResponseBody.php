@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RestartDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A7356493-7141-4393-8951-CDA8AB5D67EC
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class RestartDBInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class RestartDBInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RestartDBInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

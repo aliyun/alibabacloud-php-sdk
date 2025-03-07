@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsResponseBody\vpcs\vpc;
+use AlibabaCloud\Tea\Model;
 
 class vpcs extends Model
 {
     /**
+     * @description The queried VPC.
+     *
      * @var vpc[]
      */
     public $vpc;
@@ -19,21 +21,17 @@ class vpcs extends Model
 
     public function validate()
     {
-        if (\is_array($this->vpc)) {
-            Model::validateArray($this->vpc);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpc) {
-            if (\is_array($this->vpc)) {
-                $res['Vpc'] = [];
-                $n1         = 0;
-                foreach ($this->vpc as $item1) {
-                    $res['Vpc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Vpc'] = [];
+            if (null !== $this->vpc && \is_array($this->vpc)) {
+                $n = 0;
+                foreach ($this->vpc as $item) {
+                    $res['Vpc'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +39,20 @@ class vpcs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpcs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Vpc'])) {
             if (!empty($map['Vpc'])) {
                 $model->vpc = [];
-                $n1         = 0;
-                foreach ($map['Vpc'] as $item1) {
-                    $model->vpc[$n1++] = vpc::fromMap($item1);
+                $n          = 0;
+                foreach ($map['Vpc'] as $item) {
+                    $model->vpc[$n++] = null !== $item ? vpc::fromMap($item) : $item;
                 }
             }
         }

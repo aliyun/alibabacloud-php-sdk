@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SwitchDBInstanceNetTypeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example FA67B751-2A2D-470C-850B-D6B93699D35C
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SwitchDBInstanceNetTypeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

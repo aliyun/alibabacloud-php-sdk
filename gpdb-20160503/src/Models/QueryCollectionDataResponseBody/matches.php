@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody\matches\match;
+use AlibabaCloud\Tea\Model;
 
 class matches extends Model
 {
@@ -19,21 +19,17 @@ class matches extends Model
 
     public function validate()
     {
-        if (\is_array($this->match)) {
-            Model::validateArray($this->match);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->match) {
-            if (\is_array($this->match)) {
-                $res['match'] = [];
-                $n1           = 0;
-                foreach ($this->match as $item1) {
-                    $res['match'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['match'] = [];
+            if (null !== $this->match && \is_array($this->match)) {
+                $n = 0;
+                foreach ($this->match as $item) {
+                    $res['match'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class matches extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return matches
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['match'])) {
             if (!empty($map['match'])) {
                 $model->match = [];
-                $n1           = 0;
-                foreach ($map['match'] as $item1) {
-                    $model->match[$n1++] = match::fromMap($item1);
+                $n            = 0;
+                foreach ($map['match'] as $item) {
+                    $model->match[$n++] = null !== $item ? match::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBClusterPerformanceResponseBody\performanceKeys\series;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class values extends Model
 {
     /**
+     * @description The value of the performance metric and the time when the metric value was collected.
+     *
      * @var string[]
      */
     public $point;
@@ -18,43 +20,29 @@ class values extends Model
 
     public function validate()
     {
-        if (\is_array($this->point)) {
-            Model::validateArray($this->point);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->point) {
-            if (\is_array($this->point)) {
-                $res['Point'] = [];
-                $n1           = 0;
-                foreach ($this->point as $item1) {
-                    $res['Point'][$n1++] = $item1;
-                }
-            }
+            $res['Point'] = $this->point;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return values
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Point'])) {
             if (!empty($map['Point'])) {
-                $model->point = [];
-                $n1           = 0;
-                foreach ($map['Point'] as $item1) {
-                    $model->point[$n1++] = $item1;
-                }
+                $model->point = $map['Point'];
             }
         }
 

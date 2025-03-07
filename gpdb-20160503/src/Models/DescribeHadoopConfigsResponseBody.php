@@ -4,19 +4,39 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHadoopConfigsResponseBody extends Model
 {
     /**
+     * @description The name of the configuration file. Valid values:
+     *
+     *   hdfs-site
+     *   core-site
+     *   yarn-site
+     *   mapred-site
+     *   hive-site
+     *
+     * @example hdfs-site
+     *
      * @var string
      */
     public $configName;
+
     /**
+     * @description The configuration value.
+     *
+     * @example <?xml version="1.0"?>
+     * <property>
      * @var string
      */
     public $configValue;
+
     /**
+     * @description The request ID.
+     *
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
@@ -28,20 +48,17 @@ class DescribeHadoopConfigsResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
-
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +66,20 @@ class DescribeHadoopConfigsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHadoopConfigsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
-
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

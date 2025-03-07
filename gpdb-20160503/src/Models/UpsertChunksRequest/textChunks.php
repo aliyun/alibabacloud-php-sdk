@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertChunksRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class textChunks extends Model
 {
     /**
+     * @description Document content.
+     *
+     * This parameter is required.
+     * @example Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
+     *
      * @var string
      */
     public $content;
+
     /**
+     * @description Metadata.
+     *
+     * @example {"title":"test"}
+     *
      * @var mixed[]
      */
     public $metadata;
@@ -23,50 +33,34 @@ class textChunks extends Model
 
     public function validate()
     {
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['Metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['Metadata'][$key1] = $value1;
-                }
-            }
+            $res['Metadata'] = $this->metadata;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return textChunks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Metadata'])) {
-            if (!empty($map['Metadata'])) {
-                $model->metadata = [];
-                foreach ($map['Metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
+            $model->metadata = $map['Metadata'];
         }
 
         return $model;

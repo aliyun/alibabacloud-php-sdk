@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyParametersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3FE698B6-6579-547C-A403-07**********
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyParametersResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyParametersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyParametersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAccountRequest extends Model
 {
     /**
+     * @description The name of the database account.
+     *
+     * This parameter is required.
+     * @example testuser
+     *
      * @var string
      */
     public $accountName;
+
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -23,16 +34,14 @@ class GetAccountRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -40,18 +49,17 @@ class GetAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

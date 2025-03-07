@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TextEmbeddingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string[]
      */
     public $input;
+
     /**
+     * @example text-embedding-v2
+     *
      * @var string
      */
     public $model;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -38,37 +52,23 @@ class TextEmbeddingRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->input)) {
-            Model::validateArray($this->input);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->input) {
-            if (\is_array($this->input)) {
-                $res['Input'] = [];
-                $n1           = 0;
-                foreach ($this->input as $item1) {
-                    $res['Input'][$n1++] = $item1;
-                }
-            }
+            $res['Input'] = $this->input;
         }
-
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -76,36 +76,28 @@ class TextEmbeddingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TextEmbeddingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['Input'])) {
             if (!empty($map['Input'])) {
-                $model->input = [];
-                $n1           = 0;
-                foreach ($map['Input'] as $item1) {
-                    $model->input[$n1++] = $item1;
-                }
+                $model->input = $map['Input'];
             }
         }
-
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

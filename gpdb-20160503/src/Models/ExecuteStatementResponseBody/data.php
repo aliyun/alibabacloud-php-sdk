@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponseBody\data\columnMetadata;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponseBody\data\records;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The metadata of the columns.
+     *
      * @var columnMetadata
      */
     public $columnMetadata;
+
     /**
+     * @description The rows of data.
+     *
      * @var records
      */
     public $records;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalNumRows;
@@ -30,26 +40,17 @@ class data extends Model
 
     public function validate()
     {
-        if (null !== $this->columnMetadata) {
-            $this->columnMetadata->validate();
-        }
-        if (null !== $this->records) {
-            $this->records->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnMetadata) {
-            $res['ColumnMetadata'] = null !== $this->columnMetadata ? $this->columnMetadata->toArray($noStream) : $this->columnMetadata;
+            $res['ColumnMetadata'] = null !== $this->columnMetadata ? $this->columnMetadata->toMap() : null;
         }
-
         if (null !== $this->records) {
-            $res['Records'] = null !== $this->records ? $this->records->toArray($noStream) : $this->records;
+            $res['Records'] = null !== $this->records ? $this->records->toMap() : null;
         }
-
         if (null !== $this->totalNumRows) {
             $res['TotalNumRows'] = $this->totalNumRows;
         }
@@ -57,22 +58,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnMetadata'])) {
             $model->columnMetadata = columnMetadata::fromMap($map['ColumnMetadata']);
         }
-
         if (isset($map['Records'])) {
             $model->records = records::fromMap($map['Records']);
         }
-
         if (isset($map['TotalNumRows'])) {
             $model->totalNumRows = $map['TotalNumRows'];
         }

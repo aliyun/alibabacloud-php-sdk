@@ -1,3 +1,8 @@
+2025-03-07 Version: 2.6.3
+- Update API CreateDocumentCollection: add param Dimension.
+- Update API CreateDocumentCollection: update param EmbeddingModel.
+
+
 2025-02-19 Version: 2.6.2
 - Generated php 2016-05-03 for gpdb.
 

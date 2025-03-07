@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class versionDetails extends Model
 {
     /**
+     * @description The queried minor version information about the instance in Serverless mode.
+     *
+     * @example "Serverless": [
+     * ]
      * @var mixed
      */
     public $serverless;
+
     /**
+     * @description The queried minor version information about the instance in elastic storage mode.
+     *
+     * @example "StorageElasic": [
+     * ]
      * @var mixed
      */
     public $storageElastic;
@@ -23,16 +32,14 @@ class versionDetails extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serverless) {
             $res['Serverless'] = $this->serverless;
         }
-
         if (null !== $this->storageElastic) {
             $res['StorageElastic'] = $this->storageElastic;
         }
@@ -40,18 +47,17 @@ class versionDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return versionDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Serverless'])) {
             $model->serverless = $map['Serverless'];
         }
-
         if (isset($map['StorageElastic'])) {
             $model->storageElastic = $map['StorageElastic'];
         }

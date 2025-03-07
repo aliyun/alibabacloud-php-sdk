@@ -4,23 +4,44 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpgradeExtensionsRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
+     * @description Database name.
+     *
+     * @example test01
+     *
      * @var string
      */
     public $databaseName;
+
     /**
+     * @description The extensions that you want to update. Separate multiple extensions with commas (,).
+     *
+     * This parameter is required.
+     * @example citext,dblink
+     *
      * @var string
      */
     public $extensions;
+
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -33,24 +54,20 @@ class UpgradeExtensionsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
-
         if (null !== $this->extensions) {
             $res['Extensions'] = $this->extensions;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -58,26 +75,23 @@ class UpgradeExtensionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpgradeExtensionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
-
         if (isset($map['Extensions'])) {
             $model->extensions = $map['Extensions'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

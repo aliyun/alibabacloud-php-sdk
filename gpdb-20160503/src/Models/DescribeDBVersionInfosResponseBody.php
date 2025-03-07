@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosResponseBody\versionDetails;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBVersionInfosResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The queried minor versions.
+     *
      * @var versionDetails
      */
     public $versionDetails;
@@ -24,38 +31,32 @@ class DescribeDBVersionInfosResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->versionDetails) {
-            $this->versionDetails->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->versionDetails) {
-            $res['VersionDetails'] = null !== $this->versionDetails ? $this->versionDetails->toArray($noStream) : $this->versionDetails;
+            $res['VersionDetails'] = null !== $this->versionDetails ? $this->versionDetails->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBVersionInfosResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VersionDetails'])) {
             $model->versionDetails = versionDetails::fromMap($map['VersionDetails']);
         }

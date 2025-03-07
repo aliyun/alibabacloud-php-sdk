@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceGroupResponseBody\resourceGroupItems\resourceGroupItem;
+use AlibabaCloud\Tea\Model;
 
 class resourceGroupItems extends Model
 {
@@ -19,21 +19,17 @@ class resourceGroupItems extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceGroupItem)) {
-            Model::validateArray($this->resourceGroupItem);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceGroupItem) {
-            if (\is_array($this->resourceGroupItem)) {
-                $res['ResourceGroupItem'] = [];
-                $n1                       = 0;
-                foreach ($this->resourceGroupItem as $item1) {
-                    $res['ResourceGroupItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceGroupItem'] = [];
+            if (null !== $this->resourceGroupItem && \is_array($this->resourceGroupItem)) {
+                $n = 0;
+                foreach ($this->resourceGroupItem as $item) {
+                    $res['ResourceGroupItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class resourceGroupItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceGroupItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupItem'])) {
             if (!empty($map['ResourceGroupItem'])) {
                 $model->resourceGroupItem = [];
-                $n1                       = 0;
-                foreach ($map['ResourceGroupItem'] as $item1) {
-                    $model->resourceGroupItem[$n1++] = resourceGroupItem::fromMap($item1);
+                $n                        = 0;
+                foreach ($map['ResourceGroupItem'] as $item) {
+                    $model->resourceGroupItem[$n++] = null !== $item ? resourceGroupItem::fromMap($item) : $item;
                 }
             }
         }

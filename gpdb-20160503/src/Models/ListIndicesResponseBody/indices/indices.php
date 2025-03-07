@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class indices extends Model
 {
     /**
+     * @example testcollection
+     *
      * @var string
      */
     public $collection;
+
     /**
+     * @example CREATE INDEX testindex ON mynamespace. testcollection
+     *
      * @var string
      */
     public $indexDef;
+
     /**
+     * @example testindex
+     *
      * @var string
      */
     public $indexName;
+
     /**
+     * @example mynamespace
+     *
      * @var string
      */
     public $namespace;
@@ -33,24 +44,20 @@ class indices extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
-
         if (null !== $this->indexDef) {
             $res['IndexDef'] = $this->indexDef;
         }
-
         if (null !== $this->indexName) {
             $res['IndexName'] = $this->indexName;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -58,26 +65,23 @@ class indices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return indices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
-
         if (isset($map['IndexDef'])) {
             $model->indexDef = $map['IndexDef'];
         }
-
         if (isset($map['IndexName'])) {
             $model->indexName = $map['IndexName'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

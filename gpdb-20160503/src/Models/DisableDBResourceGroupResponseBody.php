@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableDBResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 53EA07B7-FC2A-521B-AB7C-27**********
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DisableDBResourceGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DisableDBResourceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableDBResourceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

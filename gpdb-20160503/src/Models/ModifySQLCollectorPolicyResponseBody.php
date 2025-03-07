@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifySQLCollectorPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4FA1F1D1-50A6-4F60-9A78-5752F2076A53
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifySQLCollectorPolicyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifySQLCollectorPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifySQLCollectorPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

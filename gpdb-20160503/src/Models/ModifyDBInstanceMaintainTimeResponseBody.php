@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBInstanceMaintainTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example CA9A34C8-AC95-413B-AC6A-CE**********
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyDBInstanceMaintainTimeResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyDBInstanceMaintainTimeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBInstanceMaintainTimeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

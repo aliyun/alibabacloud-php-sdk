@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAccountDescriptionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 99BBBD5E-B5D8-4FC8-B8BF-FB1A0A38BBA2
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyAccountDescriptionResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyAccountDescriptionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAccountDescriptionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
