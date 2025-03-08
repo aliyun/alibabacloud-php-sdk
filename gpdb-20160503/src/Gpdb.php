@@ -258,6 +258,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSecretValueResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
@@ -8879,6 +8881,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecretValueWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Get Asynchronous SQL Execution Result
+     *  *
+     * @param GetStatementResultRequest $request GetStatementResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetStatementResultResponse GetStatementResultResponse
+     */
+    public function getStatementResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStatementResult',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetStatementResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetStatementResultResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Get Asynchronous SQL Execution Result
+     *  *
+     * @param GetStatementResultRequest $request GetStatementResultRequest
+     *
+     * @return GetStatementResultResponse GetStatementResultResponse
+     */
+    public function getStatementResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStatementResultWithOptions($request, $runtime);
     }
 
     /**
