@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryResponseBody\header;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryResponseBody\payload;
+use AlibabaCloud\Tea\Model;
 
 class RunHotTopicSummaryResponseBody extends Model
 {
@@ -14,11 +14,17 @@ class RunHotTopicSummaryResponseBody extends Model
      * @var header
      */
     public $header;
+
     /**
      * @var payload
      */
     public $payload;
+
     /**
+     * @description Id of the request
+     *
+     * @example 5D0E915E-655D-59A8-894F-93873F73AAE5
+     *
      * @var string
      */
     public $requestId;
@@ -30,26 +36,17 @@ class RunHotTopicSummaryResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->header) {
-            $this->header->validate();
-        }
-        if (null !== $this->payload) {
-            $this->payload->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->header) {
-            $res['header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
+            $res['header'] = null !== $this->header ? $this->header->toMap() : null;
         }
-
         if (null !== $this->payload) {
-            $res['payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
+            $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -57,22 +54,20 @@ class RunHotTopicSummaryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunHotTopicSummaryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['header'])) {
             $model->header = header::fromMap($map['header']);
         }
-
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

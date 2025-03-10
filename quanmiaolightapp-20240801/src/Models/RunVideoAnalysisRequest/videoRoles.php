@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class videoRoles extends Model
 {
@@ -12,10 +12,12 @@ class videoRoles extends Model
      * @var string
      */
     public $roleInfo;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string[]
      */
@@ -28,59 +30,41 @@ class videoRoles extends Model
 
     public function validate()
     {
-        if (\is_array($this->urls)) {
-            Model::validateArray($this->urls);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->roleInfo) {
             $res['roleInfo'] = $this->roleInfo;
         }
-
         if (null !== $this->roleName) {
             $res['roleName'] = $this->roleName;
         }
-
         if (null !== $this->urls) {
-            if (\is_array($this->urls)) {
-                $res['urls'] = [];
-                $n1          = 0;
-                foreach ($this->urls as $item1) {
-                    $res['urls'][$n1++] = $item1;
-                }
-            }
+            $res['urls'] = $this->urls;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return videoRoles
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['roleInfo'])) {
             $model->roleInfo = $map['roleInfo'];
         }
-
         if (isset($map['roleName'])) {
             $model->roleName = $map['roleName'];
         }
-
         if (isset($map['urls'])) {
             if (!empty($map['urls'])) {
-                $model->urls = [];
-                $n1          = 0;
-                foreach ($map['urls'] as $item1) {
-                    $model->urls[$n1++] = $item1;
-                }
+                $model->urls = $map['urls'];
             }
         }
 

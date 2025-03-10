@@ -4,31 +4,48 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class header extends Model
 {
     /**
+     * @example AccessForbidden
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example 错误信息
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
+     * @example task-finished
+     *
      * @var string
      */
     public $event;
+
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $sessionId;
+
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $taskId;
+
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $traceId;
@@ -43,32 +60,26 @@ class header extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->event) {
             $res['event'] = $this->event;
         }
-
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
-
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
-
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
         }
@@ -76,34 +87,29 @@ class header extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return header
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-
         if (isset($map['event'])) {
             $model->event = $map['event'];
         }
-
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
-
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
-
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
         }

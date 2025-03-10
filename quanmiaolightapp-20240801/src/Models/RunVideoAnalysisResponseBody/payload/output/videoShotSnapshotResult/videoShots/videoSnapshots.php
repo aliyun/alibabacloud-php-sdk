@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoShotSnapshotResult\videoShots;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class videoSnapshots extends Model
 {
@@ -18,10 +18,9 @@ class videoSnapshots extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->url) {
@@ -31,11 +30,11 @@ class videoSnapshots extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return videoSnapshots
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

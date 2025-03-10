@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -12,6 +12,7 @@ class output extends Model
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class output extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
-
         if (null !== $this->topicId) {
             $res['topicId'] = $this->topicId;
         }
@@ -40,18 +39,17 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
-
         if (isset($map['topicId'])) {
             $model->topicId = $map['topicId'];
         }
