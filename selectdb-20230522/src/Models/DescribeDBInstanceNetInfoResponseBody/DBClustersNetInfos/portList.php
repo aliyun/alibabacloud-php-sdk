@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponseBody\DBClustersNetInfos;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class portList extends Model
 {
     /**
+     * @description The port that is used to connect to the BE cluster.
+     *
+     * @example MySQLPort/HttpPort
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description The protocol of the port.
+     *
+     * @example 9030/8080
+     *
      * @var string
      */
     public $protocol;
@@ -23,16 +32,14 @@ class portList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -40,18 +47,17 @@ class portList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return portList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

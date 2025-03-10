@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponseBody\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @example testKey
+     *
      * @var string
      */
     public $tagKey;
+
     /**
+     * @example testValue
+     *
      * @var string
      */
     public $tagValue;
@@ -23,16 +28,14 @@ class tags extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -40,18 +43,17 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

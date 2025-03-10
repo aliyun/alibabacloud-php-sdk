@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResetAccountPasswordResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 58E21E11-90FF-50F8-A615-8DEB193676E0
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ResetAccountPasswordResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ResetAccountPasswordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetAccountPasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

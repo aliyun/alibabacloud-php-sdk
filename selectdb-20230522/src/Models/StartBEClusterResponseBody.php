@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartBEClusterResponseBody extends Model
 {
     /**
+     * @example F203FA74-3041-589F-BE66-E570793A0C91
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +20,9 @@ class StartBEClusterResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class StartBEClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartBEClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

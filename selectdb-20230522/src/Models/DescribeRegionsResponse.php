@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CheckCreateDBInstanceResponse extends Model
+class DescribeRegionsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CheckCreateDBInstanceResponse extends Model
     public $statusCode;
 
     /**
-     * @var CheckCreateDBInstanceResponseBody
+     * @var DescribeRegionsResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CheckCreateDBInstanceResponse extends Model
     /**
      * @param array $map
      *
-     * @return CheckCreateDBInstanceResponse
+     * @return DescribeRegionsResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CheckCreateDBInstanceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CheckCreateDBInstanceResponseBody::fromMap($map['body']);
+            $model->body = DescribeRegionsResponseBody::fromMap($map['body']);
         }
 
         return $model;
