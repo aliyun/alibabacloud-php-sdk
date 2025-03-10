@@ -48,11 +48,17 @@ class ListRecyclebinRequest extends Model
      * @var string
      */
     public $marker;
+
+    /**
+     * @var ImageProcess[]
+     */
+    public $thumbnailProcesses;
     protected $_name = [
-        'driveId' => 'drive_id',
-        'fields'  => 'fields',
-        'limit'   => 'limit',
-        'marker'  => 'marker',
+        'driveId'            => 'drive_id',
+        'fields'             => 'fields',
+        'limit'              => 'limit',
+        'marker'             => 'marker',
+        'thumbnailProcesses' => 'thumbnail_processes',
     ];
 
     public function validate()
@@ -73,6 +79,14 @@ class ListRecyclebinRequest extends Model
         }
         if (null !== $this->marker) {
             $res['marker'] = $this->marker;
+        }
+        if (null !== $this->thumbnailProcesses) {
+            $res['thumbnail_processes'] = [];
+            if (null !== $this->thumbnailProcesses && \is_array($this->thumbnailProcesses)) {
+                foreach ($this->thumbnailProcesses as $key => $val) {
+                    $res['thumbnail_processes'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
 
         return $res;
@@ -97,6 +111,9 @@ class ListRecyclebinRequest extends Model
         }
         if (isset($map['marker'])) {
             $model->marker = $map['marker'];
+        }
+        if (isset($map['thumbnail_processes'])) {
+            $model->thumbnailProcesses = $map['thumbnail_processes'];
         }
 
         return $model;

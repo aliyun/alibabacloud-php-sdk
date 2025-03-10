@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\SDK\Pds\V20220301\Models\File\dirSizeInfo;
 use AlibabaCloud\Tea\Model;
 
 class File extends Model
@@ -12,6 +13,11 @@ class File extends Model
      * @var string[]
      */
     public $actionList;
+
+    /**
+     * @var int
+     */
+    public $autoDeleteLeftSec;
 
     /**
      * @var string
@@ -47,6 +53,11 @@ class File extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dirSizeInfo
+     */
+    public $dirSizeInfo;
 
     /**
      * @var string
@@ -179,6 +190,7 @@ class File extends Model
     public $videoMediaMetadata;
     protected $_name = [
         'actionList'         => 'action_list',
+        'autoDeleteLeftSec'  => 'auto_delete_left_sec',
         'category'           => 'category',
         'contentHash'        => 'content_hash',
         'contentHashName'    => 'content_hash_name',
@@ -186,6 +198,7 @@ class File extends Model
         'crc64Hash'          => 'crc64_hash',
         'createdAt'          => 'created_at',
         'description'        => 'description',
+        'dirSizeInfo'        => 'dir_size_info',
         'domainId'           => 'domain_id',
         'downloadUrl'        => 'download_url',
         'driveId'            => 'drive_id',
@@ -224,6 +237,9 @@ class File extends Model
         if (null !== $this->actionList) {
             $res['action_list'] = $this->actionList;
         }
+        if (null !== $this->autoDeleteLeftSec) {
+            $res['auto_delete_left_sec'] = $this->autoDeleteLeftSec;
+        }
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
@@ -244,6 +260,9 @@ class File extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->dirSizeInfo) {
+            $res['dir_size_info'] = null !== $this->dirSizeInfo ? $this->dirSizeInfo->toMap() : null;
         }
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
@@ -340,6 +359,9 @@ class File extends Model
                 $model->actionList = $map['action_list'];
             }
         }
+        if (isset($map['auto_delete_left_sec'])) {
+            $model->autoDeleteLeftSec = $map['auto_delete_left_sec'];
+        }
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
@@ -360,6 +382,9 @@ class File extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['dir_size_info'])) {
+            $model->dirSizeInfo = dirSizeInfo::fromMap($map['dir_size_info']);
         }
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];

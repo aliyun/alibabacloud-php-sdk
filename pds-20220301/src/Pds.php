@@ -225,6 +225,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateStoryRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateStoryResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\VideoDRMLicenseRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\VideoDRMLicenseResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayPds\Client;
@@ -237,6 +239,7 @@ class Pds extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'pds';
         $gatewayClient       = new Client();
         $this->_spi          = $gatewayClient;
         $this->_disableHttp2 = true;
@@ -4774,6 +4777,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->marker)) {
             $body['marker'] = $request->marker;
         }
+        if (!Utils::isUnset($request->thumbnailProcesses)) {
+            $body['thumbnail_processes'] = $request->thumbnailProcesses;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -5808,6 +5814,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->returnTotalCount)) {
             $body['return_total_count'] = $request->returnTotalCount;
+        }
+        if (!Utils::isUnset($request->thumbnailProcesses)) {
+            $body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -7021,5 +7030,58 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->updateUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取视频的DRM License
+     *  *
+     * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VideoDRMLicenseResponse VideoDRMLicenseResponse
+     */
+    public function videoDRMLicenseWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->drmType)) {
+            $body['drmType'] = $request->drmType;
+        }
+        if (!Utils::isUnset($request->licenseRequest)) {
+            $body['licenseRequest'] = $request->licenseRequest;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VideoDRMLicense',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/file/video_drm_license',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return VideoDRMLicenseResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取视频的DRM License
+     *  *
+     * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
+     *
+     * @return VideoDRMLicenseResponse VideoDRMLicenseResponse
+     */
+    public function videoDRMLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->videoDRMLicenseWithOptions($request, $headers, $runtime);
     }
 }

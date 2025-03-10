@@ -108,7 +108,7 @@ class CreateFileRequest extends Model
     public $localModifiedAt;
 
     /**
-     * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot end with a forward slash (/).
+     * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot contain forward slash (/).
      *
      * This parameter is required.
      * @example a.txt

@@ -1,3 +1,8 @@
+2025-03-10 Version: 4.0.4
+- Update API ListRecyclebin: update param body.
+- Update API SearchFile: update param body.
+
+
 2025-01-10 Version: 4.0.3
 - Generated php 2022-03-01 for pds.
 

@@ -93,15 +93,21 @@ class SearchFileRequest extends Model
      * @var bool
      */
     public $returnTotalCount;
+
+    /**
+     * @var ImageProcess[]
+     */
+    public $thumbnailProcesses;
     protected $_name = [
-        'driveId'          => 'drive_id',
-        'fields'           => 'fields',
-        'limit'            => 'limit',
-        'marker'           => 'marker',
-        'orderBy'          => 'order_by',
-        'query'            => 'query',
-        'recursive'        => 'recursive',
-        'returnTotalCount' => 'return_total_count',
+        'driveId'            => 'drive_id',
+        'fields'             => 'fields',
+        'limit'              => 'limit',
+        'marker'             => 'marker',
+        'orderBy'            => 'order_by',
+        'query'              => 'query',
+        'recursive'          => 'recursive',
+        'returnTotalCount'   => 'return_total_count',
+        'thumbnailProcesses' => 'thumbnail_processes',
     ];
 
     public function validate()
@@ -134,6 +140,14 @@ class SearchFileRequest extends Model
         }
         if (null !== $this->returnTotalCount) {
             $res['return_total_count'] = $this->returnTotalCount;
+        }
+        if (null !== $this->thumbnailProcesses) {
+            $res['thumbnail_processes'] = [];
+            if (null !== $this->thumbnailProcesses && \is_array($this->thumbnailProcesses)) {
+                foreach ($this->thumbnailProcesses as $key => $val) {
+                    $res['thumbnail_processes'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
 
         return $res;
@@ -170,6 +184,9 @@ class SearchFileRequest extends Model
         }
         if (isset($map['return_total_count'])) {
             $model->returnTotalCount = $map['return_total_count'];
+        }
+        if (isset($map['thumbnail_processes'])) {
+            $model->thumbnailProcesses = $map['thumbnail_processes'];
         }
 
         return $model;
