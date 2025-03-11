@@ -11,6 +11,7 @@ class ReleaseInstanceInternetAddressRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

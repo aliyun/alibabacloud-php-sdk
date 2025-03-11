@@ -20,6 +20,7 @@ class DescribeRDSPerformanceRequest extends Model
     /**
      * @description The ID of the Distributed Relational Database Service (DRDS) instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -38,7 +39,7 @@ class DescribeRDSPerformanceRequest extends Model
     /**
      * @description The performance monitoring metrics. You can specify one or more metrics for a query at a time. Separate multiple metric parameters with commas (,).
      *
-     * >  For more information about the details of performance monitoring metrics, see [Storage monitoring](~~186705~~).
+     * This parameter is required.
      * @example MySQL_MemCpuUsage
      *
      * @var string
@@ -48,6 +49,7 @@ class DescribeRDSPerformanceRequest extends Model
     /**
      * @description The ID of the storage-layer ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example rm-************
      *
      * @var string

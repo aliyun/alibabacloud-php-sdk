@@ -30,7 +30,7 @@ class PutStartBackupRequest extends Model
     public $backupLevel;
 
     /**
-     * @description The backup mode. For more information, see [backup mode](~~108631~~) and the valid values are as follows:
+     * @description The backup mode. For more information, see [backup mode](https://help.aliyun.com/document_detail/108631.html) and the valid values are as follows:
      *
      *   phy: fast backup
      *   logic: Consistent backup
@@ -44,6 +44,7 @@ class PutStartBackupRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds****c6vxxyzd
      *
      * @var string

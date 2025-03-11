@@ -47,7 +47,7 @@ class item extends Model
     /**
      * @description Indicates the content of the slow SQL query.
      *
-     * @example SELECT   count(1) from   payment_order where   order_status = \"08\";
+     * @example SELECT   count(1) from   payment_order where   order_status = \\"08\\";
      *
      * @var string
      */

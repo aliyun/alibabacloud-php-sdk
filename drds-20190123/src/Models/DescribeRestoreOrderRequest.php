@@ -50,6 +50,7 @@ class DescribeRestoreOrderRequest extends Model
     /**
      * @description The ID of the instance for which to modify the backup policy.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

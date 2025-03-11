@@ -15,6 +15,7 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -24,6 +25,7 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example drdshbga1138****
      *
      * @var string
@@ -33,6 +35,7 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @description The information about the database on which you want to perform hot-spot scale-out.
      *
+     * This parameter is required.
      * @var extendedMapping[]
      */
     public $extendedMapping;
@@ -40,6 +43,7 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @description The information about the instance to which the hot-spot database belongs.
      *
+     * This parameter is required.
      * @var instanceDbMapping[]
      */
     public $instanceDbMapping;
@@ -47,6 +51,7 @@ class SubmitHotExpandTaskRequest extends Model
     /**
      * @description The information about the hot-spot database.
      *
+     * This parameter is required.
      * @var mapping[]
      */
     public $mapping;

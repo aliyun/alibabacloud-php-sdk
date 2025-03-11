@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region in which the resource is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -19,6 +20,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -26,6 +29,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to INSTANCE.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -33,6 +37,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;

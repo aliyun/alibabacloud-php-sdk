@@ -11,6 +11,7 @@ class ChangeAccountPasswordRequest extends Model
     /**
      * @description The name of the member account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeAccountPasswordRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds********
      *
      * @var string
@@ -29,6 +31,7 @@ class ChangeAccountPasswordRequest extends Model
     /**
      * @description The new password.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

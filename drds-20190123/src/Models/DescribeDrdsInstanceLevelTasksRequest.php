@@ -11,6 +11,7 @@ class DescribeDrdsInstanceLevelTasksRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance of which the unfinished tasks you want to query.
      *
+     * This parameter is required.
      * @example drdssen12****
      *
      * @var string

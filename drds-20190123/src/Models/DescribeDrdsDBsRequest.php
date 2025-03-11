@@ -11,6 +11,7 @@ class DescribeDrdsDBsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbga1138****
      *
      * @var string
@@ -39,6 +40,7 @@ class DescribeDrdsDBsRequest extends Model
     /**
      * @description The ID of the region in which the PolarDB-X 1.0 instance is created.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class RemoveDrdsInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

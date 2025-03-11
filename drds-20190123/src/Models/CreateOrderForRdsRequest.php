@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderForRdsRequest extends Model
 {
     /**
-     * @description The JSON string that contains the order details. For more information, see [CreateDBInstance](~~26228~~).
+     * @description The JSON string that contains the order details. For more information, see [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html).
      *
+     * This parameter is required.
      * @example {"key":"value"}
      *
      * @var string

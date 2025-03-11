@@ -55,6 +55,7 @@ class StartRestoreRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example rds********
      *
      * @var string

@@ -11,6 +11,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
      *
+     * This parameter is required.
      * @example c1dd299c-10c6-11ea-bbbb-************
      *
      * @var string
@@ -21,9 +22,10 @@ class CreateDrdsInstanceRequest extends Model
      * @description Specifies the description of the instance. The description must meet the following requirements:
      *
      *   The description cannot contain the prefix http:// or https://.
-     *   The description must start with a letter or a Chinese character, and can contain uppercase and lowercase letters, Chinese characters, digits, underscores (\_), and hyphens (-).
+     *   The description must start with a letter or a Chinese character, and can contain uppercase and lowercase letters, Chinese characters, digits, underscores (_), and hyphens (-).
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -50,6 +52,7 @@ class CreateDrdsInstanceRequest extends Model
      *   **drds.sn2.8c32g**: The instance is of the Standard Edition
      *   **drds.sn2.16c64g**: The instance is of the Enterprise Edition.
      *
+     * This parameter is required.
      * @example drds.sn2.4c16g
      *
      * @var string
@@ -98,6 +101,7 @@ class CreateDrdsInstanceRequest extends Model
      *   **drdsPost**: The instance uses the pay-as-you-go billing method.
      *   **drdsRo**: By default, the pay-as-you-go billing method is used when you create read-only instances.
      *
+     * This parameter is required.
      * @example drdsPost
      *
      * @var string
@@ -120,6 +124,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the number of instances to be created. You can set the value only to 1. The value specifies that you can create one instance each time.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -129,6 +134,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -147,6 +153,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the specification code of the instance. The value consists of the instance type and the specified instance specification. For example, you can set the value to drds.sn2.4c16g.8c32g.
      *
+     * This parameter is required.
      * @example drds.sn2.4c16g.8C32g
      *
      * @var string
@@ -156,7 +163,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the type of the instance. Set the value to PRIVATE. The value PRIVATE specifies that the instance is a dedicated instance.
      *
-     * >  You can also set the value to 1 to specify that the instance is a dedicated instance.
+     * This parameter is required.
      * @example PRIVATE
      *
      * @var string
@@ -184,6 +191,7 @@ class CreateDrdsInstanceRequest extends Model
     /**
      * @description Specifies the zone ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou-e
      *
      * @var string

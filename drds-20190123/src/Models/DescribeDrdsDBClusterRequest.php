@@ -11,6 +11,7 @@ class DescribeDrdsDBClusterRequest extends Model
     /**
      * @description The ID of the PolarDB cluster.
      *
+     * This parameter is required.
      * @example pc-*****************
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsDBClusterRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeDrdsDBClusterRequest extends Model
     /**
      * @description The ID of a DRDS instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string

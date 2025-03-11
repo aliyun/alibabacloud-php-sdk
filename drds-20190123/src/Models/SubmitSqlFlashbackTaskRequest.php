@@ -11,6 +11,7 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @description The ID of a DRDS instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -29,6 +31,7 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @description The time when the SQL flashback task ends.
      *
+     * This parameter is required.
      * @example 2019-09-10 23:23:23
      *
      * @var string
@@ -41,6 +44,7 @@ class SubmitSqlFlashbackTaskRequest extends Model
      *   1: Image restoration
      *   0: reverse recovery
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -80,6 +84,7 @@ class SubmitSqlFlashbackTaskRequest extends Model
     /**
      * @description The start time of the flashback SQL statement.
      *
+     * This parameter is required.
      * @example 2019-09-10 20:23:23
      *
      * @var string

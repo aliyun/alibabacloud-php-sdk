@@ -11,6 +11,7 @@ class SubmitCleanTaskRequest extends Model
     /**
      * @description The name of the database that is scaled out.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class SubmitCleanTaskRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -32,6 +34,7 @@ class SubmitCleanTaskRequest extends Model
      *   smooth_expand: smooth scale-out
      *   hot_expand: hot-spot scale-out
      *
+     * This parameter is required.
      * @example smooth_expand
      *
      * @var string
@@ -41,6 +44,7 @@ class SubmitCleanTaskRequest extends Model
     /**
      * @description The job ID of the scale-out task. The value of this parameter is the same as that of the ParentJobId parameter.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
@@ -50,6 +54,7 @@ class SubmitCleanTaskRequest extends Model
     /**
      * @description The ID of the scale-out task. This parameter is returned if you send a request for the smooth scale-out task.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string

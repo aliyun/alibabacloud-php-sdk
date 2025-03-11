@@ -20,6 +20,7 @@ class UpdateInstanceNetworkRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds******
      *
      * @var string
@@ -41,6 +42,7 @@ class UpdateInstanceNetworkRequest extends Model
      *   vpc: Virtual Private Cloud (VPC)
      *   classic: classic network
      *
+     * This parameter is required.
      * @example classic
      *
      * @var string

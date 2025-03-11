@@ -11,6 +11,7 @@ class SetupTableRequest extends Model
     /**
      * @description Specifies whether to enable full table scan.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -20,6 +21,7 @@ class SetupTableRequest extends Model
     /**
      * @description The name of the database in which the table resides.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class SetupTableRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -45,6 +48,8 @@ class SetupTableRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string[]

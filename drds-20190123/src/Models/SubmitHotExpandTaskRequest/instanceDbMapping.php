@@ -11,6 +11,7 @@ class instanceDbMapping extends Model
     /**
      * @description The name of the hot-spot database.
      *
+     * This parameter is required.
      * @example hot_test_****_****
      *
      * @var string

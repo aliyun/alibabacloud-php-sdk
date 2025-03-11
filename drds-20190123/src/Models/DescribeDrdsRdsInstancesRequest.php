@@ -11,7 +11,7 @@ class DescribeDrdsRdsInstancesRequest extends Model
     /**
      * @description The ID of the PolarDB-X instance.
      *
-     * > You can call the [DescribeDrdsInstances](~~139284~~) operation to query the information about instances in the specified account, such as the IDs of the instances.
+     * This parameter is required.
      * @example drds*************
      *
      * @var string

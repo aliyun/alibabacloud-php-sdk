@@ -11,6 +11,7 @@ class DescribeRecycleBinStatusRequest extends Model
     /**
      * @description The name of the database that is created in the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeRecycleBinStatusRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

@@ -36,6 +36,11 @@ class vip extends Model
     public $port;
 
     /**
+     * @var bool
+     */
+    public $removeWeight;
+
+    /**
      * @description The type of the VIP. Valid values: intranet and internet.
      *
      * @example intranet
@@ -62,12 +67,13 @@ class vip extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'dns'        => 'Dns',
-        'expireDays' => 'ExpireDays',
-        'port'       => 'Port',
-        'type'       => 'Type',
-        'vpcId'      => 'VpcId',
-        'vswitchId'  => 'VswitchId',
+        'dns'          => 'Dns',
+        'expireDays'   => 'ExpireDays',
+        'port'         => 'Port',
+        'removeWeight' => 'RemoveWeight',
+        'type'         => 'Type',
+        'vpcId'        => 'VpcId',
+        'vswitchId'    => 'VswitchId',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class vip extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->removeWeight) {
+            $res['RemoveWeight'] = $this->removeWeight;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -115,6 +124,9 @@ class vip extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['RemoveWeight'])) {
+            $model->removeWeight = $map['RemoveWeight'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

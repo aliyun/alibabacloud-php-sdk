@@ -11,6 +11,7 @@ class RemoveDrdsDbRequest extends Model
     /**
      * @description The name of the database you want to back up.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class RemoveDrdsDbRequest extends Model
     /**
      * @description The ID of the DRDS instance to which the destination database belongs.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

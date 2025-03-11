@@ -11,6 +11,7 @@ class DescribeDrdsDbInstanceRequest extends Model
     /**
      * @description The ID of the custom ApsaraDB RDS for MySQL instance that you want to query.
      *
+     * This parameter is required.
      * @example rm-bp1t1mk5a5bdj****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsDbInstanceRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeDrdsDbInstanceRequest extends Model
     /**
      * @description The name of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbga1138****
      *
      * @var string

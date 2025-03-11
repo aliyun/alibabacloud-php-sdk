@@ -11,6 +11,7 @@ class ValidateShardTaskRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ValidateShardTaskRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds23ds****
      *
      * @var string
@@ -38,6 +40,7 @@ class ValidateShardTaskRequest extends Model
     /**
      * @description The name of the table or table shard on which you want to perform the task.
      *
+     * This parameter is required.
      * @example buyer
      *
      * @var string
@@ -47,6 +50,7 @@ class ValidateShardTaskRequest extends Model
     /**
      * @description The name of the table or table shard on which you perform the task.
      *
+     * This parameter is required.
      * @example buyer_new
      *
      * @var string
@@ -60,6 +64,7 @@ class ValidateShardTaskRequest extends Model
      *   **SHARD_TO_SINGLE**: converts a table shard to a single table.
      *   **SHARD_TO_SHARD**: converts a table shard to another table shard.
      *
+     * This parameter is required.
      * @example SINGLE_TO_SHARD
      *
      * @var string

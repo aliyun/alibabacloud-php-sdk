@@ -12,6 +12,7 @@ class CreateInstanceAccountRequest extends Model
     /**
      * @description The username of the account you want to create.
      *
+     * This parameter is required.
      * @example drds_sample_account
      *
      * @var string
@@ -19,6 +20,8 @@ class CreateInstanceAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var dbPrivilege[]
      */
     public $dbPrivilege;
@@ -26,6 +29,7 @@ class CreateInstanceAccountRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance for which you want to create the account.
      *
+     * This parameter is required.
      * @example drdsjiii1b49****
      *
      * @var string
@@ -35,6 +39,7 @@ class CreateInstanceAccountRequest extends Model
     /**
      * @description The password of the account you want to create.
      *
+     * This parameter is required.
      * @example drds_sample_password
      *
      * @var string

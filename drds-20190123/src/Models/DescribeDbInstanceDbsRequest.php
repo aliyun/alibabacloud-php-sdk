@@ -29,6 +29,7 @@ class DescribeDbInstanceDbsRequest extends Model
     /**
      * @description The ID of the instance in which the storage-layer databases are deployed.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeDbInstanceDbsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

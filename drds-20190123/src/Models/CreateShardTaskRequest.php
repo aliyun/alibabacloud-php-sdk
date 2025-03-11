@@ -11,6 +11,7 @@ class CreateShardTaskRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateShardTaskRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateShardTaskRequest extends Model
     /**
      * @description The name of the source table.
      *
+     * This parameter is required.
      * @example test_tb1
      *
      * @var string
@@ -47,6 +50,7 @@ class CreateShardTaskRequest extends Model
     /**
      * @description The name of the destination table.
      *
+     * This parameter is required.
      * @example test_tb2
      *
      * @var string
@@ -56,6 +60,7 @@ class CreateShardTaskRequest extends Model
     /**
      * @description The type of the task. Valid values:`  SHARD_TO_SINGLE `,`  SINGLE_TO_SHARD `,`  SHARD_TO_SHARD `.
      *
+     * This parameter is required.
      * @example SINGLE_TO_SHARD
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeHotDbListRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeHotDbListRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example drds**********
      *
      * @var string

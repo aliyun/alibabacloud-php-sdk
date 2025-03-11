@@ -20,6 +20,7 @@ class DescribeRdsSuperAccountInstancesRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -27,7 +28,9 @@ class DescribeRdsSuperAccountInstancesRequest extends Model
     public $drdsInstanceId;
 
     /**
-     * @example [\"rm-*****************\",\"rm-*****************\"]
+     * @description This parameter is required.
+     *
+     * @example [\\"rm-*****************\\",\\"rm-*****************\\"]
      *
      * @var string[]
      */

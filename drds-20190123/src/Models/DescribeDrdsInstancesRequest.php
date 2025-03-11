@@ -66,6 +66,7 @@ class DescribeDrdsInstancesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

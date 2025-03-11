@@ -11,6 +11,7 @@ class DescribeRdsCommodityRequest extends Model
     /**
      * @description The commodity code of the service.
      *
+     * This parameter is required.
      * @example drdsPost
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeRdsCommodityRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds***********
      *
      * @var string

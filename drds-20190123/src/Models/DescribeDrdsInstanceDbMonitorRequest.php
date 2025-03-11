@@ -11,6 +11,7 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @description The ID of the Distributed Relational Database Service (DRDS) instance.
      *
+     * This parameter is required.
      * @example drds*************
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @description The end time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
      *
+     * This parameter is required.
      * @example 1603166400000
      *
      * @var int
@@ -38,7 +41,7 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @description The performance monitoring metrics. You can specify one or more metrics for a query at a time. Separate multiple metric parameters with commas (,).
      *
-     * >  For more information about the details of performance monitoring metrics, see [Database monitoring](~~186704~~).
+     * This parameter is required.
      * @example qps
      *
      * @var string
@@ -57,6 +60,7 @@ class DescribeDrdsInstanceDbMonitorRequest extends Model
     /**
      * @description The start time. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
      *
+     * This parameter is required.
      * @example 1603162800000
      *
      * @var int

@@ -11,6 +11,7 @@ class DescribeDrdsSlowSqlsRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsSlowSqlsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds***************
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeDrdsSlowSqlsRequest extends Model
     /**
      * @description The start time of the SQL query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
      *
+     * This parameter is required.
      * @example 1568267711000
      *
      * @var int
@@ -38,6 +41,7 @@ class DescribeDrdsSlowSqlsRequest extends Model
     /**
      * @description The SQL execution time. Unit: ms.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -63,8 +67,14 @@ class DescribeDrdsSlowSqlsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The end time of the SQL query. Specify the time in the UNIX timestamp format. The time must be in UTC. Unit: ms.
      *
+     * This parameter is required.
      * @example 1568269711000
      *
      * @var int
@@ -77,6 +87,7 @@ class DescribeDrdsSlowSqlsRequest extends Model
         'exeTime'        => 'ExeTime',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'startTime'      => 'StartTime',
     ];
 
@@ -104,6 +115,9 @@ class DescribeDrdsSlowSqlsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -137,6 +151,9 @@ class DescribeDrdsSlowSqlsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

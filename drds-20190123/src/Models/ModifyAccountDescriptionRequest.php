@@ -11,6 +11,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the member account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The description of the account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The ID of the ApsaraDB RDS for PostgreSQL instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

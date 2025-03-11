@@ -11,6 +11,7 @@ class DescribeDrdsShardingDbsRequest extends Model
     /**
      * @description The name of the database whose shards you want to query.
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeDrdsShardingDbsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance whose database shards you want to query.
      *
+     * This parameter is required.
      * @example drdshbgaf3c63qbo
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
     /**
      * @description The database name.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsDBIpWhiteListRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example drds********
      *
      * @var string

@@ -11,6 +11,7 @@ class UpgradeHiStoreInstanceRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdssad23sdfc
      *
      * @var string
@@ -20,6 +21,7 @@ class UpgradeHiStoreInstanceRequest extends Model
     /**
      * @description The ID of the column-oriented storage instance.
      *
+     * This parameter is required.
      * @example hi-sesex2e
      *
      * @var string

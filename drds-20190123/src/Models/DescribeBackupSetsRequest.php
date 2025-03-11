@@ -11,6 +11,7 @@ class DescribeBackupSetsRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds***********
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeBackupSetsRequest extends Model
     /**
      * @description The end of the query time which is in timestamp format (measured in millisecond) .
      *
-     * >  The end time must be later than the start time.
+     * This parameter is required.
      * @example 1591326000000
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeBackupSetsRequest extends Model
     /**
      * @description The beginning of the query time which is in timestamp format (measured in millisecond).
      *
+     * This parameter is required.
      * @example 1591327800000
      *
      * @var string

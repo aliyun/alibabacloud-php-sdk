@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveBackupsSetRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackupSets](~~139331~~) interface to query the ID of a backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackupSets](https://help.aliyun.com/document_detail/139331.html) interface to query the ID of a backup set.
      *
+     * This parameter is required.
      * @example ba30d5c4-a6dc-11ea-bd40-************
      *
      * @var string
@@ -20,6 +21,7 @@ class RemoveBackupsSetRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

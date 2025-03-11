@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SetupDrdsParamsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var data[]
      */
     public $data;
@@ -17,6 +19,7 @@ class SetupDrdsParamsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance for which you want to configure parameters.
      *
+     * This parameter is required.
      * @example drdsjiii1b49****
      *
      * @var string
@@ -29,6 +32,7 @@ class SetupDrdsParamsRequest extends Model
      *   **INSTANCE**: Configure parameters for the instance.
      *   **DB**: Configure parameters for the databases of the instance.
      *
+     * This parameter is required.
      * @example DB
      *
      * @var string

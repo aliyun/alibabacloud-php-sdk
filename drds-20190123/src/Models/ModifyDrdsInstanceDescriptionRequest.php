@@ -11,6 +11,7 @@ class ModifyDrdsInstanceDescriptionRequest extends Model
     /**
      * @description The description of the DRDS instance.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyDrdsInstanceDescriptionRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

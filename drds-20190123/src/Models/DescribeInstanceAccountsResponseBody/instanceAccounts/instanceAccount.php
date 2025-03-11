@@ -47,7 +47,7 @@ class instanceAccount extends Model
     public $description;
 
     /**
-     * @description Indicates an IP address that is allowed to access the database. The value **%** indicates that each IP address is allowed to access the database. \</note>
+     * @description Indicates an IP address that is allowed to access the database. The value **%** indicates that each IP address is allowed to access the database. \\</note>
      *
      * @example %
      *

@@ -11,6 +11,7 @@ class ModifyRdsReadWeightRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyRdsReadWeightRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyRdsReadWeightRequest extends Model
     /**
      * @description The names of the ApsaraDB RDS for MySQL instances. Separate the names with commas (,).
      *
+     * This parameter is required.
      * @example rm-****************,rm-****************
      *
      * @var string
@@ -38,6 +41,7 @@ class ModifyRdsReadWeightRequest extends Model
     /**
      * @description The weights of the ApsaraDB RDS for MySQL instances. Separate the weights with commas (,).
      *
+     * This parameter is required.
      * @example 14,86
      *
      * @var string

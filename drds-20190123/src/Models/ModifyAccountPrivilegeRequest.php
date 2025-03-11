@@ -12,6 +12,7 @@ class ModifyAccountPrivilegeRequest extends Model
     /**
      * @description The username of the account that you want to modify.
      *
+     * This parameter is required.
      * @example account_sec
      *
      * @var string
@@ -26,6 +27,7 @@ class ModifyAccountPrivilegeRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbgaen89****
      *
      * @var string

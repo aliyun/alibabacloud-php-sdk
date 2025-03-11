@@ -11,6 +11,7 @@ class SetBackupLocalRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbgag23d13fds
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyPolarDbReadWeightRequest extends Model
     /**
      * @description Polar cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyPolarDbReadWeightRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyPolarDbReadWeightRequest extends Model
     /**
      * @description The node list in the destination apsaradb for PolarDB cluster. The nodes in each cluster are separated with commas (,) and colons (:).
      *
+     * This parameter is required.
      * @example pi-****************,pi-****************:pi-****************
      *
      * @var string
@@ -38,6 +41,7 @@ class ModifyPolarDbReadWeightRequest extends Model
     /**
      * @description The ID of a DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -47,6 +51,7 @@ class ModifyPolarDbReadWeightRequest extends Model
     /**
      * @description The weight of the PolarDB cluster. Separate multiple weights with commas (,).
      *
+     * This parameter is required.
      * @example 14,86
      *
      * @var string

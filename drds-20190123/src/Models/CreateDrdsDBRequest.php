@@ -50,6 +50,7 @@ class CreateDrdsDBRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance on which you want to create the database.
      *
+     * This parameter is required.
      * @example drdshbgal154****
      *
      * @var string

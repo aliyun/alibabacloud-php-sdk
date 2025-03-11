@@ -20,6 +20,7 @@ class DescribeDbInstancesRequest extends Model
     /**
      * @description The ID of a DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

@@ -20,6 +20,7 @@ class DescribeTableListByTypeRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example drds_flash****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeTableListByTypeRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbga76p6****
      *
      * @var string
@@ -65,6 +67,7 @@ class DescribeTableListByTypeRequest extends Model
     /**
      * @description The type of tables. Valid values:
      *
+     * This parameter is required.
      * @example SINGLE
      *
      * @var string

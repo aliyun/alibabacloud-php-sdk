@@ -11,6 +11,7 @@ class RollbackInstanceVersionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string

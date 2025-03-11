@@ -11,6 +11,7 @@ class DescribeShardTaskInfoRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example jjjjjj_ppppp
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeShardTaskInfoRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeShardTaskInfoRequest extends Model
     /**
      * @description The name of the table that you want to convert or shard.
      *
+     * This parameter is required.
      * @example a1
      *
      * @var string
@@ -47,6 +50,7 @@ class DescribeShardTaskInfoRequest extends Model
     /**
      * @description The name of the table that is generated after you convert or shard the table.
      *
+     * This parameter is required.
      * @example a2
      *
      * @var string

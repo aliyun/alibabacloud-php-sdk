@@ -14,6 +14,7 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
      *   RDS
      *   PolarDB
      *
+     * This parameter is required.
      * @example RDS
      *
      * @var string
@@ -23,6 +24,7 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     /**
      * @description The name of the PolarDB-X database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -32,6 +34,7 @@ class SubmitHotExpandPreCheckTaskRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drd*********
      *
      * @var string

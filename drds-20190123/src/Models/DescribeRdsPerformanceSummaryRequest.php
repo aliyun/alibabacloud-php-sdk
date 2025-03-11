@@ -11,6 +11,7 @@ class DescribeRdsPerformanceSummaryRequest extends Model
     /**
      * @description The ID of a DRDS instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeRdsPerformanceSummaryRequest extends Model
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rm-*****************
      *
      * @var string[]

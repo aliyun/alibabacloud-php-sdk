@@ -11,7 +11,7 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @description The ID of the custom ApsaraDB RDS instance at the storage layer.
      *
-     * > You can call the [DescribeDrdsRdsInstances](~~215526~~) operation to query the details of all ApsaraDB RDS instances, including the ID of the instance.
+     * This parameter is required.
      * @example rm-***************
      *
      * @var string
@@ -21,7 +21,7 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
-     * > You can call the [DescribeDrdsInstances](~~139284~~) operation to query the details of all PolarDB-X 1.0 instances within an Alibaba Cloud account, including the IDs of the instances.
+     * This parameter is required.
      * @example drds*************
      *
      * @var string
@@ -33,14 +33,14 @@ class ManagePrivateRdsRequest extends Model
      *
      * For more information about the request parameters and valid values of the request parameters of each operation, see the request parameter sections in the following topics:
      *
-     *   [DescribeDBInstanceAttribute](~~26231~~)
-     *   [DescribeAvailableClasses](~~196546~~)
-     *   [DescribeSQLCollectorPolicy](~~26292~~)
-     *   [ModifySQLCollectorPolicy](~~26293~~)
-     *   [DescribeParameters](~~26285~~)
-     *   [ModifyParameter](~~26286~~)
-     *   [DescribeDBInstanceHAConfig](~~26244~~)
-     *   [SwitchDBInstanceHA](~~26251~~)
+     *   [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html)
+     *   [DescribeAvailableClasses](https://help.aliyun.com/document_detail/196546.html)
+     *   [DescribeSQLCollectorPolicy](https://help.aliyun.com/document_detail/26292.html)
+     *   [ModifySQLCollectorPolicy](https://help.aliyun.com/document_detail/26293.html)
+     *   [DescribeParameters](https://help.aliyun.com/document_detail/26285.html)
+     *   [ModifyParameter](https://help.aliyun.com/document_detail/26286.html)
+     *   [DescribeDBInstanceHAConfig](https://help.aliyun.com/document_detail/26244.html)
+     *   [SwitchDBInstanceHA](https://help.aliyun.com/document_detail/26251.html)
      *
      * > Among the required request parameters of the preceding operations, you do not need to specify the `Action` and `DBInstanceId` parameters. You must specify all the other required request parameters.
      * @example {NodeId:"1797****"}
@@ -61,6 +61,7 @@ class ManagePrivateRdsRequest extends Model
      *   **DescribeDBInstanceHAConfig**: queries the high availability mode and data replication mode of the custom ApsaraDB RDS instance.
      *   **SwitchDBInstanceHA**: switches workloads between the primary and secondary custom ApsaraDB RDS instances.
      *
+     * This parameter is required.
      * @example SwitchDBInstanceHA
      *
      * @var string
@@ -70,7 +71,7 @@ class ManagePrivateRdsRequest extends Model
     /**
      * @description The ID of the region in which the PolarDB-X 1.0 instance resides.
      *
-     * > You can call the [DescribeDrdsInstances](~~139284~~) operation to query the details of all PolarDB-X 1.0 instances within an Alibaba Cloud account, including the IDs of regions in which the instances reside.
+     * > You can call the [DescribeDrdsInstances](https://help.aliyun.com/document_detail/139284.html) operation to query the details of all PolarDB-X 1.0 instances within an Alibaba Cloud account, including the IDs of regions in which the instances reside.
      * @example cn-hanzhou
      *
      * @var string

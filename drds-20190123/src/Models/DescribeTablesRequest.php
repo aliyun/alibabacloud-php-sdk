@@ -20,6 +20,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The name of the database whose tables you want to query.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

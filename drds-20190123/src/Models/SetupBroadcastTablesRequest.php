@@ -11,6 +11,7 @@ class SetupBroadcastTablesRequest extends Model
     /**
      * @description Specifies whether to activate a broadcast table for the database.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -20,6 +21,7 @@ class SetupBroadcastTablesRequest extends Model
     /**
      * @description The name of the database for which you want to configure a broadcast table.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -29,6 +31,7 @@ class SetupBroadcastTablesRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -47,6 +50,7 @@ class SetupBroadcastTablesRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string[]

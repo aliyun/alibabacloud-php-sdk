@@ -11,6 +11,7 @@ class FlashbackRecycleBinTableRequest extends Model
     /**
      * @description The name of the database to which the table belongs.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class FlashbackRecycleBinTableRequest extends Model
     /**
      * @description The ID of the instance to which the table belongs.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -38,6 +40,7 @@ class FlashbackRecycleBinTableRequest extends Model
     /**
      * @description The name of the logical table to be restored.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

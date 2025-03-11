@@ -20,6 +20,7 @@ class DescribeDrdsParamsRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example DescribeDrdsParams
      *
      * @var string
@@ -32,6 +33,7 @@ class DescribeDrdsParamsRequest extends Model
      *   **INSTANCE: the instance level.**
      *   **DB**: the database level.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyDrdsIpWhiteListRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyDrdsIpWhiteListRequest extends Model
     /**
      * @description The ID of the Message Queue for Apache Kafka instance.
      *
+     * This parameter is required.
      * @example drds****c6vxxyzd
      *
      * @var string
@@ -45,6 +47,7 @@ class ModifyDrdsIpWhiteListRequest extends Model
     /**
      * @description The modified whitelist. Separate multiple IP addresses with commas (,).
      *
+     * This parameter is required.
      * @example 127.***.***.***,10.***.***.***
      *
      * @var string

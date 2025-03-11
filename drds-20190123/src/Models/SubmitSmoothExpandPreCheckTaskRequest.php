@@ -11,6 +11,7 @@ class SubmitSmoothExpandPreCheckTaskRequest extends Model
     /**
      * @description The name of the PolarDB-X 1.0 database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class SubmitSmoothExpandPreCheckTaskRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds823s4esd
      *
      * @var string

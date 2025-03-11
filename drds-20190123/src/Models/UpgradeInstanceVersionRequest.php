@@ -11,6 +11,7 @@ class UpgradeInstanceVersionRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance that you want to upgrade.
      *
+     * This parameter is required.
      * @example drdshbgaen89****
      *
      * @var string

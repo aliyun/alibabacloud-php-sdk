@@ -11,6 +11,7 @@ class DescribeBackupPolicyRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example drdshbga71nn****
      *
      * @var string

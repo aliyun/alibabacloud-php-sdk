@@ -11,6 +11,7 @@ class DescribeInstDbLogInfoRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeInstDbLogInfoRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string

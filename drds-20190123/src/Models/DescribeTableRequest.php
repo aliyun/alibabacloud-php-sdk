@@ -11,6 +11,7 @@ class DescribeTableRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example drds_flashback
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeTableRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeTableRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example employee_split
      *
      * @var string

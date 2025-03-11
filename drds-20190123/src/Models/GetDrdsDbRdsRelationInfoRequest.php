@@ -11,6 +11,7 @@ class GetDrdsDbRdsRelationInfoRequest extends Model
     /**
      * @description The name of the DRDS database.
      *
+     * This parameter is required.
      * @example testDb
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDrdsDbRdsRelationInfoRequest extends Model
     /**
      * @description The ID of the DRDS instance.
      *
+     * This parameter is required.
      * @example drdshbga948vbpd2
      *
      * @var string

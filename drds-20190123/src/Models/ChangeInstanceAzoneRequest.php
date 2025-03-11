@@ -16,6 +16,7 @@ class ChangeInstanceAzoneRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdsjiii1b49****
      *
      * @var string
@@ -25,6 +26,7 @@ class ChangeInstanceAzoneRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +41,7 @@ class ChangeInstanceAzoneRequest extends Model
     /**
      * @description The source zone of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou-B
      *
      * @var string
@@ -48,6 +51,7 @@ class ChangeInstanceAzoneRequest extends Model
     /**
      * @description The destination zone to which you want to modify
      *
+     * This parameter is required.
      * @example cn-hangzhou-A
      *
      * @var string

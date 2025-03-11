@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -27,6 +28,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example drds********
      *
      * @var string[]
@@ -36,6 +39,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to INSTANCE.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

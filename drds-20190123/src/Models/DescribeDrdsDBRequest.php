@@ -11,6 +11,7 @@ class DescribeDrdsDBRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example db_test
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDrdsDBRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string

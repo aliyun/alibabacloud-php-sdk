@@ -11,6 +11,7 @@ class DescribeDrdsInstanceRequest extends Model
     /**
      * @description The ID of the instance that you want to query.
      *
+     * This parameter is required.
      * @example drdshbga1138****
      *
      * @var string

@@ -11,6 +11,7 @@ class CheckDrdsDbNameRequest extends Model
     /**
      * @description DRDS database name
      *
+     * This parameter is required.
      * @example drds_test
      *
      * @var string
@@ -20,6 +21,7 @@ class CheckDrdsDbNameRequest extends Model
     /**
      * @description DRDS instance ID
      *
+     * This parameter is required.
      * @example drds********
      *
      * @var string

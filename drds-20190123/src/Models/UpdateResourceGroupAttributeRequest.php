@@ -11,7 +11,7 @@ class UpdateResourceGroupAttributeRequest extends Model
     /**
      * @description The ID of the instance that you want to transfer.
      *
-     * >  You can call the [DescribeDrdsInstances](~~139284~~) operation to view the details of the instances under the account, including the instance IDs.
+     * This parameter is required.
      * @example drds***********
      *
      * @var string
@@ -21,7 +21,7 @@ class UpdateResourceGroupAttributeRequest extends Model
     /**
      * @description The ID of the resource group that you want to specify.
      *
-     * >  You can call the [ListResourceGroups](~~158855~~) operation to view the details of the resource groups, including the resource group IDs.
+     * This parameter is required.
      * @example rg-***************
      *
      * @var string
@@ -31,7 +31,7 @@ class UpdateResourceGroupAttributeRequest extends Model
     /**
      * @description The ID of the region where the instance you want to transfer is located.
      *
-     * >  You can call the [DescribeDrdsInstances](~~139284~~) operation to view the details of the instances under the account, including the region IDs.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

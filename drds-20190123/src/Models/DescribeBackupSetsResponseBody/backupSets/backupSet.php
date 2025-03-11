@@ -110,7 +110,7 @@ class backupSet extends Model
     /**
      * @description The status of the backup instance. Valid values:
      *
-     *   \-1: Failed
+     *   \\-1: Failed
      *   0: Not started
      *   1: The storage instance is running.
      *   2: Success

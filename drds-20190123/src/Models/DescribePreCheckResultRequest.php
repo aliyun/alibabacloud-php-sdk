@@ -11,6 +11,7 @@ class DescribePreCheckResultRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drdshbga76p6****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribePreCheckResultRequest extends Model
     /**
      * @description The ID of the precheck task.
      *
+     * This parameter is required.
      * @example 4561
      *
      * @var string

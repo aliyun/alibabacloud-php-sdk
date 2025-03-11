@@ -11,6 +11,7 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example drds*********
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     /**
      * @description The end time of the query. Specify the value in the UNIX timestamp format. The timestamp must be in UTC. Unit: ms.
      *
-     * >  If the time range that you specify is less than 1 hour, the monitoring data that is collected in a 1-hour period before the end time is returned.
+     * This parameter is required.
      * @example 1603209690000
      *
      * @var int
@@ -30,7 +31,7 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     /**
      * @description The performance monitoring metrics. You can specify one or more metrics. Separate multiple metric names with commas (,).
      *
-     * >  For more information about performance monitoring metrics, see [Monitor instances](~~186703~~).
+     * This parameter is required.
      * @example cpu
      *
      * @var string
@@ -58,6 +59,7 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     /**
      * @description The start time of the query. Specify the value in the UNIX timestamp format. The timestamp must be in UTC. Unit: ms.
      *
+     * This parameter is required.
      * @example 1603123290000
      *
      * @var int

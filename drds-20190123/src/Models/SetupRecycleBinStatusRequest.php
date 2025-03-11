@@ -11,6 +11,7 @@ class SetupRecycleBinStatusRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class SetupRecycleBinStatusRequest extends Model
     /**
      * @description The ID of the PolarDB-X 1.0 instance.
      *
+     * This parameter is required.
      * @example drds************
      *
      * @var string
@@ -41,6 +43,7 @@ class SetupRecycleBinStatusRequest extends Model
      *   enable: The table recycle bin is enabled.
      *   disable: The table recycle bin is disabled.
      *
+     * This parameter is required.
      * @example enable
      *
      * @var string
