@@ -11,7 +11,7 @@ class DeleteSecretRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      *
-     * This parameter is required.
+     * >
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -52,12 +52,18 @@ class DeleteSecretRequest extends Model
      * @var string
      */
     public $secretName;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'ownerId'      => 'OwnerId',
         'regionId'     => 'RegionId',
         'secretArn'    => 'SecretArn',
         'secretName'   => 'SecretName',
+        'workspaceId'  => 'WorkspaceId',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class DeleteSecretRequest extends Model
         }
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class DeleteSecretRequest extends Model
         }
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

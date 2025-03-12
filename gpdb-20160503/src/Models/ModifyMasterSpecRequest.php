@@ -28,6 +28,10 @@ class ModifyMasterSpecRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+     * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+     * @example ADB.AIMedium.2
+     *
      * @var string
      */
     public $masterAISpec;

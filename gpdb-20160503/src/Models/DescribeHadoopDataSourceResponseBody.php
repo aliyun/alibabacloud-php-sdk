@@ -85,7 +85,7 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $emrInstanceId;
 
     /**
-     * @description The Id of External Data Service
+     * @description The ID of the external data service.
      *
      * @example 2988
      *
@@ -151,7 +151,7 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $mapReduceConf;
 
     /**
-     * @description The time when the service was last modified.
+     * @description The time when the data source was last modified.
      *
      * @example 2024-08-23T02:11:47Z
      *

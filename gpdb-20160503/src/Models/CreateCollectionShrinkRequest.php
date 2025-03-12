@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest\sparseVectorIndexConfig;
 use AlibabaCloud\Tea\Model;
 
-class CreateCollectionRequest extends Model
+class CreateCollectionShrinkRequest extends Model
 {
     /**
      * @description The name of the collection that you want to create.
@@ -196,9 +195,9 @@ class CreateCollectionRequest extends Model
     public $regionId;
 
     /**
-     * @var sparseVectorIndexConfig
+     * @var string
      */
-    public $sparseVectorIndexConfig;
+    public $sparseVectorIndexConfigShrink;
 
     /**
      * @var bool
@@ -214,26 +213,26 @@ class CreateCollectionRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'              => 'Collection',
-        'DBInstanceId'            => 'DBInstanceId',
-        'dimension'               => 'Dimension',
-        'externalStorage'         => 'ExternalStorage',
-        'fullTextRetrievalFields' => 'FullTextRetrievalFields',
-        'hnswEfConstruction'      => 'HnswEfConstruction',
-        'hnswM'                   => 'HnswM',
-        'managerAccount'          => 'ManagerAccount',
-        'managerAccountPassword'  => 'ManagerAccountPassword',
-        'metadata'                => 'Metadata',
-        'metadataIndices'         => 'MetadataIndices',
-        'metrics'                 => 'Metrics',
-        'namespace'               => 'Namespace',
-        'ownerId'                 => 'OwnerId',
-        'parser'                  => 'Parser',
-        'pqEnable'                => 'PqEnable',
-        'regionId'                => 'RegionId',
-        'sparseVectorIndexConfig' => 'SparseVectorIndexConfig',
-        'supportSparse'           => 'SupportSparse',
-        'workspaceId'             => 'WorkspaceId',
+        'collection'                    => 'Collection',
+        'DBInstanceId'                  => 'DBInstanceId',
+        'dimension'                     => 'Dimension',
+        'externalStorage'               => 'ExternalStorage',
+        'fullTextRetrievalFields'       => 'FullTextRetrievalFields',
+        'hnswEfConstruction'            => 'HnswEfConstruction',
+        'hnswM'                         => 'HnswM',
+        'managerAccount'                => 'ManagerAccount',
+        'managerAccountPassword'        => 'ManagerAccountPassword',
+        'metadata'                      => 'Metadata',
+        'metadataIndices'               => 'MetadataIndices',
+        'metrics'                       => 'Metrics',
+        'namespace'                     => 'Namespace',
+        'ownerId'                       => 'OwnerId',
+        'parser'                        => 'Parser',
+        'pqEnable'                      => 'PqEnable',
+        'regionId'                      => 'RegionId',
+        'sparseVectorIndexConfigShrink' => 'SparseVectorIndexConfig',
+        'supportSparse'                 => 'SupportSparse',
+        'workspaceId'                   => 'WorkspaceId',
     ];
 
     public function validate()
@@ -294,8 +293,8 @@ class CreateCollectionRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->sparseVectorIndexConfig) {
-            $res['SparseVectorIndexConfig'] = null !== $this->sparseVectorIndexConfig ? $this->sparseVectorIndexConfig->toMap() : null;
+        if (null !== $this->sparseVectorIndexConfigShrink) {
+            $res['SparseVectorIndexConfig'] = $this->sparseVectorIndexConfigShrink;
         }
         if (null !== $this->supportSparse) {
             $res['SupportSparse'] = $this->supportSparse;
@@ -310,7 +309,7 @@ class CreateCollectionRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateCollectionRequest
+     * @return CreateCollectionShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -367,7 +366,7 @@ class CreateCollectionRequest extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['SparseVectorIndexConfig'])) {
-            $model->sparseVectorIndexConfig = sparseVectorIndexConfig::fromMap($map['SparseVectorIndexConfig']);
+            $model->sparseVectorIndexConfigShrink = $map['SparseVectorIndexConfig'];
         }
         if (isset($map['SupportSparse'])) {
             $model->supportSparse = $map['SupportSparse'];

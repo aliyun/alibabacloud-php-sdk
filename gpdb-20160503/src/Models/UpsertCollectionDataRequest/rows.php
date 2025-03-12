@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest\rows\sparseVector;
 use AlibabaCloud\Tea\Model;
 
 class rows extends Model
@@ -19,15 +20,21 @@ class rows extends Model
     public $metadata;
 
     /**
+     * @var sparseVector
+     */
+    public $sparseVector;
+
+    /**
      * @description This parameter is required.
      *
      * @var float[]
      */
     public $vector;
     protected $_name = [
-        'id'       => 'Id',
-        'metadata' => 'Metadata',
-        'vector'   => 'Vector',
+        'id'           => 'Id',
+        'metadata'     => 'Metadata',
+        'sparseVector' => 'SparseVector',
+        'vector'       => 'Vector',
     ];
 
     public function validate()
@@ -42,6 +49,9 @@ class rows extends Model
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->sparseVector) {
+            $res['SparseVector'] = null !== $this->sparseVector ? $this->sparseVector->toMap() : null;
         }
         if (null !== $this->vector) {
             $res['Vector'] = $this->vector;
@@ -63,6 +73,9 @@ class rows extends Model
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['SparseVector'])) {
+            $model->sparseVector = sparseVector::fromMap($map['SparseVector']);
         }
         if (isset($map['Vector'])) {
             if (!empty($map['Vector'])) {

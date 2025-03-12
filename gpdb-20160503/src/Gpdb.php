@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
@@ -1269,14 +1270,19 @@ class Gpdb extends OpenApiClient
     /**
      * @summary Creates a vector collection.
      *  *
-     * @param CreateCollectionRequest $request CreateCollectionRequest
+     * @param CreateCollectionRequest $tmpReq  CreateCollectionRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateCollectionResponse CreateCollectionResponse
      */
-    public function createCollectionWithOptions($request, $runtime)
+    public function createCollectionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateCollectionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sparseVectorIndexConfig)) {
+            $request->sparseVectorIndexConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->collection)) {
             $query['Collection'] = $request->collection;
@@ -1328,6 +1334,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sparseVectorIndexConfigShrink)) {
+            $query['SparseVectorIndexConfig'] = $request->sparseVectorIndexConfigShrink;
+        }
+        if (!Utils::isUnset($request->supportSparse)) {
+            $query['SupportSparse'] = $request->supportSparse;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
@@ -2301,8 +2313,9 @@ class Gpdb extends OpenApiClient
     /**
      * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
      *  *
-     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to use or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
-     * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 and V6.3.10.3 or later, excluding the versions from V6.3.9.0 to V6.3.10.2.
+     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
+     * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
      *  *
      * @param CreateSampleDataRequest $request CreateSampleDataRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2343,8 +2356,9 @@ class Gpdb extends OpenApiClient
     /**
      * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
      *  *
-     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to use or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
-     * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 and V6.3.10.3 or later, excluding the versions from V6.3.9.0 to V6.3.10.2.
+     * @description *   You can call this operation to create a sample dataset for an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * *   This operation is supported only for AnalyticDB for PostgreSQL V6.3.8.8 to 6.3.8.x, V6.3.10.3, and later.
+     * *   Versions from V6.3.9.0 to V6.3.10.2 are not supported.
      *  *
      * @param CreateSampleDataRequest $request CreateSampleDataRequest
      *
@@ -2392,6 +2406,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->username)) {
             $query['Username'] = $request->username;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2788,6 +2805,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3843,6 +3863,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->secretName)) {
             $query['SecretName'] = $request->secretName;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4078,6 +4101,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4698,7 +4724,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Query detailed information about the instance
+     * @summary Query detailed information about the instance.
      *  *
      * @description ## Usage Instructions
      * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
@@ -4746,7 +4772,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Query detailed information about the instance
+     * @summary Query detailed information about the instance.
      *  *
      * @description ## Usage Instructions
      * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
@@ -8075,6 +8101,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->table)) {
             $query['Table'] = $request->table;
         }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8697,6 +8726,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($tmpReq->parameters)) {
             $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+        if (!Utils::isUnset($tmpReq->ragWorkspaceCollection)) {
+            $request->ragWorkspaceCollectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ragWorkspaceCollection, 'RagWorkspaceCollection', 'json');
+        }
         if (!Utils::isUnset($tmpReq->sqls)) {
             $request->sqlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sqls, 'Sqls', 'json');
         }
@@ -8710,6 +8742,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->ragWorkspaceCollectionShrink)) {
+            $query['RagWorkspaceCollection'] = $request->ragWorkspaceCollectionShrink;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -8721,6 +8756,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->statementName)) {
             $query['StatementName'] = $request->statementName;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $body = [];
         if (!Utils::isUnset($request->parametersShrink)) {
@@ -8847,6 +8885,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->secretName)) {
             $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -10082,6 +10123,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -12187,6 +12231,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($tmpReq->relationalTableFilter)) {
             $request->relationalTableFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relationalTableFilter, 'RelationalTableFilter', 'json');
         }
+        if (!Utils::isUnset($tmpReq->sparseVector)) {
+            $request->sparseVectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sparseVector, 'SparseVector', 'json');
+        }
         if (!Utils::isUnset($tmpReq->vector)) {
             $request->vectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vector, 'Vector', 'json');
         }
@@ -12238,6 +12285,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->relationalTableFilterShrink)) {
             $query['RelationalTableFilter'] = $request->relationalTableFilterShrink;
+        }
+        if (!Utils::isUnset($request->sparseVectorShrink)) {
+            $query['SparseVector'] = $request->sparseVectorShrink;
         }
         if (!Utils::isUnset($request->topK)) {
             $query['TopK'] = $request->topK;

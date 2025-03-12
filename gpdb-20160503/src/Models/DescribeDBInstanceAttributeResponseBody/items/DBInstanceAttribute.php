@@ -341,6 +341,10 @@ class DBInstanceAttribute extends Model
     public $maintainStartTime;
 
     /**
+     * @description The specifications of AI coordinator node resources of the instance. If the coordinator nodes of the instance are not AI nodes, null is returned.
+     *
+     * @example ADB.AIMedium.2
+     *
      * @var string
      */
     public $masterAISpec;
@@ -506,6 +510,10 @@ class DBInstanceAttribute extends Model
     public $segNodeNum;
 
     /**
+     * @description The specifications of AI compute node resources of the instance. If the compute nodes of the instance are not AI nodes, null is returned.
+     *
+     * @example ADB.AIMedium.2
+     *
      * @var string
      */
     public $segmentAISpec;

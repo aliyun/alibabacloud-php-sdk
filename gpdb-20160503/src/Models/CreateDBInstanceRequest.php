@@ -113,9 +113,11 @@ class CreateDBInstanceRequest extends Model
     public $deployMode;
 
     /**
-     * @description Indicates whether to enable SSL encryption. The values are as follows:
-     * - **true**: Enable SSL encryption.
-     * - **false** (default): Do not enable SSL encryption.
+     * @description Specifies whether to enable SSL encryption. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -213,6 +215,11 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+     *
+     * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+     * @example ADB.AIMedium.2
+     *
      * @var string
      */
     public $masterAISpec;
@@ -241,12 +248,17 @@ class CreateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description Billing type. The values are as follows:
+     * @description The billing method of the instance. Valid values:
      *
-     * - **Postpaid**: Pay-as-you-go
-     * - **Prepaid**: Subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
-     * > - When using the subscription billing model, there may be discounts for purchasing one year or longer at once. It is recommended to choose the billing type according to your needs.
+     * >
+     *
+     *   If you do not specify this parameter, Postpaid is used.
+     *
+     *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
+     *
      * @example Prepaid
      *
      * @var string
@@ -306,9 +318,9 @@ class CreateDBInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description IP whitelist.
+     * @description The IP address whitelist of the instance.
      *
-     * 127.0.0.1 indicates that no external IP addresses are allowed to access. You can modify the IP whitelist by calling the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) interface after the instance is created.
+     * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
      * @example 127.0.0.1
      *
      * @var string
@@ -316,13 +328,18 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @description ESSD cloud disk performance level. The values are as follows:
+     * @description The performance level of ESSDs. Valid values:
      *
-     * - **pl0**: PL0 level.
-     * - **pl1**: PL1 level.
-     * - **pl2**: PL2 level.
+     *   **pl0**
+     *   **pl1**
+     *   **pl2**
      *
-     * > - If not specified, it defaults to PL1 level.
+     * >
+     *
+     *   This parameter takes effect only when SegStorageType is set to cloud_essd.
+     *
+     *   If you do not specify this parameter, pl1 is used.
+     *
      * @example pl1
      *
      * @var string

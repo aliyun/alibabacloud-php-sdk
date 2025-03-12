@@ -30,7 +30,7 @@ class DescribeHadoopDataSourceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2361846.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest\relationalTableFilter;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest\sparseVector;
 use AlibabaCloud\Tea\Model;
 
 class QueryCollectionDataRequest extends Model
@@ -169,6 +170,11 @@ class QueryCollectionDataRequest extends Model
     public $relationalTableFilter;
 
     /**
+     * @var sparseVector
+     */
+    public $sparseVector;
+
+    /**
      * @description Set the number of top results to return.
      *
      * This parameter is required.
@@ -210,6 +216,7 @@ class QueryCollectionDataRequest extends Model
         'ownerId'               => 'OwnerId',
         'regionId'              => 'RegionId',
         'relationalTableFilter' => 'RelationalTableFilter',
+        'sparseVector'          => 'SparseVector',
         'topK'                  => 'TopK',
         'vector'                => 'Vector',
         'workspaceId'           => 'WorkspaceId',
@@ -269,6 +276,9 @@ class QueryCollectionDataRequest extends Model
         }
         if (null !== $this->relationalTableFilter) {
             $res['RelationalTableFilter'] = null !== $this->relationalTableFilter ? $this->relationalTableFilter->toMap() : null;
+        }
+        if (null !== $this->sparseVector) {
+            $res['SparseVector'] = null !== $this->sparseVector ? $this->sparseVector->toMap() : null;
         }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
@@ -338,6 +348,9 @@ class QueryCollectionDataRequest extends Model
         }
         if (isset($map['RelationalTableFilter'])) {
             $model->relationalTableFilter = relationalTableFilter::fromMap($map['RelationalTableFilter']);
+        }
+        if (isset($map['SparseVector'])) {
+            $model->sparseVector = sparseVector::fromMap($map['SparseVector']);
         }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];

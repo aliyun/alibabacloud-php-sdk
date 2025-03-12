@@ -101,6 +101,11 @@ class DescribeCollectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $sparseVectorMetrics;
+
+    /**
      * @description Indicates whether the request was successful. Valid values:
      *
      *   **success**
@@ -111,6 +116,11 @@ class DescribeCollectionResponseBody extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var bool
+     */
+    public $supportSparse;
     protected $_name = [
         'DBInstanceId'            => 'DBInstanceId',
         'dimension'               => 'Dimension',
@@ -122,7 +132,9 @@ class DescribeCollectionResponseBody extends Model
         'parser'                  => 'Parser',
         'regionId'                => 'RegionId',
         'requestId'               => 'RequestId',
+        'sparseVectorMetrics'     => 'SparseVectorMetrics',
         'status'                  => 'Status',
+        'supportSparse'           => 'SupportSparse',
     ];
 
     public function validate()
@@ -162,8 +174,14 @@ class DescribeCollectionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->sparseVectorMetrics) {
+            $res['SparseVectorMetrics'] = $this->sparseVectorMetrics;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->supportSparse) {
+            $res['SupportSparse'] = $this->supportSparse;
         }
 
         return $res;
@@ -207,8 +225,14 @@ class DescribeCollectionResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['SparseVectorMetrics'])) {
+            $model->sparseVectorMetrics = $map['SparseVectorMetrics'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SupportSparse'])) {
+            $model->supportSparse = $map['SupportSparse'];
         }
 
         return $model;

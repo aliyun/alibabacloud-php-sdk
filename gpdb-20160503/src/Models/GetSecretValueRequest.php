@@ -11,7 +11,7 @@ class GetSecretValueRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -52,12 +52,18 @@ class GetSecretValueRequest extends Model
      * @var string
      */
     public $secretName;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'ownerId'      => 'OwnerId',
         'regionId'     => 'RegionId',
         'secretArn'    => 'SecretArn',
         'secretName'   => 'SecretName',
+        'workspaceId'  => 'WorkspaceId',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class GetSecretValueRequest extends Model
         }
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class GetSecretValueRequest extends Model
         }
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

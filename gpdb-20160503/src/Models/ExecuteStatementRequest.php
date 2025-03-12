@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementRequest\ragWorkspaceCollection;
 use AlibabaCloud\Tea\Model;
 
 class ExecuteStatementRequest extends Model
@@ -11,7 +12,7 @@ class ExecuteStatementRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -39,6 +40,11 @@ class ExecuteStatementRequest extends Model
      * @var mixed[]
      */
     public $parameters;
+
+    /**
+     * @var ragWorkspaceCollection
+     */
+    public $ragWorkspaceCollection;
 
     /**
      * @description The region ID of the instance.
@@ -96,17 +102,24 @@ class ExecuteStatementRequest extends Model
      * @var string
      */
     public $statementName;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
-        'database'      => 'Database',
-        'ownerId'       => 'OwnerId',
-        'parameters'    => 'Parameters',
-        'regionId'      => 'RegionId',
-        'runType'       => 'RunType',
-        'secretArn'     => 'SecretArn',
-        'sql'           => 'Sql',
-        'sqls'          => 'Sqls',
-        'statementName' => 'StatementName',
+        'DBInstanceId'           => 'DBInstanceId',
+        'database'               => 'Database',
+        'ownerId'                => 'OwnerId',
+        'parameters'             => 'Parameters',
+        'ragWorkspaceCollection' => 'RagWorkspaceCollection',
+        'regionId'               => 'RegionId',
+        'runType'                => 'RunType',
+        'secretArn'              => 'SecretArn',
+        'sql'                    => 'Sql',
+        'sqls'                   => 'Sqls',
+        'statementName'          => 'StatementName',
+        'workspaceId'            => 'WorkspaceId',
     ];
 
     public function validate()
@@ -128,6 +141,9 @@ class ExecuteStatementRequest extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
+        if (null !== $this->ragWorkspaceCollection) {
+            $res['RagWorkspaceCollection'] = null !== $this->ragWorkspaceCollection ? $this->ragWorkspaceCollection->toMap() : null;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -145,6 +161,9 @@ class ExecuteStatementRequest extends Model
         }
         if (null !== $this->statementName) {
             $res['StatementName'] = $this->statementName;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -172,6 +191,9 @@ class ExecuteStatementRequest extends Model
                 $model->parameters = $map['Parameters'];
             }
         }
+        if (isset($map['RagWorkspaceCollection'])) {
+            $model->ragWorkspaceCollection = ragWorkspaceCollection::fromMap($map['RagWorkspaceCollection']);
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -191,6 +213,9 @@ class ExecuteStatementRequest extends Model
         }
         if (isset($map['StatementName'])) {
             $model->statementName = $map['StatementName'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

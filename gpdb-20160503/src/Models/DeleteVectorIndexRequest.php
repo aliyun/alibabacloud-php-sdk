@@ -74,6 +74,11 @@ class DeleteVectorIndexRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'collection'             => 'Collection',
         'DBInstanceId'           => 'DBInstanceId',
@@ -82,6 +87,7 @@ class DeleteVectorIndexRequest extends Model
         'namespace'              => 'Namespace',
         'ownerId'                => 'OwnerId',
         'regionId'               => 'RegionId',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -111,6 +117,9 @@ class DeleteVectorIndexRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -144,6 +153,9 @@ class DeleteVectorIndexRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

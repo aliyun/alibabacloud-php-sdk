@@ -168,6 +168,11 @@ class QueryCollectionDataShrinkRequest extends Model
     public $relationalTableFilterShrink;
 
     /**
+     * @var string
+     */
+    public $sparseVectorShrink;
+
+    /**
      * @description Set the number of top results to return.
      *
      * This parameter is required.
@@ -209,6 +214,7 @@ class QueryCollectionDataShrinkRequest extends Model
         'ownerId'                     => 'OwnerId',
         'regionId'                    => 'RegionId',
         'relationalTableFilterShrink' => 'RelationalTableFilter',
+        'sparseVectorShrink'          => 'SparseVector',
         'topK'                        => 'TopK',
         'vectorShrink'                => 'Vector',
         'workspaceId'                 => 'WorkspaceId',
@@ -268,6 +274,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (null !== $this->relationalTableFilterShrink) {
             $res['RelationalTableFilter'] = $this->relationalTableFilterShrink;
+        }
+        if (null !== $this->sparseVectorShrink) {
+            $res['SparseVector'] = $this->sparseVectorShrink;
         }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
@@ -337,6 +346,9 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (isset($map['RelationalTableFilter'])) {
             $model->relationalTableFilterShrink = $map['RelationalTableFilter'];
+        }
+        if (isset($map['SparseVector'])) {
+            $model->sparseVectorShrink = $map['SparseVector'];
         }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];

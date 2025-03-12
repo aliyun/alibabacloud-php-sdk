@@ -11,7 +11,7 @@ class ExecuteStatementShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
-     * This parameter is required.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -39,6 +39,11 @@ class ExecuteStatementShrinkRequest extends Model
      * @var string
      */
     public $parametersShrink;
+
+    /**
+     * @var string
+     */
+    public $ragWorkspaceCollectionShrink;
 
     /**
      * @description The region ID of the instance.
@@ -96,17 +101,24 @@ class ExecuteStatementShrinkRequest extends Model
      * @var string
      */
     public $statementName;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'database'         => 'Database',
-        'ownerId'          => 'OwnerId',
-        'parametersShrink' => 'Parameters',
-        'regionId'         => 'RegionId',
-        'runType'          => 'RunType',
-        'secretArn'        => 'SecretArn',
-        'sql'              => 'Sql',
-        'sqlsShrink'       => 'Sqls',
-        'statementName'    => 'StatementName',
+        'DBInstanceId'                 => 'DBInstanceId',
+        'database'                     => 'Database',
+        'ownerId'                      => 'OwnerId',
+        'parametersShrink'             => 'Parameters',
+        'ragWorkspaceCollectionShrink' => 'RagWorkspaceCollection',
+        'regionId'                     => 'RegionId',
+        'runType'                      => 'RunType',
+        'secretArn'                    => 'SecretArn',
+        'sql'                          => 'Sql',
+        'sqlsShrink'                   => 'Sqls',
+        'statementName'                => 'StatementName',
+        'workspaceId'                  => 'WorkspaceId',
     ];
 
     public function validate()
@@ -128,6 +140,9 @@ class ExecuteStatementShrinkRequest extends Model
         if (null !== $this->parametersShrink) {
             $res['Parameters'] = $this->parametersShrink;
         }
+        if (null !== $this->ragWorkspaceCollectionShrink) {
+            $res['RagWorkspaceCollection'] = $this->ragWorkspaceCollectionShrink;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -145,6 +160,9 @@ class ExecuteStatementShrinkRequest extends Model
         }
         if (null !== $this->statementName) {
             $res['StatementName'] = $this->statementName;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -170,6 +188,9 @@ class ExecuteStatementShrinkRequest extends Model
         if (isset($map['Parameters'])) {
             $model->parametersShrink = $map['Parameters'];
         }
+        if (isset($map['RagWorkspaceCollection'])) {
+            $model->ragWorkspaceCollectionShrink = $map['RagWorkspaceCollection'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -187,6 +208,9 @@ class ExecuteStatementShrinkRequest extends Model
         }
         if (isset($map['StatementName'])) {
             $model->statementName = $map['StatementName'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

@@ -29,7 +29,7 @@ class CreateVectorIndexRequest extends Model
 
     /**
      * @description Vector dimension.
-     * This parameter is required.
+     * > This value must be consistent with the length of the vector data (Rows. Vector) uploaded via the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) API.
      * @example 1024
      *
      * @var int
@@ -123,6 +123,11 @@ class CreateVectorIndexRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'collection'             => 'Collection',
         'DBInstanceId'           => 'DBInstanceId',
@@ -137,6 +142,7 @@ class CreateVectorIndexRequest extends Model
         'ownerId'                => 'OwnerId',
         'pqEnable'               => 'PqEnable',
         'regionId'               => 'RegionId',
+        'type'                   => 'Type',
     ];
 
     public function validate()
@@ -184,6 +190,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -235,6 +244,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
