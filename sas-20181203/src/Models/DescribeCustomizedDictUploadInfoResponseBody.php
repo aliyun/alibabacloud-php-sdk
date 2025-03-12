@@ -63,6 +63,11 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @description The OSS signature.
      *
      * @example mWGRgn0CtdbVf8UuJbTXOmo2****
@@ -71,13 +76,14 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'  => 'Accessid',
-        'expire'    => 'Expire',
-        'host'      => 'Host',
-        'key'       => 'Key',
-        'policy'    => 'Policy',
-        'requestId' => 'RequestId',
-        'signature' => 'Signature',
+        'accessid'      => 'Accessid',
+        'expire'        => 'Expire',
+        'host'          => 'Host',
+        'key'           => 'Key',
+        'policy'        => 'Policy',
+        'requestId'     => 'RequestId',
+        'securityToken' => 'SecurityToken',
+        'signature'     => 'Signature',
     ];
 
     public function validate()
@@ -104,6 +110,9 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
@@ -137,6 +146,9 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];

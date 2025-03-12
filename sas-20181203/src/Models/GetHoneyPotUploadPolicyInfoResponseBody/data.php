@@ -54,6 +54,11 @@ class data extends Model
     public $policy;
 
     /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @description The signature that is calculated based on **AccessKeySecret** and **Policy**. When you call an Object Storage Service (OSS) API operation, OSS uses the signature information to verify the POST request.
      *
      * @example wKPqlFneNTZPn52k2Rz9GTY*****
@@ -62,12 +67,13 @@ class data extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'  => 'Accessid',
-        'expire'    => 'Expire',
-        'host'      => 'Host',
-        'key'       => 'Key',
-        'policy'    => 'Policy',
-        'signature' => 'Signature',
+        'accessid'      => 'Accessid',
+        'expire'        => 'Expire',
+        'host'          => 'Host',
+        'key'           => 'Key',
+        'policy'        => 'Policy',
+        'securityToken' => 'SecurityToken',
+        'signature'     => 'Signature',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class data extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
@@ -121,6 +130,9 @@ class data extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
