@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class models extends Model
 {
     /**
+     * @example f1
+     *
+     * @var string
+     */
+    public $featureAliasName;
+
+    /**
      * @example 3
      *
      * @var string
@@ -22,8 +29,9 @@ class models extends Model
      */
     public $modelName;
     protected $_name = [
-        'modelId'   => 'ModelId',
-        'modelName' => 'ModelName',
+        'featureAliasName' => 'FeatureAliasName',
+        'modelId'          => 'ModelId',
+        'modelName'        => 'ModelName',
     ];
 
     public function validate()
@@ -33,6 +41,9 @@ class models extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->featureAliasName) {
+            $res['FeatureAliasName'] = $this->featureAliasName;
+        }
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
@@ -51,6 +62,9 @@ class models extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FeatureAliasName'])) {
+            $model->featureAliasName = $map['FeatureAliasName'];
+        }
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }

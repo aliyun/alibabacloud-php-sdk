@@ -1,3 +1,7 @@
+2025-03-12 Version: 3.0.3
+- Update API ListFeatureViewFieldRelationships: update response param.
+
+
 2024-12-19 Version: 3.0.2
 - Generated php 2023-06-21 for PaiFeatureStore.
 
