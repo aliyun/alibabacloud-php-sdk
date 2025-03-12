@@ -6,19 +6,12 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateRenderingDataPackageRequest extends Model
+class RefreshRenderingInstanceStreamingShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @example testdescription
-     *
-     * @var string
-     */
-    public $description;
+    public $clientInfoShrink;
 
     /**
      * @description This parameter is required.
@@ -29,8 +22,7 @@ class CreateRenderingDataPackageRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'category'            => 'Category',
-        'description'         => 'Description',
+        'clientInfoShrink'    => 'ClientInfo',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
@@ -41,11 +33,8 @@ class CreateRenderingDataPackageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->clientInfoShrink) {
+            $res['ClientInfo'] = $this->clientInfoShrink;
         }
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
@@ -57,16 +46,13 @@ class CreateRenderingDataPackageRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateRenderingDataPackageRequest
+     * @return RefreshRenderingInstanceStreamingShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ClientInfo'])) {
+            $model->clientInfoShrink = $map['ClientInfo'];
         }
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];

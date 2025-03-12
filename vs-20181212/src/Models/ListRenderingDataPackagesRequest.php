@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListRenderingDataPackagesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @example dp-449ea3d16c0841b8bf33ec5bbc86a152
      *
      * @var string
@@ -43,6 +48,7 @@ class ListRenderingDataPackagesRequest extends Model
      */
     public $status;
     protected $_name = [
+        'category'      => 'Category',
         'dataPackageId' => 'DataPackageId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
@@ -57,6 +63,9 @@ class ListRenderingDataPackagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->dataPackageId) {
             $res['DataPackageId'] = $this->dataPackageId;
         }
@@ -84,6 +93,9 @@ class ListRenderingDataPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['DataPackageId'])) {
             $model->dataPackageId = $map['DataPackageId'];
         }

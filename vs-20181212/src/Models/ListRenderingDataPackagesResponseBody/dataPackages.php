@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dataPackages extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @example 2024-10-15T10:23:06+08:00
      *
      * @var string
@@ -57,6 +62,7 @@ class dataPackages extends Model
      */
     public $updateTime;
     protected $_name = [
+        'category'            => 'Category',
         'creationTime'        => 'CreationTime',
         'dataPackageId'       => 'DataPackageId',
         'description'         => 'Description',
@@ -73,6 +79,9 @@ class dataPackages extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -106,6 +115,9 @@ class dataPackages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }

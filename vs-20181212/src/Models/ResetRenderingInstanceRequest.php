@@ -6,19 +6,19 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateRenderingDataPackageRequest extends Model
+class ResetRenderingInstanceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $category;
-
-    /**
-     * @example testdescription
+     * @example Reset
      *
      * @var string
      */
-    public $description;
+    public $actionName;
+
+    /**
+     * @var string
+     */
+    public $dataPackageId;
 
     /**
      * @description This parameter is required.
@@ -29,8 +29,8 @@ class CreateRenderingDataPackageRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'category'            => 'Category',
-        'description'         => 'Description',
+        'actionName'          => 'ActionName',
+        'dataPackageId'       => 'DataPackageId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
@@ -41,11 +41,11 @@ class CreateRenderingDataPackageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->actionName) {
+            $res['ActionName'] = $this->actionName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->dataPackageId) {
+            $res['DataPackageId'] = $this->dataPackageId;
         }
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
@@ -57,16 +57,16 @@ class CreateRenderingDataPackageRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateRenderingDataPackageRequest
+     * @return ResetRenderingInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['ActionName'])) {
+            $model->actionName = $map['ActionName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['DataPackageId'])) {
+            $model->dataPackageId = $map['DataPackageId'];
         }
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
