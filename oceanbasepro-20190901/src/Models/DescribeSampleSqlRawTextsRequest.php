@@ -18,6 +18,11 @@ class DescribeSampleSqlRawTextsRequest extends Model
     public $dbName;
 
     /**
+     * @var bool
+     */
+    public $dynamicSql;
+
+    /**
      * @description This parameter is required.
      *
      * @example 2023-04-12T05:38:38Z
@@ -74,6 +79,7 @@ class DescribeSampleSqlRawTextsRequest extends Model
     public $traceId;
     protected $_name = [
         'dbName'     => 'DbName',
+        'dynamicSql' => 'DynamicSql',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'limit'      => 'Limit',
@@ -92,6 +98,9 @@ class DescribeSampleSqlRawTextsRequest extends Model
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
+        }
+        if (null !== $this->dynamicSql) {
+            $res['DynamicSql'] = $this->dynamicSql;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -128,6 +137,9 @@ class DescribeSampleSqlRawTextsRequest extends Model
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
+        }
+        if (isset($map['DynamicSql'])) {
+            $model->dynamicSql = $map['DynamicSql'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

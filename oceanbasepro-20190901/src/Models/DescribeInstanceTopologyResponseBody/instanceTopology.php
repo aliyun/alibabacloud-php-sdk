@@ -12,19 +12,21 @@ use AlibabaCloud\Tea\Model;
 class instanceTopology extends Model
 {
     /**
+     * @description The information about replicas.
+     *
      * @var replicas[]
      */
     public $replicas;
 
     /**
-     * @description The total number of CPU cores for the node.
+     * @description The information about the tenants.
      *
      * @var tenants[]
      */
     public $tenants;
 
     /**
-     * @description The information about resource units.
+     * @description The information about the zones in which the cluster is deployed.
      *
      * @var zones[]
      */

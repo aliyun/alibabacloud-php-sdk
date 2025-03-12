@@ -14,40 +14,42 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The information about capacity units.
+     *
      * @var capacityUnit
      */
     public $capacityUnit;
 
     /**
-     * @description The information of the OceanBase cluster.
+     * @description The information about the CPU resources of the cluster.
      *
      * @var cpu
      */
     public $cpu;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The information about the storage resources of the cluster.
+     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
-     * @description The server with the highest disk usage.
+     * @description The information about the log disk space of the cluster.
      *
      * @var logDiskSize
      */
     public $logDiskSize;
 
     /**
-     * @description The name of the OceanBase cluster.
+     * @description The information about the memory resources of the cluster.
      *
      * @var memory
      */
     public $memory;
 
     /**
-     * @description The number of CPU cores used in the cluster.
+     * @description The number of resource units in the cluster.
      *
      * @example 1
      *

@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The information about the nodes.
      *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description The zone information of the cluster.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class zones extends Model
     public $region;
 
     /**
-     * @description The information about the memory resources of the node.
+     * @description The storage capacity of the zone.
      *
      * @example 200 GB
      *
@@ -36,7 +36,7 @@ class zones extends Model
     public $zoneDisk;
 
     /**
-     * @description The information of the tenant.
+     * @description The ID of the zone.
      *
      * @example cn-hangzhou-i
      *
@@ -45,7 +45,7 @@ class zones extends Model
     public $zoneId;
 
     /**
-     * @description Example 1
+     * @description The information about zones.
      *
      * @var zoneResource
      */

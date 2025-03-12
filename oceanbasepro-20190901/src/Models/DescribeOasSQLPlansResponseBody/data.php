@@ -74,11 +74,21 @@ class data extends Model
     public $mergedVersion;
 
     /**
+     * @description The ID of the outline used by the execution plan.
+     *
+     * @example 3********
+     *
      * @var string
      */
     public $outlineId;
 
     /**
+     * @description The outline status of the execution plan. Valid values:
+     * **Effective**: indicates that the outline_data and outlIne_content fields exactly match with each other.
+     * **Unknown**: indicates that the outline status is unknown.
+     *
+     * @example Effective
+     *
      * @var string
      */
     public $outlineStatus;
@@ -134,6 +144,10 @@ class data extends Model
     public $querySql;
 
     /**
+     * @description Indicates whether full table scan is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $tableScan;

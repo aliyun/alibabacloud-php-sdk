@@ -27,6 +27,13 @@ class CreateTenantUserRequest extends Model
     public $encryptionType;
 
     /**
+     * @example Encrypt,Decrypt
+     *
+     * @var string
+     */
+    public $globalPermissions;
+
+    /**
      * @description The ID of the OceanBase cluster.
      *
      * This parameter is required.
@@ -85,14 +92,15 @@ class CreateTenantUserRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'description'    => 'Description',
-        'encryptionType' => 'EncryptionType',
-        'instanceId'     => 'InstanceId',
-        'roles'          => 'Roles',
-        'tenantId'       => 'TenantId',
-        'userName'       => 'UserName',
-        'userPassword'   => 'UserPassword',
-        'userType'       => 'UserType',
+        'description'       => 'Description',
+        'encryptionType'    => 'EncryptionType',
+        'globalPermissions' => 'GlobalPermissions',
+        'instanceId'        => 'InstanceId',
+        'roles'             => 'Roles',
+        'tenantId'          => 'TenantId',
+        'userName'          => 'UserName',
+        'userPassword'      => 'UserPassword',
+        'userType'          => 'UserType',
     ];
 
     public function validate()
@@ -107,6 +115,9 @@ class CreateTenantUserRequest extends Model
         }
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
+        }
+        if (null !== $this->globalPermissions) {
+            $res['GlobalPermissions'] = $this->globalPermissions;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -143,6 +154,9 @@ class CreateTenantUserRequest extends Model
         }
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
+        }
+        if (isset($map['GlobalPermissions'])) {
+            $model->globalPermissions = $map['GlobalPermissions'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -9,76 +9,139 @@ use AlibabaCloud\Tea\Model;
 class allProcessList extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
+     * @example xx.xx.xx.xx
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @description The type of the SQL statement being executed in the session.
+     *
+     * @example Query
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @description The CPU time spent on executing the current SQL statement, in seconds.
+     *
+     * > This parameter is introduced since OceanBase Database V3.2.4 BP5.
+     * @example 1
+     *
      * @var int
      */
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example c1
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The definition of this parameter varies based on whether the SQL statement is executed.
+     * When the request is accepted and the result is not returned to the client, this parameter indicates the time interval between the time when the request is accepted and the current time, in seconds.
+     * When the request is not accepted, this parameter indicates the duration for which the current status lasts, in seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $executeTime;
 
     /**
+     * @description The ID of the execution plan.
+     *
+     * @example 1898
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @description The session ID of the client. If an OceanBase Database Proxy (ODP) is used for connection, the session ID of the ODP is returned.
+     *
+     * @example 7521015416********
+     *
      * @var string
      */
     public $proxySessId;
 
     /**
+     * @description The IP address of the server.
+     *
+     * @example xx.xx.xx.xx
+     *
      * @var string
      */
     public $serverIp;
 
     /**
+     * @description The ID of the session.
+     *
+     * @example 322441****
+     *
      * @var int
      */
     public $sessionId;
 
     /**
+     * @description The ID of the SQL statement.
+     *
+     * @example 45CCBDC7DEBDCDAXXXXAFC********
+     *
      * @var string
      */
     public $sqlId;
 
     /**
+     * @description The SQL text.
+     *
+     * @example select * from c1 where id = 100;
+     *
      * @var string
      */
     public $sqlText;
 
     /**
+     * @description The status of the session.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example test_mysql
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description The ID of the trace.
+     *
+     * @example YB420XXX128-00062XXXX8313XXX1-X-X
+     *
      * @var string
      */
     public $traceId;
 
     /**
+     * @description The user to which the session belongs.
+     *
+     * @example test_user
+     *
      * @var string
      */
     public $user;

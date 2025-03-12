@@ -14,31 +14,45 @@ use AlibabaCloud\Tea\Model;
 class readOnlyResource extends Model
 {
     /**
+     * @description The information about capacity units.
+     *
      * @var capacityUnit
      */
     public $capacityUnit;
 
     /**
+     * @description The number of CPU cores of each replica node in the cluster.
+     *
      * @var cpu
      */
     public $cpu;
 
     /**
+     * @description The size of the data disk.
+     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
+     * @description The information about the log disk resources of the tenant.
+     *
      * @var logDiskSize
      */
     public $logDiskSize;
 
     /**
+     * @description The information about the memory resources of the cluster.
+     *
      * @var memory
      */
     public $memory;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $unitNum;

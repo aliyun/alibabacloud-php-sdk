@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
+     * @description The total memory size of the node, in GB.
+     *
      * @example 70
      *
      * @var int
@@ -16,6 +18,8 @@ class memory extends Model
     public $totalMemory;
 
     /**
+     * @description The size of memory used by the node, in GB.
+     *
      * @example 10
      *
      * @var float

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backupSets extends Model
 {
     /**
+     * @description The ID of the full backup set used for restore.
+     *
      * @example bak-4n****gacpa8
      *
      * @var string
@@ -16,6 +18,8 @@ class backupSets extends Model
     public $backupSetId;
 
     /**
+     * @description The checkpoint of the backup set.
+     *
      * @example 2024-01-01\\"T\\"12:10:10.000\\"Z\\"
      *
      * @var string
@@ -23,6 +27,8 @@ class backupSets extends Model
     public $checkpoint;
 
     /**
+     * @description The ID of the backup set.
+     *
      * @example bak-xxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class backupSets extends Model
     public $setId;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t5********
      *
      * @var string

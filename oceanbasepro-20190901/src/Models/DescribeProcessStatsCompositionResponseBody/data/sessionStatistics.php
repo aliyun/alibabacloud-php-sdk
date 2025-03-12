@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class sessionStatistics extends Model
 {
     /**
+     * @description The session data in the database dimension.
+     *
      * @var dataBaseStatistics[]
      */
     public $dataBaseStatistics;
 
     /**
+     * @description The session data in the client dimension.
+     *
      * @var sourceStatistics[]
      */
     public $sourceStatistics;
 
     /**
+     * @description The session data in the user dimension.
+     *
      * @var userStatistics[]
      */
     public $userStatistics;

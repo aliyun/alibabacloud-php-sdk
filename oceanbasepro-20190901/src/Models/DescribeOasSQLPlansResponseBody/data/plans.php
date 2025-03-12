@@ -288,6 +288,10 @@ class plans extends Model
     public $serverId;
 
     /**
+     * @description SQL ID.
+     *
+     * @example 46939C87ECA****95ED0FF64F44B****
+     *
      * @var string
      */
     public $sqlId;

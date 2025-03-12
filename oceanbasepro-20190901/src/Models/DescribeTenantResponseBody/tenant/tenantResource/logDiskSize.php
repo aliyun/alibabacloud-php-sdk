@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class logDiskSize extends Model
 {
     /**
+     * @description The total size of log disk of the tenant, in GB.
+     *
+     * @example 8.0
+     *
      * @var int
      */
     public $totalLogDisk;
 
     /**
+     * @description The log disk size of each resource unit of the tenant, in GB.
+     *
+     * @example 8.0
+     *
      * @var int
      */
     public $unitLogDisk;

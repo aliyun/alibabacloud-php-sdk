@@ -83,7 +83,7 @@ class instances extends Model
      *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $diskSize;
 
@@ -205,6 +205,10 @@ class instances extends Model
     public $mem;
 
     /**
+     * @description The version of the OceanBase Database RedHat Package Managerment (RPM) package.
+     *
+     * @example 4.2.1.7-107030032024062709
+     *
      * @var string
      */
     public $obRpmVersion;
@@ -217,6 +221,13 @@ class instances extends Model
      * @var string
      */
     public $payType;
+
+    /**
+     * @example 3F、2F1A
+     *
+     * @var string
+     */
+    public $replicaMode;
 
     /**
      * @description The information about cluster resources.
@@ -244,6 +255,10 @@ class instances extends Model
     public $series;
 
     /**
+     * @description The specification type.
+     *
+     * @example dedicatedspec
+     *
      * @var string
      */
     public $specType;
@@ -308,6 +323,7 @@ class instances extends Model
         'mem'                             => 'Mem',
         'obRpmVersion'                    => 'ObRpmVersion',
         'payType'                         => 'PayType',
+        'replicaMode'                     => 'ReplicaMode',
         'resource'                        => 'Resource',
         'resourceGroupId'                 => 'ResourceGroupId',
         'series'                          => 'Series',
@@ -396,6 +412,9 @@ class instances extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->replicaMode) {
+            $res['ReplicaMode'] = $this->replicaMode;
         }
         if (null !== $this->resource) {
             $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
@@ -506,6 +525,9 @@ class instances extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['ReplicaMode'])) {
+            $model->replicaMode = $map['ReplicaMode'];
         }
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);

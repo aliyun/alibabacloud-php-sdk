@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class replicaResource extends Model
 {
     /**
+     * @description The information about the CPU resources of the replica.
+     *
      * @var cpu
      */
     public $cpu;
 
     /**
+     * @description The information about the data disk of the replica.
+     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
+     * @description The information about the memory resources of the replica.
+     *
      * @var memory
      */
     public $memory;

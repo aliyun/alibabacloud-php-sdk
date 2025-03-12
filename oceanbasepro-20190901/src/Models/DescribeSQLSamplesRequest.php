@@ -37,6 +37,10 @@ class DescribeSQLSamplesRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether to return the SQL text.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $returnSqlText;

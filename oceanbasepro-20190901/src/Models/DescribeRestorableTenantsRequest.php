@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestorableTenantsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether the target cluster is online. **Note** This parameter is used for compatibility with earlier versions and can be left empty. When left empty, it specifies negation for the value of `isRemote`.
+     *
      * @example true
      *
      * @var bool
@@ -25,6 +28,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $isOnline;
 
     /**
+     * @description This parameter is provided for compatibility with earlier versions and can be left empty.
+     *
      * @example true
      *
      * @var bool
@@ -32,6 +37,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $isRemote;
 
     /**
+     * @description The backup method.
+     *
      * @example native_logical
      *
      * @var string
@@ -39,6 +46,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $method;
 
     /**
+     * @description The restore method. This parameter is required when `IsRemote` is set to `true`, and is optional otherwise.
+     *
      * @example from_time_point
      *
      * @var string
@@ -46,6 +55,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $restoreMode;
 
     /**
+     * @description The type of the restore object.
+     *
      * @example tenant
      *
      * @var string
@@ -53,6 +64,8 @@ class DescribeRestorableTenantsRequest extends Model
     public $restoreObjectType;
 
     /**
+     * @description The ID of the backup set.
+     *
      * @example bak-xxxxx
      *
      * @var string

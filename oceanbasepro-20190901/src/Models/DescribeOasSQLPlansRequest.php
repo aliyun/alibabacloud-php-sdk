@@ -28,6 +28,10 @@ class DescribeOasSQLPlansRequest extends Model
     public $dbName;
 
     /**
+     * @description Specifies whether the SQL statement is dynamic.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dynamicSql;
@@ -52,11 +56,19 @@ class DescribeOasSQLPlansRequest extends Model
     public $instanceId;
 
     /**
+     * @description The unique identifier of the execution plan.
+     *
+     * @example c4e9aaa797428df9a5a41828********
+     *
      * @var string
      */
     public $planUnionHash;
 
     /**
+     * @description Specifies whether to return an overview of the execution plan.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $returnBriefInfo;

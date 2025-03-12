@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class tenantUser extends Model
 {
     /**
+     * @example Encrypt,Decrypt
+     *
+     * @var string
+     */
+    public $globalPermissions;
+
+    /**
      * @var roles[]
      */
     public $roles;
@@ -33,10 +40,11 @@ class tenantUser extends Model
      */
     public $userType;
     protected $_name = [
-        'roles'      => 'Roles',
-        'userName'   => 'UserName',
-        'userStatus' => 'UserStatus',
-        'userType'   => 'UserType',
+        'globalPermissions' => 'GlobalPermissions',
+        'roles'             => 'Roles',
+        'userName'          => 'UserName',
+        'userStatus'        => 'UserStatus',
+        'userType'          => 'UserType',
     ];
 
     public function validate()
@@ -46,6 +54,9 @@ class tenantUser extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->globalPermissions) {
+            $res['GlobalPermissions'] = $this->globalPermissions;
+        }
         if (null !== $this->roles) {
             $res['Roles'] = [];
             if (null !== $this->roles && \is_array($this->roles)) {
@@ -76,6 +87,9 @@ class tenantUser extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GlobalPermissions'])) {
+            $model->globalPermissions = $map['GlobalPermissions'];
+        }
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];

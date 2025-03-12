@@ -30,6 +30,26 @@ class fullTransferConfig extends Model
     public $fullVerifySpeedMode;
 
     /**
+     * @var string
+     */
+    public $hbaseObjCheckMode;
+
+    /**
+     * @var string
+     */
+    public $hbaseObjMigMode;
+
+    /**
+     * @var int
+     */
+    public $indexDDLConcurrencyLimit;
+
+    /**
+     * @var int
+     */
+    public $maxConcurrentIndexDDLs;
+
+    /**
      * @example true
      *
      * @var bool
@@ -59,6 +79,10 @@ class fullTransferConfig extends Model
         'allowDestTableNotEmpty'   => 'AllowDestTableNotEmpty',
         'fullTransferSpeedMode'    => 'FullTransferSpeedMode',
         'fullVerifySpeedMode'      => 'FullVerifySpeedMode',
+        'hbaseObjCheckMode'        => 'HbaseObjCheckMode',
+        'hbaseObjMigMode'          => 'HbaseObjMigMode',
+        'indexDDLConcurrencyLimit' => 'IndexDDLConcurrencyLimit',
+        'maxConcurrentIndexDDLs'   => 'MaxConcurrentIndexDDLs',
         'nonePkUkTruncateDstTable' => 'NonePkUkTruncateDstTable',
         'readWorkerNum'            => 'ReadWorkerNum',
         'throttleIOPS'             => 'ThrottleIOPS',
@@ -81,6 +105,18 @@ class fullTransferConfig extends Model
         }
         if (null !== $this->fullVerifySpeedMode) {
             $res['FullVerifySpeedMode'] = $this->fullVerifySpeedMode;
+        }
+        if (null !== $this->hbaseObjCheckMode) {
+            $res['HbaseObjCheckMode'] = $this->hbaseObjCheckMode;
+        }
+        if (null !== $this->hbaseObjMigMode) {
+            $res['HbaseObjMigMode'] = $this->hbaseObjMigMode;
+        }
+        if (null !== $this->indexDDLConcurrencyLimit) {
+            $res['IndexDDLConcurrencyLimit'] = $this->indexDDLConcurrencyLimit;
+        }
+        if (null !== $this->maxConcurrentIndexDDLs) {
+            $res['MaxConcurrentIndexDDLs'] = $this->maxConcurrentIndexDDLs;
         }
         if (null !== $this->nonePkUkTruncateDstTable) {
             $res['NonePkUkTruncateDstTable'] = $this->nonePkUkTruncateDstTable;
@@ -117,6 +153,18 @@ class fullTransferConfig extends Model
         }
         if (isset($map['FullVerifySpeedMode'])) {
             $model->fullVerifySpeedMode = $map['FullVerifySpeedMode'];
+        }
+        if (isset($map['HbaseObjCheckMode'])) {
+            $model->hbaseObjCheckMode = $map['HbaseObjCheckMode'];
+        }
+        if (isset($map['HbaseObjMigMode'])) {
+            $model->hbaseObjMigMode = $map['HbaseObjMigMode'];
+        }
+        if (isset($map['IndexDDLConcurrencyLimit'])) {
+            $model->indexDDLConcurrencyLimit = $map['IndexDDLConcurrencyLimit'];
+        }
+        if (isset($map['MaxConcurrentIndexDDLs'])) {
+            $model->maxConcurrentIndexDDLs = $map['MaxConcurrentIndexDDLs'];
         }
         if (isset($map['NonePkUkTruncateDstTable'])) {
             $model->nonePkUkTruncateDstTable = $map['NonePkUkTruncateDstTable'];

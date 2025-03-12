@@ -37,7 +37,7 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $serverIp;
 
     /**
-     * @description The SQL statement. It supports LIKE clauses, and you may specify only part of the clauses in the SQL statement.
+     * @description The SQL statement, which can contain LIKE clauses. You can specify only part of the clauses in the SQL statement.
      *
      * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
      *
@@ -46,7 +46,7 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $sqlText;
 
     /**
-     * @description The state of the session.
+     * @description The status of the session.
      *
      * @example ACTIVE
      *
@@ -64,7 +64,7 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $tenantId;
 
     /**
-     * @description The user identifier (UID) of OceanBase Database.
+     * @description The user identifier (UID) of the OceanBase database.
      *
      * @example 139*************
      *
@@ -73,9 +73,9 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $UId;
 
     /**
-     * @description The username that you use to log in to the database.
+     * @description The username of the database.
      *
-     * @example test1
+     * @example ["test_user"]
      *
      * @var string
      */

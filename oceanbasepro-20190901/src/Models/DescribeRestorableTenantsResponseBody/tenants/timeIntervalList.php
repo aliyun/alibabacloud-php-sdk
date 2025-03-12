@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timeIntervalList extends Model
 {
     /**
+     * @description The end time of the restorable period.
+     *
      * @example 2023-03-13T02:43:03Z
      *
      * @var string
@@ -16,6 +18,8 @@ class timeIntervalList extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether the restore is based on archiving.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class timeIntervalList extends Model
     public $fromArchive;
 
     /**
+     * @description The start time of the restorable period.
+     *
      * @example 2023-01-20T16:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class timeIntervalList extends Model
     public $startTime;
 
     /**
+     * @description The storage type of backup data.
+     *
      * @example standard
      *
      * @var string

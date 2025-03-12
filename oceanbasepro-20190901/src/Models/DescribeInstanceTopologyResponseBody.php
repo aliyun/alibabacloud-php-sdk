@@ -10,16 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTopologyResponseBody extends Model
 {
     /**
-     * @description The number of CPU cores used by the node.
+     * @description The topology of the cluster.
      *
      * @var instanceTopology
      */
     public $instanceTopology;
 
     /**
-     * @description The information about the CPU resources of the node.
+     * @description The ID of the request.
      *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
+     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
      */

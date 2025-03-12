@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\transferMapping\databases;
 
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\transferMapping\databases\tables\adbTableSchema;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\transferMapping\databases\tables\obkvPartitionConfig;
 use AlibabaCloud\Tea\Model;
 
 class tables extends Model
@@ -41,6 +42,11 @@ class tables extends Model
     public $name;
 
     /**
+     * @var obkvPartitionConfig
+     */
+    public $obkvPartitionConfig;
+
+    /**
      * @var string[]
      */
     public $shardColumns;
@@ -52,13 +58,14 @@ class tables extends Model
      */
     public $whereClause;
     protected $_name = [
-        'adbTableSchema' => 'AdbTableSchema',
-        'filterColumns'  => 'FilterColumns',
-        'id'             => 'Id',
-        'mappedName'     => 'MappedName',
-        'name'           => 'Name',
-        'shardColumns'   => 'ShardColumns',
-        'whereClause'    => 'WhereClause',
+        'adbTableSchema'      => 'AdbTableSchema',
+        'filterColumns'       => 'FilterColumns',
+        'id'                  => 'Id',
+        'mappedName'          => 'MappedName',
+        'name'                => 'Name',
+        'obkvPartitionConfig' => 'ObkvPartitionConfig',
+        'shardColumns'        => 'ShardColumns',
+        'whereClause'         => 'WhereClause',
     ];
 
     public function validate()
@@ -82,6 +89,9 @@ class tables extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->obkvPartitionConfig) {
+            $res['ObkvPartitionConfig'] = null !== $this->obkvPartitionConfig ? $this->obkvPartitionConfig->toMap() : null;
         }
         if (null !== $this->shardColumns) {
             $res['ShardColumns'] = $this->shardColumns;
@@ -117,6 +127,9 @@ class tables extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ObkvPartitionConfig'])) {
+            $model->obkvPartitionConfig = obkvPartitionConfig::fromMap($map['ObkvPartitionConfig']);
         }
         if (isset($map['ShardColumns'])) {
             if (!empty($map['ShardColumns'])) {

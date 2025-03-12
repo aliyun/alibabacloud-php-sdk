@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The total storage space of the node, in GB.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $totalDiskSize;
 
     /**
+     * @description The size of storage space used by the node, in GB.
+     *
+     * @example 50
+     *
      * @var float
      */
     public $usedDiskSize;

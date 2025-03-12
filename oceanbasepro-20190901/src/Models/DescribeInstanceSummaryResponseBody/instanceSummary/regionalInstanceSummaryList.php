@@ -9,27 +9,35 @@ use AlibabaCloud\Tea\Model;
 class regionalInstanceSummaryList extends Model
 {
     /**
+     * @description The number of expired instances.
+     *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $expiredInstancesCount;
 
     /**
+     * @description The number of instances about to expire.
+     *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $immediatelyExpiredInstancesCount;
 
     /**
+     * @description The number of recently created instances.
+     *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $recentCreatedInstancesCount;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,16 +45,20 @@ class regionalInstanceSummaryList extends Model
     public $region;
 
     /**
+     * @description The total number of running instances.
+     *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $runningInstancesCount;
 
     /**
+     * @description The total number of instances.
+     *
      * @example 3
      *
-     * @var string
+     * @var int
      */
     public $totalInstancesCount;
     protected $_name = [

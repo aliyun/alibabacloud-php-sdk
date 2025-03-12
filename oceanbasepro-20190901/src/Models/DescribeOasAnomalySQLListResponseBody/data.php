@@ -19,6 +19,10 @@ class data extends Model
     public $avgCpuTime;
 
     /**
+     * @description The average DB time.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $avgDbTime;
@@ -42,11 +46,19 @@ class data extends Model
     public $avgGetPlanTime;
 
     /**
+     * @description The average number of logical reads.
+     *
+     * @example 25
+     *
      * @var float
      */
     public $avgLogicalReads;
 
     /**
+     * @description The average number of retries.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $avgRetryCount;
@@ -79,11 +91,17 @@ class data extends Model
     /**
      * @description The details of diagnosis.
      *
+     * @example -
+     *
      * @var string
      */
     public $diagnosis;
 
     /**
+     * @description 是否动态SQL
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dynamicSql;
@@ -125,6 +143,8 @@ class data extends Model
     public $sqlId;
 
     /**
+     * @description The list of SQL statements.
+     *
      * @var sqlList[]
      */
     public $sqlList;
@@ -146,6 +166,10 @@ class data extends Model
     public $suggestion;
 
     /**
+     * @description The total DB time.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $sumDbTime;
@@ -160,6 +184,10 @@ class data extends Model
     public $sumElapsedTime;
 
     /**
+     * @description The total number of retries.
+     *
+     * @example 6
+     *
      * @var float
      */
     public $sumRetryCount;

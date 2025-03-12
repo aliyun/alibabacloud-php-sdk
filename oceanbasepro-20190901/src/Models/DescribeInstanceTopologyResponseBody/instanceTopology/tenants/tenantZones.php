@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
-     * @description The maximum disk usage, in percentage.
+     * @description Indicates whether the zone is the primary zone.
      *
      * @example true
      *
@@ -19,17 +19,34 @@ class tenantZones extends Model
     public $isPrimaryTenantZone;
 
     /**
+     * @description The ID of the replica.
+     *
+     * @example cn-hangzhou-h-z0
+     *
      * @var string
      */
     public $logicalZone;
 
     /**
+     * @description The type of the read-only replica.
+     *
+     * @example ROW_STORE
+     *
+     * @var string
+     */
+    public $readOnlyReplicaType;
+
+    /**
+     * @description The replica type of the tenant.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $replicaType;
 
     /**
-     * @description The server with the highest disk usage.
+     * @description The ID of the zone.
      *
      * @example cn-hangzhou-h
      *
@@ -38,7 +55,9 @@ class tenantZones extends Model
     public $tenantZoneId;
 
     /**
-     * @description The information of zones.
+     * @description The role to access the zone. Valid values:
+     * ReadWrite: a role that has the read and write privileges.
+     * ReadOnly: a role that has only the read-only privilege.
      *
      * @example ReadWrite
      *
@@ -47,7 +66,7 @@ class tenantZones extends Model
     public $tenantZoneRole;
 
     /**
-     * @description The information about the storage resources.
+     * @description The information about the resource units.
      *
      * @var units[]
      */
@@ -55,6 +74,7 @@ class tenantZones extends Model
     protected $_name = [
         'isPrimaryTenantZone' => 'IsPrimaryTenantZone',
         'logicalZone'         => 'LogicalZone',
+        'readOnlyReplicaType' => 'ReadOnlyReplicaType',
         'replicaType'         => 'ReplicaType',
         'tenantZoneId'        => 'TenantZoneId',
         'tenantZoneRole'      => 'TenantZoneRole',
@@ -73,6 +93,9 @@ class tenantZones extends Model
         }
         if (null !== $this->logicalZone) {
             $res['LogicalZone'] = $this->logicalZone;
+        }
+        if (null !== $this->readOnlyReplicaType) {
+            $res['ReadOnlyReplicaType'] = $this->readOnlyReplicaType;
         }
         if (null !== $this->replicaType) {
             $res['ReplicaType'] = $this->replicaType;
@@ -109,6 +132,9 @@ class tenantZones extends Model
         }
         if (isset($map['LogicalZone'])) {
             $model->logicalZone = $map['LogicalZone'];
+        }
+        if (isset($map['ReadOnlyReplicaType'])) {
+            $model->readOnlyReplicaType = $map['ReadOnlyReplicaType'];
         }
         if (isset($map['ReplicaType'])) {
             $model->replicaType = $map['ReplicaType'];

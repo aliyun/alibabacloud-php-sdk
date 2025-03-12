@@ -10,17 +10,25 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the full-featured replica.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $fullCopyId;
 
     /**
+     * @description The ID of the replica.
+     *
+     * @example cn-hangzhou-h-z0
+     *
      * @var string
      */
     public $logicalZone;
 
     /**
-     * @description The information of zones.
+     * @description The ID of the replica node.
      *
      * @example 1
      *
@@ -29,7 +37,7 @@ class nodes extends Model
     public $nodeCopyId;
 
     /**
-     * @description The ID of the resource unit.
+     * @description The ID of the node.
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -38,14 +46,14 @@ class nodes extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the node.
+     * @description The information about node resources.
      *
      * @var nodeResource
      */
     public $nodeResource;
 
     /**
-     * @description The ID of the OBServer where the resource unit resides.
+     * @description The status of the node.
      *
      * @example ONLINE
      *
@@ -54,23 +62,43 @@ class nodes extends Model
     public $nodeStatus;
 
     /**
+     * @description The ID of the read-only replica.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $readOnlyCopyId;
 
     /**
+     * @description The type of the read-only replica.
+     *
+     * @example ROW_STORE
+     *
+     * @var string
+     */
+    public $readOnlyReplicaType;
+
+    /**
+     * @description The type of the replica. Valid values:
+     * FULL.
+     * READONLY.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $replicaType;
     protected $_name = [
-        'fullCopyId'     => 'FullCopyId',
-        'logicalZone'    => 'LogicalZone',
-        'nodeCopyId'     => 'NodeCopyId',
-        'nodeId'         => 'NodeId',
-        'nodeResource'   => 'NodeResource',
-        'nodeStatus'     => 'NodeStatus',
-        'readOnlyCopyId' => 'ReadOnlyCopyId',
-        'replicaType'    => 'ReplicaType',
+        'fullCopyId'          => 'FullCopyId',
+        'logicalZone'         => 'LogicalZone',
+        'nodeCopyId'          => 'NodeCopyId',
+        'nodeId'              => 'NodeId',
+        'nodeResource'        => 'NodeResource',
+        'nodeStatus'          => 'NodeStatus',
+        'readOnlyCopyId'      => 'ReadOnlyCopyId',
+        'readOnlyReplicaType' => 'ReadOnlyReplicaType',
+        'replicaType'         => 'ReplicaType',
     ];
 
     public function validate()
@@ -100,6 +128,9 @@ class nodes extends Model
         }
         if (null !== $this->readOnlyCopyId) {
             $res['ReadOnlyCopyId'] = $this->readOnlyCopyId;
+        }
+        if (null !== $this->readOnlyReplicaType) {
+            $res['ReadOnlyReplicaType'] = $this->readOnlyReplicaType;
         }
         if (null !== $this->replicaType) {
             $res['ReplicaType'] = $this->replicaType;
@@ -136,6 +167,9 @@ class nodes extends Model
         }
         if (isset($map['ReadOnlyCopyId'])) {
             $model->readOnlyCopyId = $map['ReadOnlyCopyId'];
+        }
+        if (isset($map['ReadOnlyReplicaType'])) {
+            $model->readOnlyReplicaType = $map['ReadOnlyReplicaType'];
         }
         if (isset($map['ReplicaType'])) {
             $model->replicaType = $map['ReplicaType'];

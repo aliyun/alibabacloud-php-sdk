@@ -9,12 +9,14 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The IDs of OBServer nodes that use the maximum disk space.
+     *
      * @var string[]
      */
     public $maxDiskUsedObServer;
 
     /**
-     * @description DescribeInstanceTopology
+     * @description The maximum disk usage, in percentage.
      *
      * @example 0.14
      *

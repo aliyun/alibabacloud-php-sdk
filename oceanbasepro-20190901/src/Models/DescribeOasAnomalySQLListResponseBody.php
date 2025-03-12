@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOasAnomalySQLListResponseBody extends Model
 {
     /**
-     * @description The list of suspicious SQLs.
+     * @description The information about suspicious SQL statements.
      *
      * @var data[]
      */

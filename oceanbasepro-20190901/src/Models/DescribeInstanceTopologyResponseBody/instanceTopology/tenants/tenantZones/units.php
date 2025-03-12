@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class units extends Model
 {
     /**
-     * @description Indicates whether the migration can be canceled.
-     * This field is valid only for units that are being manually immigrated or emigrated.
+     * @description Indicates whether the migration can be canceled. This parameter is valid only for resource units that are being manually immigrated or emigrated.
+     *
      * @example true
      *
      * @var bool
@@ -18,7 +18,7 @@ class units extends Model
     public $enableCancelMigrateUnit;
 
     /**
-     * @description The return result of the request.
+     * @description Indicates whether the resource unit can be migrated.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class units extends Model
     public $enableMigrateUnit;
 
     /**
-     * @description The return result of the request.
+     * @description Indicates whether the resource unit is manually migrated.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class units extends Model
     public $manualMigrate;
 
     /**
-     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+     * @description The ID of the OBServer node in which the resource unit resides.
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -45,12 +45,19 @@ class units extends Model
     public $nodeId;
 
     /**
+     * @description The type of the replica. Node filtering conditions are configured based on the replica type when you query the monitoring data of the OceanBase cluster.
+     * By default, the replica type is not specified when you query the monitoring data of OceanBase clusters or the access proxy. If you do not specify the replica type when you query the monitoring data of an OceanBase cluster, the monitoring data of all nodes is queried.
+     * If you set the replica type to FULL when you query the monitoring data of an OceanBase cluster, the monitoring data of only the full-featured replica nodes is queried.
+     * If you set the replica type to READONLY when you query the monitoring data of an OceanBase cluster, the monitoring data of only the read-only replica nodes is queried.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $replicaType;
 
     /**
-     * @description Alibaba Cloud CLI
+     * @description The number of CPU cores of the resource unit.
      *
      * @example 2
      *
@@ -59,8 +66,8 @@ class units extends Model
     public $unitCpu;
 
     /**
-     * @description The operation that you want to perform.
-     * Set the value to **DescribeInstanceTopology**.
+     * @description The data size of the resource unit.
+     *
      * @example 10
      *
      * @var int
@@ -68,7 +75,7 @@ class units extends Model
     public $unitDataSize;
 
     /**
-     * @description The topology of the cluster.
+     * @description The ID of the resource unit.
      *
      * @example 1002
      *
@@ -77,7 +84,7 @@ class units extends Model
     public $unitId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The memory size of the resource unit, in GB.
      *
      * @example 10
      *
@@ -86,7 +93,13 @@ class units extends Model
     public $unitMemory;
 
     /**
-     * @description You can call this operation to query the topology of an OceanBase cluster.
+     * @description The status of the resource unit. Valid values:
+     * ONLINE: The resource unit is running.
+     * IMMIGRATING: The resource unit is being immigrated.
+     * EMIGRATING: The resource unit is being emigrated.
+     * CANCEL_EMIGRATING: The immigration of the resource unit is being canceled.
+     * CANCEL_EMIGRATING: The emigration of the resource unit is being canceled.
+     * DELETING: The resource unit is being deleted.
      *
      * @example ONLINE
      *

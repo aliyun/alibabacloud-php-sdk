@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
+     * @description The character set.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -16,6 +18,8 @@ class tenants extends Model
     public $charset;
 
     /**
+     * @description The collation.
+     *
      * @example utf8mb4_general_ci
      *
      * @var string
@@ -32,7 +36,7 @@ class tenants extends Model
     public $cpu;
 
     /**
-     * @description The number of CPU cores in each resource unit of the tenant.
+     * @description The time when the tenant was created.
      *
      * @example 2021-09-17 15:52:17.0
      *
@@ -41,8 +45,9 @@ class tenants extends Model
     public $createTime;
 
     /**
-     * @description The search keyword.
+     * @description The data replica distribution mode of the tenant.
      *
+     * > <br>N represents the number of nodes in a single zone.
      * @example 1-1-1
      *
      * @var string
@@ -50,8 +55,8 @@ class tenants extends Model
     public $deployMode;
 
     /**
-     * @description The name of the tenant.
-     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+     * @description The deployment type of the tenant. <br>
+     * - dual: dual-IDC deployment
      * @example multiple
      *
      * @var string
@@ -59,26 +64,26 @@ class tenants extends Model
     public $deployType;
 
     /**
-     * @description Example 1
+     * @description The description of the tenant.
      *
-     * @example ```
-     * http(s)://[Endpoint]/?Action=DescribeTenants
-     * &InstanceId=ob317v4uif****
-     * &PageNumber=1
-     * &TenantId=ob2mr3oae0****
-     * ```
+     * @example PayCore business database
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether read-only replicas are supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableReadOnlyReplica;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The total memory size of the tenant, in GB.
+     *
      * @example 20
      *
      * @var int
@@ -86,7 +91,16 @@ class tenants extends Model
     public $mem;
 
     /**
-     * @description The return result of the request.
+     * @description The parameter template.
+     *
+     * @example express_oltp
+     *
+     * @var string
+     */
+    public $parameterTemplate;
+
+    /**
+     * @description The primary zone of the tenant.
      *
      * @example cn-hangzhou-i
      *
@@ -104,7 +118,7 @@ class tenants extends Model
     public $status;
 
     /**
-     * @description You can call this operation to query the tenants in an OceanBase cluster.
+     * @description The ID of the tenant.
      *
      * @example t33h8y08k****
      *
@@ -113,12 +127,8 @@ class tenants extends Model
     public $tenantId;
 
     /**
-     * @description {
-     * {
-     * "VpcId": "vpc-bp1d2q3mhg9i23ofi****",
-     * "TenantMode": "Oracle",
-     * "TenantId": "t33h8y08k****",
-     * }
+     * @description The tenant mode.
+     * MySQL
      * @example Oracle
      *
      * @var string
@@ -126,7 +136,7 @@ class tenants extends Model
     public $tenantMode;
 
     /**
-     * @description The information of tenants.
+     * @description The name of the tenant.
      *
      * @example pay_online
      *
@@ -135,6 +145,8 @@ class tenants extends Model
     public $tenantName;
 
     /**
+     * @description The number of CPU cores in each resource unit of the tenant.
+     *
      * @example 5
      *
      * @var int
@@ -142,6 +154,8 @@ class tenants extends Model
     public $unitCpu;
 
     /**
+     * @description The memory size of each resource unit of the tenant, in GB.
+     *
      * @example 10
      *
      * @var int
@@ -149,6 +163,8 @@ class tenants extends Model
     public $unitMem;
 
     /**
+     * @description The number of resource units in the tenant.
+     *
      * @example 2
      *
      * @var int
@@ -156,6 +172,8 @@ class tenants extends Model
     public $unitNum;
 
     /**
+     * @description The number of used disks of the tenant.
+     *
      * @example 10
      *
      * @var float
@@ -163,7 +181,7 @@ class tenants extends Model
     public $usedDiskSize;
 
     /**
-     * @description The time when the tenant was created.
+     * @description The ID of the VPC.   <br>If no suitable VPC is available, create a VPC as prompted. For more information, see "What is a VPC".
      *
      * @example vpc-bp1d2q3mhg9i23ofi****
      *
@@ -180,6 +198,7 @@ class tenants extends Model
         'description'           => 'Description',
         'enableReadOnlyReplica' => 'EnableReadOnlyReplica',
         'mem'                   => 'Mem',
+        'parameterTemplate'     => 'ParameterTemplate',
         'primaryZone'           => 'PrimaryZone',
         'status'                => 'Status',
         'tenantId'              => 'TenantId',
@@ -225,6 +244,9 @@ class tenants extends Model
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
+        }
+        if (null !== $this->parameterTemplate) {
+            $res['ParameterTemplate'] = $this->parameterTemplate;
         }
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
@@ -294,6 +316,9 @@ class tenants extends Model
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
+        }
+        if (isset($map['ParameterTemplate'])) {
+            $model->parameterTemplate = $map['ParameterTemplate'];
         }
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];

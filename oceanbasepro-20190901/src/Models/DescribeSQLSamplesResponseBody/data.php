@@ -162,6 +162,11 @@ class data extends Model
     public $expectedWorkerCount;
 
     /**
+     * @description The full SQL text.
+     *
+     * > This parameter is unavailable.
+     * @example select * from test where c1 > 1 and c2 > 3;
+     *
      * @var string
      */
     public $fullSqlText;
@@ -248,6 +253,10 @@ class data extends Model
     public $obUserId;
 
     /**
+     * @description The parameter value of the SQL statement.
+     *
+     * @example 1****
+     *
      * @var string
      */
     public $paramsValue;
@@ -370,6 +379,10 @@ class data extends Model
     public $server;
 
     /**
+     * @description The SQL text.
+     *
+     * @example select ** from t
+     *
      * @var string
      */
     public $sqlText;

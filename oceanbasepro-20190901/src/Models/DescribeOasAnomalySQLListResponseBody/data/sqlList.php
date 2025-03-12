@@ -9,101 +9,180 @@ use AlibabaCloud\Tea\Model;
 class sqlList extends Model
 {
     /**
+     * @description The average CPU time.
+     *
+     * @example 100.24
+     *
      * @var float
      */
     public $avgCpuTime;
 
     /**
+     * @description The average DB time.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $avgDbTime;
 
     /**
+     * @description The average response time.
+     *
+     * @example 100.28
+     *
      * @var float
      */
     public $avgElapsedTime;
 
     /**
+     * @description The average plan generation time.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $avgGetPlanTime;
 
     /**
+     * @description The average number of logical reads.
+     *
+     * @example 25
+     *
      * @var float
      */
     public $avgLogicalReads;
 
     /**
+     * @description The average number of retries.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $avgRetryCount;
 
     /**
+     * @description The total CPU time.
+     *
+     * @example 100.23
+     *
      * @var float
      */
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_hsp****eway
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description The diagnostic types.
+     *
      * @var string[]
      */
     public $diagTypes;
 
     /**
+     * @description The diagnostic details.
+     *
+     * > This parameter is deprecated.
+     * @example -
+     *
      * @var string
      */
     public $diagnosis;
 
     /**
+     * @description The total number of executions.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $executions;
 
     /**
-     * @var float
+     * @description The last execution time.
+     *
+     * @example 2023-04-12T04:38:38Z
+     *
+     * @var string
      */
     public $lastExecutedTime;
 
     /**
+     * @description The risk level.
+     *
+     * @example LOW
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The ID of the SQL statement.
+     *
+     * @example 3A645****789F13DE0CF6D084FF9****
+     *
      * @var string
      */
     public $sqlId;
 
     /**
+     * @description The prefix of the SQL text.
+     *
+     * @example select * from test
+     *
      * @var string
      */
     public $sqlTextShort;
 
     /**
+     * @description The suggestion on the suspicious SQL statement.
+     *
+     * @example {\\"Role\\": \\"eSG\\", \\"Result\\": \\"100\\", \\"Suggestion\\": \\"TRACER_OTHER_ERR\\"}
+     *
      * @var string
      */
     public $suggestion;
 
     /**
+     * @description The total DB time.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $sumDbTime;
 
     /**
+     * @description The total response time.
+     *
+     * @example 11452126.36
+     *
      * @var string
      */
     public $sumElapsedTime;
 
     /**
+     * @description The total number of retries.
+     *
+     * @example 6
+     *
      * @var float
      */
     public $sumRetryCount;
 
     /**
+     * @description The username.
+     *
+     * @example test_user
+     *
      * @var string
      */
     public $userName;

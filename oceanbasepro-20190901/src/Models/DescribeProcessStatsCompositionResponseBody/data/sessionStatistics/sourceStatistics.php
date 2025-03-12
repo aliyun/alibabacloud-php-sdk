@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class sourceStatistics extends Model
 {
     /**
+     * @description The number of active sessions.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $activeCount;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example xx.xx.xx.xx
+     *
      * @var string
      */
     public $metricValue;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The dimension. This value is fixed to client.
+     *
+     * @example client
+     *
      * @var string
      */
     public $type;

@@ -27,9 +27,15 @@ class ModifyInstanceSSLRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
         'enableSSL'  => 'EnableSSL',
         'instanceId' => 'InstanceId',
+        'tenantId'   => 'TenantId',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class ModifyInstanceSSLRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -62,6 +71,9 @@ class ModifyInstanceSSLRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

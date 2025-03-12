@@ -27,6 +27,10 @@ class DescribeOasSQLHistoryListRequest extends Model
     public $dbName;
 
     /**
+     * @description Specifies whether the SQL statement is a dynamic SQL statement.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dynamicSql;

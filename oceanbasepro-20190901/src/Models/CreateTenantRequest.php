@@ -28,6 +28,8 @@ class CreateTenantRequest extends Model
     public $cpu;
 
     /**
+     * @description The initialization parameters.
+     *
      * @var string[]
      */
     public $createParams;
@@ -144,6 +146,10 @@ class CreateTenantRequest extends Model
     public $userVpcId;
 
     /**
+     * @description The ID of the VPC owner.
+     *
+     * @example vpc-********
+     *
      * @var string
      */
     public $userVpcOwnerId;

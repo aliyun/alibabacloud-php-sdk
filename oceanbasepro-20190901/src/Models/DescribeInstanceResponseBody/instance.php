@@ -13,18 +13,27 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description Indicates whether the OceanBase Database Proxy (ODP) SQL firewall is supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowCreateProxySqlFirewallRule;
 
     /**
+     * @description Indicates whether the maximum number of public connections can be modified.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowModifyInternetAddressConnectionLimit;
 
     /**
-     * @description The operation that you want to perform. <br>Set the value to **DescribeInstance**.
+     * @description Indicates whether automatic renewal is enabled.
      *
+     * This parameter is valid only for clusters whose billing methods are set to PREPAY.
      * @example true
      *
      * @var bool
@@ -32,7 +41,7 @@ class instance extends Model
     public $autoRenewal;
 
     /**
-     * @description Example 1
+     * @description Indicates whether automatic upgrade of the OBServer version is enabled.
      *
      * @example true
      *
@@ -41,11 +50,15 @@ class instance extends Model
     public $autoUpgradeObVersion;
 
     /**
+     * @description The list of zones.
+     *
      * @var string[]
      */
     public $availableZones;
 
     /**
+     * @description The CPU architecture of the cluster.
+     *
      * @example X86
      *
      * @var string
@@ -53,7 +66,7 @@ class instance extends Model
     public $cpuArchitecture;
 
     /**
-     * @description Indicates whether the log disk specifications can be upgraded.
+     * @description The time in UTC when the cluster was created.
      *
      * @example 2021-10-19T07:13:41Z
      *
@@ -62,17 +75,23 @@ class instance extends Model
     public $createTime;
 
     /**
+     * @description Specifies whether to enable automatic scaling of the data disk.
+     * > <br>This parameter is deprecated.
+     * @example -
+     *
      * @var bool
      */
     public $dataDiskAutoScale;
 
     /**
+     * @description Specifies parameters for the automatic scaling of the data disk.
+     *
      * @var dataDiskAutoScaleConfig
      */
     public $dataDiskAutoScaleConfig;
 
     /**
-     * @description The total number of CPU cores of the cluster.
+     * @description The time when the major compaction of cluster data is performed.
      *
      * @example 02:00
      *
@@ -81,8 +100,8 @@ class instance extends Model
     public $dataMergeTime;
 
     /**
-     * @description Alibaba Cloud CLI
-     *
+     * @description The data replica distribution mode of the cluster. Valid values:
+     * > <br>The integer n represents the number of OBServer nodes in each IDC.
      * @example 1-1-1
      *
      * @var string
@@ -90,8 +109,8 @@ class instance extends Model
     public $deployMode;
 
     /**
-     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
-     *
+     * @description The deployment type of the cluster. Valid values:
+     * - dual: dual-IDC deployment
      * @example multiple
      *
      * @var string
@@ -99,8 +118,9 @@ class instance extends Model
     public $deployType;
 
     /**
-     * @description The total storage space of the cluster, in GB.
+     * @description The type of the storage disk where the cluster is deployed.
      *
+     * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
      * @example cloud_essd_pl1
      *
      * @var string
@@ -108,26 +128,44 @@ class instance extends Model
     public $diskType;
 
     /**
+     * @description Specifies whether to enable isolation optimization.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableIsolationOptimization;
 
     /**
+     * @description Specifies whether to enable the proxy service.
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $enableProxyService;
 
     /**
+     * @description Indicates whether read-only replicas are supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableReadOnlyReplica;
 
     /**
+     * @description Indicates whether read-only replicas can be purchased for the cluster.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableReadOnlyReplicaManagement;
 
     /**
+     * @description Indicates whether the log disk specifications can be upgraded.
+     *
      * @example false
      *
      * @var bool
@@ -135,12 +173,16 @@ class instance extends Model
     public $enableUpgradeLogDisk;
 
     /**
+     * @description The maximum number of units of the proxy service in exclusive mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exclusiveUnitNumLimit;
 
     /**
-     * @description The information of the OceanBase cluster.
+     * @description The time in UTC when the cluster expires.
      *
      * @example 2021-10-17T16:00:00Z
      *
@@ -149,13 +191,17 @@ class instance extends Model
     public $expireTime;
 
     /**
+     * @description Specifies whether to indicate the temporary status of the capacity.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inTempCapacityStatus;
 
     /**
-     * @description The detailed information of the OBServer version.
-     *
+     * @description The specifications of the cluster.  You can specify one of the following four plans:
+     * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
      * @example 14C70G
      *
      * @var string
@@ -163,7 +209,7 @@ class instance extends Model
     public $instanceClass;
 
     /**
-     * @description The information about the log disk space of the cluster.
+     * @description The ID of the OceanBase cluster.
      *
      * @example ob317v4uif****
      *
@@ -172,7 +218,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether automatic upgrade of the OBServer version is enabled.
+     * @description The name of the OceanBase cluster.
      *
      * @example ob4test
      *
@@ -181,6 +227,8 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @description The role of the instance.
+     *
      * @example NORMAL
      *
      * @var string
@@ -188,6 +236,8 @@ class instance extends Model
     public $instanceRole;
 
     /**
+     * @description Indicates whether the OBServer version is the latest.
+     *
      * @example true
      *
      * @var bool
@@ -195,7 +245,7 @@ class instance extends Model
     public $isLatestObVersion;
 
     /**
-     * @description The information about the CPU resources of the cluster.
+     * @description Indicates whether trusted ECS instances are used.
      *
      * @example true
      *
@@ -204,12 +254,16 @@ class instance extends Model
     public $isTrustEcs;
 
     /**
+     * @description Specifies whether to enable the control group feature.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isolationOptimization;
 
     /**
-     * @description The time when the major compaction of cluster data is performed.
+     * @description The period in UTC for the daily routine maintenance of the cluster.
      *
      * @example 19:00Z-20:00Z
      *
@@ -218,6 +272,8 @@ class instance extends Model
     public $maintainTime;
 
     /**
+     * @description The number of nodes in the cluster. If the cluster is deployed in n-n-n mode, the number of nodes in the cluster equals n × 3.
+     *
      * @example 6
      *
      * @var string
@@ -225,6 +281,8 @@ class instance extends Model
     public $nodeNum;
 
     /**
+     * @description The detailed information of the OBServer version.
+     *
      * @example 2.2.77-20210526202046
      *
      * @var string
@@ -232,8 +290,8 @@ class instance extends Model
     public $obRpmVersion;
 
     /**
-     * @description The list of zones.
-     *
+     * @description The billing method of the OceanBase cluster. Valid values:
+     * - POSTPAY: the pay-as-you-go billing method.
      * @example PREPAY
      *
      * @var string
@@ -241,6 +299,8 @@ class instance extends Model
     public $payType;
 
     /**
+     * @description The ID of the primary cluster.
+     *
      * @example ob3h8ytroxxxxx
      *
      * @var string
@@ -248,6 +308,8 @@ class instance extends Model
     public $primaryInstance;
 
     /**
+     * @description The region of the primary cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -255,54 +317,77 @@ class instance extends Model
     public $primaryRegion;
 
     /**
+     * @description The ID of the proxy cluster.
+     * > This parameter returns a value only if you set the **EnableProxyService** parameter to true.
+     * @example proxy-56****a6tg2o
+     *
      * @var string
      */
     public $proxyClusterId;
 
     /**
+     * @description The status of the proxy service.
+     *
+     * @example ONLINE
+     *
      * @var string
      */
     public $proxyServiceStatus;
 
     /**
+     * @description The information about cluster resources.
+     *
      * @var readOnlyResource
      */
     public $readOnlyResource;
 
     /**
+     * @description The number of full-featured replicas. Return value: 3 or 2.
+     * An OceanBase cluster deployed in three-zone mode supports only three full-featured replicas. An OceanBase cluster deployed in two-zone mode supports only two full-featured replicas. An OceanBase cluster deployed in one single zone supports two or three full-featured replicas.
+     * @example 2F1A
+     *
      * @var string
      */
     public $replicaMode;
 
     /**
-     * @description The size of used memory in the cluster, in GB.
+     * @description The information about cluster resources.
      *
      * @var resource
      */
     public $resource;
 
     /**
-     * @description Indicates whether the OBServer version is the latest.
+     * @description The series of the instance. Valid values:
      *
-     * @example Indicates whether the OBServer version is the latest.
+     * - history: History Database Cluster Edition
+     * @example Normal
      *
      * @var string
      */
     public $series;
 
     /**
+     * @description The maximum number of units of the proxy service in shared mode.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $sharedUnitNumLimit;
 
     /**
+     * @description The specification type.
+     *
+     * @example dedicatedspec
+     *
      * @var string
      */
     public $specType;
 
     /**
-     * @description The information about cluster resources.
-     *
+     * @description The status of the cluster. Valid values:
+     * Generally, the cluster is in the ONLINE state.
      * @example ONLINE
      *
      * @var string
@@ -310,17 +395,23 @@ class instance extends Model
     public $status;
 
     /**
+     * @description Specifies whether a tenant can be created.
+     *
      * @var tenantCreatable
      */
     public $tenantCreatable;
 
     /**
+     * @description The unit specification of the proxy service.
+     *
+     * @example 2C4G
+     *
      * @var string
      */
     public $unitSpec;
 
     /**
-     * @description You can call this operation to query the detailed information of an OceanBase cluster.
+     * @description The version of OceanBase Database.
      *
      * @example 2.2.77
      *
@@ -329,6 +420,8 @@ class instance extends Model
     public $version;
 
     /**
+     * @description The ID of the zone to which the instance belongs.
+     * <props="intl">For more information about how to obtain the list of zones, see [DescribeZones](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describezones).
      * @var string[]
      */
     public $zones;

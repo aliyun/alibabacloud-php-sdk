@@ -9,27 +9,41 @@ use AlibabaCloud\Tea\Model;
 class logDiskSize extends Model
 {
     /**
+     * @description The allocated disk space for log storage, in GB.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $logAssignedSize;
 
     /**
+     * @description The maximum storage space allocated for.
+     *
      * @var string[]
      */
     public $maxLogAssignedObServer;
 
     /**
+     * @description The maximum percentage of space allocated for log storage.
+     *
+     * @example 6.68
+     *
      * @var string
      */
     public $maxLogAssignedPercent;
 
     /**
+     * @description The original size of the disk.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $originalTotalDiskSize;
 
     /**
-     * @description The ID of the region.
+     * @description The total log disk space of the cluster, in GB.
      *
      * @example 400
      *
@@ -38,7 +52,7 @@ class logDiskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description The request ID.
+     * @description The log disk space of each replica node in the cluster. Unit: GB.
      *
      * @example 200
      *

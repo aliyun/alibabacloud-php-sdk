@@ -72,6 +72,10 @@ class data extends Model
     public $avgCpuTime;
 
     /**
+     * @description The average DB time, in milliseconds.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $avgDbTime;
@@ -554,6 +558,10 @@ class data extends Model
     public $strongConsistencyPercentage;
 
     /**
+     * @description The total DB time, in milliseconds.
+     *
+     * @example 100
+     *
      * @var float
      */
     public $sumDbTime;
@@ -611,6 +619,15 @@ class data extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @description The wait event.
+     *
+     * @example none
+     *
+     * @var string
+     */
+    public $waitEvent;
 
     /**
      * @description Eventually consistent transaction percentage during the execution period.
@@ -689,6 +706,7 @@ class data extends Model
         'tableScanPercentage'         => 'TableScanPercentage',
         'timestamp'                   => 'Timestamp',
         'userName'                    => 'UserName',
+        'waitEvent'                   => 'WaitEvent',
         'weakConsistencyPercentage'   => 'WeakConsistencyPercentage',
     ];
 
@@ -902,6 +920,9 @@ class data extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->waitEvent) {
+            $res['WaitEvent'] = $this->waitEvent;
         }
         if (null !== $this->weakConsistencyPercentage) {
             $res['WeakConsistencyPercentage'] = $this->weakConsistencyPercentage;
@@ -1121,6 +1142,9 @@ class data extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['WaitEvent'])) {
+            $model->waitEvent = $map['WaitEvent'];
         }
         if (isset($map['WeakConsistencyPercentage'])) {
             $model->weakConsistencyPercentage = $map['WeakConsistencyPercentage'];

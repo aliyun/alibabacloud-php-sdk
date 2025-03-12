@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class fullTransferConfig extends Model
 {
     /**
+     * @var int
+     */
+    public $indexDDLConcurrencyLimit;
+
+    /**
+     * @var int
+     */
+    public $maxConcurrentIndexDDLs;
+
+    /**
      * @example 64
      *
      * @var int
@@ -36,10 +46,12 @@ class fullTransferConfig extends Model
      */
     public $writeWorkerNum;
     protected $_name = [
-        'readWorkerNum'  => 'ReadWorkerNum',
-        'throttleIOPS'   => 'ThrottleIOPS',
-        'throttleRps'    => 'ThrottleRps',
-        'writeWorkerNum' => 'WriteWorkerNum',
+        'indexDDLConcurrencyLimit' => 'IndexDDLConcurrencyLimit',
+        'maxConcurrentIndexDDLs'   => 'MaxConcurrentIndexDDLs',
+        'readWorkerNum'            => 'ReadWorkerNum',
+        'throttleIOPS'             => 'ThrottleIOPS',
+        'throttleRps'              => 'ThrottleRps',
+        'writeWorkerNum'           => 'WriteWorkerNum',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class fullTransferConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->indexDDLConcurrencyLimit) {
+            $res['IndexDDLConcurrencyLimit'] = $this->indexDDLConcurrencyLimit;
+        }
+        if (null !== $this->maxConcurrentIndexDDLs) {
+            $res['MaxConcurrentIndexDDLs'] = $this->maxConcurrentIndexDDLs;
+        }
         if (null !== $this->readWorkerNum) {
             $res['ReadWorkerNum'] = $this->readWorkerNum;
         }
@@ -73,6 +91,12 @@ class fullTransferConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IndexDDLConcurrencyLimit'])) {
+            $model->indexDDLConcurrencyLimit = $map['IndexDDLConcurrencyLimit'];
+        }
+        if (isset($map['MaxConcurrentIndexDDLs'])) {
+            $model->maxConcurrentIndexDDLs = $map['MaxConcurrentIndexDDLs'];
+        }
         if (isset($map['ReadWorkerNum'])) {
             $model->readWorkerNum = $map['ReadWorkerNum'];
         }

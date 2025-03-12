@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class dataBaseStatistics extends Model
 {
     /**
+     * @description The number of active sessions.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $activeCount;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_database
+     *
      * @var string
      */
     public $metricValue;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The dimension. This value is fixed to database.
+     *
+     * @example database
+     *
      * @var string
      */
     public $type;

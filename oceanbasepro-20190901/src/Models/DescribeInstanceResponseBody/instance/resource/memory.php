@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
+     * @description The original memory size of the cluster, in GB.
+     *
      * @example 72
      *
      * @var int
@@ -16,7 +18,7 @@ class memory extends Model
     public $originalTotalMemory;
 
     /**
-     * @description Indicates whether trusted ECS instances are used.
+     * @description The total memory size of the cluster, in GB.
      *
      * @example 70
      *
@@ -25,7 +27,7 @@ class memory extends Model
     public $totalMemory;
 
     /**
-     * @description The log disk space of each replica node in the cluster. Unit: GB.
+     * @description The memory size of each replica node in the cluster, in GB.
      *
      * @example 10
      *
@@ -34,7 +36,7 @@ class memory extends Model
     public $unitMemory;
 
     /**
-     * @description The time in UTC when the cluster was created.
+     * @description The size of used memory in the cluster, in GB.
      *
      * @example 10
      *

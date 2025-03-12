@@ -9,15 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSSLRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'tenantId'   => 'TenantId',
     ];
 
     public function validate()
@@ -29,6 +36,9 @@ class DescribeInstanceSSLRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -44,6 +54,9 @@ class DescribeInstanceSSLRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

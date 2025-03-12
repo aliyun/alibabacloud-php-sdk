@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
+     * @description The name of the backup directory.
+     *
      * @example backup
      *
      * @var string
@@ -18,11 +20,15 @@ class tenants extends Model
     public $backupBucketName;
 
     /**
+     * @description The list of backup sets.
+     *
      * @var backupSets[]
      */
     public $backupSets;
 
     /**
+     * @description The ID of the cluster.
+     *
      * @example objnf3b2****
      *
      * @var string
@@ -30,6 +36,8 @@ class tenants extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example testCluster
      *
      * @var string
@@ -37,6 +45,8 @@ class tenants extends Model
     public $clusterName;
 
     /**
+     * @description The number of CPU cores.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class tenants extends Model
     public $cpuNum;
 
     /**
+     * @description The size of memory for the tenant.
+     *
      * @example 100
      *
      * @var int
@@ -51,6 +63,8 @@ class tenants extends Model
     public $memoryNum;
 
     /**
+     * @description The backup method.
+     *
      * @example logical
      *
      * @var string
@@ -58,6 +72,8 @@ class tenants extends Model
     public $method;
 
     /**
+     * @description The version of the OceanBase Database RPM package.
+     *
      * @example 3.2.3.1-2022080510****
      *
      * @var string
@@ -65,6 +81,8 @@ class tenants extends Model
     public $obRpmVersion;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example tvd43v****
      *
      * @var string
@@ -72,6 +90,8 @@ class tenants extends Model
     public $obTenantId;
 
     /**
+     * @description The major version of OceanBase Database.
+     *
      * @example 3.2.3.1
      *
      * @var string
@@ -79,6 +99,8 @@ class tenants extends Model
     public $obVersion;
 
     /**
+     * @description The region of the cluster.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +108,8 @@ class tenants extends Model
     public $sourceRegion;
 
     /**
+     * @description The alias of the tenant.
+     *
      * @example aaa
      *
      * @var string
@@ -93,6 +117,8 @@ class tenants extends Model
     public $tenantAlias;
 
     /**
+     * @description The remaining validity period, in days, of the backup data of the tenant.
+     *
      * @example 7
      *
      * @var int
@@ -100,6 +126,8 @@ class tenants extends Model
     public $tenantDataBackupRemainDays;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -107,6 +135,8 @@ class tenants extends Model
     public $tenantId;
 
     /**
+     * @description The mode of the tenant.
+     *
      * @example Oracle
      *
      * @var string
@@ -114,6 +144,8 @@ class tenants extends Model
     public $tenantMode;
 
     /**
+     * @description The name of the tenant.
+     *
      * @example sbtest1
      *
      * @var string
@@ -121,11 +153,15 @@ class tenants extends Model
     public $tenantName;
 
     /**
+     * @description The list of restorable periods of the tenant.
+     *
      * @var timeIntervalList[]
      */
     public $timeIntervalList;
 
     /**
+     * @description The number of nodes of the tenant.
+     *
      * @example 2
      *
      * @var int
@@ -133,6 +169,8 @@ class tenants extends Model
     public $unitNum;
 
     /**
+     * @description The size of disk space for the tenant.
+     *
      * @example 50
      *
      * @var int

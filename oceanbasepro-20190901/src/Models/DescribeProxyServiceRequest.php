@@ -6,30 +6,18 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeTenantRequest extends Model
+class DescribeProxyServiceRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @description The ID of the tenant.
-     *
-     * This parameter is required.
-     * @example ob2mr3oae0****
-     *
-     * @var string
-     */
-    public $tenantId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tenantId'   => 'TenantId',
     ];
 
     public function validate()
@@ -42,9 +30,6 @@ class DescribeTenantRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
 
         return $res;
     }
@@ -52,16 +37,13 @@ class DescribeTenantRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeTenantRequest
+     * @return DescribeProxyServiceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

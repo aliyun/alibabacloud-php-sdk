@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
+     * @description The total number of CPU cores of the node.
+     *
      * @example 14
      *
      * @var int
@@ -16,6 +18,8 @@ class cpu extends Model
     public $totalCpu;
 
     /**
+     * @description The number of CPU cores used by the node.
+     *
      * @example 4
      *
      * @var float

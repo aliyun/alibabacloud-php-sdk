@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tenantCreatable extends Model
 {
     /**
-     * @example CPU_NOT_ENOUGH、 MEMORY_NOT_ENOUGH、TENANT_COUNT_EXCEEDS_LIMIT
+     * @description The reason why you cannot create a tenant in the cluster.
+     *
+     * @example CPU_NOT_ENOUGH,  MEMORY_NOT_ENOUGH, TENANT_COUNT_EXCEEDS_LIMIT
      *
      * @var string
      */
     public $disableCreateTenantReason;
 
     /**
+     * @description Specifies whether a tenant can be created.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableCreateTenant;

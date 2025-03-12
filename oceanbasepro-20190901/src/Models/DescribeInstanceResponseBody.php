@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
-     * @description The log disk space of each replica node in the cluster. Unit: GB.
+     * @description The information of the OceanBase cluster.
      *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The total log disk space of the cluster, in GB.
+     * @description The ID of the request.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *

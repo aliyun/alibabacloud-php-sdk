@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSummary extends Model
 {
     /**
+     * @description The total number of alerts during the query period.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class instanceSummary extends Model
     public $alarmSummaryCount;
 
     /**
+     * @description The total number of abnormal SQL statements.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class instanceSummary extends Model
     public $anomalySQLCount;
 
     /**
+     * @description The number of cluster instances.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class instanceSummary extends Model
     public $clusterInstancesCount;
 
     /**
+     * @description The number of expired instances.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class instanceSummary extends Model
     public $expiredInstancesCount;
 
     /**
+     * @description The total number of expired instances to be released.
+     *
      * @example 1
      *
      * @var int
@@ -45,6 +55,8 @@ class instanceSummary extends Model
     public $immediatelyExpiredInstancesCount;
 
     /**
+     * @description The total number of clusters with capacity risks.
+     *
      * @example 2
      *
      * @var int
@@ -52,6 +64,8 @@ class instanceSummary extends Model
     public $insufficientDiskInstancesCount;
 
     /**
+     * @description The number of overloaded instances.
+     *
      * @example 1
      *
      * @var int
@@ -59,11 +73,15 @@ class instanceSummary extends Model
     public $overLoadInstancesCount;
 
     /**
+     * @description A list of regional instances.
+     *
      * @var regionalInstanceSummaryList[]
      */
     public $regionalInstanceSummaryList;
 
     /**
+     * @description The number of running instances.
+     *
      * @example 1
      *
      * @var int
@@ -71,6 +89,8 @@ class instanceSummary extends Model
     public $runningInstancesCount;
 
     /**
+     * @description The number of tenant instances.
+     *
      * @example 1
      *
      * @var int
@@ -78,6 +98,8 @@ class instanceSummary extends Model
     public $tenantInstancesCount;
 
     /**
+     * @description The total number of instances.
+     *
      * @example 3
      *
      * @var int
@@ -85,6 +107,8 @@ class instanceSummary extends Model
     public $totalInstancesCount;
 
     /**
+     * @description The number of data transmission instances.
+     *
      * @example 1
      *
      * @var int

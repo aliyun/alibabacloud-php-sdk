@@ -11,16 +11,16 @@ class parameters extends Model
     /**
      * @description The time when the parameter modification was initiated.
      *
-     * @example 2021-09-14 10:57:44
+     * @example 2024-11-26T08:03:34Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The resource ID of the parameter type.
-     * - When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
-     * @example DEFAULT_DIMENSION_VALUE
+     * @description The resource ID of the parameter type. When you called this operation to query the modification history of cluster parameters, the value is DEFAULT_DIMENSION_VALUE. When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
+     *
+     * @example t69uo********
      *
      * @var string
      */
@@ -38,24 +38,26 @@ class parameters extends Model
     /**
      * @description The value of the parameter after the modification.
      *
-     * @example 200
+     * @example 30
      *
      * @var string
      */
     public $newValue;
 
     /**
-     * @description The parameter value before modification.
+     * @description The value of the parameter before the modification.
      *
-     * @example 300
+     * @example 10
      *
      * @var string
      */
     public $oldValue;
 
     /**
-     * @description The modification status. Valid values:
-     * - SCHEDULING: The modification was to be made.
+     * @description The modification status of the parameter. Valid values:
+     * APPLIED: The parameter was modified.
+     * SCHEDULING: The parameter was to be modified.
+     *
      * @example APPLIED
      *
      * @var string
@@ -65,7 +67,7 @@ class parameters extends Model
     /**
      * @description The time when the parameter modification took effect.
      *
-     * @example 2021-09-14 10:57:44
+     * @example 2024-11-26T08:03:34Z
      *
      * @var string
      */

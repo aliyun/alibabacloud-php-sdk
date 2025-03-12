@@ -36,6 +36,10 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $dbName;
 
     /**
+     * @description Specifies whether the specified SQL statements are dynamic SQL statements.
+     * > This parameter specifies whether the values of the `SqlId` parameter are the IDs of dynamic SQL statements.
+     * @example false
+     *
      * @var bool
      */
     public $dynamicSql;
@@ -69,6 +73,11 @@ class DescribeOasAnomalySQLListRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether to merge dynamic SQL statements in the return result.
+     *
+     * > This parameter specifies whether to aggregate the results of IN queries.
+     * @example false
+     *
      * @var bool
      */
     public $mergeDynamicSql;

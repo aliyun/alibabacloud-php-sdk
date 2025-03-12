@@ -10,7 +10,9 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
-     * @description The server with the highest disk usage.
+     * @description The deployment mode of the primary zone. Valid values:
+     * RANDOM.
+     * STATIC.
      *
      * @example RANDOM
      *
@@ -19,7 +21,7 @@ class tenants extends Model
     public $primaryZoneDeployType;
 
     /**
-     * @description The information about the memory resources of the node.
+     * @description The number of CPU cores of the tenant.
      *
      * @example 2
      *
@@ -28,7 +30,10 @@ class tenants extends Model
     public $tenantCpu;
 
     /**
-     * @description The name of the tenant.
+     * @description The deployment type of the tenant. Valid values:
+     * multiple: multi-IDC deployment.
+     * single: single-IDC deployment.
+     * dual: dual-IDC deployment.
      *
      * @example multiple
      *
@@ -37,12 +42,16 @@ class tenants extends Model
     public $tenantDeployType;
 
     /**
+     * @description The disk space of the tenant, in GB.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $tenantDiskSize;
 
     /**
-     * @description The size of used memory of the node, in GB.
+     * @description The ID of the tenant.
      *
      * @example t33h8y08k****
      *
@@ -51,7 +60,7 @@ class tenants extends Model
     public $tenantId;
 
     /**
-     * @description The total storage space of the node, in GB.
+     * @description The memory size of the tenant, in GB.
      *
      * @example 10
      *
@@ -60,7 +69,9 @@ class tenants extends Model
     public $tenantMemory;
 
     /**
-     * @description The size of used storage space of the node, in GB.
+     * @description The mode of the tenant. Valid values:
+     * Oracle
+     * MySQL
      *
      * @example Oracle
      *
@@ -69,7 +80,7 @@ class tenants extends Model
     public $tenantMode;
 
     /**
-     * @description The total memory size of the node, in GB.
+     * @description The name of the tenant.
      *
      * @example pay_online
      *
@@ -78,7 +89,16 @@ class tenants extends Model
     public $tenantName;
 
     /**
-     * @description The size of used memory of the node, in GB.
+     * @description The status of the tenant. Valid values:
+     * PENDING_CREATE: The tenant is being created.
+     * RESTORE: The tenant is being restored.
+     * ONLINE: The tenant is running.
+     * SPEC_MODIFYING: The specification of the tenant is being modified.
+     * ALLOCATING_INTERNET_ADDRESS: A public IP address is being allocated to the tenant.
+     * PENDING_OFFLINE_INTERNET_ADDRESS: The public IP address is being disabled.
+     * PRIMARY_ZONE_MODIFYING: The tenant is being switched to a new primary zone.
+     * PARAMETER_MODIFYING: Parameters are being modified.
+     * WHITE_LIST_MODIFYING: The allowlist is being modified.
      *
      * @example ONLINE
      *
@@ -87,17 +107,25 @@ class tenants extends Model
     public $tenantStatus;
 
     /**
+     * @description The number of CPU cores of a single node in the tenant.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $tenantUnitCpu;
 
     /**
+     * @description The memory size of a single node in the tenant, in GB.
+     *
+     * @example 16
+     *
      * @var float
      */
     public $tenantUnitMemory;
 
     /**
-     * @description The number of CPU cores of the tenant.
+     * @description The number of resource units in the tenant.
      *
      * @example 1
      *
@@ -106,7 +134,7 @@ class tenants extends Model
     public $tenantUnitNum;
 
     /**
-     * @description The information about the storage resources of the node.
+     * @description The information about the zones.
      *
      * @var tenantZones[]
      */

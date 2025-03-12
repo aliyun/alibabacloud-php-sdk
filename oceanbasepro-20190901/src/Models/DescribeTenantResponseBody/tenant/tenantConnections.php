@@ -9,26 +9,33 @@ use AlibabaCloud\Tea\Model;
 class tenantConnections extends Model
 {
     /**
-     * @description The primary zone of the tenant.
+     * @description The type of the address.
      *
-     * @example MASTER
+     * - CLOGSERVICE: a clog service address.
+     * @example READONLY
      *
      * @var string
      */
     public $addressType;
 
     /**
+     * @description The logical zones of the endpoints.
+     *
      * @var string[]
      */
     public $connectionLogicalZones;
 
     /**
+     * @description The type of the replica corresponding to the tenant connection.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $connectionReplicaType;
 
     /**
-     * @description The Internet address for accessing the tenant.
+     * @description The list of zones corresponding to the tenant connection.
      *
      * @example ["cn-hangzhou-i", "cn-hangzhou-j"]
      *
@@ -37,12 +44,16 @@ class tenantConnections extends Model
     public $connectionZones;
 
     /**
+     * @description Specifies whether to enable transaction splitting.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableTransactionSplit;
 
     /**
-     * @description The ID of the VPC.
+     * @description The Internet address for accessing the tenant.
      *
      * @example t32a7ru5u****mo.oceanbase.aliyuncs.com
      *
@@ -51,8 +62,8 @@ class tenantConnections extends Model
     public $internetAddress;
 
     /**
-     * @description 实例系列
-     *
+     * @description The status of the Internet address for accessing the tenant. Valid values:
+     * - ONLINE: The address is in service.
      * @example CLOSED
      *
      * @var string
@@ -60,17 +71,25 @@ class tenantConnections extends Model
     public $internetAddressStatus;
 
     /**
+     * @description The upper limit of the maximum number of public connections.
+     *
+     * @example 4000
+     *
      * @var int
      */
     public $internetMaxConnectionLimit;
 
     /**
+     * @description The current value set for the maximum number of public connections.
+     *
+     * @example 2500
+     *
      * @var int
      */
     public $internetMaxConnectionNum;
 
     /**
-     * @description 实例类型
+     * @description The Internet port for accessing the tenant.
      *
      * @example 3306
      *
@@ -79,40 +98,44 @@ class tenantConnections extends Model
     public $internetPort;
 
     /**
+     * @description The port for direct loads of public connections.
+     *
+     * @example 3307
+     *
      * @var int
      */
     public $internetRpcPort;
 
     /**
-     * @description The deployment type of the cluster. Valid values:
-     * - dual: dual-IDC deployment
-     * @example t32a7ru5u****.oceanbase.aliyuncs.com
+     * @description The intranet address for accessing the tenant.
+     *
+     * @example t4nunwxr0****.oceanbase.aliyuncs.com
      *
      * @var string
      */
     public $intranetAddress;
 
     /**
-     * @description PayCore business database
+     * @description The primary zone corresponding to the address for accessing the tenant.
      *
-     * @example cn-hangzhou-i
+     * @example cn-hangzhou-b
      *
      * @var string
      */
     public $intranetAddressMasterZoneId;
 
     /**
-     * @description The total number of CPU cores of the tenant.
+     * @description The standby zone corresponding to the address for accessing the tenant.
      *
-     * @example cn-hangzhou-j
+     * @example cn-hangzhou-g
      *
      * @var string
      */
     public $intranetAddressSlaveZoneId;
 
     /**
-     * @description 付费类型
-     *
+     * @description The status of the intranet address for accessing the tenant.
+     * The value ONLINE indicates that the address is in service.
      * @example ONLINE
      *
      * @var string
@@ -120,30 +143,44 @@ class tenantConnections extends Model
     public $intranetAddressStatus;
 
     /**
-     * @description The ID of the tenant.
+     * @description The intranet port for accessing the tenant.
      *
-     * @example 3306
+     * @example 2983
      *
      * @var int
      */
     public $intranetPort;
 
     /**
+     * @description The port for direct loads of private connections.
+     *
+     * @example 3307
+     *
      * @var int
      */
     public $intranetRpcPort;
 
     /**
+     * @description The port of private SQL connections.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $intranetSqlPort;
 
     /**
+     * @description The current value set for the maximum number of private connections.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $maxConnectionLimit;
 
     /**
+     * @description The maximum number of connections.
+     *
      * @example 5000
      *
      * @var int
@@ -151,21 +188,35 @@ class tenantConnections extends Model
     public $maxConnectionNum;
 
     /**
+     * @description The ODP version.
+     *
+     * @example 4.3.1-xxxxxxxxx
+     *
      * @var string
      */
     public $odpVersion;
 
     /**
+     * @description The degree of parallelism (DOP).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parallelQueryDegree;
 
     /**
+     * @description The ID of the OceanBase Database Proxy (ODP) cluster.
+     *
+     * @example proxy-xxxxxxx
+     *
      * @var string
      */
     public $proxyClusterId;
 
     /**
+     * @description The ID of the tenant endpoint.
+     *
      * @example obe-4tw51gp7****
      *
      * @var string
@@ -173,26 +224,26 @@ class tenantConnections extends Model
     public $tenantEndpointId;
 
     /**
-     * @description The primary zone corresponding to the address for accessing the tenant.
+     * @description Specifies whether to enable transaction splitting.
      *
-     * @example true
+     * @example false
      *
      * @var bool
      */
     public $transactionSplit;
 
     /**
-     * @description The connection access information of the tenant.
+     * @description The ID of the vSwitch.
      *
-     * @example vsw-bp11k1aypnzu1l3whi****
+     * @example vsw-bp1i7b94u2et716yl****
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The service mode of the connection address. Valid values:
-     * Clog: provides transaction log services.
+     * @description The ID of the VPC.
+     *
      * @example vpc-bp1qiail1asmfe23t****
      *
      * @var string

@@ -11,31 +11,51 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of active sessions.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $activeSessionCount;
 
     /**
+     * @description The details of all sessions.
+     *
      * @var allProcessList[]
      */
     public $allProcessList;
 
     /**
+     * @description The number of sessions in the SLEEP state.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $idleSessionCount;
 
     /**
+     * @description The version of OceanBase Database.
+     *
+     * @example 3.2.4
+     *
      * @var string
      */
     public $obVersion;
 
     /**
+     * @description The session data in different dimensions.
+     *
      * @var sessionStatistics
      */
     public $sessionStatistics;
 
     /**
+     * @description The total number of sessions.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalSessionCount;

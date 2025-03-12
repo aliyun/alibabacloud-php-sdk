@@ -45,7 +45,9 @@ class outlineBinding extends Model
     public $outlineId;
 
     /**
-     * @description 表名称
+     * @description The name of the tenant. The tenant name must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_). It cannot be set to sys.
+     *
+     * @example cluster_info
      *
      * @var string
      */

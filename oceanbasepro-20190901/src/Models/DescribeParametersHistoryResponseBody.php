@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersHistoryResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -21,7 +21,7 @@ class DescribeParametersHistoryResponseBody extends Model
     /**
      * @description The list of parameter modification records.
      *
-     * @var respond[]
+     * @var respond
      */
     public $respond;
     protected $_name = [
@@ -40,13 +40,7 @@ class DescribeParametersHistoryResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->respond) {
-            $res['Respond'] = [];
-            if (null !== $this->respond && \is_array($this->respond)) {
-                $n = 0;
-                foreach ($this->respond as $item) {
-                    $res['Respond'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Respond'] = null !== $this->respond ? $this->respond->toMap() : null;
         }
 
         return $res;
@@ -64,13 +58,7 @@ class DescribeParametersHistoryResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Respond'])) {
-            if (!empty($map['Respond'])) {
-                $model->respond = [];
-                $n              = 0;
-                foreach ($map['Respond'] as $item) {
-                    $model->respond[$n++] = null !== $item ? respond::fromMap($item) : $item;
-                }
-            }
+            $model->respond = respond::fromMap($map['Respond']);
         }
 
         return $model;

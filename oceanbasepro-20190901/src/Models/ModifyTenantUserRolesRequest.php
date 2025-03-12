@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserRolesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $globalPermissions;
+
+    /**
      * @description The type of the privilege modification operation.
      * This parameter is required.
      * @example ob317v4uif****
@@ -55,12 +60,21 @@ class ModifyTenantUserRolesRequest extends Model
      * @var string
      */
     public $userRole;
+
+    /**
+     * @example Normal
+     *
+     * @var string
+     */
+    public $userType;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'modifyType' => 'ModifyType',
-        'tenantId'   => 'TenantId',
-        'userName'   => 'UserName',
-        'userRole'   => 'UserRole',
+        'globalPermissions' => 'GlobalPermissions',
+        'instanceId'        => 'InstanceId',
+        'modifyType'        => 'ModifyType',
+        'tenantId'          => 'TenantId',
+        'userName'          => 'UserName',
+        'userRole'          => 'UserRole',
+        'userType'          => 'UserType',
     ];
 
     public function validate()
@@ -70,6 +84,9 @@ class ModifyTenantUserRolesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->globalPermissions) {
+            $res['GlobalPermissions'] = $this->globalPermissions;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -85,6 +102,9 @@ class ModifyTenantUserRolesRequest extends Model
         if (null !== $this->userRole) {
             $res['UserRole'] = $this->userRole;
         }
+        if (null !== $this->userType) {
+            $res['UserType'] = $this->userType;
+        }
 
         return $res;
     }
@@ -97,6 +117,9 @@ class ModifyTenantUserRolesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GlobalPermissions'])) {
+            $model->globalPermissions = $map['GlobalPermissions'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -111,6 +134,9 @@ class ModifyTenantUserRolesRequest extends Model
         }
         if (isset($map['UserRole'])) {
             $model->userRole = $map['UserRole'];
+        }
+        if (isset($map['UserType'])) {
+            $model->userType = $map['UserType'];
         }
 
         return $model;

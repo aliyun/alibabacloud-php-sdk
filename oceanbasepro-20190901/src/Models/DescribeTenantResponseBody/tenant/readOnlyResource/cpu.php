@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
+     * @description The total number of CPU cores of the tenant.
+     *
      * @example 10
      *
      * @var float
@@ -16,6 +18,8 @@ class cpu extends Model
     public $totalCpu;
 
     /**
+     * @description The number of CPU cores in each resource unit of the tenant.
+     *
      * @example 8
      *
      * @var float
@@ -23,6 +27,10 @@ class cpu extends Model
     public $unitCpu;
 
     /**
+     * @description The number of CPU cores used by the cluster.
+     *
+     * @example 8
+     *
      * @var float
      */
     public $usedCpu;

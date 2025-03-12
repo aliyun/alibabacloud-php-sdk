@@ -9,13 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantUserRolesRequest extends Model
 {
     /**
+     * @description The ID of the OceanBase cluster.
+     *
+     * @example ob317v4uif****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The ID of the tenant. If you specify the ID of a tenant in MySQL mode, the privilege configuration of the regular user in MySQL mode is returned. If you specify the ID of a tenant in Oracle mode, the privilege configuration of the regular user in Oracle mode is returned.
+     *
      * @example t4pnum****
      *
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'tenantId' => 'TenantId',
+        'instanceId' => 'InstanceId',
+        'tenantId'   => 'TenantId',
     ];
 
     public function validate()
@@ -25,6 +37,9 @@ class DescribeTenantUserRolesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -40,6 +55,9 @@ class DescribeTenantUserRolesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

@@ -22,6 +22,13 @@ class tenantUsers extends Model
     public $description;
 
     /**
+     * @example Encrypt,Decrypt
+     *
+     * @var string
+     */
+    public $globalPermissions;
+
+    /**
      * @description 所属集群Id
      *
      * @example obshc32****
@@ -60,13 +67,14 @@ class tenantUsers extends Model
      */
     public $userType;
     protected $_name = [
-        'databases'   => 'Databases',
-        'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'tenantId'    => 'TenantId',
-        'userName'    => 'UserName',
-        'userStatus'  => 'UserStatus',
-        'userType'    => 'UserType',
+        'databases'         => 'Databases',
+        'description'       => 'Description',
+        'globalPermissions' => 'GlobalPermissions',
+        'instanceId'        => 'InstanceId',
+        'tenantId'          => 'TenantId',
+        'userName'          => 'UserName',
+        'userStatus'        => 'UserStatus',
+        'userType'          => 'UserType',
     ];
 
     public function validate()
@@ -87,6 +95,9 @@ class tenantUsers extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->globalPermissions) {
+            $res['GlobalPermissions'] = $this->globalPermissions;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -126,6 +137,9 @@ class tenantUsers extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['GlobalPermissions'])) {
+            $model->globalPermissions = $map['GlobalPermissions'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

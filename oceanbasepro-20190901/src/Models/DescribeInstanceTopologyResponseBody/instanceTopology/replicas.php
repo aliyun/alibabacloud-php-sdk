@@ -10,53 +10,93 @@ use AlibabaCloud\Tea\Model;
 class replicas extends Model
 {
     /**
+     * @description The ID of the replica.
+     *
+     * @example cn-hangzhou-h-z0
+     *
      * @var string
      */
     public $logicalZone;
 
     /**
+     * @description The number of nodes of the replica.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description The type of the read-only replica.
+     *
+     * @example ROW_STORE
+     *
+     * @var string
+     */
+    public $readOnlyReplicaType;
+
+    /**
+     * @description The information about the replica resources.
+     *
      * @var replicaResource
      */
     public $replicaResource;
 
     /**
+     * @description The type of the replica.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $replicaType;
 
     /**
+     * @description The status of the replica. Valid values: ACTIVE, INACTIVE, and UNKNOWN.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The serial number of the replica.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $zoneLogicalId;
 
     /**
+     * @description The region of the replica.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneLogicalName;
 
     /**
+     * @description The zone of the replica.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneRegionName;
     protected $_name = [
-        'logicalZone'     => 'LogicalZone',
-        'nodeNum'         => 'NodeNum',
-        'replicaResource' => 'ReplicaResource',
-        'replicaType'     => 'ReplicaType',
-        'status'          => 'Status',
-        'zoneLogicalId'   => 'ZoneLogicalId',
-        'zoneLogicalName' => 'ZoneLogicalName',
-        'zoneRegionName'  => 'ZoneRegionName',
+        'logicalZone'         => 'LogicalZone',
+        'nodeNum'             => 'NodeNum',
+        'readOnlyReplicaType' => 'ReadOnlyReplicaType',
+        'replicaResource'     => 'ReplicaResource',
+        'replicaType'         => 'ReplicaType',
+        'status'              => 'Status',
+        'zoneLogicalId'       => 'ZoneLogicalId',
+        'zoneLogicalName'     => 'ZoneLogicalName',
+        'zoneRegionName'      => 'ZoneRegionName',
     ];
 
     public function validate()
@@ -71,6 +111,9 @@ class replicas extends Model
         }
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
+        }
+        if (null !== $this->readOnlyReplicaType) {
+            $res['ReadOnlyReplicaType'] = $this->readOnlyReplicaType;
         }
         if (null !== $this->replicaResource) {
             $res['ReplicaResource'] = null !== $this->replicaResource ? $this->replicaResource->toMap() : null;
@@ -107,6 +150,9 @@ class replicas extends Model
         }
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
+        }
+        if (isset($map['ReadOnlyReplicaType'])) {
+            $model->readOnlyReplicaType = $map['ReadOnlyReplicaType'];
         }
         if (isset($map['ReplicaResource'])) {
             $model->replicaResource = replicaResource::fromMap($map['ReplicaResource']);

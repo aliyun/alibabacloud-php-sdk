@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
+     * @description The total memory size of the replica, in GB.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $totalMemory;
 
     /**
+     * @description The size of memory used by the replica, in GB.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $usedMemory;

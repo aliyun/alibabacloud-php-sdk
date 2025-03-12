@@ -9,41 +9,75 @@ use AlibabaCloud\Tea\Model;
 class tenantZoneReplicas extends Model
 {
     /**
+     * @description The ID of the full-featured replica.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $fullCopyId;
 
     /**
+     * @description The name of the logical zone.
+     *
+     * @example cn-shanghai-f-z0
+     *
      * @var string
      */
     public $logicZoneName;
 
     /**
+     * @description The ID of the read-only replica.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $readOnlyCopyId;
 
     /**
+     * @description The type of the read-only replica.
+     *
+     * @example ROW_STORE
+     *
+     * @var string
+     */
+    public $readOnlyReplicaType;
+
+    /**
+     * @description The ID of the zone replica.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $zoneCopyId;
 
     /**
-     * @var string
+     * @description The number of nodes in the zone.
+     *
+     * @example 1
+     *
+     * @var int
      */
     public $zoneNodes;
 
     /**
+     * @description The type of the zone replica.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $zoneReplicaType;
     protected $_name = [
-        'fullCopyId'      => 'FullCopyId',
-        'logicZoneName'   => 'LogicZoneName',
-        'readOnlyCopyId'  => 'ReadOnlyCopyId',
-        'zoneCopyId'      => 'ZoneCopyId',
-        'zoneNodes'       => 'ZoneNodes',
-        'zoneReplicaType' => 'ZoneReplicaType',
+        'fullCopyId'          => 'FullCopyId',
+        'logicZoneName'       => 'LogicZoneName',
+        'readOnlyCopyId'      => 'ReadOnlyCopyId',
+        'readOnlyReplicaType' => 'ReadOnlyReplicaType',
+        'zoneCopyId'          => 'ZoneCopyId',
+        'zoneNodes'           => 'ZoneNodes',
+        'zoneReplicaType'     => 'ZoneReplicaType',
     ];
 
     public function validate()
@@ -61,6 +95,9 @@ class tenantZoneReplicas extends Model
         }
         if (null !== $this->readOnlyCopyId) {
             $res['ReadOnlyCopyId'] = $this->readOnlyCopyId;
+        }
+        if (null !== $this->readOnlyReplicaType) {
+            $res['ReadOnlyReplicaType'] = $this->readOnlyReplicaType;
         }
         if (null !== $this->zoneCopyId) {
             $res['ZoneCopyId'] = $this->zoneCopyId;
@@ -91,6 +128,9 @@ class tenantZoneReplicas extends Model
         }
         if (isset($map['ReadOnlyCopyId'])) {
             $model->readOnlyCopyId = $map['ReadOnlyCopyId'];
+        }
+        if (isset($map['ReadOnlyReplicaType'])) {
+            $model->readOnlyReplicaType = $map['ReadOnlyReplicaType'];
         }
         if (isset($map['ZoneCopyId'])) {
             $model->zoneCopyId = $map['ZoneCopyId'];

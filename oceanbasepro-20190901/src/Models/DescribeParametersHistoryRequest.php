@@ -19,16 +19,15 @@ class DescribeParametersHistoryRequest extends Model
 
     /**
      * @description The resource ID of the parameter type.
-     * You can leave this parameter unspecified when you call this operation to query the modification history of cluster parameters. In the case of tenant parameters, pass the tenant ID.
-     * @example ob2mr3oae0****
+     * You can leave this parameter unspecified when you call this operation to query cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * @example t4qx8****
      *
      * @var string
      */
     public $dimensionValue;
 
     /**
-     * @description The end time for the query of parameter modification history.
-     *
+     * @description The end time of the time range for querying the SQL execution history.
      * This parameter is required.
      * @example 2021-09-13 15:40:43
      *
@@ -65,8 +64,7 @@ class DescribeParametersHistoryRequest extends Model
     public $pageSize;
 
     /**
-     * @description The start time of the time range for querying the parameter modification history.
-     *
+     * @description The start time of querying the slow query execution.
      * This parameter is required.
      * @example 2021-06-13 15:40:43
      *

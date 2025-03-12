@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
+     * @description The total disk space of the replica, in GB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalDiskSize;
 
     /**
+     * @description The disk space used by the replica, in GB.
+     *
+     * @example 50
+     *
      * @var float
      */
     public $usedDiskSize;

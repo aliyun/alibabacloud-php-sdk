@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
-     * @description The information about the memory resources of the tenant.
+     * @description The total memory size of the tenant, in GB.
      *
      * @example 64
      *
@@ -18,7 +18,7 @@ class memory extends Model
     public $totalMemory;
 
     /**
-     * @description The time when the tenant was created.
+     * @description The memory size of each resource unit of the tenant, in GB.
      *
      * @example 32
      *
@@ -27,8 +27,8 @@ class memory extends Model
     public $unitMemory;
 
     /**
-     * @description The status of the Internet address for accessing the tenant. Valid values:
-     * - ONLINE: The address is in service.
+     * @description The size of used memory of the tenant, in GB.
+     *
      * @example 30
      *
      * @var float

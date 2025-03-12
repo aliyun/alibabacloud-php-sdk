@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantsRequest extends Model
 {
     /**
-     * @description The number of used disks of the tenant.
+     * @description The ID of the OceanBase cluster.
      *
      * This parameter is required.
      * @example ob317v4uif****
@@ -19,8 +19,8 @@ class DescribeTenantsRequest extends Model
     public $instanceId;
 
     /**
-     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
-     *
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example 1
      *
      * @var int
@@ -28,8 +28,8 @@ class DescribeTenantsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description You can call this operation to query the tenants in an OceanBase cluster.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example 10
      *
      * @var int
@@ -37,7 +37,7 @@ class DescribeTenantsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The primary zone of the tenant.
+     * @description The search keyword.
      *
      * @example pay
      *
@@ -46,7 +46,7 @@ class DescribeTenantsRequest extends Model
     public $searchKey;
 
     /**
-     * @description Alibaba Cloud CLI
+     * @description The ID of the tenant.
      *
      * @example ob2mr3oae0****
      *
@@ -55,8 +55,8 @@ class DescribeTenantsRequest extends Model
     public $tenantId;
 
     /**
-     * @description The information of tenants.
-     *
+     * @description The name of the tenant.
+     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
      * @example pay_online
      *
      * @var string

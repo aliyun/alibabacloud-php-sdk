@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestorableTenantsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeRestorableTenantsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the tenants.
+     *
      * @var tenants[]
      */
     public $tenants;
 
     /**
+     * @description The total number.
+     *
      * @example 6
      *
      * @var int
