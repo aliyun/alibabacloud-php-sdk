@@ -4,19 +4,38 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\commodity;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class specificationMappings extends Model
 {
     /**
+     * @description Specification code.
+     *
+     * @example yuncode5767800001
+     *
      * @var string
      */
     public $specificationCode;
+
     /**
+     * @description The name of the package specification.
+     *
+     * @example Type, value：
+     *
+     * **Custom**
+     * **ComputeNestBill**
+     * **ComputeNestPrometheus**
+     * **ComputeNestTime**
+     *
      * @var string
      */
     public $specificationName;
+
     /**
+     * @description The template name.
+     *
+     * @example Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+     *
      * @var string
      */
     public $templateName;
@@ -28,20 +47,17 @@ class specificationMappings extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->specificationCode) {
             $res['SpecificationCode'] = $this->specificationCode;
         }
-
         if (null !== $this->specificationName) {
             $res['SpecificationName'] = $this->specificationName;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -49,22 +65,20 @@ class specificationMappings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return specificationMappings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecificationCode'])) {
             $model->specificationCode = $map['SpecificationCode'];
         }
-
         if (isset($map['SpecificationName'])) {
             $model->specificationName = $map['SpecificationName'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteServiceInstancesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The IDs of the service instances.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $serviceInstanceId;
@@ -28,59 +42,41 @@ class DeleteServiceInstancesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->serviceInstanceId)) {
-            Model::validateArray($this->serviceInstanceId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->serviceInstanceId) {
-            if (\is_array($this->serviceInstanceId)) {
-                $res['ServiceInstanceId'] = [];
-                $n1                       = 0;
-                foreach ($this->serviceInstanceId as $item1) {
-                    $res['ServiceInstanceId'][$n1++] = $item1;
-                }
-            }
+            $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteServiceInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ServiceInstanceId'])) {
             if (!empty($map['ServiceInstanceId'])) {
-                $model->serviceInstanceId = [];
-                $n1                       = 0;
-                foreach ($map['ServiceInstanceId'] as $item1) {
-                    $model->serviceInstanceId[$n1++] = $item1;
-                }
+                $model->serviceInstanceId = $map['ServiceInstanceId'];
             }
         }
 

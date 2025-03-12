@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateDefaultServiceTestConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 51945B04-6AA6-410D-93BA-236E0248B104
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The service test config
+     *
+     * @example ---
+     * InstancePassword: "$[iact3-auto]"
      * @var string
      */
     public $testConfig;
@@ -23,16 +32,14 @@ class GenerateDefaultServiceTestConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->testConfig) {
             $res['TestConfig'] = $this->testConfig;
         }
@@ -40,18 +47,17 @@ class GenerateDefaultServiceTestConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateDefaultServiceTestConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TestConfig'])) {
             $model->testConfig = $map['TestConfig'];
         }

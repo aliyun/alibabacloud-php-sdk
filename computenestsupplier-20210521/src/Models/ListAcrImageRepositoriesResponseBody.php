@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponseBody\repositories;
+use AlibabaCloud\Tea\Model;
 
 class ListAcrImageRepositoriesResponseBody extends Model
 {
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @description A pagination token.
+     *
+     * @example AAAAAfu+XtuBE55iRLHEYYuojI4=
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The images.
+     *
      * @var repositories[]
      */
     public $repositories;
+
     /**
+     * @description The request ID.
+     *
+     * @example C4A145D8-6F6C-532A-9001-9730CDA27578
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;
@@ -39,37 +61,29 @@ class ListAcrImageRepositoriesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->repositories)) {
-            Model::validateArray($this->repositories);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->repositories) {
-            if (\is_array($this->repositories)) {
-                $res['Repositories'] = [];
-                $n1                  = 0;
-                foreach ($this->repositories as $item1) {
-                    $res['Repositories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Repositories'] = [];
+            if (null !== $this->repositories && \is_array($this->repositories)) {
+                $n = 0;
+                foreach ($this->repositories as $item) {
+                    $res['Repositories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +91,32 @@ class ListAcrImageRepositoriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAcrImageRepositoriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Repositories'])) {
             if (!empty($map['Repositories'])) {
                 $model->repositories = [];
-                $n1                  = 0;
-                foreach ($map['Repositories'] as $item1) {
-                    $model->repositories[$n1++] = repositories::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['Repositories'] as $item) {
+                    $model->repositories[$n++] = null !== $item ? repositories::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WithdrawServiceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class WithdrawServiceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class WithdrawServiceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WithdrawServiceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

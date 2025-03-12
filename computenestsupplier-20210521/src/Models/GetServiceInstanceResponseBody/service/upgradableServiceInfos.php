@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\service;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class upgradableServiceInfos extends Model
 {
     /**
+     * @description The upgradable service version.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $version;
+
     /**
+     * @description The version name of an upgradable service version.
+     *
+     * @example Init version
+     *
      * @var string
      */
     public $versionName;
@@ -23,16 +32,14 @@ class upgradableServiceInfos extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
-
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
@@ -40,18 +47,17 @@ class upgradableServiceInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return upgradableServiceInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
-
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
         }

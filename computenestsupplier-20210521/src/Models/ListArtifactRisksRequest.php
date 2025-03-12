@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListArtifactRisksRequest extends Model
 {
     /**
+     * @description Artifact ID.
+     *
+     * @example artifact-3fd95cdfdf0d4b1fa00c
+     *
      * @var string
      */
     public $artifactId;
+
     /**
+     * @description Artifact version.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $artifactVersion;
@@ -23,16 +32,14 @@ class ListArtifactRisksRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
-
         if (null !== $this->artifactVersion) {
             $res['ArtifactVersion'] = $this->artifactVersion;
         }
@@ -40,18 +47,17 @@ class ListArtifactRisksRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListArtifactRisksRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
-
         if (isset($map['ArtifactVersion'])) {
             $model->artifactVersion = $map['ArtifactVersion'];
         }

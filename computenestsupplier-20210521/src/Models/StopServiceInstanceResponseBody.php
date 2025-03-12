@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopServiceInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 49A369EF-A302-5006-B0CE-94CED47C38CF
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class StopServiceInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class StopServiceInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopServiceInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

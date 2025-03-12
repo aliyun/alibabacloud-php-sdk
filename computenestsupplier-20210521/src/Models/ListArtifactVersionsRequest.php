@@ -4,24 +4,42 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest\filters;
+use AlibabaCloud\Tea\Model;
 
 class ListArtifactVersionsRequest extends Model
 {
     /**
+     * @description The ID of the deployment package.
+     *
+     * This parameter is required.
+     * @example artifact-eea08d1e2d3a43aexxxx
+     *
      * @var string
      */
     public $artifactId;
+
     /**
+     * @description The filter.
+     *
      * @var filters[]
      */
     public $filters;
+
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAc3HCuYhJi/wvpk4xOr0VLbfVwapgMwCN1wYzPVzLbItEdB0uWSY7AGnM3qCgm/YnjuEfwSnMwiMkcUoI0hRQzE=
+     *
      * @var string
      */
     public $nextToken;
@@ -34,33 +52,26 @@ class ListArtifactVersionsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->filters)) {
-            Model::validateArray($this->filters);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
         }
-
         if (null !== $this->filters) {
-            if (\is_array($this->filters)) {
-                $res['Filters'] = [];
-                $n1             = 0;
-                foreach ($this->filters as $item1) {
-                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Filters'] = [];
+            if (null !== $this->filters && \is_array($this->filters)) {
+                $n = 0;
+                foreach ($this->filters as $item) {
+                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -68,32 +79,29 @@ class ListArtifactVersionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListArtifactVersionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
         }
-
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
-                foreach ($map['Filters'] as $item1) {
-                    $model->filters[$n1++] = filters::fromMap($item1);
+                $n              = 0;
+                foreach ($map['Filters'] as $item) {
+                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

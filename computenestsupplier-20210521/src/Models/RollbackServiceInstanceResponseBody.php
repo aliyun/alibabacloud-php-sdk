@@ -4,19 +4,34 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RollbackServiceInstanceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example EE9EF87D-46F8-5AF6-9A65-6B034E204136
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Service instance ID.
+     *
+     * @example si-5289e1d6d0c14397881d
+     *
      * @var string
      */
     public $serviceInstanceId;
+
     /**
+     * @description The deployment status of the service instance. Possible values:
+     *
+     * - DeletedFailed: Deletion Failed
+     * @example UpgradeRollbacking
+     *
      * @var string
      */
     public $status;
@@ -28,20 +43,17 @@ class RollbackServiceInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -49,22 +61,20 @@ class RollbackServiceInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RollbackServiceInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,35 +4,69 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example STS.NUCe19W1FKaHAYAhe********
+     *
      * @var string
      */
     public $accessKeyId;
+
     /**
+     * @description The AccessKey secret.
+     *
+     * @example 8LQGp59mY23pcXeTdcvSA1cUQZBeD92sFrXi********
+     *
      * @var string
      */
     public $accessKeySecret;
+
     /**
+     * @description The bucket name.
+     *
+     * @example service-info-private
+     *
      * @var string
      */
     public $bucketName;
+
     /**
+     * @description The time when the AccessKey pair expires.
+     *
+     * @example 2023-05-18T12:27:59Z
+     *
      * @var string
      */
     public $expireDate;
+
     /**
+     * @description The name of the key.
+     *
+     * @example 221514575922756034/cn-hangzhou/d57c62fbd508xxxxxxxx.json
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The security token.
+     *
+     * @example CAISzQN1q6Ft5B2yfSjIr5b2LouNuu5n/KOjQ3/wjGUHYdlagYGdmzz2IH1Le3NrBO8esfgymGFU6v8dlo1dYLQeHhadQI5cs80HtFqLSNaE65LswPlZ2M2ISETPJzfV9pCK
+     *
      * @var string
      */
     public $securityToken;
@@ -48,36 +82,29 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
-
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
         }
-
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
-
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -85,38 +112,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
-
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
         }
-
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
-
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

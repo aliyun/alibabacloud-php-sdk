@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateServiceTestTaskRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The name of the task.
+     *
+     * This parameter is required.
+     * @example nametest
+     *
      * @var string
      */
     public $taskName;
+
     /**
+     * @description The Task Execution Region
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $taskRegionId;
+
     /**
+     * @description The service test case ids.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $testCaseIds;
@@ -33,67 +52,47 @@ class CreateServiceTestTaskRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->testCaseIds)) {
-            Model::validateArray($this->testCaseIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
-
         if (null !== $this->taskRegionId) {
             $res['TaskRegionId'] = $this->taskRegionId;
         }
-
         if (null !== $this->testCaseIds) {
-            if (\is_array($this->testCaseIds)) {
-                $res['TestCaseIds'] = [];
-                $n1                 = 0;
-                foreach ($this->testCaseIds as $item1) {
-                    $res['TestCaseIds'][$n1++] = $item1;
-                }
-            }
+            $res['TestCaseIds'] = $this->testCaseIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateServiceTestTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
-
         if (isset($map['TaskRegionId'])) {
             $model->taskRegionId = $map['TaskRegionId'];
         }
-
         if (isset($map['TestCaseIds'])) {
             if (!empty($map['TestCaseIds'])) {
-                $model->testCaseIds = [];
-                $n1                 = 0;
-                foreach ($map['TestCaseIds'] as $item1) {
-                    $model->testCaseIds[$n1++] = $item1;
-                }
+                $model->testCaseIds = $map['TestCaseIds'];
             }
         }
 

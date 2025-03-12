@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\commodity;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class meteringEntityMappings extends Model
 {
     /**
+     * @description Metering entity IDs.
+     *
      * @var string[]
      */
     public $entityIds;
+
     /**
+     * @description The specification name.
+     *
+     * @example This parameter is not publicly accessible.
+     *
      * @var string
      */
     public $specificationName;
+
     /**
+     * @description The template name.
+     *
+     * @example The service ID.
+     *
      * @var string
      */
     public $templateName;
@@ -28,29 +40,17 @@ class meteringEntityMappings extends Model
 
     public function validate()
     {
-        if (\is_array($this->entityIds)) {
-            Model::validateArray($this->entityIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entityIds) {
-            if (\is_array($this->entityIds)) {
-                $res['EntityIds'] = [];
-                $n1               = 0;
-                foreach ($this->entityIds as $item1) {
-                    $res['EntityIds'][$n1++] = $item1;
-                }
-            }
+            $res['EntityIds'] = $this->entityIds;
         }
-
         if (null !== $this->specificationName) {
             $res['SpecificationName'] = $this->specificationName;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -58,28 +58,22 @@ class meteringEntityMappings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return meteringEntityMappings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityIds'])) {
             if (!empty($map['EntityIds'])) {
-                $model->entityIds = [];
-                $n1               = 0;
-                foreach ($map['EntityIds'] as $item1) {
-                    $model->entityIds[$n1++] = $item1;
-                }
+                $model->entityIds = $map['EntityIds'];
             }
         }
-
         if (isset($map['SpecificationName'])) {
             $model->specificationName = $map['SpecificationName'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

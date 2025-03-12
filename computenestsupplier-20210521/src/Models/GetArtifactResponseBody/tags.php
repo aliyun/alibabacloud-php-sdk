@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @description The tag key of the deployment package.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The tag value of the deployment package.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;
@@ -23,16 +32,14 @@ class tags extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +47,17 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

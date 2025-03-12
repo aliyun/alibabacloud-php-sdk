@@ -4,47 +4,87 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\cssMetadata;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\marketplaceMetadata;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\meteringEntities;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodity\specifications;
+use AlibabaCloud\Tea\Model;
 
 class commodity extends Model
 {
     /**
+     * @description The billing method of the service. Valid values:
+     *
+     *   **PREPAY** (default): subscription.
+     *   **POSTPAY**: pay-as-you-go.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
+
     /**
+     * @description The commodity code of the service in Alibaba Cloud Marketplace.
+     *
+     * @example cmjj00xxxx
+     *
      * @var string
      */
     public $commodityCode;
+
     /**
+     * @description The commodity modules.
+     *
      * @var string[]
      */
     public $components;
+
     /**
+     * @description The configuration metadata related to Lingxiao.
+     *
      * @var cssMetadata
      */
     public $cssMetadata;
+
     /**
+     * @description The metadata of Alibaba Cloud Marketplace.
+     *
      * @var marketplaceMetadata
      */
     public $marketplaceMetadata;
+
     /**
+     * @description The information about the billable item.
+     *
      * @var meteringEntities[]
      */
     public $meteringEntities;
+
     /**
+     * @description The configuration metadata related to Saas Boost.
+     *
+     * @example { "Enabled":false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+     *
      * @var string
      */
     public $saasBoostMetadata;
+
     /**
+     * @description The specification details of the service in Alibaba Cloud Marketplace.
+     *
      * @var specifications[]
      */
     public $specifications;
+
     /**
+     * @description The service type. Valid values:
+     *
+     *   marketplace: Alibaba Cloud Marketplace.
+     *   Css: Lingxiao.
+     *
+     * @example Marketplace
+     *
      * @var string
      */
     public $type;
@@ -62,77 +102,47 @@ class commodity extends Model
 
     public function validate()
     {
-        if (\is_array($this->components)) {
-            Model::validateArray($this->components);
-        }
-        if (null !== $this->cssMetadata) {
-            $this->cssMetadata->validate();
-        }
-        if (null !== $this->marketplaceMetadata) {
-            $this->marketplaceMetadata->validate();
-        }
-        if (\is_array($this->meteringEntities)) {
-            Model::validateArray($this->meteringEntities);
-        }
-        if (\is_array($this->specifications)) {
-            Model::validateArray($this->specifications);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
-
         if (null !== $this->components) {
-            if (\is_array($this->components)) {
-                $res['Components'] = [];
-                $n1                = 0;
-                foreach ($this->components as $item1) {
-                    $res['Components'][$n1++] = $item1;
-                }
-            }
+            $res['Components'] = $this->components;
         }
-
         if (null !== $this->cssMetadata) {
-            $res['CssMetadata'] = null !== $this->cssMetadata ? $this->cssMetadata->toArray($noStream) : $this->cssMetadata;
+            $res['CssMetadata'] = null !== $this->cssMetadata ? $this->cssMetadata->toMap() : null;
         }
-
         if (null !== $this->marketplaceMetadata) {
-            $res['MarketplaceMetadata'] = null !== $this->marketplaceMetadata ? $this->marketplaceMetadata->toArray($noStream) : $this->marketplaceMetadata;
+            $res['MarketplaceMetadata'] = null !== $this->marketplaceMetadata ? $this->marketplaceMetadata->toMap() : null;
         }
-
         if (null !== $this->meteringEntities) {
-            if (\is_array($this->meteringEntities)) {
-                $res['MeteringEntities'] = [];
-                $n1                      = 0;
-                foreach ($this->meteringEntities as $item1) {
-                    $res['MeteringEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MeteringEntities'] = [];
+            if (null !== $this->meteringEntities && \is_array($this->meteringEntities)) {
+                $n = 0;
+                foreach ($this->meteringEntities as $item) {
+                    $res['MeteringEntities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->saasBoostMetadata) {
             $res['SaasBoostMetadata'] = $this->saasBoostMetadata;
         }
-
         if (null !== $this->specifications) {
-            if (\is_array($this->specifications)) {
-                $res['Specifications'] = [];
-                $n1                    = 0;
-                foreach ($this->specifications as $item1) {
-                    $res['Specifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Specifications'] = [];
+            if (null !== $this->specifications && \is_array($this->specifications)) {
+                $n = 0;
+                foreach ($this->specifications as $item) {
+                    $res['Specifications'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -140,64 +150,52 @@ class commodity extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return commodity
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
-
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
-                $model->components = [];
-                $n1                = 0;
-                foreach ($map['Components'] as $item1) {
-                    $model->components[$n1++] = $item1;
-                }
+                $model->components = $map['Components'];
             }
         }
-
         if (isset($map['CssMetadata'])) {
             $model->cssMetadata = cssMetadata::fromMap($map['CssMetadata']);
         }
-
         if (isset($map['MarketplaceMetadata'])) {
             $model->marketplaceMetadata = marketplaceMetadata::fromMap($map['MarketplaceMetadata']);
         }
-
         if (isset($map['MeteringEntities'])) {
             if (!empty($map['MeteringEntities'])) {
                 $model->meteringEntities = [];
-                $n1                      = 0;
-                foreach ($map['MeteringEntities'] as $item1) {
-                    $model->meteringEntities[$n1++] = meteringEntities::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['MeteringEntities'] as $item) {
+                    $model->meteringEntities[$n++] = null !== $item ? meteringEntities::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SaasBoostMetadata'])) {
             $model->saasBoostMetadata = $map['SaasBoostMetadata'];
         }
-
         if (isset($map['Specifications'])) {
             if (!empty($map['Specifications'])) {
                 $model->specifications = [];
-                $n1                    = 0;
-                foreach ($map['Specifications'] as $item1) {
-                    $model->specifications[$n1++] = specifications::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['Specifications'] as $item) {
+                    $model->specifications[$n++] = null !== $item ? specifications::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

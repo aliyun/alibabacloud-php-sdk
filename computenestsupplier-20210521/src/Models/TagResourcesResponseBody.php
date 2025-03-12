@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class TagResourcesResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class TagResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TagResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

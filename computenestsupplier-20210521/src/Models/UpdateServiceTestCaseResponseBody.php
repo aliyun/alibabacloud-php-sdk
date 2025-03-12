@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateServiceTestCaseResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example DB1FA13E-1087-5654-84D5-58A0ACAD1B18
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateServiceTestCaseResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateServiceTestCaseResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateServiceTestCaseResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
