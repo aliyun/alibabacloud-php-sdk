@@ -19,16 +19,28 @@ class EnableRealtimeLogDeliveryRequest extends Model
     public $domain;
 
     /**
+     * @description The name of the Logstore where log entries are stored.
+     *
+     * @example LogstoreName
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
+     * @example ProjectName
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description The ID of the region where the Log Service project is deployed.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;

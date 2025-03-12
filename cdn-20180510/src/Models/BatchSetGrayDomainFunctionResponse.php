@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDomainServerCertificateResponse extends Model
+class BatchSetGrayDomainFunctionResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SetDomainServerCertificateResponse extends Model
     public $statusCode;
 
     /**
-     * @var SetDomainServerCertificateResponseBody
+     * @var BatchSetGrayDomainFunctionResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class SetDomainServerCertificateResponse extends Model
     /**
      * @param array $map
      *
-     * @return SetDomainServerCertificateResponse
+     * @return BatchSetGrayDomainFunctionResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class SetDomainServerCertificateResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SetDomainServerCertificateResponseBody::fromMap($map['body']);
+            $model->body = BatchSetGrayDomainFunctionResponseBody::fromMap($map['body']);
         }
 
         return $model;

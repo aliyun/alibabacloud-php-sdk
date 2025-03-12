@@ -18,8 +18,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDescribeCdnIpInfoRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDescribeCdnIpInfoResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainServerCertificateRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainServerCertificateResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetGrayDomainFunctionRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetGrayDomainFunctionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStartCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStartCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStopCdnDomainRequest;
@@ -285,6 +285,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DisableRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DisableRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\EnableRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\EnableRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\GetGrayDomainFunctionRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\GetGrayDomainFunctionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListDomainsByLogConfigIdRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListDomainsByLogConfigIdResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerRequest;
@@ -310,6 +312,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishGrayDomainConfigRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishGrayDomainConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PushObjectCacheRequest;
@@ -330,8 +334,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnFullDomainsBlockIPRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnFullDomainsBlockIPResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetWaitingRoomConfigRequest;
@@ -469,8 +471,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -542,8 +547,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddFCTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -622,8 +630,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchAddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchAddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchAddCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -690,8 +701,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchDeleteCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchDeleteCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteCdnDomainConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -745,8 +759,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchDescribeCdnIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchDescribeCdnIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDescribeCdnIpInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -810,8 +827,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchSetCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchSetCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetCdnDomainConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -833,56 +853,28 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
+     * @summary 批量配置多个域名的灰度动态功能
      *  *
-     * @description > *   You can call this operation up to 10 times per second per account.
-     * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
-     * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
-     *  *
-     * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param BatchSetGrayDomainFunctionRequest $request BatchSetGrayDomainFunctionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSetCdnDomainServerCertificateResponse BatchSetCdnDomainServerCertificateResponse
+     * @return BatchSetGrayDomainFunctionResponse BatchSetGrayDomainFunctionResponse
      */
-    public function batchSetCdnDomainServerCertificateWithOptions($request, $runtime)
+    public function batchSetGrayDomainFunctionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+        $body = [];
+        if (!Utils::isUnset($request->configs)) {
+            $body['Configs'] = $request->configs;
         }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->forceSet)) {
-            $query['ForceSet'] = $request->forceSet;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
-        }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
-        }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->domainNames)) {
+            $body['DomainNames'] = $request->domainNames;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchSetCdnDomainServerCertificate',
+            'action'      => 'BatchSetGrayDomainFunction',
             'version'     => '2018-05-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -892,26 +884,25 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchSetGrayDomainFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchSetCdnDomainServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetGrayDomainFunctionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables, disables, or configures the SSL certificates of one or more accelerated domain names at a time.
+     * @summary 批量配置多个域名的灰度动态功能
      *  *
-     * @description > *   You can call this operation up to 10 times per second per account.
-     * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
-     * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
-     *  *
-     * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
+     * @param BatchSetGrayDomainFunctionRequest $request BatchSetGrayDomainFunctionRequest
      *
-     * @return BatchSetCdnDomainServerCertificateResponse BatchSetCdnDomainServerCertificateResponse
+     * @return BatchSetGrayDomainFunctionResponse BatchSetGrayDomainFunctionResponse
      */
-    public function batchSetCdnDomainServerCertificate($request)
+    public function batchSetGrayDomainFunction($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->batchSetCdnDomainServerCertificateWithOptions($request, $runtime);
+        return $this->batchSetGrayDomainFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -953,8 +944,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchStartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchStartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchStartCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1015,8 +1009,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchStopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchStopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchStopCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1085,8 +1082,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchUpdateCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchUpdateCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUpdateCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1135,8 +1135,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CdnMigrateRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CdnMigrateRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CdnMigrateRegisterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1194,8 +1197,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeCdnDomainToDcdnResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeCdnDomainToDcdnResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeCdnDomainToDcdnResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1250,8 +1256,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckCdnDomainExistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCdnDomainExistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCdnDomainExistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1306,8 +1315,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckCdnDomainICPResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCdnDomainICPResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCdnDomainICPResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1376,8 +1388,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateCdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCdnCertificateSigningRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1439,8 +1454,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCdnDeliverTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1494,8 +1512,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCdnSubTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1543,8 +1564,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRealTimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1613,8 +1637,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUsageDetailDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1675,8 +1702,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserUsageDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1727,8 +1757,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCdnDeliverTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1786,8 +1819,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1831,8 +1867,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCdnSubTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1878,8 +1917,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFCTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1924,8 +1966,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteRealTimeLogLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRealTimeLogLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRealTimeLogLogstoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1972,8 +2017,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2032,8 +2080,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSpecificConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2092,8 +2143,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteSpecificStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSpecificStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSpecificStagingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2143,8 +2197,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUsageDetailDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2194,8 +2251,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserUsageDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2242,8 +2302,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeBlockedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBlockedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBlockedRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2299,8 +2362,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnCertificateDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2357,8 +2423,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnCertificateDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnCertificateDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnCertificateDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2416,8 +2485,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2469,8 +2541,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnConditionIPBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnConditionIPBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnConditionIPBInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2521,8 +2596,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDeletedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDeletedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDeletedDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2572,8 +2650,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDeliverListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDeliverListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDeliverListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2633,8 +2714,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainAtoaLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainAtoaLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainAtoaLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2688,8 +2772,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainByCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainByCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainByCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2751,8 +2838,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2808,8 +2898,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2874,8 +2967,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2898,6 +2994,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @summary 查询离线日志下载地址
+     *  *
      * @param DescribeCdnDomainLogsExTtlRequest $request DescribeCdnDomainLogsExTtlRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2936,11 +3034,16 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainLogsExTtlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainLogsExTtlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainLogsExTtlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 查询离线日志下载地址
+     *  *
      * @param DescribeCdnDomainLogsExTtlRequest $request DescribeCdnDomainLogsExTtlRequest
      *
      * @return DescribeCdnDomainLogsExTtlResponse DescribeCdnDomainLogsExTtlResponse
@@ -2986,8 +3089,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnDomainStagingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3041,8 +3147,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnFullDomainsBlockIPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnFullDomainsBlockIPConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnFullDomainsBlockIPConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3107,8 +3216,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnFullDomainsBlockIPHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnFullDomainsBlockIPHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnFullDomainsBlockIPHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3169,8 +3281,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnHttpsDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnHttpsDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnHttpsDomainListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3220,8 +3335,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnMigrateRegisterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnMigrateRegisterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnMigrateRegisterStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3275,8 +3393,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnOrderCommodityCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnOrderCommodityCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnOrderCommodityCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3328,8 +3449,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnRegionAndIspResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnRegionAndIspResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnRegionAndIspResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3398,8 +3522,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3450,8 +3577,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnReportListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3508,8 +3638,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnSMCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnSMCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnSMCertificateDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3565,8 +3698,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnSMCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnSMCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnSMCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3629,8 +3765,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnSSLCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3679,8 +3818,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnSecFuncInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnSecFuncInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnSecFuncInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3731,8 +3873,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3775,8 +3920,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnSubListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnSubListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnSubListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3829,8 +3977,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3882,8 +4033,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserBillHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserBillHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserBillHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3949,8 +4103,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserBillPredictionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserBillPredictionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserBillPredictionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4009,8 +4166,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserBillTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserBillTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserBillTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4060,8 +4220,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4120,8 +4283,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserDomainsByFuncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserDomainsByFuncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserDomainsByFuncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4174,8 +4340,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4231,8 +4400,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnUserResourcePackageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4288,8 +4460,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCdnWafDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCdnWafDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCdnWafDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4337,8 +4512,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCertificateInfoByIDResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCertificateInfoByIDResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCertificateInfoByIDResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4384,8 +4562,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCustomDomainSampleRateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4430,8 +4611,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCustomLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4505,8 +4689,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainAverageResponseTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainAverageResponseTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainAverageResponseTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4582,8 +4769,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4667,8 +4857,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainBpsDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4738,8 +4931,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainBpsDataByTimeStampResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainBpsDataByTimeStampResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainBpsDataByTimeStampResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4816,8 +5012,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainCcActivityLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainCcActivityLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainCcActivityLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4870,8 +5069,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainCertificateInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4919,8 +5121,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainCnameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainCnameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainCnameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4965,8 +5170,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainCustomLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5013,8 +5221,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainDetailDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainDetailDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainDetailDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5081,8 +5292,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5163,8 +5377,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5248,8 +5465,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainHttpCodeDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainHttpCodeDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainHttpCodeDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5316,8 +5536,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainISPDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainISPDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainISPDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5391,8 +5614,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainMax95BpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5461,8 +5687,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainMultiUsageDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5519,8 +5748,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainPathDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainPathDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainPathDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5584,8 +5816,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainPvDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5660,8 +5895,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5745,8 +5983,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainQpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainQpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainQpsDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5808,8 +6049,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5872,8 +6116,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeByteHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5930,8 +6177,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeDetailDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6002,8 +6252,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6066,8 +6319,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6132,8 +6388,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6207,8 +6466,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeSrcBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6286,8 +6548,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6359,8 +6624,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeSrcTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6438,8 +6706,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealTimeTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6494,8 +6765,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6554,8 +6828,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainRegionDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6625,8 +6902,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6701,8 +6981,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSrcBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6777,8 +7060,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSrcHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6853,8 +7139,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainSrcQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSrcQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSrcQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6923,8 +7212,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainSrcTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSrcTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSrcTopUrlVisitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6993,8 +7285,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSrcTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7070,8 +7365,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainTopClientIpVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopClientIpVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopClientIpVisitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7137,8 +7435,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopReferVisitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7205,8 +7506,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopUrlVisitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7283,8 +7587,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7369,8 +7676,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainUsageDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7436,8 +7746,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainUvDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7494,8 +7807,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainVerifyDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7551,8 +7867,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainsBySourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainsBySourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainsBySourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7610,8 +7929,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDomainsUsageByDayResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainsUsageByDayResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainsUsageByDayResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7669,8 +7991,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeEsExceptionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEsExceptionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEsExceptionDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7726,8 +8051,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeEsExecuteDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEsExecuteDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEsExecuteDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7772,8 +8100,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFCTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7819,8 +8150,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeIpInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7865,8 +8199,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeIpStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeIpStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeIpStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7923,8 +8260,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeL2VipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeL2VipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeL2VipsByDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7976,8 +8316,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePreloadDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePreloadDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePreloadDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8041,8 +8384,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRangeDataByLocateAndIspServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8105,8 +8451,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRealtimeDeliveryAccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRealtimeDeliveryAccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRealtimeDeliveryAccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8159,8 +8508,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRefreshQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8211,8 +8563,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRefreshTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRefreshTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRefreshTaskByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8300,8 +8655,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRefreshTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8347,8 +8705,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeStagingIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeStagingIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeStagingIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8402,8 +8763,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8461,8 +8825,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTopDomainsByFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8515,8 +8882,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserCdnStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserCdnStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserCdnStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8556,8 +8926,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserCertificateExpireCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserCertificateExpireCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserCertificateExpireCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8575,12 +8948,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeUserConfigs is deprecated
-     *  *
      * @summary Queries configurations of security features.
      *  *
-     * Deprecated
-     *
      * @param DescribeUserConfigsRequest $request DescribeUserConfigsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8613,17 +8982,16 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @deprecated OpenAPI DescribeUserConfigs is deprecated
-     *  *
      * @summary Queries configurations of security features.
      *  *
-     * Deprecated
-     *
      * @param DescribeUserConfigsRequest $request DescribeUserConfigsRequest
      *
      * @return DescribeUserConfigsResponse DescribeUserConfigsResponse
@@ -8709,8 +9077,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8753,8 +9124,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8805,8 +9179,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserUsageDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8860,8 +9237,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserUsageDetailDataExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8909,8 +9289,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserVipsByDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8958,8 +9341,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVerifyContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8977,9 +9363,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Disables real-time log delivery for specific accelerated domain names.
      *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description > You can call this operation up to 100 times per second per account.
      *  *
      * @param DisableRealtimeLogDeliveryRequest $request DisableRealtimeLogDeliveryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9004,14 +9390,17 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Disables real-time log delivery for specific accelerated domain names.
      *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description > You can call this operation up to 100 times per second per account.
      *  *
      * @param DisableRealtimeLogDeliveryRequest $request DisableRealtimeLogDeliveryRequest
      *
@@ -9025,9 +9414,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Enables real-time log delivery for an accelerated domain name.
      *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description > You can call this operation up to 100 times per second per account.
      *  *
      * @param EnableRealtimeLogDeliveryRequest $request EnableRealtimeLogDeliveryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -9052,14 +9441,17 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the request.
+     * @summary Enables real-time log delivery for an accelerated domain name.
      *  *
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description > You can call this operation up to 100 times per second per account.
      *  *
      * @param EnableRealtimeLogDeliveryRequest $request EnableRealtimeLogDeliveryRequest
      *
@@ -9070,6 +9462,59 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableRealtimeLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 按域名、functionName查询灰度配置信息，返回的信息中包含当前的灰度状态、灰度进度
+     *  *
+     * @param GetGrayDomainFunctionRequest $request GetGrayDomainFunctionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetGrayDomainFunctionResponse GetGrayDomainFunctionResponse
+     */
+    public function getGrayDomainFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionNames)) {
+            $body['FunctionNames'] = $request->functionNames;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGrayDomainFunction',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetGrayDomainFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetGrayDomainFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 按域名、functionName查询灰度配置信息，返回的信息中包含当前的灰度状态、灰度进度
+     *  *
+     * @param GetGrayDomainFunctionRequest $request GetGrayDomainFunctionRequest
+     *
+     * @return GetGrayDomainFunctionResponse GetGrayDomainFunctionResponse
+     */
+    public function getGrayDomainFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGrayDomainFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -9100,8 +9545,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDomainsByLogConfigIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDomainsByLogConfigIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDomainsByLogConfigIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9148,8 +9596,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFCTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9189,8 +9640,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9233,8 +9687,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRealtimeLogDeliveryDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRealtimeLogDeliveryDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRealtimeLogDeliveryDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9276,8 +9733,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRealtimeLogDeliveryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRealtimeLogDeliveryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRealtimeLogDeliveryInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9338,8 +9798,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9379,8 +9842,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserCustomLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9443,8 +9909,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9505,8 +9974,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCdnDomainOwnerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9561,8 +10033,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCdnDomainSchdmByPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCdnDomainSchdmByPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCdnDomainSchdmByPropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9616,8 +10091,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCdnServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9672,8 +10150,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCustomDomainSampleRateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCustomDomainSampleRateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9718,8 +10199,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRealtimeLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9776,8 +10260,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OpenCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenCdnServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9795,6 +10282,68 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openCdnServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 发布灰度配置到线上，支持多种模式，如全网发布、指定方式(灰度发布)，回滚
+     *  *
+     * @param PublishGrayDomainConfigRequest $request PublishGrayDomainConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PublishGrayDomainConfigResponse PublishGrayDomainConfigResponse
+     */
+    public function publishGrayDomainConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customCountryId)) {
+            $body['CustomCountryId'] = $request->customCountryId;
+        }
+        if (!Utils::isUnset($request->customPercent)) {
+            $body['CustomPercent'] = $request->customPercent;
+        }
+        if (!Utils::isUnset($request->customProvinceId)) {
+            $body['CustomProvinceId'] = $request->customProvinceId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->publishMode)) {
+            $body['PublishMode'] = $request->publishMode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishGrayDomainConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishGrayDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PublishGrayDomainConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发布灰度配置到线上，支持多种模式，如全网发布、指定方式(灰度发布)，回滚
+     *  *
+     * @param PublishGrayDomainConfigRequest $request PublishGrayDomainConfigRequest
+     *
+     * @return PublishGrayDomainConfigResponse PublishGrayDomainConfigResponse
+     */
+    public function publishGrayDomainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishGrayDomainConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -9828,8 +10377,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishStagingConfigToProductionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishStagingConfigToProductionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishStagingConfigToProductionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9907,8 +10459,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushObjectCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushObjectCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushObjectCacheResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9972,8 +10527,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RefreshObjectCacheByCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshObjectCacheByCacheTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshObjectCacheByCacheTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10047,8 +10605,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RefreshObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshObjectCachesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10110,8 +10671,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RollbackStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RollbackStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RollbackStagingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10164,8 +10728,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCdnDomainCSRCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10227,8 +10794,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCdnDomainSMCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCdnDomainSMCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCdnDomainSMCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10309,8 +10879,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCdnDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCdnDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCdnDomainSSLCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10364,8 +10937,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCdnDomainStagingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10426,8 +11002,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCdnFullDomainsBlockIPResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10446,91 +11025,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setCdnFullDomainsBlockIPWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated openAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead
-     *  *
-     * @summary Configures an SSL certificate for an accelerated domain name.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per user.
-     * *   Method: POST.
-     *  *
-     * Deprecated
-     *
-     * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return SetDomainServerCertificateResponse SetDomainServerCertificateResponse
-     */
-    public function setDomainServerCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
-        }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->forceSet)) {
-            $query['ForceSet'] = $request->forceSet;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->privateKey)) {
-            $query['PrivateKey'] = $request->privateKey;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->serverCertificate)) {
-            $query['ServerCertificate'] = $request->serverCertificate;
-        }
-        if (!Utils::isUnset($request->serverCertificateStatus)) {
-            $query['ServerCertificateStatus'] = $request->serverCertificateStatus;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDomainServerCertificate',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDomainServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated openAPI SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead
-     *  *
-     * @summary Configures an SSL certificate for an accelerated domain name.
-     *  *
-     * @description *   You can call this operation up to 10 times per second per user.
-     * *   Method: POST.
-     *  *
-     * Deprecated
-     *
-     * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
-     *
-     * @return SetDomainServerCertificateResponse SetDomainServerCertificateResponse
-     */
-    public function setDomainServerCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDomainServerCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -10577,8 +11071,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetReqHeaderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetReqHeaderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetReqHeaderConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10641,8 +11138,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetWaitingRoomConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetWaitingRoomConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetWaitingRoomConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10699,8 +11199,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10758,8 +11261,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopCdnDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10816,8 +11322,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10876,8 +11385,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10942,8 +11454,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCdnDeliverTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11002,8 +11517,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCdnSubTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11065,8 +11583,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFCTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11117,8 +11638,11 @@ class Cdn extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyDomainOwnerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

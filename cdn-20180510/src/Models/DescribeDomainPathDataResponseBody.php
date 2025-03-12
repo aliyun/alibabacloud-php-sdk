@@ -62,6 +62,15 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pathDataPerInterval;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 809A6F10-8238-4A49-BE00-4B2D6305686E
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description The start of the time range during which data was queried.
      *
      * @example 2017-09-30T16:00:00Z
@@ -85,6 +94,7 @@ class DescribeDomainPathDataResponseBody extends Model
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
         'pathDataPerInterval' => 'PathDataPerInterval',
+        'requestId'           => 'RequestId',
         'startTime'           => 'StartTime',
         'totalCount'          => 'TotalCount',
     ];
@@ -113,6 +123,9 @@ class DescribeDomainPathDataResponseBody extends Model
         }
         if (null !== $this->pathDataPerInterval) {
             $res['PathDataPerInterval'] = null !== $this->pathDataPerInterval ? $this->pathDataPerInterval->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -149,6 +162,9 @@ class DescribeDomainPathDataResponseBody extends Model
         }
         if (isset($map['PathDataPerInterval'])) {
             $model->pathDataPerInterval = pathDataPerInterval::fromMap($map['PathDataPerInterval']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

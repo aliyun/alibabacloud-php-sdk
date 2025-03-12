@@ -6,13 +6,9 @@ namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SetDomainServerCertificateResponseBody extends Model
+class PublishGrayDomainConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -37,7 +33,7 @@ class SetDomainServerCertificateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SetDomainServerCertificateResponseBody
+     * @return PublishGrayDomainConfigResponseBody
      */
     public static function fromMap($map = [])
     {
