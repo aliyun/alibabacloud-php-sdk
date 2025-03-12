@@ -4,19 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSAMLProviderRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example This is a provider.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The metadata file which is Base64-encoded.
+     *
+     * The file is provided by an IdP that supports Security Assertion Markup Language (SAML) 2.0.
+     * @example PD94bWwgdmVy****
+     *
      * @var string
      */
     public $encodedSAMLMetadataDocument;
+
     /**
+     * @description The name of the IdP.
+     *
+     * This parameter is required.
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;
@@ -28,20 +44,17 @@ class CreateSAMLProviderRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->encodedSAMLMetadataDocument) {
             $res['EncodedSAMLMetadataDocument'] = $this->encodedSAMLMetadataDocument;
         }
-
         if (null !== $this->SAMLProviderName) {
             $res['SAMLProviderName'] = $this->SAMLProviderName;
         }
@@ -49,22 +62,20 @@ class CreateSAMLProviderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSAMLProviderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['EncodedSAMLMetadataDocument'])) {
             $model->encodedSAMLMetadataDocument = $map['EncodedSAMLMetadataDocument'];
         }
-
         if (isset($map['SAMLProviderName'])) {
             $model->SAMLProviderName = $map['SAMLProviderName'];
         }

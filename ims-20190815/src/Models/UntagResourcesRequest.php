@@ -4,27 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the resource. Valid values:
+     *
+     *   true: remove all tags from the resources.
+     *   false (default): does not remove all tags from the resources.
+     *
+     * > This parameter takes effect only when TagKey.N is not set in the request.
+     * @example false
+     *
      * @var bool
      */
     public $all;
+
     /**
+     * @description The IDs of resources.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     * @example UntagResources
+     *
      * @var string[]
      */
     public $resourceId;
+
     /**
+     * @description The names of resources.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
      * @var string[]
      */
     public $resourcePrincipalName;
+
     /**
+     * @description The type of the resource. Valid value:
+     *
+     *   user: a RAM user
+     *
+     * @example user
+     *
      * @var string
      */
     public $resourceType;
+
     /**
+     * @description The tag keys of resources.
+     *
+     * Valid values of N: 1 to 20. N must be consecutive.
      * @var string[]
      */
     public $tagKey;
@@ -38,105 +67,57 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceId)) {
-            Model::validateArray($this->resourceId);
-        }
-        if (\is_array($this->resourcePrincipalName)) {
-            Model::validateArray($this->resourcePrincipalName);
-        }
-        if (\is_array($this->tagKey)) {
-            Model::validateArray($this->tagKey);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
-
         if (null !== $this->resourceId) {
-            if (\is_array($this->resourceId)) {
-                $res['ResourceId'] = [];
-                $n1                = 0;
-                foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1++] = $item1;
-                }
-            }
+            $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourcePrincipalName) {
-            if (\is_array($this->resourcePrincipalName)) {
-                $res['ResourcePrincipalName'] = [];
-                $n1                           = 0;
-                foreach ($this->resourcePrincipalName as $item1) {
-                    $res['ResourcePrincipalName'][$n1++] = $item1;
-                }
-            }
+            $res['ResourcePrincipalName'] = $this->resourcePrincipalName;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->tagKey) {
-            if (\is_array($this->tagKey)) {
-                $res['TagKey'] = [];
-                $n1            = 0;
-                foreach ($this->tagKey as $item1) {
-                    $res['TagKey'][$n1++] = $item1;
-                }
-            }
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UntagResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
-
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = [];
-                $n1                = 0;
-                foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1++] = $item1;
-                }
+                $model->resourceId = $map['ResourceId'];
             }
         }
-
         if (isset($map['ResourcePrincipalName'])) {
             if (!empty($map['ResourcePrincipalName'])) {
-                $model->resourcePrincipalName = [];
-                $n1                           = 0;
-                foreach ($map['ResourcePrincipalName'] as $item1) {
-                    $model->resourcePrincipalName[$n1++] = $item1;
-                }
+                $model->resourcePrincipalName = $map['ResourcePrincipalName'];
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = [];
-                $n1            = 0;
-                foreach ($map['TagKey'] as $item1) {
-                    $model->tagKey[$n1++] = $item1;
-                }
+                $model->tagKey = $map['TagKey'];
             }
         }
 

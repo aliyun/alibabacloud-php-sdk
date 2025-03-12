@@ -4,19 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAccessKeyRequest extends Model
 {
     /**
+     * @description The status of the AccessKey pair. Valid values:
+     *
+     *   Active
+     *   Inactive
+     *
+     * This parameter is required.
+     * @example Active
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The AccessKey ID of the AccessKey pair for which you want to modify the status.
+     *
+     * This parameter is required.
+     * @example LTAI4GFTgcR8m8cZQDTH****
+     *
      * @var string
      */
     public $userAccessKeyId;
+
     /**
+     * @description The logon name of the RAM user.
+     *
+     * If this parameter is empty, the status of the AccessKey pair for the current user is modified.
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;
@@ -28,20 +48,17 @@ class UpdateAccessKeyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
         }
-
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
         }
@@ -49,22 +66,20 @@ class UpdateAccessKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAccessKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
         }
-
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
         }

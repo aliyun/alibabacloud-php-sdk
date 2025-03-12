@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\UpdateApplicationResponseBody\application;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateApplicationResponseBody\application\delegatedScope\predefinedScopes;
+use AlibabaCloud\Tea\Model;
 
 class delegatedScope extends Model
 {
     /**
+     * @description The information about the permissions that are granted on the application.
+     *
      * @var predefinedScopes
      */
     public $predefinedScopes;
@@ -19,27 +21,23 @@ class delegatedScope extends Model
 
     public function validate()
     {
-        if (null !== $this->predefinedScopes) {
-            $this->predefinedScopes->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->predefinedScopes) {
-            $res['PredefinedScopes'] = null !== $this->predefinedScopes ? $this->predefinedScopes->toArray($noStream) : $this->predefinedScopes;
+            $res['PredefinedScopes'] = null !== $this->predefinedScopes ? $this->predefinedScopes->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return delegatedScope
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UnbindMFADeviceRequest extends Model
 {
     /**
+     * @description The logon name of the RAM user.
+     *
+     * This parameter is required.
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;
@@ -18,10 +23,9 @@ class UnbindMFADeviceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userPrincipalName) {
@@ -31,11 +35,11 @@ class UnbindMFADeviceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnbindMFADeviceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

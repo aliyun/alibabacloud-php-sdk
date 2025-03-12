@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetGroupRequest extends Model
 {
     /**
+     * @description The name of the RAM user group.
+     *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $groupName;
@@ -18,10 +22,9 @@ class GetGroupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
@@ -31,11 +34,11 @@ class GetGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

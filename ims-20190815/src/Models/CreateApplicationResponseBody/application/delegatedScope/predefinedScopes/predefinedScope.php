@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\CreateApplicationResponseBody\application\delegatedScope\predefinedScopes;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class predefinedScope extends Model
 {
     /**
+     * @description The description of the permission.
+     *
+     * @example Obtain the OpenID of the user. This is the default permission that you cannot remove.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The name of the permission.
+     *
+     * @example openid
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description Indicates whether the permission is automatically selected by default when you install the application. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * `openid` is required by default.
+     * @example true
+     *
      * @var bool
      */
     public $required;
@@ -28,20 +46,17 @@ class predefinedScope extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
@@ -49,22 +64,20 @@ class predefinedScope extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return predefinedScope
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }

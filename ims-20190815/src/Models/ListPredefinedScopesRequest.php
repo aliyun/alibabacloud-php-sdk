@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPredefinedScopesRequest extends Model
 {
     /**
+     * @description The type of the application. Valid values:
+     *
+     *   WebApp
+     *   NativeApp
+     *   ServerApp
+     *
+     * If this parameter is empty, the permissions on all types of applications are queried.
+     * @example WebApp
+     *
      * @var string
      */
     public $appType;
@@ -18,10 +27,9 @@ class ListPredefinedScopesRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appType) {
@@ -31,11 +39,11 @@ class ListPredefinedScopesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPredefinedScopesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

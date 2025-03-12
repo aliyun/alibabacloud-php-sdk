@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponseBody\securityPreference;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class personalInfoPreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allowUserToManagePersonalDingTalk;
@@ -18,10 +25,9 @@ class personalInfoPreference extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowUserToManagePersonalDingTalk) {
@@ -31,11 +37,11 @@ class personalInfoPreference extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return personalInfoPreference
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

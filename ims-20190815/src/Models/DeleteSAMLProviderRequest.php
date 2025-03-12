@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteSAMLProviderRequest extends Model
 {
     /**
+     * @description The name of the IdP that you want to delete.
+     *
+     * This parameter is required.
+     * @example test-provider
+     *
      * @var string
      */
     public $SAMLProviderName;
@@ -18,10 +23,9 @@ class DeleteSAMLProviderRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->SAMLProviderName) {
@@ -31,11 +35,11 @@ class DeleteSAMLProviderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteSAMLProviderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListAppSecretIdsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAppSecretIdsResponseBody\appSecrets\appSecret;
+use AlibabaCloud\Tea\Model;
 
 class appSecrets extends Model
 {
@@ -19,21 +19,17 @@ class appSecrets extends Model
 
     public function validate()
     {
-        if (\is_array($this->appSecret)) {
-            Model::validateArray($this->appSecret);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appSecret) {
-            if (\is_array($this->appSecret)) {
-                $res['AppSecret'] = [];
-                $n1               = 0;
-                foreach ($this->appSecret as $item1) {
-                    $res['AppSecret'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AppSecret'] = [];
+            if (null !== $this->appSecret && \is_array($this->appSecret)) {
+                $n = 0;
+                foreach ($this->appSecret as $item) {
+                    $res['AppSecret'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class appSecrets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appSecrets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppSecret'])) {
             if (!empty($map['AppSecret'])) {
                 $model->appSecret = [];
-                $n1               = 0;
-                foreach ($map['AppSecret'] as $item1) {
-                    $model->appSecret[$n1++] = appSecret::fromMap($item1);
+                $n                = 0;
+                foreach ($map['AppSecret'] as $item) {
+                    $model->appSecret[$n++] = null !== $item ? appSecret::fromMap($item) : $item;
                 }
             }
         }

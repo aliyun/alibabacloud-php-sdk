@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListPasskeysResponseBody\passkeys;
+use AlibabaCloud\Tea\Model;
 
 class ListPasskeysResponseBody extends Model
 {
     /**
+     * @description The information about the passkeys.
+     *
      * @var passkeys[]
      */
     public $passkeys;
+
     /**
+     * @description The request ID.
+     *
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class ListPasskeysResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->passkeys)) {
-            Model::validateArray($this->passkeys);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->passkeys) {
-            if (\is_array($this->passkeys)) {
-                $res['Passkeys'] = [];
-                $n1              = 0;
-                foreach ($this->passkeys as $item1) {
-                    $res['Passkeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Passkeys'] = [];
+            if (null !== $this->passkeys && \is_array($this->passkeys)) {
+                $n = 0;
+                foreach ($this->passkeys as $item) {
+                    $res['Passkeys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class ListPasskeysResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPasskeysResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Passkeys'])) {
             if (!empty($map['Passkeys'])) {
                 $model->passkeys = [];
-                $n1              = 0;
-                foreach ($map['Passkeys'] as $item1) {
-                    $model->passkeys[$n1++] = passkeys::fromMap($item1);
+                $n               = 0;
+                foreach ($map['Passkeys'] as $item) {
+                    $model->passkeys[$n++] = null !== $item ? passkeys::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

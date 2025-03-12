@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class verificationPreference extends Model
 {
     /**
+     * @description The MFA methods.
+     *
      * @var string[]
      */
     public $verificationTypes;
@@ -18,43 +20,29 @@ class verificationPreference extends Model
 
     public function validate()
     {
-        if (\is_array($this->verificationTypes)) {
-            Model::validateArray($this->verificationTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->verificationTypes) {
-            if (\is_array($this->verificationTypes)) {
-                $res['VerificationTypes'] = [];
-                $n1                       = 0;
-                foreach ($this->verificationTypes as $item1) {
-                    $res['VerificationTypes'][$n1++] = $item1;
-                }
-            }
+            $res['VerificationTypes'] = $this->verificationTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return verificationPreference
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VerificationTypes'])) {
             if (!empty($map['VerificationTypes'])) {
-                $model->verificationTypes = [];
-                $n1                       = 0;
-                foreach ($map['VerificationTypes'] as $item1) {
-                    $model->verificationTypes[$n1++] = $item1;
-                }
+                $model->verificationTypes = $map['VerificationTypes'];
             }
         }
 

@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddFingerprintToOIDCProviderRequest extends Model
 {
     /**
+     * @description The fingerprint of the HTTPS certificate.
+     *
+     * The fingerprint can be up to 40 characters in length.
+     * @example 902ef2deeb3c5b13ea4c3d5193629309e231****
+     *
      * @var string
      */
     public $fingerprint;
+
     /**
+     * @description The name of the OIDC IdP.
+     *
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;
@@ -23,16 +33,14 @@ class AddFingerprintToOIDCProviderRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
-
         if (null !== $this->OIDCProviderName) {
             $res['OIDCProviderName'] = $this->OIDCProviderName;
         }
@@ -40,18 +48,17 @@ class AddFingerprintToOIDCProviderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddFingerprintToOIDCProviderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
-
         if (isset($map['OIDCProviderName'])) {
             $model->OIDCProviderName = $map['OIDCProviderName'];
         }

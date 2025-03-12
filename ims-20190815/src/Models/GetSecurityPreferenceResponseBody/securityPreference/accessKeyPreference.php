@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponseBody\securityPreference;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class accessKeyPreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can manage their AccessKey pairs. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToManageAccessKeys;
@@ -18,10 +25,9 @@ class accessKeyPreference extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowUserToManageAccessKeys) {
@@ -31,11 +37,11 @@ class accessKeyPreference extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accessKeyPreference
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

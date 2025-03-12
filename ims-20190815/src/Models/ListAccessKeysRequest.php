@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAccessKeysRequest extends Model
 {
     /**
+     * @description The logon name of the RAM user.
+     *
+     * If this parameter is empty, the AccessKey pairs of the current user are queried.
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;
@@ -18,10 +23,9 @@ class ListAccessKeysRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userPrincipalName) {
@@ -31,11 +35,11 @@ class ListAccessKeysRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAccessKeysRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

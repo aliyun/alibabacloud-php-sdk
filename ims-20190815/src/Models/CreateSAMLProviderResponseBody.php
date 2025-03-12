@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateSAMLProviderResponseBody\SAMLProvider;
+use AlibabaCloud\Tea\Model;
 
 class CreateSAMLProviderResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A95A763D-F6B7-5242-83EB-AB45CE67F358
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about the IdP.
+     *
      * @var SAMLProvider
      */
     public $SAMLProvider;
@@ -24,38 +31,32 @@ class CreateSAMLProviderResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->SAMLProvider) {
-            $this->SAMLProvider->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->SAMLProvider) {
-            $res['SAMLProvider'] = null !== $this->SAMLProvider ? $this->SAMLProvider->toArray($noStream) : $this->SAMLProvider;
+            $res['SAMLProvider'] = null !== $this->SAMLProvider ? $this->SAMLProvider->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSAMLProviderResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SAMLProvider'])) {
             $model->SAMLProvider = SAMLProvider::fromMap($map['SAMLProvider']);
         }

@@ -4,23 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetUserSsoSettingsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userSsoSettings extends Model
 {
     /**
+     * @description The auxiliary domain name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $auxiliaryDomain;
+
     /**
+     * @description The metadata file, which is Base64-encoded.
+     *
+     * @example PD94bWwgdmVy****
+     *
      * @var string
      */
     public $metadataDocument;
+
     /**
+     * @description Indicates whether user-based SSO is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $ssoEnabled;
+
     /**
+     * @description Indicates whether the Security Assertion Markup Language (SAML) SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the identity provider (IdP) for SSO must have a domain name as the suffix.
+     *
+     *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+     *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+     *
+     * The default value is `true`.
+     * @example true
+     *
      * @var bool
      */
     public $ssoLoginWithDomain;
@@ -33,24 +56,20 @@ class userSsoSettings extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auxiliaryDomain) {
             $res['AuxiliaryDomain'] = $this->auxiliaryDomain;
         }
-
         if (null !== $this->metadataDocument) {
             $res['MetadataDocument'] = $this->metadataDocument;
         }
-
         if (null !== $this->ssoEnabled) {
             $res['SsoEnabled'] = $this->ssoEnabled;
         }
-
         if (null !== $this->ssoLoginWithDomain) {
             $res['SsoLoginWithDomain'] = $this->ssoLoginWithDomain;
         }
@@ -58,26 +77,23 @@ class userSsoSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userSsoSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuxiliaryDomain'])) {
             $model->auxiliaryDomain = $map['AuxiliaryDomain'];
         }
-
         if (isset($map['MetadataDocument'])) {
             $model->metadataDocument = $map['MetadataDocument'];
         }
-
         if (isset($map['SsoEnabled'])) {
             $model->ssoEnabled = $map['SsoEnabled'];
         }
-
         if (isset($map['SsoLoginWithDomain'])) {
             $model->ssoLoginWithDomain = $map['SsoLoginWithDomain'];
         }

@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAppSecretRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * This parameter is required.
+     * @example 472457090344041****
+     *
      * @var string
      */
     public $appId;
+
     /**
+     * @description The ID of the application secret.
+     *
+     * This parameter is required.
+     * @example 2efd5004-005c-4f05-83c6-5b1dd176****
+     *
      * @var string
      */
     public $appSecretId;
@@ -23,16 +34,14 @@ class GetAppSecretRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->appSecretId) {
             $res['AppSecretId'] = $this->appSecretId;
         }
@@ -40,18 +49,17 @@ class GetAppSecretRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAppSecretRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AppSecretId'])) {
             $model->appSecretId = $map['AppSecretId'];
         }

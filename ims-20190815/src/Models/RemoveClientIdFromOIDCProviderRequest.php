@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveClientIdFromOIDCProviderRequest extends Model
 {
     /**
+     * @description The client ID that you want to remove.
+     *
+     * The client ID can be up to 64 characters in length.
+     * @example 498469743454717****
+     *
      * @var string
      */
     public $clientId;
+
     /**
+     * @description The name of the OIDC IdP.
+     *
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;
@@ -23,16 +33,14 @@ class RemoveClientIdFromOIDCProviderRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
-
         if (null !== $this->OIDCProviderName) {
             $res['OIDCProviderName'] = $this->OIDCProviderName;
         }
@@ -40,18 +48,17 @@ class RemoveClientIdFromOIDCProviderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveClientIdFromOIDCProviderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
-
         if (isset($map['OIDCProviderName'])) {
             $model->OIDCProviderName = $map['OIDCProviderName'];
         }

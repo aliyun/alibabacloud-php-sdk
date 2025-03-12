@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ims\V20190815\Models\AddClientIdToOIDCProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\AddClientIdToOIDCProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\AddFingerprintToOIDCProviderRequest;
@@ -33,6 +34,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateVirtualMFADeviceResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteApplicationRequest;
@@ -49,18 +52,29 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\DeletePasskeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeletePasskeyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteSAMLProviderResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteVirtualMFADeviceRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteVirtualMFADeviceResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeprovisionApplicationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeprovisionApplicationResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeprovisionExternalApplicationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeprovisionExternalApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DisableVirtualMFARequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DisableVirtualMFAResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GenerateCredentialReportResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GenerateGovernanceReportResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountMFAInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSecurityPracticeReportResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSummaryResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationProvisionInfoRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationProvisionInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAppSecretRequest;
@@ -68,6 +82,11 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetAppSecretResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetCredentialReportRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetCredentialReportResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetDefaultDomainResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetExternalApplicationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetExternalApplicationResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceItemReportResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetGovernanceReportStatusResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGroupResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetLoginProfileRequest;
@@ -78,6 +97,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSAMLProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserMFAInfoRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserMFAInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserRequest;
@@ -85,11 +106,16 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserSsoSettingsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetVerificationInfoRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetVerificationInfoResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationProvisionInfosRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationProvisionInfosResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAppSecretIdsRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAppSecretIdsResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListExternalApplicationsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsForUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsForUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsRequest;
@@ -100,6 +126,7 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\ListPasskeysRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListPasskeysResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListPredefinedScopesRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListPredefinedScopesResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListRecentGovernanceMetricsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListSAMLProvidersRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListSAMLProvidersResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListTagResourcesRequest;
@@ -108,16 +135,26 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersForGroupRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersForGroupResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersInRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionApplicationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionApplicationResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionExternalApplicationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ProvisionExternalApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveClientIdFromOIDCProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveClientIdFromOIDCProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveFingerprintFromOIDCProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveFingerprintFromOIDCProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveUserFromGroupRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RemoveUserFromGroupResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetDefaultDomainRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetDefaultDomainResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyRequest;
@@ -127,10 +164,14 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceShrinkRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetUserSsoSettingsRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetUserSsoSettingsResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetVerificationInfoRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetVerificationInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindMFADeviceRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindMFADeviceResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindVerificationRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindVerificationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateAccessKeyRequest;
@@ -149,10 +190,11 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateSAMLProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Ims extends OpenApiClient
 {
@@ -177,43 +219,36 @@ class Ims extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddClientIdToOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddClientIdToOIDCProviderResponse
-     *
-     * @param AddClientIdToOIDCProviderRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddClientIdToOIDCProvider',
@@ -226,7 +261,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddClientIdToOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -234,14 +269,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * @summary Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
      *
-     * @param request - AddClientIdToOIDCProviderRequest
-     * @returns AddClientIdToOIDCProviderResponse
-     *
-     * @param AddClientIdToOIDCProviderRequest $request
-     *
-     * @return AddClientIdToOIDCProviderResponse
+     * @return AddClientIdToOIDCProviderResponse AddClientIdToOIDCProviderResponse
      */
     public function addClientIdToOIDCProvider($request)
     {
@@ -251,35 +283,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddFingerprintToOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddFingerprintToOIDCProviderResponse
-     *
-     * @param AddFingerprintToOIDCProviderRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return AddFingerprintToOIDCProviderResponse
+     * @return AddFingerprintToOIDCProviderResponse AddFingerprintToOIDCProviderResponse
      */
     public function addFingerprintToOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fingerprint) {
-            @$query['Fingerprint'] = $request->fingerprint;
+        if (!Utils::isUnset($request->fingerprint)) {
+            $query['Fingerprint'] = $request->fingerprint;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddFingerprintToOIDCProvider',
@@ -292,7 +317,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddFingerprintToOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -300,18 +325,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
      *
-     * @param request - AddFingerprintToOIDCProviderRequest
-     * @returns AddFingerprintToOIDCProviderResponse
-     *
-     * @param AddFingerprintToOIDCProviderRequest $request
-     *
-     * @return AddFingerprintToOIDCProviderResponse
+     * @return AddFingerprintToOIDCProviderResponse AddFingerprintToOIDCProviderResponse
      */
     public function addFingerprintToOIDCProvider($request)
     {
@@ -321,31 +342,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 将RAM用户添加到指定的用户组.
+     * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddUserToGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddUserToGroupResponse
-     *
-     * @param AddUserToGroupRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddUserToGroup',
@@ -358,7 +373,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddUserToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -366,14 +381,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 将RAM用户添加到指定的用户组.
+     * @summary Adds a Resource Access Management (RAM) user to a RAM user group.
+     *  *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
      *
-     * @param request - AddUserToGroupRequest
-     * @returns AddUserToGroupResponse
-     *
-     * @param AddUserToGroupRequest $request
-     *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroup($request)
     {
@@ -383,39 +395,31 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a multi-factor authentication (MFA) device to a RAM user.
+     * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+     *  *
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BindMFADeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns BindMFADeviceResponse
-     *
-     * @param BindMFADeviceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADeviceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->authenticationCode1) {
-            @$query['AuthenticationCode1'] = $request->authenticationCode1;
+        if (!Utils::isUnset($request->authenticationCode1)) {
+            $query['AuthenticationCode1'] = $request->authenticationCode1;
         }
-
-        if (null !== $request->authenticationCode2) {
-            @$query['AuthenticationCode2'] = $request->authenticationCode2;
+        if (!Utils::isUnset($request->authenticationCode2)) {
+            $query['AuthenticationCode2'] = $request->authenticationCode2;
         }
-
-        if (null !== $request->serialNumber) {
-            @$query['SerialNumber'] = $request->serialNumber;
+        if (!Utils::isUnset($request->serialNumber)) {
+            $query['SerialNumber'] = $request->serialNumber;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindMFADevice',
@@ -428,7 +432,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -436,14 +440,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a multi-factor authentication (MFA) device to a RAM user.
+     * @summary Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+     *  *
+     * @param BindMFADeviceRequest $request BindMFADeviceRequest
      *
-     * @param request - BindMFADeviceRequest
-     * @returns BindMFADeviceResponse
-     *
-     * @param BindMFADeviceRequest $request
-     *
-     * @return BindMFADeviceResponse
+     * @return BindMFADeviceResponse BindMFADeviceResponse
      */
     public function bindMFADevice($request)
     {
@@ -453,34 +454,27 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     *  *
+     * @param ChangePasswordRequest $request ChangePasswordRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
-     *
-     * @param request - ChangePasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangePasswordResponse
-     *
-     * @param ChangePasswordRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newPassword) {
-            @$query['NewPassword'] = $request->newPassword;
+        if (!Utils::isUnset($request->newPassword)) {
+            $query['NewPassword'] = $request->newPassword;
         }
-
-        if (null !== $request->oldPassword) {
-            @$query['OldPassword'] = $request->oldPassword;
+        if (!Utils::isUnset($request->oldPassword)) {
+            $query['OldPassword'] = $request->oldPassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangePassword',
@@ -493,7 +487,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ChangePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -501,17 +495,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     * @summary Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @description >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     *  *
+     * @param ChangePasswordRequest $request ChangePasswordRequest
      *
-     * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
-     *
-     * @param request - ChangePasswordRequest
-     * @returns ChangePasswordResponse
-     *
-     * @param ChangePasswordRequest $request
-     *
-     * @return ChangePasswordResponse
+     * @return ChangePasswordResponse ChangePasswordResponse
      */
     public function changePassword($request)
     {
@@ -521,27 +511,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccessKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAccessKeyResponse
-     *
-     * @param CreateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessKey',
@@ -554,7 +539,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -562,14 +547,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateAccessKeyRequest $request CreateAccessKeyRequest
      *
-     * @param request - CreateAccessKeyRequest
-     * @returns CreateAccessKeyResponse
-     *
-     * @param CreateAccessKeyRequest $request
-     *
-     * @return CreateAccessKeyResponse
+     * @return CreateAccessKeyResponse CreateAccessKeyResponse
      */
     public function createAccessKey($request)
     {
@@ -579,27 +561,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for the specified application.
+     * @summary Creates an application secret for an application.
+     *  *
+     * @param CreateAppSecretRequest $request CreateAppSecretRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAppSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAppSecretResponse
-     *
-     * @param CreateAppSecretRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateAppSecretResponse
+     * @return CreateAppSecretResponse CreateAppSecretResponse
      */
     public function createAppSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAppSecret',
@@ -612,7 +589,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -620,14 +597,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for the specified application.
+     * @summary Creates an application secret for an application.
+     *  *
+     * @param CreateAppSecretRequest $request CreateAppSecretRequest
      *
-     * @param request - CreateAppSecretRequest
-     * @returns CreateAppSecretResponse
-     *
-     * @param CreateAppSecretRequest $request
-     *
-     * @return CreateAppSecretResponse
+     * @return CreateAppSecretResponse CreateAppSecretResponse
      */
     public function createAppSecret($request)
     {
@@ -637,63 +611,49 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateApplicationResponse
-     *
-     * @param CreateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accessTokenValidity) {
-            @$query['AccessTokenValidity'] = $request->accessTokenValidity;
+        if (!Utils::isUnset($request->accessTokenValidity)) {
+            $query['AccessTokenValidity'] = $request->accessTokenValidity;
         }
-
-        if (null !== $request->appName) {
-            @$query['AppName'] = $request->appName;
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
         }
-
-        if (null !== $request->appType) {
-            @$query['AppType'] = $request->appType;
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
         }
-
-        if (null !== $request->displayName) {
-            @$query['DisplayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
         }
-
-        if (null !== $request->isMultiTenant) {
-            @$query['IsMultiTenant'] = $request->isMultiTenant;
+        if (!Utils::isUnset($request->isMultiTenant)) {
+            $query['IsMultiTenant'] = $request->isMultiTenant;
         }
-
-        if (null !== $request->predefinedScopes) {
-            @$query['PredefinedScopes'] = $request->predefinedScopes;
+        if (!Utils::isUnset($request->predefinedScopes)) {
+            $query['PredefinedScopes'] = $request->predefinedScopes;
         }
-
-        if (null !== $request->redirectUris) {
-            @$query['RedirectUris'] = $request->redirectUris;
+        if (!Utils::isUnset($request->redirectUris)) {
+            $query['RedirectUris'] = $request->redirectUris;
         }
-
-        if (null !== $request->refreshTokenValidity) {
-            @$query['RefreshTokenValidity'] = $request->refreshTokenValidity;
+        if (!Utils::isUnset($request->refreshTokenValidity)) {
+            $query['RefreshTokenValidity'] = $request->refreshTokenValidity;
         }
-
-        if (null !== $request->requiredScopes) {
-            @$query['RequiredScopes'] = $request->requiredScopes;
+        if (!Utils::isUnset($request->requiredScopes)) {
+            $query['RequiredScopes'] = $request->requiredScopes;
         }
-
-        if (null !== $request->secretRequired) {
-            @$query['SecretRequired'] = $request->secretRequired;
+        if (!Utils::isUnset($request->secretRequired)) {
+            $query['SecretRequired'] = $request->secretRequired;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApplication',
@@ -706,7 +666,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -714,14 +674,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @param request - CreateApplicationRequest
-     * @returns CreateApplicationResponse
-     *
-     * @param CreateApplicationRequest $request
-     *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -731,35 +688,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * @summary Creates a Resource Access Management (RAM) user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateGroupResponse
-     *
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->comments) {
-            @$query['Comments'] = $request->comments;
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
         }
-
-        if (null !== $request->displayName) {
-            @$query['DisplayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateGroup',
@@ -772,7 +722,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -780,14 +730,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * @summary Creates a Resource Access Management (RAM) user group.
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @param request - CreateGroupRequest
-     * @returns CreateGroupResponse
-     *
-     * @param CreateGroupRequest $request
-     *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -797,43 +744,34 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateLoginProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateLoginProfileResponse
-     *
-     * @param CreateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfileWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->MFABindRequired) {
-            @$query['MFABindRequired'] = $request->MFABindRequired;
+        if (!Utils::isUnset($request->MFABindRequired)) {
+            $query['MFABindRequired'] = $request->MFABindRequired;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->passwordResetRequired) {
-            @$query['PasswordResetRequired'] = $request->passwordResetRequired;
+        if (!Utils::isUnset($request->passwordResetRequired)) {
+            $query['PasswordResetRequired'] = $request->passwordResetRequired;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLoginProfile',
@@ -846,7 +784,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -854,14 +792,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * @summary Enables logon to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @param CreateLoginProfileRequest $request CreateLoginProfileRequest
      *
-     * @param request - CreateLoginProfileRequest
-     * @returns CreateLoginProfileResponse
-     *
-     * @param CreateLoginProfileRequest $request
-     *
-     * @return CreateLoginProfileResponse
+     * @return CreateLoginProfileResponse CreateLoginProfileResponse
      */
     public function createLoginProfile($request)
     {
@@ -871,10 +806,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *
-     * @remarks
-     * ### Prerequisites
+     * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+     *  *
+     * @description ### Prerequisites
      * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
      * ### Limits
      * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
@@ -882,46 +816,36 @@ class Ims extends OpenApiClient
      * *   You can add a maximum of five fingerprints to an OIDC IdP.
      * ###
      * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     *  *
+     * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateOIDCProviderResponse
-     *
-     * @param CreateOIDCProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateOIDCProviderResponse
+     * @return CreateOIDCProviderResponse CreateOIDCProviderResponse
      */
     public function createOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientIds) {
-            @$query['ClientIds'] = $request->clientIds;
+        if (!Utils::isUnset($request->clientIds)) {
+            $query['ClientIds'] = $request->clientIds;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->fingerprints) {
-            @$query['Fingerprints'] = $request->fingerprints;
+        if (!Utils::isUnset($request->fingerprints)) {
+            $query['Fingerprints'] = $request->fingerprints;
         }
-
-        if (null !== $request->issuanceLimitTime) {
-            @$query['IssuanceLimitTime'] = $request->issuanceLimitTime;
+        if (!Utils::isUnset($request->issuanceLimitTime)) {
+            $query['IssuanceLimitTime'] = $request->issuanceLimitTime;
         }
-
-        if (null !== $request->issuerUrl) {
-            @$query['IssuerUrl'] = $request->issuerUrl;
+        if (!Utils::isUnset($request->issuerUrl)) {
+            $query['IssuerUrl'] = $request->issuerUrl;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOIDCProvider',
@@ -934,7 +858,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -942,10 +866,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *
-     * @remarks
-     * ### Prerequisites
+     * @summary Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+     *  *
+     * @description ### Prerequisites
      * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external (IdP, such as Google G Suite or Okta.
      * ### Limits
      * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
@@ -953,13 +876,10 @@ class Ims extends OpenApiClient
      * *   You can add a maximum of five fingerprints to an OIDC IdP.
      * ###
      * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     *  *
+     * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      *
-     * @param request - CreateOIDCProviderRequest
-     * @returns CreateOIDCProviderResponse
-     *
-     * @param CreateOIDCProviderRequest $request
-     *
-     * @return CreateOIDCProviderResponse
+     * @return CreateOIDCProviderResponse CreateOIDCProviderResponse
      */
     public function createOIDCProvider($request)
     {
@@ -969,35 +889,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Creates an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param CreateSAMLProviderRequest $request CreateSAMLProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSAMLProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateSAMLProviderResponse
-     *
-     * @param CreateSAMLProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateSAMLProviderResponse
+     * @return CreateSAMLProviderResponse CreateSAMLProviderResponse
      */
     public function createSAMLProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->encodedSAMLMetadataDocument) {
-            @$query['EncodedSAMLMetadataDocument'] = $request->encodedSAMLMetadataDocument;
+        if (!Utils::isUnset($request->encodedSAMLMetadataDocument)) {
+            $query['EncodedSAMLMetadataDocument'] = $request->encodedSAMLMetadataDocument;
         }
-
-        if (null !== $request->SAMLProviderName) {
-            @$query['SAMLProviderName'] = $request->SAMLProviderName;
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSAMLProvider',
@@ -1010,7 +923,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1018,14 +931,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Creates an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param CreateSAMLProviderRequest $request CreateSAMLProviderRequest
      *
-     * @param request - CreateSAMLProviderRequest
-     * @returns CreateSAMLProviderResponse
-     *
-     * @param CreateSAMLProviderRequest $request
-     *
-     * @return CreateSAMLProviderResponse
+     * @return CreateSAMLProviderResponse CreateSAMLProviderResponse
      */
     public function createSAMLProvider($request)
     {
@@ -1035,50 +945,39 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
+     * @summary Creates a RAM user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `test`.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
-     *
-     * @param request - CreateUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateUserResponse
-     *
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->comments) {
-            @$query['Comments'] = $request->comments;
+        if (!Utils::isUnset($request->comments)) {
+            $query['Comments'] = $request->comments;
         }
-
-        if (null !== $request->displayName) {
-            @$query['DisplayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
         }
-
-        if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
         }
-
-        if (null !== $request->mobilePhone) {
-            @$query['MobilePhone'] = $request->mobilePhone;
+        if (!Utils::isUnset($request->mobilePhone)) {
+            $query['MobilePhone'] = $request->mobilePhone;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUser',
@@ -1091,7 +990,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1099,17 +998,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
+     * @summary Creates a RAM user.
+     *  *
+     * @description This topic provides an example on how to create a RAM user named `test`.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
-     *
-     * @param request - CreateUserRequest
-     * @returns CreateUserResponse
-     *
-     * @param CreateUserRequest $request
-     *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1119,27 +1014,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a virtual multi-factor authentication (MFA) device.
+     * @summary Creates a virtual multi-factor authentication (MFA) device.
+     *  *
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVirtualMFADeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateVirtualMFADeviceResponse
-     *
-     * @param CreateVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADeviceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->virtualMFADeviceName) {
-            @$query['VirtualMFADeviceName'] = $request->virtualMFADeviceName;
+        if (!Utils::isUnset($request->virtualMFADeviceName)) {
+            $query['VirtualMFADeviceName'] = $request->virtualMFADeviceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateVirtualMFADevice',
@@ -1152,7 +1042,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1160,14 +1050,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a virtual multi-factor authentication (MFA) device.
+     * @summary Creates a virtual multi-factor authentication (MFA) device.
+     *  *
+     * @param CreateVirtualMFADeviceRequest $request CreateVirtualMFADeviceRequest
      *
-     * @param request - CreateVirtualMFADeviceRequest
-     * @returns CreateVirtualMFADeviceResponse
-     *
-     * @param CreateVirtualMFADeviceRequest $request
-     *
-     * @return CreateVirtualMFADeviceResponse
+     * @return CreateVirtualMFADeviceResponse CreateVirtualMFADeviceResponse
      */
     public function createVirtualMFADevice($request)
     {
@@ -1177,31 +1064,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAccessKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAccessKeyResponse
-     *
-     * @param DeleteAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteAccessKeyResponse
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessKey',
@@ -1214,7 +1095,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1222,14 +1103,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteAccessKeyRequest $request DeleteAccessKeyRequest
      *
-     * @param request - DeleteAccessKeyRequest
-     * @returns DeleteAccessKeyResponse
-     *
-     * @param DeleteAccessKeyRequest $request
-     *
-     * @return DeleteAccessKeyResponse
+     * @return DeleteAccessKeyResponse DeleteAccessKeyResponse
      */
     public function deleteAccessKey($request)
     {
@@ -1239,31 +1117,78 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes the application secret of an application.
+     * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param DeleteAccessKeyInRecycleBinRequest $request DeleteAccessKeyInRecycleBinRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAppSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAppSecretResponse
+     * @return DeleteAccessKeyInRecycleBinResponse DeleteAccessKeyInRecycleBinResponse
+     */
+    public function deleteAccessKeyInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccessKeyInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAccessKeyInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteAccessKeyInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param DeleteAccessKeyInRecycleBinRequest $request DeleteAccessKeyInRecycleBinRequest
      *
-     * @param DeleteAppSecretRequest $request
-     * @param RuntimeOptions         $runtime
+     * @return DeleteAccessKeyInRecycleBinResponse DeleteAccessKeyInRecycleBinResponse
+     */
+    public function deleteAccessKeyInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccessKeyInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes the application secret of an application.
+     *  *
+     * @param DeleteAppSecretRequest $request DeleteAppSecretRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppSecretResponse
+     * @return DeleteAppSecretResponse DeleteAppSecretResponse
      */
     public function deleteAppSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appSecretId) {
-            @$query['AppSecretId'] = $request->appSecretId;
+        if (!Utils::isUnset($request->appSecretId)) {
+            $query['AppSecretId'] = $request->appSecretId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppSecret',
@@ -1276,7 +1201,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1284,14 +1209,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes the application secret of an application.
+     * @summary Deletes the application secret of an application.
+     *  *
+     * @param DeleteAppSecretRequest $request DeleteAppSecretRequest
      *
-     * @param request - DeleteAppSecretRequest
-     * @returns DeleteAppSecretResponse
-     *
-     * @param DeleteAppSecretRequest $request
-     *
-     * @return DeleteAppSecretResponse
+     * @return DeleteAppSecretResponse DeleteAppSecretResponse
      */
     public function deleteAppSecret($request)
     {
@@ -1301,27 +1223,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * @summary Deletes an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteApplicationResponse
-     *
-     * @param DeleteApplicationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApplication',
@@ -1334,7 +1251,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1342,14 +1259,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * @summary Deletes an application.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @param request - DeleteApplicationRequest
-     * @returns DeleteApplicationResponse
-     *
-     * @param DeleteApplicationRequest $request
-     *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -1359,30 +1273,24 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user group.
+     * @summary Deletes a Resource Access Management (RAM) user group.
+     *  *
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *
-     * @param request - DeleteGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteGroupResponse
-     *
-     * @param DeleteGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteGroup',
@@ -1395,7 +1303,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1403,17 +1311,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user group.
+     * @summary Deletes a Resource Access Management (RAM) user group.
+     *  *
+     * @description Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @remarks
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
-     *
-     * @param request - DeleteGroupRequest
-     * @returns DeleteGroupResponse
-     *
-     * @param DeleteGroupRequest $request
-     *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1423,27 +1327,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Disables logon to the console for a Resource Access Management (RAM) user.
+     * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteLoginProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteLoginProfileResponse
-     *
-     * @param DeleteLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfileWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLoginProfile',
@@ -1456,7 +1355,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1464,14 +1363,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Disables logon to the console for a Resource Access Management (RAM) user.
+     * @summary Disables logon to the console for a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteLoginProfileRequest $request DeleteLoginProfileRequest
      *
-     * @param request - DeleteLoginProfileRequest
-     * @returns DeleteLoginProfileResponse
-     *
-     * @param DeleteLoginProfileRequest $request
-     *
-     * @return DeleteLoginProfileResponse
+     * @return DeleteLoginProfileResponse DeleteLoginProfileResponse
      */
     public function deleteLoginProfile($request)
     {
@@ -1481,31 +1377,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteOIDCProviderResponse
-     *
-     * @param DeleteOIDCProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteOIDCProviderResponse
+     * @return DeleteOIDCProviderResponse DeleteOIDCProviderResponse
      */
     public function deleteOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOIDCProvider',
@@ -1518,7 +1408,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1526,18 +1416,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Deletes an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
      *
-     * @param request - DeleteOIDCProviderRequest
-     * @returns DeleteOIDCProviderResponse
-     *
-     * @param DeleteOIDCProviderRequest $request
-     *
-     * @return DeleteOIDCProviderResponse
+     * @return DeleteOIDCProviderResponse DeleteOIDCProviderResponse
      */
     public function deleteOIDCProvider($request)
     {
@@ -1547,31 +1433,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 删除Passkey.
+     * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+     *  *
+     * @param DeletePasskeyRequest $request DeletePasskeyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeletePasskeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeletePasskeyResponse
-     *
-     * @param DeletePasskeyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeletePasskeyResponse
+     * @return DeletePasskeyResponse DeletePasskeyResponse
      */
     public function deletePasskeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->passkeyId) {
-            @$query['PasskeyId'] = $request->passkeyId;
+        if (!Utils::isUnset($request->passkeyId)) {
+            $query['PasskeyId'] = $request->passkeyId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePasskey',
@@ -1584,7 +1464,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeletePasskeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1592,14 +1472,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 删除Passkey.
+     * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+     *  *
+     * @param DeletePasskeyRequest $request DeletePasskeyRequest
      *
-     * @param request - DeletePasskeyRequest
-     * @returns DeletePasskeyResponse
-     *
-     * @param DeletePasskeyRequest $request
-     *
-     * @return DeletePasskeyResponse
+     * @return DeletePasskeyResponse DeletePasskeyResponse
      */
     public function deletePasskey($request)
     {
@@ -1609,27 +1486,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param DeleteSAMLProviderRequest $request DeleteSAMLProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSAMLProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteSAMLProviderResponse
-     *
-     * @param DeleteSAMLProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteSAMLProviderResponse
+     * @return DeleteSAMLProviderResponse DeleteSAMLProviderResponse
      */
     public function deleteSAMLProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->SAMLProviderName) {
-            @$query['SAMLProviderName'] = $request->SAMLProviderName;
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSAMLProvider',
@@ -1642,7 +1514,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1650,14 +1522,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param DeleteSAMLProviderRequest $request DeleteSAMLProviderRequest
      *
-     * @param request - DeleteSAMLProviderRequest
-     * @returns DeleteSAMLProviderResponse
-     *
-     * @param DeleteSAMLProviderRequest $request
-     *
-     * @return DeleteSAMLProviderResponse
+     * @return DeleteSAMLProviderResponse DeleteSAMLProviderResponse
      */
     public function deleteSAMLProvider($request)
     {
@@ -1667,31 +1536,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user.
+     * @summary Deletes a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteUserResponse
-     *
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -1704,7 +1567,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1712,14 +1575,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user.
+     * @summary Deletes a Resource Access Management (RAM) user.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @param request - DeleteUserRequest
-     * @returns DeleteUserResponse
-     *
-     * @param DeleteUserRequest $request
-     *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1729,27 +1589,72 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a multi-factor authentication (MFA) device.
+     * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param DeleteUserInRecycleBinRequest $request DeleteUserInRecycleBinRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVirtualMFADeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteVirtualMFADeviceResponse
+     * @return DeleteUserInRecycleBinResponse DeleteUserInRecycleBinResponse
+     */
+    public function deleteUserInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteUserInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param DeleteUserInRecycleBinRequest $request DeleteUserInRecycleBinRequest
      *
-     * @param DeleteVirtualMFADeviceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @return DeleteUserInRecycleBinResponse DeleteUserInRecycleBinResponse
+     */
+    public function deleteUserInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a multi-factor authentication (MFA) device.
+     *  *
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADeviceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->serialNumber) {
-            @$query['SerialNumber'] = $request->serialNumber;
+        if (!Utils::isUnset($request->serialNumber)) {
+            $query['SerialNumber'] = $request->serialNumber;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteVirtualMFADevice',
@@ -1762,7 +1667,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteVirtualMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1770,14 +1675,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a multi-factor authentication (MFA) device.
+     * @summary Deletes a multi-factor authentication (MFA) device.
+     *  *
+     * @param DeleteVirtualMFADeviceRequest $request DeleteVirtualMFADeviceRequest
      *
-     * @param request - DeleteVirtualMFADeviceRequest
-     * @returns DeleteVirtualMFADeviceResponse
-     *
-     * @param DeleteVirtualMFADeviceRequest $request
-     *
-     * @return DeleteVirtualMFADeviceResponse
+     * @return DeleteVirtualMFADeviceResponse DeleteVirtualMFADeviceResponse
      */
     public function deleteVirtualMFADevice($request)
     {
@@ -1787,27 +1689,128 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * @summary Uninstalls an external application or an internal application of the ServerApp type.
+     *  *
+     * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
+     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     *  *
+     * @param DeprovisionApplicationRequest $request DeprovisionApplicationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableVirtualMFARequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableVirtualMFAResponse
+     * @return DeprovisionApplicationResponse DeprovisionApplicationResponse
+     */
+    public function deprovisionApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeprovisionApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeprovisionApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeprovisionApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Uninstalls an external application or an internal application of the ServerApp type.
+     *  *
+     * @description If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
+     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     *  *
+     * @param DeprovisionApplicationRequest $request DeprovisionApplicationRequest
      *
-     * @param DisableVirtualMFARequest $request
-     * @param RuntimeOptions           $runtime
+     * @return DeprovisionApplicationResponse DeprovisionApplicationResponse
+     */
+    public function deprovisionApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deprovisionApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes an installed external application.
+     *  *
+     * @param DeprovisionExternalApplicationRequest $request DeprovisionExternalApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableVirtualMFAResponse
+     * @return DeprovisionExternalApplicationResponse DeprovisionExternalApplicationResponse
+     */
+    public function deprovisionExternalApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeprovisionExternalApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeprovisionExternalApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeprovisionExternalApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes an installed external application.
+     *  *
+     * @param DeprovisionExternalApplicationRequest $request DeprovisionExternalApplicationRequest
+     *
+     * @return DeprovisionExternalApplicationResponse DeprovisionExternalApplicationResponse
+     */
+    public function deprovisionExternalApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deprovisionExternalApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     *  *
+     * @param DisableVirtualMFARequest $request DisableVirtualMFARequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableVirtualMFAResponse DisableVirtualMFAResponse
      */
     public function disableVirtualMFAWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableVirtualMFA',
@@ -1820,7 +1823,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableVirtualMFAResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1828,14 +1831,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * @summary Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     *  *
+     * @param DisableVirtualMFARequest $request DisableVirtualMFARequest
      *
-     * @param request - DisableVirtualMFARequest
-     * @returns DisableVirtualMFAResponse
-     *
-     * @param DisableVirtualMFARequest $request
-     *
-     * @return DisableVirtualMFAResponse
+     * @return DisableVirtualMFAResponse DisableVirtualMFAResponse
      */
     public function disableVirtualMFA($request)
     {
@@ -1845,15 +1845,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates the user credential report of an Alibaba Cloud account.
+     * @summary Generates the user credential report of an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenerateCredentialReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GenerateCredentialReportResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GenerateCredentialReportResponse
+     * @return GenerateCredentialReportResponse GenerateCredentialReportResponse
      */
     public function generateCredentialReportWithOptions($runtime)
     {
@@ -1869,7 +1865,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateCredentialReportResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1877,11 +1873,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates the user credential report of an Alibaba Cloud account.
-     *
-     * @returns GenerateCredentialReportResponse
-     *
-     * @return GenerateCredentialReportResponse
+     * @summary Generates the user credential report of an Alibaba Cloud account.
+     *  *
+     * @return GenerateCredentialReportResponse GenerateCredentialReportResponse
      */
     public function generateCredentialReport()
     {
@@ -1891,31 +1885,115 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * @summary Generates a check report for Cloud Governance.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccessKeyLastUsedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccessKeyLastUsedResponse
+     * @return GenerateGovernanceReportResponse GenerateGovernanceReportResponse
+     */
+    public function generateGovernanceReportWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GenerateGovernanceReport',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateGovernanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GenerateGovernanceReportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Generates a check report for Cloud Governance.
+     *  *
+     * @return GenerateGovernanceReportResponse GenerateGovernanceReportResponse
+     */
+    public function generateGovernanceReport()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateGovernanceReportWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param GetAccessKeyInfoInRecycleBinRequest $request GetAccessKeyInfoInRecycleBinRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetAccessKeyLastUsedRequest $request
-     * @param RuntimeOptions              $runtime
+     * @return GetAccessKeyInfoInRecycleBinResponse GetAccessKeyInfoInRecycleBinResponse
+     */
+    public function getAccessKeyInfoInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccessKeyInfoInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAccessKeyInfoInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAccessKeyInfoInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param GetAccessKeyInfoInRecycleBinRequest $request GetAccessKeyInfoInRecycleBinRequest
      *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyInfoInRecycleBinResponse GetAccessKeyInfoInRecycleBinResponse
+     */
+    public function getAccessKeyInfoInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyInfoInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the time when an AccessKey pair was used for the last time.
+     *  *
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAccessKeyLastUsed',
@@ -1928,7 +2006,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccessKeyLastUsedResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1936,14 +2014,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * @summary Queries the time when an AccessKey pair was used for the last time.
+     *  *
+     * @param GetAccessKeyLastUsedRequest $request GetAccessKeyLastUsedRequest
      *
-     * @param request - GetAccessKeyLastUsedRequest
-     * @returns GetAccessKeyLastUsedResponse
-     *
-     * @param GetAccessKeyLastUsedRequest $request
-     *
-     * @return GetAccessKeyLastUsedResponse
+     * @return GetAccessKeyLastUsedResponse GetAccessKeyLastUsedResponse
      */
     public function getAccessKeyLastUsed($request)
     {
@@ -1953,15 +2028,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+     * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccountMFAInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountMFAInfoResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetAccountMFAInfoResponse
+     * @return GetAccountMFAInfoResponse GetAccountMFAInfoResponse
      */
     public function getAccountMFAInfoWithOptions($runtime)
     {
@@ -1977,7 +2048,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountMFAInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1985,11 +2056,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
-     *
-     * @returns GetAccountMFAInfoResponse
-     *
-     * @return GetAccountMFAInfoResponse
+     * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+     *  *
+     * @return GetAccountMFAInfoResponse GetAccountMFAInfoResponse
      */
     public function getAccountMFAInfo()
     {
@@ -1999,15 +2068,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security report of an Alibaba Cloud account.
+     * @summary Queries the security report of an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccountSecurityPracticeReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountSecurityPracticeReportResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetAccountSecurityPracticeReportResponse
+     * @return GetAccountSecurityPracticeReportResponse GetAccountSecurityPracticeReportResponse
      */
     public function getAccountSecurityPracticeReportWithOptions($runtime)
     {
@@ -2023,7 +2088,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountSecurityPracticeReportResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2031,11 +2096,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security report of an Alibaba Cloud account.
-     *
-     * @returns GetAccountSecurityPracticeReportResponse
-     *
-     * @return GetAccountSecurityPracticeReportResponse
+     * @summary Queries the security report of an Alibaba Cloud account.
+     *  *
+     * @return GetAccountSecurityPracticeReportResponse GetAccountSecurityPracticeReportResponse
      */
     public function getAccountSecurityPracticeReport()
     {
@@ -2045,15 +2108,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
+     * @summary Queries the overview information about an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccountSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountSummaryResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetAccountSummaryResponse
+     * @return GetAccountSummaryResponse GetAccountSummaryResponse
      */
     public function getAccountSummaryWithOptions($runtime)
     {
@@ -2069,7 +2128,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2077,11 +2136,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
-     *
-     * @returns GetAccountSummaryResponse
-     *
-     * @return GetAccountSummaryResponse
+     * @summary Queries the overview information about an Alibaba Cloud account.
+     *  *
+     * @return GetAccountSummaryResponse GetAccountSummaryResponse
      */
     public function getAccountSummary()
     {
@@ -2091,31 +2148,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * @summary Queries the details of an application secret.
+     *  *
+     * @param GetAppSecretRequest $request GetAppSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAppSecretRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAppSecretResponse
-     *
-     * @param GetAppSecretRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetAppSecretResponse
+     * @return GetAppSecretResponse GetAppSecretResponse
      */
     public function getAppSecretWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->appSecretId) {
-            @$query['AppSecretId'] = $request->appSecretId;
+        if (!Utils::isUnset($request->appSecretId)) {
+            $query['AppSecretId'] = $request->appSecretId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAppSecret',
@@ -2128,7 +2179,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2136,14 +2187,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * @summary Queries the details of an application secret.
+     *  *
+     * @param GetAppSecretRequest $request GetAppSecretRequest
      *
-     * @param request - GetAppSecretRequest
-     * @returns GetAppSecretResponse
-     *
-     * @param GetAppSecretRequest $request
-     *
-     * @return GetAppSecretResponse
+     * @return GetAppSecretResponse GetAppSecretResponse
      */
     public function getAppSecret($request)
     {
@@ -2153,30 +2201,24 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * @summary Queries the configuration information about an application.
+     *  *
+     * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
-     *
-     * @param request - GetApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplication',
@@ -2189,7 +2231,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2197,17 +2239,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * @summary Queries the configuration information about an application.
+     *  *
+     * @description This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
-     *
-     * @param request - GetApplicationRequest
-     * @returns GetApplicationResponse
-     *
-     * @param GetApplicationRequest $request
-     *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -2217,31 +2255,75 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * @summary Queries installation information about a specified installed application.
+     *  *
+     * @param GetApplicationProvisionInfoRequest $request GetApplicationProvisionInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetCredentialReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetCredentialReportResponse
+     * @return GetApplicationProvisionInfoResponse GetApplicationProvisionInfoResponse
+     */
+    public function getApplicationProvisionInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationProvisionInfo',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetApplicationProvisionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetApplicationProvisionInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries installation information about a specified installed application.
+     *  *
+     * @param GetApplicationProvisionInfoRequest $request GetApplicationProvisionInfoRequest
      *
-     * @param GetCredentialReportRequest $request
-     * @param RuntimeOptions             $runtime
+     * @return GetApplicationProvisionInfoResponse GetApplicationProvisionInfoResponse
+     */
+    public function getApplicationProvisionInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationProvisionInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the user credential reports of an Alibaba Cloud account.
+     *  *
+     * @param GetCredentialReportRequest $request GetCredentialReportRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCredentialReportResponse
+     * @return GetCredentialReportResponse GetCredentialReportResponse
      */
     public function getCredentialReportWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCredentialReport',
@@ -2254,7 +2336,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetCredentialReportResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2262,14 +2344,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * @summary Queries the user credential reports of an Alibaba Cloud account.
+     *  *
+     * @param GetCredentialReportRequest $request GetCredentialReportRequest
      *
-     * @param request - GetCredentialReportRequest
-     * @returns GetCredentialReportResponse
-     *
-     * @param GetCredentialReportRequest $request
-     *
-     * @return GetCredentialReportResponse
+     * @return GetCredentialReportResponse GetCredentialReportResponse
      */
     public function getCredentialReport($request)
     {
@@ -2279,15 +2358,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the default domain name of an Alibaba Cloud account.
+     * @summary Queries the default domain name of an Alibaba Cloud account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetDefaultDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDefaultDomainResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetDefaultDomainResponse
+     * @return GetDefaultDomainResponse GetDefaultDomainResponse
      */
     public function getDefaultDomainWithOptions($runtime)
     {
@@ -2303,7 +2378,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2311,11 +2386,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the default domain name of an Alibaba Cloud account.
-     *
-     * @returns GetDefaultDomainResponse
-     *
-     * @return GetDefaultDomainResponse
+     * @summary Queries the default domain name of an Alibaba Cloud account.
+     *  *
+     * @return GetDefaultDomainResponse GetDefaultDomainResponse
      */
     public function getDefaultDomain()
     {
@@ -2325,27 +2398,168 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * @summary Queries information about an installed external application.
+     *  *
+     * @param GetExternalApplicationRequest $request GetExternalApplicationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetGroupResponse
+     * @return GetExternalApplicationResponse GetExternalApplicationResponse
+     */
+    public function getExternalApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExternalApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetExternalApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetExternalApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries information about an installed external application.
+     *  *
+     * @param GetExternalApplicationRequest $request GetExternalApplicationRequest
      *
-     * @param GetGroupRequest $request
-     * @param RuntimeOptions  $runtime
+     * @return GetExternalApplicationResponse GetExternalApplicationResponse
+     */
+    public function getExternalApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getExternalApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户的单项ram治理报告
+     *  *
+     * @param GetGovernanceItemReportRequest $request GetGovernanceItemReportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGovernanceItemReportResponse GetGovernanceItemReportResponse
+     */
+    public function getGovernanceItemReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->governanceItemType)) {
+            $query['GovernanceItemType'] = $request->governanceItemType;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGovernanceItemReport',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetGovernanceItemReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetGovernanceItemReportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户的单项ram治理报告
+     *  *
+     * @param GetGovernanceItemReportRequest $request GetGovernanceItemReportRequest
+     *
+     * @return GetGovernanceItemReportResponse GetGovernanceItemReportResponse
+     */
+    public function getGovernanceItemReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGovernanceItemReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询成熟度报告状态
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetGovernanceReportStatusResponse GetGovernanceReportStatusResponse
+     */
+    public function getGovernanceReportStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetGovernanceReportStatus',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetGovernanceReportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetGovernanceReportStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询成熟度报告状态
+     *  *
+     * @return GetGovernanceReportStatusResponse GetGovernanceReportStatusResponse
+     */
+    public function getGovernanceReportStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGovernanceReportStatusWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetGroup',
@@ -2358,7 +2572,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2366,14 +2580,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * @summary Queries the information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @param request - GetGroupRequest
-     * @returns GetGroupResponse
-     *
-     * @param GetGroupRequest $request
-     *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -2383,27 +2594,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+     *  *
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetLoginProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetLoginProfileResponse
-     *
-     * @param GetLoginProfileRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfileWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLoginProfile',
@@ -2416,7 +2622,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2424,14 +2630,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
+     *  *
+     * @param GetLoginProfileRequest $request GetLoginProfileRequest
      *
-     * @param request - GetLoginProfileRequest
-     * @returns GetLoginProfileResponse
-     *
-     * @param GetLoginProfileRequest $request
-     *
-     * @return GetLoginProfileResponse
+     * @return GetLoginProfileResponse GetLoginProfileResponse
      */
     public function getLoginProfile($request)
     {
@@ -2441,31 +2644,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an OIDC IdP.
-     *
-     * @remarks
-     * ###
+     * @summary Queries the information about an OIDC IdP.
+     *  *
+     * @description ###
      * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     *  *
+     * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetOIDCProviderResponse
-     *
-     * @param GetOIDCProviderRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetOIDCProviderResponse
+     * @return GetOIDCProviderResponse GetOIDCProviderResponse
      */
     public function getOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOIDCProvider',
@@ -2478,7 +2675,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2486,18 +2683,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an OIDC IdP.
-     *
-     * @remarks
-     * ###
+     * @summary Queries the information about an OIDC IdP.
+     *  *
+     * @description ###
      * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     *  *
+     * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
      *
-     * @param request - GetOIDCProviderRequest
-     * @returns GetOIDCProviderResponse
-     *
-     * @param GetOIDCProviderRequest $request
-     *
-     * @return GetOIDCProviderResponse
+     * @return GetOIDCProviderResponse GetOIDCProviderResponse
      */
     public function getOIDCProvider($request)
     {
@@ -2507,15 +2700,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
+     * @summary Queries the details of the password policy for RAM users.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPasswordPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetPasswordPolicyResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetPasswordPolicyResponse
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicyWithOptions($runtime)
     {
@@ -2531,7 +2720,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2539,11 +2728,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
-     *
-     * @returns GetPasswordPolicyResponse
-     *
-     * @return GetPasswordPolicyResponse
+     * @summary Queries the details of the password policy for RAM users.
+     *  *
+     * @return GetPasswordPolicyResponse GetPasswordPolicyResponse
      */
     public function getPasswordPolicy()
     {
@@ -2553,27 +2740,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param GetSAMLProviderRequest $request GetSAMLProviderRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetSAMLProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetSAMLProviderResponse
-     *
-     * @param GetSAMLProviderRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetSAMLProviderResponse
+     * @return GetSAMLProviderResponse GetSAMLProviderResponse
      */
     public function getSAMLProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->SAMLProviderName) {
-            @$query['SAMLProviderName'] = $request->SAMLProviderName;
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSAMLProvider',
@@ -2586,7 +2768,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2594,14 +2776,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @param GetSAMLProviderRequest $request GetSAMLProviderRequest
      *
-     * @param request - GetSAMLProviderRequest
-     * @returns GetSAMLProviderResponse
-     *
-     * @param GetSAMLProviderRequest $request
-     *
-     * @return GetSAMLProviderResponse
+     * @return GetSAMLProviderResponse GetSAMLProviderResponse
      */
     public function getSAMLProvider($request)
     {
@@ -2611,15 +2790,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
+     * @summary Queries the security preferences for RAM users.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetSecurityPreferenceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetSecurityPreferenceResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetSecurityPreferenceResponse
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreferenceWithOptions($runtime)
     {
@@ -2635,7 +2810,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2643,11 +2818,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
-     *
-     * @returns GetSecurityPreferenceResponse
-     *
-     * @return GetSecurityPreferenceResponse
+     * @summary Queries the security preferences for RAM users.
+     *  *
+     * @return GetSecurityPreferenceResponse GetSecurityPreferenceResponse
      */
     public function getSecurityPreference()
     {
@@ -2657,38 +2830,30 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
-     *
-     * @param request - GetUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetUserResponse
-     *
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUser',
@@ -2701,7 +2866,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2709,17 +2874,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * @summary Queries the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @remarks
-     * This topic provides an example to show how to query the information about a RAM user named `test@example.onaliyun.com`.
-     *
-     * @param request - GetUserRequest
-     * @returns GetUserResponse
-     *
-     * @param GetUserRequest $request
-     *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -2729,27 +2890,75 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询RAM用户多因素认证设备信息.
+     * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param GetUserInRecycleBinRequest $request GetUserInRecycleBinRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserMFAInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetUserMFAInfoResponse
+     * @return GetUserInRecycleBinResponse GetUserInRecycleBinResponse
+     */
+    public function getUserInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetUserInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param GetUserInRecycleBinRequest $request GetUserInRecycleBinRequest
      *
-     * @param GetUserMFAInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @return GetUserInRecycleBinResponse GetUserInRecycleBinResponse
+     */
+    public function getUserInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserMFAInfo',
@@ -2762,7 +2971,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUserMFAInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2770,14 +2979,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询RAM用户多因素认证设备信息.
+     * @summary Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param GetUserMFAInfoRequest $request GetUserMFAInfoRequest
      *
-     * @param request - GetUserMFAInfoRequest
-     * @returns GetUserMFAInfoResponse
-     *
-     * @param GetUserMFAInfoRequest $request
-     *
-     * @return GetUserMFAInfoResponse
+     * @return GetUserMFAInfoResponse GetUserMFAInfoResponse
      */
     public function getUserMFAInfo($request)
     {
@@ -2787,15 +2993,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of user-based single sign-on (SSO).
+     * @summary Queries the configurations of user-based single sign-on (SSO).
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserSsoSettingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetUserSsoSettingsResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserSsoSettingsResponse
+     * @return GetUserSsoSettingsResponse GetUserSsoSettingsResponse
      */
     public function getUserSsoSettingsWithOptions($runtime)
     {
@@ -2811,7 +3013,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUserSsoSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2819,11 +3021,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of user-based single sign-on (SSO).
-     *
-     * @returns GetUserSsoSettingsResponse
-     *
-     * @return GetUserSsoSettingsResponse
+     * @summary Queries the configurations of user-based single sign-on (SSO).
+     *  *
+     * @return GetUserSsoSettingsResponse GetUserSsoSettingsResponse
      */
     public function getUserSsoSettings()
     {
@@ -2833,27 +3033,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param GetVerificationInfoRequest $request GetVerificationInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetVerificationInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetVerificationInfoResponse
-     *
-     * @param GetVerificationInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetVerificationInfoResponse
+     * @return GetVerificationInfoResponse GetVerificationInfoResponse
      */
     public function getVerificationInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetVerificationInfo',
@@ -2866,7 +3061,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetVerificationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2874,14 +3069,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param GetVerificationInfoRequest $request GetVerificationInfoRequest
      *
-     * @param request - GetVerificationInfoRequest
-     * @returns GetVerificationInfoResponse
-     *
-     * @param GetVerificationInfoRequest $request
-     *
-     * @return GetVerificationInfoResponse
+     * @return GetVerificationInfoResponse GetVerificationInfoResponse
      */
     public function getVerificationInfo($request)
     {
@@ -2891,27 +3083,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询主账号或RAM用户访问密钥列表.
+     * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAccessKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListAccessKeysResponse
-     *
-     * @param ListAccessKeysRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAccessKeys',
@@ -2924,7 +3111,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAccessKeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2932,14 +3119,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询主账号或RAM用户访问密钥列表.
+     * @summary Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param ListAccessKeysRequest $request ListAccessKeysRequest
      *
-     * @param request - ListAccessKeysRequest
-     * @returns ListAccessKeysResponse
-     *
-     * @param ListAccessKeysRequest $request
-     *
-     * @return ListAccessKeysResponse
+     * @return ListAccessKeysResponse ListAccessKeysResponse
      */
     public function listAccessKeys($request)
     {
@@ -2949,27 +3133,72 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the secret IDs of an application.
+     * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param ListAccessKeysInRecycleBinRequest $request ListAccessKeysInRecycleBinRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAppSecretIdsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListAppSecretIdsResponse
+     * @return ListAccessKeysInRecycleBinResponse ListAccessKeysInRecycleBinResponse
+     */
+    public function listAccessKeysInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccessKeysInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAccessKeysInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAccessKeysInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+     *  *
+     * @param ListAccessKeysInRecycleBinRequest $request ListAccessKeysInRecycleBinRequest
      *
-     * @param ListAppSecretIdsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @return ListAccessKeysInRecycleBinResponse ListAccessKeysInRecycleBinResponse
+     */
+    public function listAccessKeysInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAccessKeysInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the secret IDs of an application.
+     *  *
+     * @param ListAppSecretIdsRequest $request ListAppSecretIdsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppSecretIdsResponse
+     * @return ListAppSecretIdsResponse ListAppSecretIdsResponse
      */
     public function listAppSecretIdsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAppSecretIds',
@@ -2982,7 +3211,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAppSecretIdsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2990,14 +3219,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the secret IDs of an application.
+     * @summary Queries the secret IDs of an application.
+     *  *
+     * @param ListAppSecretIdsRequest $request ListAppSecretIdsRequest
      *
-     * @param request - ListAppSecretIdsRequest
-     * @returns ListAppSecretIdsResponse
-     *
-     * @param ListAppSecretIdsRequest $request
-     *
-     * @return ListAppSecretIdsResponse
+     * @return ListAppSecretIdsResponse ListAppSecretIdsResponse
      */
     public function listAppSecretIds($request)
     {
@@ -3007,18 +3233,63 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
+     * @summary Queries installation information about all installed applications.
+     *  *
+     * @param ListApplicationProvisionInfosRequest $request ListApplicationProvisionInfosRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     * @return ListApplicationProvisionInfosResponse ListApplicationProvisionInfosResponse
+     */
+    public function listApplicationProvisionInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationProvisionInfos',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListApplicationProvisionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListApplicationProvisionInfosResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries installation information about all installed applications.
+     *  *
+     * @param ListApplicationProvisionInfosRequest $request ListApplicationProvisionInfosRequest
      *
-     * @param request - ListApplicationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListApplicationsResponse
+     * @return ListApplicationProvisionInfosResponse ListApplicationProvisionInfosResponse
+     */
+    public function listApplicationProvisionInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationProvisionInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Lists the created applications.
+     *  *
+     * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($runtime)
     {
@@ -3034,7 +3305,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3042,13 +3313,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
-     *
-     * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
-     * @returns ListApplicationsResponse
-     *
-     * @return ListApplicationsResponse
+     * @summary Lists the created applications.
+     *  *
+     * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *  *
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications()
     {
@@ -3058,31 +3327,65 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) user groups.
+     * @summary Queries information about all installed external applications.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListGroupsResponse
+     * @return ListExternalApplicationsResponse ListExternalApplicationsResponse
+     */
+    public function listExternalApplicationsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListExternalApplications',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListExternalApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListExternalApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries information about all installed external applications.
+     *  *
+     * @return ListExternalApplicationsResponse ListExternalApplicationsResponse
+     */
+    public function listExternalApplications()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExternalApplicationsWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries Resource Access Management (RAM) user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroups',
@@ -3095,7 +3398,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3103,14 +3406,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) user groups.
+     * @summary Queries Resource Access Management (RAM) user groups.
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @param request - ListGroupsRequest
-     * @returns ListGroupsResponse
-     *
-     * @param ListGroupsRequest $request
-     *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -3120,27 +3420,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the RAM user groups to which a RAM user belongs.
+     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListGroupsForUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListGroupsForUserResponse
-     *
-     * @param ListGroupsForUserRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupsForUser',
@@ -3153,7 +3448,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3161,14 +3456,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the RAM user groups to which a RAM user belongs.
+     * @summary Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
      *
-     * @param request - ListGroupsForUserRequest
-     * @returns ListGroupsForUserResponse
-     *
-     * @param ListGroupsForUserRequest $request
-     *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -3178,35 +3470,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries OIDC IdPs.
-     *
-     * @remarks
-     * ###
+     * @summary Queries OIDC IdPs.
+     *  *
+     * @description ###
      * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListOIDCProvidersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListOIDCProvidersResponse
-     *
-     * @param ListOIDCProvidersRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListOIDCProvidersResponse
+     * @return ListOIDCProvidersResponse ListOIDCProvidersResponse
      */
     public function listOIDCProvidersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOIDCProviders',
@@ -3219,7 +3504,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListOIDCProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3227,18 +3512,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries OIDC IdPs.
-     *
-     * @remarks
-     * ###
+     * @summary Queries OIDC IdPs.
+     *  *
+     * @description ###
      * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
      *
-     * @param request - ListOIDCProvidersRequest
-     * @returns ListOIDCProvidersResponse
-     *
-     * @param ListOIDCProvidersRequest $request
-     *
-     * @return ListOIDCProvidersResponse
+     * @return ListOIDCProvidersResponse ListOIDCProvidersResponse
      */
     public function listOIDCProviders($request)
     {
@@ -3248,27 +3529,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询Passkey.
+     * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param ListPasskeysRequest $request ListPasskeysRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPasskeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListPasskeysResponse
-     *
-     * @param ListPasskeysRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListPasskeysResponse
+     * @return ListPasskeysResponse ListPasskeysResponse
      */
     public function listPasskeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPasskeys',
@@ -3281,7 +3557,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPasskeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3289,14 +3565,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询Passkey.
+     * @summary Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+     *  *
+     * @param ListPasskeysRequest $request ListPasskeysRequest
      *
-     * @param request - ListPasskeysRequest
-     * @returns ListPasskeysResponse
-     *
-     * @param ListPasskeysRequest $request
-     *
-     * @return ListPasskeysResponse
+     * @return ListPasskeysResponse ListPasskeysResponse
      */
     public function listPasskeys($request)
     {
@@ -3306,27 +3579,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries predefined application permissions.
+     * @summary Queries predefined application permissions.
+     *  *
+     * @param ListPredefinedScopesRequest $request ListPredefinedScopesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPredefinedScopesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListPredefinedScopesResponse
-     *
-     * @param ListPredefinedScopesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListPredefinedScopesResponse
+     * @return ListPredefinedScopesResponse ListPredefinedScopesResponse
      */
     public function listPredefinedScopesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appType) {
-            @$query['AppType'] = $request->appType;
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPredefinedScopes',
@@ -3339,7 +3607,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPredefinedScopesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3347,14 +3615,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries predefined application permissions.
+     * @summary Queries predefined application permissions.
+     *  *
+     * @param ListPredefinedScopesRequest $request ListPredefinedScopesRequest
      *
-     * @param request - ListPredefinedScopesRequest
-     * @returns ListPredefinedScopesResponse
-     *
-     * @param ListPredefinedScopesRequest $request
-     *
-     * @return ListPredefinedScopesResponse
+     * @return ListPredefinedScopesResponse ListPredefinedScopesResponse
      */
     public function listPredefinedScopes($request)
     {
@@ -3364,31 +3629,65 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     * @summary Queries all metric values in the most recent governance check.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSAMLProvidersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSAMLProvidersResponse
+     * @return ListRecentGovernanceMetricsResponse ListRecentGovernanceMetricsResponse
+     */
+    public function listRecentGovernanceMetricsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRecentGovernanceMetrics',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRecentGovernanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListRecentGovernanceMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries all metric values in the most recent governance check.
+     *  *
+     * @return ListRecentGovernanceMetricsResponse ListRecentGovernanceMetricsResponse
+     */
+    public function listRecentGovernanceMetrics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecentGovernanceMetricsWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     *  *
+     * @param ListSAMLProvidersRequest $request ListSAMLProvidersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param ListSAMLProvidersRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListSAMLProvidersResponse
+     * @return ListSAMLProvidersResponse ListSAMLProvidersResponse
      */
     public function listSAMLProvidersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSAMLProviders',
@@ -3401,7 +3700,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSAMLProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3409,14 +3708,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     * @summary Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     *  *
+     * @param ListSAMLProvidersRequest $request ListSAMLProvidersRequest
      *
-     * @param request - ListSAMLProvidersRequest
-     * @returns ListSAMLProvidersResponse
-     *
-     * @param ListSAMLProvidersRequest $request
-     *
-     * @return ListSAMLProvidersResponse
+     * @return ListSAMLProvidersResponse ListSAMLProvidersResponse
      */
     public function listSAMLProviders($request)
     {
@@ -3426,54 +3722,43 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added resources.
-     *
-     * @remarks
-     * ###
+     * @summary Queries the tags that are added resources.
+     *  *
+     * @description ###
      * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N.Key`
      * *   `Tag.N.Key` and `Tag.N.Value`
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourcePrincipalName) {
-            @$query['ResourcePrincipalName'] = $request->resourcePrincipalName;
+        if (!Utils::isUnset($request->resourcePrincipalName)) {
+            $query['ResourcePrincipalName'] = $request->resourcePrincipalName;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -3486,7 +3771,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3494,21 +3779,17 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added resources.
-     *
-     * @remarks
-     * ###
+     * @summary Queries the tags that are added resources.
+     *  *
+     * @description ###
      * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N.Key`
      * *   `Tag.N.Key` and `Tag.N.Value`
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3518,44 +3799,35 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about all RAM users.
-     *
-     * @remarks
-     * You can call the following API operations to query the information about all RAM users:
+     * @summary Queries the basic information about all Resource Access Management (RAM) users.
+     *  *
+     * @description You can call the following API operations to query information about all RAM users:
      * *   ListUsers: queries the details of all RAM users.
      * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
+     * @param ListUserBasicInfosRequest $request ListUserBasicInfosRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUserBasicInfosRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListUserBasicInfosResponse
-     *
-     * @param ListUserBasicInfosRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListUserBasicInfosResponse
+     * @return ListUserBasicInfosResponse ListUserBasicInfosResponse
      */
     public function listUserBasicInfosWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserBasicInfos',
@@ -3568,7 +3840,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListUserBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3576,19 +3848,15 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about all RAM users.
-     *
-     * @remarks
-     * You can call the following API operations to query the information about all RAM users:
+     * @summary Queries the basic information about all Resource Access Management (RAM) users.
+     *  *
+     * @description You can call the following API operations to query information about all RAM users:
      * *   ListUsers: queries the details of all RAM users.
      * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
+     * @param ListUserBasicInfosRequest $request ListUserBasicInfosRequest
      *
-     * @param request - ListUserBasicInfosRequest
-     * @returns ListUserBasicInfosResponse
-     *
-     * @param ListUserBasicInfosRequest $request
-     *
-     * @return ListUserBasicInfosResponse
+     * @return ListUserBasicInfosResponse ListUserBasicInfosResponse
      */
     public function listUserBasicInfos($request)
     {
@@ -3598,45 +3866,36 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of all RAM users.
-     *
-     * @remarks
-     * ### [](#)
+     * @summary Queries information about all Resource Access Management (RAM) users.
+     *  *
+     * @description ### [](#)
      * You can call the following API operations to query the details of all RAM users:
      * *   ListUsers: queries the details of all RAM users.
      * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUsersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -3649,7 +3908,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3657,20 +3916,16 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of all RAM users.
-     *
-     * @remarks
-     * ### [](#)
+     * @summary Queries information about all Resource Access Management (RAM) users.
+     *  *
+     * @description ### [](#)
      * You can call the following API operations to query the details of all RAM users:
      * *   ListUsers: queries the details of all RAM users.
      * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @param request - ListUsersRequest
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -3680,35 +3935,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUsersForGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListUsersForGroupResponse
-     *
-     * @param ListUsersForGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsersForGroup',
@@ -3721,7 +3969,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3729,14 +3977,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * @summary Queries Resource Access Management (RAM) users in a RAM user group.
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
      *
-     * @param request - ListUsersForGroupRequest
-     * @returns ListUsersForGroupResponse
-     *
-     * @param ListUsersForGroupRequest $request
-     *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -3746,31 +3991,81 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries multi-factor authentication (MFA) devices.
+     * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+     *  *
+     * @param ListUsersInRecycleBinRequest $request ListUsersInRecycleBinRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListVirtualMFADevicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListVirtualMFADevicesResponse
+     * @return ListUsersInRecycleBinResponse ListUsersInRecycleBinResponse
+     */
+    public function listUsersInRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsersInRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUsersInRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListUsersInRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+     *  *
+     * @param ListUsersInRecycleBinRequest $request ListUsersInRecycleBinRequest
      *
-     * @param ListVirtualMFADevicesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @return ListUsersInRecycleBinResponse ListUsersInRecycleBinResponse
+     */
+    public function listUsersInRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersInRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries multi-factor authentication (MFA) devices.
+     *  *
+     * @param ListVirtualMFADevicesRequest $request ListVirtualMFADevicesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVirtualMFADevicesResponse
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['Marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['Marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItems) {
-            @$query['MaxItems'] = $request->maxItems;
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVirtualMFADevices',
@@ -3783,7 +4078,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListVirtualMFADevicesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3791,14 +4086,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries multi-factor authentication (MFA) devices.
+     * @summary Queries multi-factor authentication (MFA) devices.
+     *  *
+     * @param ListVirtualMFADevicesRequest $request ListVirtualMFADevicesRequest
      *
-     * @param request - ListVirtualMFADevicesRequest
-     * @returns ListVirtualMFADevicesResponse
-     *
-     * @param ListVirtualMFADevicesRequest $request
-     *
-     * @return ListVirtualMFADevicesResponse
+     * @return ListVirtualMFADevicesResponse ListVirtualMFADevicesResponse
      */
     public function listVirtualMFADevices($request)
     {
@@ -3808,35 +4100,134 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+     * @summary Installs an application.
+     *  *
+     * @param ProvisionApplicationRequest $request ProvisionApplicationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * ###
+     * @return ProvisionApplicationResponse ProvisionApplicationResponse
+     */
+    public function provisionApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scopes)) {
+            $query['Scopes'] = $request->scopes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ProvisionApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ProvisionApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ProvisionApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Installs an application.
+     *  *
+     * @param ProvisionApplicationRequest $request ProvisionApplicationRequest
+     *
+     * @return ProvisionApplicationResponse ProvisionApplicationResponse
+     */
+    public function provisionApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->provisionApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Installs an external application.
+     *  *
+     * @param ProvisionExternalApplicationRequest $request ProvisionExternalApplicationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ProvisionExternalApplicationResponse ProvisionExternalApplicationResponse
+     */
+    public function provisionExternalApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->scopes)) {
+            $query['Scopes'] = $request->scopes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ProvisionExternalApplication',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ProvisionExternalApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ProvisionExternalApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Installs an external application.
+     *  *
+     * @param ProvisionExternalApplicationRequest $request ProvisionExternalApplicationRequest
+     *
+     * @return ProvisionExternalApplicationResponse ProvisionExternalApplicationResponse
+     */
+    public function provisionExternalApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->provisionExternalApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveClientIdFromOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveClientIdFromOIDCProviderResponse
-     *
-     * @param RemoveClientIdFromOIDCProviderRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return RemoveClientIdFromOIDCProviderResponse
+     * @return RemoveClientIdFromOIDCProviderResponse RemoveClientIdFromOIDCProviderResponse
      */
     public function removeClientIdFromOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientId) {
-            @$query['ClientId'] = $request->clientId;
+        if (!Utils::isUnset($request->clientId)) {
+            $query['ClientId'] = $request->clientId;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveClientIdFromOIDCProvider',
@@ -3849,7 +4240,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveClientIdFromOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3857,18 +4248,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
      *
-     * @param request - RemoveClientIdFromOIDCProviderRequest
-     * @returns RemoveClientIdFromOIDCProviderResponse
-     *
-     * @param RemoveClientIdFromOIDCProviderRequest $request
-     *
-     * @return RemoveClientIdFromOIDCProviderResponse
+     * @return RemoveClientIdFromOIDCProviderResponse RemoveClientIdFromOIDCProviderResponse
      */
     public function removeClientIdFromOIDCProvider($request)
     {
@@ -3878,35 +4265,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveFingerprintFromOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveFingerprintFromOIDCProviderResponse
-     *
-     * @param RemoveFingerprintFromOIDCProviderRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return RemoveFingerprintFromOIDCProviderResponse
+     * @return RemoveFingerprintFromOIDCProviderResponse RemoveFingerprintFromOIDCProviderResponse
      */
     public function removeFingerprintFromOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fingerprint) {
-            @$query['Fingerprint'] = $request->fingerprint;
+        if (!Utils::isUnset($request->fingerprint)) {
+            $query['Fingerprint'] = $request->fingerprint;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveFingerprintFromOIDCProvider',
@@ -3919,7 +4299,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveFingerprintFromOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3927,18 +4307,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     *  *
+     * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
      *
-     * @param request - RemoveFingerprintFromOIDCProviderRequest
-     * @returns RemoveFingerprintFromOIDCProviderResponse
-     *
-     * @param RemoveFingerprintFromOIDCProviderRequest $request
-     *
-     * @return RemoveFingerprintFromOIDCProviderResponse
+     * @return RemoveFingerprintFromOIDCProviderResponse RemoveFingerprintFromOIDCProviderResponse
      */
     public function removeFingerprintFromOIDCProvider($request)
     {
@@ -3948,31 +4324,25 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a Resource Access Management (RAM) user from a RAM user group.
+     * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+     *  *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveUserFromGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveUserFromGroupResponse
-     *
-     * @param RemoveUserFromGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveUserFromGroup',
@@ -3985,7 +4355,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveUserFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3993,14 +4363,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a Resource Access Management (RAM) user from a RAM user group.
+     * @summary Removes a Resource Access Management (RAM) user from a RAM user group.
+     *  *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      *
-     * @param request - RemoveUserFromGroupRequest
-     * @returns RemoveUserFromGroupResponse
-     *
-     * @param RemoveUserFromGroupRequest $request
-     *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroup($request)
     {
@@ -4010,27 +4377,125 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the default domain name for an Alibaba Cloud account.
+     * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param RestoreAccessKeyFromRecycleBinRequest $request RestoreAccessKeyFromRecycleBinRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetDefaultDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetDefaultDomainResponse
+     * @return RestoreAccessKeyFromRecycleBinResponse RestoreAccessKeyFromRecycleBinResponse
+     */
+    public function restoreAccessKeyFromRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreAccessKeyFromRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RestoreAccessKeyFromRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RestoreAccessKeyFromRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param RestoreAccessKeyFromRecycleBinRequest $request RestoreAccessKeyFromRecycleBinRequest
      *
-     * @param SetDefaultDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @return RestoreAccessKeyFromRecycleBinResponse RestoreAccessKeyFromRecycleBinResponse
+     */
+    public function restoreAccessKeyFromRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreAccessKeyFromRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param RestoreUserFromRecycleBinRequest $request RestoreUserFromRecycleBinRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultDomainResponse
+     * @return RestoreUserFromRecycleBinResponse RestoreUserFromRecycleBinResponse
+     */
+    public function restoreUserFromRecycleBinWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreUserFromRecycleBin',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RestoreUserFromRecycleBinResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RestoreUserFromRecycleBinResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Restores a specific Resource Access Management (RAM) user from the recycle bin.
+     *  *
+     * @param RestoreUserFromRecycleBinRequest $request RestoreUserFromRecycleBinRequest
+     *
+     * @return RestoreUserFromRecycleBinResponse RestoreUserFromRecycleBinResponse
+     */
+    public function restoreUserFromRecycleBin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreUserFromRecycleBinWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Configures the default domain name for an Alibaba Cloud account.
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->defaultDomainName) {
-            @$query['DefaultDomainName'] = $request->defaultDomainName;
+        if (!Utils::isUnset($request->defaultDomainName)) {
+            $query['DefaultDomainName'] = $request->defaultDomainName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultDomain',
@@ -4043,7 +4508,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4051,14 +4516,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the default domain name for an Alibaba Cloud account.
+     * @summary Configures the default domain name for an Alibaba Cloud account.
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
      *
-     * @param request - SetDefaultDomainRequest
-     * @returns SetDefaultDomainResponse
-     *
-     * @param SetDefaultDomainRequest $request
-     *
-     * @return SetDefaultDomainResponse
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomain($request)
     {
@@ -4068,67 +4530,52 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for RAM users.
+     * @summary Configures the password policy for Resource Access Management (RAM) users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetPasswordPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetPasswordPolicyResponse
-     *
-     * @param SetPasswordPolicyRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->hardExpire) {
-            @$query['HardExpire'] = $request->hardExpire;
+        if (!Utils::isUnset($request->hardExpire)) {
+            $query['HardExpire'] = $request->hardExpire;
         }
-
-        if (null !== $request->maxLoginAttemps) {
-            @$query['MaxLoginAttemps'] = $request->maxLoginAttemps;
+        if (!Utils::isUnset($request->maxLoginAttemps)) {
+            $query['MaxLoginAttemps'] = $request->maxLoginAttemps;
         }
-
-        if (null !== $request->maxPasswordAge) {
-            @$query['MaxPasswordAge'] = $request->maxPasswordAge;
+        if (!Utils::isUnset($request->maxPasswordAge)) {
+            $query['MaxPasswordAge'] = $request->maxPasswordAge;
         }
-
-        if (null !== $request->minimumPasswordDifferentCharacter) {
-            @$query['MinimumPasswordDifferentCharacter'] = $request->minimumPasswordDifferentCharacter;
+        if (!Utils::isUnset($request->minimumPasswordDifferentCharacter)) {
+            $query['MinimumPasswordDifferentCharacter'] = $request->minimumPasswordDifferentCharacter;
         }
-
-        if (null !== $request->minimumPasswordLength) {
-            @$query['MinimumPasswordLength'] = $request->minimumPasswordLength;
+        if (!Utils::isUnset($request->minimumPasswordLength)) {
+            $query['MinimumPasswordLength'] = $request->minimumPasswordLength;
         }
-
-        if (null !== $request->passwordNotContainUserName) {
-            @$query['PasswordNotContainUserName'] = $request->passwordNotContainUserName;
+        if (!Utils::isUnset($request->passwordNotContainUserName)) {
+            $query['PasswordNotContainUserName'] = $request->passwordNotContainUserName;
         }
-
-        if (null !== $request->passwordReusePrevention) {
-            @$query['PasswordReusePrevention'] = $request->passwordReusePrevention;
+        if (!Utils::isUnset($request->passwordReusePrevention)) {
+            $query['PasswordReusePrevention'] = $request->passwordReusePrevention;
         }
-
-        if (null !== $request->requireLowercaseCharacters) {
-            @$query['RequireLowercaseCharacters'] = $request->requireLowercaseCharacters;
+        if (!Utils::isUnset($request->requireLowercaseCharacters)) {
+            $query['RequireLowercaseCharacters'] = $request->requireLowercaseCharacters;
         }
-
-        if (null !== $request->requireNumbers) {
-            @$query['RequireNumbers'] = $request->requireNumbers;
+        if (!Utils::isUnset($request->requireNumbers)) {
+            $query['RequireNumbers'] = $request->requireNumbers;
         }
-
-        if (null !== $request->requireSymbols) {
-            @$query['RequireSymbols'] = $request->requireSymbols;
+        if (!Utils::isUnset($request->requireSymbols)) {
+            $query['RequireSymbols'] = $request->requireSymbols;
         }
-
-        if (null !== $request->requireUppercaseCharacters) {
-            @$query['RequireUppercaseCharacters'] = $request->requireUppercaseCharacters;
+        if (!Utils::isUnset($request->requireUppercaseCharacters)) {
+            $query['RequireUppercaseCharacters'] = $request->requireUppercaseCharacters;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetPasswordPolicy',
@@ -4141,7 +4588,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4149,14 +4596,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for RAM users.
+     * @summary Configures the password policy for Resource Access Management (RAM) users.
+     *  *
+     * @param SetPasswordPolicyRequest $request SetPasswordPolicyRequest
      *
-     * @param request - SetPasswordPolicyRequest
-     * @returns SetPasswordPolicyResponse
-     *
-     * @param SetPasswordPolicyRequest $request
-     *
-     * @return SetPasswordPolicyResponse
+     * @return SetPasswordPolicyResponse SetPasswordPolicyResponse
      */
     public function setPasswordPolicy($request)
     {
@@ -4166,77 +4610,60 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
+     * @summary Configures security preferences for a RAM user.
+     *  *
+     * @description ###
      * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     *  *
+     * @param SetSecurityPreferenceRequest $tmpReq  SetSecurityPreferenceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - SetSecurityPreferenceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetSecurityPreferenceResponse
-     *
-     * @param SetSecurityPreferenceRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SetSecurityPreferenceResponse
+     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
      */
     public function setSecurityPreferenceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new SetSecurityPreferenceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->verificationTypes) {
-            $request->verificationTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->verificationTypes, 'VerificationTypes', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->verificationTypes)) {
+            $request->verificationTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->verificationTypes, 'VerificationTypes', 'json');
         }
-
         $query = [];
-        if (null !== $request->allowUserToChangePassword) {
-            @$query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
+        if (!Utils::isUnset($request->allowUserToChangePassword)) {
+            $query['AllowUserToChangePassword'] = $request->allowUserToChangePassword;
         }
-
-        if (null !== $request->allowUserToLoginWithPasskey) {
-            @$query['AllowUserToLoginWithPasskey'] = $request->allowUserToLoginWithPasskey;
+        if (!Utils::isUnset($request->allowUserToLoginWithPasskey)) {
+            $query['AllowUserToLoginWithPasskey'] = $request->allowUserToLoginWithPasskey;
         }
-
-        if (null !== $request->allowUserToManageAccessKeys) {
-            @$query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
+        if (!Utils::isUnset($request->allowUserToManageAccessKeys)) {
+            $query['AllowUserToManageAccessKeys'] = $request->allowUserToManageAccessKeys;
         }
-
-        if (null !== $request->allowUserToManageMFADevices) {
-            @$query['AllowUserToManageMFADevices'] = $request->allowUserToManageMFADevices;
+        if (!Utils::isUnset($request->allowUserToManageMFADevices)) {
+            $query['AllowUserToManageMFADevices'] = $request->allowUserToManageMFADevices;
         }
-
-        if (null !== $request->allowUserToManagePersonalDingTalk) {
-            @$query['AllowUserToManagePersonalDingTalk'] = $request->allowUserToManagePersonalDingTalk;
+        if (!Utils::isUnset($request->allowUserToManagePersonalDingTalk)) {
+            $query['AllowUserToManagePersonalDingTalk'] = $request->allowUserToManagePersonalDingTalk;
         }
-
-        if (null !== $request->enableSaveMFATicket) {
-            @$query['EnableSaveMFATicket'] = $request->enableSaveMFATicket;
+        if (!Utils::isUnset($request->enableSaveMFATicket)) {
+            $query['EnableSaveMFATicket'] = $request->enableSaveMFATicket;
         }
-
-        if (null !== $request->loginNetworkMasks) {
-            @$query['LoginNetworkMasks'] = $request->loginNetworkMasks;
+        if (!Utils::isUnset($request->loginNetworkMasks)) {
+            $query['LoginNetworkMasks'] = $request->loginNetworkMasks;
         }
-
-        if (null !== $request->loginSessionDuration) {
-            @$query['LoginSessionDuration'] = $request->loginSessionDuration;
+        if (!Utils::isUnset($request->loginSessionDuration)) {
+            $query['LoginSessionDuration'] = $request->loginSessionDuration;
         }
-
-        if (null !== $request->MFAOperationForLogin) {
-            @$query['MFAOperationForLogin'] = $request->MFAOperationForLogin;
+        if (!Utils::isUnset($request->MFAOperationForLogin)) {
+            $query['MFAOperationForLogin'] = $request->MFAOperationForLogin;
         }
-
-        if (null !== $request->operationForRiskLogin) {
-            @$query['OperationForRiskLogin'] = $request->operationForRiskLogin;
+        if (!Utils::isUnset($request->operationForRiskLogin)) {
+            $query['OperationForRiskLogin'] = $request->operationForRiskLogin;
         }
-
-        if (null !== $request->verificationTypesShrink) {
-            @$query['VerificationTypes'] = $request->verificationTypesShrink;
+        if (!Utils::isUnset($request->verificationTypesShrink)) {
+            $query['VerificationTypes'] = $request->verificationTypesShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetSecurityPreference',
@@ -4249,7 +4676,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetSecurityPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4257,18 +4684,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
+     * @summary Configures security preferences for a RAM user.
+     *  *
+     * @description ###
      * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     *  *
+     * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      *
-     * @param request - SetSecurityPreferenceRequest
-     * @returns SetSecurityPreferenceResponse
-     *
-     * @param SetSecurityPreferenceRequest $request
-     *
-     * @return SetSecurityPreferenceResponse
+     * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
      */
     public function setSecurityPreference($request)
     {
@@ -4278,39 +4701,31 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures information about user-based single sign-on (SSO).
+     * @summary Configures information about user-based single sign-on (SSO).
+     *  *
+     * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetUserSsoSettingsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetUserSsoSettingsResponse
-     *
-     * @param SetUserSsoSettingsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetUserSsoSettingsResponse
+     * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse
      */
     public function setUserSsoSettingsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->auxiliaryDomain) {
-            @$query['AuxiliaryDomain'] = $request->auxiliaryDomain;
+        if (!Utils::isUnset($request->auxiliaryDomain)) {
+            $query['AuxiliaryDomain'] = $request->auxiliaryDomain;
         }
-
-        if (null !== $request->metadataDocument) {
-            @$query['MetadataDocument'] = $request->metadataDocument;
+        if (!Utils::isUnset($request->metadataDocument)) {
+            $query['MetadataDocument'] = $request->metadataDocument;
         }
-
-        if (null !== $request->ssoEnabled) {
-            @$query['SsoEnabled'] = $request->ssoEnabled;
+        if (!Utils::isUnset($request->ssoEnabled)) {
+            $query['SsoEnabled'] = $request->ssoEnabled;
         }
-
-        if (null !== $request->ssoLoginWithDomain) {
-            @$query['SsoLoginWithDomain'] = $request->ssoLoginWithDomain;
+        if (!Utils::isUnset($request->ssoLoginWithDomain)) {
+            $query['SsoLoginWithDomain'] = $request->ssoLoginWithDomain;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetUserSsoSettings',
@@ -4323,7 +4738,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetUserSsoSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4331,14 +4746,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures information about user-based single sign-on (SSO).
+     * @summary Configures information about user-based single sign-on (SSO).
+     *  *
+     * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      *
-     * @param request - SetUserSsoSettingsRequest
-     * @returns SetUserSsoSettingsResponse
-     *
-     * @param SetUserSsoSettingsRequest $request
-     *
-     * @return SetUserSsoSettingsResponse
+     * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse
      */
     public function setUserSsoSettings($request)
     {
@@ -4348,39 +4760,90 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     *  *
+     * @param SetVerificationInfoRequest $request SetVerificationInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
+     * @return SetVerificationInfoResponse SetVerificationInfoResponse
+     */
+    public function setVerificationInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->mobilePhone)) {
+            $query['MobilePhone'] = $request->mobilePhone;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVerificationInfo',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetVerificationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SetVerificationInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     *  *
+     * @param SetVerificationInfoRequest $request SetVerificationInfoRequest
      *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @return SetVerificationInfoResponse SetVerificationInfoResponse
+     */
+    public function setVerificationInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setVerificationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourcePrincipalName) {
-            @$query['ResourcePrincipalName'] = $request->resourcePrincipalName;
+        if (!Utils::isUnset($request->resourcePrincipalName)) {
+            $query['ResourcePrincipalName'] = $request->resourcePrincipalName;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -4393,7 +4856,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4401,14 +4864,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * @summary Adds tags to resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4418,27 +4878,22 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     *  *
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnbindMFADeviceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UnbindMFADeviceResponse
-     *
-     * @param UnbindMFADeviceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADeviceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnbindMFADevice',
@@ -4451,7 +4906,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnbindMFADeviceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4459,14 +4914,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * @summary Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     *  *
+     * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
      *
-     * @param request - UnbindMFADeviceRequest
-     * @returns UnbindMFADeviceResponse
-     *
-     * @param UnbindMFADeviceRequest $request
-     *
-     * @return UnbindMFADeviceResponse
+     * @return UnbindMFADeviceResponse UnbindMFADeviceResponse
      */
     public function unbindMFADevice($request)
     {
@@ -4476,43 +4928,93 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes tags from a resource.
+     * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     *  *
+     * @param UnbindVerificationRequest $request UnbindVerificationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
+     * @return UnbindVerificationResponse UnbindVerificationResponse
+     */
+    public function unbindVerificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->mobilePhone)) {
+            $query['MobilePhone'] = $request->mobilePhone;
+        }
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+        if (!Utils::isUnset($request->verifyType)) {
+            $query['VerifyType'] = $request->verifyType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindVerification',
+            'version'     => '2019-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UnbindVerificationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     *  *
+     * @param UnbindVerificationRequest $request UnbindVerificationRequest
      *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @return UnbindVerificationResponse UnbindVerificationResponse
+     */
+    public function unbindVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindVerificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourcePrincipalName) {
-            @$query['ResourcePrincipalName'] = $request->resourcePrincipalName;
+        if (!Utils::isUnset($request->resourcePrincipalName)) {
+            $query['ResourcePrincipalName'] = $request->resourcePrincipalName;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -4525,7 +5027,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4533,14 +5035,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes tags from a resource.
+     * @summary Removes tags from a resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4550,35 +5049,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAccessKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateAccessKeyResponse
-     *
-     * @param UpdateAccessKeyRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->userAccessKeyId) {
-            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        if (!Utils::isUnset($request->userAccessKeyId)) {
+            $query['UserAccessKeyId'] = $request->userAccessKeyId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAccessKey',
@@ -4591,7 +5083,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4599,14 +5091,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * @summary Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *  *
+     * @param UpdateAccessKeyRequest $request UpdateAccessKeyRequest
      *
-     * @param request - UpdateAccessKeyRequest
-     * @returns UpdateAccessKeyResponse
-     *
-     * @param UpdateAccessKeyRequest $request
-     *
-     * @return UpdateAccessKeyResponse
+     * @return UpdateAccessKeyResponse UpdateAccessKeyResponse
      */
     public function updateAccessKey($request)
     {
@@ -4616,59 +5105,46 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * @summary Modifies the information about a specified application.
+     *  *
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateApplicationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateApplicationResponse
-     *
-     * @param UpdateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplicationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->appId) {
-            @$query['AppId'] = $request->appId;
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
         }
-
-        if (null !== $request->newAccessTokenValidity) {
-            @$query['NewAccessTokenValidity'] = $request->newAccessTokenValidity;
+        if (!Utils::isUnset($request->newAccessTokenValidity)) {
+            $query['NewAccessTokenValidity'] = $request->newAccessTokenValidity;
         }
-
-        if (null !== $request->newDisplayName) {
-            @$query['NewDisplayName'] = $request->newDisplayName;
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
         }
-
-        if (null !== $request->newIsMultiTenant) {
-            @$query['NewIsMultiTenant'] = $request->newIsMultiTenant;
+        if (!Utils::isUnset($request->newIsMultiTenant)) {
+            $query['NewIsMultiTenant'] = $request->newIsMultiTenant;
         }
-
-        if (null !== $request->newPredefinedScopes) {
-            @$query['NewPredefinedScopes'] = $request->newPredefinedScopes;
+        if (!Utils::isUnset($request->newPredefinedScopes)) {
+            $query['NewPredefinedScopes'] = $request->newPredefinedScopes;
         }
-
-        if (null !== $request->newRedirectUris) {
-            @$query['NewRedirectUris'] = $request->newRedirectUris;
+        if (!Utils::isUnset($request->newRedirectUris)) {
+            $query['NewRedirectUris'] = $request->newRedirectUris;
         }
-
-        if (null !== $request->newRefreshTokenValidity) {
-            @$query['NewRefreshTokenValidity'] = $request->newRefreshTokenValidity;
+        if (!Utils::isUnset($request->newRefreshTokenValidity)) {
+            $query['NewRefreshTokenValidity'] = $request->newRefreshTokenValidity;
         }
-
-        if (null !== $request->newRequiredScopes) {
-            @$query['NewRequiredScopes'] = $request->newRequiredScopes;
+        if (!Utils::isUnset($request->newRequiredScopes)) {
+            $query['NewRequiredScopes'] = $request->newRequiredScopes;
         }
-
-        if (null !== $request->newSecretRequired) {
-            @$query['NewSecretRequired'] = $request->newSecretRequired;
+        if (!Utils::isUnset($request->newSecretRequired)) {
+            $query['NewSecretRequired'] = $request->newSecretRequired;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateApplication',
@@ -4681,7 +5157,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4689,14 +5165,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * @summary Modifies the information about a specified application.
+     *  *
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
      *
-     * @param request - UpdateApplicationRequest
-     * @returns UpdateApplicationResponse
-     *
-     * @param UpdateApplicationRequest $request
-     *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplication($request)
     {
@@ -4706,39 +5179,31 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) user group.
+     * @summary Modifies information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateGroupResponse
-     *
-     * @param UpdateGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->newComments) {
-            @$query['NewComments'] = $request->newComments;
+        if (!Utils::isUnset($request->newComments)) {
+            $query['NewComments'] = $request->newComments;
         }
-
-        if (null !== $request->newDisplayName) {
-            @$query['NewDisplayName'] = $request->newDisplayName;
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
         }
-
-        if (null !== $request->newGroupName) {
-            @$query['NewGroupName'] = $request->newGroupName;
+        if (!Utils::isUnset($request->newGroupName)) {
+            $query['NewGroupName'] = $request->newGroupName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroup',
@@ -4751,7 +5216,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4759,14 +5224,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) user group.
+     * @summary Modifies information about a Resource Access Management (RAM) user group.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @param request - UpdateGroupRequest
-     * @returns UpdateGroupResponse
-     *
-     * @param UpdateGroupRequest $request
-     *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -4776,43 +5238,34 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     *  *
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateLoginProfileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateLoginProfileResponse
-     *
-     * @param UpdateLoginProfileRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfileWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->MFABindRequired) {
-            @$query['MFABindRequired'] = $request->MFABindRequired;
+        if (!Utils::isUnset($request->MFABindRequired)) {
+            $query['MFABindRequired'] = $request->MFABindRequired;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->passwordResetRequired) {
-            @$query['PasswordResetRequired'] = $request->passwordResetRequired;
+        if (!Utils::isUnset($request->passwordResetRequired)) {
+            $query['PasswordResetRequired'] = $request->passwordResetRequired;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoginProfile',
@@ -4825,7 +5278,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateLoginProfileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4833,14 +5286,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * @summary Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     *  *
+     * @param UpdateLoginProfileRequest $request UpdateLoginProfileRequest
      *
-     * @param request - UpdateLoginProfileRequest
-     * @returns UpdateLoginProfileResponse
-     *
-     * @param UpdateLoginProfileRequest $request
-     *
-     * @return UpdateLoginProfileResponse
+     * @return UpdateLoginProfileResponse UpdateLoginProfileResponse
      */
     public function updateLoginProfile($request)
     {
@@ -4850,43 +5300,34 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     *  *
+     * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateOIDCProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateOIDCProviderResponse
-     *
-     * @param UpdateOIDCProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateOIDCProviderResponse
+     * @return UpdateOIDCProviderResponse UpdateOIDCProviderResponse
      */
     public function updateOIDCProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientIds) {
-            @$query['ClientIds'] = $request->clientIds;
+        if (!Utils::isUnset($request->clientIds)) {
+            $query['ClientIds'] = $request->clientIds;
         }
-
-        if (null !== $request->issuanceLimitTime) {
-            @$query['IssuanceLimitTime'] = $request->issuanceLimitTime;
+        if (!Utils::isUnset($request->issuanceLimitTime)) {
+            $query['IssuanceLimitTime'] = $request->issuanceLimitTime;
         }
-
-        if (null !== $request->newDescription) {
-            @$query['NewDescription'] = $request->newDescription;
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
         }
-
-        if (null !== $request->OIDCProviderName) {
-            @$query['OIDCProviderName'] = $request->OIDCProviderName;
+        if (!Utils::isUnset($request->OIDCProviderName)) {
+            $query['OIDCProviderName'] = $request->OIDCProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOIDCProvider',
@@ -4899,7 +5340,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateOIDCProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4907,18 +5348,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
+     * @summary Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+     *  *
+     * @description ###
      * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     *  *
+     * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
      *
-     * @param request - UpdateOIDCProviderRequest
-     * @returns UpdateOIDCProviderResponse
-     *
-     * @param UpdateOIDCProviderRequest $request
-     *
-     * @return UpdateOIDCProviderResponse
+     * @return UpdateOIDCProviderResponse UpdateOIDCProviderResponse
      */
     public function updateOIDCProvider($request)
     {
@@ -4928,35 +5365,28 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 更新Passkey.
+     * @summary Updates the name of a passkey.
+     *  *
+     * @param UpdatePasskeyRequest $request UpdatePasskeyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePasskeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePasskeyResponse
-     *
-     * @param UpdatePasskeyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdatePasskeyResponse
+     * @return UpdatePasskeyResponse UpdatePasskeyResponse
      */
     public function updatePasskeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->passkeyId) {
-            @$query['PasskeyId'] = $request->passkeyId;
+        if (!Utils::isUnset($request->passkeyId)) {
+            $query['PasskeyId'] = $request->passkeyId;
         }
-
-        if (null !== $request->passkeyName) {
-            @$query['PasskeyName'] = $request->passkeyName;
+        if (!Utils::isUnset($request->passkeyName)) {
+            $query['PasskeyName'] = $request->passkeyName;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePasskey',
@@ -4969,7 +5399,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePasskeyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4977,14 +5407,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 更新Passkey.
+     * @summary Updates the name of a passkey.
+     *  *
+     * @param UpdatePasskeyRequest $request UpdatePasskeyRequest
      *
-     * @param request - UpdatePasskeyRequest
-     * @returns UpdatePasskeyResponse
-     *
-     * @param UpdatePasskeyRequest $request
-     *
-     * @return UpdatePasskeyResponse
+     * @return UpdatePasskeyResponse UpdatePasskeyResponse
      */
     public function updatePasskey($request)
     {
@@ -4994,38 +5421,30 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     *  *
+     * @param UpdateSAMLProviderRequest $request UpdateSAMLProviderRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
-     *
-     * @param request - UpdateSAMLProviderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateSAMLProviderResponse
-     *
-     * @param UpdateSAMLProviderRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateSAMLProviderResponse
+     * @return UpdateSAMLProviderResponse UpdateSAMLProviderResponse
      */
     public function updateSAMLProviderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newDescription) {
-            @$query['NewDescription'] = $request->newDescription;
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
         }
-
-        if (null !== $request->newEncodedSAMLMetadataDocument) {
-            @$query['NewEncodedSAMLMetadataDocument'] = $request->newEncodedSAMLMetadataDocument;
+        if (!Utils::isUnset($request->newEncodedSAMLMetadataDocument)) {
+            $query['NewEncodedSAMLMetadataDocument'] = $request->newEncodedSAMLMetadataDocument;
         }
-
-        if (null !== $request->SAMLProviderName) {
-            @$query['SAMLProviderName'] = $request->SAMLProviderName;
+        if (!Utils::isUnset($request->SAMLProviderName)) {
+            $query['SAMLProviderName'] = $request->SAMLProviderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSAMLProvider',
@@ -5038,7 +5457,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateSAMLProviderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5046,17 +5465,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * @summary Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     *  *
+     * @description This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     *  *
+     * @param UpdateSAMLProviderRequest $request UpdateSAMLProviderRequest
      *
-     * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
-     *
-     * @param request - UpdateSAMLProviderRequest
-     * @returns UpdateSAMLProviderResponse
-     *
-     * @param UpdateSAMLProviderRequest $request
-     *
-     * @return UpdateSAMLProviderResponse
+     * @return UpdateSAMLProviderResponse UpdateSAMLProviderResponse
      */
     public function updateSAMLProvider($request)
     {
@@ -5066,54 +5481,42 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a RAM user.
+     * @summary Modifies the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
-     *
-     * @param request - UpdateUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateUserResponse
-     *
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newComments) {
-            @$query['NewComments'] = $request->newComments;
+        if (!Utils::isUnset($request->newComments)) {
+            $query['NewComments'] = $request->newComments;
         }
-
-        if (null !== $request->newDisplayName) {
-            @$query['NewDisplayName'] = $request->newDisplayName;
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
         }
-
-        if (null !== $request->newEmail) {
-            @$query['NewEmail'] = $request->newEmail;
+        if (!Utils::isUnset($request->newEmail)) {
+            $query['NewEmail'] = $request->newEmail;
         }
-
-        if (null !== $request->newMobilePhone) {
-            @$query['NewMobilePhone'] = $request->newMobilePhone;
+        if (!Utils::isUnset($request->newMobilePhone)) {
+            $query['NewMobilePhone'] = $request->newMobilePhone;
         }
-
-        if (null !== $request->newUserPrincipalName) {
-            @$query['NewUserPrincipalName'] = $request->newUserPrincipalName;
+        if (!Utils::isUnset($request->newUserPrincipalName)) {
+            $query['NewUserPrincipalName'] = $request->newUserPrincipalName;
         }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
         }
-
-        if (null !== $request->userPrincipalName) {
-            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        if (!Utils::isUnset($request->userPrincipalName)) {
+            $query['UserPrincipalName'] = $request->userPrincipalName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -5126,7 +5529,7 @@ class Ims extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5134,17 +5537,13 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a RAM user.
+     * @summary Modifies the information about a RAM user.
+     *  *
+     * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @remarks
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
-     *
-     * @param request - UpdateUserRequest
-     * @returns UpdateUserResponse
-     *
-     * @param UpdateUserRequest $request
-     *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {

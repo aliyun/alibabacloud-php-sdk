@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVirtualMFADeviceRequest extends Model
 {
     /**
+     * @description The name of the MFA device.
+     *
+     * This parameter is required.
+     * @example device001
+     *
      * @var string
      */
     public $virtualMFADeviceName;
@@ -18,10 +23,9 @@ class CreateVirtualMFADeviceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->virtualMFADeviceName) {
@@ -31,11 +35,11 @@ class CreateVirtualMFADeviceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVirtualMFADeviceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

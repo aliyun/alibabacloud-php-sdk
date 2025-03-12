@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\UpdateApplicationResponseBody\application;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class redirectUris extends Model
 {
@@ -18,43 +18,29 @@ class redirectUris extends Model
 
     public function validate()
     {
-        if (\is_array($this->redirectUri)) {
-            Model::validateArray($this->redirectUri);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->redirectUri) {
-            if (\is_array($this->redirectUri)) {
-                $res['RedirectUri'] = [];
-                $n1                 = 0;
-                foreach ($this->redirectUri as $item1) {
-                    $res['RedirectUri'][$n1++] = $item1;
-                }
-            }
+            $res['RedirectUri'] = $this->redirectUri;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return redirectUris
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RedirectUri'])) {
             if (!empty($map['RedirectUri'])) {
-                $model->redirectUri = [];
-                $n1                 = 0;
-                foreach ($map['RedirectUri'] as $item1) {
-                    $model->redirectUri[$n1++] = $item1;
-                }
+                $model->redirectUri = $map['RedirectUri'];
             }
         }
 

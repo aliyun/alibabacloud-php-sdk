@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponseBody\securityPreference;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MFAPreference extends Model
 {
     /**
+     * @description Indicates whether RAM users can manage their MFA devices. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowUserToManageMFADevices;
@@ -18,10 +25,9 @@ class MFAPreference extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowUserToManageMFADevices) {
@@ -31,11 +37,11 @@ class MFAPreference extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MFAPreference
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

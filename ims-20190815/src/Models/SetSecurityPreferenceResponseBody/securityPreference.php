@@ -4,37 +4,54 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\accessKeyPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\loginProfilePreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\maxIdleDays;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\MFAPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\personalInfoPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\verificationPreference;
+use AlibabaCloud\Tea\Model;
 
 class securityPreference extends Model
 {
     /**
+     * @description The AccessKey pair preference.
+     *
      * @var accessKeyPreference
      */
     public $accessKeyPreference;
+
     /**
+     * @description The logon preference.
+     *
      * @var loginProfilePreference
      */
     public $loginProfilePreference;
+
     /**
+     * @description The MFA preference.
+     *
      * @var MFAPreference
      */
     public $MFAPreference;
+
     /**
+     * @description The maximum idle periods. Unit: days.
+     *
      * @var maxIdleDays
      */
     public $maxIdleDays;
+
     /**
+     * @description The personal information preference.
+     *
      * @var personalInfoPreference
      */
     public $personalInfoPreference;
+
     /**
+     * @description The MFA method preference.
+     *
      * @var verificationPreference
      */
     public $verificationPreference;
@@ -49,85 +66,56 @@ class securityPreference extends Model
 
     public function validate()
     {
-        if (null !== $this->accessKeyPreference) {
-            $this->accessKeyPreference->validate();
-        }
-        if (null !== $this->loginProfilePreference) {
-            $this->loginProfilePreference->validate();
-        }
-        if (null !== $this->MFAPreference) {
-            $this->MFAPreference->validate();
-        }
-        if (null !== $this->maxIdleDays) {
-            $this->maxIdleDays->validate();
-        }
-        if (null !== $this->personalInfoPreference) {
-            $this->personalInfoPreference->validate();
-        }
-        if (null !== $this->verificationPreference) {
-            $this->verificationPreference->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessKeyPreference) {
-            $res['AccessKeyPreference'] = null !== $this->accessKeyPreference ? $this->accessKeyPreference->toArray($noStream) : $this->accessKeyPreference;
+            $res['AccessKeyPreference'] = null !== $this->accessKeyPreference ? $this->accessKeyPreference->toMap() : null;
         }
-
         if (null !== $this->loginProfilePreference) {
-            $res['LoginProfilePreference'] = null !== $this->loginProfilePreference ? $this->loginProfilePreference->toArray($noStream) : $this->loginProfilePreference;
+            $res['LoginProfilePreference'] = null !== $this->loginProfilePreference ? $this->loginProfilePreference->toMap() : null;
         }
-
         if (null !== $this->MFAPreference) {
-            $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toArray($noStream) : $this->MFAPreference;
+            $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toMap() : null;
         }
-
         if (null !== $this->maxIdleDays) {
-            $res['MaxIdleDays'] = null !== $this->maxIdleDays ? $this->maxIdleDays->toArray($noStream) : $this->maxIdleDays;
+            $res['MaxIdleDays'] = null !== $this->maxIdleDays ? $this->maxIdleDays->toMap() : null;
         }
-
         if (null !== $this->personalInfoPreference) {
-            $res['PersonalInfoPreference'] = null !== $this->personalInfoPreference ? $this->personalInfoPreference->toArray($noStream) : $this->personalInfoPreference;
+            $res['PersonalInfoPreference'] = null !== $this->personalInfoPreference ? $this->personalInfoPreference->toMap() : null;
         }
-
         if (null !== $this->verificationPreference) {
-            $res['VerificationPreference'] = null !== $this->verificationPreference ? $this->verificationPreference->toArray($noStream) : $this->verificationPreference;
+            $res['VerificationPreference'] = null !== $this->verificationPreference ? $this->verificationPreference->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityPreference
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKeyPreference'])) {
             $model->accessKeyPreference = accessKeyPreference::fromMap($map['AccessKeyPreference']);
         }
-
         if (isset($map['LoginProfilePreference'])) {
             $model->loginProfilePreference = loginProfilePreference::fromMap($map['LoginProfilePreference']);
         }
-
         if (isset($map['MFAPreference'])) {
             $model->MFAPreference = MFAPreference::fromMap($map['MFAPreference']);
         }
-
         if (isset($map['MaxIdleDays'])) {
             $model->maxIdleDays = maxIdleDays::fromMap($map['MaxIdleDays']);
         }
-
         if (isset($map['PersonalInfoPreference'])) {
             $model->personalInfoPreference = personalInfoPreference::fromMap($map['PersonalInfoPreference']);
         }
-
         if (isset($map['VerificationPreference'])) {
             $model->verificationPreference = verificationPreference::fromMap($map['VerificationPreference']);
         }

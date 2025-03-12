@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangePasswordRequest extends Model
 {
     /**
+     * @description The new password that is used to log on to the console.
+     *
+     * This parameter is required.
+     * @example newpassword
+     *
      * @var string
      */
     public $newPassword;
+
     /**
+     * @description The old password that is used to log on to the console.
+     *
+     * This parameter is required.
+     * @example mypassword
+     *
      * @var string
      */
     public $oldPassword;
@@ -23,16 +34,14 @@ class ChangePasswordRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->newPassword) {
             $res['NewPassword'] = $this->newPassword;
         }
-
         if (null !== $this->oldPassword) {
             $res['OldPassword'] = $this->oldPassword;
         }
@@ -40,18 +49,17 @@ class ChangePasswordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangePasswordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewPassword'])) {
             $model->newPassword = $map['NewPassword'];
         }
-
         if (isset($map['OldPassword'])) {
             $model->oldPassword = $map['OldPassword'];
         }

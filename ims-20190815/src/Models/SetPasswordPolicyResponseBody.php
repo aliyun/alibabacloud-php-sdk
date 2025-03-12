@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyResponseBody\passwordPolicy;
+use AlibabaCloud\Tea\Model;
 
 class SetPasswordPolicyResponseBody extends Model
 {
     /**
+     * @description The details of the password policy.
+     *
      * @var passwordPolicy
      */
     public $passwordPolicy;
+
     /**
+     * @description The request ID.
+     *
+     * @example 3FB5551F-B2ED-40D4-8392-1E4AC2384EFD
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class SetPasswordPolicyResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->passwordPolicy) {
-            $this->passwordPolicy->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->passwordPolicy) {
-            $res['PasswordPolicy'] = null !== $this->passwordPolicy ? $this->passwordPolicy->toArray($noStream) : $this->passwordPolicy;
+            $res['PasswordPolicy'] = null !== $this->passwordPolicy ? $this->passwordPolicy->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class SetPasswordPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetPasswordPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordPolicy'])) {
             $model->passwordPolicy = passwordPolicy::fromMap($map['PasswordPolicy']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

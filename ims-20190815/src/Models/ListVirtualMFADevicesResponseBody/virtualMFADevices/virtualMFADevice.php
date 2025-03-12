@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListVirtualMFADevicesResponseBody\virtualMFADevices\virtualMFADevice\user;
+use AlibabaCloud\Tea\Model;
 
 class virtualMFADevice extends Model
 {
     /**
+     * @description The time when the MFA device was activated.
+     *
+     * @example 2020-10-16T06:02:09Z
+     *
      * @var string
      */
     public $activateDate;
+
     /**
+     * @description The serial number of the MFA device.
+     *
+     * @example acs:ram::177242285274****:mfa/test
+     *
      * @var string
      */
     public $serialNumber;
+
     /**
+     * @description The information of the RAM user that has an MFA device bound.
+     *
      * @var user
      */
     public $user;
@@ -29,46 +41,38 @@ class virtualMFADevice extends Model
 
     public function validate()
     {
-        if (null !== $this->user) {
-            $this->user->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activateDate) {
             $res['ActivateDate'] = $this->activateDate;
         }
-
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
-
         if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toArray($noStream) : $this->user;
+            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return virtualMFADevice
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivateDate'])) {
             $model->activateDate = $map['ActivateDate'];
         }
-
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
-
         if (isset($map['User'])) {
             $model->user = user::fromMap($map['User']);
         }

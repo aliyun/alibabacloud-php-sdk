@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserSsoSettingsResponseBody\userSsoSettings;
+use AlibabaCloud\Tea\Model;
 
 class GetUserSsoSettingsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 69FC3E5E-D3D9-434B-90CA-BBA8E0551A47
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The configurations of user-based SSO.
+     *
      * @var userSsoSettings
      */
     public $userSsoSettings;
@@ -24,38 +31,32 @@ class GetUserSsoSettingsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->userSsoSettings) {
-            $this->userSsoSettings->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userSsoSettings) {
-            $res['UserSsoSettings'] = null !== $this->userSsoSettings ? $this->userSsoSettings->toArray($noStream) : $this->userSsoSettings;
+            $res['UserSsoSettings'] = null !== $this->userSsoSettings ? $this->userSsoSettings->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserSsoSettingsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserSsoSettings'])) {
             $model->userSsoSettings = userSsoSettings::fromMap($map['UserSsoSettings']);
         }

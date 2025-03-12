@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePasskeyRequest extends Model
 {
     /**
+     * @description The ID of the passkey.
+     *
+     * @example PASSKEY-CuZjEHhWcr7GIQOMGvkS
+     *
      * @var string
      */
     public $passkeyId;
+
     /**
+     * @description The logon name of the RAM user.
+     *
+     * @example test@example.onaliyun.com
+     *
      * @var string
      */
     public $userPrincipalName;
@@ -23,16 +32,14 @@ class DeletePasskeyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->passkeyId) {
             $res['PasskeyId'] = $this->passkeyId;
         }
-
         if (null !== $this->userPrincipalName) {
             $res['UserPrincipalName'] = $this->userPrincipalName;
         }
@@ -40,18 +47,17 @@ class DeletePasskeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePasskeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasskeyId'])) {
             $model->passkeyId = $map['PasskeyId'];
         }
-
         if (isset($map['UserPrincipalName'])) {
             $model->userPrincipalName = $map['UserPrincipalName'];
         }

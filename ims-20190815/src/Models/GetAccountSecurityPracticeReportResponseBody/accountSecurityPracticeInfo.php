@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSecurityPracticeReportResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSecurityPracticeReportResponseBody\accountSecurityPracticeInfo\accountSecurityPracticeUserInfo;
+use AlibabaCloud\Tea\Model;
 
 class accountSecurityPracticeInfo extends Model
 {
     /**
+     * @description The information about the security report for the Alibaba Cloud account.
+     *
      * @var accountSecurityPracticeUserInfo
      */
     public $accountSecurityPracticeUserInfo;
+
     /**
+     * @description The security score of the Alibaba Cloud account.
+     *
+     * @example 63
+     *
      * @var int
      */
     public $score;
@@ -24,19 +31,14 @@ class accountSecurityPracticeInfo extends Model
 
     public function validate()
     {
-        if (null !== $this->accountSecurityPracticeUserInfo) {
-            $this->accountSecurityPracticeUserInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountSecurityPracticeUserInfo) {
-            $res['AccountSecurityPracticeUserInfo'] = null !== $this->accountSecurityPracticeUserInfo ? $this->accountSecurityPracticeUserInfo->toArray($noStream) : $this->accountSecurityPracticeUserInfo;
+            $res['AccountSecurityPracticeUserInfo'] = null !== $this->accountSecurityPracticeUserInfo ? $this->accountSecurityPracticeUserInfo->toMap() : null;
         }
-
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -44,18 +46,17 @@ class accountSecurityPracticeInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accountSecurityPracticeInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountSecurityPracticeUserInfo'])) {
             $model->accountSecurityPracticeUserInfo = accountSecurityPracticeUserInfo::fromMap($map['AccountSecurityPracticeUserInfo']);
         }
-
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }

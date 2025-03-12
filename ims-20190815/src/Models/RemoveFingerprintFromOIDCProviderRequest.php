@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveFingerprintFromOIDCProviderRequest extends Model
 {
     /**
+     * @description The fingerprint that you want to remove.
+     *
+     * @example 6938fd4d98bab03faadb97b34396831e3780****
+     *
      * @var string
      */
     public $fingerprint;
+
     /**
+     * @description The name of the OIDC IdP.
+     *
+     * @example TestOIDCProvider
+     *
      * @var string
      */
     public $OIDCProviderName;
@@ -23,16 +32,14 @@ class RemoveFingerprintFromOIDCProviderRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
-
         if (null !== $this->OIDCProviderName) {
             $res['OIDCProviderName'] = $this->OIDCProviderName;
         }
@@ -40,18 +47,17 @@ class RemoveFingerprintFromOIDCProviderRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveFingerprintFromOIDCProviderRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
-
         if (isset($map['OIDCProviderName'])) {
             $model->OIDCProviderName = $map['OIDCProviderName'];
         }

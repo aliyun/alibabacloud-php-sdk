@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAccessKeyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateAccessKeyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateAccessKeyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAccessKeyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

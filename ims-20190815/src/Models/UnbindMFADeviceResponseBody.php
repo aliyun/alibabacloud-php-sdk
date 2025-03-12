@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UnbindMFADeviceResponseBody\MFADevice;
+use AlibabaCloud\Tea\Model;
 
 class UnbindMFADeviceResponseBody extends Model
 {
     /**
+     * @description The information about the MFA device.
+     *
      * @var MFADevice
      */
     public $MFADevice;
+
     /**
+     * @description The request ID.
+     *
+     * @example A26CB3E9-1021-452A-AC57-3134B3BA0E4C
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class UnbindMFADeviceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->MFADevice) {
-            $this->MFADevice->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->MFADevice) {
-            $res['MFADevice'] = null !== $this->MFADevice ? $this->MFADevice->toArray($noStream) : $this->MFADevice;
+            $res['MFADevice'] = null !== $this->MFADevice ? $this->MFADevice->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class UnbindMFADeviceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UnbindMFADeviceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MFADevice'])) {
             $model->MFADevice = MFADevice::fromMap($map['MFADevice']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

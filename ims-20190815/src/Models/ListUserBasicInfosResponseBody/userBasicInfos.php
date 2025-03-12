@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponseBody\userBasicInfos\userBasicInfo;
+use AlibabaCloud\Tea\Model;
 
 class userBasicInfos extends Model
 {
@@ -19,21 +19,17 @@ class userBasicInfos extends Model
 
     public function validate()
     {
-        if (\is_array($this->userBasicInfo)) {
-            Model::validateArray($this->userBasicInfo);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userBasicInfo) {
-            if (\is_array($this->userBasicInfo)) {
-                $res['UserBasicInfo'] = [];
-                $n1                   = 0;
-                foreach ($this->userBasicInfo as $item1) {
-                    $res['UserBasicInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UserBasicInfo'] = [];
+            if (null !== $this->userBasicInfo && \is_array($this->userBasicInfo)) {
+                $n = 0;
+                foreach ($this->userBasicInfo as $item) {
+                    $res['UserBasicInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class userBasicInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userBasicInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserBasicInfo'])) {
             if (!empty($map['UserBasicInfo'])) {
                 $model->userBasicInfo = [];
-                $n1                   = 0;
-                foreach ($map['UserBasicInfo'] as $item1) {
-                    $model->userBasicInfo[$n1++] = userBasicInfo::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['UserBasicInfo'] as $item) {
+                    $model->userBasicInfo[$n++] = null !== $item ? userBasicInfo::fromMap($item) : $item;
                 }
             }
         }

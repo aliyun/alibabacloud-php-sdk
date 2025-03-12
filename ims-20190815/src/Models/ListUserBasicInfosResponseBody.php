@@ -4,24 +4,44 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosResponseBody\userBasicInfos;
+use AlibabaCloud\Tea\Model;
 
 class ListUserBasicInfosResponseBody extends Model
 {
     /**
+     * @description Indicates whether the response is truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
+
     /**
+     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
+
     /**
+     * @description The request ID.
+     *
+     * @example EF2B25FD-CADE-445B-BE4D-E082E0FF1A0F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The basic information about the RAM users.
+     *
      * @var userBasicInfos
      */
     public $userBasicInfos;
@@ -34,54 +54,44 @@ class ListUserBasicInfosResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->userBasicInfos) {
-            $this->userBasicInfos->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
-
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userBasicInfos) {
-            $res['UserBasicInfos'] = null !== $this->userBasicInfos ? $this->userBasicInfos->toArray($noStream) : $this->userBasicInfos;
+            $res['UserBasicInfos'] = null !== $this->userBasicInfos ? $this->userBasicInfos->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUserBasicInfosResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
-
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserBasicInfos'])) {
             $model->userBasicInfos = userBasicInfos::fromMap($map['UserBasicInfos']);
         }

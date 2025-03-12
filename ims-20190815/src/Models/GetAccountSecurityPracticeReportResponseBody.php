@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSecurityPracticeReportResponseBody\accountSecurityPracticeInfo;
+use AlibabaCloud\Tea\Model;
 
 class GetAccountSecurityPracticeReportResponseBody extends Model
 {
     /**
+     * @description The information about the security report for the Alibaba Cloud account.
+     *
      * @var accountSecurityPracticeInfo
      */
     public $accountSecurityPracticeInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example ABA822EE-85C2-4418-9577-A1831FC8466D
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetAccountSecurityPracticeReportResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->accountSecurityPracticeInfo) {
-            $this->accountSecurityPracticeInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountSecurityPracticeInfo) {
-            $res['AccountSecurityPracticeInfo'] = null !== $this->accountSecurityPracticeInfo ? $this->accountSecurityPracticeInfo->toArray($noStream) : $this->accountSecurityPracticeInfo;
+            $res['AccountSecurityPracticeInfo'] = null !== $this->accountSecurityPracticeInfo ? $this->accountSecurityPracticeInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetAccountSecurityPracticeReportResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAccountSecurityPracticeReportResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountSecurityPracticeInfo'])) {
             $model->accountSecurityPracticeInfo = accountSecurityPracticeInfo::fromMap($map['AccountSecurityPracticeInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

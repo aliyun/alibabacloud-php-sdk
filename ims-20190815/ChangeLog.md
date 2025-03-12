@@ -1,13 +1,27 @@
-2025-02-07 Version: 3.2.0
-- Support API DeletePasskey.
-- Support API ListPasskeys.
-- Support API UpdatePasskey.
-
-
-2025-01-17 Version: 3.1.5
-- Update API GetSecurityPreference: update response param.
-- Update API SetSecurityPreference: add param AllowUserToLoginWithPasskey.
-- Update API SetSecurityPreference: update response param.
+2025-03-12 Version: 3.3.0
+- Support API DeleteAccessKeyInRecycleBin.
+- Support API DeleteUserInRecycleBin.
+- Support API DeprovisionApplication.
+- Support API DeprovisionExternalApplication.
+- Support API GenerateGovernanceReport.
+- Support API GetAccessKeyInfoInRecycleBin.
+- Support API GetApplicationProvisionInfo.
+- Support API GetExternalApplication.
+- Support API GetGovernanceItemReport.
+- Support API GetGovernanceReportStatus.
+- Support API GetUserInRecycleBin.
+- Support API ListAccessKeysInRecycleBin.
+- Support API ListApplicationProvisionInfos.
+- Support API ListExternalApplications.
+- Support API ListRecentGovernanceMetrics.
+- Support API ListUsersInRecycleBin.
+- Support API ProvisionApplication.
+- Support API ProvisionExternalApplication.
+- Support API RestoreAccessKeyFromRecycleBin.
+- Support API RestoreUserFromRecycleBin.
+- Support API SetVerificationInfo.
+- Support API UnbindVerification.
+- Update API GetUser: update response param.
 
 
 2024-12-19 Version: 3.1.4

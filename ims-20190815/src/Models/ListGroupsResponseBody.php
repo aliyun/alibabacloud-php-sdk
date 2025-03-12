@@ -4,24 +4,44 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListGroupsResponseBody\groups;
+use AlibabaCloud\Tea\Model;
 
 class ListGroupsResponseBody extends Model
 {
     /**
+     * @description The information about the RAM user groups.
+     *
      * @var groups
      */
     public $groups;
+
     /**
+     * @description Indicates whether the response is truncated. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
+
     /**
+     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+     *
+     * @example EXAMPLE
+     *
      * @var string
      */
     public $marker;
+
     /**
+     * @description The request ID.
+     *
+     * @example 065527AA-2F2E-AD7C-7484-F2626CFE4934
+     *
      * @var string
      */
     public $requestId;
@@ -34,27 +54,20 @@ class ListGroupsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->groups) {
-            $this->groups->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groups) {
-            $res['Groups'] = null !== $this->groups ? $this->groups->toArray($noStream) : $this->groups;
+            $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
         }
-
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
-
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +75,23 @@ class ListGroupsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListGroupsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Groups'])) {
             $model->groups = groups::fromMap($map['Groups']);
         }
-
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
-
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

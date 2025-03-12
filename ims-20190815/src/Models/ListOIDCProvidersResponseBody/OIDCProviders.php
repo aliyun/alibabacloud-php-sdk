@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models\ListOIDCProvidersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListOIDCProvidersResponseBody\OIDCProviders\OIDCProvider;
+use AlibabaCloud\Tea\Model;
 
 class OIDCProviders extends Model
 {
@@ -19,21 +19,17 @@ class OIDCProviders extends Model
 
     public function validate()
     {
-        if (\is_array($this->OIDCProvider)) {
-            Model::validateArray($this->OIDCProvider);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->OIDCProvider) {
-            if (\is_array($this->OIDCProvider)) {
-                $res['OIDCProvider'] = [];
-                $n1                  = 0;
-                foreach ($this->OIDCProvider as $item1) {
-                    $res['OIDCProvider'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OIDCProvider'] = [];
+            if (null !== $this->OIDCProvider && \is_array($this->OIDCProvider)) {
+                $n = 0;
+                foreach ($this->OIDCProvider as $item) {
+                    $res['OIDCProvider'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class OIDCProviders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OIDCProviders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OIDCProvider'])) {
             if (!empty($map['OIDCProvider'])) {
                 $model->OIDCProvider = [];
-                $n1                  = 0;
-                foreach ($map['OIDCProvider'] as $item1) {
-                    $model->OIDCProvider[$n1++] = OIDCProvider::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['OIDCProvider'] as $item) {
+                    $model->OIDCProvider[$n++] = null !== $item ? OIDCProvider::fromMap($item) : $item;
                 }
             }
         }

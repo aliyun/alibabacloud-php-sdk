@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePasskeyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 8A1673AA-5DB3-5AFB-8758-AF9EC2889259
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeletePasskeyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeletePasskeyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePasskeyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ims\V20190815\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateAccessKeyResponseBody\accessKey;
+use AlibabaCloud\Tea\Model;
 
 class CreateAccessKeyResponseBody extends Model
 {
     /**
+     * @description The information about the AccessKey pair.
+     *
      * @var accessKey
      */
     public $accessKey;
+
     /**
+     * @description The request ID.
+     *
+     * @example 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreateAccessKeyResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->accessKey) {
-            $this->accessKey->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessKey) {
-            $res['AccessKey'] = null !== $this->accessKey ? $this->accessKey->toArray($noStream) : $this->accessKey;
+            $res['AccessKey'] = null !== $this->accessKey ? $this->accessKey->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreateAccessKeyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAccessKeyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessKey'])) {
             $model->accessKey = accessKey::fromMap($map['AccessKey']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
