@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HandleSimilarSecurityEventsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example A3653911-33A6-5268-8B91-7690471F7AA1
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class HandleSimilarSecurityEventsResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class HandleSimilarSecurityEventsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HandleSimilarSecurityEventsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

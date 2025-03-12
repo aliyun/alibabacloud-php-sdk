@@ -4,15 +4,30 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClientConfSetupRequest extends Model
 {
     /**
+     * @description The tag that is added to the server.
+     *
+     * This parameter is required.
+     * @example machineResource
+     *
      * @var string
      */
     public $strategyTag;
+
     /**
+     * @description The value of the tag. Valid values:
+     *
+     *   major
+     *   advanced
+     *   basic
+     *
+     * This parameter is required.
+     * @example major
+     *
      * @var string
      */
     public $strategyTagValue;
@@ -23,16 +38,14 @@ class DescribeClientConfSetupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strategyTag) {
             $res['StrategyTag'] = $this->strategyTag;
         }
-
         if (null !== $this->strategyTagValue) {
             $res['StrategyTagValue'] = $this->strategyTagValue;
         }
@@ -40,18 +53,17 @@ class DescribeClientConfSetupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClientConfSetupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StrategyTag'])) {
             $model->strategyTag = $map['StrategyTag'];
         }
-
         if (isset($map['StrategyTagValue'])) {
             $model->strategyTagValue = $map['StrategyTagValue'];
         }

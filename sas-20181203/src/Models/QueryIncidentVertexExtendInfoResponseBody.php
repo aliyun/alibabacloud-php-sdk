@@ -4,24 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentVertexExtendInfoResponseBody\vertexExtendInfo;
+use AlibabaCloud\Tea\Model;
 
 class QueryIncidentVertexExtendInfoResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $count;
+
     /**
+     * @description The request ID.
+     *
+     * @example 0BCDBBF1-0048-535A-8529-67EA0CD1A807
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;
+
     /**
+     * @description The returned extended information about the node.
+     *
      * @var vertexExtendInfo[]
      */
     public $vertexExtendInfo;
@@ -34,33 +54,26 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->vertexExtendInfo)) {
-            Model::validateArray($this->vertexExtendInfo);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->vertexExtendInfo) {
-            if (\is_array($this->vertexExtendInfo)) {
-                $res['VertexExtendInfo'] = [];
-                $n1                      = 0;
-                foreach ($this->vertexExtendInfo as $item1) {
-                    $res['VertexExtendInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VertexExtendInfo'] = [];
+            if (null !== $this->vertexExtendInfo && \is_array($this->vertexExtendInfo)) {
+                $n = 0;
+                foreach ($this->vertexExtendInfo as $item) {
+                    $res['VertexExtendInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +81,29 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryIncidentVertexExtendInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['VertexExtendInfo'])) {
             if (!empty($map['VertexExtendInfo'])) {
                 $model->vertexExtendInfo = [];
-                $n1                      = 0;
-                foreach ($map['VertexExtendInfo'] as $item1) {
-                    $model->vertexExtendInfo[$n1++] = vertexExtendInfo::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['VertexExtendInfo'] as $item) {
+                    $model->vertexExtendInfo[$n++] = null !== $item ? vertexExtendInfo::fromMap($item) : $item;
                 }
             }
         }

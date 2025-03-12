@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteFileProtectRuleRequest extends Model
 {
     /**
+     * @description The IDs of the core file monitoring rules that you want to delete.
+     *
      * @var int[]
      */
     public $id;
@@ -18,43 +20,29 @@ class DeleteFileProtectRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->id)) {
-            Model::validateArray($this->id);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
-            if (\is_array($this->id)) {
-                $res['Id'] = [];
-                $n1        = 0;
-                foreach ($this->id as $item1) {
-                    $res['Id'][$n1++] = $item1;
-                }
-            }
+            $res['Id'] = $this->id;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteFileProtectRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             if (!empty($map['Id'])) {
-                $model->id = [];
-                $n1        = 0;
-                foreach ($map['Id'] as $item1) {
-                    $model->id[$n1++] = $item1;
-                }
+                $model->id = $map['Id'];
             }
         }
 

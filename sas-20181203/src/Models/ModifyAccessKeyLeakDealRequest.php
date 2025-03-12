@@ -4,23 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAccessKeyLeakDealRequest extends Model
 {
     /**
+     * @description The ID of the AccessKey pair leak.
+     *
+     * > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to query the ID. You must specify at least one of the Id and **IdList** parameters.
+     * @example 123
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The IDs of AccessKey pair leaks.
+     *
      * @var int[]
      */
     public $idList;
+
     /**
+     * @description The remarks that are added.
+     *
+     * @example disabled.
+     *
      * @var string
      */
     public $remark;
+
     /**
+     * @description The method to handle the AccessKey pair leak. Valid values:
+     *
+     *   **manual**: manually handle
+     *   **disable**: disable
+     *   **add-whitelist**: add to the whitelist
+     *
+     * This parameter is required.
+     * @example disable
+     *
      * @var string
      */
     public $type;
@@ -33,33 +56,20 @@ class ModifyAccessKeyLeakDealRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->idList)) {
-            Model::validateArray($this->idList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->idList) {
-            if (\is_array($this->idList)) {
-                $res['IdList'] = [];
-                $n1            = 0;
-                foreach ($this->idList as $item1) {
-                    $res['IdList'][$n1++] = $item1;
-                }
-            }
+            $res['IdList'] = $this->idList;
         }
-
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -67,32 +77,25 @@ class ModifyAccessKeyLeakDealRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAccessKeyLeakDealRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['IdList'])) {
             if (!empty($map['IdList'])) {
-                $model->idList = [];
-                $n1            = 0;
-                foreach ($map['IdList'] as $item1) {
-                    $model->idList[$n1++] = $item1;
-                }
+                $model->idList = $map['IdList'];
             }
         }
-
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

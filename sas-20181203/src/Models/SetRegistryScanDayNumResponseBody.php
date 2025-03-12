@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetRegistryScanDayNumResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 48483161-F328-5A12-AB78-3EB81F37****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SetRegistryScanDayNumResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SetRegistryScanDayNumResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetRegistryScanDayNumResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

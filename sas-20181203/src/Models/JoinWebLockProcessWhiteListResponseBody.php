@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class JoinWebLockProcessWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example A47D621A-193E-5BDA-ADFA-A0D3133E199C
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class JoinWebLockProcessWhiteListResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class JoinWebLockProcessWhiteListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return JoinWebLockProcessWhiteListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

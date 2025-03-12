@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVpcHoneyPotResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4347E985-6E64-467B-96EC-30D4EA9E32FB
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteVpcHoneyPotResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteVpcHoneyPotResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVpcHoneyPotResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

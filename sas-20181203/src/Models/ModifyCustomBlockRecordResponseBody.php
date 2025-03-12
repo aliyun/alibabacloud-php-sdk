@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCustomBlockRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example A4EE4B1F-CEF8-5A75-86D3-D012CB3D****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyCustomBlockRecordResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyCustomBlockRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCustomBlockRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

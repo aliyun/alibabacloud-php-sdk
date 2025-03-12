@@ -4,19 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListClusterPluginInfoRequest extends Model
 {
     /**
+     * @description The IDs of the clusters.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $clusterIds;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The name of the plug-in.
+     *
+     * @example alihips
+     *
      * @var string
      */
     public $pluginName;
@@ -28,29 +44,17 @@ class ListClusterPluginInfoRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->clusterIds)) {
-            Model::validateArray($this->clusterIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            if (\is_array($this->clusterIds)) {
-                $res['ClusterIds'] = [];
-                $n1                = 0;
-                foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1++] = $item1;
-                }
-            }
+            $res['ClusterIds'] = $this->clusterIds;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
         }
@@ -58,28 +62,22 @@ class ListClusterPluginInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClusterPluginInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = [];
-                $n1                = 0;
-                foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1++] = $item1;
-                }
+                $model->clusterIds = $map['ClusterIds'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
         }

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponseBody\policies;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBackupPoliciesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The details of the anti-ransomware policy.
+     *
      * @var policies[]
      */
     public $policies;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class DescribeBackupPoliciesResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        if (\is_array($this->policies)) {
-            Model::validateArray($this->policies);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->policies) {
-            if (\is_array($this->policies)) {
-                $res['Policies'] = [];
-                $n1              = 0;
-                foreach ($this->policies as $item1) {
-                    $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Policies'] = [];
+            if (null !== $this->policies && \is_array($this->policies)) {
+                $n = 0;
+                foreach ($this->policies as $item) {
+                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class DescribeBackupPoliciesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBackupPoliciesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1              = 0;
-                foreach ($map['Policies'] as $item1) {
-                    $model->policies[$n1++] = policies::fromMap($item1);
+                $n               = 0;
+                foreach ($map['Policies'] as $item) {
+                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

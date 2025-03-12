@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTaskErrorLogResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class logs extends Model
 {
     /**
+     * @description The text content of the log.
+     *
+     * @example mv: cannot move \\"CentOS-Base.repo\\" to \\"CentOS-Base.repo.backup\\": Permission denied
+     *
      * @var string
      */
     public $text;
@@ -18,10 +22,9 @@ class logs extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->text) {
@@ -31,11 +34,11 @@ class logs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

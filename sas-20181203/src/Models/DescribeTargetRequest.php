@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTargetRequest extends Model
 {
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cms**: Web CMS vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cve**: Linux software vulnerability
+     *   **emg**: urgent vulnerability
+     *
+     * @example {"vulType":"cms"}
+     *
      * @var string
      */
     public $config;
+
     /**
+     * @description The type of the query. Set the value to vul.
+     *
+     * @example vul
+     *
      * @var string
      */
     public $type;
@@ -23,16 +37,14 @@ class DescribeTargetRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +52,17 @@ class DescribeTargetRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTargetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

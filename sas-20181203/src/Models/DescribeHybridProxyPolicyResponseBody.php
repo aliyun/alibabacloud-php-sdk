@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyPolicyResponseBody\policyList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHybridProxyPolicyResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The data collection configurations of the proxy cluster.
+     *
      * @var policyList[]
      */
     public $policyList;
+
     /**
+     * @description The request ID.
+     *
+     * @example F7A1B40A-7EED-55A0-BCBC-2F83A486F0AB
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class DescribeHybridProxyPolicyResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->policyList)) {
-            Model::validateArray($this->policyList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->policyList) {
-            if (\is_array($this->policyList)) {
-                $res['PolicyList'] = [];
-                $n1                = 0;
-                foreach ($this->policyList as $item1) {
-                    $res['PolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PolicyList'] = [];
+            if (null !== $this->policyList && \is_array($this->policyList)) {
+                $n = 0;
+                foreach ($this->policyList as $item) {
+                    $res['PolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class DescribeHybridProxyPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHybridProxyPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['PolicyList'])) {
             if (!empty($map['PolicyList'])) {
                 $model->policyList = [];
-                $n1                = 0;
-                foreach ($map['PolicyList'] as $item1) {
-                    $model->policyList[$n1++] = policyList::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['PolicyList'] as $item) {
+                    $model->policyList[$n++] = null !== $item ? policyList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

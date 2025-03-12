@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MarkMonitorAccountsRequest extends Model
 {
     /**
+     * @description The IDs of the members.
+     *
+     * This parameter is required.
+     * @example 131331822340XXXX,140649175187XXXX
+     *
      * @var string
      */
     public $accountIds;
@@ -18,10 +23,9 @@ class MarkMonitorAccountsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountIds) {
@@ -31,11 +35,11 @@ class MarkMonitorAccountsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MarkMonitorAccountsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

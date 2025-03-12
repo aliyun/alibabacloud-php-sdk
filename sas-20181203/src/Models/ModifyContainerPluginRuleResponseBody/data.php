@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerPluginRuleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
+     * @example 600640
+     *
      * @var int
      */
     public $ruleId;
+
     /**
+     * @description The name of the rule.
+     *
+     * @example test555
+     *
      * @var string
      */
     public $ruleName;
+
     /**
+     * @description The switch ID.
+     *
+     * @example USER-CONTAINER-RULE-SWITCH-TYPE_xxx
+     *
      * @var string
      */
     public $switchId;
@@ -28,20 +42,17 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
         }
@@ -49,22 +60,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];
         }

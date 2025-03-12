@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeImageLatestScanTaskRequest extends Model
 {
     /**
+     * @description The digest value of the image.
+     *
+     * This parameter is required.
+     * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
+     *
      * @var string
      */
     public $digest;
@@ -18,10 +23,9 @@ class DescribeImageLatestScanTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->digest) {
@@ -31,11 +35,11 @@ class DescribeImageLatestScanTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeImageLatestScanTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientProblemTypeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class problemTypes extends Model
 {
     /**
+     * @description The description of the issue type.
+     *
+     * @example other
+     *
      * @var string
      */
     public $problemDetail;
+
     /**
+     * @description The ID of the issue type.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $problemId;
+
     /**
+     * @description The name of the issue type.
+     *
+     * @example high_cpu
+     *
      * @var string
      */
     public $problemType;
@@ -28,20 +42,17 @@ class problemTypes extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->problemDetail) {
             $res['problemDetail'] = $this->problemDetail;
         }
-
         if (null !== $this->problemId) {
             $res['problemId'] = $this->problemId;
         }
-
         if (null !== $this->problemType) {
             $res['problemType'] = $this->problemType;
         }
@@ -49,22 +60,20 @@ class problemTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return problemTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['problemDetail'])) {
             $model->problemDetail = $map['problemDetail'];
         }
-
         if (isset($map['problemId'])) {
             $model->problemId = $map['problemId'];
         }
-
         if (isset($map['problemType'])) {
             $model->problemType = $map['problemType'];
         }

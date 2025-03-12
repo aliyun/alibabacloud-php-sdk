@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAutoDelConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3BFA659D-F44F-5703-8FD1-33AB596BEACA
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyAutoDelConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyAutoDelConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAutoDelConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

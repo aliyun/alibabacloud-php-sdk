@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateFileProtectEventStatusRequest extends Model
 {
     /**
+     * @description The IDs of the events.
+     *
      * @var int[]
      */
     public $id;
+
     /**
+     * @description The handling status of the event. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: added to the whitelist
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
@@ -23,25 +34,14 @@ class UpdateFileProtectEventStatusRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->id)) {
-            Model::validateArray($this->id);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
-            if (\is_array($this->id)) {
-                $res['Id'] = [];
-                $n1        = 0;
-                foreach ($this->id as $item1) {
-                    $res['Id'][$n1++] = $item1;
-                }
-            }
+            $res['Id'] = $this->id;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -49,24 +49,19 @@ class UpdateFileProtectEventStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateFileProtectEventStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             if (!empty($map['Id'])) {
-                $model->id = [];
-                $n1        = 0;
-                foreach ($map['Id'] as $item1) {
-                    $model->id[$n1++] = $item1;
-                }
+                $model->id = $map['Id'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

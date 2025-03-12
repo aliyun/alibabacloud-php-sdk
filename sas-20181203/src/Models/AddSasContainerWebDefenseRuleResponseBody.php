@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddSasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The unique value of the created rule.
+     *
+     * @example 200634
+     *
      * @var int
      */
     public $data;
+
     /**
+     * @description The request ID.
+     *
+     * @example 8B4B6E6D-B0B0-5F05-A14E-82917D9648EE
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class AddSasContainerWebDefenseRuleResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class AddSasContainerWebDefenseRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddSasContainerWebDefenseRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateDynamicDictResponseBody extends Model
 {
     /**
+     * @description The custom weak passwords.
+     *
      * @var string[]
      */
     public $keywordList;
+
     /**
+     * @description The request ID.
+     *
+     * @example 00E9B912-6066-5E4E-9F24-35EA09F2****
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +30,14 @@ class GenerateDynamicDictResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->keywordList)) {
-            Model::validateArray($this->keywordList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keywordList) {
-            if (\is_array($this->keywordList)) {
-                $res['KeywordList'] = [];
-                $n1                 = 0;
-                foreach ($this->keywordList as $item1) {
-                    $res['KeywordList'][$n1++] = $item1;
-                }
-            }
+            $res['KeywordList'] = $this->keywordList;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +45,19 @@ class GenerateDynamicDictResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateDynamicDictResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeywordList'])) {
             if (!empty($map['KeywordList'])) {
-                $model->keywordList = [];
-                $n1                 = 0;
-                foreach ($map['KeywordList'] as $item1) {
-                    $model->keywordList[$n1++] = $item1;
-                }
+                $model->keywordList = $map['KeywordList'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

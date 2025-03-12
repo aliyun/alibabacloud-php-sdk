@@ -4,27 +4,45 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListOpaClusterStrategyNewRequest extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The image names.
+     *
      * @var string[]
      */
     public $imageName;
+
     /**
+     * @description The tags that are added to the container.
+     *
      * @var string[]
      */
     public $label;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The rule names.
+     *
      * @var string[]
      */
     public $strategyName;
@@ -38,105 +56,57 @@ class ListOpaClusterStrategyNewRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->imageName)) {
-            Model::validateArray($this->imageName);
-        }
-        if (\is_array($this->label)) {
-            Model::validateArray($this->label);
-        }
-        if (\is_array($this->strategyName)) {
-            Model::validateArray($this->strategyName);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->imageName) {
-            if (\is_array($this->imageName)) {
-                $res['ImageName'] = [];
-                $n1               = 0;
-                foreach ($this->imageName as $item1) {
-                    $res['ImageName'][$n1++] = $item1;
-                }
-            }
+            $res['ImageName'] = $this->imageName;
         }
-
         if (null !== $this->label) {
-            if (\is_array($this->label)) {
-                $res['Label'] = [];
-                $n1           = 0;
-                foreach ($this->label as $item1) {
-                    $res['Label'][$n1++] = $item1;
-                }
-            }
+            $res['Label'] = $this->label;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->strategyName) {
-            if (\is_array($this->strategyName)) {
-                $res['StrategyName'] = [];
-                $n1                  = 0;
-                foreach ($this->strategyName as $item1) {
-                    $res['StrategyName'][$n1++] = $item1;
-                }
-            }
+            $res['StrategyName'] = $this->strategyName;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListOpaClusterStrategyNewRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['ImageName'])) {
             if (!empty($map['ImageName'])) {
-                $model->imageName = [];
-                $n1               = 0;
-                foreach ($map['ImageName'] as $item1) {
-                    $model->imageName[$n1++] = $item1;
-                }
+                $model->imageName = $map['ImageName'];
             }
         }
-
         if (isset($map['Label'])) {
             if (!empty($map['Label'])) {
-                $model->label = [];
-                $n1           = 0;
-                foreach ($map['Label'] as $item1) {
-                    $model->label[$n1++] = $item1;
-                }
+                $model->label = $map['Label'];
             }
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StrategyName'])) {
             if (!empty($map['StrategyName'])) {
-                $model->strategyName = [];
-                $n1                  = 0;
-                foreach ($map['StrategyName'] as $item1) {
-                    $model->strategyName[$n1++] = $item1;
-                }
+                $model->strategyName = $map['StrategyName'];
             }
         }
 

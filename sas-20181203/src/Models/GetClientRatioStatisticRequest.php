@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClientRatioStatisticRequest extends Model
 {
     /**
+     * @description The ID of the primary account of the Resource Directory member account.
+     * > call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) interface to obtain this parameter.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
+
     /**
+     * @description An array that consists of the details of a statistical type.
+     *
      * @var string[]
      */
     public $statisticTypes;
+
     /**
+     * @description The timestamp that specifies the end of the time range to collect statistics. Unit: milliseconds.
+     *
+     * This parameter is required.
+     * @example 1686412799999
+     *
      * @var int
      */
     public $timeEnd;
+
     /**
+     * @description The timestamp that specifies the beginning of the time range to collect statistics. Unit: milliseconds.
+     *
+     * This parameter is required.
+     * @example 1671382800000
+     *
      * @var int
      */
     public $timeStart;
@@ -33,33 +52,20 @@ class GetClientRatioStatisticRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->statisticTypes)) {
-            Model::validateArray($this->statisticTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
-
         if (null !== $this->statisticTypes) {
-            if (\is_array($this->statisticTypes)) {
-                $res['StatisticTypes'] = [];
-                $n1                    = 0;
-                foreach ($this->statisticTypes as $item1) {
-                    $res['StatisticTypes'][$n1++] = $item1;
-                }
-            }
+            $res['StatisticTypes'] = $this->statisticTypes;
         }
-
         if (null !== $this->timeEnd) {
             $res['TimeEnd'] = $this->timeEnd;
         }
-
         if (null !== $this->timeStart) {
             $res['TimeStart'] = $this->timeStart;
         }
@@ -67,32 +73,25 @@ class GetClientRatioStatisticRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClientRatioStatisticRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
-
         if (isset($map['StatisticTypes'])) {
             if (!empty($map['StatisticTypes'])) {
-                $model->statisticTypes = [];
-                $n1                    = 0;
-                foreach ($map['StatisticTypes'] as $item1) {
-                    $model->statisticTypes[$n1++] = $item1;
-                }
+                $model->statisticTypes = $map['StatisticTypes'];
             }
         }
-
         if (isset($map['TimeEnd'])) {
             $model->timeEnd = $map['TimeEnd'];
         }
-
         if (isset($map['TimeStart'])) {
             $model->timeStart = $map['TimeStart'];
         }

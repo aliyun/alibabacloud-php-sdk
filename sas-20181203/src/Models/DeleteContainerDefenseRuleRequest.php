@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteContainerDefenseRuleRequest extends Model
 {
     /**
+     * @description The IDs of the rules that you want to delete.
+     *
+     * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the rule IDs.
      * @var int[]
      */
     public $ruleIds;
@@ -18,43 +21,29 @@ class DeleteContainerDefenseRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleIds)) {
-            Model::validateArray($this->ruleIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleIds) {
-            if (\is_array($this->ruleIds)) {
-                $res['RuleIds'] = [];
-                $n1             = 0;
-                foreach ($this->ruleIds as $item1) {
-                    $res['RuleIds'][$n1++] = $item1;
-                }
-            }
+            $res['RuleIds'] = $this->ruleIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteContainerDefenseRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = [];
-                $n1             = 0;
-                foreach ($map['RuleIds'] as $item1) {
-                    $model->ruleIds[$n1++] = $item1;
-                }
+                $model->ruleIds = $map['RuleIds'];
             }
         }
 

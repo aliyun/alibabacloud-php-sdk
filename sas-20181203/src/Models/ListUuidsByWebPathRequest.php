@@ -4,23 +4,47 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListUuidsByWebPathRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries to return on each page.
+     *
+     * This parameter is required.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The path type of the web directory. Valid values:
+     *
+     *   **def**: automatically identified
+     *   **customize**: manually added
+     *
+     * @example def
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @description The path to the web directory.
+     *
+     * @example /root/www****
+     *
      * @var string
      */
     public $webPath;
@@ -33,24 +57,20 @@ class ListUuidsByWebPathRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->webPath) {
             $res['WebPath'] = $this->webPath;
         }
@@ -58,26 +78,23 @@ class ListUuidsByWebPathRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUuidsByWebPathRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['WebPath'])) {
             $model->webPath = $map['WebPath'];
         }

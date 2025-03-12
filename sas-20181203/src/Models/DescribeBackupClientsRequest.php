@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBackupClientsRequest extends Model
 {
     /**
+     * @description The region in which the anti-ransomware feature is supported.
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $supportRegionId;
@@ -18,10 +22,9 @@ class DescribeBackupClientsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportRegionId) {
@@ -31,11 +34,11 @@ class DescribeBackupClientsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBackupClientsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulFixStatisticsResponseBody\fixStat;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulFixStatisticsResponseBody\fixTotal;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVulFixStatisticsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the statistics of vulnerability fixes by vulnerability type.
+     *
      * @var fixStat[]
      */
     public $fixStat;
+
     /**
+     * @description The total statistics of vulnerability fixes.
+     *
      * @var fixTotal
      */
     public $fixTotal;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class DescribeVulFixStatisticsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->fixStat)) {
-            Model::validateArray($this->fixStat);
-        }
-        if (null !== $this->fixTotal) {
-            $this->fixTotal->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fixStat) {
-            if (\is_array($this->fixStat)) {
-                $res['FixStat'] = [];
-                $n1             = 0;
-                foreach ($this->fixStat as $item1) {
-                    $res['FixStat'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['FixStat'] = [];
+            if (null !== $this->fixStat && \is_array($this->fixStat)) {
+                $n = 0;
+                foreach ($this->fixStat as $item) {
+                    $res['FixStat'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->fixTotal) {
-            $res['FixTotal'] = null !== $this->fixTotal ? $this->fixTotal->toArray($noStream) : $this->fixTotal;
+            $res['FixTotal'] = null !== $this->fixTotal ? $this->fixTotal->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class DescribeVulFixStatisticsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVulFixStatisticsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FixStat'])) {
             if (!empty($map['FixStat'])) {
                 $model->fixStat = [];
-                $n1             = 0;
-                foreach ($map['FixStat'] as $item1) {
-                    $model->fixStat[$n1++] = fixStat::fromMap($item1);
+                $n              = 0;
+                foreach ($map['FixStat'] as $item) {
+                    $model->fixStat[$n++] = null !== $item ? fixStat::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['FixTotal'])) {
             $model->fixTotal = fixTotal::fromMap($map['FixTotal']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

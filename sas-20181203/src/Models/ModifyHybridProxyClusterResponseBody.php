@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyHybridProxyClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 8B4B6E6D-B0B0-5F05-A14E-82917D9648EE
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyHybridProxyClusterResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyHybridProxyClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyHybridProxyClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

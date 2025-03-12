@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockProcessBlockStatisticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description The number of processes that are returned on the current page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The process.
+     *
+     * @example cron
+     *
      * @var string
      */
     public $process;
@@ -23,16 +32,14 @@ class list_ extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
@@ -40,18 +47,17 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }

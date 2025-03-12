@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteOssScanConfigRequest extends Model
 {
     /**
+     * @description The configuration ID.
+     *
+     * >  You can call the [ListOssScanConfig](~~ListOssScanConfig~~) operation to query configuration IDs.
+     * @example 1589
+     *
      * @var int
      */
     public $id;
@@ -18,10 +23,9 @@ class DeleteOssScanConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +35,11 @@ class DeleteOssScanConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteOssScanConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

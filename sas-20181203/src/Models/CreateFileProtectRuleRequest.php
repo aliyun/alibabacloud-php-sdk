@@ -4,43 +4,100 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateFileProtectRuleRequest extends Model
 {
     /**
+     * @description The severity of alerts. Valid values:
+     *
+     *   0: does not generate alerts
+     *   1: sends notifications
+     *   2: suspicious
+     *   3: high-risk
+     *
+     * @example 0
+     *
      * @var int
      */
     public $alertLevel;
+
     /**
+     * @description The operations that you want to perform on the files.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $fileOps;
+
     /**
+     * @description The paths to the files that you want to monitor. Wildcard characters are supported.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $filePaths;
+
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
      * @var string
      */
     public $platform;
+
     /**
+     * @description The paths to the processes that you want to monitor. Wildcard characters are supported.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $procPaths;
+
     /**
+     * @description The handling method of the rule. Valid values:
+     *
+     *   pass: allow
+     *   alert
+     *
+     * This parameter is required.
+     * @example pass
+     *
      * @var string
      */
     public $ruleAction;
+
     /**
+     * @description The name of the rule.
+     *
+     * This parameter is required.
+     * @example tetsRule
+     *
      * @var string
      */
     public $ruleName;
+
     /**
+     * @description Specifies whether to enable the rule. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
+
     /**
+     * @description The switch ID of the rule.
+     *
+     * @example FILE_PROTECT_RULE_SWITCH_TYPE_0000
+     *
      * @var string
      */
     public $switchId;
@@ -58,71 +115,35 @@ class CreateFileProtectRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->fileOps)) {
-            Model::validateArray($this->fileOps);
-        }
-        if (\is_array($this->filePaths)) {
-            Model::validateArray($this->filePaths);
-        }
-        if (\is_array($this->procPaths)) {
-            Model::validateArray($this->procPaths);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertLevel) {
             $res['AlertLevel'] = $this->alertLevel;
         }
-
         if (null !== $this->fileOps) {
-            if (\is_array($this->fileOps)) {
-                $res['FileOps'] = [];
-                $n1             = 0;
-                foreach ($this->fileOps as $item1) {
-                    $res['FileOps'][$n1++] = $item1;
-                }
-            }
+            $res['FileOps'] = $this->fileOps;
         }
-
         if (null !== $this->filePaths) {
-            if (\is_array($this->filePaths)) {
-                $res['FilePaths'] = [];
-                $n1               = 0;
-                foreach ($this->filePaths as $item1) {
-                    $res['FilePaths'][$n1++] = $item1;
-                }
-            }
+            $res['FilePaths'] = $this->filePaths;
         }
-
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-
         if (null !== $this->procPaths) {
-            if (\is_array($this->procPaths)) {
-                $res['ProcPaths'] = [];
-                $n1               = 0;
-                foreach ($this->procPaths as $item1) {
-                    $res['ProcPaths'][$n1++] = $item1;
-                }
-            }
+            $res['ProcPaths'] = $this->procPaths;
         }
-
         if (null !== $this->ruleAction) {
             $res['RuleAction'] = $this->ruleAction;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->switchId) {
             $res['SwitchId'] = $this->switchId;
         }
@@ -130,64 +151,44 @@ class CreateFileProtectRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateFileProtectRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertLevel'])) {
             $model->alertLevel = $map['AlertLevel'];
         }
-
         if (isset($map['FileOps'])) {
             if (!empty($map['FileOps'])) {
-                $model->fileOps = [];
-                $n1             = 0;
-                foreach ($map['FileOps'] as $item1) {
-                    $model->fileOps[$n1++] = $item1;
-                }
+                $model->fileOps = $map['FileOps'];
             }
         }
-
         if (isset($map['FilePaths'])) {
             if (!empty($map['FilePaths'])) {
-                $model->filePaths = [];
-                $n1               = 0;
-                foreach ($map['FilePaths'] as $item1) {
-                    $model->filePaths[$n1++] = $item1;
-                }
+                $model->filePaths = $map['FilePaths'];
             }
         }
-
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-
         if (isset($map['ProcPaths'])) {
             if (!empty($map['ProcPaths'])) {
-                $model->procPaths = [];
-                $n1               = 0;
-                foreach ($map['ProcPaths'] as $item1) {
-                    $model->procPaths[$n1++] = $item1;
-                }
+                $model->procPaths = $map['ProcPaths'];
             }
         }
-
         if (isset($map['RuleAction'])) {
             $model->ruleAction = $map['RuleAction'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SwitchId'])) {
             $model->switchId = $map['SwitchId'];
         }

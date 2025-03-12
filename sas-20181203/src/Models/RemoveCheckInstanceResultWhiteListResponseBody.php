@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveCheckInstanceResultWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F156EA41-8EEF-54B2-908B-EAE071XXXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class RemoveCheckInstanceResultWhiteListResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class RemoveCheckInstanceResultWhiteListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveCheckInstanceResultWhiteListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

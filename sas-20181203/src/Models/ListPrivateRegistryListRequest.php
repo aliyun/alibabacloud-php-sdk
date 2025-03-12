@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPrivateRegistryListRequest extends Model
 {
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **acr**: Container Registry
+     *   **harbor**: Harbor
+     *   **quay**: Quay
+     *   **CI/CD**: Jenkins
+     *
+     * @example harbor
+     *
      * @var string
      */
     public $registryType;
@@ -18,10 +27,9 @@ class ListPrivateRegistryListRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->registryType) {
@@ -31,11 +39,11 @@ class ListPrivateRegistryListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPrivateRegistryListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

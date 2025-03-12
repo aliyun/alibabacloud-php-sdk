@@ -4,23 +4,47 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBackupPolicyMachineRequest extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * This parameter is required.
+     * @example 11
+     *
      * @var int
      */
     public $policyId;
+
     /**
+     * @description The version of the anti-ransomware policy. Valid values:
+     *
+     *   **1.0.0**
+     *   **2.0.0**
+     *
+     * This parameter is required.
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
+
     /**
+     * @description The UUID of the server to which the anti-ransomware policy is applied.
+     *
+     * > You must specify at least one of the `UuidList` and `Uuid` parameters.
+     * @example 083036e9-8411-4a9d-83af-9acbd****
+     *
      * @var string
      */
     public $uuid;
+
     /**
+     * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
+     *
+     * > You must specify at least one of the `UuidList` and `Uuid` parameters.
      * @var string[]
      */
     public $uuidList;
@@ -33,67 +57,47 @@ class DeleteBackupPolicyMachineRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->uuidList)) {
-            Model::validateArray($this->uuidList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
-
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
-
         if (null !== $this->uuidList) {
-            if (\is_array($this->uuidList)) {
-                $res['UuidList'] = [];
-                $n1              = 0;
-                foreach ($this->uuidList as $item1) {
-                    $res['UuidList'][$n1++] = $item1;
-                }
-            }
+            $res['UuidList'] = $this->uuidList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBackupPolicyMachineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
-
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }
-
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = [];
-                $n1              = 0;
-                foreach ($map['UuidList'] as $item1) {
-                    $model->uuidList[$n1++] = $item1;
-                }
+                $model->uuidList = $map['UuidList'];
             }
         }
 

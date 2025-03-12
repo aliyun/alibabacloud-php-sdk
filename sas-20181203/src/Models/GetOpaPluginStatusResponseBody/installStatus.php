@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaPluginStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class installStatus extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example c60b77fe62093480db6164a3c2fa****
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Indicates whether the component is installed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $installStatus;
@@ -23,16 +35,14 @@ class installStatus extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->installStatus) {
             $res['InstallStatus'] = $this->installStatus;
         }
@@ -40,18 +50,17 @@ class installStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return installStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['InstallStatus'])) {
             $model->installStatus = $map['InstallStatus'];
         }

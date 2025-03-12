@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskNumRequest\instanceList;
+use AlibabaCloud\Tea\Model;
 
 class ListInstanceRiskNumRequest extends Model
 {
     /**
+     * @description The instances.
+     *
      * @var instanceList[]
      */
     public $instanceList;
@@ -19,21 +21,17 @@ class ListInstanceRiskNumRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceList)) {
-            Model::validateArray($this->instanceList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceList) {
-            if (\is_array($this->instanceList)) {
-                $res['InstanceList'] = [];
-                $n1                  = 0;
-                foreach ($this->instanceList as $item1) {
-                    $res['InstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InstanceList'] = [];
+            if (null !== $this->instanceList && \is_array($this->instanceList)) {
+                $n = 0;
+                foreach ($this->instanceList as $item) {
+                    $res['InstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +39,20 @@ class ListInstanceRiskNumRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstanceRiskNumRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n1                  = 0;
-                foreach ($map['InstanceList'] as $item1) {
-                    $model->instanceList[$n1++] = instanceList::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['InstanceList'] as $item) {
+                    $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
                 }
             }
         }

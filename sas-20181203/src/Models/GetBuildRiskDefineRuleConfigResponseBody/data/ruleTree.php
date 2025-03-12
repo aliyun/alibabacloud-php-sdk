@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigResponseBody\data\ruleTree\ruleList;
+use AlibabaCloud\Tea\Model;
 
 class ruleTree extends Model
 {
     /**
+     * @description The check item type.
+     *
+     * @example other
+     *
      * @var string
      */
     public $classKey;
+
     /**
+     * @description The name of the check item type.
+     *
+     * @example other
+     *
      * @var string
      */
     public $className;
+
     /**
+     * @description The check items of the type.
+     *
      * @var ruleList[]
      */
     public $ruleList;
@@ -29,29 +41,23 @@ class ruleTree extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleList)) {
-            Model::validateArray($this->ruleList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->classKey) {
             $res['ClassKey'] = $this->classKey;
         }
-
         if (null !== $this->className) {
             $res['ClassName'] = $this->className;
         }
-
         if (null !== $this->ruleList) {
-            if (\is_array($this->ruleList)) {
-                $res['RuleList'] = [];
-                $n1              = 0;
-                foreach ($this->ruleList as $item1) {
-                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleList'] = [];
+            if (null !== $this->ruleList && \is_array($this->ruleList)) {
+                $n = 0;
+                foreach ($this->ruleList as $item) {
+                    $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +65,26 @@ class ruleTree extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ruleTree
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassKey'])) {
             $model->classKey = $map['ClassKey'];
         }
-
         if (isset($map['ClassName'])) {
             $model->className = $map['ClassName'];
         }
-
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n1              = 0;
-                foreach ($map['RuleList'] as $item1) {
-                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
+                $n               = 0;
+                foreach ($map['RuleList'] as $item) {
+                    $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
                 }
             }
         }

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponseBody\checkStructureResponse;
+use AlibabaCloud\Tea\Model;
 
 class GetCheckStructureResponseBody extends Model
 {
     /**
+     * @description The structure information about check items provided by the configuration assessment feature.
+     *
      * @var checkStructureResponse[]
      */
     public $checkStructureResponse;
+
     /**
+     * @description The request ID.
+     *
+     * @example 379a9b8f-107b-4630-9e95-2299a1ea****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class GetCheckStructureResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkStructureResponse)) {
-            Model::validateArray($this->checkStructureResponse);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkStructureResponse) {
-            if (\is_array($this->checkStructureResponse)) {
-                $res['CheckStructureResponse'] = [];
-                $n1                            = 0;
-                foreach ($this->checkStructureResponse as $item1) {
-                    $res['CheckStructureResponse'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CheckStructureResponse'] = [];
+            if (null !== $this->checkStructureResponse && \is_array($this->checkStructureResponse)) {
+                $n = 0;
+                foreach ($this->checkStructureResponse as $item) {
+                    $res['CheckStructureResponse'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class GetCheckStructureResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCheckStructureResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckStructureResponse'])) {
             if (!empty($map['CheckStructureResponse'])) {
                 $model->checkStructureResponse = [];
-                $n1                            = 0;
-                foreach ($map['CheckStructureResponse'] as $item1) {
-                    $model->checkStructureResponse[$n1++] = checkStructureResponse::fromMap($item1);
+                $n                             = 0;
+                foreach ($map['CheckStructureResponse'] as $item) {
+                    $model->checkStructureResponse[$n++] = null !== $item ? checkStructureResponse::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

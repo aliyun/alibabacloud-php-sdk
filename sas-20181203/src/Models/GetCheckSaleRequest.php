@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCheckSaleRequest extends Model
 {
     /**
+     * @description The region in which the Security Center instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou:** inside China
+     *   Global **ap-southeast-1:** outside China
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -18,10 +25,9 @@ class GetCheckSaleRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +37,11 @@ class GetCheckSaleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCheckSaleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

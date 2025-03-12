@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartPreCheckDatabaseResponseBody extends Model
 {
     /**
+     * @description The ID of the database precheck task.
+     *
+     * @example t-0006d4pydyir6l1k****
+     *
      * @var string
      */
     public $createMark;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F6DC2DFF-AB3A-563A-8FC2-3D0D991E****
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class StartPreCheckDatabaseResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createMark) {
             $res['CreateMark'] = $this->createMark;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class StartPreCheckDatabaseResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartPreCheckDatabaseResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateMark'])) {
             $model->createMark = $map['CreateMark'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

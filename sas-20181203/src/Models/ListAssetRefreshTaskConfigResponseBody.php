@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetRefreshTaskConfigResponseBody\assetRefreshConfig;
+use AlibabaCloud\Tea\Model;
 
 class ListAssetRefreshTaskConfigResponseBody extends Model
 {
     /**
+     * @description The asset synchronization configuration.
+     *
      * @var assetRefreshConfig[]
      */
     public $assetRefreshConfig;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0DC1F8
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class ListAssetRefreshTaskConfigResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->assetRefreshConfig)) {
-            Model::validateArray($this->assetRefreshConfig);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assetRefreshConfig) {
-            if (\is_array($this->assetRefreshConfig)) {
-                $res['AssetRefreshConfig'] = [];
-                $n1                        = 0;
-                foreach ($this->assetRefreshConfig as $item1) {
-                    $res['AssetRefreshConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AssetRefreshConfig'] = [];
+            if (null !== $this->assetRefreshConfig && \is_array($this->assetRefreshConfig)) {
+                $n = 0;
+                foreach ($this->assetRefreshConfig as $item) {
+                    $res['AssetRefreshConfig'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class ListAssetRefreshTaskConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAssetRefreshTaskConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetRefreshConfig'])) {
             if (!empty($map['AssetRefreshConfig'])) {
                 $model->assetRefreshConfig = [];
-                $n1                        = 0;
-                foreach ($map['AssetRefreshConfig'] as $item1) {
-                    $model->assetRefreshConfig[$n1++] = assetRefreshConfig::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['AssetRefreshConfig'] as $item) {
+                    $model->assetRefreshConfig[$n++] = null !== $item ? assetRefreshConfig::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

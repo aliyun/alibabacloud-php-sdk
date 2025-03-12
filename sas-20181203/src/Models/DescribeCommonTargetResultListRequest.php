@@ -4,15 +4,30 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCommonTargetResultListRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 113.57.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The type of the configuration item. Valid values:
+     *
+     *   **webshell_timescan**: webshell detection and removal
+     *   **aliscriptengine**: in-depth detection engine
+     *   **alidetect**: installation scope of local file detection
+     *   **alidetect-scan-enable**: detection scope of local file detection
+     *
+     * This parameter is required.
+     * @example webshell_timescan
+     *
      * @var string
      */
     public $type;
@@ -23,16 +38,14 @@ class DescribeCommonTargetResultListRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +53,17 @@ class DescribeCommonTargetResultListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCommonTargetResultListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

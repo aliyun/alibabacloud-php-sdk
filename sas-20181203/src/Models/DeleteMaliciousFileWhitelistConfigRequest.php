@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The ID of the alert whitelist rule of sensitive files that are detected by using the agentless detection feature. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of alert whitelist rules.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configId;
@@ -18,10 +22,9 @@ class DeleteMaliciousFileWhitelistConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
@@ -31,11 +34,11 @@ class DeleteMaliciousFileWhitelistConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMaliciousFileWhitelistConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

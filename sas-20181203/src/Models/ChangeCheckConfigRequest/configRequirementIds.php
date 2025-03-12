@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class configRequirementIds extends Model
 {
     /**
+     * @description The requirement IDs that you want to add to the policy.
+     *
      * @var int[]
      */
     public $addIds;
+
     /**
+     * @description The requirement IDs that you want to remove from the policy.
+     *
      * @var int[]
      */
     public $removeIds;
@@ -23,66 +28,37 @@ class configRequirementIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->addIds)) {
-            Model::validateArray($this->addIds);
-        }
-        if (\is_array($this->removeIds)) {
-            Model::validateArray($this->removeIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addIds) {
-            if (\is_array($this->addIds)) {
-                $res['AddIds'] = [];
-                $n1            = 0;
-                foreach ($this->addIds as $item1) {
-                    $res['AddIds'][$n1++] = $item1;
-                }
-            }
+            $res['AddIds'] = $this->addIds;
         }
-
         if (null !== $this->removeIds) {
-            if (\is_array($this->removeIds)) {
-                $res['RemoveIds'] = [];
-                $n1               = 0;
-                foreach ($this->removeIds as $item1) {
-                    $res['RemoveIds'][$n1++] = $item1;
-                }
-            }
+            $res['RemoveIds'] = $this->removeIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return configRequirementIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddIds'])) {
             if (!empty($map['AddIds'])) {
-                $model->addIds = [];
-                $n1            = 0;
-                foreach ($map['AddIds'] as $item1) {
-                    $model->addIds[$n1++] = $item1;
-                }
+                $model->addIds = $map['AddIds'];
             }
         }
-
         if (isset($map['RemoveIds'])) {
             if (!empty($map['RemoveIds'])) {
-                $model->removeIds = [];
-                $n1               = 0;
-                foreach ($map['RemoveIds'] as $item1) {
-                    $model->removeIds[$n1++] = $item1;
-                }
+                $model->removeIds = $map['RemoveIds'];
             }
         }
 

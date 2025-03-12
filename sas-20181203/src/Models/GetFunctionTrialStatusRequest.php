@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetFunctionTrialStatusRequest extends Model
 {
     /**
+     * @description The name of the function module.
+     *
+     * @example trail_file_detect_api_reward
+     *
      * @var string
      */
     public $functionName;
@@ -18,10 +22,9 @@ class GetFunctionTrialStatusRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functionName) {
@@ -31,11 +34,11 @@ class GetFunctionTrialStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetFunctionTrialStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class DescribeMatchedMaliciousNamesResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The response parameters.
+     *
      * @var data[]
      */
     public $data;
+
     /**
+     * @description The request ID.
+     *
+     * @example C7CD1BE6-97A2-5524-A529-B55C63E55D59
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class DescribeMatchedMaliciousNamesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1          = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class DescribeMatchedMaliciousNamesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeMatchedMaliciousNamesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

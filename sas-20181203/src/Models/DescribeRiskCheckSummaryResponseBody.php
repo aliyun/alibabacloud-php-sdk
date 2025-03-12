@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckSummaryResponseBody\riskCheckSummary;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRiskCheckSummaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 291B49F9-1685-4005-9D34-606B6F78740F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The summary information about the check results of cloud service configurations.
+     *
      * @var riskCheckSummary
      */
     public $riskCheckSummary;
@@ -24,38 +31,32 @@ class DescribeRiskCheckSummaryResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->riskCheckSummary) {
-            $this->riskCheckSummary->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->riskCheckSummary) {
-            $res['RiskCheckSummary'] = null !== $this->riskCheckSummary ? $this->riskCheckSummary->toArray($noStream) : $this->riskCheckSummary;
+            $res['RiskCheckSummary'] = null !== $this->riskCheckSummary ? $this->riskCheckSummary->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRiskCheckSummaryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RiskCheckSummary'])) {
             $model->riskCheckSummary = riskCheckSummary::fromMap($map['RiskCheckSummary']);
         }

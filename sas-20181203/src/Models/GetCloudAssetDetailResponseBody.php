@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetDetailResponseBody\instances;
+use AlibabaCloud\Tea\Model;
 
 class GetCloudAssetDetailResponseBody extends Model
 {
     /**
+     * @description The number of instances in the list of cloud assets returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description An array that consists of the details of the cloud assets.
+     *
      * @var instances[]
      */
     public $instances;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CB45CAED-31C3-517A-8619-10F632D3****
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class GetCloudAssetDetailResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->instances)) {
-            Model::validateArray($this->instances);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->instances) {
-            if (\is_array($this->instances)) {
-                $res['Instances'] = [];
-                $n1               = 0;
-                foreach ($this->instances as $item1) {
-                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                $n = 0;
+                foreach ($this->instances as $item) {
+                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class GetCloudAssetDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCloudAssetDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
-                foreach ($map['Instances'] as $item1) {
-                    $model->instances[$n1++] = instances::fromMap($item1);
+                $n                = 0;
+                foreach ($map['Instances'] as $item) {
+                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

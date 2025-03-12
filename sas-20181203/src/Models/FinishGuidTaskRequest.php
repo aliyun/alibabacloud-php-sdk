@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FinishGuidTaskRequest extends Model
 {
     /**
+     * @description The name of the task type.
+     *
+     * This parameter is required.
+     * @example guide_sub_task_config_add_collection
+     *
      * @var string
      */
     public $taskTypeName;
@@ -18,10 +23,9 @@ class FinishGuidTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskTypeName) {
@@ -31,11 +35,11 @@ class FinishGuidTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FinishGuidTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

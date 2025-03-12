@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteInstallCodeRequest extends Model
 {
     /**
+     * @description The installation command.
+     *
+     * This parameter is required.
+     * @example 1q****
+     *
      * @var string
      */
     public $captchaCode;
@@ -18,10 +23,9 @@ class DeleteInstallCodeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->captchaCode) {
@@ -31,11 +35,11 @@ class DeleteInstallCodeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteInstallCodeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

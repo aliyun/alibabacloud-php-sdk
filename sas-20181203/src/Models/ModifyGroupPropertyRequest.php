@@ -4,11 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyGroupPropertyRequest extends Model
 {
     /**
+     * @description The new attributes of the server group. You can specify the following parameters to configure the attributes:
+     *
+     *   **groupFlag**: the type of the server group. Valid values: 0 and 1. The value **0** specifies the Default server group. The value **1** specifies other server groups.
+     *   **groupId**: the ID of the server group.
+     *   **groupIndex**: no meaning. You can leave this parameter empty.
+     *   **groupName**: the name of the server group. The value is the new name of the server group. The new name cannot be the same as the original name of the server group.
+     *
+     * This parameter is required.
+     * @example [{"groupFlag":1,"groupId":8436682,"groupIndex":,"groupName":"example"}]
+     *
      * @var string
      */
     public $data;
@@ -18,10 +28,9 @@ class ModifyGroupPropertyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
@@ -31,11 +40,11 @@ class ModifyGroupPropertyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyGroupPropertyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

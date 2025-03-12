@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPushAllTaskResponseBody\pushTaskRsp\pushTaskResultList;
+use AlibabaCloud\Tea\Model;
 
 class pushTaskRsp extends Model
 {
     /**
+     * @description An array consisting of the servers on which security check tasks failed.
+     *
      * @var pushTaskResultList[]
      */
     public $pushTaskResultList;
@@ -19,21 +21,17 @@ class pushTaskRsp extends Model
 
     public function validate()
     {
-        if (\is_array($this->pushTaskResultList)) {
-            Model::validateArray($this->pushTaskResultList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pushTaskResultList) {
-            if (\is_array($this->pushTaskResultList)) {
-                $res['PushTaskResultList'] = [];
-                $n1                        = 0;
-                foreach ($this->pushTaskResultList as $item1) {
-                    $res['PushTaskResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PushTaskResultList'] = [];
+            if (null !== $this->pushTaskResultList && \is_array($this->pushTaskResultList)) {
+                $n = 0;
+                foreach ($this->pushTaskResultList as $item) {
+                    $res['PushTaskResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +39,20 @@ class pushTaskRsp extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pushTaskRsp
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PushTaskResultList'])) {
             if (!empty($map['PushTaskResultList'])) {
                 $model->pushTaskResultList = [];
-                $n1                        = 0;
-                foreach ($map['PushTaskResultList'] as $item1) {
-                    $model->pushTaskResultList[$n1++] = pushTaskResultList::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['PushTaskResultList'] as $item) {
+                    $model->pushTaskResultList[$n++] = null !== $item ? pushTaskResultList::fromMap($item) : $item;
                 }
             }
         }

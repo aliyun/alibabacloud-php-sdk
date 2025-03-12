@@ -4,24 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageNewestResponseBody\newestStatisticItems;
+use AlibabaCloud\Tea\Model;
 
 class DescribePropertyUsageNewestResponseBody extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $itemCount;
+
     /**
      * @var newestStatisticItems[]
      */
     public $newestStatisticItems;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
+     * @example user
+     *
      * @var string
      */
     public $type;
@@ -34,33 +41,26 @@ class DescribePropertyUsageNewestResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->newestStatisticItems)) {
-            Model::validateArray($this->newestStatisticItems);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->itemCount) {
             $res['ItemCount'] = $this->itemCount;
         }
-
         if (null !== $this->newestStatisticItems) {
-            if (\is_array($this->newestStatisticItems)) {
-                $res['NewestStatisticItems'] = [];
-                $n1                          = 0;
-                foreach ($this->newestStatisticItems as $item1) {
-                    $res['NewestStatisticItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NewestStatisticItems'] = [];
+            if (null !== $this->newestStatisticItems && \is_array($this->newestStatisticItems)) {
+                $n = 0;
+                foreach ($this->newestStatisticItems as $item) {
+                    $res['NewestStatisticItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,32 +68,29 @@ class DescribePropertyUsageNewestResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePropertyUsageNewestResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemCount'])) {
             $model->itemCount = $map['ItemCount'];
         }
-
         if (isset($map['NewestStatisticItems'])) {
             if (!empty($map['NewestStatisticItems'])) {
                 $model->newestStatisticItems = [];
-                $n1                          = 0;
-                foreach ($map['NewestStatisticItems'] as $item1) {
-                    $model->newestStatisticItems[$n1++] = newestStatisticItems::fromMap($item1);
+                $n                           = 0;
+                foreach ($map['NewestStatisticItems'] as $item) {
+                    $model->newestStatisticItems[$n++] = null !== $item ? newestStatisticItems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

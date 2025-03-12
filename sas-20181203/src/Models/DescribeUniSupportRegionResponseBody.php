@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUniSupportRegionResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array consisting of the region that is supported by anti-ransomware for databases.
+     *
      * @var string[]
      */
     public $uniSupportRegion;
@@ -23,51 +30,35 @@ class DescribeUniSupportRegionResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->uniSupportRegion)) {
-            Model::validateArray($this->uniSupportRegion);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->uniSupportRegion) {
-            if (\is_array($this->uniSupportRegion)) {
-                $res['UniSupportRegion'] = [];
-                $n1                      = 0;
-                foreach ($this->uniSupportRegion as $item1) {
-                    $res['UniSupportRegion'][$n1++] = $item1;
-                }
-            }
+            $res['UniSupportRegion'] = $this->uniSupportRegion;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUniSupportRegionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UniSupportRegion'])) {
             if (!empty($map['UniSupportRegion'])) {
-                $model->uniSupportRegion = [];
-                $n1                      = 0;
-                foreach ($map['UniSupportRegion'] as $item1) {
-                    $model->uniSupportRegion[$n1++] = $item1;
-                }
+                $model->uniSupportRegion = $map['UniSupportRegion'];
             }
         }
 

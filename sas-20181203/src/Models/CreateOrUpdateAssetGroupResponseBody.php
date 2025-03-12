@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateAssetGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the server group.
+     *
+     * @example 9935302
+     *
      * @var int
      */
     public $groupId;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example E70074C8-DFB4-44C5-96C7-909DD231D68A
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class CreateOrUpdateAssetGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class CreateOrUpdateAssetGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateOrUpdateAssetGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

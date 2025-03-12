@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulTargetStatisticsResponseBody\targetStats;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVulTargetStatisticsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array that consists of the configurations of the vulnerability scan feature.
+     *
      * @var targetStats[]
      */
     public $targetStats;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
@@ -39,37 +61,29 @@ class DescribeVulTargetStatisticsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->targetStats)) {
-            Model::validateArray($this->targetStats);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->targetStats) {
-            if (\is_array($this->targetStats)) {
-                $res['TargetStats'] = [];
-                $n1                 = 0;
-                foreach ($this->targetStats as $item1) {
-                    $res['TargetStats'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TargetStats'] = [];
+            if (null !== $this->targetStats && \is_array($this->targetStats)) {
+                $n = 0;
+                foreach ($this->targetStats as $item) {
+                    $res['TargetStats'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +91,32 @@ class DescribeVulTargetStatisticsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVulTargetStatisticsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TargetStats'])) {
             if (!empty($map['TargetStats'])) {
                 $model->targetStats = [];
-                $n1                 = 0;
-                foreach ($map['TargetStats'] as $item1) {
-                    $model->targetStats[$n1++] = targetStats::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['TargetStats'] as $item) {
+                    $model->targetStats[$n++] = null !== $item ? targetStats::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

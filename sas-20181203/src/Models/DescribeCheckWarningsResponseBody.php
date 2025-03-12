@@ -4,32 +4,59 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningsResponseBody\checkWarnings;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCheckWarningsResponseBody extends Model
 {
     /**
+     * @description The information about the check item.
+     *
      * @var checkWarnings[]
      */
     public $checkWarnings;
+
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries returned per page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 0DFCADBA-7065-42DA-AF17-6868B9C2A8CF
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
@@ -44,41 +71,32 @@ class DescribeCheckWarningsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkWarnings)) {
-            Model::validateArray($this->checkWarnings);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkWarnings) {
-            if (\is_array($this->checkWarnings)) {
-                $res['CheckWarnings'] = [];
-                $n1                   = 0;
-                foreach ($this->checkWarnings as $item1) {
-                    $res['CheckWarnings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CheckWarnings'] = [];
+            if (null !== $this->checkWarnings && \is_array($this->checkWarnings)) {
+                $n = 0;
+                foreach ($this->checkWarnings as $item) {
+                    $res['CheckWarnings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -86,40 +104,35 @@ class DescribeCheckWarningsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCheckWarningsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckWarnings'])) {
             if (!empty($map['CheckWarnings'])) {
                 $model->checkWarnings = [];
-                $n1                   = 0;
-                foreach ($map['CheckWarnings'] as $item1) {
-                    $model->checkWarnings[$n1++] = checkWarnings::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['CheckWarnings'] as $item) {
+                    $model->checkWarnings[$n++] = null !== $item ? checkWarnings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

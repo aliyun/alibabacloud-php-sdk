@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteCustomizeReportRequest extends Model
 {
     /**
+     * @description The ID of the report.
+     *
+     * This parameter is required.
+     * @example 123
+     *
      * @var int
      */
     public $reportId;
@@ -18,10 +23,9 @@ class DeleteCustomizeReportRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reportId) {
@@ -31,11 +35,11 @@ class DeleteCustomizeReportRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteCustomizeReportRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

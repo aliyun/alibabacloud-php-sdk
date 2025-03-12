@@ -4,27 +4,51 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerScanConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The total number of container applications in the cluster.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $allCount;
+
     /**
+     * @description The names of the container applications.
+     *
+     * @example [\\"alicloud-monitor-controller\\"]
+     *
      * @var string
      */
     public $appNames;
+
     /**
+     * @description The number of selected container applications.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $chooseCount;
+
     /**
+     * @description The cluster ID.
+     *
+     * @example c8ca91e0907d94efaba7fb0827eb9****
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description The name of the cluster.
+     *
+     * @example hhht-cluster-02
+     *
      * @var string
      */
     public $clusterName;
@@ -38,28 +62,23 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allCount) {
             $res['AllCount'] = $this->allCount;
         }
-
         if (null !== $this->appNames) {
             $res['AppNames'] = $this->appNames;
         }
-
         if (null !== $this->chooseCount) {
             $res['ChooseCount'] = $this->chooseCount;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -67,30 +86,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllCount'])) {
             $model->allCount = $map['AllCount'];
         }
-
         if (isset($map['AppNames'])) {
             $model->appNames = $map['AppNames'];
         }
-
         if (isset($map['ChooseCount'])) {
             $model->chooseCount = $map['ChooseCount'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

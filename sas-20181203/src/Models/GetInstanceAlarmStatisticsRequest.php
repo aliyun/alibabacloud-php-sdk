@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetInstanceAlarmStatisticsRequest extends Model
 {
     /**
+     * @description The data source for statistics on instance alarms, with a default value of aqs:
+     * - *sas*: Situation Awareness data source
+     * - *aqs*: Alarm event data
+     * - *honeypot*: Honeypot
+     * @example sas
+     *
      * @var string
      */
     public $from;
+
     /**
+     * @description The UUID of the server to be queried.
+     * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
+     * @example 00fea5a1-9792-4373-ab1e-bb6536ba****
+     *
      * @var string
      */
     public $uuid;
@@ -23,16 +34,14 @@ class GetInstanceAlarmStatisticsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -40,18 +49,17 @@ class GetInstanceAlarmStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInstanceAlarmStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

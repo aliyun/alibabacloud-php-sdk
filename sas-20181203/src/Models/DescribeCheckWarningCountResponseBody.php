@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCheckWarningCountResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9693CBA1-1EC4-5B5A-8D96-34010D9DXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class DescribeCheckWarningCountResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class DescribeCheckWarningCountResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCheckWarningCountResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

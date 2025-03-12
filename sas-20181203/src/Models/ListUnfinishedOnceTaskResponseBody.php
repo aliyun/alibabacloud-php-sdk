@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnfinishedOnceTaskResponseBody\onceTasks;
+use AlibabaCloud\Tea\Model;
 
 class ListUnfinishedOnceTaskResponseBody extends Model
 {
     /**
+     * @description The details of the tasks.
+     *
      * @var onceTasks[]
      */
     public $onceTasks;
+
     /**
+     * @description The request ID.
+     *
+     * @example F5CF78A7-30AA-59DB-847F-13EE3AE7****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class ListUnfinishedOnceTaskResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->onceTasks)) {
-            Model::validateArray($this->onceTasks);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->onceTasks) {
-            if (\is_array($this->onceTasks)) {
-                $res['OnceTasks'] = [];
-                $n1               = 0;
-                foreach ($this->onceTasks as $item1) {
-                    $res['OnceTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OnceTasks'] = [];
+            if (null !== $this->onceTasks && \is_array($this->onceTasks)) {
+                $n = 0;
+                foreach ($this->onceTasks as $item) {
+                    $res['OnceTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class ListUnfinishedOnceTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUnfinishedOnceTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnceTasks'])) {
             if (!empty($map['OnceTasks'])) {
                 $model->onceTasks = [];
-                $n1               = 0;
-                foreach ($map['OnceTasks'] as $item1) {
-                    $model->onceTasks[$n1++] = onceTasks::fromMap($item1);
+                $n                = 0;
+                foreach ($map['OnceTasks'] as $item) {
+                    $model->onceTasks[$n++] = null !== $item ? onceTasks::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

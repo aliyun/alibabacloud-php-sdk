@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponseBody\basicData\instanceInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class config extends Model
 {
     /**
+     * @description The name of the configuration item, which is unique.
+     *
+     * @example prot
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The display name of the configuration item for internationalization.
+     *
+     * @example prot
+     *
      * @var string
      */
     public $showName;
+
     /**
+     * @description The value of the configuration item specified for the instance.
+     *
+     * @example 8080
+     *
      * @var string
      */
     public $value;
@@ -28,20 +42,17 @@ class config extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,22 +60,20 @@ class config extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return config
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

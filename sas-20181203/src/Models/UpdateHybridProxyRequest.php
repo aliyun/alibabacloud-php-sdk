@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateHybridProxyRequest extends Model
 {
     /**
+     * @description The UUID of the Security Center agent.
+     *
+     * This parameter is required.
+     * @example inet-proxy-14bbbb37-c4b9-4e86-83bd-137a940a6ec4
+     *
      * @var string
      */
     public $proxyUuid;
@@ -18,10 +23,9 @@ class UpdateHybridProxyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->proxyUuid) {
@@ -31,11 +35,11 @@ class UpdateHybridProxyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateHybridProxyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

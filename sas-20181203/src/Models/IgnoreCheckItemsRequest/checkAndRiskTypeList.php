@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checkAndRiskTypeList extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 52
+     *
      * @var int
      */
     public $checkId;
+
     /**
+     * @description The baseline type of the check item.
+     *
+     * @example weak_password
+     *
      * @var string
      */
     public $riskType;
@@ -23,16 +32,14 @@ class checkAndRiskTypeList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
-
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
         }
@@ -40,18 +47,17 @@ class checkAndRiskTypeList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkAndRiskTypeList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
-
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
         }

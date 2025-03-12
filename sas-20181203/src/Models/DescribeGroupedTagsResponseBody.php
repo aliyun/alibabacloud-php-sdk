@@ -4,28 +4,53 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedTagsResponseBody\groupedFileds;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGroupedTagsResponseBody extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description An array that consists of the statistics of the asset tags.
+     *
      * @var groupedFileds[]
      */
     public $groupedFileds;
+
     /**
+     * @description The HTTP status code of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -39,37 +64,29 @@ class DescribeGroupedTagsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->groupedFileds)) {
-            Model::validateArray($this->groupedFileds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->groupedFileds) {
-            if (\is_array($this->groupedFileds)) {
-                $res['GroupedFileds'] = [];
-                $n1                   = 0;
-                foreach ($this->groupedFileds as $item1) {
-                    $res['GroupedFileds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['GroupedFileds'] = [];
+            if (null !== $this->groupedFileds && \is_array($this->groupedFileds)) {
+                $n = 0;
+                foreach ($this->groupedFileds as $item) {
+                    $res['GroupedFileds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -77,36 +94,32 @@ class DescribeGroupedTagsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGroupedTagsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['GroupedFileds'])) {
             if (!empty($map['GroupedFileds'])) {
                 $model->groupedFileds = [];
-                $n1                   = 0;
-                foreach ($map['GroupedFileds'] as $item1) {
-                    $model->groupedFileds[$n1++] = groupedFileds::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['GroupedFileds'] as $item) {
+                    $model->groupedFileds[$n++] = null !== $item ? groupedFileds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

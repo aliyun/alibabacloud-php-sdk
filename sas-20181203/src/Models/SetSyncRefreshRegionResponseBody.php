@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetSyncRefreshRegionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9BB78BC9-07B9-578B-B020-C954E6FC****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SetSyncRefreshRegionResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SetSyncRefreshRegionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetSyncRefreshRegionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

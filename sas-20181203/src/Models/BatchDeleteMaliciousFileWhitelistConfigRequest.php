@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchDeleteMaliciousFileWhitelistConfigRequest extends Model
 {
     /**
+     * @description The IDs of the whitelist rules. You can call the [ListMaliciousFileWhitelistConfigs](~~ListMaliciousFileWhitelistConfigs~~) operation to query the IDs of whitelist rules.
+     *
      * @var int[]
      */
     public $configIdList;
@@ -18,43 +20,29 @@ class BatchDeleteMaliciousFileWhitelistConfigRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->configIdList)) {
-            Model::validateArray($this->configIdList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configIdList) {
-            if (\is_array($this->configIdList)) {
-                $res['ConfigIdList'] = [];
-                $n1                  = 0;
-                foreach ($this->configIdList as $item1) {
-                    $res['ConfigIdList'][$n1++] = $item1;
-                }
-            }
+            $res['ConfigIdList'] = $this->configIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchDeleteMaliciousFileWhitelistConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigIdList'])) {
             if (!empty($map['ConfigIdList'])) {
-                $model->configIdList = [];
-                $n1                  = 0;
-                foreach ($map['ConfigIdList'] as $item1) {
-                    $model->configIdList[$n1++] = $item1;
-                }
+                $model->configIdList = $map['ConfigIdList'];
             }
         }
 

@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @description The IDs of the defense rules against brute-force attacks to delete.
+     *
+     * This parameter is required.
      * @var int[]
      */
     public $ids;
@@ -18,43 +21,29 @@ class DeleteAntiBruteForceRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->ids)) {
-            Model::validateArray($this->ids);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ids) {
-            if (\is_array($this->ids)) {
-                $res['Ids'] = [];
-                $n1         = 0;
-                foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
-                }
-            }
+            $res['Ids'] = $this->ids;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAntiBruteForceRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = [];
-                $n1         = 0;
-                foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
-                }
+                $model->ids = $map['Ids'];
             }
         }
 

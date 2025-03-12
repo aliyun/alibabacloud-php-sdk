@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSuspiciousStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the asset group. Separate multiple IDs with commas (,).
+     *
+     * This parameter is required.
+     * @example 9997897
+     *
      * @var string
      */
     public $groupIdList;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
@@ -23,16 +33,14 @@ class GetSuspiciousStatisticsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupIdList) {
             $res['GroupIdList'] = $this->groupIdList;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -40,18 +48,17 @@ class GetSuspiciousStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSuspiciousStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupIdList'])) {
             $model->groupIdList = $map['GroupIdList'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

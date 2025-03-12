@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerCriteriaResponseBody\criteriaList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeContainerCriteriaResponseBody extends Model
 {
     /**
+     * @description An array that consists of information about the filter condition.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeContainerCriteriaResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->criteriaList)) {
-            Model::validateArray($this->criteriaList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->criteriaList) {
-            if (\is_array($this->criteriaList)) {
-                $res['CriteriaList'] = [];
-                $n1                  = 0;
-                foreach ($this->criteriaList as $item1) {
-                    $res['CriteriaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CriteriaList'] = [];
+            if (null !== $this->criteriaList && \is_array($this->criteriaList)) {
+                $n = 0;
+                foreach ($this->criteriaList as $item) {
+                    $res['CriteriaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeContainerCriteriaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeContainerCriteriaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CriteriaList'])) {
             if (!empty($map['CriteriaList'])) {
                 $model->criteriaList = [];
-                $n1                  = 0;
-                foreach ($map['CriteriaList'] as $item1) {
-                    $model->criteriaList[$n1++] = criteriaList::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['CriteriaList'] as $item) {
+                    $model->criteriaList[$n++] = null !== $item ? criteriaList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

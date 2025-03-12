@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class PublicPreCheckImageScanTaskResponseBody extends Model
 {
     /**
+     * @description The data returned if the call is successful.
+     *
      * @var data
      */
     public $data;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F9353221-40F4-5F98-B73C-2803DC804033
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class PublicPreCheckImageScanTaskResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class PublicPreCheckImageScanTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PublicPreCheckImageScanTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

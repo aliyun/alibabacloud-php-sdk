@@ -4,23 +4,38 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checkDetails extends Model
 {
     /**
+     * @description The list of the baseline categories of attribution.
+     *
      * @var string[]
      */
     public $affiliatedRiskTypes;
+
     /**
+     * @description The list of baselines attribution.
+     *
      * @var string[]
      */
     public $affiliatedRisks;
+
     /**
+     * @description The ID of the check item.
+     *
+     * @example 31
+     *
      * @var int
      */
     public $checkId;
+
     /**
+     * @description The description of the check item.
+     *
+     * @example Configure the idle session timeout period.
+     *
      * @var string
      */
     public $checkItem;
@@ -33,42 +48,20 @@ class checkDetails extends Model
 
     public function validate()
     {
-        if (\is_array($this->affiliatedRiskTypes)) {
-            Model::validateArray($this->affiliatedRiskTypes);
-        }
-        if (\is_array($this->affiliatedRisks)) {
-            Model::validateArray($this->affiliatedRisks);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->affiliatedRiskTypes) {
-            if (\is_array($this->affiliatedRiskTypes)) {
-                $res['AffiliatedRiskTypes'] = [];
-                $n1                         = 0;
-                foreach ($this->affiliatedRiskTypes as $item1) {
-                    $res['AffiliatedRiskTypes'][$n1++] = $item1;
-                }
-            }
+            $res['AffiliatedRiskTypes'] = $this->affiliatedRiskTypes;
         }
-
         if (null !== $this->affiliatedRisks) {
-            if (\is_array($this->affiliatedRisks)) {
-                $res['AffiliatedRisks'] = [];
-                $n1                     = 0;
-                foreach ($this->affiliatedRisks as $item1) {
-                    $res['AffiliatedRisks'][$n1++] = $item1;
-                }
-            }
+            $res['AffiliatedRisks'] = $this->affiliatedRisks;
         }
-
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
-
         if (null !== $this->checkItem) {
             $res['CheckItem'] = $this->checkItem;
         }
@@ -76,38 +69,27 @@ class checkDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AffiliatedRiskTypes'])) {
             if (!empty($map['AffiliatedRiskTypes'])) {
-                $model->affiliatedRiskTypes = [];
-                $n1                         = 0;
-                foreach ($map['AffiliatedRiskTypes'] as $item1) {
-                    $model->affiliatedRiskTypes[$n1++] = $item1;
-                }
+                $model->affiliatedRiskTypes = $map['AffiliatedRiskTypes'];
             }
         }
-
         if (isset($map['AffiliatedRisks'])) {
             if (!empty($map['AffiliatedRisks'])) {
-                $model->affiliatedRisks = [];
-                $n1                     = 0;
-                foreach ($map['AffiliatedRisks'] as $item1) {
-                    $model->affiliatedRisks[$n1++] = $item1;
-                }
+                $model->affiliatedRisks = $map['AffiliatedRisks'];
             }
         }
-
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
-
         if (isset($map['CheckItem'])) {
             $model->checkItem = $map['CheckItem'];
         }

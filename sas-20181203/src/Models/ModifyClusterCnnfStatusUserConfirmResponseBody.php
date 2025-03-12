@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyClusterCnnfStatusUserConfirmResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4FFBEDBD-FA63-5213-9103-306519EE4857
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyClusterCnnfStatusUserConfirmResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyClusterCnnfStatusUserConfirmResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyClusterCnnfStatusUserConfirmResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

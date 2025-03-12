@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulWhitelistResponseBody\vulWhitelist;
+use AlibabaCloud\Tea\Model;
 
 class GetVulWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about the whitelist.
+     *
      * @var vulWhitelist
      */
     public $vulWhitelist;
@@ -24,38 +31,32 @@ class GetVulWhitelistResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->vulWhitelist) {
-            $this->vulWhitelist->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->vulWhitelist) {
-            $res['VulWhitelist'] = null !== $this->vulWhitelist ? $this->vulWhitelist->toArray($noStream) : $this->vulWhitelist;
+            $res['VulWhitelist'] = null !== $this->vulWhitelist ? $this->vulWhitelist->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetVulWhitelistResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VulWhitelist'])) {
             $model->vulWhitelist = vulWhitelist::fromMap($map['VulWhitelist']);
         }

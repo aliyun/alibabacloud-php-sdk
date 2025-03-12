@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RetryInstallProbeRequest extends Model
 {
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     * @example c4c47cc1-f60a-4b2f-bcdb-9aed6644****
+     *
      * @var string
      */
     public $probeId;
@@ -18,10 +23,9 @@ class RetryInstallProbeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->probeId) {
@@ -31,11 +35,11 @@ class RetryInstallProbeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RetryInstallProbeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

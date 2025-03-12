@@ -1,3 +1,8 @@
+2025-03-12 Version: 4.3.0
+- Support API UpdatePostPaidBindRel.
+- Update API ModifyBackupPolicyStatus: update param PolicyVersion.
+
+
 2025-02-26 Version: 4.2.2
 - Update API DescribeCloudCenterInstances: update response param.
 - Update API DescribeVersionConfig: update response param.

@@ -4,19 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentVertexNodesResponseBody\vertexNodes\vertexList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class neighborList extends Model
 {
     /**
+     * @description The number of neighboring nodes.
+     *
+     * @example 27
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description Indicates whether more neighboring nodes exist. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example False
+     *
      * @var bool
      */
     public $hasMore;
+
     /**
+     * @description The type of the neighboring node. Valid values include but are not limited to:
+     *
+     *   **process**
+     *   **file**
+     *   **alert**
+     *   **ip**
+     *   **domain**
+     *
+     * @example elf
+     *
      * @var string
      */
     public $type;
@@ -28,20 +51,17 @@ class neighborList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -49,22 +69,20 @@ class neighborList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return neighborList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

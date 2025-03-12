@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskNumResponseBody\instanceRiskNum;
+use AlibabaCloud\Tea\Model;
 
 class ListInstanceRiskNumResponseBody extends Model
 {
     /**
+     * @description The information about the risks in the instance.
+     *
      * @var instanceRiskNum[]
      */
     public $instanceRiskNum;
+
     /**
+     * @description The request ID.
+     *
+     * @example 291B49F9-1685-4005-9D34-606B6F78****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class ListInstanceRiskNumResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceRiskNum)) {
-            Model::validateArray($this->instanceRiskNum);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceRiskNum) {
-            if (\is_array($this->instanceRiskNum)) {
-                $res['InstanceRiskNum'] = [];
-                $n1                     = 0;
-                foreach ($this->instanceRiskNum as $item1) {
-                    $res['InstanceRiskNum'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InstanceRiskNum'] = [];
+            if (null !== $this->instanceRiskNum && \is_array($this->instanceRiskNum)) {
+                $n = 0;
+                foreach ($this->instanceRiskNum as $item) {
+                    $res['InstanceRiskNum'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class ListInstanceRiskNumResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstanceRiskNumResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceRiskNum'])) {
             if (!empty($map['InstanceRiskNum'])) {
                 $model->instanceRiskNum = [];
-                $n1                     = 0;
-                foreach ($map['InstanceRiskNum'] as $item1) {
-                    $model->instanceRiskNum[$n1++] = instanceRiskNum::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['InstanceRiskNum'] as $item) {
+                    $model->instanceRiskNum[$n++] = null !== $item ? instanceRiskNum::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

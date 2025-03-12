@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerInstancesResponseBody\containerInstanceList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerInstancesResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class DescribeContainerInstancesResponseBody extends Model
 {
     /**
+     * @description The details of the container asset.
+     *
      * @var containerInstanceList[]
      */
     public $containerInstanceList;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class DescribeContainerInstancesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->containerInstanceList)) {
-            Model::validateArray($this->containerInstanceList);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->containerInstanceList) {
-            if (\is_array($this->containerInstanceList)) {
-                $res['ContainerInstanceList'] = [];
-                $n1                           = 0;
-                foreach ($this->containerInstanceList as $item1) {
-                    $res['ContainerInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ContainerInstanceList'] = [];
+            if (null !== $this->containerInstanceList && \is_array($this->containerInstanceList)) {
+                $n = 0;
+                foreach ($this->containerInstanceList as $item) {
+                    $res['ContainerInstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class DescribeContainerInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeContainerInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerInstanceList'])) {
             if (!empty($map['ContainerInstanceList'])) {
                 $model->containerInstanceList = [];
-                $n1                           = 0;
-                foreach ($map['ContainerInstanceList'] as $item1) {
-                    $model->containerInstanceList[$n1++] = containerInstanceList::fromMap($item1);
+                $n                            = 0;
+                foreach ($map['ContainerInstanceList'] as $item) {
+                    $model->containerInstanceList[$n++] = null !== $item ? containerInstanceList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

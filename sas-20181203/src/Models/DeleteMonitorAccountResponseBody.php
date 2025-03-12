@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMonitorAccountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteMonitorAccountResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteMonitorAccountResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMonitorAccountResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeReportRecipientStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The email address of the recipient. Separate multiple email addresses with commas (,).
+     *
+     * This parameter is required.
+     * @example username@example.com,username@example.com
+     *
      * @var string
      */
     public $recipients;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 39.174.xxx.xxx
+     *
      * @var string
      */
     public $sourceIp;
@@ -28,20 +46,17 @@ class DescribeReportRecipientStatusRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->recipients) {
             $res['Recipients'] = $this->recipients;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -49,22 +64,20 @@ class DescribeReportRecipientStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeReportRecipientStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Recipients'])) {
             $model->recipients = $map['Recipients'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

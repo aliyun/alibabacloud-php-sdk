@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateSwitchStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 8AE9D3DA-406B-51FA-AA1C-89440C1459BF
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class OperateSwitchStatusResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class OperateSwitchStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateSwitchStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

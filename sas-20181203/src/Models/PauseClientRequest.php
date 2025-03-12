@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PauseClientRequest extends Model
 {
     /**
+     * @description The UUIDs of servers for which you want to enable or disable the Security Center agent.
+     *
+     * This parameter is required.
+     * @example uuid-1211-sadsd-2131
+     *
      * @var string
      */
     public $uuids;
+
     /**
+     * @description The status of the Security Center agent. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var string
      */
     public $value;
@@ -23,16 +37,14 @@ class PauseClientRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +52,17 @@ class PauseClientRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PauseClientRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

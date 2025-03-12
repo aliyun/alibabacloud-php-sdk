@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePropertyPortItemRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description Specifies whether to forcefully refresh the data that you want to query.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceFlush;
+
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The port number.
+     *
+     * @example 22
+     *
      * @var string
      */
     public $port;
@@ -33,24 +52,20 @@ class DescribePropertyPortItemRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->forceFlush) {
             $res['ForceFlush'] = $this->forceFlush;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -58,26 +73,23 @@ class DescribePropertyPortItemRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePropertyPortItemRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['ForceFlush'])) {
             $model->forceFlush = $map['ForceFlush'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponseBody\backupPolicy;
+use AlibabaCloud\Tea\Model;
 
 class CreateBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The information about the anti-ransomware policy.
+     *
      * @var backupPolicy
      */
     public $backupPolicy;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreateBackupPolicyResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->backupPolicy) {
-            $this->backupPolicy->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupPolicy) {
-            $res['BackupPolicy'] = null !== $this->backupPolicy ? $this->backupPolicy->toArray($noStream) : $this->backupPolicy;
+            $res['BackupPolicy'] = null !== $this->backupPolicy ? $this->backupPolicy->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreateBackupPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBackupPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPolicy'])) {
             $model->backupPolicy = backupPolicy::fromMap($map['BackupPolicy']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

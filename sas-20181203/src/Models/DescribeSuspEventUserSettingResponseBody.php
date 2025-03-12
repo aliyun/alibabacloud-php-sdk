@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSuspEventUserSettingResponseBody extends Model
 {
     /**
+     * @description An array that consists of the risk levels of alert notifications. Valid values:
+     *
+     *   **remind**
+     *   **suspicious**
+     *   **serious**
+     *
      * @var string[]
      */
     public $levelsOn;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 028CF634-5268-5660-9575-48C9ED6XXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +34,14 @@ class DescribeSuspEventUserSettingResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->levelsOn)) {
-            Model::validateArray($this->levelsOn);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->levelsOn) {
-            if (\is_array($this->levelsOn)) {
-                $res['LevelsOn'] = [];
-                $n1              = 0;
-                foreach ($this->levelsOn as $item1) {
-                    $res['LevelsOn'][$n1++] = $item1;
-                }
-            }
+            $res['LevelsOn'] = $this->levelsOn;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +49,19 @@ class DescribeSuspEventUserSettingResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSuspEventUserSettingResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LevelsOn'])) {
             if (!empty($map['LevelsOn'])) {
-                $model->levelsOn = [];
-                $n1              = 0;
-                foreach ($map['LevelsOn'] as $item1) {
-                    $model->levelsOn[$n1++] = $item1;
-                }
+                $model->levelsOn = $map['LevelsOn'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

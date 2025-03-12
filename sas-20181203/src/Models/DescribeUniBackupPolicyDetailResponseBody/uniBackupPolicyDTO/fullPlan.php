@@ -4,23 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailResponseBody\uniBackupPolicyDTO;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fullPlan extends Model
 {
     /**
+     * @description An array that consists of the days of a week on which the backup is performed.
+     *
      * @var string[]
      */
     public $days;
+
     /**
+     * @description The interval of backup tasks.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $interval;
+
     /**
+     * @description The unit of the interval. Valid values:
+     *
+     *   **hourly**: hour
+     *   **daily**: day
+     *   **weekly**: week
+     *
+     * @example daily
+     *
      * @var string
      */
     public $planType;
+
     /**
+     * @description The time when the full backup started. The time is in the HH:mm:ss format.
+     *
+     * @example 00:10:00
+     *
      * @var string
      */
     public $startTime;
@@ -33,33 +54,20 @@ class fullPlan extends Model
 
     public function validate()
     {
-        if (\is_array($this->days)) {
-            Model::validateArray($this->days);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->days) {
-            if (\is_array($this->days)) {
-                $res['Days'] = [];
-                $n1          = 0;
-                foreach ($this->days as $item1) {
-                    $res['Days'][$n1++] = $item1;
-                }
-            }
+            $res['Days'] = $this->days;
         }
-
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -67,32 +75,25 @@ class fullPlan extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fullPlan
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Days'])) {
             if (!empty($map['Days'])) {
-                $model->days = [];
-                $n1          = 0;
-                foreach ($map['Days'] as $item1) {
-                    $model->days[$n1++] = $item1;
-                }
+                $model->days = $map['Days'];
             }
         }
-
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

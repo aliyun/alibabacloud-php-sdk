@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class honeypotNode extends Model
 {
     /**
+     * @description The ID of the management node.
+     *
+     * @example 37a15ff1-3475-4897-aa6c-f7fd9122****
+     *
      * @var string
      */
     public $nodeId;
@@ -18,10 +22,9 @@ class honeypotNode extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
@@ -31,11 +34,11 @@ class honeypotNode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return honeypotNode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

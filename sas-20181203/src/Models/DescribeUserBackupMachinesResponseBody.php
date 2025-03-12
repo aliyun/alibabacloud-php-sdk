@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponseBody\machines;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserBackupMachinesResponseBody extends Model
 {
     /**
+     * @description An array consisting of the servers to which the anti-ransomware policy is applied.
+     *
      * @var machines[]
      */
     public $machines;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA04B21
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeUserBackupMachinesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->machines)) {
-            Model::validateArray($this->machines);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machines) {
-            if (\is_array($this->machines)) {
-                $res['Machines'] = [];
-                $n1              = 0;
-                foreach ($this->machines as $item1) {
-                    $res['Machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Machines'] = [];
+            if (null !== $this->machines && \is_array($this->machines)) {
+                $n = 0;
+                foreach ($this->machines as $item) {
+                    $res['Machines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeUserBackupMachinesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserBackupMachinesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Machines'])) {
             if (!empty($map['Machines'])) {
                 $model->machines = [];
-                $n1              = 0;
-                foreach ($map['Machines'] as $item1) {
-                    $model->machines[$n1++] = machines::fromMap($item1);
+                $n               = 0;
+                foreach ($map['Machines'] as $item) {
+                    $model->machines[$n++] = null !== $item ? machines::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

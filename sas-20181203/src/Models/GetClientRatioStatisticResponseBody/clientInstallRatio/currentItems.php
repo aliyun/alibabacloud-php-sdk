@@ -4,16 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponseBody\clientInstallRatio;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponseBody\clientInstallRatio\currentItems\items;
+use AlibabaCloud\Tea\Model;
 
 class currentItems extends Model
 {
     /**
+     * @description The list of the statistics on the installation rate of the client by vendor.
+     *
      * @var items[]
      */
     public $items;
+
     /**
+     * @description The type of the server. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
+     *
+     * @example 0
+     *
      * @var int
      */
     public $vendor;
@@ -24,25 +37,20 @@ class currentItems extends Model
 
     public function validate()
     {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                $n1           = 0;
-                foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -50,24 +58,23 @@ class currentItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return currentItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
-                foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

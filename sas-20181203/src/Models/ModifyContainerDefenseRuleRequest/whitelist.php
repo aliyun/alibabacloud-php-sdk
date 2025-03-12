@@ -4,19 +4,30 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerDefenseRuleRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class whitelist extends Model
 {
     /**
+     * @description The hash values of the files that need to be added to the whitelist.
+     *
+     * >  This parameter is not supported.
+     * @deprecated
+     *
      * @var string[]
      */
     public $hash;
+
     /**
+     * @description The images that need to be added to the whitelist.
+     *
      * @var string[]
      */
     public $image;
+
     /**
+     * @description The paths to the files that need to be added to the whitelist.
+     *
      * @var string[]
      */
     public $path;
@@ -28,89 +39,45 @@ class whitelist extends Model
 
     public function validate()
     {
-        if (\is_array($this->hash)) {
-            Model::validateArray($this->hash);
-        }
-        if (\is_array($this->image)) {
-            Model::validateArray($this->image);
-        }
-        if (\is_array($this->path)) {
-            Model::validateArray($this->path);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hash) {
-            if (\is_array($this->hash)) {
-                $res['Hash'] = [];
-                $n1          = 0;
-                foreach ($this->hash as $item1) {
-                    $res['Hash'][$n1++] = $item1;
-                }
-            }
+            $res['Hash'] = $this->hash;
         }
-
         if (null !== $this->image) {
-            if (\is_array($this->image)) {
-                $res['Image'] = [];
-                $n1           = 0;
-                foreach ($this->image as $item1) {
-                    $res['Image'][$n1++] = $item1;
-                }
-            }
+            $res['Image'] = $this->image;
         }
-
         if (null !== $this->path) {
-            if (\is_array($this->path)) {
-                $res['Path'] = [];
-                $n1          = 0;
-                foreach ($this->path as $item1) {
-                    $res['Path'][$n1++] = $item1;
-                }
-            }
+            $res['Path'] = $this->path;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return whitelist
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hash'])) {
             if (!empty($map['Hash'])) {
-                $model->hash = [];
-                $n1          = 0;
-                foreach ($map['Hash'] as $item1) {
-                    $model->hash[$n1++] = $item1;
-                }
+                $model->hash = $map['Hash'];
             }
         }
-
         if (isset($map['Image'])) {
             if (!empty($map['Image'])) {
-                $model->image = [];
-                $n1           = 0;
-                foreach ($map['Image'] as $item1) {
-                    $model->image[$n1++] = $item1;
-                }
+                $model->image = $map['Image'];
             }
         }
-
         if (isset($map['Path'])) {
             if (!empty($map['Path'])) {
-                $model->path = [];
-                $n1          = 0;
-                foreach ($map['Path'] as $item1) {
-                    $model->path[$n1++] = $item1;
-                }
+                $model->path = $map['Path'];
             }
         }
 

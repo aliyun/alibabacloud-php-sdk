@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetBuildRiskDefineRuleConfigRequest extends Model
 {
     /**
+     * @description The configuration item for scanning image build command risks. Valid values:
+     *
+     *   **classKey**: Set the value to a valid value of the ClassKey parameter in RuleTree.
+     *   **ruleList**: Set the value to a valid value of the RuleKey parameter in RuleList.
+     *
+     * >  You can call the [GetBuildRiskDefineRuleConfig](~~GetBuildRiskDefineRuleConfig~~) operation to query the valid values.
+     * @example [
+     * ]
      * @var string
      */
     public $config;
@@ -18,10 +26,9 @@ class SetBuildRiskDefineRuleConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
@@ -31,11 +38,11 @@ class SetBuildRiskDefineRuleConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetBuildRiskDefineRuleConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllEntityResponseBody\entityList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAllEntityResponseBody extends Model
 {
     /**
+     * @description An array that consists of servers.
+     *
      * @var entityList[]
      */
     public $entityList;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeAllEntityResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->entityList)) {
-            Model::validateArray($this->entityList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entityList) {
-            if (\is_array($this->entityList)) {
-                $res['EntityList'] = [];
-                $n1                = 0;
-                foreach ($this->entityList as $item1) {
-                    $res['EntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EntityList'] = [];
+            if (null !== $this->entityList && \is_array($this->entityList)) {
+                $n = 0;
+                foreach ($this->entityList as $item) {
+                    $res['EntityList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeAllEntityResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAllEntityResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
-                $n1                = 0;
-                foreach ($map['EntityList'] as $item1) {
-                    $model->entityList[$n1++] = entityList::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['EntityList'] as $item) {
+                    $model->entityList[$n++] = null !== $item ? entityList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSimilarEventScenariosRequest extends Model
 {
@@ -12,11 +12,22 @@ class DescribeSimilarEventScenariosRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description The ID of the alert event.
+     *
+     * This parameter is required.
+     * @example 12321
+     *
      * @var int
      */
     public $securityEventId;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
@@ -28,20 +39,17 @@ class DescribeSimilarEventScenariosRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -49,22 +57,20 @@ class DescribeSimilarEventScenariosRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSimilarEventScenariosRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityEventId'])) {
             $model->securityEventId = $map['SecurityEventId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

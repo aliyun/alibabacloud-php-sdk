@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListUserVpcRequest extends Model
 {
     /**
+     * @description Region.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $k8sRegionId;
@@ -18,10 +23,9 @@ class ListUserVpcRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->k8sRegionId) {
@@ -31,11 +35,11 @@ class ListUserVpcRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListUserVpcRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

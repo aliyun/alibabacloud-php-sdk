@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnableCustomInstanceBlockRecordResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 571B2642-BF51-5BDD-906B-D2340DB9****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class EnableCustomInstanceBlockRecordResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class EnableCustomInstanceBlockRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnableCustomInstanceBlockRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

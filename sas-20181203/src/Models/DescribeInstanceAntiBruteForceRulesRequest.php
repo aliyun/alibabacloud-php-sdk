@@ -4,27 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceAntiBruteForceRulesRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries to return on each page. Default value: **10000**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 115.238.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The UUIDs of the servers.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @var string[]
      */
     public $uuidList;
@@ -38,75 +57,53 @@ class DescribeInstanceAntiBruteForceRulesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->uuidList)) {
-            Model::validateArray($this->uuidList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->uuidList) {
-            if (\is_array($this->uuidList)) {
-                $res['UuidList'] = [];
-                $n1              = 0;
-                foreach ($this->uuidList as $item1) {
-                    $res['UuidList'][$n1++] = $item1;
-                }
-            }
+            $res['UuidList'] = $this->uuidList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceAntiBruteForceRulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = [];
-                $n1              = 0;
-                foreach ($map['UuidList'] as $item1) {
-                    $model->uuidList[$n1++] = $item1;
-                }
+                $model->uuidList = $map['UuidList'];
             }
         }
 

@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyConcernNecessityRequest extends Model
 {
     /**
+     * @description The priorities to fix the vulnerabilities. Valid values:
+     *
+     *   asap: high
+     *   later: medium
+     *   nntf: low
+     *
+     * @example asap,nntf
+     *
      * @var string
      */
     public $concernNecessity;
@@ -18,10 +26,9 @@ class ModifyConcernNecessityRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->concernNecessity) {
@@ -31,11 +38,11 @@ class ModifyConcernNecessityRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyConcernNecessityRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

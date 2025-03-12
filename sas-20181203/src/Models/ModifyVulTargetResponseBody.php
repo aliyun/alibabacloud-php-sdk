@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyVulTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 38597320-A990-5444-9A4C-7A1269610C2A
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyVulTargetResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyVulTargetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyVulTargetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

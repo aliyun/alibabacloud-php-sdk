@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The number of images to scan in the task.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $needAuthCount;
+
     /**
+     * @description The quota for container image scan to be consumed by the task.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $scanImageCount;
@@ -23,16 +32,14 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->needAuthCount) {
             $res['NeedAuthCount'] = $this->needAuthCount;
         }
-
         if (null !== $this->scanImageCount) {
             $res['ScanImageCount'] = $this->scanImageCount;
         }
@@ -40,18 +47,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NeedAuthCount'])) {
             $model->needAuthCount = $map['NeedAuthCount'];
         }
-
         if (isset($map['ScanImageCount'])) {
             $model->scanImageCount = $map['ScanImageCount'];
         }

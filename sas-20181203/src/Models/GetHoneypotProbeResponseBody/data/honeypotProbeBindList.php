@@ -4,28 +4,51 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotProbeResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotProbeResponseBody\data\honeypotProbeBindList\bindPortList;
+use AlibabaCloud\Tea\Model;
 
 class honeypotProbeBindList extends Model
 {
     /**
+     * @description The unique ID of the honeypot that is bound to the probe.
+     *
+     * @example 45378f64-d7b4-4a53-9c48-4303eb4b****
+     *
      * @var string
      */
     public $bindId;
+
     /**
+     * @description The ports that are bound to the probe.
+     *
      * @var bindPortList[]
      */
     public $bindPortList;
+
     /**
+     * @description The honeypot ID.
+     *
+     * @example 913347774a3b3c378c6a50f66de23dfa097765214ec3f0526b01c67bf59c****
+     *
      * @var string
      */
     public $honeypotId;
+
     /**
+     * @description The IP addresses that are monitored.
+     *
      * @var string[]
      */
     public $serviceIpList;
+
     /**
+     * @description The status of the honeypot that is bound to the probe. Valid values:
+     *
+     *   **1**: abnormal
+     *   **3**: normal
+     *
+     * @example 3
+     *
      * @var int
      */
     public $status;
@@ -39,46 +62,29 @@ class honeypotProbeBindList extends Model
 
     public function validate()
     {
-        if (\is_array($this->bindPortList)) {
-            Model::validateArray($this->bindPortList);
-        }
-        if (\is_array($this->serviceIpList)) {
-            Model::validateArray($this->serviceIpList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bindId) {
             $res['BindId'] = $this->bindId;
         }
-
         if (null !== $this->bindPortList) {
-            if (\is_array($this->bindPortList)) {
-                $res['BindPortList'] = [];
-                $n1                  = 0;
-                foreach ($this->bindPortList as $item1) {
-                    $res['BindPortList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BindPortList'] = [];
+            if (null !== $this->bindPortList && \is_array($this->bindPortList)) {
+                $n = 0;
+                foreach ($this->bindPortList as $item) {
+                    $res['BindPortList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->honeypotId) {
             $res['HoneypotId'] = $this->honeypotId;
         }
-
         if (null !== $this->serviceIpList) {
-            if (\is_array($this->serviceIpList)) {
-                $res['ServiceIpList'] = [];
-                $n1                   = 0;
-                foreach ($this->serviceIpList as $item1) {
-                    $res['ServiceIpList'][$n1++] = $item1;
-                }
-            }
+            $res['ServiceIpList'] = $this->serviceIpList;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -86,42 +92,34 @@ class honeypotProbeBindList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return honeypotProbeBindList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindId'])) {
             $model->bindId = $map['BindId'];
         }
-
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n1                  = 0;
-                foreach ($map['BindPortList'] as $item1) {
-                    $model->bindPortList[$n1++] = bindPortList::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['BindPortList'] as $item) {
+                    $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['HoneypotId'])) {
             $model->honeypotId = $map['HoneypotId'];
         }
-
         if (isset($map['ServiceIpList'])) {
             if (!empty($map['ServiceIpList'])) {
-                $model->serviceIpList = [];
-                $n1                   = 0;
-                foreach ($map['ServiceIpList'] as $item1) {
-                    $model->serviceIpList[$n1++] = $item1;
-                }
+                $model->serviceIpList = $map['ServiceIpList'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

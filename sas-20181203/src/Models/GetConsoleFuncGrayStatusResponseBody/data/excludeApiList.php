@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetConsoleFuncGrayStatusResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class excludeApiList extends Model
 {
     /**
+     * @description Action corresponding to the API.
+     *
+     * @example GetAttackTypeList
+     *
      * @var string
      */
     public $action;
+
     /**
+     * @description Product Code.
+     *
+     * @example Sas
+     *
      * @var string
      */
     public $code;
+
     /**
+     * @description API version.
+     *
+     * @example 2017-11-10
+     *
      * @var string
      */
     public $version;
@@ -28,20 +42,17 @@ class excludeApiList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -49,22 +60,20 @@ class excludeApiList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return excludeApiList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

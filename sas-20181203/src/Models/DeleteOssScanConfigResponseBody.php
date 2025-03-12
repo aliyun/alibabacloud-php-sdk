@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteOssScanConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteOssScanConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteOssScanConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteOssScanConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

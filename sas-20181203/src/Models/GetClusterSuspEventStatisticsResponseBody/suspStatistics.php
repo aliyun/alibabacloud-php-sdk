@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class suspStatistics extends Model
 {
     /**
+     * @description The number of alerts whose Emergency level is Reminder.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $remind;
+
     /**
+     * @description The number of alerts whose Emergency level is Urgent.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serious;
+
     /**
+     * @description The number of alerts whose Emergency level is Suspicious.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $suspicious;
@@ -28,20 +42,17 @@ class suspStatistics extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->remind) {
             $res['Remind'] = $this->remind;
         }
-
         if (null !== $this->serious) {
             $res['Serious'] = $this->serious;
         }
-
         if (null !== $this->suspicious) {
             $res['Suspicious'] = $this->suspicious;
         }
@@ -49,22 +60,20 @@ class suspStatistics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return suspStatistics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remind'])) {
             $model->remind = $map['Remind'];
         }
-
         if (isset($map['Serious'])) {
             $model->serious = $map['Serious'];
         }
-
         if (isset($map['Suspicious'])) {
             $model->suspicious = $map['Suspicious'];
         }

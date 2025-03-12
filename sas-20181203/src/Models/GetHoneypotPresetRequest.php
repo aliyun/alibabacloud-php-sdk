@@ -4,15 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetHoneypotPresetRequest extends Model
 {
     /**
+     * @description The ID of the honeypot template.
+     *
+     * This parameter is required.
+     * @example 207ca117-44b9-495d-84e7-50289b4cxxxx
+     *
      * @var string
      */
     public $honeypotPresetId;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -23,16 +36,14 @@ class GetHoneypotPresetRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->honeypotPresetId) {
             $res['HoneypotPresetId'] = $this->honeypotPresetId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -40,18 +51,17 @@ class GetHoneypotPresetRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetHoneypotPresetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HoneypotPresetId'])) {
             $model->honeypotPresetId = $map['HoneypotPresetId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageInfoListResponseBody\imageInfos;
+use AlibabaCloud\Tea\Model;
 
 class DescribeImageInfoListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about images.
+     *
      * @var imageInfos[]
      */
     public $imageInfos;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BC3B0DAE-CC0E-59E9-9383-6F060F22****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeImageInfoListResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->imageInfos)) {
-            Model::validateArray($this->imageInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageInfos) {
-            if (\is_array($this->imageInfos)) {
-                $res['ImageInfos'] = [];
-                $n1                = 0;
-                foreach ($this->imageInfos as $item1) {
-                    $res['ImageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ImageInfos'] = [];
+            if (null !== $this->imageInfos && \is_array($this->imageInfos)) {
+                $n = 0;
+                foreach ($this->imageInfos as $item) {
+                    $res['ImageInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeImageInfoListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeImageInfoListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageInfos'])) {
             if (!empty($map['ImageInfos'])) {
                 $model->imageInfos = [];
-                $n1                = 0;
-                foreach ($map['ImageInfos'] as $item1) {
-                    $model->imageInfos[$n1++] = imageInfos::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['ImageInfos'] as $item) {
+                    $model->imageInfos[$n++] = null !== $item ? imageInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

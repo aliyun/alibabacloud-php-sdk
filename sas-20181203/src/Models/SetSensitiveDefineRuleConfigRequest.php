@@ -4,19 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetSensitiveDefineRuleConfigRequest extends Model
 {
     /**
+     * @description The configurations of the custom check rule. The value is in the JSON format. Valid values of keys:
+     *
+     *   **classKey**: the category keyword of the check rule.
+     *   **ruleList**: the keyword of the check rule.
+     *
+     * @example [{\\"classKey\\": \\"password\\", \\"ruleList\\": [\\"huaweicloud_ak\\", \\"ak_leak\\"]}]
+     *
      * @var string
      */
     public $config;
+
     /**
+     * @description Specifies whether to enable the new ruled for automatic check only on agentless detection. Valid values:
+     *
+     *   **0**: no.
+     *   **1**: yes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enableNewRule;
+
     /**
+     * @description The source of the check rules. Valid values:
+     *
+     *   **image**: image.
+     *   **agentless**: agentless detection.
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;
@@ -28,20 +51,17 @@ class SetSensitiveDefineRuleConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-
         if (null !== $this->enableNewRule) {
             $res['EnableNewRule'] = $this->enableNewRule;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -49,22 +69,20 @@ class SetSensitiveDefineRuleConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetSensitiveDefineRuleConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-
         if (isset($map['EnableNewRule'])) {
             $model->enableNewRule = $map['EnableNewRule'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

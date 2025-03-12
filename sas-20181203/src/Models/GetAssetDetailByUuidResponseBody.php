@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidResponseBody\assetDetail;
+use AlibabaCloud\Tea\Model;
 
 class GetAssetDetailByUuidResponseBody extends Model
 {
     /**
+     * @description The details of the server.
+     *
      * @var assetDetail
      */
     public $assetDetail;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4892B68B-47BC-5E56-B327-9C2ACC6C1C09
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetAssetDetailByUuidResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->assetDetail) {
-            $this->assetDetail->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assetDetail) {
-            $res['AssetDetail'] = null !== $this->assetDetail ? $this->assetDetail->toArray($noStream) : $this->assetDetail;
+            $res['AssetDetail'] = null !== $this->assetDetail ? $this->assetDetail->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetAssetDetailByUuidResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAssetDetailByUuidResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetDetail'])) {
             $model->assetDetail = assetDetail::fromMap($map['AssetDetail']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

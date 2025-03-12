@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateSasTrialRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class requestForm extends Model
 {
     /**
+     * @description The reason why you apply for the trial.
+     *
+     * @example for poc
+     *
      * @var string
      */
     public $tryReason;
@@ -18,10 +22,9 @@ class requestForm extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tryReason) {
@@ -31,11 +34,11 @@ class requestForm extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return requestForm
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

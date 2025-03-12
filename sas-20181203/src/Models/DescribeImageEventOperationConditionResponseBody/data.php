@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionResponseBody\data\operations;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The alert type.
+     *
+     *   Only **sensitiveFile** may be returned.
+     *
+     * @example sensitiveFile
+     *
      * @var string
      */
     public $eventType;
+
     /**
+     * @description The operations.
+     *
      * @var operations[]
      */
     public $operations;
+
     /**
+     * @description The application scopes of the rules.
+     *
      * @var string[]
      */
     public $scenarios;
@@ -29,74 +41,53 @@ class data extends Model
 
     public function validate()
     {
-        if (\is_array($this->operations)) {
-            Model::validateArray($this->operations);
-        }
-        if (\is_array($this->scenarios)) {
-            Model::validateArray($this->scenarios);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
-
         if (null !== $this->operations) {
-            if (\is_array($this->operations)) {
-                $res['Operations'] = [];
-                $n1                = 0;
-                foreach ($this->operations as $item1) {
-                    $res['Operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Operations'] = [];
+            if (null !== $this->operations && \is_array($this->operations)) {
+                $n = 0;
+                foreach ($this->operations as $item) {
+                    $res['Operations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->scenarios) {
-            if (\is_array($this->scenarios)) {
-                $res['Scenarios'] = [];
-                $n1               = 0;
-                foreach ($this->scenarios as $item1) {
-                    $res['Scenarios'][$n1++] = $item1;
-                }
-            }
+            $res['Scenarios'] = $this->scenarios;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
-
         if (isset($map['Operations'])) {
             if (!empty($map['Operations'])) {
                 $model->operations = [];
-                $n1                = 0;
-                foreach ($map['Operations'] as $item1) {
-                    $model->operations[$n1++] = operations::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['Operations'] as $item) {
+                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Scenarios'])) {
             if (!empty($map['Scenarios'])) {
-                $model->scenarios = [];
-                $n1               = 0;
-                foreach ($map['Scenarios'] as $item1) {
-                    $model->scenarios[$n1++] = $item1;
-                }
+                $model->scenarios = $map['Scenarios'];
             }
         }
 

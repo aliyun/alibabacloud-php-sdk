@@ -4,15 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCloudVendorTrialConfigRequest extends Model
 {
     /**
+     * @description Unique ID of the AK.
+     *
+     * This parameter is required.
+     * @example 23**
+     *
      * @var int
      */
     public $authId;
+
     /**
+     * @description Cloud asset vendor. Values:
+     * - **Tencent**: Tencent Cloud
+     * - **AWS**: Amazon Web Services
+     *
+     * This parameter is required.
+     * @example AWS
+     *
      * @var string
      */
     public $vendor;
@@ -23,16 +36,14 @@ class DescribeCloudVendorTrialConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
         }
-
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -40,18 +51,17 @@ class DescribeCloudVendorTrialConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCloudVendorTrialConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthId'])) {
             $model->authId = $map['AuthId'];
         }
-
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

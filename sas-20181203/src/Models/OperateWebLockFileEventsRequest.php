@@ -4,19 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateWebLockFileEventsRequest extends Model
 {
     /**
+     * @description Specifies whether to handle all alert events that are generated for web tamper proofing. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $dealAll;
+
     /**
+     * @description The IDs of alert events.
+     *
+     * This parameter is required.
      * @var int[]
      */
     public $eventIds;
+
     /**
+     * @description The operation that you want to perform on the alert events. Valid values:
+     *
+     *   **mark_mis_info**: marks the alert events as false positives
+     *   **rm_mark_mis_info**: cancels marking the alerts events as false positives
+     *   **offline_handled**: marks the alert events as handled offline
+     *   **whitelist**: adds the alert events to the whitelist
+     *   **rm_whitelist**: cancels adding the alert events to the whitelist
+     *
+     * This parameter is required.
+     * @example whitelist
+     *
      * @var string
      */
     public $operationCode;
@@ -28,29 +52,17 @@ class OperateWebLockFileEventsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->eventIds)) {
-            Model::validateArray($this->eventIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dealAll) {
             $res['DealAll'] = $this->dealAll;
         }
-
         if (null !== $this->eventIds) {
-            if (\is_array($this->eventIds)) {
-                $res['EventIds'] = [];
-                $n1              = 0;
-                foreach ($this->eventIds as $item1) {
-                    $res['EventIds'][$n1++] = $item1;
-                }
-            }
+            $res['EventIds'] = $this->eventIds;
         }
-
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
         }
@@ -58,28 +70,22 @@ class OperateWebLockFileEventsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateWebLockFileEventsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DealAll'])) {
             $model->dealAll = $map['DealAll'];
         }
-
         if (isset($map['EventIds'])) {
             if (!empty($map['EventIds'])) {
-                $model->eventIds = [];
-                $n1              = 0;
-                foreach ($map['EventIds'] as $item1) {
-                    $model->eventIds[$n1++] = $item1;
-                }
+                $model->eventIds = $map['EventIds'];
             }
         }
-
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
         }

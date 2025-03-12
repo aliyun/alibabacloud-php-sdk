@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateMonitorAccountRequest extends Model
 {
     /**
+     * @description The account IDs of members in the resource directory.
+     *
+     * >  You can call the [ListAccountsInResourceDirectory](~~ListAccountsInResourceDirectory~~) operation to obtain the account IDs. Separate multiple account IDs with commas (,). If you specify a value for this parameter, the existing list of members is replaced by the new list that you specify. Otherwise, the existing list is cleared.
+     * @example 1026780160******,1457515594******
+     *
      * @var string
      */
     public $accountIds;
@@ -18,10 +23,9 @@ class CreateMonitorAccountRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountIds) {
@@ -31,11 +35,11 @@ class CreateMonitorAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateMonitorAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ChangeUserLangRequest extends Model
 {
     /**
+     * @description The new language. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $userLang;
@@ -18,10 +25,9 @@ class ChangeUserLangRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userLang) {
@@ -31,11 +37,11 @@ class ChangeUserLangRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ChangeUserLangRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveImageBaselineStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9AB5D3DE-6E0F-5633-AA71-4B90C724****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SaveImageBaselineStrategyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SaveImageBaselineStrategyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveImageBaselineStrategyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

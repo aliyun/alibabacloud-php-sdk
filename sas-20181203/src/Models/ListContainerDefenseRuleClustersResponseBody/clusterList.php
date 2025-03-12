@@ -4,23 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleClustersResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clusterList extends Model
 {
     /**
+     * @description Indicates whether all namespaces are included. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $allNamespace;
+
     /**
+     * @description The ID of the cluster.
+     *
+     * @example cfeb7a9f99ce740e98c5595d0fe37****
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description The namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
+
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
+     * @example 403178
+     *
      * @var int
      */
     public $ruleId;
@@ -33,33 +54,20 @@ class clusterList extends Model
 
     public function validate()
     {
-        if (\is_array($this->namespaces)) {
-            Model::validateArray($this->namespaces);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allNamespace) {
             $res['AllNamespace'] = $this->allNamespace;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->namespaces) {
-            if (\is_array($this->namespaces)) {
-                $res['Namespaces'] = [];
-                $n1                = 0;
-                foreach ($this->namespaces as $item1) {
-                    $res['Namespaces'][$n1++] = $item1;
-                }
-            }
+            $res['Namespaces'] = $this->namespaces;
         }
-
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -67,32 +75,25 @@ class clusterList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clusterList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllNamespace'])) {
             $model->allNamespace = $map['AllNamespace'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
-                $model->namespaces = [];
-                $n1                = 0;
-                foreach ($map['Namespaces'] as $item1) {
-                    $model->namespaces[$n1++] = $item1;
-                }
+                $model->namespaces = $map['Namespaces'];
             }
         }
-
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

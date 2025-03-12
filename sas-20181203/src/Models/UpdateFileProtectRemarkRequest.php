@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateFileProtectRemarkRequest extends Model
 {
     /**
+     * @description The ID of the event.
+     *
+     * @example 1764
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The remarks.
+     *
      * @var string[]
      */
     public $remark;
@@ -23,51 +30,35 @@ class UpdateFileProtectRemarkRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->remark)) {
-            Model::validateArray($this->remark);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->remark) {
-            if (\is_array($this->remark)) {
-                $res['Remark'] = [];
-                $n1            = 0;
-                foreach ($this->remark as $item1) {
-                    $res['Remark'][$n1++] = $item1;
-                }
-            }
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateFileProtectRemarkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Remark'])) {
             if (!empty($map['Remark'])) {
-                $model->remark = [];
-                $n1            = 0;
-                foreach ($map['Remark'] as $item1) {
-                    $model->remark[$n1++] = $item1;
-                }
+                $model->remark = $map['Remark'];
             }
         }
 

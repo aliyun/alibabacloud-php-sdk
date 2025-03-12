@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeMatchedMaliciousNamesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The display name of the malicious image sample type.
+     *
+     * @example displayname
+     *
      * @var string
      */
     public $displayName;
+
     /**
+     * @description The key of the malicious image sample type.
+     *
+     * @example key
+     *
      * @var string
      */
     public $key;
@@ -23,16 +32,14 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -40,18 +47,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

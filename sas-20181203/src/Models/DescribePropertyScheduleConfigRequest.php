@@ -4,11 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePropertyScheduleConfigRequest extends Model
 {
     /**
+     * @description The type of the asset fingerprints. Valid values:
+     *
+     *   **scheduler_port_period**: listening port
+     *   **scheduler_process_period**: running process
+     *   **scheduler_account_period**: account
+     *   **scheduler_software_period**: software
+     *   **scheduler_cron_period**: scheduled task
+     *   **scheduler_sca_period**: middleware
+     *   **scheduler_autorun_period**: startup item
+     *   **scheduler_lkm_period**: kernel module
+     *   **scheduler_sca_proxy_period**: website
+     *
+     * This parameter is required.
+     * @example scheduler_autorun_period
+     *
      * @var string
      */
     public $type;
@@ -18,10 +33,9 @@ class DescribePropertyScheduleConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
@@ -31,11 +45,11 @@ class DescribePropertyScheduleConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePropertyScheduleConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

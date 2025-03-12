@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUserItemResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class propertyItems extends Model
 {
     /**
+     * @description The number of servers that belong to the account.
+     *
+     * @example 384
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The name of the account.
+     *
+     * @example adm
+     *
      * @var string
      */
     public $user;
@@ -23,16 +32,14 @@ class propertyItems extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
@@ -40,18 +47,17 @@ class propertyItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return propertyItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['User'])) {
             $model->user = $map['User'];
         }

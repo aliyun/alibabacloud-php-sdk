@@ -4,20 +4,34 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest\vulAutoRepairConfigList;
+use AlibabaCloud\Tea\Model;
 
 class CreateVulAutoRepairConfigRequest extends Model
 {
     /**
+     * @description The reason why the vulnerability can be automatically fixed.
+     *
+     * @example TestAutoRepair
+     *
      * @var string
      */
     public $reason;
+
     /**
+     * @description The type of the vulnerability. Valid values: -**cve**: Linux software vulnerability -**sys**: Windows system vulnerability
+     *
+     * This parameter is required.
+     * @example cve
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @description The vulnerabilities that can be automatically fixed.
+     *
+     * This parameter is required.
      * @var vulAutoRepairConfigList[]
      */
     public $vulAutoRepairConfigList;
@@ -29,29 +43,23 @@ class CreateVulAutoRepairConfigRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->vulAutoRepairConfigList)) {
-            Model::validateArray($this->vulAutoRepairConfigList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->vulAutoRepairConfigList) {
-            if (\is_array($this->vulAutoRepairConfigList)) {
-                $res['VulAutoRepairConfigList'] = [];
-                $n1                             = 0;
-                foreach ($this->vulAutoRepairConfigList as $item1) {
-                    $res['VulAutoRepairConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VulAutoRepairConfigList'] = [];
+            if (null !== $this->vulAutoRepairConfigList && \is_array($this->vulAutoRepairConfigList)) {
+                $n = 0;
+                foreach ($this->vulAutoRepairConfigList as $item) {
+                    $res['VulAutoRepairConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +67,26 @@ class CreateVulAutoRepairConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVulAutoRepairConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['VulAutoRepairConfigList'])) {
             if (!empty($map['VulAutoRepairConfigList'])) {
                 $model->vulAutoRepairConfigList = [];
-                $n1                             = 0;
-                foreach ($map['VulAutoRepairConfigList'] as $item1) {
-                    $model->vulAutoRepairConfigList[$n1++] = vulAutoRepairConfigList::fromMap($item1);
+                $n                              = 0;
+                foreach ($map['VulAutoRepairConfigList'] as $item) {
+                    $model->vulAutoRepairConfigList[$n++] = null !== $item ? vulAutoRepairConfigList::fromMap($item) : $item;
                 }
             }
         }

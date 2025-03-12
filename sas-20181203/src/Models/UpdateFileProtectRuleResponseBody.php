@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateFileProtectRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 339227F4-C9E1-526F-8347-1099C11F65FB
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateFileProtectRuleResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateFileProtectRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateFileProtectRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

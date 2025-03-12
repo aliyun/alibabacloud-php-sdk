@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetUserLangResponseBody\sasUserLang;
+use AlibabaCloud\Tea\Model;
 
 class GetUserLangResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 23AD0BD2-8771-5647-819E-6BA51E21****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The language settings.
+     *
      * @var sasUserLang
      */
     public $sasUserLang;
@@ -24,38 +31,32 @@ class GetUserLangResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->sasUserLang) {
-            $this->sasUserLang->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->sasUserLang) {
-            $res['SasUserLang'] = null !== $this->sasUserLang ? $this->sasUserLang->toArray($noStream) : $this->sasUserLang;
+            $res['SasUserLang'] = null !== $this->sasUserLang ? $this->sasUserLang->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserLangResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SasUserLang'])) {
             $model->sasUserLang = sasUserLang::fromMap($map['SasUserLang']);
         }

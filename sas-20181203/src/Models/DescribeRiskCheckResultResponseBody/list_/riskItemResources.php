@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskCheckResultResponseBody\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class riskItemResources extends Model
 {
     /**
+     * @description The details about the check results.
+     *
      * @var mixed[]
      */
     public $contentResource;
+
     /**
+     * @description The title in the details. Valid values:
+     *
+     *   **bestPractice**: description
+     *   **influence**: risk
+     *   **suggestion**: solution
+     *   **helpResource**: reference
+     *
+     * @example bestPractice
+     *
      * @var string
      */
     public $resourceName;
@@ -23,24 +35,14 @@ class riskItemResources extends Model
 
     public function validate()
     {
-        if (\is_array($this->contentResource)) {
-            Model::validateArray($this->contentResource);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contentResource) {
-            if (\is_array($this->contentResource)) {
-                $res['ContentResource'] = [];
-                foreach ($this->contentResource as $key1 => $value1) {
-                    $res['ContentResource'][$key1] = $value1;
-                }
-            }
+            $res['ContentResource'] = $this->contentResource;
         }
-
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
@@ -48,23 +50,17 @@ class riskItemResources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return riskItemResources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContentResource'])) {
-            if (!empty($map['ContentResource'])) {
-                $model->contentResource = [];
-                foreach ($map['ContentResource'] as $key1 => $value1) {
-                    $model->contentResource[$key1] = $value1;
-                }
-            }
+            $model->contentResource = $map['ContentResource'];
         }
-
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }

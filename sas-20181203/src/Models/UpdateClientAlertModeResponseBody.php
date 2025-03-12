@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateClientAlertModeResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
+
     /**
+     * @description The request ID.
+     *
+     * @example 259E3E77-CA6D-5407-84A5-3A1C98D12F14
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +35,14 @@ class UpdateClientAlertModeResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +50,17 @@ class UpdateClientAlertModeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateClientAlertModeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

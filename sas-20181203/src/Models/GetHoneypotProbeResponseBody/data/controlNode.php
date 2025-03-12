@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotProbeResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class controlNode extends Model
 {
     /**
+     * @description The instance ID of the management node.
+     *
+     * @example i-bp19ijepxytwtzrk****
+     *
      * @var string
      */
     public $ecsInstanceId;
+
     /**
+     * @description The ID of the management node.
+     *
+     * @example 37a15ff1-3475-4897-aa6c-f7fd9122****
+     *
      * @var string
      */
     public $nodeId;
+
     /**
+     * @description The name of the management node.
+     *
+     * @example online-honeypot
+     *
      * @var string
      */
     public $nodeName;
@@ -28,20 +42,17 @@ class controlNode extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -49,22 +60,20 @@ class controlNode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return controlNode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }

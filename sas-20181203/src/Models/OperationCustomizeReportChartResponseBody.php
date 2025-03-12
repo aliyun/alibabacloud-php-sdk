@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperationCustomizeReportChartResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 432B2D4E-C8D3-52E4-9F68-35E0C05F****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class OperationCustomizeReportChartResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class OperationCustomizeReportChartResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperationCustomizeReportChartResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

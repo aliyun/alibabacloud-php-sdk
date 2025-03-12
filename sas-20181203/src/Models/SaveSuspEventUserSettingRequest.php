@@ -4,15 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SaveSuspEventUserSettingRequest extends Model
 {
     /**
+     * @description The data source of the exception. Set the value to sas.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
+
     /**
+     * @description The severities of alert notifications. Valid values:
+     *
+     *   **remind**
+     *   **suspicious**
+     *   **serious**
+     *
+     * @example suspicious,serious,remind
+     *
      * @var string
      */
     public $levelsOn;
@@ -23,16 +36,14 @@ class SaveSuspEventUserSettingRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
-
         if (null !== $this->levelsOn) {
             $res['LevelsOn'] = $this->levelsOn;
         }
@@ -40,18 +51,17 @@ class SaveSuspEventUserSettingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SaveSuspEventUserSettingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
-
         if (isset($map['LevelsOn'])) {
             $model->levelsOn = $map['LevelsOn'];
         }

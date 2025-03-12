@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCloudAssetSummaryRequest extends Model
 {
     /**
+     * @description The asset type by service provider.
+     *
      * @var int[]
      */
     public $vendors;
@@ -18,43 +20,29 @@ class GetCloudAssetSummaryRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->vendors)) {
-            Model::validateArray($this->vendors);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vendors) {
-            if (\is_array($this->vendors)) {
-                $res['Vendors'] = [];
-                $n1             = 0;
-                foreach ($this->vendors as $item1) {
-                    $res['Vendors'][$n1++] = $item1;
-                }
-            }
+            $res['Vendors'] = $this->vendors;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCloudAssetSummaryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {
-                $model->vendors = [];
-                $n1             = 0;
-                foreach ($map['Vendors'] as $item1) {
-                    $model->vendors[$n1++] = $item1;
-                }
+                $model->vendors = $map['Vendors'];
             }
         }
 

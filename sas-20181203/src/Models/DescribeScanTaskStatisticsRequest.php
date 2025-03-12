@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeScanTaskStatisticsRequest extends Model
 {
     /**
+     * @description The severities of the alert events handled by the virus detection task. Separate multiple severities with commas (,). The severities decrease in descending order. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
+     * @example serious,suspicious,remind
+     *
      * @var string
      */
     public $levels;
@@ -18,10 +26,9 @@ class DescribeScanTaskStatisticsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->levels) {
@@ -31,11 +38,11 @@ class DescribeScanTaskStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeScanTaskStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

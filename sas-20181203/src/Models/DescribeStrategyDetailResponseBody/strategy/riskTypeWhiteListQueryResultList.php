@@ -4,24 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyDetailResponseBody\strategy\riskTypeWhiteListQueryResultList\subTypes;
+use AlibabaCloud\Tea\Model;
 
 class riskTypeWhiteListQueryResultList extends Model
 {
     /**
+     * @description The alias of the check item.
+     *
+     * @example Unauthorized Access
+     *
      * @var string
      */
     public $alias;
+
     /**
+     * @description Indicates whether the check item is selected. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $on;
+
     /**
+     * @description The information about sub-check items.
+     *
      * @var subTypes[]
      */
     public $subTypes;
+
     /**
+     * @description The name of the check item.
+     *
+     * @example hc_exploit
+     *
      * @var string
      */
     public $typeName;
@@ -34,33 +54,26 @@ class riskTypeWhiteListQueryResultList extends Model
 
     public function validate()
     {
-        if (\is_array($this->subTypes)) {
-            Model::validateArray($this->subTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-
         if (null !== $this->on) {
             $res['On'] = $this->on;
         }
-
         if (null !== $this->subTypes) {
-            if (\is_array($this->subTypes)) {
-                $res['SubTypes'] = [];
-                $n1              = 0;
-                foreach ($this->subTypes as $item1) {
-                    $res['SubTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SubTypes'] = [];
+            if (null !== $this->subTypes && \is_array($this->subTypes)) {
+                $n = 0;
+                foreach ($this->subTypes as $item) {
+                    $res['SubTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -68,32 +81,29 @@ class riskTypeWhiteListQueryResultList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return riskTypeWhiteListQueryResultList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-
         if (isset($map['On'])) {
             $model->on = $map['On'];
         }
-
         if (isset($map['SubTypes'])) {
             if (!empty($map['SubTypes'])) {
                 $model->subTypes = [];
-                $n1              = 0;
-                foreach ($map['SubTypes'] as $item1) {
-                    $model->subTypes[$n1++] = subTypes::fromMap($item1);
+                $n               = 0;
+                foreach ($map['SubTypes'] as $item) {
+                    $model->subTypes[$n++] = null !== $item ? subTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

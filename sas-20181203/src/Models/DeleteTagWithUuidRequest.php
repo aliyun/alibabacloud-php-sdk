@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTagWithUuidRequest extends Model
 {
     /**
+     * @description The name of the tag.
+     *
+     * This parameter is required.
+     * @example abc
+     *
      * @var string
      */
     public $tagName;
+
     /**
+     * @description The UUIDs of servers.
+     *
+     * > If the UuidList parameter is specified, Security Center removes the tag only from the servers whose UUIDs are specified by UuidList. If the UuidList parameter is not specified, Security Center removes the tag from all servers.
+     * @example 111-xx,aa-bb
+     *
      * @var string
      */
     public $uuidList;
@@ -23,16 +34,14 @@ class DeleteTagWithUuidRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
-
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
         }
@@ -40,18 +49,17 @@ class DeleteTagWithUuidRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTagWithUuidRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
-
         if (isset($map['UuidList'])) {
             $model->uuidList = $map['UuidList'];
         }

@@ -4,19 +4,40 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetSelectionConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The operating system of the asset. Valid values:
+     *
+     *   **windows**
+     *   **linux**
+     *
+     * @example linux
+     *
      * @var string
      */
     public $platform;
+
     /**
+     * @description The ID of the current asset selection. It can be used to query and modify the asset that is selected.
+     *
+     * @example 657c8411-4e89-446c-ab66-d45d1331****
+     *
      * @var string
      */
     public $selectionKey;
+
     /**
+     * @description The dimension based on which the asset is selected. Valid values:
+     *
+     *   **instance**: The asset is selected by server.
+     *   **group**: The asset is selected by group.
+     *   **vpc**: The asset is selected by VPC.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $targetType;
@@ -28,20 +49,17 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
-
         if (null !== $this->selectionKey) {
             $res['SelectionKey'] = $this->selectionKey;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -49,22 +67,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
-
         if (isset($map['SelectionKey'])) {
             $model->selectionKey = $map['SelectionKey'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

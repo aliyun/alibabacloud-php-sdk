@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMonitorAccountRequest extends Model
 {
     /**
+     * @description The ID of the member that you want to delete.
+     *
+     * This parameter is required.
+     * @example 1840517068******
+     *
      * @var string
      */
     public $accountId;
@@ -18,10 +23,9 @@ class DeleteMonitorAccountRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -31,11 +35,11 @@ class DeleteMonitorAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMonitorAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

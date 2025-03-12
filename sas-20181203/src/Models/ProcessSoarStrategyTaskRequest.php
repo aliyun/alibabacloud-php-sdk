@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ProcessSoarStrategyTaskRequest extends Model
 {
     /**
+     * @description ID of the strategy task.
+     * This parameter is required.
+     * @example 100
+     *
      * @var int
      */
     public $strategyTaskId;
+
     /**
+     * @description Task action status. Values:
+     * This parameter is required.
+     * @example SCHEDULE
+     *
      * @var string
      */
     public $taskAction;
@@ -23,16 +32,14 @@ class ProcessSoarStrategyTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strategyTaskId) {
             $res['StrategyTaskId'] = $this->strategyTaskId;
         }
-
         if (null !== $this->taskAction) {
             $res['TaskAction'] = $this->taskAction;
         }
@@ -40,18 +47,17 @@ class ProcessSoarStrategyTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ProcessSoarStrategyTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StrategyTaskId'])) {
             $model->strategyTaskId = $map['StrategyTaskId'];
         }
-
         if (isset($map['TaskAction'])) {
             $model->taskAction = $map['TaskAction'];
         }

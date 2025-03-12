@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkResponseBody\appNetwork;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class namespace_ extends Model
 {
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The name of the custom namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $name;
@@ -23,16 +32,14 @@ class namespace_ extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +47,17 @@ class namespace_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return namespace_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

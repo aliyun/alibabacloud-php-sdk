@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectPluginStatusResponseBody\data;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectPluginStatusResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListFileProtectPluginStatusResponseBody extends Model
 {
     /**
+     * @description The data returned if the call is successful.
+     *
      * @var data[]
      */
     public $data;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example 60F289EC-BAA3-5DF1-8476-B3F05A14EBC2
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListFileProtectPluginStatusResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1          = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListFileProtectPluginStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFileProtectPluginStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

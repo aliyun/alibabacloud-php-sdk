@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailResponseBody\interceptionRuleDetail;
+use AlibabaCloud\Tea\Model;
 
 class GetInterceptionRuleDetailResponseBody extends Model
 {
     /**
+     * @description The details of the rule.
+     *
      * @var interceptionRuleDetail
      */
     public $interceptionRuleDetail;
+
     /**
+     * @description The request ID.
+     *
+     * @example 9FBC6E47-7508-xxx
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetInterceptionRuleDetailResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->interceptionRuleDetail) {
-            $this->interceptionRuleDetail->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->interceptionRuleDetail) {
-            $res['InterceptionRuleDetail'] = null !== $this->interceptionRuleDetail ? $this->interceptionRuleDetail->toArray($noStream) : $this->interceptionRuleDetail;
+            $res['InterceptionRuleDetail'] = null !== $this->interceptionRuleDetail ? $this->interceptionRuleDetail->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetInterceptionRuleDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInterceptionRuleDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InterceptionRuleDetail'])) {
             $model->interceptionRuleDetail = interceptionRuleDetail::fromMap($map['InterceptionRuleDetail']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

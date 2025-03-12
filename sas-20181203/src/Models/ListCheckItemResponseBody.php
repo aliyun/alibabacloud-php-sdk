@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemResponseBody\checkItems;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListCheckItemResponseBody extends Model
 {
     /**
+     * @description The check items.
+     *
      * @var checkItems[]
      */
     public $checkItems;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example 9F4E6157-9600-5588-86B9-38F09067****
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListCheckItemResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkItems)) {
-            Model::validateArray($this->checkItems);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkItems) {
-            if (\is_array($this->checkItems)) {
-                $res['CheckItems'] = [];
-                $n1                = 0;
-                foreach ($this->checkItems as $item1) {
-                    $res['CheckItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CheckItems'] = [];
+            if (null !== $this->checkItems && \is_array($this->checkItems)) {
+                $n = 0;
+                foreach ($this->checkItems as $item) {
+                    $res['CheckItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListCheckItemResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCheckItemResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckItems'])) {
             if (!empty($map['CheckItems'])) {
                 $model->checkItems = [];
-                $n1                = 0;
-                foreach ($map['CheckItems'] as $item1) {
-                    $model->checkItems[$n1++] = checkItems::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['CheckItems'] as $item) {
+                    $model->checkItems[$n++] = null !== $item ? checkItems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

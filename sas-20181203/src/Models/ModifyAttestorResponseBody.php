@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAttestorResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9E8B1D8F-DE1C-5421-81AA-**********
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyAttestorResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyAttestorResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAttestorResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

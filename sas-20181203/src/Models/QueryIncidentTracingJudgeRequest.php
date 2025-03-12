@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryIncidentTracingJudgeRequest extends Model
 {
     /**
+     * @description The ID of the event that you want to query.
+     *
+     * This parameter is required.
+     * @example d1d7a612-0dc2-413a-aa8e-9c7c88d8d12a
+     *
      * @var string
      */
     public $incidentId;
@@ -18,10 +23,9 @@ class QueryIncidentTracingJudgeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->incidentId) {
@@ -31,11 +35,11 @@ class QueryIncidentTracingJudgeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryIncidentTracingJudgeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

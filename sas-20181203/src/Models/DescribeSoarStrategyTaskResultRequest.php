@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSoarStrategyTaskResultRequest extends Model
 {
     /**
+     * @description Condition parameters for task scheduling.
+     *
+     * @example {"status":1}
+     *
      * @var string
      */
     public $condition;
+
     /**
+     * @description The current page number during paginated queries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The maximum number of entries to display per page during paginated queries.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description Strategy task ID.
+     * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+     * @example 100
+     *
      * @var int
      */
     public $strategyTaskId;
@@ -33,24 +52,20 @@ class DescribeSoarStrategyTaskResultRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
         }
-
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->strategyTaskId) {
             $res['StrategyTaskId'] = $this->strategyTaskId;
         }
@@ -58,26 +73,23 @@ class DescribeSoarStrategyTaskResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSoarStrategyTaskResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
         }
-
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StrategyTaskId'])) {
             $model->strategyTaskId = $map['StrategyTaskId'];
         }

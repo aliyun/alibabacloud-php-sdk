@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateServiceTrailRequest extends Model
 {
     /**
+     * @description The region ID of the instance. Valid values:
+     *
+     *   **cn-hangzhou**: International
+     *   **ap-southeast-1**: Singapore
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -18,10 +25,9 @@ class CreateServiceTrailRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +37,11 @@ class CreateServiceTrailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateServiceTrailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryDiscoverDatabaseResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The progress of the database scan task in percentage.
+     *
+     * @example 90
+     *
      * @var int
      */
     public $taskProgress;
@@ -23,16 +32,14 @@ class QueryDiscoverDatabaseResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskProgress) {
             $res['TaskProgress'] = $this->taskProgress;
         }
@@ -40,18 +47,17 @@ class QueryDiscoverDatabaseResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryDiscoverDatabaseResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskProgress'])) {
             $model->taskProgress = $map['TaskProgress'];
         }

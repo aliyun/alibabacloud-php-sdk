@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClusterRuleSummaryRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * This parameter is required.
+     * @example cc49d88d1exxx
+     *
      * @var string
      */
     public $clusterId;
@@ -18,10 +23,9 @@ class GetClusterRuleSummaryRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -31,11 +35,11 @@ class GetClusterRuleSummaryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClusterRuleSummaryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

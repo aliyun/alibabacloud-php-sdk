@@ -4,75 +4,190 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCheckResultRequest extends Model
 {
     /**
+     * @description The IDs of the check items.
+     *
      * @var int[]
      */
     public $checkIds;
+
     /**
+     * @description The key that you want to use to search for check items in fuzzy match mode.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $checkKey;
+
     /**
+     * @description The page number.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description Specifies whether the check item supports custom parameters. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $customParam;
+
     /**
+     * @description The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
+     *
      * @var string[]
      */
     public $instanceIds;
+
     /**
+     * @description The asset type of the cloud services. Valid values:
+     *
+     *   **ECS**: Elastic Compute Service (ECS)
+     *   **SLB**: Server Load Balancer (SLB)
+     *   **RDS**: ApsaraDB RDS
+     *   **MONGODB**: ApsaraDB for MongoDB (MongoDB)
+     *   **KVSTORE**: ApsaraDB for Redis (Redis)
+     *   **ACR**: Container Registry
+     *   **CSK**: Container Service for Kubernetes (ACK)
+     *   **VPC**: Virtual Private Cloud (VPC)
+     *   **ACTIONTRAIL**: ActionTrail
+     *   **CDN**: Alibaba Cloud CDN (CDN)
+     *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+     *   **RDC**: Apsara Devops
+     *   **RAM**: Resource Access Management (RAM)
+     *   **DDOS**: Anti-DDoS
+     *   **WAF**: Web Application Firewall (WAF)
+     *   **OSS**: Object Storage Service (OSS)
+     *   **POLARDB**: PolarDB
+     *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
+     *   **MSE**: Microservices Engine (MSE)
+     *   **NAS**: File Storage NAS (NAS)
+     *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
+     *   **EIP**: Elastic IP Address (EIP)
+     *
      * @var string[]
      */
     public $instanceTypes;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description Specifies whether fixing is supported. Valid values:
+     *
+     *   **SUPPORT_REPAIR**
+     *   **NOT_SUPPORT_REPAIR**
+     *
      * @var string[]
      */
     public $operationTypes;
+
     /**
+     * @description The number of entries per page. Maximum value: 100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The region ID of the instance. Valid values:
+     *
+     *   **cn-hangzhou**: International
+     *   **ap-southeast-1**: Singapore
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The IDs of the requirements.
+     *
      * @var int[]
      */
     public $requirementIds;
+
     /**
+     * @description The risk levels of check items. Separate multiple risk levels with commas (,). Valid values:
+     *
+     *   **HIGH**
+     *   **MEDIUM**
+     *   **LOW**
+     *
      * @var string[]
      */
     public $riskLevels;
+
     /**
+     * @description The types of the conditions based on which check items are sorted. Valid values:
+     *
+     *   **RISK_LEVEL**: risk level
+     *   **STATUS**: status
+     *
      * @var string[]
      */
     public $sortTypes;
+
     /**
+     * @description The standard IDs.
+     *
      * @var int[]
      */
     public $standardIds;
+
     /**
+     * @description The statuses of check items. Separate multiple statuses with commas (,). Valid values:
+     *
+     *   **PASS**
+     *   **NOT_PASS**
+     *   **CHECKING**
+     *   **NOT_CHECK**
+     *   **WHITELIST**
+     *
      * @var string[]
      */
     public $statuses;
+
     /**
+     * @description The types of check standards.
+     *
      * @var string[]
      */
     public $types;
+
     /**
+     * @description The cloud service providers. Valid values:
+     *
+     *   **ALIYUN**: Alibaba Cloud
+     *   **TENCENT**: Tencent Cloud
+     *   **AWS**: Amazon Web Services (AWS)
+     *   **MICROSOFT**: Microsoft Azure
+     *
      * @var string[]
      */
     public $vendors;
@@ -98,321 +213,145 @@ class ListCheckResultRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkIds)) {
-            Model::validateArray($this->checkIds);
-        }
-        if (\is_array($this->instanceIds)) {
-            Model::validateArray($this->instanceIds);
-        }
-        if (\is_array($this->instanceTypes)) {
-            Model::validateArray($this->instanceTypes);
-        }
-        if (\is_array($this->operationTypes)) {
-            Model::validateArray($this->operationTypes);
-        }
-        if (\is_array($this->requirementIds)) {
-            Model::validateArray($this->requirementIds);
-        }
-        if (\is_array($this->riskLevels)) {
-            Model::validateArray($this->riskLevels);
-        }
-        if (\is_array($this->sortTypes)) {
-            Model::validateArray($this->sortTypes);
-        }
-        if (\is_array($this->standardIds)) {
-            Model::validateArray($this->standardIds);
-        }
-        if (\is_array($this->statuses)) {
-            Model::validateArray($this->statuses);
-        }
-        if (\is_array($this->types)) {
-            Model::validateArray($this->types);
-        }
-        if (\is_array($this->vendors)) {
-            Model::validateArray($this->vendors);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkIds) {
-            if (\is_array($this->checkIds)) {
-                $res['CheckIds'] = [];
-                $n1              = 0;
-                foreach ($this->checkIds as $item1) {
-                    $res['CheckIds'][$n1++] = $item1;
-                }
-            }
+            $res['CheckIds'] = $this->checkIds;
         }
-
         if (null !== $this->checkKey) {
             $res['CheckKey'] = $this->checkKey;
         }
-
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->customParam) {
             $res['CustomParam'] = $this->customParam;
         }
-
         if (null !== $this->instanceIds) {
-            if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
-                $n1                 = 0;
-                foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceIds'] = $this->instanceIds;
         }
-
         if (null !== $this->instanceTypes) {
-            if (\is_array($this->instanceTypes)) {
-                $res['InstanceTypes'] = [];
-                $n1                   = 0;
-                foreach ($this->instanceTypes as $item1) {
-                    $res['InstanceTypes'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceTypes'] = $this->instanceTypes;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->operationTypes) {
-            if (\is_array($this->operationTypes)) {
-                $res['OperationTypes'] = [];
-                $n1                    = 0;
-                foreach ($this->operationTypes as $item1) {
-                    $res['OperationTypes'][$n1++] = $item1;
-                }
-            }
+            $res['OperationTypes'] = $this->operationTypes;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->requirementIds) {
-            if (\is_array($this->requirementIds)) {
-                $res['RequirementIds'] = [];
-                $n1                    = 0;
-                foreach ($this->requirementIds as $item1) {
-                    $res['RequirementIds'][$n1++] = $item1;
-                }
-            }
+            $res['RequirementIds'] = $this->requirementIds;
         }
-
         if (null !== $this->riskLevels) {
-            if (\is_array($this->riskLevels)) {
-                $res['RiskLevels'] = [];
-                $n1                = 0;
-                foreach ($this->riskLevels as $item1) {
-                    $res['RiskLevels'][$n1++] = $item1;
-                }
-            }
+            $res['RiskLevels'] = $this->riskLevels;
         }
-
         if (null !== $this->sortTypes) {
-            if (\is_array($this->sortTypes)) {
-                $res['SortTypes'] = [];
-                $n1               = 0;
-                foreach ($this->sortTypes as $item1) {
-                    $res['SortTypes'][$n1++] = $item1;
-                }
-            }
+            $res['SortTypes'] = $this->sortTypes;
         }
-
         if (null !== $this->standardIds) {
-            if (\is_array($this->standardIds)) {
-                $res['StandardIds'] = [];
-                $n1                 = 0;
-                foreach ($this->standardIds as $item1) {
-                    $res['StandardIds'][$n1++] = $item1;
-                }
-            }
+            $res['StandardIds'] = $this->standardIds;
         }
-
         if (null !== $this->statuses) {
-            if (\is_array($this->statuses)) {
-                $res['Statuses'] = [];
-                $n1              = 0;
-                foreach ($this->statuses as $item1) {
-                    $res['Statuses'][$n1++] = $item1;
-                }
-            }
+            $res['Statuses'] = $this->statuses;
         }
-
         if (null !== $this->types) {
-            if (\is_array($this->types)) {
-                $res['Types'] = [];
-                $n1           = 0;
-                foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = $item1;
-                }
-            }
+            $res['Types'] = $this->types;
         }
-
         if (null !== $this->vendors) {
-            if (\is_array($this->vendors)) {
-                $res['Vendors'] = [];
-                $n1             = 0;
-                foreach ($this->vendors as $item1) {
-                    $res['Vendors'][$n1++] = $item1;
-                }
-            }
+            $res['Vendors'] = $this->vendors;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCheckResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckIds'])) {
             if (!empty($map['CheckIds'])) {
-                $model->checkIds = [];
-                $n1              = 0;
-                foreach ($map['CheckIds'] as $item1) {
-                    $model->checkIds[$n1++] = $item1;
-                }
+                $model->checkIds = $map['CheckIds'];
             }
         }
-
         if (isset($map['CheckKey'])) {
             $model->checkKey = $map['CheckKey'];
         }
-
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['CustomParam'])) {
             $model->customParam = $map['CustomParam'];
         }
-
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = [];
-                $n1                 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
-                }
+                $model->instanceIds = $map['InstanceIds'];
             }
         }
-
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = [];
-                $n1                   = 0;
-                foreach ($map['InstanceTypes'] as $item1) {
-                    $model->instanceTypes[$n1++] = $item1;
-                }
+                $model->instanceTypes = $map['InstanceTypes'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['OperationTypes'])) {
             if (!empty($map['OperationTypes'])) {
-                $model->operationTypes = [];
-                $n1                    = 0;
-                foreach ($map['OperationTypes'] as $item1) {
-                    $model->operationTypes[$n1++] = $item1;
-                }
+                $model->operationTypes = $map['OperationTypes'];
             }
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RequirementIds'])) {
             if (!empty($map['RequirementIds'])) {
-                $model->requirementIds = [];
-                $n1                    = 0;
-                foreach ($map['RequirementIds'] as $item1) {
-                    $model->requirementIds[$n1++] = $item1;
-                }
+                $model->requirementIds = $map['RequirementIds'];
             }
         }
-
         if (isset($map['RiskLevels'])) {
             if (!empty($map['RiskLevels'])) {
-                $model->riskLevels = [];
-                $n1                = 0;
-                foreach ($map['RiskLevels'] as $item1) {
-                    $model->riskLevels[$n1++] = $item1;
-                }
+                $model->riskLevels = $map['RiskLevels'];
             }
         }
-
         if (isset($map['SortTypes'])) {
             if (!empty($map['SortTypes'])) {
-                $model->sortTypes = [];
-                $n1               = 0;
-                foreach ($map['SortTypes'] as $item1) {
-                    $model->sortTypes[$n1++] = $item1;
-                }
+                $model->sortTypes = $map['SortTypes'];
             }
         }
-
         if (isset($map['StandardIds'])) {
             if (!empty($map['StandardIds'])) {
-                $model->standardIds = [];
-                $n1                 = 0;
-                foreach ($map['StandardIds'] as $item1) {
-                    $model->standardIds[$n1++] = $item1;
-                }
+                $model->standardIds = $map['StandardIds'];
             }
         }
-
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
-                $model->statuses = [];
-                $n1              = 0;
-                foreach ($map['Statuses'] as $item1) {
-                    $model->statuses[$n1++] = $item1;
-                }
+                $model->statuses = $map['Statuses'];
             }
         }
-
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = [];
-                $n1           = 0;
-                foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = $item1;
-                }
+                $model->types = $map['Types'];
             }
         }
-
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {
-                $model->vendors = [];
-                $n1             = 0;
-                foreach ($map['Vendors'] as $item1) {
-                    $model->vendors[$n1++] = $item1;
-                }
+                $model->vendors = $map['Vendors'];
             }
         }
 

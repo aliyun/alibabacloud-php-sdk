@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSoarStrategiesRequest extends Model
 {
     /**
+     * @description The page number. Pages start from page 1.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * This parameter is required.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -23,16 +34,14 @@ class DescribeSoarStrategiesRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -40,18 +49,17 @@ class DescribeSoarStrategiesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSoarStrategiesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

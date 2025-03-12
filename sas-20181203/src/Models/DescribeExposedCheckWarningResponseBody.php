@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedCheckWarningResponseBody\warningList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeExposedCheckWarningResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6D9CDB47-6191-4415-BE63-7E8B12CD****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array that consists of the baseline risk items of the exposed server.
+     *
      * @var warningList[]
      */
     public $warningList;
@@ -29,29 +41,23 @@ class DescribeExposedCheckWarningResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->warningList)) {
-            Model::validateArray($this->warningList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->warningList) {
-            if (\is_array($this->warningList)) {
-                $res['WarningList'] = [];
-                $n1                 = 0;
-                foreach ($this->warningList as $item1) {
-                    $res['WarningList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WarningList'] = [];
+            if (null !== $this->warningList && \is_array($this->warningList)) {
+                $n = 0;
+                foreach ($this->warningList as $item) {
+                    $res['WarningList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +65,26 @@ class DescribeExposedCheckWarningResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeExposedCheckWarningResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['WarningList'])) {
             if (!empty($map['WarningList'])) {
                 $model->warningList = [];
-                $n1                 = 0;
-                foreach ($map['WarningList'] as $item1) {
-                    $model->warningList[$n1++] = warningList::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['WarningList'] as $item) {
+                    $model->warningList[$n++] = null !== $item ? warningList::fromMap($item) : $item;
                 }
             }
         }

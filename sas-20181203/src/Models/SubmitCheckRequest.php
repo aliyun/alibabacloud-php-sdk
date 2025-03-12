@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitCheckRequest extends Model
 {
     /**
+     * @description The check items that are scanned. Valid values:
+     *
+     *   **FULL**: All check items are scanned.
+     *   **FULL**: Only the check items that are configured are scanned.
+     *
+     * @example POLICY
+     *
      * @var string
      */
     public $scanRange;
@@ -18,10 +25,9 @@ class SubmitCheckRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scanRange) {
@@ -31,11 +37,11 @@ class SubmitCheckRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitCheckRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

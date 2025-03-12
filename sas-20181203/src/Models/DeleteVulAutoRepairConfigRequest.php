@@ -4,19 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVulAutoRepairConfigRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example RHSA-2017:0184-Important: mysql security update
+     *
      * @var string
      */
     public $aliasName;
+
     /**
+     * @description The IDs of the configurations.
+     *
+     * >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
      * @var int[]
      */
     public $configIdList;
+
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerability
+     *   sys: Windows system vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $type;
@@ -28,29 +44,17 @@ class DeleteVulAutoRepairConfigRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->configIdList)) {
-            Model::validateArray($this->configIdList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
-
         if (null !== $this->configIdList) {
-            if (\is_array($this->configIdList)) {
-                $res['ConfigIdList'] = [];
-                $n1                  = 0;
-                foreach ($this->configIdList as $item1) {
-                    $res['ConfigIdList'][$n1++] = $item1;
-                }
-            }
+            $res['ConfigIdList'] = $this->configIdList;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -58,28 +62,22 @@ class DeleteVulAutoRepairConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVulAutoRepairConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
-
         if (isset($map['ConfigIdList'])) {
             if (!empty($map['ConfigIdList'])) {
-                $model->configIdList = [];
-                $n1                  = 0;
-                foreach ($map['ConfigIdList'] as $item1) {
-                    $model->configIdList[$n1++] = $item1;
-                }
+                $model->configIdList = $map['ConfigIdList'];
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

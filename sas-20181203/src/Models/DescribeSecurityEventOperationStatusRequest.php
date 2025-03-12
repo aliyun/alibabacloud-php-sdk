@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityEventOperationStatusRequest extends Model
 {
@@ -12,15 +12,32 @@ class DescribeSecurityEventOperationStatusRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description The IDs of the alert events.
+     *
+     * This parameter is required.
+     * @example ["909361"]
+     *
      * @var string[]
      */
     public $securityEventIds;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The ID of the task that handles the alert events.
+     *
+     * This parameter is required.
+     * @example 12121
+     *
      * @var int
      */
     public $taskId;
@@ -33,33 +50,20 @@ class DescribeSecurityEventOperationStatusRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->securityEventIds)) {
-            Model::validateArray($this->securityEventIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityEventIds) {
-            if (\is_array($this->securityEventIds)) {
-                $res['SecurityEventIds'] = [];
-                $n1                      = 0;
-                foreach ($this->securityEventIds as $item1) {
-                    $res['SecurityEventIds'][$n1++] = $item1;
-                }
-            }
+            $res['SecurityEventIds'] = $this->securityEventIds;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -67,32 +71,25 @@ class DescribeSecurityEventOperationStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSecurityEventOperationStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {
-                $model->securityEventIds = [];
-                $n1                      = 0;
-                foreach ($map['SecurityEventIds'] as $item1) {
-                    $model->securityEventIds[$n1++] = $item1;
-                }
+                $model->securityEventIds = $map['SecurityEventIds'];
             }
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRiskResponseBody\imageRiskList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class endPointList extends Model
 {
     /**
+     * @description An array that consists the details of the domain name in the endpoint.
+     *
      * @var string[]
      */
     public $domains;
+
     /**
+     * @description The type of the domain name in the endpoint. Valid values:
+     *
+     *   **internet**: Internet
+     *   **intranet**: internal network
+     *
+     * @example internet
+     *
      * @var string
      */
     public $type;
@@ -23,25 +33,14 @@ class endPointList extends Model
 
     public function validate()
     {
-        if (\is_array($this->domains)) {
-            Model::validateArray($this->domains);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domains) {
-            if (\is_array($this->domains)) {
-                $res['Domains'] = [];
-                $n1             = 0;
-                foreach ($this->domains as $item1) {
-                    $res['Domains'][$n1++] = $item1;
-                }
-            }
+            $res['Domains'] = $this->domains;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -49,24 +48,19 @@ class endPointList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return endPointList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = [];
-                $n1             = 0;
-                foreach ($map['Domains'] as $item1) {
-                    $model->domains[$n1++] = $item1;
-                }
+                $model->domains = $map['Domains'];
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

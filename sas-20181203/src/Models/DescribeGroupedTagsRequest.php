@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGroupedTagsRequest extends Model
 {
     /**
+     * @description The type of the asset to query. If you do not specify this parameter, the tags of all asset types are queried. Valid values:
+     *
+     *   **ecs**: server
+     *   **cloud_product**: Alibaba Cloud service
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $machineTypes;
@@ -18,10 +25,9 @@ class DescribeGroupedTagsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machineTypes) {
@@ -31,11 +37,11 @@ class DescribeGroupedTagsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGroupedTagsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

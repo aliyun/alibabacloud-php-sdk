@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RollbackSuspEventQuaraFileResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 52A3AEE6-114A-499D-8990-4BA9B27FE0AA
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class RollbackSuspEventQuaraFileResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class RollbackSuspEventQuaraFileResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RollbackSuspEventQuaraFileResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

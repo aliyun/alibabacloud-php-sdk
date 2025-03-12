@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSuspEventNoteRequest extends Model
 {
     /**
+     * @description The ID of the alert event to which you want to add remarks. You can call the [DescribeSuspEvents](https://help.aliyun.com/document_detail/251497.html) operation to query the IDs of alert events.
+     *
+     * This parameter is required.
+     * @example 668931
+     *
      * @var int
      */
     public $eventId;
+
     /**
+     * @description The remarks that you want to add.
+     *
+     * This parameter is required.
+     * @example Ignore
+     *
      * @var string
      */
     public $note;
@@ -23,16 +34,14 @@ class CreateSuspEventNoteRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-
         if (null !== $this->note) {
             $res['Note'] = $this->note;
         }
@@ -40,18 +49,17 @@ class CreateSuspEventNoteRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSuspEventNoteRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
         }

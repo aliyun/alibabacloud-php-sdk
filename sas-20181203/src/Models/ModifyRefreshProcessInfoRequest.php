@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyRefreshProcessInfoRequest extends Model
 {
     /**
+     * @description The UUID of the server.
+     *
+     * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+     * @example 0f3b8f76-90e5-4455-a5aa-23ce30b5****
+     *
      * @var string
      */
     public $uuid;
@@ -18,10 +23,9 @@ class ModifyRefreshProcessInfoRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -31,11 +35,11 @@ class ModifyRefreshProcessInfoRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyRefreshProcessInfoRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

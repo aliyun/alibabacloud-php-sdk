@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryIncidentSubNodesCountRequest extends Model
 {
     /**
+     * @description The request parameters.
+     *
+     * @example {"body": {"VertexIdAndTypeList": [["b17f3a9a1a6abd6a6786208492e71912", "process"], ["58fa3749cd7ce20f7e75424070012ed9", "file"]]}}
+     *
      * @var string
      */
     public $body;
@@ -18,10 +22,9 @@ class QueryIncidentSubNodesCountRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
@@ -31,11 +34,11 @@ class QueryIncidentSubNodesCountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryIncidentSubNodesCountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

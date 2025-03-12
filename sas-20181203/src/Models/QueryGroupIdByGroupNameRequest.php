@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryGroupIdByGroupNameRequest extends Model
 {
     /**
+     * @description The name of the asset group.
+     *
+     * This parameter is required.
+     * @example TestGroupName
+     *
      * @var string
      */
     public $groupName;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
@@ -23,16 +33,14 @@ class QueryGroupIdByGroupNameRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -40,18 +48,17 @@ class QueryGroupIdByGroupNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryGroupIdByGroupNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

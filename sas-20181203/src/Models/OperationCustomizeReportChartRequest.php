@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperationCustomizeReportChartRequest extends Model
 {
     /**
+     * @description The ID of the chart that is included in the report. Separate multiple IDs with commas (,).
+     *
+     * This parameter is required.
+     * @example CID_VUL_SUMMARY,CID_VUL_TREND,CID_VUL_OPERATION_TREND,CID_BASELINE_CHECK_SUMMARY,CID_BASELINE_CHECK_TREND,CID_BASELINE_CHECK_OPERATION_TREND
+     *
      * @var string
      */
     public $chartIds;
+
     /**
+     * @description The ID of the report.
+     *
+     * This parameter is required.
+     * @example 123
+     *
      * @var int
      */
     public $reportId;
@@ -23,16 +34,14 @@ class OperationCustomizeReportChartRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chartIds) {
             $res['ChartIds'] = $this->chartIds;
         }
-
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
@@ -40,18 +49,17 @@ class OperationCustomizeReportChartRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperationCustomizeReportChartRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChartIds'])) {
             $model->chartIds = $map['ChartIds'];
         }
-
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }

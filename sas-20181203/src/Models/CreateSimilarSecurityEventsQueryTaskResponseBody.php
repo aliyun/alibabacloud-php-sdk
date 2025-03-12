@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponseBody\createSimilarSecurityEventsQueryTaskResponse;
+use AlibabaCloud\Tea\Model;
 
 class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
 {
     /**
+     * @description The information about the task that queries alert events of the same alert type.
+     *
      * @var createSimilarSecurityEventsQueryTaskResponse
      */
     public $createSimilarSecurityEventsQueryTaskResponse;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5861EE3E-F0B3-48B8-A5DC-A5080BFBE052
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->createSimilarSecurityEventsQueryTaskResponse) {
-            $this->createSimilarSecurityEventsQueryTaskResponse->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createSimilarSecurityEventsQueryTaskResponse) {
-            $res['CreateSimilarSecurityEventsQueryTaskResponse'] = null !== $this->createSimilarSecurityEventsQueryTaskResponse ? $this->createSimilarSecurityEventsQueryTaskResponse->toArray($noStream) : $this->createSimilarSecurityEventsQueryTaskResponse;
+            $res['CreateSimilarSecurityEventsQueryTaskResponse'] = null !== $this->createSimilarSecurityEventsQueryTaskResponse ? $this->createSimilarSecurityEventsQueryTaskResponse->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSimilarSecurityEventsQueryTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateSimilarSecurityEventsQueryTaskResponse'])) {
             $model->createSimilarSecurityEventsQueryTaskResponse = createSimilarSecurityEventsQueryTaskResponse::fromMap($map['CreateSimilarSecurityEventsQueryTaskResponse']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

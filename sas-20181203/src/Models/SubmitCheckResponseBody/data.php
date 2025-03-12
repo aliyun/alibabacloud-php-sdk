@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\SubmitCheckResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The operation code of the configuration assessment task.
+     *
+     *   **Throttling**: frequency limit
+     *   **AuthorizationExhaust**: insufficient quota
+     *
+     * @example Throttling
+     *
      * @var string
      */
     public $operateCode;
+
     /**
+     * @description The throttling duration. Unit: seconds.
+     *
+     * @example 1800
+     *
      * @var int
      */
     public $throttlingTimeSecond;
@@ -23,16 +35,14 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
         }
-
         if (null !== $this->throttlingTimeSecond) {
             $res['ThrottlingTimeSecond'] = $this->throttlingTimeSecond;
         }
@@ -40,18 +50,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
         }
-
         if (isset($map['ThrottlingTimeSecond'])) {
             $model->throttlingTimeSecond = $map['ThrottlingTimeSecond'];
         }

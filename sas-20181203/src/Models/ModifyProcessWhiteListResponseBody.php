@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyProcessWhiteListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 11C96623-E106-59C9-866D-A6C82911****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyProcessWhiteListResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyProcessWhiteListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyProcessWhiteListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

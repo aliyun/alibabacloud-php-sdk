@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCloudVendorRegionsRequest extends Model
 {
     /**
+     * @description The language of the content in the request and response messages. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The service provider of cloud assets. Valid values:
+     *
+     *   **Tencent**, **HUAWEICLOUD**, **Azure**, and **AWS**: other service providers of cloud assets.
+     *
+     * @example Tencent
+     *
      * @var string
      */
     public $vendor;
@@ -23,16 +37,14 @@ class ListCloudVendorRegionsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -40,18 +52,17 @@ class ListCloudVendorRegionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCloudVendorRegionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

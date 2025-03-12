@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemAggregationRulesResponseBody\aggregationList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemAggregationRulesResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListSystemAggregationRulesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the aggregation types.
+     *
      * @var aggregationList[]
      */
     public $aggregationList;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 6800B790-B10A-5C2F-BEB3-F1D5CE61****
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListSystemAggregationRulesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->aggregationList)) {
-            Model::validateArray($this->aggregationList);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aggregationList) {
-            if (\is_array($this->aggregationList)) {
-                $res['AggregationList'] = [];
-                $n1                     = 0;
-                foreach ($this->aggregationList as $item1) {
-                    $res['AggregationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AggregationList'] = [];
+            if (null !== $this->aggregationList && \is_array($this->aggregationList)) {
+                $n = 0;
+                foreach ($this->aggregationList as $item) {
+                    $res['AggregationList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListSystemAggregationRulesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSystemAggregationRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregationList'])) {
             if (!empty($map['AggregationList'])) {
                 $model->aggregationList = [];
-                $n1                     = 0;
-                foreach ($map['AggregationList'] as $item1) {
-                    $model->aggregationList[$n1++] = aggregationList::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['AggregationList'] as $item) {
+                    $model->aggregationList[$n++] = null !== $item ? aggregationList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

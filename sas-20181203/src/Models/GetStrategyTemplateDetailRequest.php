@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetStrategyTemplateDetailRequest extends Model
 {
     /**
+     * @description The ID of the template.
+     *
+     * >  You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to query the IDs of templates.
+     * @example 2
+     *
      * @var int
      */
     public $strategyId;
@@ -18,10 +23,9 @@ class GetStrategyTemplateDetailRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strategyId) {
@@ -31,11 +35,11 @@ class GetStrategyTemplateDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetStrategyTemplateDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteHoneypotProbeBindRequest extends Model
 {
     /**
+     * @description The unique ID of the bound service.
+     *
+     * @example aa20815f-f0f3-4e3b-8e13-55771742****
+     *
      * @var string
      */
     public $bindId;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The probe ID.
+     *
+     * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     * @example aa234650-cfcf-4e25-b61f-c58f603f****
+     *
      * @var string
      */
     public $probeId;
@@ -28,20 +46,17 @@ class DeleteHoneypotProbeBindRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bindId) {
             $res['BindId'] = $this->bindId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->probeId) {
             $res['ProbeId'] = $this->probeId;
         }
@@ -49,22 +64,20 @@ class DeleteHoneypotProbeBindRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteHoneypotProbeBindRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindId'])) {
             $model->bindId = $map['BindId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['ProbeId'])) {
             $model->probeId = $map['ProbeId'];
         }

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckResultResponseBody\checkResultList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCheckResultResponseBody extends Model
 {
     /**
+     * @description The check results.
+     *
      * @var checkResultList[]
      */
     public $checkResultList;
+
     /**
+     * @description The request ID.
+     *
+     * @example 571B2642-BF51-5BDD-906B-D2340DB9****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeCheckResultResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkResultList)) {
-            Model::validateArray($this->checkResultList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkResultList) {
-            if (\is_array($this->checkResultList)) {
-                $res['CheckResultList'] = [];
-                $n1                     = 0;
-                foreach ($this->checkResultList as $item1) {
-                    $res['CheckResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CheckResultList'] = [];
+            if (null !== $this->checkResultList && \is_array($this->checkResultList)) {
+                $n = 0;
+                foreach ($this->checkResultList as $item) {
+                    $res['CheckResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeCheckResultResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCheckResultResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckResultList'])) {
             if (!empty($map['CheckResultList'])) {
                 $model->checkResultList = [];
-                $n1                     = 0;
-                foreach ($map['CheckResultList'] as $item1) {
-                    $model->checkResultList[$n1++] = checkResultList::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['CheckResultList'] as $item) {
+                    $model->checkResultList[$n++] = null !== $item ? checkResultList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

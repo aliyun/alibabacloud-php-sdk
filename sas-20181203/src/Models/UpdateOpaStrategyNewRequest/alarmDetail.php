@@ -4,32 +4,46 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\baseline;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\buildRisk;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\maliciousFile;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\sensitiveFile;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateOpaStrategyNewRequest\alarmDetail\vul;
+use AlibabaCloud\Tea\Model;
 
 class alarmDetail extends Model
 {
     /**
+     * @description The baseline risks.
+     *
      * @var baseline
      */
     public $baseline;
+
     /**
+     * @description The configuration of image build risk.
+     *
      * @var buildRisk
      */
     public $buildRisk;
+
     /**
+     * @description The malicious sample risks.
+     *
      * @var maliciousFile
      */
     public $maliciousFile;
+
     /**
+     * @description The configuration of sensitive file.
+     *
      * @var sensitiveFile
      */
     public $sensitiveFile;
+
     /**
+     * @description The vulnerability risks.
+     *
      * @var vul
      */
     public $vul;
@@ -43,74 +57,50 @@ class alarmDetail extends Model
 
     public function validate()
     {
-        if (null !== $this->baseline) {
-            $this->baseline->validate();
-        }
-        if (null !== $this->buildRisk) {
-            $this->buildRisk->validate();
-        }
-        if (null !== $this->maliciousFile) {
-            $this->maliciousFile->validate();
-        }
-        if (null !== $this->sensitiveFile) {
-            $this->sensitiveFile->validate();
-        }
-        if (null !== $this->vul) {
-            $this->vul->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseline) {
-            $res['Baseline'] = null !== $this->baseline ? $this->baseline->toArray($noStream) : $this->baseline;
+            $res['Baseline'] = null !== $this->baseline ? $this->baseline->toMap() : null;
         }
-
         if (null !== $this->buildRisk) {
-            $res['BuildRisk'] = null !== $this->buildRisk ? $this->buildRisk->toArray($noStream) : $this->buildRisk;
+            $res['BuildRisk'] = null !== $this->buildRisk ? $this->buildRisk->toMap() : null;
         }
-
         if (null !== $this->maliciousFile) {
-            $res['MaliciousFile'] = null !== $this->maliciousFile ? $this->maliciousFile->toArray($noStream) : $this->maliciousFile;
+            $res['MaliciousFile'] = null !== $this->maliciousFile ? $this->maliciousFile->toMap() : null;
         }
-
         if (null !== $this->sensitiveFile) {
-            $res['SensitiveFile'] = null !== $this->sensitiveFile ? $this->sensitiveFile->toArray($noStream) : $this->sensitiveFile;
+            $res['SensitiveFile'] = null !== $this->sensitiveFile ? $this->sensitiveFile->toMap() : null;
         }
-
         if (null !== $this->vul) {
-            $res['Vul'] = null !== $this->vul ? $this->vul->toArray($noStream) : $this->vul;
+            $res['Vul'] = null !== $this->vul ? $this->vul->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alarmDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Baseline'])) {
             $model->baseline = baseline::fromMap($map['Baseline']);
         }
-
         if (isset($map['BuildRisk'])) {
             $model->buildRisk = buildRisk::fromMap($map['BuildRisk']);
         }
-
         if (isset($map['MaliciousFile'])) {
             $model->maliciousFile = maliciousFile::fromMap($map['MaliciousFile']);
         }
-
         if (isset($map['SensitiveFile'])) {
             $model->sensitiveFile = sensitiveFile::fromMap($map['SensitiveFile']);
         }
-
         if (isset($map['Vul'])) {
             $model->vul = vul::fromMap($map['Vul']);
         }

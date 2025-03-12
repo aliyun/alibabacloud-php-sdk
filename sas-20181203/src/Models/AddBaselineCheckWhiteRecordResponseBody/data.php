@@ -4,35 +4,79 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\AddBaselineCheckWhiteRecordResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
+     * @example 76
+     *
      * @var int
      */
     public $checkId;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The reason why the check item is added to the whitelist.
+     *
+     * @example AutoTest
+     *
      * @var string
      */
     public $reason;
+
     /**
+     * @description The ID of the whitelist rule.
+     *
+     * @example 864153
+     *
      * @var int
      */
     public $recordId;
+
     /**
+     * @description The data source. Valid values:
+     *
+     *   **default**: server
+     *   **agentless**: agentless detection
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;
+
     /**
+     * @description The object that is added to the whitelist.
+     *
+     * @example HOST_BASELINE_WHITE_LIST_21
+     *
      * @var string
      */
     public $target;
+
     /**
+     * @description The type of the assets on which the whitelist rule takes effect. Valid values:
+     *
+     *   **all_instance**: all servers
+     *   **instance**: specific servers
+     *
+     * @example instance
+     *
      * @var string
      */
     public $targetType;
@@ -48,36 +92,29 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -85,38 +122,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

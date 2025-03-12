@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateHybridProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example C0DD0616-0DA0-5450-B89E-F30D49E63D6B
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateHybridProxyResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateHybridProxyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateHybridProxyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

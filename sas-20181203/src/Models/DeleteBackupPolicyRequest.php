@@ -4,15 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy that you want to delete.
+     *
+     * This parameter is required.
+     * @example 12
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The version of the anti-ransomware policy that you want to delete. You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies. Valid values:
+     *
+     *   **1.0.0**
+     *   **2.0.0**
+     *
+     * @example 2.0.0
+     *
      * @var string
      */
     public $policyVersion;
@@ -23,16 +36,14 @@ class DeleteBackupPolicyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
         }
@@ -40,18 +51,17 @@ class DeleteBackupPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBackupPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
         }

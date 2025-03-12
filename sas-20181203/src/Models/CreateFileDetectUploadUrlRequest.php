@@ -4,20 +4,42 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest\hashKeyContextList;
+use AlibabaCloud\Tea\Model;
 
 class CreateFileDetectUploadUrlRequest extends Model
 {
     /**
+     * @description The hash values of files.
+     *
+     * > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
      * @var hashKeyContextList[]
      */
     public $hashKeyContextList;
+
     /**
+     * @description The identifiers of files. Only MD5 hash values are supported.
+     *
+     * > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
+     * @example CreateFileDetectUploadUrl
+     *
      * @var string[]
      */
     public $hashKeyList;
+
     /**
+     * @description The type of the file. Valid values:
+     *
+     *   **0**: unknown file
+     *   **1**: binary file
+     *   **2**: webshell file
+     *   **4**: script file
+     *
+     * > If you do not know the type of the file, set this parameter to **0**.
+     *
+     * This parameter is required.
+     * @example 0
+     *
      * @var int
      */
     public $type;
@@ -29,38 +51,23 @@ class CreateFileDetectUploadUrlRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->hashKeyContextList)) {
-            Model::validateArray($this->hashKeyContextList);
-        }
-        if (\is_array($this->hashKeyList)) {
-            Model::validateArray($this->hashKeyList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hashKeyContextList) {
-            if (\is_array($this->hashKeyContextList)) {
-                $res['HashKeyContextList'] = [];
-                $n1                        = 0;
-                foreach ($this->hashKeyContextList as $item1) {
-                    $res['HashKeyContextList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['HashKeyContextList'] = [];
+            if (null !== $this->hashKeyContextList && \is_array($this->hashKeyContextList)) {
+                $n = 0;
+                foreach ($this->hashKeyContextList as $item) {
+                    $res['HashKeyContextList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->hashKeyList) {
-            if (\is_array($this->hashKeyList)) {
-                $res['HashKeyList'] = [];
-                $n1                 = 0;
-                foreach ($this->hashKeyList as $item1) {
-                    $res['HashKeyList'][$n1++] = $item1;
-                }
-            }
+            $res['HashKeyList'] = $this->hashKeyList;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,34 +75,28 @@ class CreateFileDetectUploadUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateFileDetectUploadUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HashKeyContextList'])) {
             if (!empty($map['HashKeyContextList'])) {
                 $model->hashKeyContextList = [];
-                $n1                        = 0;
-                foreach ($map['HashKeyContextList'] as $item1) {
-                    $model->hashKeyContextList[$n1++] = hashKeyContextList::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['HashKeyContextList'] as $item) {
+                    $model->hashKeyContextList[$n++] = null !== $item ? hashKeyContextList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['HashKeyList'])) {
             if (!empty($map['HashKeyList'])) {
-                $model->hashKeyList = [];
-                $n1                 = 0;
-                foreach ($map['HashKeyList'] as $item1) {
-                    $model->hashKeyList[$n1++] = $item1;
-                }
+                $model->hashKeyList = $map['HashKeyList'];
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

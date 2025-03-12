@@ -4,28 +4,53 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigResponseBody\data\ruleTree;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether the new rule is enabled for automatic check only on agentless detection. Valid values:
+     *
+     *   **0**: disabled.
+     *   **1**: enabled.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $enableNewRule;
+
     /**
+     * @description The custom configuration ID.
+     *
+     * @example 44616
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The total number of check rules.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ruleCount;
+
     /**
+     * @description The tree of the check rules.
+     *
      * @var ruleTree[]
      */
     public $ruleTree;
+
     /**
+     * @description The number of selected check rules.
+     *
+     * @example 99
+     *
      * @var int
      */
     public $selectedCount;
@@ -39,37 +64,29 @@ class data extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleTree)) {
-            Model::validateArray($this->ruleTree);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableNewRule) {
             $res['EnableNewRule'] = $this->enableNewRule;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
-
         if (null !== $this->ruleTree) {
-            if (\is_array($this->ruleTree)) {
-                $res['RuleTree'] = [];
-                $n1              = 0;
-                foreach ($this->ruleTree as $item1) {
-                    $res['RuleTree'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuleTree'] = [];
+            if (null !== $this->ruleTree && \is_array($this->ruleTree)) {
+                $n = 0;
+                foreach ($this->ruleTree as $item) {
+                    $res['RuleTree'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->selectedCount) {
             $res['SelectedCount'] = $this->selectedCount;
         }
@@ -77,36 +94,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableNewRule'])) {
             $model->enableNewRule = $map['EnableNewRule'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }
-
         if (isset($map['RuleTree'])) {
             if (!empty($map['RuleTree'])) {
                 $model->ruleTree = [];
-                $n1              = 0;
-                foreach ($map['RuleTree'] as $item1) {
-                    $model->ruleTree[$n1++] = ruleTree::fromMap($item1);
+                $n               = 0;
+                foreach ($map['RuleTree'] as $item) {
+                    $model->ruleTree[$n++] = null !== $item ? ruleTree::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SelectedCount'])) {
             $model->selectedCount = $map['SelectedCount'];
         }

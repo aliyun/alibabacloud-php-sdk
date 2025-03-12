@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyListResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHybridProxyListResponseBody\proxyList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHybridProxyListResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The information about the proxy clusters.
+     *
      * @var proxyList[]
      */
     public $proxyList;
+
     /**
+     * @description The request ID.
+     *
+     * @example 75801E5D-E2EB-5C1D-B65D-2F7D2B00EF93
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class DescribeHybridProxyListResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        if (\is_array($this->proxyList)) {
-            Model::validateArray($this->proxyList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->proxyList) {
-            if (\is_array($this->proxyList)) {
-                $res['ProxyList'] = [];
-                $n1               = 0;
-                foreach ($this->proxyList as $item1) {
-                    $res['ProxyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ProxyList'] = [];
+            if (null !== $this->proxyList && \is_array($this->proxyList)) {
+                $n = 0;
+                foreach ($this->proxyList as $item) {
+                    $res['ProxyList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class DescribeHybridProxyListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHybridProxyListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['ProxyList'])) {
             if (!empty($map['ProxyList'])) {
                 $model->proxyList = [];
-                $n1               = 0;
-                foreach ($map['ProxyList'] as $item1) {
-                    $model->proxyList[$n1++] = proxyList::fromMap($item1);
+                $n                = 0;
+                foreach ($map['ProxyList'] as $item) {
+                    $model->proxyList[$n++] = null !== $item ? proxyList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

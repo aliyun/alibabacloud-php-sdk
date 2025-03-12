@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePublishGraySwitchRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the canary release feature. Valid values:
+     *
+     *   **1**: enabled.
+     *   **0**: disabled.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $graySwitchStatus;
@@ -18,10 +26,9 @@ class UpdatePublishGraySwitchRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->graySwitchStatus) {
@@ -31,11 +38,11 @@ class UpdatePublishGraySwitchRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePublishGraySwitchRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

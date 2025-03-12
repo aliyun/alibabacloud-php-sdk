@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCustomizeReportStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 64C76BEE-6A47-54D9-BD91-BD3E8A1B****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateCustomizeReportStatusResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateCustomizeReportStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCustomizeReportStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

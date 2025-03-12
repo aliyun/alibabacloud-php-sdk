@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddVpcHoneyPotRequest extends Model
 {
     /**
+     * @description The ID of the virtual private cloud (VPC) in which you want to create a honeypot.
+     *
+     * This parameter is required.
+     * @example vpc-p0w5fgkfsl5a6791q****
+     *
      * @var string
      */
     public $vpcId;
@@ -18,10 +23,9 @@ class AddVpcHoneyPotRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -31,11 +35,11 @@ class AddVpcHoneyPotRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddVpcHoneyPotRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

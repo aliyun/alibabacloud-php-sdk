@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePublishAutoUpgradeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1EE7B150-D67E-53FD-A52D-3E8E669A****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdatePublishAutoUpgradeResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdatePublishAutoUpgradeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePublishAutoUpgradeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

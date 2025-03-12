@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNsasSuspEventTypeResponseBody\eventTypes;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNsasSuspEventTypeResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the alert type.
+     *
      * @var eventTypes[]
      */
     public $eventTypes;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeNsasSuspEventTypeResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->eventTypes)) {
-            Model::validateArray($this->eventTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventTypes) {
-            if (\is_array($this->eventTypes)) {
-                $res['EventTypes'] = [];
-                $n1                = 0;
-                foreach ($this->eventTypes as $item1) {
-                    $res['EventTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EventTypes'] = [];
+            if (null !== $this->eventTypes && \is_array($this->eventTypes)) {
+                $n = 0;
+                foreach ($this->eventTypes as $item) {
+                    $res['EventTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeNsasSuspEventTypeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNsasSuspEventTypeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventTypes'])) {
             if (!empty($map['EventTypes'])) {
                 $model->eventTypes = [];
-                $n1                = 0;
-                foreach ($map['EventTypes'] as $item1) {
-                    $model->eventTypes[$n1++] = eventTypes::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['EventTypes'] as $item) {
+                    $model->eventTypes[$n++] = null !== $item ? eventTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

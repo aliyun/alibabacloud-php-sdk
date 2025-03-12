@@ -4,31 +4,60 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSimilarSecurityEventsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The task ID. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to obtain the task ID.
+     *
+     * This parameter is required.
+     * @example 1689135
+     *
      * @var int
      */
     public $taskId;
@@ -43,32 +72,26 @@ class DescribeSimilarSecurityEventsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -76,34 +99,29 @@ class DescribeSimilarSecurityEventsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSimilarSecurityEventsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

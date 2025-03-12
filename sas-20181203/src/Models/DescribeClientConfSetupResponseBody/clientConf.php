@@ -4,19 +4,37 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfSetupResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clientConf extends Model
 {
     /**
+     * @description The configurations of the usage for the Security Center agent.
+     *
+     * @example {"mem":"200","cpu":"10","cpu_all":"0"}
+     *
      * @var string
      */
     public $config;
+
     /**
+     * @description The tag that is added to the configuration.
+     *
+     * @example machineResource
+     *
      * @var string
      */
     public $strategyTag;
+
     /**
+     * @description The value of the tag. Valid values:
+     *
+     *   major
+     *   advanced
+     *   basic
+     *
+     * @example major
+     *
      * @var string
      */
     public $strategyTagValue;
@@ -28,20 +46,17 @@ class clientConf extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-
         if (null !== $this->strategyTag) {
             $res['StrategyTag'] = $this->strategyTag;
         }
-
         if (null !== $this->strategyTagValue) {
             $res['StrategyTagValue'] = $this->strategyTagValue;
         }
@@ -49,22 +64,20 @@ class clientConf extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clientConf
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-
         if (isset($map['StrategyTag'])) {
             $model->strategyTag = $map['StrategyTag'];
         }
-
         if (isset($map['StrategyTagValue'])) {
             $model->strategyTagValue = $map['StrategyTagValue'];
         }

@@ -4,23 +4,44 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBaselineCheckWhiteRecordRequest extends Model
 {
     /**
+     * @description The IDs of check items.
+     *
      * @var int[]
      */
     public $checkIds;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The IDs of the whitelist records.
+     *
      * @var int[]
      */
     public $recordIds;
+
     /**
+     * @description The data source. Valid values:
+     *
+     *   **default**: host baseline
+     *   **agentless**: agentless detection
+     *
+     * @example agentless
+     *
      * @var string
      */
     public $source;
@@ -33,42 +54,20 @@ class DeleteBaselineCheckWhiteRecordRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkIds)) {
-            Model::validateArray($this->checkIds);
-        }
-        if (\is_array($this->recordIds)) {
-            Model::validateArray($this->recordIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkIds) {
-            if (\is_array($this->checkIds)) {
-                $res['CheckIds'] = [];
-                $n1              = 0;
-                foreach ($this->checkIds as $item1) {
-                    $res['CheckIds'][$n1++] = $item1;
-                }
-            }
+            $res['CheckIds'] = $this->checkIds;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->recordIds) {
-            if (\is_array($this->recordIds)) {
-                $res['RecordIds'] = [];
-                $n1               = 0;
-                foreach ($this->recordIds as $item1) {
-                    $res['RecordIds'][$n1++] = $item1;
-                }
-            }
+            $res['RecordIds'] = $this->recordIds;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -76,38 +75,27 @@ class DeleteBaselineCheckWhiteRecordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBaselineCheckWhiteRecordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckIds'])) {
             if (!empty($map['CheckIds'])) {
-                $model->checkIds = [];
-                $n1              = 0;
-                foreach ($map['CheckIds'] as $item1) {
-                    $model->checkIds[$n1++] = $item1;
-                }
+                $model->checkIds = $map['CheckIds'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['RecordIds'])) {
             if (!empty($map['RecordIds'])) {
-                $model->recordIds = [];
-                $n1               = 0;
-                foreach ($map['RecordIds'] as $item1) {
-                    $model->recordIds[$n1++] = $item1;
-                }
+                $model->recordIds = $map['RecordIds'];
             }
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

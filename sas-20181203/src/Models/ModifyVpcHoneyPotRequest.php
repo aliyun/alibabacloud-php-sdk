@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyVpcHoneyPotRequest extends Model
 {
     /**
+     * @description Specifies whether to enable or disable the honeypot. Valid values:
+     *
+     *   **disable**
+     *   **enable**
+     *
+     * This parameter is required.
+     * @example disable
+     *
      * @var string
      */
     public $honeyPotAction;
+
     /**
+     * @description The ID of the virtual private cloud (VPC) on which the honeypot is deployed.
+     *
+     * This parameter is required.
+     * @example vpc-d7o009q63fqy21r8u****
+     *
      * @var string
      */
     public $vpcId;
@@ -23,16 +37,14 @@ class ModifyVpcHoneyPotRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->honeyPotAction) {
             $res['HoneyPotAction'] = $this->honeyPotAction;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -40,18 +52,17 @@ class ModifyVpcHoneyPotRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyVpcHoneyPotRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HoneyPotAction'])) {
             $model->honeyPotAction = $map['HoneyPotAction'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

@@ -4,19 +4,34 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBuildRiskByKeyResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pageInfo extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 109
+     *
      * @var int
      */
     public $totalCount;
@@ -28,20 +43,17 @@ class pageInfo extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -49,22 +61,20 @@ class pageInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

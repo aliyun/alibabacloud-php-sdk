@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHybridProxyPolicyRequest extends Model
 {
     /**
+     * @description The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
+     *
+     * This parameter is required.
+     * @example test-idc
+     *
      * @var string
      */
     public $clusterName;
@@ -18,10 +23,9 @@ class DescribeHybridProxyPolicyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterName) {
@@ -31,11 +35,11 @@ class DescribeHybridProxyPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHybridProxyPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

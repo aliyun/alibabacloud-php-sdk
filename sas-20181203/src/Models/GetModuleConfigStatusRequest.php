@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetModuleConfigStatusRequest extends Model
 {
     /**
+     * @description The service modules that you want to query.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $moduleNames;
@@ -18,43 +21,29 @@ class GetModuleConfigStatusRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->moduleNames)) {
-            Model::validateArray($this->moduleNames);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->moduleNames) {
-            if (\is_array($this->moduleNames)) {
-                $res['ModuleNames'] = [];
-                $n1                 = 0;
-                foreach ($this->moduleNames as $item1) {
-                    $res['ModuleNames'][$n1++] = $item1;
-                }
-            }
+            $res['ModuleNames'] = $this->moduleNames;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetModuleConfigStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModuleNames'])) {
             if (!empty($map['ModuleNames'])) {
-                $model->moduleNames = [];
-                $n1                 = 0;
-                foreach ($map['ModuleNames'] as $item1) {
-                    $model->moduleNames[$n1++] = $item1;
-                }
+                $model->moduleNames = $map['ModuleNames'];
             }
         }
 

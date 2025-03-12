@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupMachineStatusResponseBody\backupMachineStatus;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class errorList extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example TARGET_NOT_EXIST
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @description The error message.
+     *
+     * @example FAILED
+     *
      * @var string
      */
     public $errorStatus;
@@ -23,16 +32,14 @@ class errorList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorStatus) {
             $res['ErrorStatus'] = $this->errorStatus;
         }
@@ -40,18 +47,17 @@ class errorList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return errorList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorStatus'])) {
             $model->errorStatus = $map['ErrorStatus'];
         }

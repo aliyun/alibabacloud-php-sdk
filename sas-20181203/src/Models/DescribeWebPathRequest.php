@@ -4,19 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeWebPathRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The type of the alert configuration. Valid values:
+     *
+     *   **web_path**
+     *
+     * @example web_path
+     *
      * @var string
      */
     public $type;
@@ -28,20 +44,17 @@ class DescribeWebPathRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -49,22 +62,20 @@ class DescribeWebPathRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeWebPathRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

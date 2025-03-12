@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OpenPartialBuyRequest extends Model
 {
@@ -18,10 +18,9 @@ class OpenPartialBuyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +30,11 @@ class OpenPartialBuyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenPartialBuyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

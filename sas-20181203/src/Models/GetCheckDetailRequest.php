@@ -4,19 +4,38 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCheckDetailRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * This parameter is required.
+     * @example 2
+     *
      * @var int
      */
     public $checkId;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The region ID of the instance.
+     *
+     * >  You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the region ID.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,20 +47,17 @@ class GetCheckDetailRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +65,20 @@ class GetCheckDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCheckDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcListResponseBody\vpcList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVpcListResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array that consists of VPCs.
+     *
      * @var vpcList[]
      */
     public $vpcList;
@@ -29,29 +41,23 @@ class DescribeVpcListResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->vpcList)) {
-            Model::validateArray($this->vpcList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->vpcList) {
-            if (\is_array($this->vpcList)) {
-                $res['VpcList'] = [];
-                $n1             = 0;
-                foreach ($this->vpcList as $item1) {
-                    $res['VpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VpcList'] = [];
+            if (null !== $this->vpcList && \is_array($this->vpcList)) {
+                $n = 0;
+                foreach ($this->vpcList as $item) {
+                    $res['VpcList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +65,26 @@ class DescribeVpcListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVpcListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VpcList'])) {
             if (!empty($map['VpcList'])) {
                 $model->vpcList = [];
-                $n1             = 0;
-                foreach ($map['VpcList'] as $item1) {
-                    $model->vpcList[$n1++] = vpcList::fromMap($item1);
+                $n              = 0;
+                foreach ($map['VpcList'] as $item) {
+                    $model->vpcList[$n++] = null !== $item ? vpcList::fromMap($item) : $item;
                 }
             }
         }

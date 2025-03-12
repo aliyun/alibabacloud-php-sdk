@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateClientAlertModeRequest extends Model
 {
     /**
+     * @description The protection mode. Valid values:
+     *
+     *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
+     *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
+     *
+     * @example balance
+     *
      * @var string
      */
     public $mode;
+
     /**
+     * @description The UUIDs of servers.
+     *
      * @var string[]
      */
     public $uuids;
@@ -23,51 +33,35 @@ class UpdateClientAlertModeRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->uuids)) {
-            Model::validateArray($this->uuids);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->uuids) {
-            if (\is_array($this->uuids)) {
-                $res['Uuids'] = [];
-                $n1           = 0;
-                foreach ($this->uuids as $item1) {
-                    $res['Uuids'][$n1++] = $item1;
-                }
-            }
+            $res['Uuids'] = $this->uuids;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateClientAlertModeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['Uuids'])) {
             if (!empty($map['Uuids'])) {
-                $model->uuids = [];
-                $n1           = 0;
-                foreach ($map['Uuids'] as $item1) {
-                    $model->uuids[$n1++] = $item1;
-                }
+                $model->uuids = $map['Uuids'];
             }
         }
 

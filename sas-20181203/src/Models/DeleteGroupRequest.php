@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGroupRequest extends Model
 {
     /**
+     * @description The ID of the server group that you want to delete.
+     *
+     * This parameter is required.
+     * @example 9454789
+     *
      * @var int
      */
     public $groupId;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.172.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
@@ -23,16 +33,14 @@ class DeleteGroupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -40,18 +48,17 @@ class DeleteGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

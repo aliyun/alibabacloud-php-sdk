@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigResponseBody\propertyScheduleConfig;
+use AlibabaCloud\Tea\Model;
 
 class GetPropertyScheduleConfigResponseBody extends Model
 {
     /**
+     * @description The configurations for the collection frequency of asset fingerprints.
+     *
      * @var propertyScheduleConfig
      */
     public $propertyScheduleConfig;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example B37C9052-A73E-4707-A024-92477028****
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetPropertyScheduleConfigResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->propertyScheduleConfig) {
-            $this->propertyScheduleConfig->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->propertyScheduleConfig) {
-            $res['PropertyScheduleConfig'] = null !== $this->propertyScheduleConfig ? $this->propertyScheduleConfig->toArray($noStream) : $this->propertyScheduleConfig;
+            $res['PropertyScheduleConfig'] = null !== $this->propertyScheduleConfig ? $this->propertyScheduleConfig->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetPropertyScheduleConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPropertyScheduleConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyScheduleConfig'])) {
             $model->propertyScheduleConfig = propertyScheduleConfig::fromMap($map['PropertyScheduleConfig']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

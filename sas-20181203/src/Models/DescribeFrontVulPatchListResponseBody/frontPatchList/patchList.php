@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeFrontVulPatchListResponseBody\frontPatchList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class patchList extends Model
 {
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example RHBA-2019:2599: krb5 bug fix update
+     *
      * @var string
      */
     public $aliasName;
+
     /**
+     * @description The version number of the pre-patch that is required to fix the Windows system vulnerability.
+     *
+     * @example 4523204
+     *
      * @var string
      */
     public $name;
@@ -23,16 +32,14 @@ class patchList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +47,17 @@ class patchList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return patchList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EnableServiceAccessResourceDirectoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 52870893-48A7-5A9E-9E05-6253E5B6****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class EnableServiceAccessResourceDirectoryResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class EnableServiceAccessResourceDirectoryResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EnableServiceAccessResourceDirectoryResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

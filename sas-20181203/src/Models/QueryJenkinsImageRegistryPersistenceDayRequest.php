@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryJenkinsImageRegistryPersistenceDayRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 113.83.XXX.XXX
+     *
      * @var string
      */
     public $sourceIp;
@@ -18,10 +22,9 @@ class QueryJenkinsImageRegistryPersistenceDayRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceIp) {
@@ -31,11 +34,11 @@ class QueryJenkinsImageRegistryPersistenceDayRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryJenkinsImageRegistryPersistenceDayRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

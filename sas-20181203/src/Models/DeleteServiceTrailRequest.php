@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteServiceTrailRequest extends Model
 {
     /**
+     * @description The region in which your Security Center service is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: center.
+     *   **ap-southeast-1**: Singapore.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -18,10 +25,9 @@ class DeleteServiceTrailRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +37,11 @@ class DeleteServiceTrailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteServiceTrailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

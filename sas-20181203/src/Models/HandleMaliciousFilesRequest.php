@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HandleMaliciousFilesRequest extends Model
 {
     /**
+     * @description List of file IDs to be processed.
+     * > -
      * @var int[]
      */
     public $fileIdList;
+
     /**
+     * @description Type of operation:
+     * - offWhitelist: Remove from whitelist
+     * @example addWhitelist
+     *
      * @var string
      */
     public $operation;
@@ -23,25 +30,14 @@ class HandleMaliciousFilesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->fileIdList)) {
-            Model::validateArray($this->fileIdList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileIdList) {
-            if (\is_array($this->fileIdList)) {
-                $res['FileIdList'] = [];
-                $n1                = 0;
-                foreach ($this->fileIdList as $item1) {
-                    $res['FileIdList'][$n1++] = $item1;
-                }
-            }
+            $res['FileIdList'] = $this->fileIdList;
         }
-
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
@@ -49,24 +45,19 @@ class HandleMaliciousFilesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HandleMaliciousFilesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileIdList'])) {
             if (!empty($map['FileIdList'])) {
-                $model->fileIdList = [];
-                $n1                = 0;
-                foreach ($map['FileIdList'] as $item1) {
-                    $model->fileIdList[$n1++] = $item1;
-                }
+                $model->fileIdList = $map['FileIdList'];
             }
         }
-
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }

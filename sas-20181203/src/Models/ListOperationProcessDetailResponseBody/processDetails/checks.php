@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessDetailResponseBody\processDetails;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checks extends Model
 {
     /**
+     * @description The ID of the check item associated with the operation subtask.
+     *
+     * @example 133
+     *
      * @var int
      */
     public $checkId;
+
     /**
+     * @description The name of the check item associated with the operation subtask.
+     *
+     * @example Check for Security Center Agent Status
+     *
      * @var string
      */
     public $checkShowName;
@@ -23,16 +32,14 @@ class checks extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
-
         if (null !== $this->checkShowName) {
             $res['CheckShowName'] = $this->checkShowName;
         }
@@ -40,18 +47,17 @@ class checks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
-
         if (isset($map['CheckShowName'])) {
             $model->checkShowName = $map['CheckShowName'];
         }

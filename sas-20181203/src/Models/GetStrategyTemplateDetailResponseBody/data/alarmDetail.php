@@ -4,22 +4,30 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailResponseBody\data\alarmDetail\baseline;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailResponseBody\data\alarmDetail\maliciousFile;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetStrategyTemplateDetailResponseBody\data\alarmDetail\vul;
+use AlibabaCloud\Tea\Model;
 
 class alarmDetail extends Model
 {
     /**
+     * @description The configuration of the baseline.
+     *
      * @var baseline
      */
     public $baseline;
+
     /**
+     * @description The configuration of the alert rule for the malicious sample.
+     *
      * @var maliciousFile
      */
     public $maliciousFile;
+
     /**
+     * @description The configuration of the vulnerability detection rule.
+     *
      * @var vul
      */
     public $vul;
@@ -31,52 +39,38 @@ class alarmDetail extends Model
 
     public function validate()
     {
-        if (null !== $this->baseline) {
-            $this->baseline->validate();
-        }
-        if (null !== $this->maliciousFile) {
-            $this->maliciousFile->validate();
-        }
-        if (null !== $this->vul) {
-            $this->vul->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->baseline) {
-            $res['Baseline'] = null !== $this->baseline ? $this->baseline->toArray($noStream) : $this->baseline;
+            $res['Baseline'] = null !== $this->baseline ? $this->baseline->toMap() : null;
         }
-
         if (null !== $this->maliciousFile) {
-            $res['MaliciousFile'] = null !== $this->maliciousFile ? $this->maliciousFile->toArray($noStream) : $this->maliciousFile;
+            $res['MaliciousFile'] = null !== $this->maliciousFile ? $this->maliciousFile->toMap() : null;
         }
-
         if (null !== $this->vul) {
-            $res['Vul'] = null !== $this->vul ? $this->vul->toArray($noStream) : $this->vul;
+            $res['Vul'] = null !== $this->vul ? $this->vul->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alarmDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Baseline'])) {
             $model->baseline = baseline::fromMap($map['Baseline']);
         }
-
         if (isset($map['MaliciousFile'])) {
             $model->maliciousFile = maliciousFile::fromMap($map['MaliciousFile']);
         }
-
         if (isset($map['Vul'])) {
             $model->vul = vul::fromMap($map['Vul']);
         }

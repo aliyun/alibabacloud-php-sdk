@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TriggerCheckResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 43313389-DED8-5BB7-8CB9-F22CDEB744DE
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class TriggerCheckResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class TriggerCheckResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TriggerCheckResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

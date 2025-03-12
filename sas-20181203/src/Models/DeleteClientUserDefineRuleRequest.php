@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteClientUserDefineRuleRequest extends Model
 {
     /**
+     * @description The IDs of the custom defense rules.
+     *
+     * This parameter is required.
      * @var int[]
      */
     public $idList;
@@ -18,43 +21,29 @@ class DeleteClientUserDefineRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->idList)) {
-            Model::validateArray($this->idList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->idList) {
-            if (\is_array($this->idList)) {
-                $res['IdList'] = [];
-                $n1            = 0;
-                foreach ($this->idList as $item1) {
-                    $res['IdList'][$n1++] = $item1;
-                }
-            }
+            $res['IdList'] = $this->idList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteClientUserDefineRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdList'])) {
             if (!empty($map['IdList'])) {
-                $model->idList = [];
-                $n1            = 0;
-                foreach ($map['IdList'] as $item1) {
-                    $model->idList[$n1++] = $item1;
-                }
+                $model->idList = $map['IdList'];
             }
         }
 

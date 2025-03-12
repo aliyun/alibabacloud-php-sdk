@@ -4,31 +4,60 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListVirusScanMachineResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The number of times that the alert is triggered.
+     *
+     * @example 28
+     *
      * @var int
      */
     public $eventCount;
+
     /**
+     * @description The instance ID of the server.
+     *
+     * @example i-bp180bogui4fc0z4****
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The name of the server.
+     *
+     * @example centos****
+     *
      * @var string
      */
     public $instanceName;
+
     /**
+     * @description The public IP address of the associated server.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $internetIp;
+
     /**
+     * @description The private IP address of the associated server.
+     *
+     * @example 10.42.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
+
     /**
+     * @description The UUID of the server.
+     *
+     * @example 6690a46c-0edb-4663-a641-3629d1a9****
+     *
      * @var string
      */
     public $uuid;
@@ -43,32 +72,26 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventCount) {
             $res['EventCount'] = $this->eventCount;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
-
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -76,34 +99,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCount'])) {
             $model->eventCount = $map['EventCount'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
-
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

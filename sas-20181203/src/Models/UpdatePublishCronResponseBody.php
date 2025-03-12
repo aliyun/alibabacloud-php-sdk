@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePublishCronResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1052B989-305B-50A5-B5F5-998450******
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdatePublishCronResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdatePublishCronResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePublishCronResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

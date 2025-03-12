@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponseBody\moduleConfigList\items;
+use AlibabaCloud\Tea\Model;
 
 class moduleConfigList extends Model
 {
     /**
+     * @description The name of the configuration.
+     *
+     * @example timescan
+     *
      * @var string
      */
     public $configName;
+
     /**
+     * @description An array that consists of the configuration items.
+     *
      * @var items[]
      */
     public $items;
+
     /**
+     * @description The name of the module.
+     *
+     * @example alihids
+     *
      * @var string
      */
     public $moduleName;
@@ -29,29 +41,23 @@ class moduleConfigList extends Model
 
     public function validate()
     {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
-
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                $n1           = 0;
-                foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -59,28 +65,26 @@ class moduleConfigList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return moduleConfigList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
-
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
-                foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

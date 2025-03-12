@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionRulePageResponseBody\interceptionRuleList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionRulePageResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListInterceptionRulePageResponseBody extends Model
 {
     /**
+     * @description An array that consists of information about the defense rules.
+     *
      * @var interceptionRuleList[]
      */
     public $interceptionRuleList;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example ACF97412-FD09-4D1F-994F-34DF12BR****
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListInterceptionRulePageResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->interceptionRuleList)) {
-            Model::validateArray($this->interceptionRuleList);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->interceptionRuleList) {
-            if (\is_array($this->interceptionRuleList)) {
-                $res['InterceptionRuleList'] = [];
-                $n1                          = 0;
-                foreach ($this->interceptionRuleList as $item1) {
-                    $res['InterceptionRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InterceptionRuleList'] = [];
+            if (null !== $this->interceptionRuleList && \is_array($this->interceptionRuleList)) {
+                $n = 0;
+                foreach ($this->interceptionRuleList as $item) {
+                    $res['InterceptionRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListInterceptionRulePageResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInterceptionRulePageResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InterceptionRuleList'])) {
             if (!empty($map['InterceptionRuleList'])) {
                 $model->interceptionRuleList = [];
-                $n1                          = 0;
-                foreach ($map['InterceptionRuleList'] as $item1) {
-                    $model->interceptionRuleList[$n1++] = interceptionRuleList::fromMap($item1);
+                $n                           = 0;
+                foreach ($map['InterceptionRuleList'] as $item) {
+                    $model->interceptionRuleList[$n++] = null !== $item ? interceptionRuleList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

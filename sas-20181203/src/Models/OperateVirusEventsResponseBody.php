@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateVirusEventsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B72BEC03-001C-5C77-A4BB-1E6XXXXXXX
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The ID of the task to handle multiple alert events at a time.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $taskId;
@@ -23,16 +32,14 @@ class OperateVirusEventsResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -40,18 +47,17 @@ class OperateVirusEventsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateVirusEventsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

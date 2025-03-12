@@ -4,28 +4,50 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockProcessBlockStatisticsResponseBody\list_;
+use AlibabaCloud\Tea\Model;
 
 class DescribeWebLockProcessBlockStatisticsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @description An array consisting of the statistics on processes.
+     *
      * @var list_[]
      */
     public $list;
+
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of processes.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
@@ -39,37 +61,29 @@ class DescribeWebLockProcessBlockStatisticsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->list)) {
-            Model::validateArray($this->list);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->list) {
-            if (\is_array($this->list)) {
-                $res['List'] = [];
-                $n1          = 0;
-                foreach ($this->list as $item1) {
-                    $res['List'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['List'] = [];
+            if (null !== $this->list && \is_array($this->list)) {
+                $n = 0;
+                foreach ($this->list as $item) {
+                    $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +91,32 @@ class DescribeWebLockProcessBlockStatisticsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeWebLockProcessBlockStatisticsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n1          = 0;
-                foreach ($map['List'] as $item1) {
-                    $model->list[$n1++] = list_::fromMap($item1);
+                $n           = 0;
+                foreach ($map['List'] as $item) {
+                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

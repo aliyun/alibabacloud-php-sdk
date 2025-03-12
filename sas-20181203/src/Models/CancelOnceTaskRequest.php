@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelOnceTaskRequest extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * This parameter is required.
+     * @example ec9c0d88f36cc27765a98c554ee2****
+     *
      * @var string
      */
     public $taskId;
@@ -18,10 +23,9 @@ class CancelOnceTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +35,11 @@ class CancelOnceTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelOnceTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

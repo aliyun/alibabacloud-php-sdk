@@ -4,31 +4,60 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultResponseBody\checks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checkPolicies extends Model
 {
     /**
+     * @description The ID of the requirement item for the check item.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $requirementId;
+
     /**
+     * @description The display name of the requirement item for the check item.
+     *
+     * @example Alibaba cloud OSS best security practices
+     *
      * @var string
      */
     public $requirementShowName;
+
     /**
+     * @description The ID of the section for the check item.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $sectionId;
+
     /**
+     * @description The display name of the section for the check item.
+     *
+     * @example Log Audit
+     *
      * @var string
      */
     public $sectionShowName;
+
     /**
+     * @description The standard ID of the check item.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $standardId;
+
     /**
+     * @description The standard display name of the check item.
+     *
+     * @example Best security practices
+     *
      * @var string
      */
     public $standardShowName;
@@ -43,32 +72,26 @@ class checkPolicies extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requirementId) {
             $res['RequirementId'] = $this->requirementId;
         }
-
         if (null !== $this->requirementShowName) {
             $res['RequirementShowName'] = $this->requirementShowName;
         }
-
         if (null !== $this->sectionId) {
             $res['SectionId'] = $this->sectionId;
         }
-
         if (null !== $this->sectionShowName) {
             $res['SectionShowName'] = $this->sectionShowName;
         }
-
         if (null !== $this->standardId) {
             $res['StandardId'] = $this->standardId;
         }
-
         if (null !== $this->standardShowName) {
             $res['StandardShowName'] = $this->standardShowName;
         }
@@ -76,34 +99,29 @@ class checkPolicies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkPolicies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequirementId'])) {
             $model->requirementId = $map['RequirementId'];
         }
-
         if (isset($map['RequirementShowName'])) {
             $model->requirementShowName = $map['RequirementShowName'];
         }
-
         if (isset($map['SectionId'])) {
             $model->sectionId = $map['SectionId'];
         }
-
         if (isset($map['SectionShowName'])) {
             $model->sectionShowName = $map['SectionShowName'];
         }
-
         if (isset($map['StandardId'])) {
             $model->standardId = $map['StandardId'];
         }
-
         if (isset($map['StandardShowName'])) {
             $model->standardShowName = $map['StandardShowName'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteImageEventOperationRequest extends Model
 {
     /**
+     * @description The primary key of the alert handling rule.
+     *
+     * @example 1404656
+     *
      * @var int
      */
     public $id;
@@ -18,10 +22,9 @@ class DeleteImageEventOperationRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class DeleteImageEventOperationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteImageEventOperationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

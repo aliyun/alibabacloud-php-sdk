@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusResponseBody\securityEventOperationStatusResponse;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityEventOperationStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 1683940A-E4AE-4473-8C40-F4075434B76B
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about the task that handles the alert events.
+     *
      * @var securityEventOperationStatusResponse
      */
     public $securityEventOperationStatusResponse;
@@ -24,38 +31,32 @@ class DescribeSecurityEventOperationStatusResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->securityEventOperationStatusResponse) {
-            $this->securityEventOperationStatusResponse->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->securityEventOperationStatusResponse) {
-            $res['SecurityEventOperationStatusResponse'] = null !== $this->securityEventOperationStatusResponse ? $this->securityEventOperationStatusResponse->toArray($noStream) : $this->securityEventOperationStatusResponse;
+            $res['SecurityEventOperationStatusResponse'] = null !== $this->securityEventOperationStatusResponse ? $this->securityEventOperationStatusResponse->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSecurityEventOperationStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SecurityEventOperationStatusResponse'])) {
             $model->securityEventOperationStatusResponse = securityEventOperationStatusResponse::fromMap($map['SecurityEventOperationStatusResponse']);
         }

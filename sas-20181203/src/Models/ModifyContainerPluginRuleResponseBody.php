@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyContainerPluginRuleResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class ModifyContainerPluginRuleResponseBody extends Model
 {
     /**
+     * @description The defense rule against container escapes.
+     *
      * @var data
      */
     public $data;
+
     /**
+     * @description The request ID.
+     *
+     * @example D03DD0FD-6041-5107-AC00-383E28F1****
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class ModifyContainerPluginRuleResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class ModifyContainerPluginRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyContainerPluginRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

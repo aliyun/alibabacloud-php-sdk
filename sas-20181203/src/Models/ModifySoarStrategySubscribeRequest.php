@@ -4,15 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifySoarStrategySubscribeRequest extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
+     * This parameter is required.
+     * @example 8000
+     *
      * @var int
      */
     public $strategyId;
+
     /**
+     * @description Specifies whether to create the policy template. Valid values:
+     *
+     *   true: creates the policy template
+     *   false: deletes the policy template
+     *
+     * This parameter is required.
+     * @example true
+     *
      * @var bool
      */
     public $subscribeStatus;
@@ -23,16 +37,14 @@ class ModifySoarStrategySubscribeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
-
         if (null !== $this->subscribeStatus) {
             $res['SubscribeStatus'] = $this->subscribeStatus;
         }
@@ -40,18 +52,17 @@ class ModifySoarStrategySubscribeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifySoarStrategySubscribeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
-
         if (isset($map['SubscribeStatus'])) {
             $model->subscribeStatus = $map['SubscribeStatus'];
         }

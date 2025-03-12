@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponseBody\userBaselineAuthorization;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserBaselineAuthorizationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AF20EB0-EBBC-4B94-9B84-F3BAFAC53EDE
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about whether Security Center is authorized to run configuration checks on cloud services.
+     *
      * @var userBaselineAuthorization
      */
     public $userBaselineAuthorization;
@@ -24,38 +31,32 @@ class DescribeUserBaselineAuthorizationResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->userBaselineAuthorization) {
-            $this->userBaselineAuthorization->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->userBaselineAuthorization) {
-            $res['UserBaselineAuthorization'] = null !== $this->userBaselineAuthorization ? $this->userBaselineAuthorization->toArray($noStream) : $this->userBaselineAuthorization;
+            $res['UserBaselineAuthorization'] = null !== $this->userBaselineAuthorization ? $this->userBaselineAuthorization->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserBaselineAuthorizationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UserBaselineAuthorization'])) {
             $model->userBaselineAuthorization = userBaselineAuthorization::fromMap($map['UserBaselineAuthorization']);
         }

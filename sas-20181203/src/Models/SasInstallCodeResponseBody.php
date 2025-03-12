@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SasInstallCodeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The installation verification code that is used to run the installation command when you manually install the Security Center agent.
+     *
+     * @example eD****
+     *
      * @var string
      */
     public $data;
@@ -23,16 +32,14 @@ class SasInstallCodeResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
@@ -40,18 +47,17 @@ class SasInstallCodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SasInstallCodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }

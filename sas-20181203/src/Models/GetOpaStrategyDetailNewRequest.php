@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetOpaStrategyDetailNewRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+     * @example 1349
+     *
      * @var int
      */
     public $strategyId;
@@ -18,10 +23,9 @@ class GetOpaStrategyDetailNewRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strategyId) {
@@ -31,11 +35,11 @@ class GetOpaStrategyDetailNewRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetOpaStrategyDetailNewRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

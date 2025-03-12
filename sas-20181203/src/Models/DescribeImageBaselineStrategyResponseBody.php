@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyResponseBody\strategy;
+use AlibabaCloud\Tea\Model;
 
 class DescribeImageBaselineStrategyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F85AC10-A1FE-54D7-935A-F28D5256****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The information about the baseline check policy.
+     *
      * @var strategy
      */
     public $strategy;
@@ -24,38 +31,32 @@ class DescribeImageBaselineStrategyResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->strategy) {
-            $this->strategy->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->strategy) {
-            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toArray($noStream) : $this->strategy;
+            $res['Strategy'] = null !== $this->strategy ? $this->strategy->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeImageBaselineStrategyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Strategy'])) {
             $model->strategy = strategy::fromMap($map['Strategy']);
         }

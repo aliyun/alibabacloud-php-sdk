@@ -4,43 +4,81 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailResponseBody\interceptionRuleDetail;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dstTarget extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example console
+     *
      * @var string
      */
     public $appName;
+
     /**
+     * @description An array that consists of the name of the image specified for the network object.
+     *
      * @var string[]
      */
     public $imageList;
+
     /**
+     * @description The namespace to which the network object belongs.
+     *
+     * @example kube-system
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description An array that consists of the port range of the destination network object.
+     *
      * @var string[]
      */
     public $ports;
+
     /**
+     * @description The type of the rule.
+     *
+     * @example customize
+     *
      * @var string
      */
     public $ruleType;
+
     /**
+     * @description An array that consists of the labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
+
     /**
+     * @description The ID of the network object.
+     *
+     * @example 200014
+     *
      * @var int
      */
     public $targetId;
+
     /**
+     * @description The name of the object.
+     *
+     * @example demo4-be1
+     *
      * @var string
      */
     public $targetName;
+
     /**
+     * @description The type of the network object.
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $targetType;
@@ -58,71 +96,35 @@ class dstTarget extends Model
 
     public function validate()
     {
-        if (\is_array($this->imageList)) {
-            Model::validateArray($this->imageList);
-        }
-        if (\is_array($this->ports)) {
-            Model::validateArray($this->ports);
-        }
-        if (\is_array($this->tagList)) {
-            Model::validateArray($this->tagList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->imageList) {
-            if (\is_array($this->imageList)) {
-                $res['ImageList'] = [];
-                $n1               = 0;
-                foreach ($this->imageList as $item1) {
-                    $res['ImageList'][$n1++] = $item1;
-                }
-            }
+            $res['ImageList'] = $this->imageList;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->ports) {
-            if (\is_array($this->ports)) {
-                $res['Ports'] = [];
-                $n1           = 0;
-                foreach ($this->ports as $item1) {
-                    $res['Ports'][$n1++] = $item1;
-                }
-            }
+            $res['Ports'] = $this->ports;
         }
-
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
-
         if (null !== $this->tagList) {
-            if (\is_array($this->tagList)) {
-                $res['TagList'] = [];
-                $n1             = 0;
-                foreach ($this->tagList as $item1) {
-                    $res['TagList'][$n1++] = $item1;
-                }
-            }
+            $res['TagList'] = $this->tagList;
         }
-
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
-
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -130,64 +132,44 @@ class dstTarget extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dstTarget
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
-                $model->imageList = [];
-                $n1               = 0;
-                foreach ($map['ImageList'] as $item1) {
-                    $model->imageList[$n1++] = $item1;
-                }
+                $model->imageList = $map['ImageList'];
             }
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
-                $model->ports = [];
-                $n1           = 0;
-                foreach ($map['Ports'] as $item1) {
-                    $model->ports[$n1++] = $item1;
-                }
+                $model->ports = $map['Ports'];
             }
         }
-
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
-
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
-                $model->tagList = [];
-                $n1             = 0;
-                foreach ($map['TagList'] as $item1) {
-                    $model->tagList[$n1++] = $item1;
-                }
+                $model->tagList = $map['TagList'];
             }
         }
-
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
-
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

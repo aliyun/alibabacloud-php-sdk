@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDingTalkRequest extends Model
 {
     /**
+     * @description The ID of the notification from the DingTalk chatbot. Separate multiple IDs with commas (,).
+     *
+     * This parameter is required.
+     * @example 2170,256
+     *
      * @var string
      */
     public $ids;
@@ -18,10 +23,9 @@ class DeleteDingTalkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ids) {
@@ -31,11 +35,11 @@ class DeleteDingTalkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDingTalkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetOssBucketScanStatisticRequest extends Model
 {
     /**
+     * @description The names of the buckets.
+     *
      * @var string[]
      */
     public $bucketNameList;
+
     /**
+     * @description The data source. Valid values:
+     *
+     *   **API**: API operations.
+     *   **OSS**: Object Storage Service (OSS) file check.
+     *
+     * @example API
+     *
      * @var string
      */
     public $source;
@@ -23,25 +33,14 @@ class GetOssBucketScanStatisticRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->bucketNameList)) {
-            Model::validateArray($this->bucketNameList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucketNameList) {
-            if (\is_array($this->bucketNameList)) {
-                $res['BucketNameList'] = [];
-                $n1                    = 0;
-                foreach ($this->bucketNameList as $item1) {
-                    $res['BucketNameList'][$n1++] = $item1;
-                }
-            }
+            $res['BucketNameList'] = $this->bucketNameList;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -49,24 +48,19 @@ class GetOssBucketScanStatisticRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetOssBucketScanStatisticRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketNameList'])) {
             if (!empty($map['BucketNameList'])) {
-                $model->bucketNameList = [];
-                $n1                    = 0;
-                foreach ($map['BucketNameList'] as $item1) {
-                    $model->bucketNameList[$n1++] = $item1;
-                }
+                $model->bucketNameList = $map['BucketNameList'];
             }
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

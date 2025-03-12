@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockFileChangeStatisticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description The number of attempts.
+     *
+     * @example 33
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The file path.
+     *
+     * @example /tmp
+     *
      * @var string
      */
     public $file;
@@ -23,16 +32,14 @@ class list_ extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->file) {
             $res['File'] = $this->file;
         }
@@ -40,18 +47,17 @@ class list_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['File'])) {
             $model->file = $map['File'];
         }

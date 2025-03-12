@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVulNumStatisticsRequest extends Model
 {
     /**
+     * @description The source of the request.
+     *
+     *   If you want to query Security Center-related data, set the value to **sas**.
+     *   If you want to query Server Guard-related data, you do not need to specify this parameter.
+     *
+     * @example sas
+     *
      * @var string
      */
     public $from;
@@ -18,10 +25,9 @@ class DescribeVulNumStatisticsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->from) {
@@ -31,11 +37,11 @@ class DescribeVulNumStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVulNumStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

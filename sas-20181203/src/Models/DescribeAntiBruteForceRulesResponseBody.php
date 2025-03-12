@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponseBody\rules;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAntiBruteForceRulesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array that consists of the details of the defense rule.
+     *
      * @var rules[]
      */
     public $rules;
@@ -30,32 +40,23 @@ class DescribeAntiBruteForceRulesResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1           = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -63,28 +64,26 @@ class DescribeAntiBruteForceRulesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAntiBruteForceRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifySasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A447E4E3-42A3-58B7-A7D4-2287745BEFDC
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifySasContainerWebDefenseRuleResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifySasContainerWebDefenseRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifySasContainerWebDefenseRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

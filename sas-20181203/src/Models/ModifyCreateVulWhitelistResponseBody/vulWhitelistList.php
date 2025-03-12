@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vulWhitelistList extends Model
 {
     /**
+     * @description The ID of the whitelist.
+     *
+     * @example 30376
+     *
      * @var int
      */
     public $id;
@@ -18,10 +22,9 @@ class vulWhitelistList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class vulWhitelistList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vulWhitelistList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,25 +4,38 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponseBody\clientInstallRatio;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponseBody\clientOnlineRatio;
+use AlibabaCloud\Tea\Model;
 
 class GetClientRatioStatisticResponseBody extends Model
 {
     /**
+     * @description The statistics on the client installation rate.
+     *
      * @var clientInstallRatio
      */
     public $clientInstallRatio;
+
     /**
+     * @description The statistics on the client online rate.
+     *
      * @var clientOnlineRatio
      */
     public $clientOnlineRatio;
+
     /**
+     * @description The list of time when statistics were collected.
+     *
      * @var int[]
      */
     public $dates;
+
     /**
+     * @description The request ID.
+     *
+     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
+     *
      * @var string
      */
     public $requestId;
@@ -35,39 +48,20 @@ class GetClientRatioStatisticResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->clientInstallRatio) {
-            $this->clientInstallRatio->validate();
-        }
-        if (null !== $this->clientOnlineRatio) {
-            $this->clientOnlineRatio->validate();
-        }
-        if (\is_array($this->dates)) {
-            Model::validateArray($this->dates);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientInstallRatio) {
-            $res['ClientInstallRatio'] = null !== $this->clientInstallRatio ? $this->clientInstallRatio->toArray($noStream) : $this->clientInstallRatio;
+            $res['ClientInstallRatio'] = null !== $this->clientInstallRatio ? $this->clientInstallRatio->toMap() : null;
         }
-
         if (null !== $this->clientOnlineRatio) {
-            $res['ClientOnlineRatio'] = null !== $this->clientOnlineRatio ? $this->clientOnlineRatio->toArray($noStream) : $this->clientOnlineRatio;
+            $res['ClientOnlineRatio'] = null !== $this->clientOnlineRatio ? $this->clientOnlineRatio->toMap() : null;
         }
-
         if (null !== $this->dates) {
-            if (\is_array($this->dates)) {
-                $res['Dates'] = [];
-                $n1           = 0;
-                foreach ($this->dates as $item1) {
-                    $res['Dates'][$n1++] = $item1;
-                }
-            }
+            $res['Dates'] = $this->dates;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -75,32 +69,25 @@ class GetClientRatioStatisticResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClientRatioStatisticResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientInstallRatio'])) {
             $model->clientInstallRatio = clientInstallRatio::fromMap($map['ClientInstallRatio']);
         }
-
         if (isset($map['ClientOnlineRatio'])) {
             $model->clientOnlineRatio = clientOnlineRatio::fromMap($map['ClientOnlineRatio']);
         }
-
         if (isset($map['Dates'])) {
             if (!empty($map['Dates'])) {
-                $model->dates = [];
-                $n1           = 0;
-                foreach ($map['Dates'] as $item1) {
-                    $model->dates[$n1++] = $item1;
-                }
+                $model->dates = $map['Dates'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

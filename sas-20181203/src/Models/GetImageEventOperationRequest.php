@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetImageEventOperationRequest extends Model
 {
     /**
+     * @description The primary key of the alert handling rule.
+     *
+     * @example 814163
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -23,16 +35,14 @@ class GetImageEventOperationRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -40,18 +50,17 @@ class GetImageEventOperationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetImageEventOperationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

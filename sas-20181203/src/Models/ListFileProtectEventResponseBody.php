@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectEventResponseBody\eventList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectEventResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListFileProtectEventResponseBody extends Model
 {
     /**
+     * @description The events.
+     *
      * @var eventList[]
      */
     public $eventList;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListFileProtectEventResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->eventList)) {
-            Model::validateArray($this->eventList);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventList) {
-            if (\is_array($this->eventList)) {
-                $res['EventList'] = [];
-                $n1               = 0;
-                foreach ($this->eventList as $item1) {
-                    $res['EventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EventList'] = [];
+            if (null !== $this->eventList && \is_array($this->eventList)) {
+                $n = 0;
+                foreach ($this->eventList as $item) {
+                    $res['EventList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListFileProtectEventResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListFileProtectEventResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n1               = 0;
-                foreach ($map['EventList'] as $item1) {
-                    $model->eventList[$n1++] = eventList::fromMap($item1);
+                $n                = 0;
+                foreach ($map['EventList'] as $item) {
+                    $model->eventList[$n++] = null !== $item ? eventList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

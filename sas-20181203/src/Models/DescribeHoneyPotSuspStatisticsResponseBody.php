@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeHoneyPotSuspStatisticsResponseBody\suspHoneyPotStatisticsResponse;
+use AlibabaCloud\Tea\Model;
 
 class DescribeHoneyPotSuspStatisticsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 9E3969FA-5ACC-4256-9FDE-BB6918CD0410
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description An array that consists of the top 5 VPCs or assets for which alerts are most frequently generated.
+     *
      * @var suspHoneyPotStatisticsResponse[]
      */
     public $suspHoneyPotStatisticsResponse;
@@ -24,25 +31,20 @@ class DescribeHoneyPotSuspStatisticsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->suspHoneyPotStatisticsResponse)) {
-            Model::validateArray($this->suspHoneyPotStatisticsResponse);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->suspHoneyPotStatisticsResponse) {
-            if (\is_array($this->suspHoneyPotStatisticsResponse)) {
-                $res['SuspHoneyPotStatisticsResponse'] = [];
-                $n1                                    = 0;
-                foreach ($this->suspHoneyPotStatisticsResponse as $item1) {
-                    $res['SuspHoneyPotStatisticsResponse'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SuspHoneyPotStatisticsResponse'] = [];
+            if (null !== $this->suspHoneyPotStatisticsResponse && \is_array($this->suspHoneyPotStatisticsResponse)) {
+                $n = 0;
+                foreach ($this->suspHoneyPotStatisticsResponse as $item) {
+                    $res['SuspHoneyPotStatisticsResponse'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +52,23 @@ class DescribeHoneyPotSuspStatisticsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeHoneyPotSuspStatisticsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SuspHoneyPotStatisticsResponse'])) {
             if (!empty($map['SuspHoneyPotStatisticsResponse'])) {
                 $model->suspHoneyPotStatisticsResponse = [];
-                $n1                                    = 0;
-                foreach ($map['SuspHoneyPotStatisticsResponse'] as $item1) {
-                    $model->suspHoneyPotStatisticsResponse[$n1++] = suspHoneyPotStatisticsResponse::fromMap($item1);
+                $n                                     = 0;
+                foreach ($map['SuspHoneyPotStatisticsResponse'] as $item) {
+                    $model->suspHoneyPotStatisticsResponse[$n++] = null !== $item ? suspHoneyPotStatisticsResponse::fromMap($item) : $item;
                 }
             }
         }

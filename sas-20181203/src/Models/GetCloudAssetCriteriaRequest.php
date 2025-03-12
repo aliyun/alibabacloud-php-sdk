@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetCriteriaRequest\cloudAssetTypes;
+use AlibabaCloud\Tea\Model;
 
 class GetCloudAssetCriteriaRequest extends Model
 {
     /**
+     * @description The types of cloud assets.
+     *
      * @var cloudAssetTypes[]
      */
     public $cloudAssetTypes;
+
     /**
+     * @description The keyword for fuzzy search when you query the asset.
+     *
+     * @example testwww
+     *
      * @var string
      */
     public $value;
@@ -24,25 +31,20 @@ class GetCloudAssetCriteriaRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->cloudAssetTypes)) {
-            Model::validateArray($this->cloudAssetTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudAssetTypes) {
-            if (\is_array($this->cloudAssetTypes)) {
-                $res['CloudAssetTypes'] = [];
-                $n1                     = 0;
-                foreach ($this->cloudAssetTypes as $item1) {
-                    $res['CloudAssetTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CloudAssetTypes'] = [];
+            if (null !== $this->cloudAssetTypes && \is_array($this->cloudAssetTypes)) {
+                $n = 0;
+                foreach ($this->cloudAssetTypes as $item) {
+                    $res['CloudAssetTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -50,24 +52,23 @@ class GetCloudAssetCriteriaRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCloudAssetCriteriaRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudAssetTypes'])) {
             if (!empty($map['CloudAssetTypes'])) {
                 $model->cloudAssetTypes = [];
-                $n1                     = 0;
-                foreach ($map['CloudAssetTypes'] as $item1) {
-                    $model->cloudAssetTypes[$n1++] = cloudAssetTypes::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['CloudAssetTypes'] as $item) {
+                    $model->cloudAssetTypes[$n++] = null !== $item ? cloudAssetTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

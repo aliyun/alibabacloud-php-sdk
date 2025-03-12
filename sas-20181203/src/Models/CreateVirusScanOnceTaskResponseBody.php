@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVirusScanOnceTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class CreateVirusScanOnceTaskResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class CreateVirusScanOnceTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVirusScanOnceTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

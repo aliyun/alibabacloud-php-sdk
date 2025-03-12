@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteVulAutoRepairConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 3956048F-9D73-5EDB-834B-4827BB48****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteVulAutoRepairConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteVulAutoRepairConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteVulAutoRepairConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

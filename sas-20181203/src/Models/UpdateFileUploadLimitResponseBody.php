@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateFileUploadLimitResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateFileUploadLimitResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateFileUploadLimitResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateFileUploadLimitResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

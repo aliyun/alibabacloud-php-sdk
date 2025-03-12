@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class attackEvent extends Model
 {
     /**
+     * @description The points in time when the number of attacks is collected in the trend chart.
+     *
      * @var string[]
      */
     public $dateArray;
+
     /**
+     * @description The total number of attacks on the current day.
+     *
+     * @example 1096
+     *
      * @var int
      */
     public $totalCount;
+
     /**
+     * @description The numbers of attacks at all points in time.
+     *
      * @var string[]
      */
     public $valueArray;
@@ -28,74 +38,43 @@ class attackEvent extends Model
 
     public function validate()
     {
-        if (\is_array($this->dateArray)) {
-            Model::validateArray($this->dateArray);
-        }
-        if (\is_array($this->valueArray)) {
-            Model::validateArray($this->valueArray);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dateArray) {
-            if (\is_array($this->dateArray)) {
-                $res['DateArray'] = [];
-                $n1               = 0;
-                foreach ($this->dateArray as $item1) {
-                    $res['DateArray'][$n1++] = $item1;
-                }
-            }
+            $res['DateArray'] = $this->dateArray;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->valueArray) {
-            if (\is_array($this->valueArray)) {
-                $res['ValueArray'] = [];
-                $n1                = 0;
-                foreach ($this->valueArray as $item1) {
-                    $res['ValueArray'][$n1++] = $item1;
-                }
-            }
+            $res['ValueArray'] = $this->valueArray;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attackEvent
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateArray'])) {
             if (!empty($map['DateArray'])) {
-                $model->dateArray = [];
-                $n1               = 0;
-                foreach ($map['DateArray'] as $item1) {
-                    $model->dateArray[$n1++] = $item1;
-                }
+                $model->dateArray = $map['DateArray'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['ValueArray'])) {
             if (!empty($map['ValueArray'])) {
-                $model->valueArray = [];
-                $n1                = 0;
-                foreach ($map['ValueArray'] as $item1) {
-                    $model->valueArray[$n1++] = $item1;
-                }
+                $model->valueArray = $map['ValueArray'];
             }
         }
 

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyRefreshProcessInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 814FCBBC-3A02-5555-8D05-F8D9FD62A295
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyRefreshProcessInfoResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyRefreshProcessInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyRefreshProcessInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

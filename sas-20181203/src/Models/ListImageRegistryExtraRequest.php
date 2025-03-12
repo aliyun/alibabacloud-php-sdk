@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListImageRegistryExtraRequest extends Model
 {
     /**
+     * @description Image registry ID.
+     * This parameter is required.
+     * @example 25363
+     *
      * @var int
      */
     public $registryId;
@@ -18,10 +22,9 @@ class ListImageRegistryExtraRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->registryId) {
@@ -31,11 +34,11 @@ class ListImageRegistryExtraRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListImageRegistryExtraRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

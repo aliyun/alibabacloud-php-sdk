@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class handleSecurityEventsResponse extends Model
 {
     /**
+     * @description The ID of the task to handle the alert events.
+     *
+     * @example 15411
+     *
      * @var int
      */
     public $taskId;
@@ -18,10 +22,9 @@ class handleSecurityEventsResponse extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +34,11 @@ class handleSecurityEventsResponse extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return handleSecurityEventsResponse
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

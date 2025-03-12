@@ -4,19 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAssetGroupRequest extends Model
 {
     /**
+     * @description The ID of the new server group to which the servers belong.
+     *
+     * This parameter is required.
+     * @example 9586199
+     *
      * @var int
      */
     public $groupId;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 10.12.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The UUIDs of the servers for which you want to change the server group. Separate multiple UUIDs with commas (,).
+     *
+     * This parameter is required.
+     * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
+     *
      * @var string
      */
     public $uuids;
@@ -28,20 +44,17 @@ class ModifyAssetGroupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -49,22 +62,20 @@ class ModifyAssetGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAssetGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

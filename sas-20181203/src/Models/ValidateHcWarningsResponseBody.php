@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ValidateHcWarningsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 722C4F88-7867-4E7B-8ADE-7451053
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ValidateHcWarningsResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ValidateHcWarningsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ValidateHcWarningsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

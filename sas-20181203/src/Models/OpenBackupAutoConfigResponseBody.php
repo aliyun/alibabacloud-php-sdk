@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OpenBackupAutoConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example ADE57832-9666-511C-9A80-B87DE2E8****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class OpenBackupAutoConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class OpenBackupAutoConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenBackupAutoConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

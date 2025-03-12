@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddSasContainerWebDefenseRuleRequest\pathConfDTOList;
+use AlibabaCloud\Tea\Model;
 
 class AddSasContainerWebDefenseRuleRequest extends Model
 {
     /**
+     * @description The paths that you want to protect.
+     *
      * @var pathConfDTOList[]
      */
     public $pathConfDTOList;
+
     /**
+     * @description The name of the rule.
+     *
+     * @example test-2020
+     *
      * @var string
      */
     public $ruleName;
@@ -24,25 +31,20 @@ class AddSasContainerWebDefenseRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->pathConfDTOList)) {
-            Model::validateArray($this->pathConfDTOList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pathConfDTOList) {
-            if (\is_array($this->pathConfDTOList)) {
-                $res['PathConfDTOList'] = [];
-                $n1                     = 0;
-                foreach ($this->pathConfDTOList as $item1) {
-                    $res['PathConfDTOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PathConfDTOList'] = [];
+            if (null !== $this->pathConfDTOList && \is_array($this->pathConfDTOList)) {
+                $n = 0;
+                foreach ($this->pathConfDTOList as $item) {
+                    $res['PathConfDTOList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -50,24 +52,23 @@ class AddSasContainerWebDefenseRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddSasContainerWebDefenseRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PathConfDTOList'])) {
             if (!empty($map['PathConfDTOList'])) {
                 $model->pathConfDTOList = [];
-                $n1                     = 0;
-                foreach ($map['PathConfDTOList'] as $item1) {
-                    $model->pathConfDTOList[$n1++] = pathConfDTOList::fromMap($item1);
+                $n                      = 0;
+                foreach ($map['PathConfDTOList'] as $item) {
+                    $model->pathConfDTOList[$n++] = null !== $item ? pathConfDTOList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

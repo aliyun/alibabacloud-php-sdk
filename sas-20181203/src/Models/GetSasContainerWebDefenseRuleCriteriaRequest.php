@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSasContainerWebDefenseRuleCriteriaRequest extends Model
 {
     /**
+     * @description The value of the search condition. Fuzzy match is supported.
+     *
+     * @example 525
+     *
      * @var string
      */
     public $value;
@@ -18,10 +22,9 @@ class GetSasContainerWebDefenseRuleCriteriaRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->value) {
@@ -31,11 +34,11 @@ class GetSasContainerWebDefenseRuleCriteriaRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSasContainerWebDefenseRuleCriteriaRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

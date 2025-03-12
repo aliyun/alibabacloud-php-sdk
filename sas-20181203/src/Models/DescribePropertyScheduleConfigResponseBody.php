@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePropertyScheduleConfigResponseBody extends Model
 {
     /**
+     * @description The configuration time. Unit: hours.
+     *
+     * >  A value **0** indicates that asset fingerprint collection is disabled for this type of asset.
+     * @example 3
+     *
      * @var string
      */
     public $config;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +33,14 @@ class DescribePropertyScheduleConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +48,17 @@ class DescribePropertyScheduleConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePropertyScheduleConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

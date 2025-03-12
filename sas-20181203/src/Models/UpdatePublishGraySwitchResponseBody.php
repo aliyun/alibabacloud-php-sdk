@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePublishGraySwitchResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 231A8A81-CBB4-5AB3-A624-98A501******
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdatePublishGraySwitchResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdatePublishGraySwitchResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePublishGraySwitchResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

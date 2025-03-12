@@ -4,19 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateStrictEventNameRequest extends Model
 {
     /**
+     * @description List of strict alarms to be operated on. This list is a complete list, and any strict alarms not included in this list will have the opposite operation performed.
+     * > -
      * @var string[]
      */
     public $eventNameList;
+
     /**
+     * @description Sets the language type for requests and received messages, default is **zh**. Values:
+     *
+     * - **zh**: Chinese
+     * - **en**: English
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description Operation rule determination operator:
+     * - *on*: Turn on the alarm
+     * - *off*: Turn off the alarm
+     *
+     * This parameter is required.
+     * @example on
+     *
      * @var string
      */
     public $operator;
@@ -28,29 +45,17 @@ class UpdateStrictEventNameRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->eventNameList)) {
-            Model::validateArray($this->eventNameList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventNameList) {
-            if (\is_array($this->eventNameList)) {
-                $res['EventNameList'] = [];
-                $n1                   = 0;
-                foreach ($this->eventNameList as $item1) {
-                    $res['EventNameList'][$n1++] = $item1;
-                }
-            }
+            $res['EventNameList'] = $this->eventNameList;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -58,28 +63,22 @@ class UpdateStrictEventNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateStrictEventNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventNameList'])) {
             if (!empty($map['EventNameList'])) {
-                $model->eventNameList = [];
-                $n1                   = 0;
-                foreach ($map['EventNameList'] as $item1) {
-                    $model->eventNameList[$n1++] = $item1;
-                }
+                $model->eventNameList = $map['EventNameList'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

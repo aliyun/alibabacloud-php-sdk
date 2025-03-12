@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyProcItemResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class propertyItems extends Model
 {
     /**
+     * @description The number of servers on which the process runs.
+     *
+     * @example 8888
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @description The name of the process.
+     *
+     * @example .ss
+     *
      * @var string
      */
     public $name;
@@ -23,16 +32,14 @@ class propertyItems extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +47,17 @@ class propertyItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return propertyItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

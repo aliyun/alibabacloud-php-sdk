@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListHoneypotEventFlowsRequest extends Model
 {
@@ -12,22 +12,27 @@ class ListHoneypotEventFlowsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $dealed;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -43,32 +48,26 @@ class ListHoneypotEventFlowsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->dealed) {
             $res['Dealed'] = $this->dealed;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->securityEventId) {
             $res['SecurityEventId'] = $this->securityEventId;
         }
@@ -76,34 +75,29 @@ class ListHoneypotEventFlowsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListHoneypotEventFlowsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['Dealed'])) {
             $model->dealed = $map['Dealed'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SecurityEventId'])) {
             $model->securityEventId = $map['SecurityEventId'];
         }

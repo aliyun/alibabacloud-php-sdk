@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVulDefendCountStatisticsRequest extends Model
 {
     /**
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   app: application vulnerabilities
+     *   emg: urgent vulnerabilities
+     *
+     * @example emg
+     *
      * @var string
      */
     public $vulType;
@@ -18,10 +25,9 @@ class DescribeVulDefendCountStatisticsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vulType) {
@@ -31,11 +37,11 @@ class DescribeVulDefendCountStatisticsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVulDefendCountStatisticsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

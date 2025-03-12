@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckRuleInstanceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class checkRuleInstances extends Model
 {
     /**
+     * @description The instance ID of the asset.
+     *
+     * @example i-j6c76lh1kvrcvwl*****
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The instance name of the asset.
+     *
+     * @example testEcs
+     *
      * @var string
      */
     public $instanceName;
+
     /**
+     * @description Region ID.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -28,20 +42,17 @@ class checkRuleInstances extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +60,20 @@ class checkRuleInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkRuleInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

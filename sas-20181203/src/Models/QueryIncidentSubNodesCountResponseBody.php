@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryIncidentSubNodesCountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The child nodes.
+     *
      * @var int[]
      */
     public $subNodesCount;
+
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;
@@ -28,28 +40,17 @@ class QueryIncidentSubNodesCountResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->subNodesCount)) {
-            Model::validateArray($this->subNodesCount);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->subNodesCount) {
-            if (\is_array($this->subNodesCount)) {
-                $res['SubNodesCount'] = [];
-                foreach ($this->subNodesCount as $key1 => $value1) {
-                    $res['SubNodesCount'][$key1] = $value1;
-                }
-            }
+            $res['SubNodesCount'] = $this->subNodesCount;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -57,27 +58,20 @@ class QueryIncidentSubNodesCountResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryIncidentSubNodesCountResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SubNodesCount'])) {
-            if (!empty($map['SubNodesCount'])) {
-                $model->subNodesCount = [];
-                foreach ($map['SubNodesCount'] as $key1 => $value1) {
-                    $model->subNodesCount[$key1] = $value1;
-                }
-            }
+            $model->subNodesCount = $map['SubNodesCount'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

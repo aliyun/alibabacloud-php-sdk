@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupPolicyDetailResponseBody\uniBackupPolicyDTO;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUniBackupPolicyDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62D0760****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The details of the anti-ransomware policy.
+     *
      * @var uniBackupPolicyDTO
      */
     public $uniBackupPolicyDTO;
@@ -24,38 +31,32 @@ class DescribeUniBackupPolicyDetailResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->uniBackupPolicyDTO) {
-            $this->uniBackupPolicyDTO->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->uniBackupPolicyDTO) {
-            $res['UniBackupPolicyDTO'] = null !== $this->uniBackupPolicyDTO ? $this->uniBackupPolicyDTO->toArray($noStream) : $this->uniBackupPolicyDTO;
+            $res['UniBackupPolicyDTO'] = null !== $this->uniBackupPolicyDTO ? $this->uniBackupPolicyDTO->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUniBackupPolicyDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['UniBackupPolicyDTO'])) {
             $model->uniBackupPolicyDTO = uniBackupPolicyDTO::fromMap($map['UniBackupPolicyDTO']);
         }

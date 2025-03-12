@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCommonSwitchConfigRequest extends Model
 {
     /**
+     * @description The type of the common switch.
+     *
+     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the switch type from the response parameter SwitchId.
+     * @example USER-DEFINE-RULE-SWITCH-TYPE_180****
+     *
      * @var string
      */
     public $type;
@@ -18,10 +23,9 @@ class GetCommonSwitchConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
@@ -31,11 +35,11 @@ class GetCommonSwitchConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCommonSwitchConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

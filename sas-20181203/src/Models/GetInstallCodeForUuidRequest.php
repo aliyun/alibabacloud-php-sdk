@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetInstallCodeForUuidRequest extends Model
 {
     /**
+     * @description The UUID of the server for which the client installation code is to be queried.
+     *
+     *
+     * This parameter is required.
+     * @example eae0b46e-2155-422e-9565-ecc52c69****
+     *
      * @var string
      */
     public $uuid;
@@ -18,10 +24,9 @@ class GetInstallCodeForUuidRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -31,11 +36,11 @@ class GetInstallCodeForUuidRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInstallCodeForUuidRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

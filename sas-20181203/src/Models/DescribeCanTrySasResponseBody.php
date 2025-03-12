@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCanTrySasResponseBody extends Model
 {
     /**
+     * @description Indicates whether you have the permissions on the trial use of Security Center. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $canTry;
+
     /**
+     * @description The request ID.
+     *
+     * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +35,14 @@ class DescribeCanTrySasResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->canTry) {
             $res['CanTry'] = $this->canTry;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +50,17 @@ class DescribeCanTrySasResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCanTrySasResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanTry'])) {
             $model->canTry = $map['CanTry'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

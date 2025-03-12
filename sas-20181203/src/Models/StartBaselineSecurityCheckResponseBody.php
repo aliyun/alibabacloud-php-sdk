@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartBaselineSecurityCheckResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 48D2E9A9-A1B0-4295-B727-0995757C47E9
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class StartBaselineSecurityCheckResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class StartBaselineSecurityCheckResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartBaselineSecurityCheckResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

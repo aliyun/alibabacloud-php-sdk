@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PauseClientResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class PauseClientResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class PauseClientResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PauseClientResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

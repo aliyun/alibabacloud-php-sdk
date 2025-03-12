@@ -4,19 +4,39 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyResponseBody\strategies;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class configTargets extends Model
 {
     /**
+     * @description Indicates whether the baseline check policy is applied to the asset group. Valid values:
+     *
+     *   **add**: The baseline check policy is applied to the asset group.
+     *   **del**: the baseline check policy is not applied to the asset group.
+     *
+     * @example add
+     *
      * @var string
      */
     public $flag;
+
     /**
+     * @description The asset group ID or UUID of the asset to which the baseline check policy is applied.
+     *
+     * @example 10099713
+     *
      * @var string
      */
     public $target;
+
     /**
+     * @description The condition by which the baseline check policy is applied to the asset. Valid values:
+     *
+     *   **groupId**: the ID of the asset group
+     *   **uuid**: the UUID of the asset
+     *
+     * @example groupId
+     *
      * @var string
      */
     public $targetType;
@@ -28,20 +48,17 @@ class configTargets extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
         }
-
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
-
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -49,22 +66,20 @@ class configTargets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return configTargets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
         }
-
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

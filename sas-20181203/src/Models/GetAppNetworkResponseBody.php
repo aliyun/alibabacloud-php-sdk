@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkResponseBody\appNetwork;
+use AlibabaCloud\Tea\Model;
 
 class GetAppNetworkResponseBody extends Model
 {
     /**
+     * @description The information about the application network topology.
+     *
      * @var appNetwork
      */
     public $appNetwork;
+
     /**
+     * @description The request ID.
+     *
+     * @example 7D46EDB0-xxx
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetAppNetworkResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->appNetwork) {
-            $this->appNetwork->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appNetwork) {
-            $res['AppNetwork'] = null !== $this->appNetwork ? $this->appNetwork->toArray($noStream) : $this->appNetwork;
+            $res['AppNetwork'] = null !== $this->appNetwork ? $this->appNetwork->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetAppNetworkResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAppNetworkResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppNetwork'])) {
             $model->appNetwork = appNetwork::fromMap($map['AppNetwork']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

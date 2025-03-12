@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponseBody\vendors;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponseBody\vendors\instanceTypes\instanceSubTypes;
+use AlibabaCloud\Tea\Model;
 
 class instanceTypes extends Model
 {
     /**
+     * @description An array that consists of asset subtypes.
+     *
      * @var instanceSubTypes[]
      */
     public $instanceSubTypes;
+
     /**
+     * @description The name of the asset type.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $name;
@@ -24,25 +31,20 @@ class instanceTypes extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceSubTypes)) {
-            Model::validateArray($this->instanceSubTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceSubTypes) {
-            if (\is_array($this->instanceSubTypes)) {
-                $res['InstanceSubTypes'] = [];
-                $n1                      = 0;
-                foreach ($this->instanceSubTypes as $item1) {
-                    $res['InstanceSubTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InstanceSubTypes'] = [];
+            if (null !== $this->instanceSubTypes && \is_array($this->instanceSubTypes)) {
+                $n = 0;
+                foreach ($this->instanceSubTypes as $item) {
+                    $res['InstanceSubTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -50,24 +52,23 @@ class instanceTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSubTypes'])) {
             if (!empty($map['InstanceSubTypes'])) {
                 $model->instanceSubTypes = [];
-                $n1                      = 0;
-                foreach ($map['InstanceSubTypes'] as $item1) {
-                    $model->instanceSubTypes[$n1++] = instanceSubTypes::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['InstanceSubTypes'] as $item) {
+                    $model->instanceSubTypes[$n++] = null !== $item ? instanceSubTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDataSourceResponseBody\metaDatas;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDataSourceResponseBody extends Model
 {
     /**
+     * @description The metadata of the data sources.
+     *
      * @var metaDatas[]
      */
     public $metaDatas;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeDataSourceResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->metaDatas)) {
-            Model::validateArray($this->metaDatas);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metaDatas) {
-            if (\is_array($this->metaDatas)) {
-                $res['MetaDatas'] = [];
-                $n1               = 0;
-                foreach ($this->metaDatas as $item1) {
-                    $res['MetaDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MetaDatas'] = [];
+            if (null !== $this->metaDatas && \is_array($this->metaDatas)) {
+                $n = 0;
+                foreach ($this->metaDatas as $item) {
+                    $res['MetaDatas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeDataSourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDataSourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetaDatas'])) {
             if (!empty($map['MetaDatas'])) {
                 $model->metaDatas = [];
-                $n1               = 0;
-                foreach ($map['MetaDatas'] as $item1) {
-                    $model->metaDatas[$n1++] = metaDatas::fromMap($item1);
+                $n                = 0;
+                foreach ($map['MetaDatas'] as $item) {
+                    $model->metaDatas[$n++] = null !== $item ? metaDatas::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

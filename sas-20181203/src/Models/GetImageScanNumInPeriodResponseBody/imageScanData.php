@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class imageScanData extends Model
 {
     /**
+     * @description The number of image scans.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $imageScanCount;
@@ -18,10 +22,9 @@ class imageScanData extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageScanCount) {
@@ -31,11 +34,11 @@ class imageScanData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imageScanData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

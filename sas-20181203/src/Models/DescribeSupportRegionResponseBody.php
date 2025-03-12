@@ -4,14 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSupportRegionResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 2C0699D3-4107-5A46-A4C4-E129A5967788
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
@@ -23,51 +28,35 @@ class DescribeSupportRegionResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->supportRegion)) {
-            Model::validateArray($this->supportRegion);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->supportRegion) {
-            if (\is_array($this->supportRegion)) {
-                $res['SupportRegion'] = [];
-                $n1                   = 0;
-                foreach ($this->supportRegion as $item1) {
-                    $res['SupportRegion'][$n1++] = $item1;
-                }
-            }
+            $res['SupportRegion'] = $this->supportRegion;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSupportRegionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SupportRegion'])) {
             if (!empty($map['SupportRegion'])) {
-                $model->supportRegion = [];
-                $n1                   = 0;
-                foreach ($map['SupportRegion'] as $item1) {
-                    $model->supportRegion[$n1++] = $item1;
-                }
+                $model->supportRegion = $map['SupportRegion'];
             }
         }
 

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordResponseBody\backupRecordList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListBackupRecordResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class ListBackupRecordResponseBody extends Model
 {
     /**
+     * @description The details of the backup record.
+     *
      * @var backupRecordList[]
      */
     public $backupRecordList;
+
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
+
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
+     * @example 3956048F-9D73-5EDB-834B-4827BB48****
+     *
      * @var string
      */
     public $requestId;
@@ -30,32 +40,23 @@ class ListBackupRecordResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->backupRecordList)) {
-            Model::validateArray($this->backupRecordList);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupRecordList) {
-            if (\is_array($this->backupRecordList)) {
-                $res['BackupRecordList'] = [];
-                $n1                      = 0;
-                foreach ($this->backupRecordList as $item1) {
-                    $res['BackupRecordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BackupRecordList'] = [];
+            if (null !== $this->backupRecordList && \is_array($this->backupRecordList)) {
+                $n = 0;
+                foreach ($this->backupRecordList as $item) {
+                    $res['BackupRecordList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,28 +64,26 @@ class ListBackupRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListBackupRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupRecordList'])) {
             if (!empty($map['BackupRecordList'])) {
                 $model->backupRecordList = [];
-                $n1                      = 0;
-                foreach ($map['BackupRecordList'] as $item1) {
-                    $model->backupRecordList[$n1++] = backupRecordList::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['BackupRecordList'] as $item) {
+                    $model->backupRecordList[$n++] = null !== $item ? backupRecordList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

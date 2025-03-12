@@ -4,23 +4,47 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyWebLockDeleteConfigRequest extends Model
 {
     /**
+     * @description The ID of the protected directory that you want to delete.
+     *
+     * This parameter is required.
+     * @example 12
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
+
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
+
     /**
+     * @description The UUID of the server for which you want to delete the protected directory.
+     *
+     * This parameter is required.
+     * @example 7f7fe9a2-55de-4b9d-a37a-0d981d36****
+     *
      * @var string
      */
     public $uuid;
@@ -33,24 +57,20 @@ class ModifyWebLockDeleteConfigRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -58,26 +78,23 @@ class ModifyWebLockDeleteConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyWebLockDeleteConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

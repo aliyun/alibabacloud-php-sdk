@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateServiceLinkedRoleRequest extends Model
 {
     /**
+     * @description The service-linked role. Default value: **AliyunServiceRoleForSas**. Valid values:
+     *
+     *   **AliyunServiceRoleForSas**: the service-linked role of Security Center. Security Center assumes this role to access the resources of other cloud services within your account.
+     *   **AliyunServiceRoleForSasCspm**: the service-linked role of Security Center-CSPM. Security Center-CSPM assumes this role to access the resources of other cloud services within your account.
+     *
+     * @example AliyunServiceRoleForSas
+     *
      * @var string
      */
     public $serviceLinkedRole;
@@ -18,10 +25,9 @@ class CreateServiceLinkedRoleRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serviceLinkedRole) {
@@ -31,11 +37,11 @@ class CreateServiceLinkedRoleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateServiceLinkedRoleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoNodeResponseBody\node;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTraceInfoNodeResponseBody extends Model
 {
     /**
+     * @description The details about the node.
+     *
      * @var node
      */
     public $node;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example F35F45B0-5D6B-4238-BE02-A62DXXXXXXXX
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class DescribeTraceInfoNodeResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->node) {
-            $this->node->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->node) {
-            $res['Node'] = null !== $this->node ? $this->node->toArray($noStream) : $this->node;
+            $res['Node'] = null !== $this->node ? $this->node->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class DescribeTraceInfoNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTraceInfoNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Node'])) {
             $model->node = node::fromMap($map['Node']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

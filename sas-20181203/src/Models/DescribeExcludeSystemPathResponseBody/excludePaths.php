@@ -4,15 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExcludeSystemPathResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class excludePaths extends Model
 {
     /**
+     * @description The operating system of the server. Valid values:
+     *
+     *   **linux**: Linux
+     *   **windows**: Windows
+     *
+     * @example linux
+     *
      * @var string
      */
     public $os;
+
     /**
+     * @description The absolute path to the directory.
+     *
+     * @example /bin/
+     *
      * @var string
      */
     public $path;
@@ -23,16 +35,14 @@ class excludePaths extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->os) {
             $res['Os'] = $this->os;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -40,18 +50,17 @@ class excludePaths extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return excludePaths
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

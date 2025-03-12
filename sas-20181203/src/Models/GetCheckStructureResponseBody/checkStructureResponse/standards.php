@@ -4,24 +4,45 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponseBody\checkStructureResponse;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponseBody\checkStructureResponse\standards\requirements;
+use AlibabaCloud\Tea\Model;
 
 class standards extends Model
 {
     /**
+     * @description The standard ID of the check item.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The standards of the check items.
+     *
      * @var requirements[]
      */
     public $requirements;
+
     /**
+     * @description The display name of the standard for the check item.
+     *
+     * @example Alibaba Cloud best security practices
+     *
      * @var string
      */
     public $showName;
+
     /**
+     * @description The standard type of the check item. Valid values:
+     *
+     *   RISK: security risk.
+     *   IDENTITY_PERMISSION: CIEM.
+     *   COMPLIANCE: security compliance.
+     *
+     * @example IDENTITY_PERMISSION
+     *
      * @var string
      */
     public $type;
@@ -34,33 +55,26 @@ class standards extends Model
 
     public function validate()
     {
-        if (\is_array($this->requirements)) {
-            Model::validateArray($this->requirements);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requirements) {
-            if (\is_array($this->requirements)) {
-                $res['Requirements'] = [];
-                $n1                  = 0;
-                foreach ($this->requirements as $item1) {
-                    $res['Requirements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Requirements'] = [];
+            if (null !== $this->requirements && \is_array($this->requirements)) {
+                $n = 0;
+                foreach ($this->requirements as $item) {
+                    $res['Requirements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,32 +82,29 @@ class standards extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return standards
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Requirements'])) {
             if (!empty($map['Requirements'])) {
                 $model->requirements = [];
-                $n1                  = 0;
-                foreach ($map['Requirements'] as $item1) {
-                    $model->requirements[$n1++] = requirements::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['Requirements'] as $item) {
+                    $model->requirements[$n++] = null !== $item ? requirements::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

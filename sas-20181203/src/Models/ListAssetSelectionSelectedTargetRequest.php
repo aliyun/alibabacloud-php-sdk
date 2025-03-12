@@ -4,15 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAssetSelectionSelectedTargetRequest extends Model
 {
     /**
+     * @description The unique ID of the asset.
+     *
+     * This parameter is required.
+     * @example 2e6ab33d-4e00-4581-ac16-0dd1f9ad****
+     *
      * @var string
      */
     public $selectionKey;
+
     /**
+     * @description The details of queries.
+     *
      * @var string[]
      */
     public $targetList;
@@ -23,51 +31,35 @@ class ListAssetSelectionSelectedTargetRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->targetList)) {
-            Model::validateArray($this->targetList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->selectionKey) {
             $res['SelectionKey'] = $this->selectionKey;
         }
-
         if (null !== $this->targetList) {
-            if (\is_array($this->targetList)) {
-                $res['TargetList'] = [];
-                $n1                = 0;
-                foreach ($this->targetList as $item1) {
-                    $res['TargetList'][$n1++] = $item1;
-                }
-            }
+            $res['TargetList'] = $this->targetList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAssetSelectionSelectedTargetRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SelectionKey'])) {
             $model->selectionKey = $map['SelectionKey'];
         }
-
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
-                $model->targetList = [];
-                $n1                = 0;
-                foreach ($map['TargetList'] as $item1) {
-                    $model->targetList[$n1++] = $item1;
-                }
+                $model->targetList = $map['TargetList'];
             }
         }
 

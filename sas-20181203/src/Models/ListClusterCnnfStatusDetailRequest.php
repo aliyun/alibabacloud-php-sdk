@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListClusterCnnfStatusDetailRequest extends Model
 {
     /**
+     * @description An array that consists of the ID of the cluster.
+     *
      * @var string[]
      */
     public $clusterIds;
@@ -18,43 +20,29 @@ class ListClusterCnnfStatusDetailRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->clusterIds)) {
-            Model::validateArray($this->clusterIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            if (\is_array($this->clusterIds)) {
-                $res['ClusterIds'] = [];
-                $n1                = 0;
-                foreach ($this->clusterIds as $item1) {
-                    $res['ClusterIds'][$n1++] = $item1;
-                }
-            }
+            $res['ClusterIds'] = $this->clusterIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClusterCnnfStatusDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = [];
-                $n1                = 0;
-                foreach ($map['ClusterIds'] as $item1) {
-                    $model->clusterIds[$n1++] = $item1;
-                }
+                $model->clusterIds = $map['ClusterIds'];
             }
         }
 

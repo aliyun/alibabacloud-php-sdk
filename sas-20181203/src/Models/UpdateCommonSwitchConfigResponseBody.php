@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateCommonSwitchConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 655B538A-A31B-58F2-A3FB-2EF4390D****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateCommonSwitchConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateCommonSwitchConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateCommonSwitchConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeWebLockInclusiveFileTypeResponseBody extends Model
 {
     /**
+     * @description An array that consists of the types of files that can be protected by web tamper proofing.
+     *
      * @var string[]
      */
     public $inclusiveFileType;
+
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of the types of files that can be protected by web tamper proofing.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;
@@ -28,29 +40,17 @@ class DescribeWebLockInclusiveFileTypeResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->inclusiveFileType)) {
-            Model::validateArray($this->inclusiveFileType);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inclusiveFileType) {
-            if (\is_array($this->inclusiveFileType)) {
-                $res['InclusiveFileType'] = [];
-                $n1                       = 0;
-                foreach ($this->inclusiveFileType as $item1) {
-                    $res['InclusiveFileType'][$n1++] = $item1;
-                }
-            }
+            $res['InclusiveFileType'] = $this->inclusiveFileType;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,28 +58,22 @@ class DescribeWebLockInclusiveFileTypeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeWebLockInclusiveFileTypeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InclusiveFileType'])) {
             if (!empty($map['InclusiveFileType'])) {
-                $model->inclusiveFileType = [];
-                $n1                       = 0;
-                foreach ($map['InclusiveFileType'] as $item1) {
-                    $model->inclusiveFileType[$n1++] = $item1;
-                }
+                $model->inclusiveFileType = $map['InclusiveFileType'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

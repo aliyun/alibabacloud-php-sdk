@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddTagWithUuidRequest extends Model
 {
     /**
+     * @description The name of the tag.
+     *
+     * This parameter is required.
+     * @example InternetIp
+     *
      * @var string
      */
     public $tagName;
+
     /**
+     * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     * @example 71f5313e-4355-4c59-86d1-557dda7b****,71f5313e-4355-4c59-86d1-557dda7b****
+     *
      * @var string
      */
     public $uuidList;
@@ -23,16 +34,14 @@ class AddTagWithUuidRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
-
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
         }
@@ -40,18 +49,17 @@ class AddTagWithUuidRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddTagWithUuidRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
-
         if (isset($map['UuidList'])) {
             $model->uuidList = $map['UuidList'];
         }

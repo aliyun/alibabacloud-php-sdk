@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RefreshRegistryTokenRequest extends Model
 {
     /**
+     * @description The ID of the image repository.
+     *
+     * This parameter is required.
+     * @example 1
+     *
      * @var int
      */
     public $registryId;
@@ -18,10 +23,9 @@ class RefreshRegistryTokenRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->registryId) {
@@ -31,11 +35,11 @@ class RefreshRegistryTokenRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RefreshRegistryTokenRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

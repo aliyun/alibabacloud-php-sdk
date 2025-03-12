@@ -4,24 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskTypeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskTypeResponseBody\riskTypes\subTypes;
+use AlibabaCloud\Tea\Model;
 
 class riskTypes extends Model
 {
     /**
+     * @description The alias of the baseline type.
+     *
+     * @example Redis unauthorized access high exploit vulnerability risk
+     *
      * @var string
      */
     public $alias;
+
     /**
+     * @description The baseline type flag of the current user version. Valid values:
+     *
+     * - **true**: Have access
+     * - **false**: No permissions
+     * @example true
+     *
      * @var bool
      */
     public $authFlag;
+
     /**
+     * @description An array that consists of the information about baseline subtypes.
+     *
      * @var subTypes[]
      */
     public $subTypes;
+
     /**
+     * @description The name of the baseline type.
+     *
+     * @example hc_exploit
+     *
      * @var string
      */
     public $typeName;
@@ -34,33 +53,26 @@ class riskTypes extends Model
 
     public function validate()
     {
-        if (\is_array($this->subTypes)) {
-            Model::validateArray($this->subTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
-
         if (null !== $this->authFlag) {
             $res['AuthFlag'] = $this->authFlag;
         }
-
         if (null !== $this->subTypes) {
-            if (\is_array($this->subTypes)) {
-                $res['SubTypes'] = [];
-                $n1              = 0;
-                foreach ($this->subTypes as $item1) {
-                    $res['SubTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SubTypes'] = [];
+            if (null !== $this->subTypes && \is_array($this->subTypes)) {
+                $n = 0;
+                foreach ($this->subTypes as $item) {
+                    $res['SubTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -68,32 +80,29 @@ class riskTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return riskTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
-
         if (isset($map['AuthFlag'])) {
             $model->authFlag = $map['AuthFlag'];
         }
-
         if (isset($map['SubTypes'])) {
             if (!empty($map['SubTypes'])) {
                 $model->subTypes = [];
-                $n1              = 0;
-                foreach ($map['SubTypes'] as $item1) {
-                    $model->subTypes[$n1++] = subTypes::fromMap($item1);
+                $n               = 0;
+                foreach ($map['SubTypes'] as $item) {
+                    $model->subTypes[$n++] = null !== $item ? subTypes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

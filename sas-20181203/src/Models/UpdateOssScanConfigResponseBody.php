@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateOssScanConfigResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example FFA14F61-4E2F-54C7-9276-81C60BAC****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class UpdateOssScanConfigResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class UpdateOssScanConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateOssScanConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

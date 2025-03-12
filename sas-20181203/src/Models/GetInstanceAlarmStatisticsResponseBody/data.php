@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAlarmStatisticsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Reminder alarm count.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $remindCount;
+
     /**
+     * @description Critical alarm count.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $seriousCount;
+
     /**
+     * @description Suspicious alarm count.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $suspiciousCount;
@@ -28,20 +42,17 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->remindCount) {
             $res['RemindCount'] = $this->remindCount;
         }
-
         if (null !== $this->seriousCount) {
             $res['SeriousCount'] = $this->seriousCount;
         }
-
         if (null !== $this->suspiciousCount) {
             $res['SuspiciousCount'] = $this->suspiciousCount;
         }
@@ -49,22 +60,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemindCount'])) {
             $model->remindCount = $map['RemindCount'];
         }
-
         if (isset($map['SeriousCount'])) {
             $model->seriousCount = $map['SeriousCount'];
         }
-
         if (isset($map['SuspiciousCount'])) {
             $model->suspiciousCount = $map['SuspiciousCount'];
         }

@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceRebootStatusRequest extends Model
 {
     /**
+     * @description The UUIDs of the servers that you restart. Separate multiple UUIDs with commas (,).
+     *
+     * This parameter is required.
+     * @example d77f7802-4f0a-4221-ab02-4d999e****
+     *
      * @var string
      */
     public $uuids;
@@ -18,10 +23,9 @@ class DescribeInstanceRebootStatusRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uuids) {
@@ -31,11 +35,11 @@ class DescribeInstanceRebootStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceRebootStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

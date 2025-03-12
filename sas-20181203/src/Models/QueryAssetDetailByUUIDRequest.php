@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryAssetDetailByUUIDRequest extends Model
 {
     /**
+     * @description A key-value pair that consists of the user ID and the asset list.
+     *
+     * @example {
+     * "AliUid": "176618589410****",
+     * "UuidList": [
+     * "429fe207-3014-40c6-972b-cdff1d7a****",
+     * "429fe207-3014-40c6-972b-cdff1d7b****",
+     * "429fe207-3014-40c6-972b-cdff1d7c****"
+     * }
      * @var string
      */
     public $requests;
@@ -18,10 +27,9 @@ class QueryAssetDetailByUUIDRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requests) {
@@ -31,11 +39,11 @@ class QueryAssetDetailByUUIDRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryAssetDetailByUUIDRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

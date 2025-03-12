@@ -4,20 +4,40 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionResponseBody\suggestions\detail;
+use AlibabaCloud\Tea\Model;
 
 class suggestions extends Model
 {
     /**
+     * @description The details of the suggestion.
+     *
      * @var detail[]
      */
     public $detail;
+
     /**
+     * @description The penalty point of a deduction item.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $points;
+
     /**
+     * @description The type of the unhandled risk. Valid values:
+     *
+     *   **SS_REINFORCE**: missing configuration of key features, such as malicious behavior defense
+     *   **SS_ALARM**: unhandled alerts
+     *   **SS_VUL**: unfixed vulnerabilities
+     *   **SS_HC**: baseline risks
+     *   **SS_AK**: AccessKey pair leaks
+     *   **SS_CLOUD_HC**: configuration risks of cloud services
+     *   **OTHER**: others
+     *
+     * @example SS_ALARM
+     *
      * @var string
      */
     public $suggestType;
@@ -29,29 +49,23 @@ class suggestions extends Model
 
     public function validate()
     {
-        if (\is_array($this->detail)) {
-            Model::validateArray($this->detail);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->detail) {
-            if (\is_array($this->detail)) {
-                $res['Detail'] = [];
-                $n1            = 0;
-                foreach ($this->detail as $item1) {
-                    $res['Detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Detail'] = [];
+            if (null !== $this->detail && \is_array($this->detail)) {
+                $n = 0;
+                foreach ($this->detail as $item) {
+                    $res['Detail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->points) {
             $res['Points'] = $this->points;
         }
-
         if (null !== $this->suggestType) {
             $res['SuggestType'] = $this->suggestType;
         }
@@ -59,28 +73,26 @@ class suggestions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return suggestions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
-                $n1            = 0;
-                foreach ($map['Detail'] as $item1) {
-                    $model->detail[$n1++] = detail::fromMap($item1);
+                $n             = 0;
+                foreach ($map['Detail'] as $item) {
+                    $model->detail[$n++] = null !== $item ? detail::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Points'])) {
             $model->points = $map['Points'];
         }
-
         if (isset($map['SuggestType'])) {
             $model->suggestType = $map['SuggestType'];
         }
