@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteAsyncTaskRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $taskId;
@@ -24,7 +30,6 @@ class DeleteAsyncTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

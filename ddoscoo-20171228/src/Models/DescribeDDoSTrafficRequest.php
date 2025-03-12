@@ -9,71 +9,87 @@ use AlibabaCloud\Tea\Model;
 class DescribeDDoSTrafficRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1.1.1.1
+     *
      * @var string
      */
-    public $sourceIp;
+    public $eip;
 
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $interval;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example 3289457398
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 60
+     *
+     * @var int
+     */
+    public $interval;
+
+    /**
+     * @example xx
+     *
      * @var string
      */
-    public $eip;
+    public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 3289457324
+     *
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
-        'interval'        => 'Interval',
-        'endTime'         => 'EndTime',
         'eip'             => 'Eip',
+        'endTime'         => 'EndTime',
+        'interval'        => 'Interval',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('interval', $this->interval, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('eip', $this->eip, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
+        if (null !== $this->eip) {
+            $res['Eip'] = $this->eip;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->eip) {
-            $res['Eip'] = $this->eip;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -87,23 +103,23 @@ class DescribeDDoSTrafficRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
+        if (isset($map['Eip'])) {
+            $model->eip = $map['Eip'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Eip'])) {
-            $model->eip = $map['Eip'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -9,64 +9,81 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer7RuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example ddoscoo-cn-XXXXXX
+     *
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
+     * @example [{"ProxyPorts":[80,8080],"ProxyType":"http"},{"ProxyPorts":[443],"ProxyType":"https"}]rts\\":[443],\\"ProxyType\\":\\"https\\"}]
+     *
      * @var string
      */
     public $proxyTypeList;
 
     /**
+     * @example [{"ProxyPorts":[80,8080],"ProxyType":"http"},{"ProxyPorts":[443],"ProxyType":"https"}]rts\\":[443],\\"ProxyType\\":\\"https\\"}]
+     *
      * @var string[]
      */
     public $proxyTypes;
 
     /**
-     * @var int
-     */
-    public $rsType;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example 1.1.1.1
+     *
      * @var string[]
      */
     public $realServers;
 
     /**
-     * @var string[]
+     * @example test
+     *
+     * @var string
      */
-    public $instanceIds;
+    public $resourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $rsType;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
+        'instanceIds'     => 'InstanceIds',
         'proxyTypeList'   => 'ProxyTypeList',
         'proxyTypes'      => 'ProxyTypes',
-        'rsType'          => 'RsType',
         'realServers'     => 'RealServers',
-        'instanceIds'     => 'InstanceIds',
+        'resourceGroupId' => 'ResourceGroupId',
+        'rsType'          => 'RsType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('rsType', $this->rsType, true);
-        Model::validateRequired('realServers', $this->realServers, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->proxyTypeList) {
             $res['ProxyTypeList'] = $this->proxyTypeList;
@@ -74,14 +91,14 @@ class ConfigLayer7RuleRequest extends Model
         if (null !== $this->proxyTypes) {
             $res['ProxyTypes'] = $this->proxyTypes;
         }
-        if (null !== $this->rsType) {
-            $res['RsType'] = $this->rsType;
-        }
         if (null !== $this->realServers) {
             $res['RealServers'] = $this->realServers;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->rsType) {
+            $res['RsType'] = $this->rsType;
         }
 
         return $res;
@@ -95,11 +112,13 @@ class ConfigLayer7RuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['ProxyTypeList'])) {
             $model->proxyTypeList = $map['ProxyTypeList'];
@@ -109,18 +128,16 @@ class ConfigLayer7RuleRequest extends Model
                 $model->proxyTypes = $map['ProxyTypes'];
             }
         }
-        if (isset($map['RsType'])) {
-            $model->rsType = $map['RsType'];
-        }
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
                 $model->realServers = $map['RealServers'];
             }
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RsType'])) {
+            $model->rsType = $map['RsType'];
         }
 
         return $model;

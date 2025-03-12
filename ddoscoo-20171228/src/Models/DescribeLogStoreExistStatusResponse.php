@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogStoreExistStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $existStatus;
+    public $statusCode;
+
+    /**
+     * @var DescribeLogStoreExistStatusResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'existStatus' => 'ExistStatus',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('existStatus', $this->existStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->existStatus) {
-            $res['ExistStatus'] = $this->existStatus;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +56,14 @@ class DescribeLogStoreExistStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ExistStatus'])) {
-            $model->existStatus = $map['ExistStatus'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeLogStoreExistStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

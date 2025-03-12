@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseCountStatisticsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @example xx
+     *
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class DescribeDefenseCountStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class DescribeDefenseCountStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

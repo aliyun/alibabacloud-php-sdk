@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsOpenStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $slsOpenStatus;
+    public $statusCode;
+
+    /**
+     * @var DescribeSlsOpenStatusResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'slsOpenStatus' => 'SlsOpenStatus',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('slsOpenStatus', $this->slsOpenStatus, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->slsOpenStatus) {
-            $res['SlsOpenStatus'] = $this->slsOpenStatus;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +56,14 @@ class DescribeSlsOpenStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['SlsOpenStatus'])) {
-            $model->slsOpenStatus = $map['SlsOpenStatus'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeSlsOpenStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

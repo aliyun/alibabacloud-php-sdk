@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20171228\Models;
 
-use AlibabaCloud\SDK\Ddoscoo\V20171228\Models\DescribeInstanceStatisticsResponse\instanceStatistics;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceStatisticsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instanceStatistics[]
+     * @var int
      */
-    public $instanceStatistics;
+    public $statusCode;
+
+    /**
+     * @var DescribeInstanceStatisticsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'instanceStatistics' => 'InstanceStatistics',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instanceStatistics', $this->instanceStatistics, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instanceStatistics) {
-            $res['InstanceStatistics'] = [];
-            if (null !== $this->instanceStatistics && \is_array($this->instanceStatistics)) {
-                $n = 0;
-                foreach ($this->instanceStatistics as $item) {
-                    $res['InstanceStatistics'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +56,14 @@ class DescribeInstanceStatisticsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['InstanceStatistics'])) {
-            if (!empty($map['InstanceStatistics'])) {
-                $model->instanceStatistics = [];
-                $n                         = 0;
-                foreach ($map['InstanceStatistics'] as $item) {
-                    $model->instanceStatistics[$n++] = null !== $item ? instanceStatistics::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeInstanceStatisticsResponseBody::fromMap($map['body']);
         }
 
         return $model;

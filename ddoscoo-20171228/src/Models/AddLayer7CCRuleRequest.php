@@ -9,96 +9,122 @@ use AlibabaCloud\Tea\Model;
 class AddLayer7CCRuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example close
+     *
      * @var string
      */
     public $act;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example match
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testCcRule1
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example /a/b/c
+     *
      * @var string
      */
     public $uri;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'domain'          => 'Domain',
-        'name'            => 'Name',
         'act'             => 'Act',
         'count'           => 'Count',
+        'domain'          => 'Domain',
         'interval'        => 'Interval',
         'mode'            => 'Mode',
+        'name'            => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
         'ttl'             => 'Ttl',
         'uri'             => 'Uri',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('name', $this->name, true);
-        Model::validateRequired('act', $this->act, true);
-        Model::validateRequired('count', $this->count, true);
-        Model::validateRequired('interval', $this->interval, true);
-        Model::validateRequired('mode', $this->mode, true);
-        Model::validateRequired('ttl', $this->ttl, true);
-        Model::validateRequired('uri', $this->uri, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->act) {
             $res['Act'] = $this->act;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
@@ -118,26 +144,26 @@ class AddLayer7CCRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Act'])) {
             $model->act = $map['Act'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];

@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsAuthStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class DescribeSlsAuthStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class DescribeSlsAuthStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

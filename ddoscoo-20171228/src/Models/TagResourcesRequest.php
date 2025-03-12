@@ -10,24 +10,38 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example ddoscoo-cn-v0h1fmwbc024
+     *
      * @var string[]
      */
     public $resourceId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example INSTANCE
+     *
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var tag[]
@@ -36,16 +50,13 @@ class TagResourcesRequest extends Model
     protected $_name = [
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceType'    => 'ResourceType',
         'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
         'tag'             => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
     }
 
     public function toMap()
@@ -57,11 +68,11 @@ class TagResourcesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -90,13 +101,13 @@ class TagResourcesRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

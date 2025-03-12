@@ -9,39 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer7CCTemplateRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $template;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
         'template'        => 'Template',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('template', $this->template, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->template) {
             $res['Template'] = $this->template;
@@ -58,11 +66,11 @@ class ConfigLayer7CCTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Template'])) {
             $model->template = $map['Template'];

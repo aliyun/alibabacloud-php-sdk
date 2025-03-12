@@ -9,32 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAccessModeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domainList;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'domainList' => 'DomainList',
+        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainList', $this->domainList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -48,13 +53,13 @@ class DescribeDomainAccessModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['DomainList'])) {
             if (!empty($map['DomainList'])) {
                 $model->domainList = $map['DomainList'];
             }
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

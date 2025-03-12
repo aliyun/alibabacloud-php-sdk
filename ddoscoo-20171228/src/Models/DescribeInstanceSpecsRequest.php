@@ -9,32 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example ["ddoscoo-cn-XXXXX"]
+     *
      * @var string
      */
     public $instanceIds;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
         'instanceIds' => 'InstanceIds',
+        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceIds', $this->instanceIds, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -48,11 +53,11 @@ class DescribeInstanceSpecsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

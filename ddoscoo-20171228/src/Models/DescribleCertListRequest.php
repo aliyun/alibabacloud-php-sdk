@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribleCertListRequest extends Model
 {
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
-    public $sourceIp;
+    public $domain;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
-    public $domain;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class DescribleCertListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class DescribleCertListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

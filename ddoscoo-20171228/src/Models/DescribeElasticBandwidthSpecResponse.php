@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticBandwidthSpecResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
-    public $elasticBandwidthSpec;
+    public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var DescribeElasticBandwidthSpecResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'elasticBandwidthSpec' => 'ElasticBandwidthSpec',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('elasticBandwidthSpec', $this->elasticBandwidthSpec, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->elasticBandwidthSpec) {
-            $res['ElasticBandwidthSpec'] = $this->elasticBandwidthSpec;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,13 +56,14 @@ class DescribeElasticBandwidthSpecResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ElasticBandwidthSpec'])) {
-            if (!empty($map['ElasticBandwidthSpec'])) {
-                $model->elasticBandwidthSpec = $map['ElasticBandwidthSpec'];
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeElasticBandwidthSpecResponseBody::fromMap($map['body']);
         }
 
         return $model;

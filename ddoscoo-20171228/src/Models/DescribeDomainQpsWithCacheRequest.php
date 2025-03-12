@@ -9,60 +9,72 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainQpsWithCacheRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example 1577796336
+     *
      * @var int
      */
     public $endTime;
+
+    /**
+     * @example xx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 1577794536
+     *
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -76,20 +88,20 @@ class DescribeDomainQpsWithCacheRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

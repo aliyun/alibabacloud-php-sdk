@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchSlsDispatchStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @example xx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'lang'            => 'Lang',
-        'resourceGroupId' => 'ResourceGroupId',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class DescribeBatchSlsDispatchStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class DescribeBatchSlsDispatchStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

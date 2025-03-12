@@ -9,41 +9,50 @@ use AlibabaCloud\Tea\Model;
 class OpenDomainSlsConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
-    public $sourceIp;
+    public $domain;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
-    public $domain;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
+        'domain'          => 'Domain',
         'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
-        'domain'          => 'Domain',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -51,8 +60,8 @@ class OpenDomainSlsConfigRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -66,8 +75,8 @@ class OpenDomainSlsConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -75,8 +84,8 @@ class OpenDomainSlsConfigRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

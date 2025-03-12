@@ -9,32 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ReleaseValueAddedRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example ddos_fl_pre-cn-xxxx
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
+        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -48,11 +53,11 @@ class ReleaseValueAddedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

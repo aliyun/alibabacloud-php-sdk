@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRemarkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @example ddoscoo-cn-XXXXX
+     *
      * @var string
      */
     public $instanceId;
@@ -22,10 +19,17 @@ class ModifyInstanceRemarkRequest extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
         'remark'     => 'Remark',
+        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +39,14 @@ class ModifyInstanceRemarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +60,14 @@ class ModifyInstanceRemarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

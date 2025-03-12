@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteLayer4RuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example {"InstanceId":"0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc","Protocol":"tcp","FrontendPort":80}
+     *
      * @var string
      */
     public $listeners;
@@ -18,7 +22,6 @@ class DeleteLayer4RuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('listeners', $this->listeners, true);
     }
 
     public function toMap()

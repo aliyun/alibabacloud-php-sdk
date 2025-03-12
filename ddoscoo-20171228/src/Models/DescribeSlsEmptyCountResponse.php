@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlsEmptyCountResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $availableCount;
+    public $statusCode;
+
+    /**
+     * @var DescribeSlsEmptyCountResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'availableCount' => 'AvailableCount',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('availableCount', $this->availableCount, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->availableCount) {
-            $res['AvailableCount'] = $this->availableCount;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +56,14 @@ class DescribeSlsEmptyCountResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AvailableCount'])) {
-            $model->availableCount = $map['AvailableCount'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeSlsEmptyCountResponseBody::fromMap($map['body']);
         }
 
         return $model;

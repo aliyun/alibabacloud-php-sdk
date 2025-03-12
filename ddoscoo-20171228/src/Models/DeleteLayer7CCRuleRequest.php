@@ -9,42 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DeleteLayer7CCRuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testCcRule1
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'name'            => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -58,14 +66,14 @@ class DeleteLayer7CCRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

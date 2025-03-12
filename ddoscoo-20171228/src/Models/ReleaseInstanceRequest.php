@@ -11,15 +11,15 @@ class ReleaseInstanceRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'   => 'SourceIp',
         'instanceId' => 'InstanceId',
+        'sourceIp'   => 'SourceIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ReleaseInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ReleaseInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

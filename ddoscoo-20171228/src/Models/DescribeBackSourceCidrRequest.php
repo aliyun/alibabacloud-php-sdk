@@ -11,21 +11,33 @@ class DescribeBackSourceCidrRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $ipVersion;
 
     /**
+     * @example coop-line-001
+     *
+     * @var string
+     */
+    public $line;
+
+    /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
-    public $line;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
+        'ipVersion'       => 'IpVersion',
         'line'            => 'Line',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +47,17 @@ class DescribeBackSourceCidrRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -56,14 +71,17 @@ class DescribeBackSourceCidrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

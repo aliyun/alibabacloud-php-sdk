@@ -9,69 +9,79 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
-     * @var string
+     * @example ddoscoo-cn-XXXXXX
+     *
+     * @var string[]
      */
-    public $queryDomainPattern;
+    public $instanceIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @var string[]
+     * @example fuzzy
+     *
+     * @var string
      */
-    public $instanceIds;
+    public $queryDomainPattern;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'           => 'SourceIp',
-        'resourceGroupId'    => 'ResourceGroupId',
         'domain'             => 'Domain',
-        'queryDomainPattern' => 'QueryDomainPattern',
+        'instanceIds'        => 'InstanceIds',
         'offset'             => 'Offset',
         'pageSize'           => 'PageSize',
-        'instanceIds'        => 'InstanceIds',
+        'queryDomainPattern' => 'QueryDomainPattern',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'sourceIp'           => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('offset', $this->offset, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->queryDomainPattern) {
-            $res['QueryDomainPattern'] = $this->queryDomainPattern;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
@@ -79,8 +89,14 @@ class DescribeDomainsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->queryDomainPattern) {
+            $res['QueryDomainPattern'] = $this->queryDomainPattern;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -94,17 +110,13 @@ class DescribeDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['QueryDomainPattern'])) {
-            $model->queryDomainPattern = $map['QueryDomainPattern'];
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
@@ -112,10 +124,14 @@ class DescribeDomainsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['QueryDomainPattern'])) {
+            $model->queryDomainPattern = $map['QueryDomainPattern'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

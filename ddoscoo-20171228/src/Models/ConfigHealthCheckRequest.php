@@ -9,45 +9,54 @@ use AlibabaCloud\Tea\Model;
 class ConfigHealthCheckRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example tcp
+     *
      * @var string
      */
     public $forwardProtocol;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 233
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example {"Type":"tcp","Timeout":10,"Port":80,"Interval":10,"Up":10,"Down":40}"}
+     *
      * @var string
      */
     public $healthCheck;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example ddoscoo-cn-XXXXXX
+     *
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort'    => 'FrontendPort',
         'healthCheck'     => 'HealthCheck',
+        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('forwardProtocol', $this->forwardProtocol, true);
-        Model::validateRequired('frontendPort', $this->frontendPort, true);
-        Model::validateRequired('healthCheck', $this->healthCheck, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->forwardProtocol) {
             $res['ForwardProtocol'] = $this->forwardProtocol;
         }
@@ -56,6 +65,9 @@ class ConfigHealthCheckRequest extends Model
         }
         if (null !== $this->healthCheck) {
             $res['HealthCheck'] = $this->healthCheck;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -69,9 +81,6 @@ class ConfigHealthCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ForwardProtocol'])) {
             $model->forwardProtocol = $map['ForwardProtocol'];
         }
@@ -80,6 +89,9 @@ class ConfigHealthCheckRequest extends Model
         }
         if (isset($map['HealthCheck'])) {
             $model->healthCheck = $map['HealthCheck'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

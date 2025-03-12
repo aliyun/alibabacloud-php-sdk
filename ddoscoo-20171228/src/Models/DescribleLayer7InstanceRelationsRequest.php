@@ -9,41 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribleLayer7InstanceRelationsRequest extends Model
 {
     /**
-     * @var string
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
+     * @var string[]
      */
-    public $sourceIp;
+    public $domainList;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var string[]
+     * @example 1.1.1.1
+     *
+     * @var string
      */
-    public $domainList;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domainList'      => 'DomainList',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domainList', $this->domainList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->domainList) {
+            $res['DomainList'] = $this->domainList;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->domainList) {
-            $res['DomainList'] = $this->domainList;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -57,16 +64,16 @@ class DescribleLayer7InstanceRelationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['DomainList'])) {
             if (!empty($map['DomainList'])) {
                 $model->domainList = $map['DomainList'];
             }
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

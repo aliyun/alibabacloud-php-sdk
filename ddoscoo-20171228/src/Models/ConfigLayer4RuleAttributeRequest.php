@@ -9,44 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ConfigLayer4RuleAttributeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example {"Slimit":{"CpsEnable":1,"MaxconnEnable":1,"Cps":1,"Maxconn":1},"Sla":{"CpsEnable":1,"MaxconnEnable":1,"Cps":100,"Maxconn":1000},"PayloadLen":{"Min":0,"Max":6000}}
+     *
      * @var string
      */
-    public $instanceId;
+    public $config;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $forwardProtocol;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 233
+     *
      * @var int
      */
     public $frontendPort;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ddoscoo-cn-XXXXX
+     *
      * @var string
      */
-    public $config;
+    public $instanceId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'config'          => 'Config',
         'forwardProtocol' => 'ForwardProtocol',
         'frontendPort'    => 'FrontendPort',
-        'config'          => 'Config',
+        'instanceId'      => 'InstanceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('forwardProtocol', $this->forwardProtocol, true);
-        Model::validateRequired('frontendPort', $this->frontendPort, true);
-        Model::validateRequired('config', $this->config, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->forwardProtocol) {
             $res['ForwardProtocol'] = $this->forwardProtocol;
@@ -54,8 +66,8 @@ class ConfigLayer4RuleAttributeRequest extends Model
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -69,8 +81,8 @@ class ConfigLayer4RuleAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['ForwardProtocol'])) {
             $model->forwardProtocol = $map['ForwardProtocol'];
@@ -78,8 +90,8 @@ class ConfigLayer4RuleAttributeRequest extends Model
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

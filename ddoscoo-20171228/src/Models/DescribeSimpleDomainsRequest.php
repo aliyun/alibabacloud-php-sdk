@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimpleDomainsRequest extends Model
 {
     /**
-     * @var string
+     * @example ddoscoo-cn-XXXXXX
+     *
+     * @var string[]
      */
-    public $sourceIp;
+    public $instanceIds;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var string[]
+     * @example 1.1.1.1
+     *
+     * @var string
      */
-    public $instanceIds;
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
+        'instanceIds'     => 'InstanceIds',
         'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
-        'instanceIds'     => 'InstanceIds',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
@@ -41,8 +49,8 @@ class DescribeSimpleDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -50,8 +58,8 @@ class DescribeSimpleDomainsRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -65,8 +73,10 @@ class DescribeSimpleDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -74,10 +84,8 @@ class DescribeSimpleDomainsRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

@@ -9,53 +9,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeLayer7CCRulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
         'offset'          => 'Offset',
         'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
-        Model::validateRequired('offset', $this->offset, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -64,6 +71,12 @@ class DescribeLayer7CCRulesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -77,12 +90,6 @@ class DescribeLayer7CCRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
@@ -91,6 +98,12 @@ class DescribeLayer7CCRulesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

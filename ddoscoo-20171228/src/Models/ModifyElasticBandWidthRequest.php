@@ -9,42 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyElasticBandWidthRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $elasticBandwidth;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ddoscoo-cn-XXXXX
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'         => 'SourceIp',
         'elasticBandwidth' => 'ElasticBandwidth',
         'instanceId'       => 'InstanceId',
+        'sourceIp'         => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('elasticBandwidth', $this->elasticBandwidth, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->elasticBandwidth) {
             $res['ElasticBandwidth'] = $this->elasticBandwidth;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -58,14 +66,14 @@ class ModifyElasticBandWidthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['ElasticBandwidth'])) {
             $model->elasticBandwidth = $map['ElasticBandwidth'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

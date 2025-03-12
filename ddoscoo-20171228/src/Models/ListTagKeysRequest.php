@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $regionId;
+    public $currentPage;
 
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
      */
-    public $currentPage;
+    public $regionId;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example INSTANCE
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
+        'currentPage'     => 'CurrentPage',
+        'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceType'    => 'ResourceType',
-        'pageSize'        => 'PageSize',
-        'currentPage'     => 'CurrentPage',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -57,12 +75,6 @@ class ListTagKeysRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
         }
 
         return $res;
@@ -76,6 +88,12 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -84,12 +102,6 @@ class ListTagKeysRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
         }
 
         return $model;

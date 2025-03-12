@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateAsyncTaskRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var int
-     */
-    public $taskType;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example {"timestamp": 1530276554, "instanceId": "ddoscoo-woieuroi234"}
+     *
      * @var string
      */
     public $taskParams;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $taskType;
     protected $_name = [
         'resourceGroupId' => 'ResourceGroupId',
-        'taskType'        => 'TaskType',
         'taskParams'      => 'TaskParams',
+        'taskType'        => 'TaskType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('taskType', $this->taskType, true);
-        Model::validateRequired('taskParams', $this->taskParams, true);
     }
 
     public function toMap()
@@ -40,11 +48,11 @@ class CreateAsyncTaskRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->taskParams) {
             $res['TaskParams'] = $this->taskParams;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -61,11 +69,11 @@ class CreateAsyncTaskRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['TaskParams'])) {
             $model->taskParams = $map['TaskParams'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

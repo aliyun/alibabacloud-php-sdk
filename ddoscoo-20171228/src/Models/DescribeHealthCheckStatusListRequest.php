@@ -9,32 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthCheckStatusListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example [{"InstanceId":"ddoscoo-cn-XXXXX","Protocol":"tcp","FrontendPort":80}]
+     *
      * @var string
      */
     public $listeners;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
         'listeners' => 'Listeners',
+        'sourceIp'  => 'SourceIp',
     ];
 
     public function validate()
     {
-        Model::validateRequired('listeners', $this->listeners, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->listeners) {
             $res['Listeners'] = $this->listeners;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -48,11 +53,11 @@ class DescribeHealthCheckStatusListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Listeners'])) {
             $model->listeners = $map['Listeners'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

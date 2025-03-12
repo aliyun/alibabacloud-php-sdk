@@ -9,33 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeSimpleDomainsResponse extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
-    public $domainList;
+    public $headers;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var DescribeSimpleDomainsResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'domainList' => 'DomainList',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('domainList', $this->domainList, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->domainList) {
-            $res['DomainList'] = $this->domainList;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,13 +56,14 @@ class DescribeSimpleDomainsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['DomainList'])) {
-            if (!empty($map['DomainList'])) {
-                $model->domainList = $map['DomainList'];
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeSimpleDomainsResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -9,50 +9,59 @@ use AlibabaCloud\Tea\Model;
 class ModifyFullLogTtlRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $sourceIp;
-
-    /**
+     * @example cn
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var int
-     */
-    public $ttl;
-
-    /**
+     * @example xx
+     *
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $sourceIp;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 30
+     *
+     * @var int
+     */
+    public $ttl;
     protected $_name = [
-        'sourceIp'        => 'SourceIp',
         'lang'            => 'Lang',
-        'ttl'             => 'Ttl',
         'resourceGroupId' => 'ResourceGroupId',
+        'sourceIp'        => 'SourceIp',
+        'ttl'             => 'Ttl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('ttl', $this->ttl, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
         }
 
         return $res;
@@ -66,17 +75,17 @@ class ModifyFullLogTtlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
         }
 
         return $model;

@@ -9,32 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteLayer7RuleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'domain'          => 'Domain',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('domain', $this->domain, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -48,11 +53,11 @@ class DeleteLayer7RuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
