@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest\aiJobLogInfo\aiJobLogs;
+use AlibabaCloud\Tea\Model;
 
 class aiJobLogInfo extends Model
 {
     /**
+     * @description Task logs
+     *
      * @var aiJobLogs[]
      */
     public $aiJobLogs;
+
     /**
+     * @description End time. In timestamp format, unit: seconds.
+     * > Must be on the hour or half-hour mark.
+     * @example 2024-08-05T10:10:01
+     *
      * @var string
      */
     public $endTime;
+
     /**
+     * @description Start time. In timestamp format, unit: seconds.
+     * > Must be on the hour or half-hour mark.
+     * @example 2024-10-11T00:00:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -29,29 +41,23 @@ class aiJobLogInfo extends Model
 
     public function validate()
     {
-        if (\is_array($this->aiJobLogs)) {
-            Model::validateArray($this->aiJobLogs);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aiJobLogs) {
-            if (\is_array($this->aiJobLogs)) {
-                $res['AiJobLogs'] = [];
-                $n1               = 0;
-                foreach ($this->aiJobLogs as $item1) {
-                    $res['AiJobLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AiJobLogs'] = [];
+            if (null !== $this->aiJobLogs && \is_array($this->aiJobLogs)) {
+                $n = 0;
+                foreach ($this->aiJobLogs as $item) {
+                    $res['AiJobLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -59,28 +65,26 @@ class aiJobLogInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aiJobLogInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiJobLogs'])) {
             if (!empty($map['AiJobLogs'])) {
                 $model->aiJobLogs = [];
-                $n1               = 0;
-                foreach ($map['AiJobLogs'] as $item1) {
-                    $model->aiJobLogs[$n1++] = aiJobLogs::fromMap($item1);
+                $n                = 0;
+                foreach ($map['AiJobLogs'] as $item) {
+                    $model->aiJobLogs[$n++] = null !== $item ? aiJobLogs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

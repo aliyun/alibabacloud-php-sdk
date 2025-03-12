@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteClusterResponseBody extends Model
 {
     /**
+     * @description Request Id
+     *
+     * @example 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteClusterResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteClusterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteClusterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

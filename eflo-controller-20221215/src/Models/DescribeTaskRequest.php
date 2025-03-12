@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTaskRequest extends Model
 {
     /**
+     * @description Task ID
+     *
+     * This parameter is required.
+     * @example i156331731670384438138
+     *
      * @var string
      */
     public $taskId;
@@ -18,10 +23,9 @@ class DescribeTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +35,11 @@ class DescribeTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

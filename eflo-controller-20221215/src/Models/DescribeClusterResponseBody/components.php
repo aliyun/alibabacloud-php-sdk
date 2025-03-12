@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class components extends Model
 {
     /**
+     * @description Component ID
+     *
+     * @example i149549021660892626529
+     *
      * @var string
      */
     public $componentId;
+
     /**
+     * @description Component Type
+     *
+     * @example ACKEdge
+     *
      * @var string
      */
     public $componentType;
@@ -23,16 +32,14 @@ class components extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
         }
-
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
         }
@@ -40,18 +47,17 @@ class components extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return components
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentId'])) {
             $model->componentId = $map['ComponentId'];
         }
-
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
         }

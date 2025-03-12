@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterRequest\nodeGroups;
+use AlibabaCloud\Tea\Model;
 
 class ShrinkClusterRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
+     * @example i15dfa12e8f27c44f4a006c2c8bb
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
+     * @example False
+     *
      * @var bool
      */
     public $ignoreFailedNodeTasks;
+
     /**
+     * @description Node group information
+     *
      * @var nodeGroups[]
      */
     public $nodeGroups;
@@ -29,29 +41,23 @@ class ShrinkClusterRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->nodeGroups)) {
-            Model::validateArray($this->nodeGroups);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
-
         if (null !== $this->nodeGroups) {
-            if (\is_array($this->nodeGroups)) {
-                $res['NodeGroups'] = [];
-                $n1                = 0;
-                foreach ($this->nodeGroups as $item1) {
-                    $res['NodeGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NodeGroups'] = [];
+            if (null !== $this->nodeGroups && \is_array($this->nodeGroups)) {
+                $n = 0;
+                foreach ($this->nodeGroups as $item) {
+                    $res['NodeGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +65,26 @@ class ShrinkClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ShrinkClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
-
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n1                = 0;
-                foreach ($map['NodeGroups'] as $item1) {
-                    $model->nodeGroups[$n1++] = nodeGroups::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['NodeGroups'] as $item) {
+                    $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }
             }
         }

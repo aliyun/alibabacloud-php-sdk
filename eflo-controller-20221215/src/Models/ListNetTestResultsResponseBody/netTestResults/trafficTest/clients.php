@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsResponseBody\netTestResults\trafficTest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clients extends Model
 {
     /**
+     * @description Network interface bond port
+     *
+     * @example bond1
+     *
      * @var string
      */
     public $bond;
+
     /**
+     * @description IP address.
+     *
+     * @example 74.73.100.1
+     *
      * @var string
      */
     public $IP;
+
     /**
+     * @description Resource ID.
+     *
+     * @example e01-cn-20p36bqet39
+     *
      * @var string
      */
     public $resourceId;
+
     /**
+     * @description Service name.
+     *
+     * @example prod-gf-cn.juequling.com
+     *
      * @var string
      */
     public $serverName;
@@ -33,24 +52,20 @@ class clients extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bond) {
             $res['Bond'] = $this->bond;
         }
-
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
-
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->serverName) {
             $res['ServerName'] = $this->serverName;
         }
@@ -58,26 +73,23 @@ class clients extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clients
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bond'])) {
             $model->bond = $map['Bond'];
         }
-
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
-
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-
         if (isset($map['ServerName'])) {
             $model->serverName = $map['ServerName'];
         }

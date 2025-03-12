@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RebootNodesRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
+     * @example i15b480fbd2fcdbc2869cd80
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
+     * @example False
+     *
      * @var bool
      */
     public $ignoreFailedNodeTasks;
+
     /**
+     * @description List of nodes
+     *
      * @var string[]
      */
     public $nodes;
@@ -28,59 +40,41 @@ class RebootNodesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->nodes)) {
-            Model::validateArray($this->nodes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
-
         if (null !== $this->nodes) {
-            if (\is_array($this->nodes)) {
-                $res['Nodes'] = [];
-                $n1           = 0;
-                foreach ($this->nodes as $item1) {
-                    $res['Nodes'][$n1++] = $item1;
-                }
-            }
+            $res['Nodes'] = $this->nodes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RebootNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
-
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
-                $model->nodes = [];
-                $n1           = 0;
-                foreach ($map['Nodes'] as $item1) {
-                    $model->nodes[$n1++] = $item1;
-                }
+                $model->nodes = $map['Nodes'];
             }
         }
 

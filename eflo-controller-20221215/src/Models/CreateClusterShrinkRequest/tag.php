@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterShrinkRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
+     * @description Key
+     *
+     * @example env-name
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description Value
+     *
+     * @example dev
+     *
      * @var string
      */
     public $value;
@@ -23,16 +32,14 @@ class tag extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +47,17 @@ class tag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

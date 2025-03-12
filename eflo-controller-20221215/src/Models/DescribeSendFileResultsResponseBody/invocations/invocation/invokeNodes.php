@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponseBody\invocations\invocation;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponseBody\invocations\invocation\invokeNodes\invokeNode;
+use AlibabaCloud\Tea\Model;
 
 class invokeNodes extends Model
 {
     /**
+     * @description Record of file distribution for the node.
+     *
      * @var invokeNode[]
      */
     public $invokeNode;
@@ -19,21 +21,17 @@ class invokeNodes extends Model
 
     public function validate()
     {
-        if (\is_array($this->invokeNode)) {
-            Model::validateArray($this->invokeNode);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invokeNode) {
-            if (\is_array($this->invokeNode)) {
-                $res['InvokeNode'] = [];
-                $n1                = 0;
-                foreach ($this->invokeNode as $item1) {
-                    $res['InvokeNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InvokeNode'] = [];
+            if (null !== $this->invokeNode && \is_array($this->invokeNode)) {
+                $n = 0;
+                foreach ($this->invokeNode as $item) {
+                    $res['InvokeNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +39,20 @@ class invokeNodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return invokeNodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeNode'])) {
             if (!empty($map['InvokeNode'])) {
                 $model->invokeNode = [];
-                $n1                = 0;
-                foreach ($map['InvokeNode'] as $item1) {
-                    $model->invokeNode[$n1++] = invokeNode::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['InvokeNode'] as $item) {
+                    $model->invokeNode[$n++] = null !== $item ? invokeNode::fromMap($item) : $item;
                 }
             }
         }

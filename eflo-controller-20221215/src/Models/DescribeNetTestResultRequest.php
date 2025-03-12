@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNetTestResultRequest extends Model
 {
     /**
+     * @description Test task ID.
+     *
+     * @example dr-uf6i0tv2refv8wz*****
+     *
      * @var string
      */
     public $testId;
@@ -18,10 +22,9 @@ class DescribeNetTestResultRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->testId) {
@@ -31,11 +34,11 @@ class DescribeNetTestResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNetTestResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

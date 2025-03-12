@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListMachineNetworkInfoShrinkRequest extends Model
 {
     /**
+     * @description Array
+     *
      * @var string
      */
     public $machineHpnInfoShrink;
@@ -18,10 +20,9 @@ class ListMachineNetworkInfoShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machineHpnInfoShrink) {
@@ -31,11 +32,11 @@ class ListMachineNetworkInfoShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListMachineNetworkInfoShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

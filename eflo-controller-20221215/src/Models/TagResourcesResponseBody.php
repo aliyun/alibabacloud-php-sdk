@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description ID of the request
+     *
+     * @example E7BB53E1-0B08-5C4E-BA66-9225548C3151
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class TagResourcesResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class TagResourcesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TagResourcesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

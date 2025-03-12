@@ -4,36 +4,68 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\networks\newVpdInfo\vpdSubnets;
+use AlibabaCloud\Tea\Model;
 
 class newVpdInfo extends Model
 {
     /**
+     * @description Cloud Enterprise Network ID
+     *
+     * @example cen-1gb1eftc5qp2ao75fo
+     *
      * @var string
      */
     public $cenId;
+
     /**
+     * @description Cloud link CIDR
+     *
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $cloudLinkCidr;
+
     /**
+     * @description Cloud link ID
+     *
+     * @example vcc-cn-c4dtycm5i08
+     *
      * @var string
      */
     public $cloudLinkId;
+
     /**
+     * @description VPC
+     *
+     * @example vpc-0jl2x45apm6odc2c10h25
+     *
      * @var string
      */
     public $monitorVpcId;
+
     /**
+     * @description VPC switch
+     *
+     * @example vsw-0jl2w3ffbghkss0x2foff
+     *
      * @var string
      */
     public $monitorVswitchId;
+
     /**
+     * @description Cluster Network Segment
+     *
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $vpdCidr;
+
     /**
+     * @description Cluster subnets
+     *
      * @var vpdSubnets[]
      */
     public $vpdSubnets;
@@ -49,45 +81,35 @@ class newVpdInfo extends Model
 
     public function validate()
     {
-        if (\is_array($this->vpdSubnets)) {
-            Model::validateArray($this->vpdSubnets);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
-
         if (null !== $this->cloudLinkCidr) {
             $res['CloudLinkCidr'] = $this->cloudLinkCidr;
         }
-
         if (null !== $this->cloudLinkId) {
             $res['CloudLinkId'] = $this->cloudLinkId;
         }
-
         if (null !== $this->monitorVpcId) {
             $res['MonitorVpcId'] = $this->monitorVpcId;
         }
-
         if (null !== $this->monitorVswitchId) {
             $res['MonitorVswitchId'] = $this->monitorVswitchId;
         }
-
         if (null !== $this->vpdCidr) {
             $res['VpdCidr'] = $this->vpdCidr;
         }
-
         if (null !== $this->vpdSubnets) {
-            if (\is_array($this->vpdSubnets)) {
-                $res['VpdSubnets'] = [];
-                $n1                = 0;
-                foreach ($this->vpdSubnets as $item1) {
-                    $res['VpdSubnets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VpdSubnets'] = [];
+            if (null !== $this->vpdSubnets && \is_array($this->vpdSubnets)) {
+                $n = 0;
+                foreach ($this->vpdSubnets as $item) {
+                    $res['VpdSubnets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -95,44 +117,38 @@ class newVpdInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return newVpdInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
-
         if (isset($map['CloudLinkCidr'])) {
             $model->cloudLinkCidr = $map['CloudLinkCidr'];
         }
-
         if (isset($map['CloudLinkId'])) {
             $model->cloudLinkId = $map['CloudLinkId'];
         }
-
         if (isset($map['MonitorVpcId'])) {
             $model->monitorVpcId = $map['MonitorVpcId'];
         }
-
         if (isset($map['MonitorVswitchId'])) {
             $model->monitorVswitchId = $map['MonitorVswitchId'];
         }
-
         if (isset($map['VpdCidr'])) {
             $model->vpdCidr = $map['VpdCidr'];
         }
-
         if (isset($map['VpdSubnets'])) {
             if (!empty($map['VpdSubnets'])) {
                 $model->vpdSubnets = [];
-                $n1                = 0;
-                foreach ($map['VpdSubnets'] as $item1) {
-                    $model->vpdSubnets[$n1++] = vpdSubnets::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['VpdSubnets'] as $item) {
+                    $model->vpdSubnets[$n++] = null !== $item ? vpdSubnets::fromMap($item) : $item;
                 }
             }
         }

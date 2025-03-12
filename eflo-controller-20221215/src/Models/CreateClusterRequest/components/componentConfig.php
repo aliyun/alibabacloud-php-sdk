@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\components;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class componentConfig extends Model
 {
     /**
+     * @description Basic component parameters
+     *
+     * @example {
+     * }
      * @var mixed
      */
     public $basicArgs;
+
     /**
+     * @description Node pool configuration, used to establish the correspondence between node groups and node pools. Required when ComponentType is "ACKEdge", otherwise it can be empty.
+     *
      * @var mixed[]
      */
     public $nodeUnits;
@@ -23,51 +30,35 @@ class componentConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->nodeUnits)) {
-            Model::validateArray($this->nodeUnits);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->basicArgs) {
             $res['BasicArgs'] = $this->basicArgs;
         }
-
         if (null !== $this->nodeUnits) {
-            if (\is_array($this->nodeUnits)) {
-                $res['NodeUnits'] = [];
-                $n1               = 0;
-                foreach ($this->nodeUnits as $item1) {
-                    $res['NodeUnits'][$n1++] = $item1;
-                }
-            }
+            $res['NodeUnits'] = $this->nodeUnits;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return componentConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BasicArgs'])) {
             $model->basicArgs = $map['BasicArgs'];
         }
-
         if (isset($map['NodeUnits'])) {
             if (!empty($map['NodeUnits'])) {
-                $model->nodeUnits = [];
-                $n1               = 0;
-                foreach ($map['NodeUnits'] as $item1) {
-                    $model->nodeUnits[$n1++] = $item1;
-                }
+                $model->nodeUnits = $map['NodeUnits'];
             }
         }
 

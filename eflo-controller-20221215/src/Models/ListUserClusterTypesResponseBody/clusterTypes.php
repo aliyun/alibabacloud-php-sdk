@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListUserClusterTypesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clusterTypes extends Model
 {
     /**
+     * @description 访问类型。
+     *
+     * @example Public
+     *
      * @var string
      */
     public $accessType;
+
     /**
+     * @description Type name
+     *
+     * @example AckEdgePro
+     *
      * @var string
      */
     public $typeName;
@@ -23,16 +32,14 @@ class clusterTypes extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
         }
-
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -40,18 +47,17 @@ class clusterTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clusterTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
         }
-
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

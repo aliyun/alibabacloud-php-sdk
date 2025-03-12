@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNetTestResultsResponseBody\netTestResults\commTest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hosts extends Model
 {
     /**
+     * @description Node IP
+     *
+     * @example 10.51.16.21
+     *
      * @var string
      */
     public $IP;
+
     /**
+     * @description Resource ID
+     *
+     * @example e01-cn-wwo3eteze19
+     *
      * @var string
      */
     public $resourceId;
+
     /**
+     * @description Service name
+     *
+     * @example www.xinjiaoyu.com
+     *
      * @var string
      */
     public $serverName;
@@ -28,20 +42,17 @@ class hosts extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
-
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->serverName) {
             $res['ServerName'] = $this->serverName;
         }
@@ -49,22 +60,20 @@ class hosts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hosts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
-
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-
         if (isset($map['ServerName'])) {
             $model->serverName = $map['ServerName'];
         }

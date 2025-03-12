@@ -4,47 +4,96 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineTypesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class machineTypes extends Model
 {
     /**
+     * @description Number of bonds
+     *
+     * @example 2
+     *
      * @var int
      */
     public $bondNum;
+
     /**
+     * @description CPU information
+     *
+     * @example 2x Intel Icelake 8369B 32C CPU
+     *
      * @var string
      */
     public $cpuInfo;
+
     /**
+     * @description Disk information
+     *
+     * @example 2x 480GB SATA SSD
+     *
      * @var string
      */
     public $diskInfo;
+
     /**
+     * @description GPU information
+     *
+     * @example 8x NVIDIA SXM4 80GB A100 GPU
+     *
      * @var string
      */
     public $gpuInfo;
+
     /**
+     * @description Memory information
+     *
+     * @example 32x 64GB DDR4 3200 Memory
+     *
      * @var string
      */
     public $memoryInfo;
+
     /**
+     * @description Machine name
+     *
+     * @example efg1.nvga1
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description Network information
+     *
+     * @example 2x 100Gbps DP NIC
+     *
      * @var string
      */
     public $networkInfo;
+
     /**
+     * @description Number of nodes
+     *
+     * @example 10
+     *
      * @var string
      */
     public $nodeCount;
+
     /**
+     * @description Number of CPU cores
+     *
+     * @example 48
+     *
      * @var int
      */
     public $totalCpuCore;
+
     /**
+     * @description Type of machine
+     *
+     * @example Public
+     *
      * @var string
      */
     public $type;
@@ -63,48 +112,38 @@ class machineTypes extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bondNum) {
             $res['BondNum'] = $this->bondNum;
         }
-
         if (null !== $this->cpuInfo) {
             $res['CpuInfo'] = $this->cpuInfo;
         }
-
         if (null !== $this->diskInfo) {
             $res['DiskInfo'] = $this->diskInfo;
         }
-
         if (null !== $this->gpuInfo) {
             $res['GpuInfo'] = $this->gpuInfo;
         }
-
         if (null !== $this->memoryInfo) {
             $res['MemoryInfo'] = $this->memoryInfo;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->networkInfo) {
             $res['NetworkInfo'] = $this->networkInfo;
         }
-
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
-
         if (null !== $this->totalCpuCore) {
             $res['TotalCpuCore'] = $this->totalCpuCore;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -112,50 +151,41 @@ class machineTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return machineTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BondNum'])) {
             $model->bondNum = $map['BondNum'];
         }
-
         if (isset($map['CpuInfo'])) {
             $model->cpuInfo = $map['CpuInfo'];
         }
-
         if (isset($map['DiskInfo'])) {
             $model->diskInfo = $map['DiskInfo'];
         }
-
         if (isset($map['GpuInfo'])) {
             $model->gpuInfo = $map['GpuInfo'];
         }
-
         if (isset($map['MemoryInfo'])) {
             $model->memoryInfo = $map['MemoryInfo'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NetworkInfo'])) {
             $model->networkInfo = $map['NetworkInfo'];
         }
-
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
-
         if (isset($map['TotalCpuCore'])) {
             $model->totalCpuCore = $map['TotalCpuCore'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

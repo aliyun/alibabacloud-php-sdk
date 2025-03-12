@@ -4,15 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopInvocationRequest extends Model
 {
     /**
+     * @description Command execution ID.
+     *
+     * This parameter is required.
+     * @example f-hz044748dzepds0
+     *
      * @var string
      */
     public $invokeId;
+
     /**
+     * @description List of nodes.
+     *
      * @var string[]
      */
     public $nodeIdList;
@@ -23,51 +31,35 @@ class StopInvocationRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->nodeIdList)) {
-            Model::validateArray($this->nodeIdList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
-
         if (null !== $this->nodeIdList) {
-            if (\is_array($this->nodeIdList)) {
-                $res['NodeIdList'] = [];
-                $n1                = 0;
-                foreach ($this->nodeIdList as $item1) {
-                    $res['NodeIdList'][$n1++] = $item1;
-                }
-            }
+            $res['NodeIdList'] = $this->nodeIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopInvocationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
-
         if (isset($map['NodeIdList'])) {
             if (!empty($map['NodeIdList'])) {
-                $model->nodeIdList = [];
-                $n1                = 0;
-                foreach ($map['NodeIdList'] as $item1) {
-                    $model->nodeIdList[$n1++] = $item1;
-                }
+                $model->nodeIdList = $map['NodeIdList'];
             }
         }
 

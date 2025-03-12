@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\components\componentConfig;
+use AlibabaCloud\Tea\Model;
 
 class components extends Model
 {
     /**
+     * @description Component configuration
+     *
      * @var componentConfig
      */
     public $componentConfig;
+
     /**
+     * @description Component type
+     *
+     * @example ACKEdge
+     *
      * @var string
      */
     public $componentType;
@@ -24,19 +31,14 @@ class components extends Model
 
     public function validate()
     {
-        if (null !== $this->componentConfig) {
-            $this->componentConfig->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->componentConfig) {
-            $res['ComponentConfig'] = null !== $this->componentConfig ? $this->componentConfig->toArray($noStream) : $this->componentConfig;
+            $res['ComponentConfig'] = null !== $this->componentConfig ? $this->componentConfig->toMap() : null;
         }
-
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
         }
@@ -44,18 +46,17 @@ class components extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return components
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentConfig'])) {
             $model->componentConfig = componentConfig::fromMap($map['ComponentConfig']);
         }
-
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
         }

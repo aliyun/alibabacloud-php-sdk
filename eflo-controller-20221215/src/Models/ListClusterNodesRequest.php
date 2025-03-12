@@ -4,23 +4,43 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListClusterNodesRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
+     * This parameter is required.
+     * @example i15b480fbd2fcdbc2869cd80
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Number of items per page in a paginated query, with a default value of 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @description Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
+     *
+     * @example AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description Node group ID
+     *
+     * @example ng-ec3c96ff0aa4c60d
+     *
      * @var string
      */
     public $nodeGroupId;
@@ -33,24 +53,20 @@ class ListClusterNodesRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -58,26 +74,23 @@ class ListClusterNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListClusterNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }

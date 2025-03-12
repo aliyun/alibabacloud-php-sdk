@@ -4,24 +4,39 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest\aiJobLogInfo;
+use AlibabaCloud\Tea\Model;
 
 class CreateDiagnosticTaskRequest extends Model
 {
     /**
+     * @description Log information
+     *
      * @var aiJobLogInfo
      */
     public $aiJobLogInfo;
+
     /**
+     * @description Cluster ID
+     *
+     * @example i118913031696573280136
+     *
      * @var string
      */
     public $clusterId;
+
     /**
+     * @description Diagnostic type.
+     *
+     * @example CheckByAiJobLogs
+     *
      * @var string
      */
     public $diagnosticType;
+
     /**
+     * @description List of node IDs
+     *
      * @var string[]
      */
     public $nodeIds;
@@ -34,70 +49,47 @@ class CreateDiagnosticTaskRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->aiJobLogInfo) {
-            $this->aiJobLogInfo->validate();
-        }
-        if (\is_array($this->nodeIds)) {
-            Model::validateArray($this->nodeIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aiJobLogInfo) {
-            $res['AiJobLogInfo'] = null !== $this->aiJobLogInfo ? $this->aiJobLogInfo->toArray($noStream) : $this->aiJobLogInfo;
+            $res['AiJobLogInfo'] = null !== $this->aiJobLogInfo ? $this->aiJobLogInfo->toMap() : null;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->diagnosticType) {
             $res['DiagnosticType'] = $this->diagnosticType;
         }
-
         if (null !== $this->nodeIds) {
-            if (\is_array($this->nodeIds)) {
-                $res['NodeIds'] = [];
-                $n1             = 0;
-                foreach ($this->nodeIds as $item1) {
-                    $res['NodeIds'][$n1++] = $item1;
-                }
-            }
+            $res['NodeIds'] = $this->nodeIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDiagnosticTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiJobLogInfo'])) {
             $model->aiJobLogInfo = aiJobLogInfo::fromMap($map['AiJobLogInfo']);
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['DiagnosticType'])) {
             $model->diagnosticType = $map['DiagnosticType'];
         }
-
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = [];
-                $n1             = 0;
-                foreach ($map['NodeIds'] as $item1) {
-                    $model->nodeIds[$n1++] = $item1;
-                }
+                $model->nodeIds = $map['NodeIds'];
             }
         }
 
