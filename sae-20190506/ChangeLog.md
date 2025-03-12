@@ -1,3 +1,7 @@
+2025-03-12 Version: 1.24.5
+- Update API ListApplications: update response param.
+
+
 2025-01-13 Version: 1.24.4
 - Update API CreateApplication: add param ResourceType.
 - Update API CreateIngress: add param AddressType.

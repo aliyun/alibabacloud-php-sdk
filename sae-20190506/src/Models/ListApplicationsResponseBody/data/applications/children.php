@@ -32,6 +32,11 @@ class children extends Model
     /**
      * @var string
      */
+    public $appType;
+
+    /**
+     * @var string
+     */
     public $baseAppId;
 
     /**
@@ -58,6 +63,16 @@ class children extends Model
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $namespaceName;
+
+    /**
+     * @var string
+     */
+    public $newSaeVersion;
 
     /**
      * @var string
@@ -93,12 +108,15 @@ class children extends Model
         'appDescription'      => 'AppDescription',
         'appId'               => 'AppId',
         'appName'             => 'AppName',
+        'appType'             => 'AppType',
         'baseAppId'           => 'BaseAppId',
         'cpu'                 => 'Cpu',
         'instances'           => 'Instances',
         'mem'                 => 'Mem',
         'mseEnabled'          => 'MseEnabled',
         'namespaceId'         => 'NamespaceId',
+        'namespaceName'       => 'NamespaceName',
+        'newSaeVersion'       => 'NewSaeVersion',
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId'            => 'RegionId',
         'runningInstances'    => 'RunningInstances',
@@ -126,6 +144,9 @@ class children extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
         if (null !== $this->baseAppId) {
             $res['BaseAppId'] = $this->baseAppId;
         }
@@ -143,6 +164,12 @@ class children extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
+        }
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
         }
         if (null !== $this->programmingLanguage) {
             $res['ProgrammingLanguage'] = $this->programmingLanguage;
@@ -192,6 +219,9 @@ class children extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
         if (isset($map['BaseAppId'])) {
             $model->baseAppId = $map['BaseAppId'];
         }
@@ -209,6 +239,12 @@ class children extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
+        }
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
         }
         if (isset($map['ProgrammingLanguage'])) {
             $model->programmingLanguage = $map['ProgrammingLanguage'];

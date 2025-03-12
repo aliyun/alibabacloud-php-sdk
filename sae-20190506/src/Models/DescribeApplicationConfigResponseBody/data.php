@@ -79,6 +79,11 @@ class data extends Model
     public $associateEip;
 
     /**
+     * @var string
+     */
+    public $baseAppId;
+
+    /**
      * @description The interval between batches in a phased release. Unit: seconds.
      *
      * @example 10
@@ -86,6 +91,11 @@ class data extends Model
      * @var int
      */
     public $batchWaitTime;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
 
     /**
      * @description The command that is used to start the image. The command must be an existing executable object in the container. Example:
@@ -202,11 +212,6 @@ class data extends Model
      * @var bool
      */
     public $enableNewArms;
-
-    /**
-     * @var bool
-     */
-    public $enabledle;
 
     /**
      * @description The environment variables. Variable description:
@@ -355,6 +360,11 @@ class data extends Model
     public $microRegistrationConfig;
 
     /**
+     * @var string
+     */
+    public $microserviceEngineConfig;
+
+    /**
      * @description The percentage of the minimum number of available instances. Valid values:
      *
      *   **-1**: the default value. This value indicates that the minimum number of available instances is not measured by percentage. If you do not configure this parameter, the default value **-1** is used.
@@ -436,6 +446,11 @@ class data extends Model
      * @var string
      */
     public $nasId;
+
+    /**
+     * @var string
+     */
+    public $newSaeVersion;
 
     /**
      * @var string
@@ -678,6 +693,11 @@ class data extends Model
     public $slsConfigs;
 
     /**
+     * @var string
+     */
+    public $swimlanePvtzDiscovery;
+
+    /**
      * @description The details of the tags.
      *
      * @var tags[]
@@ -789,7 +809,9 @@ class data extends Model
         'appName'                       => 'AppName',
         'appSource'                     => 'AppSource',
         'associateEip'                  => 'AssociateEip',
+        'baseAppId'                     => 'BaseAppId',
         'batchWaitTime'                 => 'BatchWaitTime',
+        'clusterId'                     => 'ClusterId',
         'command'                       => 'Command',
         'commandArgs'                   => 'CommandArgs',
         'configMapMountDesc'            => 'ConfigMapMountDesc',
@@ -803,7 +825,6 @@ class data extends Model
         'enableGreyTagRoute'            => 'EnableGreyTagRoute',
         'enableIdle'                    => 'EnableIdle',
         'enableNewArms'                 => 'EnableNewArms',
-        'enabledle'                     => 'Enabledle',
         'envs'                          => 'Envs',
         'imagePullSecrets'              => 'ImagePullSecrets',
         'imageUrl'                      => 'ImageUrl',
@@ -815,6 +836,7 @@ class data extends Model
         'memory'                        => 'Memory',
         'microRegistration'             => 'MicroRegistration',
         'microRegistrationConfig'       => 'MicroRegistrationConfig',
+        'microserviceEngineConfig'      => 'MicroserviceEngineConfig',
         'minReadyInstanceRatio'         => 'MinReadyInstanceRatio',
         'minReadyInstances'             => 'MinReadyInstances',
         'mountDesc'                     => 'MountDesc',
@@ -824,6 +846,7 @@ class data extends Model
         'namespaceId'                   => 'NamespaceId',
         'nasConfigs'                    => 'NasConfigs',
         'nasId'                         => 'NasId',
+        'newSaeVersion'                 => 'NewSaeVersion',
         'oidcRoleName'                  => 'OidcRoleName',
         'ossAkId'                       => 'OssAkId',
         'ossAkSecret'                   => 'OssAkSecret',
@@ -850,6 +873,7 @@ class data extends Model
         'serviceTags'                   => 'ServiceTags',
         'sidecarContainersConfig'       => 'SidecarContainersConfig',
         'slsConfigs'                    => 'SlsConfigs',
+        'swimlanePvtzDiscovery'         => 'SwimlanePvtzDiscovery',
         'tags'                          => 'Tags',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone'                      => 'Timezone',
@@ -889,8 +913,14 @@ class data extends Model
         if (null !== $this->associateEip) {
             $res['AssociateEip'] = $this->associateEip;
         }
+        if (null !== $this->baseAppId) {
+            $res['BaseAppId'] = $this->baseAppId;
+        }
         if (null !== $this->batchWaitTime) {
             $res['BatchWaitTime'] = $this->batchWaitTime;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
@@ -937,9 +967,6 @@ class data extends Model
         if (null !== $this->enableNewArms) {
             $res['EnableNewArms'] = $this->enableNewArms;
         }
-        if (null !== $this->enabledle) {
-            $res['Enabledle'] = $this->enabledle;
-        }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
         }
@@ -973,6 +1000,9 @@ class data extends Model
         if (null !== $this->microRegistrationConfig) {
             $res['MicroRegistrationConfig'] = $this->microRegistrationConfig;
         }
+        if (null !== $this->microserviceEngineConfig) {
+            $res['MicroserviceEngineConfig'] = $this->microserviceEngineConfig;
+        }
         if (null !== $this->minReadyInstanceRatio) {
             $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
@@ -1005,6 +1035,9 @@ class data extends Model
         }
         if (null !== $this->nasId) {
             $res['NasId'] = $this->nasId;
+        }
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
         }
         if (null !== $this->oidcRoleName) {
             $res['OidcRoleName'] = $this->oidcRoleName;
@@ -1102,6 +1135,9 @@ class data extends Model
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
         }
+        if (null !== $this->swimlanePvtzDiscovery) {
+            $res['SwimlanePvtzDiscovery'] = $this->swimlanePvtzDiscovery;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -1168,8 +1204,14 @@ class data extends Model
         if (isset($map['AssociateEip'])) {
             $model->associateEip = $map['AssociateEip'];
         }
+        if (isset($map['BaseAppId'])) {
+            $model->baseAppId = $map['BaseAppId'];
+        }
         if (isset($map['BatchWaitTime'])) {
             $model->batchWaitTime = $map['BatchWaitTime'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
@@ -1216,9 +1258,6 @@ class data extends Model
         if (isset($map['EnableNewArms'])) {
             $model->enableNewArms = $map['EnableNewArms'];
         }
-        if (isset($map['Enabledle'])) {
-            $model->enabledle = $map['Enabledle'];
-        }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];
         }
@@ -1252,6 +1291,9 @@ class data extends Model
         if (isset($map['MicroRegistrationConfig'])) {
             $model->microRegistrationConfig = $map['MicroRegistrationConfig'];
         }
+        if (isset($map['MicroserviceEngineConfig'])) {
+            $model->microserviceEngineConfig = $map['MicroserviceEngineConfig'];
+        }
         if (isset($map['MinReadyInstanceRatio'])) {
             $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
@@ -1284,6 +1326,9 @@ class data extends Model
         }
         if (isset($map['NasId'])) {
             $model->nasId = $map['NasId'];
+        }
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
         }
         if (isset($map['OidcRoleName'])) {
             $model->oidcRoleName = $map['OidcRoleName'];
@@ -1380,6 +1425,9 @@ class data extends Model
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+        if (isset($map['SwimlanePvtzDiscovery'])) {
+            $model->swimlanePvtzDiscovery = $map['SwimlanePvtzDiscovery'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

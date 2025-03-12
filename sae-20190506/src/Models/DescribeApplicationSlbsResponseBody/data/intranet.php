@@ -19,6 +19,11 @@ class intranet extends Model
     public $cookieTimeout;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $httpsCaCertId;
@@ -71,6 +76,7 @@ class intranet extends Model
     protected $_name = [
         'cookie'            => 'Cookie',
         'cookieTimeout'     => 'CookieTimeout',
+        'createTime'        => 'CreateTime',
         'httpsCaCertId'     => 'HttpsCaCertId',
         'httpsCertId'       => 'HttpsCertId',
         'port'              => 'Port',
@@ -92,6 +98,9 @@ class intranet extends Model
         }
         if (null !== $this->cookieTimeout) {
             $res['CookieTimeout'] = $this->cookieTimeout;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->httpsCaCertId) {
             $res['HttpsCaCertId'] = $this->httpsCaCertId;
@@ -131,6 +140,9 @@ class intranet extends Model
         }
         if (isset($map['CookieTimeout'])) {
             $model->cookieTimeout = $map['CookieTimeout'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['HttpsCaCertId'])) {
             $model->httpsCaCertId = $map['HttpsCaCertId'];

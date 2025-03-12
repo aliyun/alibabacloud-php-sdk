@@ -52,6 +52,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $appType;
+
+    /**
+     * @var string
+     */
     public $baseAppId;
 
     /**
@@ -132,6 +137,16 @@ class applications extends Model
     /**
      * @var string
      */
+    public $namespaceName;
+
+    /**
+     * @var string
+     */
+    public $newSaeVersion;
+
+    /**
+     * @var string
+     */
     public $packageUrl;
 
     /**
@@ -168,6 +183,7 @@ class applications extends Model
         'appDescription'      => 'AppDescription',
         'appId'               => 'AppId',
         'appName'             => 'AppName',
+        'appType'             => 'AppType',
         'baseAppId'           => 'BaseAppId',
         'children'            => 'Children',
         'cpu'                 => 'Cpu',
@@ -177,6 +193,8 @@ class applications extends Model
         'mseEnabled'          => 'MseEnabled',
         'mseNamespaceId'      => 'MseNamespaceId',
         'namespaceId'         => 'NamespaceId',
+        'namespaceName'       => 'NamespaceName',
+        'newSaeVersion'       => 'NewSaeVersion',
         'packageUrl'          => 'PackageUrl',
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId'            => 'RegionId',
@@ -202,6 +220,9 @@ class applications extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
         if (null !== $this->baseAppId) {
             $res['BaseAppId'] = $this->baseAppId;
@@ -235,6 +256,12 @@ class applications extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
+        }
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
         }
         if (null !== $this->packageUrl) {
             $res['PackageUrl'] = $this->packageUrl;
@@ -281,6 +308,9 @@ class applications extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
         if (isset($map['BaseAppId'])) {
             $model->baseAppId = $map['BaseAppId'];
         }
@@ -313,6 +343,12 @@ class applications extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
+        }
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
         }
         if (isset($map['PackageUrl'])) {
             $model->packageUrl = $map['PackageUrl'];

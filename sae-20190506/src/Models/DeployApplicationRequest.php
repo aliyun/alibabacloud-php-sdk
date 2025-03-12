@@ -627,6 +627,11 @@ class DeployApplicationRequest extends Model
     public $slsConfigs;
 
     /**
+     * @var string
+     */
+    public $swimlanePvtzDiscoverySvc;
+
+    /**
      * @description The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
      *
      * @example 10
@@ -774,6 +779,7 @@ class DeployApplicationRequest extends Model
         'serviceTags'                      => 'ServiceTags',
         'sidecarContainersConfig'          => 'SidecarContainersConfig',
         'slsConfigs'                       => 'SlsConfigs',
+        'swimlanePvtzDiscoverySvc'         => 'SwimlanePvtzDiscoverySvc',
         'terminationGracePeriodSeconds'    => 'TerminationGracePeriodSeconds',
         'timezone'                         => 'Timezone',
         'tomcatConfig'                     => 'TomcatConfig',
@@ -978,6 +984,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
+        }
+        if (null !== $this->swimlanePvtzDiscoverySvc) {
+            $res['SwimlanePvtzDiscoverySvc'] = $this->swimlanePvtzDiscoverySvc;
         }
         if (null !== $this->terminationGracePeriodSeconds) {
             $res['TerminationGracePeriodSeconds'] = $this->terminationGracePeriodSeconds;
@@ -1200,6 +1209,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
+        }
+        if (isset($map['SwimlanePvtzDiscoverySvc'])) {
+            $model->swimlanePvtzDiscoverySvc = $map['SwimlanePvtzDiscoverySvc'];
         }
         if (isset($map['TerminationGracePeriodSeconds'])) {
             $model->terminationGracePeriodSeconds = $map['TerminationGracePeriodSeconds'];

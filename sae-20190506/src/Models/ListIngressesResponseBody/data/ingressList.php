@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data\ingressList\defaultRule;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data\ingressList\rules;
 use AlibabaCloud\Tea\Model;
 
 class ingressList extends Model
@@ -27,6 +29,16 @@ class ingressList extends Model
     public $certIds;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @var defaultRule
+     */
+    public $defaultRule;
+
+    /**
      * @description The ID of the routing rule.
      *
      * @example test
@@ -46,6 +58,11 @@ class ingressList extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $idleTimeout;
 
     /**
      * @description The type of the SLB instance based on the processing capabilities. Valid values:
@@ -112,6 +129,16 @@ class ingressList extends Model
     public $namespaceId;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
+     * @var rules[]
+     */
+    public $rules;
+
+    /**
      * @description The ID of the certificate.
      *
      * @example lb-uf62****6d13tq2u5
@@ -134,8 +161,11 @@ class ingressList extends Model
     protected $_name = [
         'certId'             => 'CertId',
         'certIds'            => 'CertIds',
+        'createTime'         => 'CreateTime',
+        'defaultRule'        => 'DefaultRule',
         'description'        => 'Description',
         'id'                 => 'Id',
+        'idleTimeout'        => 'IdleTimeout',
         'listenerPort'       => 'ListenerPort',
         'listenerProtocol'   => 'ListenerProtocol',
         'loadBalanceType'    => 'LoadBalanceType',
@@ -144,6 +174,8 @@ class ingressList extends Model
         'mseGatewayProtocol' => 'MseGatewayProtocol',
         'name'               => 'Name',
         'namespaceId'        => 'NamespaceId',
+        'requestTimeout'     => 'RequestTimeout',
+        'rules'              => 'Rules',
         'slbId'              => 'SlbId',
         'slbType'            => 'SlbType',
     ];
@@ -161,11 +193,20 @@ class ingressList extends Model
         if (null !== $this->certIds) {
             $res['CertIds'] = $this->certIds;
         }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->defaultRule) {
+            $res['DefaultRule'] = null !== $this->defaultRule ? $this->defaultRule->toMap() : null;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
         if (null !== $this->listenerPort) {
             $res['ListenerPort'] = $this->listenerPort;
@@ -191,6 +232,18 @@ class ingressList extends Model
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
+        if (null !== $this->rules) {
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
         }
@@ -215,11 +268,20 @@ class ingressList extends Model
         if (isset($map['CertIds'])) {
             $model->certIds = $map['CertIds'];
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DefaultRule'])) {
+            $model->defaultRule = defaultRule::fromMap($map['DefaultRule']);
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
         if (isset($map['ListenerPort'])) {
             $model->listenerPort = $map['ListenerPort'];
@@ -244,6 +306,18 @@ class ingressList extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
+        if (isset($map['Rules'])) {
+            if (!empty($map['Rules'])) {
+                $model->rules = [];
+                $n            = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
