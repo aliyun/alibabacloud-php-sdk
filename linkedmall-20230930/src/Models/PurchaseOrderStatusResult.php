@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PurchaseOrderStatusResult extends Model
 {
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 10
+     *
      * @var string
      */
     public $status;
@@ -23,16 +28,14 @@ class PurchaseOrderStatusResult extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -40,18 +43,17 @@ class PurchaseOrderStatusResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PurchaseOrderStatusResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

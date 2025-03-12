@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DivisionQuery extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $divisionCode;
@@ -18,10 +22,9 @@ class DivisionQuery extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->divisionCode) {
@@ -31,11 +34,11 @@ class DivisionQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DivisionQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

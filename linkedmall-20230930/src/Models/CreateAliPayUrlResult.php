@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAliPayUrlResult extends Model
 {
@@ -12,10 +12,12 @@ class CreateAliPayUrlResult extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $memberId;
+
     /**
      * @var string
      */
@@ -28,20 +30,17 @@ class CreateAliPayUrlResult extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->memberId) {
             $res['memberId'] = $this->memberId;
         }
-
         if (null !== $this->zftWithholdSignUrl) {
             $res['zftWithholdSignUrl'] = $this->zftWithholdSignUrl;
         }
@@ -49,22 +48,20 @@ class CreateAliPayUrlResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAliPayUrlResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['memberId'])) {
             $model->memberId = $map['memberId'];
         }
-
         if (isset($map['zftWithholdSignUrl'])) {
             $model->zftWithholdSignUrl = $map['zftWithholdSignUrl'];
         }

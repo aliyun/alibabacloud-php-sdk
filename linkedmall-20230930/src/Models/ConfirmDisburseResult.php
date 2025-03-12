@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ConfirmDisburseResult extends Model
 {
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example success
+     *
      * @var string
      */
     public $result;
@@ -23,16 +28,14 @@ class ConfirmDisburseResult extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -40,18 +43,17 @@ class ConfirmDisburseResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConfirmDisburseResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

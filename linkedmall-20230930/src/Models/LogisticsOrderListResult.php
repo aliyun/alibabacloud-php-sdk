@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LogisticsOrderListResult extends Model
 {
@@ -12,7 +12,10 @@ class LogisticsOrderListResult extends Model
      * @var LogisticsOrderResult[]
      */
     public $logisticsOrderList;
+
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +26,20 @@ class LogisticsOrderListResult extends Model
 
     public function validate()
     {
-        if (\is_array($this->logisticsOrderList)) {
-            Model::validateArray($this->logisticsOrderList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logisticsOrderList) {
-            if (\is_array($this->logisticsOrderList)) {
-                $res['logisticsOrderList'] = [];
-                $n1                        = 0;
-                foreach ($this->logisticsOrderList as $item1) {
-                    $res['logisticsOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['logisticsOrderList'] = [];
+            if (null !== $this->logisticsOrderList && \is_array($this->logisticsOrderList)) {
+                $n = 0;
+                foreach ($this->logisticsOrderList as $item) {
+                    $res['logisticsOrderList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,24 +47,23 @@ class LogisticsOrderListResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LogisticsOrderListResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logisticsOrderList'])) {
             if (!empty($map['logisticsOrderList'])) {
                 $model->logisticsOrderList = [];
-                $n1                        = 0;
-                foreach ($map['logisticsOrderList'] as $item1) {
-                    $model->logisticsOrderList[$n1++] = LogisticsOrderResult::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['logisticsOrderList'] as $item) {
+                    $model->logisticsOrderList[$n++] = null !== $item ? LogisticsOrderResult::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

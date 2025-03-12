@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\CancelRefundOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ConfirmDisburseRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ConfirmDisburseResponse;
@@ -50,10 +50,11 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupRemoveProductRequ
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupRemoveProductResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Linkedmall extends OpenApiClient
 {
@@ -134,29 +135,24 @@ class Linkedmall extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 取消逆向单.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelRefundOrderResponse
-     *
+     * @summary 取消逆向单
+     *  *
      * @param string         $disputeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CancelRefundOrderResponse
+     * @return CancelRefundOrderResponse CancelRefundOrderResponse
      */
     public function cancelRefundOrderWithOptions($disputeId, $headers, $runtime)
     {
@@ -167,14 +163,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'CancelRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . URL::percentEncode($disputeId) . '/commands/cancel',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '/commands/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -182,13 +178,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 取消逆向单.
-     *
-     * @returns CancelRefundOrderResponse
-     *
+     * @summary 取消逆向单
+     *  *
      * @param string $disputeId
      *
-     * @return CancelRefundOrderResponse
+     * @return CancelRefundOrderResponse CancelRefundOrderResponse
      */
     public function cancelRefundOrder($disputeId)
     {
@@ -199,25 +193,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 确认收货（订单）.
+     * @summary 确认收货（订单）
+     *  *
+     * @param ConfirmDisburseRequest $request ConfirmDisburseRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfirmDisburseRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ConfirmDisburseResponse
-     *
-     * @param ConfirmDisburseRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ConfirmDisburseResponse
+     * @return ConfirmDisburseResponse ConfirmDisburseResponse
      */
     public function confirmDisburseWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ConfirmDisburse',
@@ -230,7 +219,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ConfirmDisburseResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -238,14 +227,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 确认收货（订单）.
+     * @summary 确认收货（订单）
+     *  *
+     * @param ConfirmDisburseRequest $request ConfirmDisburseRequest
      *
-     * @param request - ConfirmDisburseRequest
-     * @returns ConfirmDisburseResponse
-     *
-     * @param ConfirmDisburseRequest $request
-     *
-     * @return ConfirmDisburseResponse
+     * @return ConfirmDisburseResponse ConfirmDisburseResponse
      */
     public function confirmDisburse($request)
     {
@@ -256,25 +242,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 提交运单信息.
+     * @summary 提交运单信息
+     *  *
+     * @param CreateGoodsShippingNoticeRequest $request CreateGoodsShippingNoticeRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGoodsShippingNoticeRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateGoodsShippingNoticeResponse
-     *
-     * @param CreateGoodsShippingNoticeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateGoodsShippingNoticeResponse
+     * @return CreateGoodsShippingNoticeResponse CreateGoodsShippingNoticeResponse
      */
     public function createGoodsShippingNoticeWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateGoodsShippingNotice',
@@ -287,7 +268,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateGoodsShippingNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -295,14 +276,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 提交运单信息.
+     * @summary 提交运单信息
+     *  *
+     * @param CreateGoodsShippingNoticeRequest $request CreateGoodsShippingNoticeRequest
      *
-     * @param request - CreateGoodsShippingNoticeRequest
-     * @returns CreateGoodsShippingNoticeResponse
-     *
-     * @param CreateGoodsShippingNoticeRequest $request
-     *
-     * @return CreateGoodsShippingNoticeResponse
+     * @return CreateGoodsShippingNoticeResponse CreateGoodsShippingNoticeResponse
      */
     public function createGoodsShippingNotice($request)
     {
@@ -313,25 +291,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 创建采购单.
+     * @summary 创建采购单
+     *  *
+     * @param CreatePurchaseOrderRequest $request CreatePurchaseOrderRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePurchaseOrderRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePurchaseOrderResponse
-     *
-     * @param CreatePurchaseOrderRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreatePurchaseOrderResponse
+     * @return CreatePurchaseOrderResponse CreatePurchaseOrderResponse
      */
     public function createPurchaseOrderWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreatePurchaseOrder',
@@ -344,7 +317,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -352,14 +325,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 创建采购单.
+     * @summary 创建采购单
+     *  *
+     * @param CreatePurchaseOrderRequest $request CreatePurchaseOrderRequest
      *
-     * @param request - CreatePurchaseOrderRequest
-     * @returns CreatePurchaseOrderResponse
-     *
-     * @param CreatePurchaseOrderRequest $request
-     *
-     * @return CreatePurchaseOrderResponse
+     * @return CreatePurchaseOrderResponse CreatePurchaseOrderResponse
      */
     public function createPurchaseOrder($request)
     {
@@ -370,25 +340,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 创建逆向单.
+     * @summary 创建逆向单
+     *  *
+     * @param CreateRefundOrderRequest $request CreateRefundOrderRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateRefundOrderRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateRefundOrderResponse
-     *
-     * @param CreateRefundOrderRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateRefundOrderResponse
+     * @return CreateRefundOrderResponse CreateRefundOrderResponse
      */
     public function createRefundOrderWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CreateRefundOrder',
@@ -401,7 +366,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -409,14 +374,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 创建逆向单.
+     * @summary 创建逆向单
+     *  *
+     * @param CreateRefundOrderRequest $request CreateRefundOrderRequest
      *
-     * @param request - CreateRefundOrderRequest
-     * @returns CreateRefundOrderResponse
-     *
-     * @param CreateRefundOrderRequest $request
-     *
-     * @return CreateRefundOrderResponse
+     * @return CreateRefundOrderResponse CreateRefundOrderResponse
      */
     public function createRefundOrder($request)
     {
@@ -427,17 +389,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询主单详情.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetOrderResponse
-     *
+     * @summary 查询主单详情
+     *  *
      * @param string         $orderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOrderResponse
+     * @return GetOrderResponse GetOrderResponse
      */
     public function getOrderWithOptions($orderId, $headers, $runtime)
     {
@@ -448,14 +406,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . URL::percentEncode($orderId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -463,13 +421,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询主单详情.
-     *
-     * @returns GetOrderResponse
-     *
+     * @summary 查询主单详情
+     *  *
      * @param string $orderId
      *
-     * @return GetOrderResponse
+     * @return GetOrderResponse GetOrderResponse
      */
     public function getOrder($orderId)
     {
@@ -480,17 +436,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询采购单状态
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetPurchaseOrderStatusResponse
-     *
+     * @summary 查询采购单状态
+     *  *
      * @param string         $purchaseOrderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return GetPurchaseOrderStatusResponse
+     * @return GetPurchaseOrderStatusResponse GetPurchaseOrderStatusResponse
      */
     public function getPurchaseOrderStatusWithOptions($purchaseOrderId, $headers, $runtime)
     {
@@ -501,14 +453,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetPurchaseOrderStatus',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/' . URL::percentEncode($purchaseOrderId) . '/status',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/' . OpenApiUtilClient::getEncodeParam($purchaseOrderId) . '/status',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPurchaseOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -516,13 +468,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询采购单状态
-     *
-     * @returns GetPurchaseOrderStatusResponse
-     *
+     * @summary 查询采购单状态
+     *  *
      * @param string $purchaseOrderId
      *
-     * @return GetPurchaseOrderStatusResponse
+     * @return GetPurchaseOrderStatusResponse GetPurchaseOrderStatusResponse
      */
     public function getPurchaseOrderStatus($purchaseOrderId)
     {
@@ -533,17 +483,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询分销商店铺.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetPurchaserShopResponse
-     *
+     * @summary 查询分销商店铺
+     *  *
      * @param string         $purchaserId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetPurchaserShopResponse
+     * @return GetPurchaserShopResponse GetPurchaserShopResponse
      */
     public function getPurchaserShopWithOptions($purchaserId, $headers, $runtime)
     {
@@ -554,14 +500,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetPurchaserShop',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/' . URL::percentEncode($purchaserId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/' . OpenApiUtilClient::getEncodeParam($purchaserId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPurchaserShopResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -569,13 +515,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询分销商店铺.
-     *
-     * @returns GetPurchaserShopResponse
-     *
+     * @summary 查询分销商店铺
+     *  *
      * @param string $purchaserId
      *
-     * @return GetPurchaserShopResponse
+     * @return GetPurchaserShopResponse GetPurchaserShopResponse
      */
     public function getPurchaserShop($purchaserId)
     {
@@ -586,17 +530,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询逆向单详情.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetRefundOrderResponse
-     *
+     * @summary 查询逆向单详情
+     *  *
      * @param string         $disputeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetRefundOrderResponse
+     * @return GetRefundOrderResponse GetRefundOrderResponse
      */
     public function getRefundOrderWithOptions($disputeId, $headers, $runtime)
     {
@@ -607,14 +547,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . URL::percentEncode($disputeId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -622,13 +562,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询逆向单详情.
-     *
-     * @returns GetRefundOrderResponse
-     *
+     * @summary 查询逆向单详情
+     *  *
      * @param string $disputeId
      *
-     * @return GetRefundOrderResponse
+     * @return GetRefundOrderResponse GetRefundOrderResponse
      */
     public function getRefundOrder($disputeId)
     {
@@ -639,48 +577,41 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询选品池商品详情.
-     *
-     * @param request - GetSelectionProductRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetSelectionProductResponse
-     *
+     * @summary 查询选品池商品详情
+     *  *
      * @param string                     $productId
-     * @param GetSelectionProductRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetSelectionProductRequest $request   GetSelectionProductRequest
+     * @param string[]                   $headers   map
+     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSelectionProductResponse
+     * @return GetSelectionProductResponse GetSelectionProductResponse
      */
     public function getSelectionProductWithOptions($productId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->divisionCode) {
-            @$query['divisionCode'] = $request->divisionCode;
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['divisionCode'] = $request->divisionCode;
         }
-
-        if (null !== $request->purchaserId) {
-            @$query['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSelectionProduct',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . URL::percentEncode($productId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSelectionProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -688,15 +619,12 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询选品池商品详情.
-     *
-     * @param request - GetSelectionProductRequest
-     * @returns GetSelectionProductResponse
-     *
+     * @summary 查询选品池商品详情
+     *  *
      * @param string                     $productId
-     * @param GetSelectionProductRequest $request
+     * @param GetSelectionProductRequest $request   GetSelectionProductRequest
      *
-     * @return GetSelectionProductResponse
+     * @return GetSelectionProductResponse GetSelectionProductResponse
      */
     public function getSelectionProduct($productId, $request)
     {
@@ -707,48 +635,41 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询选品池商品库存.
-     *
-     * @param request - GetSelectionProductSaleInfoRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetSelectionProductSaleInfoResponse
-     *
+     * @summary 查询选品池商品库存
+     *  *
      * @param string                             $productId
-     * @param GetSelectionProductSaleInfoRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param GetSelectionProductSaleInfoRequest $request   GetSelectionProductSaleInfoRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSelectionProductSaleInfoResponse
+     * @return GetSelectionProductSaleInfoResponse GetSelectionProductSaleInfoResponse
      */
     public function getSelectionProductSaleInfoWithOptions($productId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->divisionCode) {
-            @$query['divisionCode'] = $request->divisionCode;
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['divisionCode'] = $request->divisionCode;
         }
-
-        if (null !== $request->purchaserId) {
-            @$query['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSelectionProductSaleInfo',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . URL::percentEncode($productId) . '/saleInfo',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '/saleInfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSelectionProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -756,15 +677,12 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询选品池商品库存.
-     *
-     * @param request - GetSelectionProductSaleInfoRequest
-     * @returns GetSelectionProductSaleInfoResponse
-     *
+     * @summary 查询选品池商品库存
+     *  *
      * @param string                             $productId
-     * @param GetSelectionProductSaleInfoRequest $request
+     * @param GetSelectionProductSaleInfoRequest $request   GetSelectionProductSaleInfoRequest
      *
-     * @return GetSelectionProductSaleInfoResponse
+     * @return GetSelectionProductSaleInfoResponse GetSelectionProductSaleInfoResponse
      */
     public function getSelectionProductSaleInfo($productId, $request)
     {
@@ -775,25 +693,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询类目.
+     * @summary 查询类目
+     *  *
+     * @param ListCategoriesRequest $request ListCategoriesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCategoriesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListCategoriesResponse
-     *
-     * @param ListCategoriesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListCategoriesResponse
+     * @return ListCategoriesResponse ListCategoriesResponse
      */
     public function listCategoriesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ListCategories',
@@ -806,7 +719,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -814,14 +727,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询类目.
+     * @summary 查询类目
+     *  *
+     * @param ListCategoriesRequest $request ListCategoriesRequest
      *
-     * @param request - ListCategoriesRequest
-     * @returns ListCategoriesResponse
-     *
-     * @param ListCategoriesRequest $request
-     *
-     * @return ListCategoriesResponse
+     * @return ListCategoriesResponse ListCategoriesResponse
      */
     public function listCategories($request)
     {
@@ -832,17 +742,13 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询物流信息（订单）.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListLogisticsOrdersResponse
-     *
+     * @summary 查询物流信息（订单）
+     *  *
      * @param string         $orderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogisticsOrdersResponse
+     * @return ListLogisticsOrdersResponse ListLogisticsOrdersResponse
      */
     public function listLogisticsOrdersWithOptions($orderId, $headers, $runtime)
     {
@@ -853,14 +759,14 @@ class Linkedmall extends OpenApiClient
             'action'      => 'ListLogisticsOrders',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . URL::percentEncode($orderId) . '/logisticsOrders',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '/logisticsOrders',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListLogisticsOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -868,13 +774,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询物流信息（订单）.
-     *
-     * @returns ListLogisticsOrdersResponse
-     *
+     * @summary 查询物流信息（订单）
+     *  *
      * @param string $orderId
      *
-     * @return ListLogisticsOrdersResponse
+     * @return ListLogisticsOrdersResponse ListLogisticsOrdersResponse
      */
     public function listLogisticsOrders($orderId)
     {
@@ -885,34 +789,27 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 采购方店铺列表查询.
+     * @summary 采购方店铺列表查询
+     *  *
+     * @param ListPurchaserShopsRequest $request ListPurchaserShopsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListPurchaserShopsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListPurchaserShopsResponse
-     *
-     * @param ListPurchaserShopsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListPurchaserShopsResponse
+     * @return ListPurchaserShopsResponse ListPurchaserShopsResponse
      */
     public function listPurchaserShopsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPurchaserShops',
@@ -925,7 +822,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPurchaserShopsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -933,14 +830,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 采购方店铺列表查询.
+     * @summary 采购方店铺列表查询
+     *  *
+     * @param ListPurchaserShopsRequest $request ListPurchaserShopsRequest
      *
-     * @param request - ListPurchaserShopsRequest
-     * @returns ListPurchaserShopsResponse
-     *
-     * @param ListPurchaserShopsRequest $request
-     *
-     * @return ListPurchaserShopsResponse
+     * @return ListPurchaserShopsResponse ListPurchaserShopsResponse
      */
     public function listPurchaserShops($request)
     {
@@ -951,25 +845,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 批量查询选品池商品库存.
+     * @summary 批量查询选品池商品库存
+     *  *
+     * @param ListSelectionProductSaleInfosRequest $request ListSelectionProductSaleInfosRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSelectionProductSaleInfosRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSelectionProductSaleInfosResponse
-     *
-     * @param ListSelectionProductSaleInfosRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListSelectionProductSaleInfosResponse
+     * @return ListSelectionProductSaleInfosResponse ListSelectionProductSaleInfosResponse
      */
     public function listSelectionProductSaleInfosWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ListSelectionProductSaleInfos',
@@ -982,7 +871,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -990,14 +879,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 批量查询选品池商品库存.
+     * @summary 批量查询选品池商品库存
+     *  *
+     * @param ListSelectionProductSaleInfosRequest $request ListSelectionProductSaleInfosRequest
      *
-     * @param request - ListSelectionProductSaleInfosRequest
-     * @returns ListSelectionProductSaleInfosResponse
-     *
-     * @param ListSelectionProductSaleInfosRequest $request
-     *
-     * @return ListSelectionProductSaleInfosResponse
+     * @return ListSelectionProductSaleInfosResponse ListSelectionProductSaleInfosResponse
      */
     public function listSelectionProductSaleInfos($request)
     {
@@ -1008,38 +894,30 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询商品列表.
+     * @summary 查询商品列表
+     *  *
+     * @param ListSelectionProductsRequest $request ListSelectionProductsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSelectionProductsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSelectionProductsResponse
-     *
-     * @param ListSelectionProductsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListSelectionProductsResponse
+     * @return ListSelectionProductsResponse ListSelectionProductsResponse
      */
     public function listSelectionProductsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->purchaserId) {
-            @$query['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSelectionProducts',
@@ -1052,7 +930,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1060,14 +938,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询商品列表.
+     * @summary 查询商品列表
+     *  *
+     * @param ListSelectionProductsRequest $request ListSelectionProductsRequest
      *
-     * @param request - ListSelectionProductsRequest
-     * @returns ListSelectionProductsResponse
-     *
-     * @param ListSelectionProductsRequest $request
-     *
-     * @return ListSelectionProductsResponse
+     * @return ListSelectionProductsResponse ListSelectionProductsResponse
      */
     public function listSelectionProducts($request)
     {
@@ -1078,25 +953,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 批量查询选品池商品SKU库存.
+     * @summary 批量查询选品池商品SKU库存
+     *  *
+     * @param ListSelectionSkuSaleInfosRequest $request ListSelectionSkuSaleInfosRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSelectionSkuSaleInfosRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSelectionSkuSaleInfosResponse
-     *
-     * @param ListSelectionSkuSaleInfosRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListSelectionSkuSaleInfosResponse
+     * @return ListSelectionSkuSaleInfosResponse ListSelectionSkuSaleInfosResponse
      */
     public function listSelectionSkuSaleInfosWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ListSelectionSkuSaleInfos',
@@ -1109,7 +979,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1117,14 +987,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 批量查询选品池商品SKU库存.
+     * @summary 批量查询选品池商品SKU库存
+     *  *
+     * @param ListSelectionSkuSaleInfosRequest $request ListSelectionSkuSaleInfosRequest
      *
-     * @param request - ListSelectionSkuSaleInfosRequest
-     * @returns ListSelectionSkuSaleInfosResponse
-     *
-     * @param ListSelectionSkuSaleInfosRequest $request
-     *
-     * @return ListSelectionSkuSaleInfosResponse
+     * @return ListSelectionSkuSaleInfosResponse ListSelectionSkuSaleInfosResponse
      */
     public function listSelectionSkuSaleInfos($request)
     {
@@ -1135,25 +1002,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询地址divisionCode.
+     * @summary 查询地址divisionCode
+     *  *
+     * @param QueryChildDivisionCodeRequest $request QueryChildDivisionCodeRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryChildDivisionCodeRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns QueryChildDivisionCodeResponse
-     *
-     * @param QueryChildDivisionCodeRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return QueryChildDivisionCodeResponse
+     * @return QueryChildDivisionCodeResponse QueryChildDivisionCodeResponse
      */
     public function queryChildDivisionCodeWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'QueryChildDivisionCode',
@@ -1166,7 +1028,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryChildDivisionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1174,14 +1036,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询地址divisionCode.
+     * @summary 查询地址divisionCode
+     *  *
+     * @param QueryChildDivisionCodeRequest $request QueryChildDivisionCodeRequest
      *
-     * @param request - QueryChildDivisionCodeRequest
-     * @returns QueryChildDivisionCodeResponse
-     *
-     * @param QueryChildDivisionCodeRequest $request
-     *
-     * @return QueryChildDivisionCodeResponse
+     * @return QueryChildDivisionCodeResponse QueryChildDivisionCodeResponse
      */
     public function queryChildDivisionCode($request)
     {
@@ -1192,25 +1051,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询主单列表.
+     * @summary 查询主单列表
+     *  *
+     * @param QueryOrdersRequest $request QueryOrdersRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryOrdersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns QueryOrdersResponse
-     *
-     * @param QueryOrdersRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return QueryOrdersResponse
+     * @return QueryOrdersResponse QueryOrdersResponse
      */
     public function queryOrdersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'QueryOrders',
@@ -1223,7 +1077,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1231,14 +1085,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 查询主单列表.
+     * @summary 查询主单列表
+     *  *
+     * @param QueryOrdersRequest $request QueryOrdersRequest
      *
-     * @param request - QueryOrdersRequest
-     * @returns QueryOrdersResponse
-     *
-     * @param QueryOrdersRequest $request
-     *
-     * @return QueryOrdersResponse
+     * @return QueryOrdersResponse QueryOrdersResponse
      */
     public function queryOrders($request)
     {
@@ -1249,25 +1100,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 渲染采购单.
+     * @summary 渲染采购单
+     *  *
+     * @param RenderPurchaseOrderRequest $request RenderPurchaseOrderRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RenderPurchaseOrderRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RenderPurchaseOrderResponse
-     *
-     * @param RenderPurchaseOrderRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RenderPurchaseOrderResponse
+     * @return RenderPurchaseOrderResponse RenderPurchaseOrderResponse
      */
     public function renderPurchaseOrderWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'RenderPurchaseOrder',
@@ -1280,7 +1126,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenderPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1288,14 +1134,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 渲染采购单.
+     * @summary 渲染采购单
+     *  *
+     * @param RenderPurchaseOrderRequest $request RenderPurchaseOrderRequest
      *
-     * @param request - RenderPurchaseOrderRequest
-     * @returns RenderPurchaseOrderResponse
-     *
-     * @param RenderPurchaseOrderRequest $request
-     *
-     * @return RenderPurchaseOrderResponse
+     * @return RenderPurchaseOrderResponse RenderPurchaseOrderResponse
      */
     public function renderPurchaseOrder($request)
     {
@@ -1306,25 +1149,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 逆向单渲染.
+     * @summary 逆向单渲染
+     *  *
+     * @param RenderRefundOrderRequest $request RenderRefundOrderRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RenderRefundOrderRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RenderRefundOrderResponse
-     *
-     * @param RenderRefundOrderRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RenderRefundOrderResponse
+     * @return RenderRefundOrderResponse RenderRefundOrderResponse
      */
     public function renderRefundOrderWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'RenderRefundOrder',
@@ -1337,7 +1175,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenderRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1345,14 +1183,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 逆向单渲染.
+     * @summary 逆向单渲染
+     *  *
+     * @param RenderRefundOrderRequest $request RenderRefundOrderRequest
      *
-     * @param request - RenderRefundOrderRequest
-     * @returns RenderRefundOrderResponse
-     *
-     * @param RenderRefundOrderRequest $request
-     *
-     * @return RenderRefundOrderResponse
+     * @return RenderRefundOrderResponse RenderRefundOrderResponse
      */
     public function renderRefundOrder($request)
     {
@@ -1363,146 +1198,111 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 搜索商品
+     * @summary 搜索商品
+     *  *
+     * @param SearchProductsRequest $request SearchProductsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SearchProductsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SearchProductsResponse
-     *
-     * @param SearchProductsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SearchProductsResponse
+     * @return SearchProductsResponse SearchProductsResponse
      */
     public function searchProductsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->brandName) {
-            @$body['brandName'] = $request->brandName;
+        if (!Utils::isUnset($request->brandName)) {
+            $body['brandName'] = $request->brandName;
         }
-
-        if (null !== $request->categoryIds) {
-            @$body['categoryIds'] = $request->categoryIds;
+        if (!Utils::isUnset($request->categoryIds)) {
+            $body['categoryIds'] = $request->categoryIds;
         }
-
-        if (null !== $request->createEndTime) {
-            @$body['createEndTime'] = $request->createEndTime;
+        if (!Utils::isUnset($request->createEndTime)) {
+            $body['createEndTime'] = $request->createEndTime;
         }
-
-        if (null !== $request->createStartTime) {
-            @$body['createStartTime'] = $request->createStartTime;
+        if (!Utils::isUnset($request->createStartTime)) {
+            $body['createStartTime'] = $request->createStartTime;
         }
-
-        if (null !== $request->distributionHighPrice) {
-            @$body['distributionHighPrice'] = $request->distributionHighPrice;
+        if (!Utils::isUnset($request->distributionHighPrice)) {
+            $body['distributionHighPrice'] = $request->distributionHighPrice;
         }
-
-        if (null !== $request->distributionHighPriceRatio) {
-            @$body['distributionHighPriceRatio'] = $request->distributionHighPriceRatio;
+        if (!Utils::isUnset($request->distributionHighPriceRatio)) {
+            $body['distributionHighPriceRatio'] = $request->distributionHighPriceRatio;
         }
-
-        if (null !== $request->distributionLowPrice) {
-            @$body['distributionLowPrice'] = $request->distributionLowPrice;
+        if (!Utils::isUnset($request->distributionLowPrice)) {
+            $body['distributionLowPrice'] = $request->distributionLowPrice;
         }
-
-        if (null !== $request->distributionLowPriceRatio) {
-            @$body['distributionLowPriceRatio'] = $request->distributionLowPriceRatio;
+        if (!Utils::isUnset($request->distributionLowPriceRatio)) {
+            $body['distributionLowPriceRatio'] = $request->distributionLowPriceRatio;
         }
-
-        if (null !== $request->highMarkPrice) {
-            @$body['highMarkPrice'] = $request->highMarkPrice;
+        if (!Utils::isUnset($request->highMarkPrice)) {
+            $body['highMarkPrice'] = $request->highMarkPrice;
         }
-
-        if (null !== $request->highPrice) {
-            @$body['highPrice'] = $request->highPrice;
+        if (!Utils::isUnset($request->highPrice)) {
+            $body['highPrice'] = $request->highPrice;
         }
-
-        if (null !== $request->inGroup) {
-            @$body['inGroup'] = $request->inGroup;
+        if (!Utils::isUnset($request->inGroup)) {
+            $body['inGroup'] = $request->inGroup;
         }
-
-        if (null !== $request->inGroupEndTime) {
-            @$body['inGroupEndTime'] = $request->inGroupEndTime;
+        if (!Utils::isUnset($request->inGroupEndTime)) {
+            $body['inGroupEndTime'] = $request->inGroupEndTime;
         }
-
-        if (null !== $request->inGroupStartTime) {
-            @$body['inGroupStartTime'] = $request->inGroupStartTime;
+        if (!Utils::isUnset($request->inGroupStartTime)) {
+            $body['inGroupStartTime'] = $request->inGroupStartTime;
         }
-
-        if (null !== $request->inventoryRiskLevel) {
-            @$body['inventoryRiskLevel'] = $request->inventoryRiskLevel;
+        if (!Utils::isUnset($request->inventoryRiskLevel)) {
+            $body['inventoryRiskLevel'] = $request->inventoryRiskLevel;
         }
-
-        if (null !== $request->lmItemId) {
-            @$body['lmItemId'] = $request->lmItemId;
+        if (!Utils::isUnset($request->lmItemId)) {
+            $body['lmItemId'] = $request->lmItemId;
         }
-
-        if (null !== $request->lowMarkPrice) {
-            @$body['lowMarkPrice'] = $request->lowMarkPrice;
+        if (!Utils::isUnset($request->lowMarkPrice)) {
+            $body['lowMarkPrice'] = $request->lowMarkPrice;
         }
-
-        if (null !== $request->lowPrice) {
-            @$body['lowPrice'] = $request->lowPrice;
+        if (!Utils::isUnset($request->lowPrice)) {
+            $body['lowPrice'] = $request->lowPrice;
         }
-
-        if (null !== $request->modifyEndTime) {
-            @$body['modifyEndTime'] = $request->modifyEndTime;
+        if (!Utils::isUnset($request->modifyEndTime)) {
+            $body['modifyEndTime'] = $request->modifyEndTime;
         }
-
-        if (null !== $request->modifyStartTime) {
-            @$body['modifyStartTime'] = $request->modifyStartTime;
+        if (!Utils::isUnset($request->modifyStartTime)) {
+            $body['modifyStartTime'] = $request->modifyStartTime;
         }
-
-        if (null !== $request->orderBy) {
-            @$body['orderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['orderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->orderDirection) {
-            @$body['orderDirection'] = $request->orderDirection;
+        if (!Utils::isUnset($request->orderDirection)) {
+            $body['orderDirection'] = $request->orderDirection;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->platform) {
-            @$body['platform'] = $request->platform;
+        if (!Utils::isUnset($request->platform)) {
+            $body['platform'] = $request->platform;
         }
-
-        if (null !== $request->productId) {
-            @$body['productId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $body['productId'] = $request->productId;
         }
-
-        if (null !== $request->productName) {
-            @$body['productName'] = $request->productName;
+        if (!Utils::isUnset($request->productName)) {
+            $body['productName'] = $request->productName;
         }
-
-        if (null !== $request->productStatus) {
-            @$body['productStatus'] = $request->productStatus;
+        if (!Utils::isUnset($request->productStatus)) {
+            $body['productStatus'] = $request->productStatus;
         }
-
-        if (null !== $request->purchaserId) {
-            @$body['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $body['purchaserId'] = $request->purchaserId;
         }
-
-        if (null !== $request->taxRate) {
-            @$body['taxRate'] = $request->taxRate;
+        if (!Utils::isUnset($request->taxRate)) {
+            $body['taxRate'] = $request->taxRate;
         }
-
-        if (null !== $request->tradeModeAndCredit) {
-            @$body['tradeModeAndCredit'] = $request->tradeModeAndCredit;
+        if (!Utils::isUnset($request->tradeModeAndCredit)) {
+            $body['tradeModeAndCredit'] = $request->tradeModeAndCredit;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SearchProducts',
@@ -1515,7 +1315,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SearchProductsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1523,14 +1323,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 搜索商品
+     * @summary 搜索商品
+     *  *
+     * @param SearchProductsRequest $request SearchProductsRequest
      *
-     * @param request - SearchProductsRequest
-     * @returns SearchProductsResponse
-     *
-     * @param SearchProductsRequest $request
-     *
-     * @return SearchProductsResponse
+     * @return SearchProductsResponse SearchProductsResponse
      */
     public function searchProducts($request)
     {
@@ -1541,34 +1338,27 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 入库操作.
+     * @summary 入库操作
+     *  *
+     * @param SelectionGroupAddProductRequest $request SelectionGroupAddProductRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SelectionGroupAddProductRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SelectionGroupAddProductResponse
-     *
-     * @param SelectionGroupAddProductRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SelectionGroupAddProductResponse
+     * @return SelectionGroupAddProductResponse SelectionGroupAddProductResponse
      */
     public function selectionGroupAddProductWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->productIds) {
-            @$body['productIds'] = $request->productIds;
+        if (!Utils::isUnset($request->productIds)) {
+            $body['productIds'] = $request->productIds;
         }
-
-        if (null !== $request->purchaserId) {
-            @$body['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $body['purchaserId'] = $request->purchaserId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SelectionGroupAddProduct',
@@ -1581,7 +1371,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SelectionGroupAddProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1589,14 +1379,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 入库操作.
+     * @summary 入库操作
+     *  *
+     * @param SelectionGroupAddProductRequest $request SelectionGroupAddProductRequest
      *
-     * @param request - SelectionGroupAddProductRequest
-     * @returns SelectionGroupAddProductResponse
-     *
-     * @param SelectionGroupAddProductRequest $request
-     *
-     * @return SelectionGroupAddProductResponse
+     * @return SelectionGroupAddProductResponse SelectionGroupAddProductResponse
      */
     public function selectionGroupAddProduct($request)
     {
@@ -1607,34 +1394,27 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 出库操作.
+     * @summary 出库操作
+     *  *
+     * @param SelectionGroupRemoveProductRequest $request SelectionGroupRemoveProductRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SelectionGroupRemoveProductRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SelectionGroupRemoveProductResponse
-     *
-     * @param SelectionGroupRemoveProductRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SelectionGroupRemoveProductResponse
+     * @return SelectionGroupRemoveProductResponse SelectionGroupRemoveProductResponse
      */
     public function selectionGroupRemoveProductWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->productIds) {
-            @$body['productIds'] = $request->productIds;
+        if (!Utils::isUnset($request->productIds)) {
+            $body['productIds'] = $request->productIds;
         }
-
-        if (null !== $request->purchaserId) {
-            @$body['purchaserId'] = $request->purchaserId;
+        if (!Utils::isUnset($request->purchaserId)) {
+            $body['purchaserId'] = $request->purchaserId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SelectionGroupRemoveProduct',
@@ -1647,7 +1427,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SelectionGroupRemoveProductResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1655,14 +1435,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 出库操作.
+     * @summary 出库操作
+     *  *
+     * @param SelectionGroupRemoveProductRequest $request SelectionGroupRemoveProductRequest
      *
-     * @param request - SelectionGroupRemoveProductRequest
-     * @returns SelectionGroupRemoveProductResponse
-     *
-     * @param SelectionGroupRemoveProductRequest $request
-     *
-     * @return SelectionGroupRemoveProductResponse
+     * @return SelectionGroupRemoveProductResponse SelectionGroupRemoveProductResponse
      */
     public function selectionGroupRemoveProduct($request)
     {
@@ -1673,25 +1450,20 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 渲染拆分采购单.
+     * @summary 渲染拆分采购单
+     *  *
+     * @param SplitPurchaseOrderRequest $request SplitPurchaseOrderRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SplitPurchaseOrderRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SplitPurchaseOrderResponse
-     *
-     * @param SplitPurchaseOrderRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SplitPurchaseOrderResponse
+     * @return SplitPurchaseOrderResponse SplitPurchaseOrderResponse
      */
     public function splitPurchaseOrderWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($request->body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'SplitPurchaseOrder',
@@ -1704,7 +1476,7 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SplitPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1712,14 +1484,11 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * 渲染拆分采购单.
+     * @summary 渲染拆分采购单
+     *  *
+     * @param SplitPurchaseOrderRequest $request SplitPurchaseOrderRequest
      *
-     * @param request - SplitPurchaseOrderRequest
-     * @returns SplitPurchaseOrderResponse
-     *
-     * @param SplitPurchaseOrderRequest $request
-     *
-     * @return SplitPurchaseOrderResponse
+     * @return SplitPurchaseOrderResponse SplitPurchaseOrderResponse
      */
     public function splitPurchaseOrder($request)
     {

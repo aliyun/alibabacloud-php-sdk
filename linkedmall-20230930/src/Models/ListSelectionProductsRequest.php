@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSelectionProductsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 56****2304
+     *
      * @var string
      */
     public $purchaserId;
@@ -28,20 +42,17 @@ class ListSelectionProductsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
         }
@@ -49,22 +60,20 @@ class ListSelectionProductsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSelectionProductsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];
         }

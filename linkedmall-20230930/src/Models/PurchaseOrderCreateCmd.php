@@ -4,27 +4,43 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PurchaseOrderCreateCmd extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example buyer2138237
+     *
      * @var string
      */
     public $buyerId;
+
     /**
+     * @description This parameter is required.
+     *
      * @var AddressInfo
      */
     public $deliveryAddress;
+
     /**
      * @var mixed[]
      */
     public $extInfo;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example outer123456
+     *
      * @var string
      */
     public $outerPurchaseOrderId;
+
     /**
+     * @description This parameter is required.
+     *
      * @var ProductDTO[]
      */
     public $productList;
@@ -38,48 +54,29 @@ class PurchaseOrderCreateCmd extends Model
 
     public function validate()
     {
-        if (null !== $this->deliveryAddress) {
-            $this->deliveryAddress->validate();
-        }
-        if (\is_array($this->extInfo)) {
-            Model::validateArray($this->extInfo);
-        }
-        if (\is_array($this->productList)) {
-            Model::validateArray($this->productList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->buyerId) {
             $res['buyerId'] = $this->buyerId;
         }
-
         if (null !== $this->deliveryAddress) {
-            $res['deliveryAddress'] = null !== $this->deliveryAddress ? $this->deliveryAddress->toArray($noStream) : $this->deliveryAddress;
+            $res['deliveryAddress'] = null !== $this->deliveryAddress ? $this->deliveryAddress->toMap() : null;
         }
-
         if (null !== $this->extInfo) {
-            if (\is_array($this->extInfo)) {
-                $res['extInfo'] = [];
-                foreach ($this->extInfo as $key1 => $value1) {
-                    $res['extInfo'][$key1] = $value1;
-                }
-            }
+            $res['extInfo'] = $this->extInfo;
         }
-
         if (null !== $this->outerPurchaseOrderId) {
             $res['outerPurchaseOrderId'] = $this->outerPurchaseOrderId;
         }
-
         if (null !== $this->productList) {
-            if (\is_array($this->productList)) {
-                $res['productList'] = [];
-                $n1                 = 0;
-                foreach ($this->productList as $item1) {
-                    $res['productList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['productList'] = [];
+            if (null !== $this->productList && \is_array($this->productList)) {
+                $n = 0;
+                foreach ($this->productList as $item) {
+                    $res['productList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -87,41 +84,32 @@ class PurchaseOrderCreateCmd extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PurchaseOrderCreateCmd
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buyerId'])) {
             $model->buyerId = $map['buyerId'];
         }
-
         if (isset($map['deliveryAddress'])) {
             $model->deliveryAddress = AddressInfo::fromMap($map['deliveryAddress']);
         }
-
         if (isset($map['extInfo'])) {
-            if (!empty($map['extInfo'])) {
-                $model->extInfo = [];
-                foreach ($map['extInfo'] as $key1 => $value1) {
-                    $model->extInfo[$key1] = $value1;
-                }
-            }
+            $model->extInfo = $map['extInfo'];
         }
-
         if (isset($map['outerPurchaseOrderId'])) {
             $model->outerPurchaseOrderId = $map['outerPurchaseOrderId'];
         }
-
         if (isset($map['productList'])) {
             if (!empty($map['productList'])) {
                 $model->productList = [];
-                $n1                 = 0;
-                foreach ($map['productList'] as $item1) {
-                    $model->productList[$n1++] = ProductDTO::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['productList'] as $item) {
+                    $model->productList[$n++] = null !== $item ? ProductDTO::fromMap($item) : $item;
                 }
             }
         }

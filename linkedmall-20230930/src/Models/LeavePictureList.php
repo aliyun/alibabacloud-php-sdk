@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LeavePictureList extends Model
 {
     /**
+     * @example 退款凭证
+     *
      * @var string
      */
     public $desc;
+
     /**
+     * @example https://
+     *
      * @var string
      */
     public $picture;
@@ -23,16 +28,14 @@ class LeavePictureList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
-
         if (null !== $this->picture) {
             $res['picture'] = $this->picture;
         }
@@ -40,18 +43,17 @@ class LeavePictureList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LeavePictureList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
-
         if (isset($map['picture'])) {
             $model->picture = $map['picture'];
         }

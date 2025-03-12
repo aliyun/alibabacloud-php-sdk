@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CategoryListQuery extends Model
 {
@@ -12,7 +12,10 @@ class CategoryListQuery extends Model
      * @var int[]
      */
     public $categoryIds;
+
     /**
+     * @example 5200001
+     *
      * @var int
      */
     public $parentCategoryId;
@@ -23,25 +26,14 @@ class CategoryListQuery extends Model
 
     public function validate()
     {
-        if (\is_array($this->categoryIds)) {
-            Model::validateArray($this->categoryIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryIds) {
-            if (\is_array($this->categoryIds)) {
-                $res['categoryIds'] = [];
-                $n1                 = 0;
-                foreach ($this->categoryIds as $item1) {
-                    $res['categoryIds'][$n1++] = $item1;
-                }
-            }
+            $res['categoryIds'] = $this->categoryIds;
         }
-
         if (null !== $this->parentCategoryId) {
             $res['parentCategoryId'] = $this->parentCategoryId;
         }
@@ -49,24 +41,19 @@ class CategoryListQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CategoryListQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['categoryIds'])) {
             if (!empty($map['categoryIds'])) {
-                $model->categoryIds = [];
-                $n1                 = 0;
-                foreach ($map['categoryIds'] as $item1) {
-                    $model->categoryIds[$n1++] = $item1;
-                }
+                $model->categoryIds = $map['categoryIds'];
             }
         }
-
         if (isset($map['parentCategoryId'])) {
             $model->parentCategoryId = $map['parentCategoryId'];
         }

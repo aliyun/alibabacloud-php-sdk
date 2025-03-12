@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DistributeProductCommand extends Model
 {
@@ -12,18 +12,24 @@ class DistributeProductCommand extends Model
      * @var string
      */
     public $lmShopId;
+
     /**
      * @var DistributionProduct[]
      */
     public $products;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 2024-12-01 10:01:00
+     *
      * @var string
      */
     public $requestTime;
+
     /**
      * @var string
      */
@@ -38,37 +44,29 @@ class DistributeProductCommand extends Model
 
     public function validate()
     {
-        if (\is_array($this->products)) {
-            Model::validateArray($this->products);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lmShopId) {
             $res['lmShopId'] = $this->lmShopId;
         }
-
         if (null !== $this->products) {
-            if (\is_array($this->products)) {
-                $res['products'] = [];
-                $n1              = 0;
-                foreach ($this->products as $item1) {
-                    $res['products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['products'] = [];
+            if (null !== $this->products && \is_array($this->products)) {
+                $n = 0;
+                foreach ($this->products as $item) {
+                    $res['products'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->requestTime) {
             $res['requestTime'] = $this->requestTime;
         }
-
         if (null !== $this->requestUser) {
             $res['requestUser'] = $this->requestUser;
         }
@@ -76,36 +74,32 @@ class DistributeProductCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DistributeProductCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['lmShopId'])) {
             $model->lmShopId = $map['lmShopId'];
         }
-
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n1              = 0;
-                foreach ($map['products'] as $item1) {
-                    $model->products[$n1++] = DistributionProduct::fromMap($item1);
+                $n               = 0;
+                foreach ($map['products'] as $item) {
+                    $model->products[$n++] = null !== $item ? DistributionProduct::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['requestTime'])) {
             $model->requestTime = $map['requestTime'];
         }
-
         if (isset($map['requestUser'])) {
             $model->requestUser = $map['requestUser'];
         }

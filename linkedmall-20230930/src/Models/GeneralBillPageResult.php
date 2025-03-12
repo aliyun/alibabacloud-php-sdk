@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GeneralBillPageResult extends Model
 {
@@ -12,19 +12,27 @@ class GeneralBillPageResult extends Model
      * @var GeneralBill[]
      */
     public $generalBills;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 24
+     *
      * @var int
      */
     public $total;
@@ -38,37 +46,29 @@ class GeneralBillPageResult extends Model
 
     public function validate()
     {
-        if (\is_array($this->generalBills)) {
-            Model::validateArray($this->generalBills);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->generalBills) {
-            if (\is_array($this->generalBills)) {
-                $res['generalBills'] = [];
-                $n1                  = 0;
-                foreach ($this->generalBills as $item1) {
-                    $res['generalBills'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['generalBills'] = [];
+            if (null !== $this->generalBills && \is_array($this->generalBills)) {
+                $n = 0;
+                foreach ($this->generalBills as $item) {
+                    $res['generalBills'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -76,36 +76,32 @@ class GeneralBillPageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GeneralBillPageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['generalBills'])) {
             if (!empty($map['generalBills'])) {
                 $model->generalBills = [];
-                $n1                  = 0;
-                foreach ($map['generalBills'] as $item1) {
-                    $model->generalBills[$n1++] = GeneralBill::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['generalBills'] as $item) {
+                    $model->generalBills[$n++] = null !== $item ? GeneralBill::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

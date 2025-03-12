@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ApplyReason extends Model
 {
     /**
+     * @example 403769
+     *
      * @var int
      */
     public $reasonTextId;
+
     /**
+     * @example 不想要了
+     *
      * @var string
      */
     public $reasonTips;
@@ -23,16 +28,14 @@ class ApplyReason extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reasonTextId) {
             $res['reasonTextId'] = $this->reasonTextId;
         }
-
         if (null !== $this->reasonTips) {
             $res['reasonTips'] = $this->reasonTips;
         }
@@ -40,18 +43,17 @@ class ApplyReason extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApplyReason
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['reasonTextId'])) {
             $model->reasonTextId = $map['reasonTextId'];
         }
-
         if (isset($map['reasonTips'])) {
             $model->reasonTips = $map['reasonTips'];
         }

@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ShopStatusChangeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $shopId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example WORKING
+     *
      * @var string
      */
     public $shopStatus;
@@ -23,16 +32,14 @@ class ShopStatusChangeRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
         }
-
         if (null !== $this->shopStatus) {
             $res['shopStatus'] = $this->shopStatus;
         }
@@ -40,18 +47,17 @@ class ShopStatusChangeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ShopStatusChangeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
         }
-
         if (isset($map['shopStatus'])) {
             $model->shopStatus = $map['shopStatus'];
         }

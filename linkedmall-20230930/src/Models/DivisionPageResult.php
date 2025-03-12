@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DivisionPageResult extends Model
 {
@@ -12,7 +12,10 @@ class DivisionPageResult extends Model
      * @var Division[]
      */
     public $divisionList;
+
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +26,20 @@ class DivisionPageResult extends Model
 
     public function validate()
     {
-        if (\is_array($this->divisionList)) {
-            Model::validateArray($this->divisionList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->divisionList) {
-            if (\is_array($this->divisionList)) {
-                $res['divisionList'] = [];
-                $n1                  = 0;
-                foreach ($this->divisionList as $item1) {
-                    $res['divisionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['divisionList'] = [];
+            if (null !== $this->divisionList && \is_array($this->divisionList)) {
+                $n = 0;
+                foreach ($this->divisionList as $item) {
+                    $res['divisionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,24 +47,23 @@ class DivisionPageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DivisionPageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['divisionList'])) {
             if (!empty($map['divisionList'])) {
                 $model->divisionList = [];
-                $n1                  = 0;
-                foreach ($map['divisionList'] as $item1) {
-                    $model->divisionList[$n1++] = Division::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['divisionList'] as $item) {
+                    $model->divisionList[$n++] = null !== $item ? Division::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ShopStatusChangeResult extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $operate;
@@ -18,10 +20,9 @@ class ShopStatusChangeResult extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operate) {
@@ -31,11 +32,11 @@ class ShopStatusChangeResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ShopStatusChangeResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,55 +4,86 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ProductSaleInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $canSell;
+
     /**
+     * @example 110000
+     *
      * @var string
      */
     public $divisionCode;
+
     /**
+     * @example 有货
+     *
      * @var string
      */
     public $fuzzyQuantity;
+
     /**
      * @var LimitRule[]
      */
     public $limitRules;
+
     /**
+     * @example 21000017-4580902812
+     *
      * @var string
      */
     public $lmItemId;
+
     /**
+     * @example 660460842235822080
+     *
      * @var string
      */
     public $productId;
+
     /**
+     * @example Online
+     *
      * @var string
      */
     public $productStatus;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $quantity;
+
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 21000017
+     *
      * @var string
      */
     public $shopId;
+
     /**
      * @var SkuSaleInfo[]
      */
     public $skus;
+
     /**
+     * @example 发财树
+     *
      * @var string
      */
     public $title;
@@ -73,74 +104,56 @@ class ProductSaleInfo extends Model
 
     public function validate()
     {
-        if (\is_array($this->limitRules)) {
-            Model::validateArray($this->limitRules);
-        }
-        if (\is_array($this->skus)) {
-            Model::validateArray($this->skus);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
-
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
         }
-
         if (null !== $this->fuzzyQuantity) {
             $res['fuzzyQuantity'] = $this->fuzzyQuantity;
         }
-
         if (null !== $this->limitRules) {
-            if (\is_array($this->limitRules)) {
-                $res['limitRules'] = [];
-                $n1                = 0;
-                foreach ($this->limitRules as $item1) {
-                    $res['limitRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['limitRules'] = [];
+            if (null !== $this->limitRules && \is_array($this->limitRules)) {
+                $n = 0;
+                foreach ($this->limitRules as $item) {
+                    $res['limitRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->lmItemId) {
             $res['lmItemId'] = $this->lmItemId;
         }
-
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
-
         if (null !== $this->productStatus) {
             $res['productStatus'] = $this->productStatus;
         }
-
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
         }
-
         if (null !== $this->skus) {
-            if (\is_array($this->skus)) {
-                $res['skus'] = [];
-                $n1          = 0;
-                foreach ($this->skus as $item1) {
-                    $res['skus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['skus'] = [];
+            if (null !== $this->skus && \is_array($this->skus)) {
+                $n = 0;
+                foreach ($this->skus as $item) {
+                    $res['skus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -148,70 +161,59 @@ class ProductSaleInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ProductSaleInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }
-
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
         }
-
         if (isset($map['fuzzyQuantity'])) {
             $model->fuzzyQuantity = $map['fuzzyQuantity'];
         }
-
         if (isset($map['limitRules'])) {
             if (!empty($map['limitRules'])) {
                 $model->limitRules = [];
-                $n1                = 0;
-                foreach ($map['limitRules'] as $item1) {
-                    $model->limitRules[$n1++] = LimitRule::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['limitRules'] as $item) {
+                    $model->limitRules[$n++] = null !== $item ? LimitRule::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['lmItemId'])) {
             $model->lmItemId = $map['lmItemId'];
         }
-
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
-
         if (isset($map['productStatus'])) {
             $model->productStatus = $map['productStatus'];
         }
-
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
         }
-
         if (isset($map['skus'])) {
             if (!empty($map['skus'])) {
                 $model->skus = [];
-                $n1          = 0;
-                foreach ($map['skus'] as $item1) {
-                    $model->skus[$n1++] = SkuSaleInfo::fromMap($item1);
+                $n           = 0;
+                foreach ($map['skus'] as $item) {
+                    $model->skus[$n++] = null !== $item ? SkuSaleInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

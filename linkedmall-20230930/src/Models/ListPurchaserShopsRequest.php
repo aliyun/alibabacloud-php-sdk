@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListPurchaserShopsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -23,16 +28,14 @@ class ListPurchaserShopsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -40,18 +43,17 @@ class ListPurchaserShopsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListPurchaserShopsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

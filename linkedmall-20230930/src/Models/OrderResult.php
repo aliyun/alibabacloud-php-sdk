@@ -4,43 +4,67 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OrderResult extends Model
 {
     /**
+     * @example 2023-09-11T12:22:24.000+08:00
+     *
      * @var string
      */
     public $createDate;
+
     /**
+     * @example 12****01
+     *
      * @var string
      */
     public $distributorId;
+
     /**
+     * @example 1
+     *
      * @var string
      */
     public $logisticsStatus;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $orderAmount;
+
     /**
+     * @example 系统关单
+     *
      * @var string
      */
     public $orderClosedReason;
+
     /**
+     * @example 6692****5457
+     *
      * @var string
      */
     public $orderId;
+
     /**
      * @var OrderLineResult[]
      */
     public $orderLineList;
+
     /**
+     * @example 1
+     *
      * @var string
      */
     public $orderStatus;
+
     /**
+     * @example 841471F6-5D61-1331-8C38-2****B55
+     *
      * @var string
      */
     public $requestId;
@@ -58,53 +82,41 @@ class OrderResult extends Model
 
     public function validate()
     {
-        if (\is_array($this->orderLineList)) {
-            Model::validateArray($this->orderLineList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createDate) {
             $res['createDate'] = $this->createDate;
         }
-
         if (null !== $this->distributorId) {
             $res['distributorId'] = $this->distributorId;
         }
-
         if (null !== $this->logisticsStatus) {
             $res['logisticsStatus'] = $this->logisticsStatus;
         }
-
         if (null !== $this->orderAmount) {
             $res['orderAmount'] = $this->orderAmount;
         }
-
         if (null !== $this->orderClosedReason) {
             $res['orderClosedReason'] = $this->orderClosedReason;
         }
-
         if (null !== $this->orderId) {
             $res['orderId'] = $this->orderId;
         }
-
         if (null !== $this->orderLineList) {
-            if (\is_array($this->orderLineList)) {
-                $res['orderLineList'] = [];
-                $n1                   = 0;
-                foreach ($this->orderLineList as $item1) {
-                    $res['orderLineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['orderLineList'] = [];
+            if (null !== $this->orderLineList && \is_array($this->orderLineList)) {
+                $n = 0;
+                foreach ($this->orderLineList as $item) {
+                    $res['orderLineList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->orderStatus) {
             $res['orderStatus'] = $this->orderStatus;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -112,52 +124,44 @@ class OrderResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OrderResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createDate'])) {
             $model->createDate = $map['createDate'];
         }
-
         if (isset($map['distributorId'])) {
             $model->distributorId = $map['distributorId'];
         }
-
         if (isset($map['logisticsStatus'])) {
             $model->logisticsStatus = $map['logisticsStatus'];
         }
-
         if (isset($map['orderAmount'])) {
             $model->orderAmount = $map['orderAmount'];
         }
-
         if (isset($map['orderClosedReason'])) {
             $model->orderClosedReason = $map['orderClosedReason'];
         }
-
         if (isset($map['orderId'])) {
             $model->orderId = $map['orderId'];
         }
-
         if (isset($map['orderLineList'])) {
             if (!empty($map['orderLineList'])) {
                 $model->orderLineList = [];
-                $n1                   = 0;
-                foreach ($map['orderLineList'] as $item1) {
-                    $model->orderLineList[$n1++] = OrderLineResult::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['orderLineList'] as $item) {
+                    $model->orderLineList[$n++] = null !== $item ? OrderLineResult::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['orderStatus'])) {
             $model->orderStatus = $map['orderStatus'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ProductSaleInfoListResult extends Model
 {
@@ -12,7 +12,10 @@ class ProductSaleInfoListResult extends Model
      * @var ProductSaleInfo[]
      */
     public $productSaleInfos;
+
     /**
+     * @example 3239281273464326823
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +26,20 @@ class ProductSaleInfoListResult extends Model
 
     public function validate()
     {
-        if (\is_array($this->productSaleInfos)) {
-            Model::validateArray($this->productSaleInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->productSaleInfos) {
-            if (\is_array($this->productSaleInfos)) {
-                $res['productSaleInfos'] = [];
-                $n1                      = 0;
-                foreach ($this->productSaleInfos as $item1) {
-                    $res['productSaleInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['productSaleInfos'] = [];
+            if (null !== $this->productSaleInfos && \is_array($this->productSaleInfos)) {
+                $n = 0;
+                foreach ($this->productSaleInfos as $item) {
+                    $res['productSaleInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,24 +47,23 @@ class ProductSaleInfoListResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ProductSaleInfoListResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['productSaleInfos'])) {
             if (!empty($map['productSaleInfos'])) {
                 $model->productSaleInfos = [];
-                $n1                      = 0;
-                foreach ($map['productSaleInfos'] as $item1) {
-                    $model->productSaleInfos[$n1++] = ProductSaleInfo::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['productSaleInfos'] as $item) {
+                    $model->productSaleInfos[$n++] = null !== $item ? ProductSaleInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
