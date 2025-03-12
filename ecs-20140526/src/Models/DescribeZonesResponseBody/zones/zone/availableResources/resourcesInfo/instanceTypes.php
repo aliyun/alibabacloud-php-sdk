@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeZonesResponseBody\zones\zone\availableResources\resourcesInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceTypes extends Model
 {
@@ -18,43 +18,29 @@ class instanceTypes extends Model
 
     public function validate()
     {
-        if (\is_array($this->supportedInstanceType)) {
-            Model::validateArray($this->supportedInstanceType);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedInstanceType) {
-            if (\is_array($this->supportedInstanceType)) {
-                $res['supportedInstanceType'] = [];
-                $n1                           = 0;
-                foreach ($this->supportedInstanceType as $item1) {
-                    $res['supportedInstanceType'][$n1++] = $item1;
-                }
-            }
+            $res['supportedInstanceType'] = $this->supportedInstanceType;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['supportedInstanceType'])) {
             if (!empty($map['supportedInstanceType'])) {
-                $model->supportedInstanceType = [];
-                $n1                           = 0;
-                foreach ($map['supportedInstanceType'] as $item1) {
-                    $model->supportedInstanceType[$n1++] = $item1;
-                }
+                $model->supportedInstanceType = $map['supportedInstanceType'];
             }
         }
 

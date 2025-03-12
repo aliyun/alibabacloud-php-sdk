@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksResponseBody\operationProgressSet;
+use AlibabaCloud\Tea\Model;
 
 class ResetDisksResponseBody extends Model
 {
     /**
+     * @description Details about the rollback operation.
+     *
      * @var operationProgressSet
      */
     public $operationProgressSet;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 3D66C85C-AA97-4A00-B0ED-2D9A80FE782C
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class ResetDisksResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->operationProgressSet) {
-            $this->operationProgressSet->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationProgressSet) {
-            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toArray($noStream) : $this->operationProgressSet;
+            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class ResetDisksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetDisksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationProgressSet'])) {
             $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

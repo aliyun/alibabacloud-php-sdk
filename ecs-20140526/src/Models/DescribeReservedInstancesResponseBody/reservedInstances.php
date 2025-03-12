@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstancesResponseBody\reservedInstances\reservedInstance;
+use AlibabaCloud\Tea\Model;
 
 class reservedInstances extends Model
 {
@@ -19,21 +19,17 @@ class reservedInstances extends Model
 
     public function validate()
     {
-        if (\is_array($this->reservedInstance)) {
-            Model::validateArray($this->reservedInstance);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reservedInstance) {
-            if (\is_array($this->reservedInstance)) {
-                $res['ReservedInstance'] = [];
-                $n1                      = 0;
-                foreach ($this->reservedInstance as $item1) {
-                    $res['ReservedInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ReservedInstance'] = [];
+            if (null !== $this->reservedInstance && \is_array($this->reservedInstance)) {
+                $n = 0;
+                foreach ($this->reservedInstance as $item) {
+                    $res['ReservedInstance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class reservedInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reservedInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReservedInstance'])) {
             if (!empty($map['ReservedInstance'])) {
                 $model->reservedInstance = [];
-                $n1                      = 0;
-                foreach ($map['ReservedInstance'] as $item1) {
-                    $model->reservedInstance[$n1++] = reservedInstance::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['ReservedInstance'] as $item) {
+                    $model->reservedInstance[$n++] = null !== $item ? reservedInstance::fromMap($item) : $item;
                 }
             }
         }

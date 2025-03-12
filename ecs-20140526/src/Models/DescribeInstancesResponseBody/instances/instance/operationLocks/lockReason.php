@@ -4,15 +4,30 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\operationLocks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class lockReason extends Model
 {
     /**
+     * @description The message returned when the instance was locked.
+     *
+     * @example The specified instance is locked due to financial reason.
+     *
      * @var string
      */
     public $lockMsg;
+
     /**
+     * @description The reason why the instance was locked. Valid values:
+     *
+     *   financial: The instance was locked due to overdue payments.
+     *   security: The instance was locked due to security reasons.
+     *   recycling: The preemptible instance was locked and pending release.
+     *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
+     *   refunded: The instance was locked because a refund was made for the instance.
+     *
+     * @example Recycling
+     *
      * @var string
      */
     public $lockReason;
@@ -23,16 +38,14 @@ class lockReason extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lockMsg) {
             $res['LockMsg'] = $this->lockMsg;
         }
-
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
         }
@@ -40,18 +53,17 @@ class lockReason extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lockReason
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LockMsg'])) {
             $model->lockMsg = $map['LockMsg'];
         }
-
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
         }

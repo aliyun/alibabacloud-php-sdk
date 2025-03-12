@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command;
+use AlibabaCloud\Tea\Model;
 
 class commands extends Model
 {
@@ -19,21 +19,17 @@ class commands extends Model
 
     public function validate()
     {
-        if (\is_array($this->command)) {
-            Model::validateArray($this->command);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->command) {
-            if (\is_array($this->command)) {
-                $res['Command'] = [];
-                $n1             = 0;
-                foreach ($this->command as $item1) {
-                    $res['Command'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Command'] = [];
+            if (null !== $this->command && \is_array($this->command)) {
+                $n = 0;
+                foreach ($this->command as $item) {
+                    $res['Command'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class commands extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return commands
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
                 $model->command = [];
-                $n1             = 0;
-                foreach ($map['Command'] as $item1) {
-                    $model->command[$n1++] = command::fromMap($item1);
+                $n              = 0;
+                foreach ($map['Command'] as $item) {
+                    $model->command[$n++] = null !== $item ? command::fromMap($item) : $item;
                 }
             }
         }

@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType\scheduledSystemEventSet\scheduledSystemEventType;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class eventCycleStatus extends Model
 {
     /**
+     * @description The code of the system event state.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $code;
+
     /**
+     * @description The name of the system event state.
+     *
+     * @example Scheduled
+     *
      * @var string
      */
     public $name;
@@ -23,16 +32,14 @@ class eventCycleStatus extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +47,17 @@ class eventCycleStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eventCycleStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeStorageSetsResponseBody\storageSets\storageSet;
+use AlibabaCloud\Tea\Model;
 
 class storageSets extends Model
 {
@@ -19,21 +19,17 @@ class storageSets extends Model
 
     public function validate()
     {
-        if (\is_array($this->storageSet)) {
-            Model::validateArray($this->storageSet);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->storageSet) {
-            if (\is_array($this->storageSet)) {
-                $res['StorageSet'] = [];
-                $n1                = 0;
-                foreach ($this->storageSet as $item1) {
-                    $res['StorageSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['StorageSet'] = [];
+            if (null !== $this->storageSet && \is_array($this->storageSet)) {
+                $n = 0;
+                foreach ($this->storageSet as $item) {
+                    $res['StorageSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class storageSets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return storageSets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageSet'])) {
             if (!empty($map['StorageSet'])) {
                 $model->storageSet = [];
-                $n1                = 0;
-                foreach ($map['StorageSet'] as $item1) {
-                    $model->storageSet[$n1++] = storageSet::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['StorageSet'] as $item) {
+                    $model->storageSet[$n++] = null !== $item ? storageSet::fromMap($item) : $item;
                 }
             }
         }

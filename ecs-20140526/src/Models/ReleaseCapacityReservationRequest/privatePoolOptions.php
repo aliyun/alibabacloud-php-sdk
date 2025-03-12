@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ReleaseCapacityReservationRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptions extends Model
 {
     /**
+     * @description The ID of the capacity reservation.
+     *
+     * This parameter is required.
+     * @example crp-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
@@ -18,10 +23,9 @@ class privatePoolOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +35,11 @@ class privatePoolOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

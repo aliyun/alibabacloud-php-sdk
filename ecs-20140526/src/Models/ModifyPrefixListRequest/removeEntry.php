@@ -4,11 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrefixListRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class removeEntry extends Model
 {
     /**
+     * @description The CIDR block in entry N to be deleted from the prefix list. Valid values of N: 0 to 200.
+     *
+     * Take note of the following items when you delete the entries:
+     *
+     *   You cannot specify duplicate CIDR blocks.
+     *   The CIDR blocks cannot be the same as the `AddEntry.N.Cidr` values.
+     *
+     * This parameter is required.
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $cidr;
@@ -18,10 +28,9 @@ class removeEntry extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cidr) {
@@ -31,11 +40,11 @@ class removeEntry extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return removeEntry
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

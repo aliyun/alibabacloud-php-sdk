@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponseBody\deploymentSets\deploymentSet;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponseBody\deploymentSets\deploymentSet\capacities\capacity;
+use AlibabaCloud\Tea\Model;
 
 class capacities extends Model
 {
@@ -19,21 +19,17 @@ class capacities extends Model
 
     public function validate()
     {
-        if (\is_array($this->capacity)) {
-            Model::validateArray($this->capacity);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->capacity) {
-            if (\is_array($this->capacity)) {
-                $res['Capacity'] = [];
-                $n1              = 0;
-                foreach ($this->capacity as $item1) {
-                    $res['Capacity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Capacity'] = [];
+            if (null !== $this->capacity && \is_array($this->capacity)) {
+                $n = 0;
+                foreach ($this->capacity as $item) {
+                    $res['Capacity'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class capacities extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return capacities
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capacity'])) {
             if (!empty($map['Capacity'])) {
                 $model->capacity = [];
-                $n1              = 0;
-                foreach ($map['Capacity'] as $item1) {
-                    $model->capacity[$n1++] = capacity::fromMap($item1);
+                $n               = 0;
+                foreach ($map['Capacity'] as $item) {
+                    $model->capacity[$n++] = null !== $item ? capacity::fromMap($item) : $item;
                 }
             }
         }

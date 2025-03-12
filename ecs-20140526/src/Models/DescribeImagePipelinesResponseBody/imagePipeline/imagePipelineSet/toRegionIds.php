@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class toRegionIds extends Model
 {
@@ -18,43 +18,29 @@ class toRegionIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->toRegionId)) {
-            Model::validateArray($this->toRegionId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->toRegionId) {
-            if (\is_array($this->toRegionId)) {
-                $res['ToRegionId'] = [];
-                $n1                = 0;
-                foreach ($this->toRegionId as $item1) {
-                    $res['ToRegionId'][$n1++] = $item1;
-                }
-            }
+            $res['ToRegionId'] = $this->toRegionId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return toRegionIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ToRegionId'])) {
             if (!empty($map['ToRegionId'])) {
-                $model->toRegionId = [];
-                $n1                = 0;
-                foreach ($map['ToRegionId'] as $item1) {
-                    $model->toRegionId[$n1++] = $item1;
-                }
+                $model->toRegionId = $map['ToRegionId'];
             }
         }
 

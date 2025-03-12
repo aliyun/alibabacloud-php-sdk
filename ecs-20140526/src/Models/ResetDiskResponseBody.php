@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResetDiskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example F3CD6886-D8D0-4FEE-B93E-1B732396****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ResetDiskResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ResetDiskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetDiskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

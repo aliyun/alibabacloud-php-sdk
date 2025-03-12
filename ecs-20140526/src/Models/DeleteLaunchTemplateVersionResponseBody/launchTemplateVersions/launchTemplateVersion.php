@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateVersionResponseBody\launchTemplateVersions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class launchTemplateVersion extends Model
 {
     /**
+     * @description The ID of the launch template.
+     *
+     * @example lt-m5eiaupmvm2op9d****
+     *
      * @var string
      */
     public $launchTemplateId;
+
     /**
+     * @description The version number of the launch template.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $launchTemplateVersionNumber;
@@ -23,16 +32,14 @@ class launchTemplateVersion extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
-
         if (null !== $this->launchTemplateVersionNumber) {
             $res['LaunchTemplateVersionNumber'] = $this->launchTemplateVersionNumber;
         }
@@ -40,18 +47,17 @@ class launchTemplateVersion extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return launchTemplateVersion
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
-
         if (isset($map['LaunchTemplateVersionNumber'])) {
             $model->launchTemplateVersionNumber = $map['LaunchTemplateVersionNumber'];
         }

@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody\assignedPrivateIpAddressesSet\ipv4PrefixSet;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody\assignedPrivateIpAddressesSet\privateIpSet;
+use AlibabaCloud\Tea\Model;
 
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
+     * @description Details about the assigned IPv4 prefixes.
+     *
      * @var ipv4PrefixSet
      */
     public $ipv4PrefixSet;
+
     /**
+     * @description The ENI ID.
+     *
+     * @example eni-bp125p95hhdhn3ot****
+     *
      * @var string
      */
     public $networkInterfaceId;
+
     /**
+     * @description The secondary private IP addresses that are assigned to the ENI.
+     *
      * @var privateIpSet
      */
     public $privateIpSet;
@@ -30,49 +40,38 @@ class assignedPrivateIpAddressesSet extends Model
 
     public function validate()
     {
-        if (null !== $this->ipv4PrefixSet) {
-            $this->ipv4PrefixSet->validate();
-        }
-        if (null !== $this->privateIpSet) {
-            $this->privateIpSet->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv4PrefixSet) {
-            $res['Ipv4PrefixSet'] = null !== $this->ipv4PrefixSet ? $this->ipv4PrefixSet->toArray($noStream) : $this->ipv4PrefixSet;
+            $res['Ipv4PrefixSet'] = null !== $this->ipv4PrefixSet ? $this->ipv4PrefixSet->toMap() : null;
         }
-
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
-
         if (null !== $this->privateIpSet) {
-            $res['PrivateIpSet'] = null !== $this->privateIpSet ? $this->privateIpSet->toArray($noStream) : $this->privateIpSet;
+            $res['PrivateIpSet'] = null !== $this->privateIpSet ? $this->privateIpSet->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return assignedPrivateIpAddressesSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv4PrefixSet'])) {
             $model->ipv4PrefixSet = ipv4PrefixSet::fromMap($map['Ipv4PrefixSet']);
         }
-
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
-
         if (isset($map['PrivateIpSet'])) {
             $model->privateIpSet = privateIpSet::fromMap($map['PrivateIpSet']);
         }

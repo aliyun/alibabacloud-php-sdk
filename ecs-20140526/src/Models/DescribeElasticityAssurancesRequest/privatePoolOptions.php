@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptions extends Model
 {
     /**
+     * @description The IDs of the elasticity assurances. The value can be a JSON array that consists of up to 100 elasticity assurance IDs. Separate the IDs with commas (,).
+     *
+     * @example ["eap-bp67acfmxazb4****", "eap-bp67acfmxazb5****"]
+     *
      * @var string
      */
     public $ids;
@@ -18,10 +22,9 @@ class privatePoolOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ids) {
@@ -31,11 +34,11 @@ class privatePoolOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

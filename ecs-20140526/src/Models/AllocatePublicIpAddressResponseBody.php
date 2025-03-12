@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AllocatePublicIpAddressResponseBody extends Model
 {
     /**
+     * @description The public IP address.
+     *
+     * @example ``112.124.**.**``
+     *
      * @var string
      */
     public $ipAddress;
+
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class AllocatePublicIpAddressResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class AllocatePublicIpAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AllocatePublicIpAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

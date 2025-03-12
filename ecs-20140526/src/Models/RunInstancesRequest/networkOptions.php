@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class networkOptions extends Model
 {
     /**
+     * @description Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
+     *
+     *   false: does not enable the Jumbo Frames feature for the instance. The maximum transmission unit (MTU) value of all ENIs on the instance is set to 1500.
+     *   true: enables the Jumbo Frames feature for the instance. The MTU value of all ENIs on the instance is set to 8500.
+     *
+     * >  The Jumbo Frames feature is supported by only 8th-generation or later instance types. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
+     * @example false
+     *
      * @var bool
      */
     public $enableJumboFrame;
@@ -18,10 +26,9 @@ class networkOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableJumboFrame) {
@@ -31,11 +38,11 @@ class networkOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return networkOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

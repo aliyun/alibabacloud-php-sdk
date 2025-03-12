@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponseBody\launchResults\launchResult;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceIds extends Model
 {
@@ -18,43 +18,29 @@ class instanceIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceId)) {
-            Model::validateArray($this->instanceId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
-            if (\is_array($this->instanceId)) {
-                $res['InstanceId'] = [];
-                $n1                = 0;
-                foreach ($this->instanceId as $item1) {
-                    $res['InstanceId'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = [];
-                $n1                = 0;
-                foreach ($map['InstanceId'] as $item1) {
-                    $model->instanceId[$n1++] = $item1;
-                }
+                $model->instanceId = $map['InstanceId'];
             }
         }
 

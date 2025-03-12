@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportsResponseBody\reports;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDiagnosticReportsResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The diagnostic reports.
+     *
      * @var reports
      */
     public $reports;
+
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+     *
      * @var string
      */
     public $requestId;
@@ -29,23 +41,17 @@ class DescribeDiagnosticReportsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->reports) {
-            $this->reports->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->reports) {
-            $res['Reports'] = null !== $this->reports ? $this->reports->toArray($noStream) : $this->reports;
+            $res['Reports'] = null !== $this->reports ? $this->reports->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,22 +59,20 @@ class DescribeDiagnosticReportsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDiagnosticReportsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Reports'])) {
             $model->reports = reports::fromMap($map['Reports']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseReservedInstancesOfferingResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class reservedInstanceIdSets extends Model
 {
@@ -18,43 +18,29 @@ class reservedInstanceIdSets extends Model
 
     public function validate()
     {
-        if (\is_array($this->reservedInstanceId)) {
-            Model::validateArray($this->reservedInstanceId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reservedInstanceId) {
-            if (\is_array($this->reservedInstanceId)) {
-                $res['ReservedInstanceId'] = [];
-                $n1                        = 0;
-                foreach ($this->reservedInstanceId as $item1) {
-                    $res['ReservedInstanceId'][$n1++] = $item1;
-                }
-            }
+            $res['ReservedInstanceId'] = $this->reservedInstanceId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return reservedInstanceIdSets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReservedInstanceId'])) {
             if (!empty($map['ReservedInstanceId'])) {
-                $model->reservedInstanceId = [];
-                $n1                        = 0;
-                foreach ($map['ReservedInstanceId'] as $item1) {
-                    $model->reservedInstanceId[$n1++] = $item1;
-                }
+                $model->reservedInstanceId = $map['ReservedInstanceId'];
             }
         }
 

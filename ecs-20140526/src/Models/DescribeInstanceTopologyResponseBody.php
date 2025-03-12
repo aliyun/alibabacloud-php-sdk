@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody\topologys;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceTopologyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Details about the topology.
+     *
      * @var topologys
      */
     public $topologys;
@@ -24,38 +31,32 @@ class DescribeInstanceTopologyResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->topologys) {
-            $this->topologys->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->topologys) {
-            $res['Topologys'] = null !== $this->topologys ? $this->topologys->toArray($noStream) : $this->topologys;
+            $res['Topologys'] = null !== $this->topologys ? $this->topologys->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceTopologyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Topologys'])) {
             $model->topologys = topologys::fromMap($map['Topologys']);
         }

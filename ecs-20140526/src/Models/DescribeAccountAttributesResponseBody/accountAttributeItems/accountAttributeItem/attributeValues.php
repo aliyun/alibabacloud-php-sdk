@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody\accountAttributeItems\accountAttributeItem;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccountAttributesResponseBody\accountAttributeItems\accountAttributeItem\attributeValues\valueItem;
+use AlibabaCloud\Tea\Model;
 
 class attributeValues extends Model
 {
@@ -19,21 +19,17 @@ class attributeValues extends Model
 
     public function validate()
     {
-        if (\is_array($this->valueItem)) {
-            Model::validateArray($this->valueItem);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->valueItem) {
-            if (\is_array($this->valueItem)) {
-                $res['ValueItem'] = [];
-                $n1               = 0;
-                foreach ($this->valueItem as $item1) {
-                    $res['ValueItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ValueItem'] = [];
+            if (null !== $this->valueItem && \is_array($this->valueItem)) {
+                $n = 0;
+                foreach ($this->valueItem as $item) {
+                    $res['ValueItem'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class attributeValues extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return attributeValues
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ValueItem'])) {
             if (!empty($map['ValueItem'])) {
                 $model->valueItem = [];
-                $n1               = 0;
-                foreach ($map['ValueItem'] as $item1) {
-                    $model->valueItem[$n1++] = valueItem::fromMap($item1);
+                $n                = 0;
+                foreach ($map['ValueItem'] as $item) {
+                    $model->valueItem[$n++] = null !== $item ? valueItem::fromMap($item) : $item;
                 }
             }
         }

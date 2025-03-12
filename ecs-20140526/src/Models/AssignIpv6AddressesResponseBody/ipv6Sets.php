@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AssignIpv6AddressesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ipv6Sets extends Model
 {
@@ -18,43 +18,29 @@ class ipv6Sets extends Model
 
     public function validate()
     {
-        if (\is_array($this->ipv6Address)) {
-            Model::validateArray($this->ipv6Address);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv6Address) {
-            if (\is_array($this->ipv6Address)) {
-                $res['Ipv6Address'] = [];
-                $n1                 = 0;
-                foreach ($this->ipv6Address as $item1) {
-                    $res['Ipv6Address'][$n1++] = $item1;
-                }
-            }
+            $res['Ipv6Address'] = $this->ipv6Address;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ipv6Sets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
-                $model->ipv6Address = [];
-                $n1                 = 0;
-                foreach ($map['Ipv6Address'] as $item1) {
-                    $model->ipv6Address[$n1++] = $item1;
-                }
+                $model->ipv6Address = $map['Ipv6Address'];
             }
         }
 

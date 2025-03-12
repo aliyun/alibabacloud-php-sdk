@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupsResponseBody\securityGroups\securityGroup;
+use AlibabaCloud\Tea\Model;
 
 class securityGroups extends Model
 {
@@ -19,21 +19,17 @@ class securityGroups extends Model
 
     public function validate()
     {
-        if (\is_array($this->securityGroup)) {
-            Model::validateArray($this->securityGroup);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityGroup) {
-            if (\is_array($this->securityGroup)) {
-                $res['SecurityGroup'] = [];
-                $n1                   = 0;
-                foreach ($this->securityGroup as $item1) {
-                    $res['SecurityGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SecurityGroup'] = [];
+            if (null !== $this->securityGroup && \is_array($this->securityGroup)) {
+                $n = 0;
+                foreach ($this->securityGroup as $item) {
+                    $res['SecurityGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class securityGroups extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityGroups
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroup'])) {
             if (!empty($map['SecurityGroup'])) {
                 $model->securityGroup = [];
-                $n1                   = 0;
-                foreach ($map['SecurityGroup'] as $item1) {
-                    $model->securityGroup[$n1++] = securityGroup::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['SecurityGroup'] as $item) {
+                    $model->securityGroup[$n++] = null !== $item ? securityGroup::fromMap($item) : $item;
                 }
             }
         }

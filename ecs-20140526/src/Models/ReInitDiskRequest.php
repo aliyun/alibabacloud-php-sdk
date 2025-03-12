@@ -4,43 +4,84 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReInitDiskRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically start the instance after the disk is re-initialized. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $autoStartInstance;
+
     /**
+     * @description The ID of the disk.
+     *
+     * This parameter is required.
+     * @example d-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $diskId;
+
     /**
+     * @description The name of the key pair. This parameter is empty by default.
+     *
+     * > The parameter is applicable only to Linux instances. You can bind an SSH key pair to an instance as the logon credential when you re-initialize the system disk of the instance. After the SSH key pair is bound, the username and password-based logon method is disabled for the instance.
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description Specifies whether to reset the password of the instance when you re-initialize its system disk. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     *
+     * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+     *
+     * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
+     * @example EcsV587!
+     *
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description Specifies whether to use Security Center free of charge after the system disk is re-initialized. Valid values:
+     *
+     *   Active: uses Security Center free of charge after the system disk is re-initialized. This value is applicable to only public images.
+     *   Deactive: does not use Security Center free of charge after the system disk is re-initialized. This value is applicable to all images.
+     *
+     * Default value: Deactive.
+     * @example Active
+     *
      * @var string
      */
     public $securityEnhancementStrategy;
@@ -58,44 +99,35 @@ class ReInitDiskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoStartInstance) {
             $res['AutoStartInstance'] = $this->autoStartInstance;
         }
-
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
-
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->securityEnhancementStrategy) {
             $res['SecurityEnhancementStrategy'] = $this->securityEnhancementStrategy;
         }
@@ -103,46 +135,38 @@ class ReInitDiskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReInitDiskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoStartInstance'])) {
             $model->autoStartInstance = $map['AutoStartInstance'];
         }
-
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
-
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SecurityEnhancementStrategy'])) {
             $model->securityEnhancementStrategy = $map['SecurityEnhancementStrategy'];
         }

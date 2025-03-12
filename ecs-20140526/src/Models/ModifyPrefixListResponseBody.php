@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyPrefixListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ModifyPrefixListResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyPrefixListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyPrefixListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

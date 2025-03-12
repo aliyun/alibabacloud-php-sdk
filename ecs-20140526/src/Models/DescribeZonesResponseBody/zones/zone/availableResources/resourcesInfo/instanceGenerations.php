@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeZonesResponseBody\zones\zone\availableResources\resourcesInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceGenerations extends Model
 {
@@ -18,43 +18,29 @@ class instanceGenerations extends Model
 
     public function validate()
     {
-        if (\is_array($this->supportedInstanceGeneration)) {
-            Model::validateArray($this->supportedInstanceGeneration);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedInstanceGeneration) {
-            if (\is_array($this->supportedInstanceGeneration)) {
-                $res['supportedInstanceGeneration'] = [];
-                $n1                                 = 0;
-                foreach ($this->supportedInstanceGeneration as $item1) {
-                    $res['supportedInstanceGeneration'][$n1++] = $item1;
-                }
-            }
+            $res['supportedInstanceGeneration'] = $this->supportedInstanceGeneration;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceGenerations
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['supportedInstanceGeneration'])) {
             if (!empty($map['supportedInstanceGeneration'])) {
-                $model->supportedInstanceGeneration = [];
-                $n1                                 = 0;
-                foreach ($map['supportedInstanceGeneration'] as $item1) {
-                    $model->supportedInstanceGeneration[$n1++] = $item1;
-                }
+                $model->supportedInstanceGeneration = $map['supportedInstanceGeneration'];
             }
         }
 

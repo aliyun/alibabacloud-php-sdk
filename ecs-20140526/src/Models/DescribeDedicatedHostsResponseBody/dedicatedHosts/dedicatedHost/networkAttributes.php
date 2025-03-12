@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class networkAttributes extends Model
 {
     /**
+     * @description The timeout period of the UDP session that is established between Server Load Balancer (SLB) and the dedicated host. Unit: seconds. Only 60 is returned.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $slbUdpTimeout;
+
     /**
+     * @description The timeout period of the UDP session that is established between a user and an Alibaba Cloud service on the dedicated host. Unit: seconds. Only 60 is returned.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $udpTimeout;
@@ -23,16 +32,14 @@ class networkAttributes extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->slbUdpTimeout) {
             $res['SlbUdpTimeout'] = $this->slbUdpTimeout;
         }
-
         if (null !== $this->udpTimeout) {
             $res['UdpTimeout'] = $this->udpTimeout;
         }
@@ -40,18 +47,17 @@ class networkAttributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return networkAttributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlbUdpTimeout'])) {
             $model->slbUdpTimeout = $map['SlbUdpTimeout'];
         }
-
         if (isset($map['UdpTimeout'])) {
             $model->udpTimeout = $map['UdpTimeout'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseStorageCapacityUnitResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class storageCapacityUnitIds extends Model
 {
@@ -18,43 +18,29 @@ class storageCapacityUnitIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->storageCapacityUnitId)) {
-            Model::validateArray($this->storageCapacityUnitId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->storageCapacityUnitId) {
-            if (\is_array($this->storageCapacityUnitId)) {
-                $res['StorageCapacityUnitId'] = [];
-                $n1                           = 0;
-                foreach ($this->storageCapacityUnitId as $item1) {
-                    $res['StorageCapacityUnitId'][$n1++] = $item1;
-                }
-            }
+            $res['StorageCapacityUnitId'] = $this->storageCapacityUnitId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return storageCapacityUnitIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageCapacityUnitId'])) {
             if (!empty($map['StorageCapacityUnitId'])) {
-                $model->storageCapacityUnitId = [];
-                $n1                           = 0;
-                foreach ($map['StorageCapacityUnitId'] as $item1) {
-                    $model->storageCapacityUnitId[$n1++] = $item1;
-                }
+                $model->storageCapacityUnitId = $map['StorageCapacityUnitId'];
             }
         }
 

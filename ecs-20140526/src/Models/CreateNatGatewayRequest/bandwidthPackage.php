@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNatGatewayRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bandwidthPackage extends Model
 {
@@ -12,10 +12,12 @@ class bandwidthPackage extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var int
      */
     public $ipCount;
+
     /**
      * @var string
      */
@@ -28,20 +30,17 @@ class bandwidthPackage extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
         }
-
         if (null !== $this->zone) {
             $res['Zone'] = $this->zone;
         }
@@ -49,22 +48,20 @@ class bandwidthPackage extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bandwidthPackage
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
         }
-
         if (isset($map['Zone'])) {
             $model->zone = $map['Zone'];
         }

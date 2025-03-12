@@ -4,21 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\conditionSupportedResources;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\supportedResources;
+use AlibabaCloud\Tea\Model;
 
 class availableResource extends Model
 {
     /**
+     * @description The resource types that resources can be changed to after the resources meet specified conditions. If the conditions are met, you can change the current resource to a resource in the list.
+     *
      * @var conditionSupportedResources
      */
     public $conditionSupportedResources;
+
     /**
+     * @description The information about the supported resources.
+     *
      * @var supportedResources
      */
     public $supportedResources;
+
     /**
+     * @description The resource type. Valid values:
+     *
+     *   InstanceType
+     *   SystemDisk
+     *
+     * @example InstanceType
+     *
      * @var string
      */
     public $type;
@@ -30,26 +43,17 @@ class availableResource extends Model
 
     public function validate()
     {
-        if (null !== $this->conditionSupportedResources) {
-            $this->conditionSupportedResources->validate();
-        }
-        if (null !== $this->supportedResources) {
-            $this->supportedResources->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conditionSupportedResources) {
-            $res['ConditionSupportedResources'] = null !== $this->conditionSupportedResources ? $this->conditionSupportedResources->toArray($noStream) : $this->conditionSupportedResources;
+            $res['ConditionSupportedResources'] = null !== $this->conditionSupportedResources ? $this->conditionSupportedResources->toMap() : null;
         }
-
         if (null !== $this->supportedResources) {
-            $res['SupportedResources'] = null !== $this->supportedResources ? $this->supportedResources->toArray($noStream) : $this->supportedResources;
+            $res['SupportedResources'] = null !== $this->supportedResources ? $this->supportedResources->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -57,22 +61,20 @@ class availableResource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableResource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionSupportedResources'])) {
             $model->conditionSupportedResources = conditionSupportedResources::fromMap($map['ConditionSupportedResources']);
         }
-
         if (isset($map['SupportedResources'])) {
             $model->supportedResources = supportedResources::fromMap($map['SupportedResources']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

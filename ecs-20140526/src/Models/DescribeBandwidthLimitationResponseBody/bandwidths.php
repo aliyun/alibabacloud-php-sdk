@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthLimitationResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthLimitationResponseBody\bandwidths\bandwidth;
+use AlibabaCloud\Tea\Model;
 
 class bandwidths extends Model
 {
@@ -19,21 +19,17 @@ class bandwidths extends Model
 
     public function validate()
     {
-        if (\is_array($this->bandwidth)) {
-            Model::validateArray($this->bandwidth);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bandwidth) {
-            if (\is_array($this->bandwidth)) {
-                $res['Bandwidth'] = [];
-                $n1               = 0;
-                foreach ($this->bandwidth as $item1) {
-                    $res['Bandwidth'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Bandwidth'] = [];
+            if (null !== $this->bandwidth && \is_array($this->bandwidth)) {
+                $n = 0;
+                foreach ($this->bandwidth as $item) {
+                    $res['Bandwidth'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class bandwidths extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bandwidths
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bandwidth'])) {
             if (!empty($map['Bandwidth'])) {
                 $model->bandwidth = [];
-                $n1               = 0;
-                foreach ($map['Bandwidth'] as $item1) {
-                    $model->bandwidth[$n1++] = bandwidth::fromMap($item1);
+                $n                = 0;
+                foreach ($map['Bandwidth'] as $item) {
+                    $model->bandwidth[$n++] = null !== $item ? bandwidth::fromMap($item) : $item;
                 }
             }
         }

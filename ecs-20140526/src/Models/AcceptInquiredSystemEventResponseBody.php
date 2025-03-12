@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AcceptInquiredSystemEventResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4DD56CA6-6D75-4D33-BE34-E4A44EBE1C3D
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class AcceptInquiredSystemEventResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class AcceptInquiredSystemEventResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AcceptInquiredSystemEventResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

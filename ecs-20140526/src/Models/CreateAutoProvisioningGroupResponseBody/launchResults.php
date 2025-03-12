@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponseBody\launchResults\launchResult;
+use AlibabaCloud\Tea\Model;
 
 class launchResults extends Model
 {
@@ -19,21 +19,17 @@ class launchResults extends Model
 
     public function validate()
     {
-        if (\is_array($this->launchResult)) {
-            Model::validateArray($this->launchResult);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->launchResult) {
-            if (\is_array($this->launchResult)) {
-                $res['LaunchResult'] = [];
-                $n1                  = 0;
-                foreach ($this->launchResult as $item1) {
-                    $res['LaunchResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['LaunchResult'] = [];
+            if (null !== $this->launchResult && \is_array($this->launchResult)) {
+                $n = 0;
+                foreach ($this->launchResult as $item) {
+                    $res['LaunchResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class launchResults extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return launchResults
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaunchResult'])) {
             if (!empty($map['LaunchResult'])) {
                 $model->launchResult = [];
-                $n1                  = 0;
-                foreach ($map['LaunchResult'] as $item1) {
-                    $model->launchResult[$n1++] = launchResult::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['LaunchResult'] as $item) {
+                    $model->launchResult[$n++] = null !== $item ? launchResult::fromMap($item) : $item;
                 }
             }
         }

@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRegionsResponseBody\regions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class region extends Model
 {
     /**
+     * @description The name of the region.
+     *
+     * @example China (Qingdao)
+     *
      * @var string
      */
     public $localName;
+
     /**
+     * @description The endpoint of the region.
+     *
+     * @example ecs.cn-qingdao.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
+
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description Indicates whether clusters are sold out.
+     * - soldOut
+     * @example available
+     *
      * @var string
      */
     public $status;
@@ -33,24 +52,20 @@ class region extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
-
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -58,26 +73,23 @@ class region extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return region
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
-
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,27 +4,72 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privateDnsNameOptions extends Model
 {
     /**
+     * @description Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $enableInstanceIdDnsAAAARecord;
+
     /**
+     * @description Specifies whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $enableInstanceIdDnsARecord;
+
     /**
+     * @description Specifies whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
      * @var bool
      */
     public $enableIpDnsARecord;
+
     /**
+     * @description Specifies whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $enableIpDnsPtrRecord;
+
     /**
+     * @description The type of hostname. Valid values:
+     *
+     *   Custom: custom hostname
+     *   IpBased: IP address-based hostname
+     *   InstanceIdBased: instance ID-based hostname
+     *
+     * Default value: Custom.
+     * @example Custom
+     *
      * @var string
      */
     public $hostnameType;
@@ -38,28 +83,23 @@ class privateDnsNameOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableInstanceIdDnsAAAARecord) {
             $res['EnableInstanceIdDnsAAAARecord'] = $this->enableInstanceIdDnsAAAARecord;
         }
-
         if (null !== $this->enableInstanceIdDnsARecord) {
             $res['EnableInstanceIdDnsARecord'] = $this->enableInstanceIdDnsARecord;
         }
-
         if (null !== $this->enableIpDnsARecord) {
             $res['EnableIpDnsARecord'] = $this->enableIpDnsARecord;
         }
-
         if (null !== $this->enableIpDnsPtrRecord) {
             $res['EnableIpDnsPtrRecord'] = $this->enableIpDnsPtrRecord;
         }
-
         if (null !== $this->hostnameType) {
             $res['HostnameType'] = $this->hostnameType;
         }
@@ -67,30 +107,26 @@ class privateDnsNameOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privateDnsNameOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableInstanceIdDnsAAAARecord'])) {
             $model->enableInstanceIdDnsAAAARecord = $map['EnableInstanceIdDnsAAAARecord'];
         }
-
         if (isset($map['EnableInstanceIdDnsARecord'])) {
             $model->enableInstanceIdDnsARecord = $map['EnableInstanceIdDnsARecord'];
         }
-
         if (isset($map['EnableIpDnsARecord'])) {
             $model->enableIpDnsARecord = $map['EnableIpDnsARecord'];
         }
-
         if (isset($map['EnableIpDnsPtrRecord'])) {
             $model->enableIpDnsPtrRecord = $map['EnableIpDnsPtrRecord'];
         }
-
         if (isset($map['HostnameType'])) {
             $model->hostnameType = $map['HostnameType'];
         }

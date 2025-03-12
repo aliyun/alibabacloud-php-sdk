@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTaskAttributeResponseBody\operationProgressSet\operationProgress;
+use AlibabaCloud\Tea\Model;
 
 class operationProgressSet extends Model
 {
@@ -19,21 +19,17 @@ class operationProgressSet extends Model
 
     public function validate()
     {
-        if (\is_array($this->operationProgress)) {
-            Model::validateArray($this->operationProgress);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operationProgress) {
-            if (\is_array($this->operationProgress)) {
-                $res['OperationProgress'] = [];
-                $n1                       = 0;
-                foreach ($this->operationProgress as $item1) {
-                    $res['OperationProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OperationProgress'] = [];
+            if (null !== $this->operationProgress && \is_array($this->operationProgress)) {
+                $n = 0;
+                foreach ($this->operationProgress as $item) {
+                    $res['OperationProgress'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class operationProgressSet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return operationProgressSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationProgress'])) {
             if (!empty($map['OperationProgress'])) {
                 $model->operationProgress = [];
-                $n1                       = 0;
-                foreach ($map['OperationProgress'] as $item1) {
-                    $model->operationProgress[$n1++] = operationProgress::fromMap($item1);
+                $n                        = 0;
+                foreach ($map['OperationProgress'] as $item) {
+                    $model->operationProgress[$n++] = null !== $item ? operationProgress::fromMap($item) : $item;
                 }
             }
         }

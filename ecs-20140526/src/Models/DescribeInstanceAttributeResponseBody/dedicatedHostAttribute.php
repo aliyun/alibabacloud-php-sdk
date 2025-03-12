@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dedicatedHostAttribute extends Model
 {
     /**
+     * @description The ID of the dedicated host.
+     *
+     * @example dh-2ze7qrzz6lvbfhr0****
+     *
      * @var string
      */
     public $dedicatedHostId;
+
     /**
+     * @description The name of the dedicated host.
+     *
+     * @example ecs-autoui-create-ddh-temp
+     *
      * @var string
      */
     public $dedicatedHostName;
@@ -23,16 +32,14 @@ class dedicatedHostAttribute extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
-
         if (null !== $this->dedicatedHostName) {
             $res['DedicatedHostName'] = $this->dedicatedHostName;
         }
@@ -40,18 +47,17 @@ class dedicatedHostAttribute extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dedicatedHostAttribute
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
-
         if (isset($map['DedicatedHostName'])) {
             $model->dedicatedHostName = $map['DedicatedHostName'];
         }

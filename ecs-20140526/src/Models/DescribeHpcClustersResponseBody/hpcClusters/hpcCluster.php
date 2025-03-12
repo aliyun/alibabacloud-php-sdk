@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHpcClustersResponseBody\hpcClusters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hpcCluster extends Model
 {
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The description of the HPC cluster.
+     *
+     * @example hpc-bp1a5zr3u7nq9cx****
+     *
      * @var string
      */
     public $hpcClusterId;
+
     /**
+     * @example testName
+     *
      * @var string
      */
     public $name;
@@ -28,20 +38,17 @@ class hpcCluster extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->hpcClusterId) {
             $res['HpcClusterId'] = $this->hpcClusterId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,22 +56,20 @@ class hpcCluster extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hpcCluster
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['HpcClusterId'])) {
             $model->hpcClusterId = $map['HpcClusterId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

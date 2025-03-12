@@ -4,39 +4,78 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEniMonitorDataResponseBody\monitorData;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class eniMonitorData extends Model
 {
     /**
+     * @description The number of received packets that were dropped by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dropPacketRx;
+
     /**
+     * @description The number of sent packets that were dropped by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dropPacketTx;
+
     /**
+     * @description The ID of the secondary ENI.
+     *
+     * @example eni-bp19da36d6xdwey****
+     *
      * @var string
      */
     public $eniId;
+
     /**
+     * @description The average rate at which the secondary ENI received data over the internal network. Unit: Kbit/s.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $intranetRx;
+
     /**
+     * @description The average rate at which the secondary ENI sent data over the internal network. Unit: Kbit/s.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $intranetTx;
+
     /**
+     * @description The number of packets received by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $packetRx;
+
     /**
+     * @description The number of packets sent by the secondary ENI over the internal network.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $packetTx;
+
     /**
+     * @description The timestamp of the monitoring data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2018-05-21T03:22:00Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -53,40 +92,32 @@ class eniMonitorData extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dropPacketRx) {
             $res['DropPacketRx'] = $this->dropPacketRx;
         }
-
         if (null !== $this->dropPacketTx) {
             $res['DropPacketTx'] = $this->dropPacketTx;
         }
-
         if (null !== $this->eniId) {
             $res['EniId'] = $this->eniId;
         }
-
         if (null !== $this->intranetRx) {
             $res['IntranetRx'] = $this->intranetRx;
         }
-
         if (null !== $this->intranetTx) {
             $res['IntranetTx'] = $this->intranetTx;
         }
-
         if (null !== $this->packetRx) {
             $res['PacketRx'] = $this->packetRx;
         }
-
         if (null !== $this->packetTx) {
             $res['PacketTx'] = $this->packetTx;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -94,42 +125,35 @@ class eniMonitorData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eniMonitorData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DropPacketRx'])) {
             $model->dropPacketRx = $map['DropPacketRx'];
         }
-
         if (isset($map['DropPacketTx'])) {
             $model->dropPacketTx = $map['DropPacketTx'];
         }
-
         if (isset($map['EniId'])) {
             $model->eniId = $map['EniId'];
         }
-
         if (isset($map['IntranetRx'])) {
             $model->intranetRx = $map['IntranetRx'];
         }
-
         if (isset($map['IntranetTx'])) {
             $model->intranetTx = $map['IntranetTx'];
         }
-
         if (isset($map['PacketRx'])) {
             $model->packetRx = $map['PacketRx'];
         }
-
         if (isset($map['PacketTx'])) {
             $model->packetTx = $map['PacketTx'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

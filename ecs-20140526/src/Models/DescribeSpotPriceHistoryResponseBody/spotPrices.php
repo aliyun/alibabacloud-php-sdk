@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotPriceHistoryResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotPriceHistoryResponseBody\spotPrices\spotPriceType;
+use AlibabaCloud\Tea\Model;
 
 class spotPrices extends Model
 {
@@ -19,21 +19,17 @@ class spotPrices extends Model
 
     public function validate()
     {
-        if (\is_array($this->spotPriceType)) {
-            Model::validateArray($this->spotPriceType);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->spotPriceType) {
-            if (\is_array($this->spotPriceType)) {
-                $res['SpotPriceType'] = [];
-                $n1                   = 0;
-                foreach ($this->spotPriceType as $item1) {
-                    $res['SpotPriceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SpotPriceType'] = [];
+            if (null !== $this->spotPriceType && \is_array($this->spotPriceType)) {
+                $n = 0;
+                foreach ($this->spotPriceType as $item) {
+                    $res['SpotPriceType'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class spotPrices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return spotPrices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpotPriceType'])) {
             if (!empty($map['SpotPriceType'])) {
                 $model->spotPriceType = [];
-                $n1                   = 0;
-                foreach ($map['SpotPriceType'] as $item1) {
-                    $model->spotPriceType[$n1++] = spotPriceType::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['SpotPriceType'] as $item) {
+                    $model->spotPriceType[$n++] = null !== $item ? spotPriceType::fromMap($item) : $item;
                 }
             }
         }

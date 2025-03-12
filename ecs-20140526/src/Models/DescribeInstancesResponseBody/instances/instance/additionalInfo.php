@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class additionalInfo extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableHighDensityMode;
@@ -18,10 +22,9 @@ class additionalInfo extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableHighDensityMode) {
@@ -31,11 +34,11 @@ class additionalInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return additionalInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

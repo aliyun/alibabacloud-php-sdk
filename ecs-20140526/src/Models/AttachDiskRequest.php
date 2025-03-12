@@ -4,54 +4,123 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachDiskRequest extends Model
 {
     /**
+     * @description Specifies whether to attach the disk as the system disk. Valid values:
+     *
+     *   true: attaches the disk as the system disk.
+     *   false: does not attach the disk as the system disk.
+     *
+     * >  You can set `Bootable` to true only if the instance does not have a system disk.
+     * @example false
+     *
      * @var bool
      */
     public $bootable;
+
     /**
+     * @description Specifies whether to release the disk when the instance is released. Valid values:
+     *
+     *   true: releases the disk when the instance is released.
+     *   false: does not release the disk when the instance is released. The disk is retained as a pay-as-you-go data disk.
+     *
+     * When you specify this parameter, take note of the following items:
+     *
+     *   If `OperationLocks` in the DescribeInstances response contains `"LockReason" : "security"` for the instance to which the disk is attached, the instance is locked for security reasons. Regardless of whether you set `DeleteWithInstance` to `false`, the DeleteWithInstance setting is ignored, and the disk is released when the instance is released.
+     *   If you want to attach an `elastic ephemeral disk`, you must set `DeleteWithInstance` to `true`.
+     *   You cannot specify DeleteWithInstance for disks for which the multi-attach feature is enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
+     * @description The device name of the disk.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example testDeviceName
+     *
      * @var string
      */
     public $device;
+
     /**
+     * @description The ID of the disk. The disk specified by `DiskId` and the instance specified by `InstanceId` must reside in the same zone.
+     *
+     * This parameter is required.
+     * @example d-bp1j4l5axzdy6ftk****
+     *
      * @var string
      */
     public $diskId;
+
     /**
+     * @description Specifies whether to force attach the disk to the instance. Valid values:
+     *
+     *   true: force attaches the disk to the instance.
+     *   false: does not force attach the disk to the instance.
+     *
+     * >  You can set this parameter to true only for Regional Enterprise SSDs (ESSDs) (cloud_regional_disk_auto).
+     * @example false
+     *
      * @var bool
      */
     public $force;
+
     /**
+     * @description The ID of the instance to which you want to attach the disk.
+     *
+     * This parameter is required.
+     * @example i-bp1dq5lozx5f4pmd****
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The name of the SSH key pair that you bind to the Linux instance when you attach the system disk.
+     *
+     *   Windows instances do not support logons based on SSH key pairs. The `Password` parameter takes effect even if the KeyPairName parameter is specified.
+     *   For Linux instances, the username and password-based logon method is disabled by default.
+     *
+     * @example KeyPairTestName
+     *
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description The password that is set when you attach the system disk. The password is applicable only to the administrator and root users. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+     *
+     * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+     *
+     * > If `Password` is configured, we recommend that you send requests over HTTPS to prevent password leaks.
+     * @example EcsV587!
+     *
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
@@ -73,56 +142,44 @@ class AttachDiskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bootable) {
             $res['Bootable'] = $this->bootable;
         }
-
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
-
         if (null !== $this->device) {
             $res['Device'] = $this->device;
         }
-
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
-
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -130,58 +187,47 @@ class AttachDiskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachDiskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bootable'])) {
             $model->bootable = $map['Bootable'];
         }
-
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
-
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
         }
-
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
-
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

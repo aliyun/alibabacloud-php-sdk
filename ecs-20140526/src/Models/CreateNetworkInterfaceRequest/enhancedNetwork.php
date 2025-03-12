@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class enhancedNetwork extends Model
 {
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableRss;
+
     /**
+     * @description >  This parameter is not publicly available.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSriov;
@@ -23,16 +32,14 @@ class enhancedNetwork extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableRss) {
             $res['EnableRss'] = $this->enableRss;
         }
-
         if (null !== $this->enableSriov) {
             $res['EnableSriov'] = $this->enableSriov;
         }
@@ -40,18 +47,17 @@ class enhancedNetwork extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return enhancedNetwork
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableRss'])) {
             $model->enableRss = $map['EnableRss'];
         }
-
         if (isset($map['EnableSriov'])) {
             $model->enableSriov = $map['EnableSriov'];
         }

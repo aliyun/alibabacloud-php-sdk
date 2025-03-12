@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagesResponseBody\images\image\detectionOptions\items;
+use AlibabaCloud\Tea\Model;
 
 class detectionOptions extends Model
 {
     /**
+     * @description The check items.
+     *
      * @var items
      */
     public $items;
+
     /**
+     * @description The state of the image check task. Valid values:
+     *
+     *   Processing
+     *   Finished
+     *
+     * @example Processing
+     *
      * @var string
      */
     public $status;
@@ -24,19 +34,14 @@ class detectionOptions extends Model
 
     public function validate()
     {
-        if (null !== $this->items) {
-            $this->items->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -44,18 +49,17 @@ class detectionOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detectionOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

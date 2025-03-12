@@ -4,26 +4,39 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType\healthStatus;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType\scheduledSystemEventSet;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType\status;
+use AlibabaCloud\Tea\Model;
 
 class instanceFullStatusType extends Model
 {
     /**
+     * @description The health state of the instance.
+     *
      * @var healthStatus
      */
     public $healthStatus;
+
     /**
+     * @description The instance ID.
+     *
+     * @example i-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The system events that are in the Scheduled or Inquiring state.
+     *
      * @var scheduledSystemEventSet
      */
     public $scheduledSystemEventSet;
+
     /**
+     * @description The lifecycle state of the instance.
+     *
      * @var status
      */
     public $status;
@@ -36,60 +49,44 @@ class instanceFullStatusType extends Model
 
     public function validate()
     {
-        if (null !== $this->healthStatus) {
-            $this->healthStatus->validate();
-        }
-        if (null !== $this->scheduledSystemEventSet) {
-            $this->scheduledSystemEventSet->validate();
-        }
-        if (null !== $this->status) {
-            $this->status->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toArray($noStream) : $this->healthStatus;
+            $res['HealthStatus'] = null !== $this->healthStatus ? $this->healthStatus->toMap() : null;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->scheduledSystemEventSet) {
-            $res['ScheduledSystemEventSet'] = null !== $this->scheduledSystemEventSet ? $this->scheduledSystemEventSet->toArray($noStream) : $this->scheduledSystemEventSet;
+            $res['ScheduledSystemEventSet'] = null !== $this->scheduledSystemEventSet ? $this->scheduledSystemEventSet->toMap() : null;
         }
-
         if (null !== $this->status) {
-            $res['Status'] = null !== $this->status ? $this->status->toArray($noStream) : $this->status;
+            $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceFullStatusType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = healthStatus::fromMap($map['HealthStatus']);
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['ScheduledSystemEventSet'])) {
             $model->scheduledSystemEventSet = scheduledSystemEventSet::fromMap($map['ScheduledSystemEventSet']);
         }
-
         if (isset($map['Status'])) {
             $model->status = status::fromMap($map['Status']);
         }

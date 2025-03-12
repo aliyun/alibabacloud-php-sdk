@@ -4,19 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class performanceControlOptions extends Model
 {
     /**
+     * @description The new IOPS rate of the cloud disk. You can modify the IOPS rate of only cloud disks in dedicated block storage clusters.
+     *
+     * For more information, see [Block storage performance](https://help.aliyun.com/document_detail/25382.html).
+     * @example 2000
+     *
      * @var int
      */
     public $IOPS;
+
     /**
+     * @description Specifies whether to reset the IOPS rate and throughput of the cloud disk. This parameter takes effect only when the cloud disk belongs to a dedicated block storage cluster.
+     *
+     * Set the value to All, which indicates that the IOPS rate and throughput of the cloud disk are reset to the initial values.
+     * @example All
+     *
      * @var string
      */
     public $recover;
+
     /**
+     * @description The new throughput of the cloud disk. You can change the throughput of only cloud disks in dedicated block storage clusters. Unit: MB/s.
+     *
+     * For more information, see [Block storage performance](https://help.aliyun.com/document_detail/25382.html).
+     * @example 200
+     *
      * @var int
      */
     public $throughput;
@@ -28,20 +45,17 @@ class performanceControlOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->IOPS) {
             $res['IOPS'] = $this->IOPS;
         }
-
         if (null !== $this->recover) {
             $res['Recover'] = $this->recover;
         }
-
         if (null !== $this->throughput) {
             $res['Throughput'] = $this->throughput;
         }
@@ -49,22 +63,20 @@ class performanceControlOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return performanceControlOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IOPS'])) {
             $model->IOPS = $map['IOPS'];
         }
-
         if (isset($map['Recover'])) {
             $model->recover = $map['Recover'];
         }
-
         if (isset($map['Throughput'])) {
             $model->throughput = $map['Throughput'];
         }

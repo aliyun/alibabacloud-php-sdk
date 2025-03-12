@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptions extends Model
 {
     /**
+     * @description The ID of the elasticity assurance.
+     *
+     * This parameter is required.
+     * @example eap-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The name of the elasticity assurance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+     *
+     * @example eapTestName
+     *
      * @var string
      */
     public $name;
@@ -23,16 +33,14 @@ class privatePoolOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -40,18 +48,17 @@ class privatePoolOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

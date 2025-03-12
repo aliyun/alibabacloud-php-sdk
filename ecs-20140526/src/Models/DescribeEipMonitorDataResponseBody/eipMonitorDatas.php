@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipMonitorDataResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipMonitorDataResponseBody\eipMonitorDatas\eipMonitorData;
+use AlibabaCloud\Tea\Model;
 
 class eipMonitorDatas extends Model
 {
@@ -19,21 +19,17 @@ class eipMonitorDatas extends Model
 
     public function validate()
     {
-        if (\is_array($this->eipMonitorData)) {
-            Model::validateArray($this->eipMonitorData);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eipMonitorData) {
-            if (\is_array($this->eipMonitorData)) {
-                $res['EipMonitorData'] = [];
-                $n1                    = 0;
-                foreach ($this->eipMonitorData as $item1) {
-                    $res['EipMonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['EipMonitorData'] = [];
+            if (null !== $this->eipMonitorData && \is_array($this->eipMonitorData)) {
+                $n = 0;
+                foreach ($this->eipMonitorData as $item) {
+                    $res['EipMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class eipMonitorDatas extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return eipMonitorDatas
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipMonitorData'])) {
             if (!empty($map['EipMonitorData'])) {
                 $model->eipMonitorData = [];
-                $n1                    = 0;
-                foreach ($map['EipMonitorData'] as $item1) {
-                    $model->eipMonitorData[$n1++] = eipMonitorData::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['EipMonitorData'] as $item) {
+                    $model->eipMonitorData[$n++] = null !== $item ? eipMonitorData::fromMap($item) : $item;
                 }
             }
         }

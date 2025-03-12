@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RenewElasticityAssurancesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptionsIdSet extends Model
 {
@@ -18,43 +18,29 @@ class privatePoolOptionsIdSet extends Model
 
     public function validate()
     {
-        if (\is_array($this->privatePoolOptionsId)) {
-            Model::validateArray($this->privatePoolOptionsId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->privatePoolOptionsId) {
-            if (\is_array($this->privatePoolOptionsId)) {
-                $res['PrivatePoolOptionsId'] = [];
-                $n1                          = 0;
-                foreach ($this->privatePoolOptionsId as $item1) {
-                    $res['PrivatePoolOptionsId'][$n1++] = $item1;
-                }
-            }
+            $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptionsIdSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivatePoolOptionsId'])) {
             if (!empty($map['PrivatePoolOptionsId'])) {
-                $model->privatePoolOptionsId = [];
-                $n1                          = 0;
-                foreach ($map['PrivatePoolOptionsId'] as $item1) {
-                    $model->privatePoolOptionsId[$n1++] = $item1;
-                }
+                $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
             }
         }
 

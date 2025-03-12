@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceAutoRenewAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceAutoRenewAttributeResponseBody\elasticityAssuranceRenewAttributes\elasticityAssuranceRenewAttribute;
+use AlibabaCloud\Tea\Model;
 
 class elasticityAssuranceRenewAttributes extends Model
 {
@@ -19,21 +19,17 @@ class elasticityAssuranceRenewAttributes extends Model
 
     public function validate()
     {
-        if (\is_array($this->elasticityAssuranceRenewAttribute)) {
-            Model::validateArray($this->elasticityAssuranceRenewAttribute);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->elasticityAssuranceRenewAttribute) {
-            if (\is_array($this->elasticityAssuranceRenewAttribute)) {
-                $res['ElasticityAssuranceRenewAttribute'] = [];
-                $n1                                       = 0;
-                foreach ($this->elasticityAssuranceRenewAttribute as $item1) {
-                    $res['ElasticityAssuranceRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ElasticityAssuranceRenewAttribute'] = [];
+            if (null !== $this->elasticityAssuranceRenewAttribute && \is_array($this->elasticityAssuranceRenewAttribute)) {
+                $n = 0;
+                foreach ($this->elasticityAssuranceRenewAttribute as $item) {
+                    $res['ElasticityAssuranceRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class elasticityAssuranceRenewAttributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return elasticityAssuranceRenewAttributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticityAssuranceRenewAttribute'])) {
             if (!empty($map['ElasticityAssuranceRenewAttribute'])) {
                 $model->elasticityAssuranceRenewAttribute = [];
-                $n1                                       = 0;
-                foreach ($map['ElasticityAssuranceRenewAttribute'] as $item1) {
-                    $model->elasticityAssuranceRenewAttribute[$n1++] = elasticityAssuranceRenewAttribute::fromMap($item1);
+                $n                                        = 0;
+                foreach ($map['ElasticityAssuranceRenewAttribute'] as $item) {
+                    $model->elasticityAssuranceRenewAttribute[$n++] = null !== $item ? elasticityAssuranceRenewAttribute::fromMap($item) : $item;
                 }
             }
         }

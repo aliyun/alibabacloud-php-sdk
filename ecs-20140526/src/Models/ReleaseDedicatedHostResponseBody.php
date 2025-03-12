@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleaseDedicatedHostResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A1B15AC8-E6F6-49A4-8985-8C07104B9199
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class ReleaseDedicatedHostResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ReleaseDedicatedHostResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleaseDedicatedHostResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

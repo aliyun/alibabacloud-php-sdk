@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDemandsResponseBody\demands\demand;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDemandsResponseBody\demands\demand\supplyInfos\supplyInfo;
+use AlibabaCloud\Tea\Model;
 
 class supplyInfos extends Model
 {
@@ -19,21 +19,17 @@ class supplyInfos extends Model
 
     public function validate()
     {
-        if (\is_array($this->supplyInfo)) {
-            Model::validateArray($this->supplyInfo);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supplyInfo) {
-            if (\is_array($this->supplyInfo)) {
-                $res['SupplyInfo'] = [];
-                $n1                = 0;
-                foreach ($this->supplyInfo as $item1) {
-                    $res['SupplyInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SupplyInfo'] = [];
+            if (null !== $this->supplyInfo && \is_array($this->supplyInfo)) {
+                $n = 0;
+                foreach ($this->supplyInfo as $item) {
+                    $res['SupplyInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class supplyInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supplyInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupplyInfo'])) {
             if (!empty($map['SupplyInfo'])) {
                 $model->supplyInfo = [];
-                $n1                = 0;
-                foreach ($map['SupplyInfo'] as $item1) {
-                    $model->supplyInfo[$n1++] = supplyInfo::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['SupplyInfo'] as $item) {
+                    $model->supplyInfo[$n++] = null !== $item ? supplyInfo::fromMap($item) : $item;
                 }
             }
         }

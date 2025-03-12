@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\availableInstanceTypes\availableInstanceType;
+use AlibabaCloud\Tea\Model;
 
 class availableInstanceTypes extends Model
 {
@@ -19,21 +19,17 @@ class availableInstanceTypes extends Model
 
     public function validate()
     {
-        if (\is_array($this->availableInstanceType)) {
-            Model::validateArray($this->availableInstanceType);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->availableInstanceType) {
-            if (\is_array($this->availableInstanceType)) {
-                $res['AvailableInstanceType'] = [];
-                $n1                           = 0;
-                foreach ($this->availableInstanceType as $item1) {
-                    $res['AvailableInstanceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AvailableInstanceType'] = [];
+            if (null !== $this->availableInstanceType && \is_array($this->availableInstanceType)) {
+                $n = 0;
+                foreach ($this->availableInstanceType as $item) {
+                    $res['AvailableInstanceType'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class availableInstanceTypes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableInstanceTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableInstanceType'])) {
             if (!empty($map['AvailableInstanceType'])) {
                 $model->availableInstanceType = [];
-                $n1                           = 0;
-                foreach ($map['AvailableInstanceType'] as $item1) {
-                    $model->availableInstanceType[$n1++] = availableInstanceType::fromMap($item1);
+                $n                            = 0;
+                foreach ($map['AvailableInstanceType'] as $item) {
+                    $model->availableInstanceType[$n++] = null !== $item ? availableInstanceType::fromMap($item) : $item;
                 }
             }
         }

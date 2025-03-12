@@ -4,24 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\vpcAttributes\privateIpAddress;
+use AlibabaCloud\Tea\Model;
 
 class vpcAttributes extends Model
 {
     /**
+     * @description The NAT IP address of the instance. It is used by ECS instances in different VPCs for communication.
+     *
+     * @example ``172.17.**.**``
+     *
      * @var string
      */
     public $natIpAddress;
+
     /**
+     * @description The private IP address of the instance.
+     *
      * @var privateIpAddress
      */
     public $privateIpAddress;
+
     /**
+     * @description The ID of the vSwitch to which the instance is connected.
+     *
+     * @example vsw-uf6ixacqz8osrwnqb****
+     *
      * @var string
      */
     public $vSwitchId;
+
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-wz9e4e9pmbcnj6ki6****
+     *
      * @var string
      */
     public $vpcId;
@@ -34,27 +51,20 @@ class vpcAttributes extends Model
 
     public function validate()
     {
-        if (null !== $this->privateIpAddress) {
-            $this->privateIpAddress->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->natIpAddress) {
             $res['NatIpAddress'] = $this->natIpAddress;
         }
-
         if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = null !== $this->privateIpAddress ? $this->privateIpAddress->toArray($noStream) : $this->privateIpAddress;
+            $res['PrivateIpAddress'] = null !== $this->privateIpAddress ? $this->privateIpAddress->toMap() : null;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -62,26 +72,23 @@ class vpcAttributes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpcAttributes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatIpAddress'])) {
             $model->natIpAddress = $map['NatIpAddress'];
         }
-
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = privateIpAddress::fromMap($map['PrivateIpAddress']);
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

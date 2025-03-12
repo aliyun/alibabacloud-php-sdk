@@ -1,3 +1,8 @@
+2025-03-12 Version: 6.1.2
+- Update API DescribeCommands: update response param.
+- Update API PurchaseStorageCapacityUnit: add param ResourceGroupId.
+
+
 2025-03-03 Version: 6.1.1
 - Generated php 2014-05-26 for Ecs.
 

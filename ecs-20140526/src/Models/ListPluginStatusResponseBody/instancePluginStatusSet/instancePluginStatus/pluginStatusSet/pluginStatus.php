@@ -4,27 +4,59 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponseBody\instancePluginStatusSet\instancePluginStatus\pluginStatusSet;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pluginStatus extends Model
 {
     /**
+     * @description The first time when Cloud Assistant reported the state of the plug-in.
+     *
+     * @example 2020-01-19T09:15:46Z
+     *
      * @var string
      */
     public $firstHeartbeatTime;
+
     /**
+     * @description The last time when Cloud Assistant reported the state of the plug-in.
+     *
+     * @example 2020-01-19T09:15:46Z
+     *
      * @var string
      */
     public $lastHeartbeatTime;
+
     /**
+     * @description The name of the plug-in.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $pluginName;
+
     /**
+     * @description The state of the Cloud Assistant plug-in. Valid values:
+     *
+     *   NotInstalled: The plug-in is not installed.
+     *   Installed: The one-time plug-in is installed.
+     *   Running: The long-running plug-in is running.
+     *   Stopped: The long-running plug-in is not running.
+     *   Crashed: The plug-in is abnormal.
+     *   Removed: The plug-in is uninstalled.
+     *   Unknown: The state of the plug-in is unknown.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $pluginStatus;
+
     /**
+     * @description The version of the plug-in.
+     *
+     * @example 1.1
+     *
      * @var string
      */
     public $pluginVersion;
@@ -38,28 +70,23 @@ class pluginStatus extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->firstHeartbeatTime) {
             $res['FirstHeartbeatTime'] = $this->firstHeartbeatTime;
         }
-
         if (null !== $this->lastHeartbeatTime) {
             $res['LastHeartbeatTime'] = $this->lastHeartbeatTime;
         }
-
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
         }
-
         if (null !== $this->pluginStatus) {
             $res['PluginStatus'] = $this->pluginStatus;
         }
-
         if (null !== $this->pluginVersion) {
             $res['PluginVersion'] = $this->pluginVersion;
         }
@@ -67,30 +94,26 @@ class pluginStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pluginStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirstHeartbeatTime'])) {
             $model->firstHeartbeatTime = $map['FirstHeartbeatTime'];
         }
-
         if (isset($map['LastHeartbeatTime'])) {
             $model->lastHeartbeatTime = $map['LastHeartbeatTime'];
         }
-
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
         }
-
         if (isset($map['PluginStatus'])) {
             $model->pluginStatus = $map['PluginStatus'];
         }
-
         if (isset($map['PluginVersion'])) {
             $model->pluginVersion = $map['PluginVersion'];
         }

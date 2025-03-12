@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsResponseBody\vpcs\vpc;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vSwitchIds extends Model
 {
@@ -18,43 +18,29 @@ class vSwitchIds extends Model
 
     public function validate()
     {
-        if (\is_array($this->vSwitchId)) {
-            Model::validateArray($this->vSwitchId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vSwitchId) {
-            if (\is_array($this->vSwitchId)) {
-                $res['VSwitchId'] = [];
-                $n1               = 0;
-                foreach ($this->vSwitchId as $item1) {
-                    $res['VSwitchId'][$n1++] = $item1;
-                }
-            }
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vSwitchIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             if (!empty($map['VSwitchId'])) {
-                $model->vSwitchId = [];
-                $n1               = 0;
-                foreach ($map['VSwitchId'] as $item1) {
-                    $model->vSwitchId[$n1++] = $item1;
-                }
+                $model->vSwitchId = $map['VSwitchId'];
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelineExecutionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelineExecutionsResponseBody\imagePipelineExecution\imagePipelineExecutionSet;
+use AlibabaCloud\Tea\Model;
 
 class imagePipelineExecution extends Model
 {
@@ -19,21 +19,17 @@ class imagePipelineExecution extends Model
 
     public function validate()
     {
-        if (\is_array($this->imagePipelineExecutionSet)) {
-            Model::validateArray($this->imagePipelineExecutionSet);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imagePipelineExecutionSet) {
-            if (\is_array($this->imagePipelineExecutionSet)) {
-                $res['ImagePipelineExecutionSet'] = [];
-                $n1                               = 0;
-                foreach ($this->imagePipelineExecutionSet as $item1) {
-                    $res['ImagePipelineExecutionSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ImagePipelineExecutionSet'] = [];
+            if (null !== $this->imagePipelineExecutionSet && \is_array($this->imagePipelineExecutionSet)) {
+                $n = 0;
+                foreach ($this->imagePipelineExecutionSet as $item) {
+                    $res['ImagePipelineExecutionSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class imagePipelineExecution extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return imagePipelineExecution
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImagePipelineExecutionSet'])) {
             if (!empty($map['ImagePipelineExecutionSet'])) {
                 $model->imagePipelineExecutionSet = [];
-                $n1                               = 0;
-                foreach ($map['ImagePipelineExecutionSet'] as $item1) {
-                    $model->imagePipelineExecutionSet[$n1++] = imagePipelineExecutionSet::fromMap($item1);
+                $n                                = 0;
+                foreach ($map['ImagePipelineExecutionSet'] as $item) {
+                    $model->imagePipelineExecutionSet[$n++] = null !== $item ? imagePipelineExecutionSet::fromMap($item) : $item;
                 }
             }
         }

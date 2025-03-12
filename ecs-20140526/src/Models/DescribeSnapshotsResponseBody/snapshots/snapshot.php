@@ -4,124 +4,298 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotsResponseBody\snapshots;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotsResponseBody\snapshots\snapshot\tags;
+use AlibabaCloud\Tea\Model;
 
 class snapshot extends Model
 {
     /**
+     * @description Indicates whether the snapshot can be shared and be used to create or roll back a cloud disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $available;
+
     /**
+     * @description The category of the snapshot. Valid values:
+     *
+     *   Standard: standard snapshot.
+     *   Flash: local snapshot. This value will be deprecated. The local snapshot feature is replaced by the instant access feature.
+     *   archive: archive snapshot.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $category;
+
     /**
+     * @description The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-08-20T14:52:28Z
+     *
      * @var string
      */
     public $creationTime;
+
     /**
+     * @description The description of the snapshot.
+     *
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description Indicates whether the snapshot was encrypted. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
+
     /**
+     * @description Indicates whether the instant access feature is enabled. Valid values:
+     *
+     *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs) and ESSD Entry disks.
+     *   false: The instant access feature is disabled. The snapshot is a standard snapshot for which the instant access feature is disabled.
+     *
+     * >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * @example false
+     *
      * @var bool
      */
     public $instantAccess;
+
     /**
+     * @description Indicates the validity period of the instant access feature. When the validity period ends, the instant access feature is automatically disabled.
+     *
+     * >  This parameter is deprecated. By default, new standard snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
+     * @example 30
+     *
      * @var int
      */
     public $instantAccessRetentionDays;
+
     /**
+     * @description The ID of the KMS key used for the data disk.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;
+
     /**
+     * @description The time when the snapshot was last modified. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2020-08-25T14:18:09Z
+     *
      * @var string
      */
     public $lastModifiedTime;
+
     /**
+     * @description The product code of the Alibaba Cloud Marketplace image.
+     *
+     * @example jxsc000****
+     *
      * @var string
      */
     public $productCode;
+
     /**
+     * @description The progress of the snapshot creation task. Unit: percent (%).
+     *
+     * @example 100%
+     *
      * @var string
      */
     public $progress;
+
     /**
+     * @description The region ID of the snapshot.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The amount of remaining time required to create the snapshot. Unit: seconds.
+     *
+     * @example 38
+     *
      * @var int
      */
     public $remainTime;
+
     /**
+     * @description The ID of the resource group to which the snapshot belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The retention period of the automatic snapshot. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $retentionDays;
+
     /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $snapshotId;
+
     /**
+     * @description The ID of the snapshot chain that is associated with the snapshot.
+     *
+     * @example sl-bp1grgphbcc9brb5****
+     *
      * @var string
      */
     public $snapshotLinkId;
+
     /**
+     * @description The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
+     *
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
+
     /**
+     * @description The serial number of the snapshot.
+     *
+     * @example 64472-116742336-61976****
+     *
      * @var string
      */
     public $snapshotSN;
+
     /**
+     * @description The type of the snapshot. Valid values:
+     *
+     *   auto or timer: automatic snapshot
+     *   user: manual snapshot
+     *   all: all snapshot types
+     *
+     * @example all
+     *
      * @var string
      */
     public $snapshotType;
+
     /**
+     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
+     *
+     * @example d-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $sourceDiskId;
+
     /**
+     * @description The capacity of the source disk. Unit: GiB.
+     *
+     * @example 40
+     *
      * @var string
      */
     public $sourceDiskSize;
+
     /**
+     * @description The type of the source disk. Valid values:
+     *
+     *   system
+     *   data
+     *
+     * @example system
+     *
      * @var string
      */
     public $sourceDiskType;
+
     /**
+     * @description The region ID of the source snapshot.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $sourceRegionId;
+
     /**
+     * @description The ID of the source snapshot.
+     *
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $sourceSnapshotId;
+
     /**
+     * @description The category of the source disk.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @example disk
+     *
      * @var string
      */
     public $sourceStorageType;
+
     /**
+     * @description The status of the snapshot. Valid values:
+     *
+     *   progressing: The snapshot is being created.
+     *   accomplished: The snapshot is created.
+     *   failed: The snapshot failed to be created.
+     *
+     * @example accomplished
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The tags of the snapshot.
+     *
      * @var tags
      */
     public $tags;
+
     /**
+     * @description Indicates whether the snapshot was used to create images or cloud disks. Valid values:
+     *
+     *   image: The snapshot was used to create custom images.
+     *   disk: The snapshot was used to create cloud disks.
+     *   image_disk: The snapshot was used to create custom images and data disks.
+     *   none: The snapshot was not used to create custom images or cloud disks.
+     *
+     * @example image
+     *
      * @var string
      */
     public $usage;
@@ -159,127 +333,95 @@ class snapshot extends Model
 
     public function validate()
     {
-        if (null !== $this->tags) {
-            $this->tags->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->available) {
             $res['Available'] = $this->available;
         }
-
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
-
         if (null !== $this->instantAccess) {
             $res['InstantAccess'] = $this->instantAccess;
         }
-
         if (null !== $this->instantAccessRetentionDays) {
             $res['InstantAccessRetentionDays'] = $this->instantAccessRetentionDays;
         }
-
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
         }
-
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
-
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
-
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
         }
-
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
-
         if (null !== $this->snapshotLinkId) {
             $res['SnapshotLinkId'] = $this->snapshotLinkId;
         }
-
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
         }
-
         if (null !== $this->snapshotSN) {
             $res['SnapshotSN'] = $this->snapshotSN;
         }
-
         if (null !== $this->snapshotType) {
             $res['SnapshotType'] = $this->snapshotType;
         }
-
         if (null !== $this->sourceDiskId) {
             $res['SourceDiskId'] = $this->sourceDiskId;
         }
-
         if (null !== $this->sourceDiskSize) {
             $res['SourceDiskSize'] = $this->sourceDiskSize;
         }
-
         if (null !== $this->sourceDiskType) {
             $res['SourceDiskType'] = $this->sourceDiskType;
         }
-
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
         }
-
         if (null !== $this->sourceSnapshotId) {
             $res['SourceSnapshotId'] = $this->sourceSnapshotId;
         }
-
         if (null !== $this->sourceStorageType) {
             $res['SourceStorageType'] = $this->sourceStorageType;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
-
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -287,126 +429,98 @@ class snapshot extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return snapshot
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Available'])) {
             $model->available = $map['Available'];
         }
-
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
-
         if (isset($map['InstantAccess'])) {
             $model->instantAccess = $map['InstantAccess'];
         }
-
         if (isset($map['InstantAccessRetentionDays'])) {
             $model->instantAccessRetentionDays = $map['InstantAccessRetentionDays'];
         }
-
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
         }
-
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
-
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
-
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
         }
-
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
-
         if (isset($map['SnapshotLinkId'])) {
             $model->snapshotLinkId = $map['SnapshotLinkId'];
         }
-
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
         }
-
         if (isset($map['SnapshotSN'])) {
             $model->snapshotSN = $map['SnapshotSN'];
         }
-
         if (isset($map['SnapshotType'])) {
             $model->snapshotType = $map['SnapshotType'];
         }
-
         if (isset($map['SourceDiskId'])) {
             $model->sourceDiskId = $map['SourceDiskId'];
         }
-
         if (isset($map['SourceDiskSize'])) {
             $model->sourceDiskSize = $map['SourceDiskSize'];
         }
-
         if (isset($map['SourceDiskType'])) {
             $model->sourceDiskType = $map['SourceDiskType'];
         }
-
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];
         }
-
         if (isset($map['SourceSnapshotId'])) {
             $model->sourceSnapshotId = $map['SourceSnapshotId'];
         }
-
         if (isset($map['SourceStorageType'])) {
             $model->sourceStorageType = $map['SourceStorageType'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
-
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

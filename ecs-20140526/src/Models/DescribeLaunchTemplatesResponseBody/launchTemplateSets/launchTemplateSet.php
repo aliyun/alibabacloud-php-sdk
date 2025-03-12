@@ -4,44 +4,89 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplatesResponseBody\launchTemplateSets;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplatesResponseBody\launchTemplateSets\launchTemplateSet\tags;
+use AlibabaCloud\Tea\Model;
 
 class launchTemplateSet extends Model
 {
     /**
+     * @description The time when the launch template was created.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @example 2018-05-14T14:18:00Z
+     *
      * @var string
      */
     public $createTime;
+
     /**
+     * @description The ID of the Alibaba Cloud account that created the launch template.
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $createdBy;
+
     /**
+     * @description The time when the launch template was modified.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $defaultVersionNumber;
+
     /**
+     * @description The tags of the launch template.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $latestVersionNumber;
+
     /**
+     * @description The time when the launch template was created.
+     *
+     * @example lt-m5e3ofjr1zn1aw7q****
+     *
      * @var string
      */
     public $launchTemplateId;
+
     /**
+     * @description The default version number of the launch template.
+     *
+     * @example wd-152630748****
+     *
      * @var string
      */
     public $launchTemplateName;
+
     /**
+     * @description The time when a version was added to or deleted from the launch template.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @example 2018-05-14T14:18:00Z
+     *
      * @var string
      */
     public $modifiedTime;
+
     /**
+     * @description The creator of the launch template.
+     *
+     * @example rg-acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @description The tags of the launch template.
+     *
+     * >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
      * @var tags
      */
     public $tags;
@@ -59,94 +104,74 @@ class launchTemplateSet extends Model
 
     public function validate()
     {
-        if (null !== $this->tags) {
-            $this->tags->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
-
         if (null !== $this->defaultVersionNumber) {
             $res['DefaultVersionNumber'] = $this->defaultVersionNumber;
         }
-
         if (null !== $this->latestVersionNumber) {
             $res['LatestVersionNumber'] = $this->latestVersionNumber;
         }
-
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
-
         if (null !== $this->launchTemplateName) {
             $res['LaunchTemplateName'] = $this->launchTemplateName;
         }
-
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return launchTemplateSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
-
         if (isset($map['DefaultVersionNumber'])) {
             $model->defaultVersionNumber = $map['DefaultVersionNumber'];
         }
-
         if (isset($map['LatestVersionNumber'])) {
             $model->latestVersionNumber = $map['LatestVersionNumber'];
         }
-
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
-
         if (isset($map['LaunchTemplateName'])) {
             $model->launchTemplateName = $map['LaunchTemplateName'];
         }
-
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

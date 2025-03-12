@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouterInterfacesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet\routerInterfaceType;
+use AlibabaCloud\Tea\Model;
 
 class routerInterfaceSet extends Model
 {
@@ -19,21 +19,17 @@ class routerInterfaceSet extends Model
 
     public function validate()
     {
-        if (\is_array($this->routerInterfaceType)) {
-            Model::validateArray($this->routerInterfaceType);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->routerInterfaceType) {
-            if (\is_array($this->routerInterfaceType)) {
-                $res['RouterInterfaceType'] = [];
-                $n1                         = 0;
-                foreach ($this->routerInterfaceType as $item1) {
-                    $res['RouterInterfaceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RouterInterfaceType'] = [];
+            if (null !== $this->routerInterfaceType && \is_array($this->routerInterfaceType)) {
+                $n = 0;
+                foreach ($this->routerInterfaceType as $item) {
+                    $res['RouterInterfaceType'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class routerInterfaceSet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return routerInterfaceSet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouterInterfaceType'])) {
             if (!empty($map['RouterInterfaceType'])) {
                 $model->routerInterfaceType = [];
-                $n1                         = 0;
-                foreach ($map['RouterInterfaceType'] as $item1) {
-                    $model->routerInterfaceType[$n1++] = routerInterfaceType::fromMap($item1);
+                $n                          = 0;
+                foreach ($map['RouterInterfaceType'] as $item) {
+                    $model->routerInterfaceType[$n++] = null !== $item ? routerInterfaceType::fromMap($item) : $item;
                 }
             }
         }

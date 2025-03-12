@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceAttributeRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class remoteConnectionOptions extends Model
 {
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $password;
+
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example hide
+     *
      * @var string
      */
     public $type;
@@ -23,16 +32,14 @@ class remoteConnectionOptions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +47,17 @@ class remoteConnectionOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return remoteConnectionOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

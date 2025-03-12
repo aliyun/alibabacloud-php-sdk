@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVSwitchesResponseBody\vSwitches;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vSwitch extends Model
 {
@@ -12,42 +12,52 @@ class vSwitch extends Model
      * @var int
      */
     public $availableIpAddressCount;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vSwitchName;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
@@ -68,52 +78,41 @@ class vSwitch extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->availableIpAddressCount) {
             $res['AvailableIpAddressCount'] = $this->availableIpAddressCount;
         }
-
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
-
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -121,54 +120,44 @@ class vSwitch extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vSwitch
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableIpAddressCount'])) {
             $model->availableIpAddressCount = $map['AvailableIpAddressCount'];
         }
-
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
-
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
