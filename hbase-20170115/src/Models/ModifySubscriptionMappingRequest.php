@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySubscriptionMappingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mapping;
@@ -21,6 +23,11 @@ class ModifySubscriptionMappingRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -29,12 +36,15 @@ class ModifySubscriptionMappingRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscriptionId;
     protected $_name = [
         'mapping'              => 'Mapping',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'subscriptionId'       => 'SubscriptionId',
@@ -52,6 +62,9 @@ class ModifySubscriptionMappingRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -79,6 +92,9 @@ class ModifySubscriptionMappingRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

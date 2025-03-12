@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionPerformanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
@@ -26,6 +30,11 @@ class DescribeSubscriptionPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -34,16 +43,22 @@ class DescribeSubscriptionPerformanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscriptionId;
@@ -51,6 +66,7 @@ class DescribeSubscriptionPerformanceRequest extends Model
         'endTime'              => 'EndTime',
         'key'                  => 'Key',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'sourceInstanceId'     => 'SourceInstanceId',
@@ -73,6 +89,9 @@ class DescribeSubscriptionPerformanceRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -109,6 +128,9 @@ class DescribeSubscriptionPerformanceRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

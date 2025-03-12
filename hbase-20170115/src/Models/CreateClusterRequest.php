@@ -24,11 +24,15 @@ class CreateClusterRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cloudType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterName;
@@ -39,26 +43,36 @@ class CreateClusterRequest extends Model
     public $coldStorageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreDiskQuantity;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreDiskSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreDiskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreInstanceQuantity;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreInstanceType;
@@ -89,11 +103,15 @@ class CreateClusterRequest extends Model
     public $duration;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $engineVersion;
@@ -104,11 +122,15 @@ class CreateClusterRequest extends Model
     public $isColdStorage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $netType;
@@ -124,6 +146,8 @@ class CreateClusterRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -134,6 +158,8 @@ class CreateClusterRequest extends Model
     public $restoreTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $securityIPList;
@@ -154,6 +180,8 @@ class CreateClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $zoneId;

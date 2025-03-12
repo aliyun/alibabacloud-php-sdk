@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SparkRelateHBaseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $HBaseClusterIds;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalResourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -19,11 +21,15 @@ class DeleteGlobalResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceName;
@@ -39,6 +45,8 @@ class DeleteGlobalResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceType;

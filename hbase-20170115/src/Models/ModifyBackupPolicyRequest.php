@@ -14,6 +14,8 @@ class ModifyBackupPolicyRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -29,6 +31,8 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupEndTimeUTC;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $preferredBackupPeriod;
@@ -39,6 +43,8 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupStartTimeUTC;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $preferredBackupTime;

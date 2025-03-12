@@ -16,6 +16,11 @@ class ModifySubscriptionDescriptionRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -24,16 +29,21 @@ class ModifySubscriptionDescriptionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscriptionDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscriptionId;
     protected $_name = [
         'ownerId'                 => 'OwnerId',
+        'regionId'                => 'RegionId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
         'subscriptionDescription' => 'SubscriptionDescription',
@@ -49,6 +59,9 @@ class ModifySubscriptionDescriptionRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -76,6 +89,9 @@ class ModifySubscriptionDescriptionRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -14,11 +14,15 @@ class ModifyUpgradeToHasForHbaseRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $hasPassword;

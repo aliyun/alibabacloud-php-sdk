@@ -14,6 +14,8 @@ class UpgradeMinorVersionRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;

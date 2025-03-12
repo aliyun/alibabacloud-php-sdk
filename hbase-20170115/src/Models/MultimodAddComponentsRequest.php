@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MultimodAddComponentsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $components;
@@ -24,6 +28,8 @@ class MultimodAddComponentsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterWhiteListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -19,6 +21,8 @@ class DescribeClusterWhiteListRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

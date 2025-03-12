@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterSecurityIpListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -19,6 +21,8 @@ class ModifyClusterSecurityIpListRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,8 @@ class ModifyClusterSecurityIpListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $securityIpList;

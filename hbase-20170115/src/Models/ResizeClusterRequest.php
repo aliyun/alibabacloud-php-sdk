@@ -14,11 +14,15 @@ class ResizeClusterRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cloudType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -44,6 +48,8 @@ class ResizeClusterRequest extends Model
     public $coreDiskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coreInstanceQuantity;
@@ -54,6 +60,8 @@ class ResizeClusterRequest extends Model
     public $coreInstanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $engine;
@@ -69,16 +77,22 @@ class ResizeClusterRequest extends Model
     public $payType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $upgradeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $zoneId;

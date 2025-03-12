@@ -24,11 +24,15 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,6 +48,8 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceType;

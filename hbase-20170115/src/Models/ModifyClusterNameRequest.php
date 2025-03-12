@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNameRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterName;
@@ -24,6 +28,8 @@ class ModifyClusterNameRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

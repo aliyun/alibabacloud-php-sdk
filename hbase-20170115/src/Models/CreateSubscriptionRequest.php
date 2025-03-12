@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateSubscriptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $destinationInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $destinationInstanceRegionId;
@@ -24,6 +28,8 @@ class CreateSubscriptionRequest extends Model
     public $extraContext;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mapping;
@@ -49,11 +55,15 @@ class CreateSubscriptionRequest extends Model
     public $slbServer;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceInstanceRegionId;
@@ -64,6 +74,8 @@ class CreateSubscriptionRequest extends Model
     public $subscriptionDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subscriptionType;

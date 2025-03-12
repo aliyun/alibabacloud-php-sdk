@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryXpackRelatedDBRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -24,6 +26,8 @@ class QueryXpackRelatedDBRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $relateDbType;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterConnectAddrsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -19,6 +21,8 @@ class DescribeClusterConnectAddrsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

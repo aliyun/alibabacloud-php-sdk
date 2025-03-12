@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterServiceConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -29,6 +31,8 @@ class ModifyClusterServiceConfigRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

@@ -147,18 +147,40 @@ class HBase extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'ap-southeast-1'        => 'hbase.aliyuncs.com',
-            'cn-beijing'            => 'hbase.aliyuncs.com',
-            'cn-hangzhou'           => 'hbase.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'hbase.aliyuncs.com',
-            'cn-hongkong'           => 'hbase.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'hbase.aliyuncs.com',
-            'cn-qingdao'            => 'hbase.aliyuncs.com',
-            'cn-shanghai'           => 'hbase.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'hbase.aliyuncs.com',
-            'cn-shenzhen'           => 'hbase.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'hbase.aliyuncs.com',
-            'cn-guangzhou'          => 'hbase.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'hbase.aliyuncs.com',
+            'ap-south-1'                  => 'hbase.aliyuncs.com',
+            'ap-southeast-2'              => 'hbase.aliyuncs.com',
+            'cn-beijing-finance-1'        => 'hbase.aliyuncs.com',
+            'cn-beijing-finance-pop'      => 'hbase.aliyuncs.com',
+            'cn-beijing-gov-1'            => 'hbase.aliyuncs.com',
+            'cn-beijing-nu16-b01'         => 'hbase.aliyuncs.com',
+            'cn-edge-1'                   => 'hbase.aliyuncs.com',
+            'cn-fujian'                   => 'hbase.aliyuncs.com',
+            'cn-haidian-cm12-c01'         => 'hbase.aliyuncs.com',
+            'cn-hangzhou-bj-b01'          => 'hbase.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'hbase.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'hbase.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'hbase.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'hbase.aliyuncs.com',
+            'cn-hangzhou-test-306'        => 'hbase.aliyuncs.com',
+            'cn-hongkong-finance-pop'     => 'hbase.aliyuncs.com',
+            'cn-qingdao-nebula'           => 'hbase.aliyuncs.com',
+            'cn-shanghai-et15-b01'        => 'hbase.aliyuncs.com',
+            'cn-shanghai-et2-b01'         => 'hbase.aliyuncs.com',
+            'cn-shanghai-inner'           => 'hbase.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'hbase.aliyuncs.com',
+            'cn-shenzhen-inner'           => 'hbase.aliyuncs.com',
+            'cn-shenzhen-st4-d01'         => 'hbase.aliyuncs.com',
+            'cn-shenzhen-su18-b01'        => 'hbase.aliyuncs.com',
+            'cn-wuhan'                    => 'hbase.aliyuncs.com',
+            'cn-wulanchabu'               => 'hbase.aliyuncs.com',
+            'cn-yushanfang'               => 'hbase.aliyuncs.com',
+            'cn-zhangbei'                 => 'hbase.aliyuncs.com',
+            'cn-zhangbei-na61-b01'        => 'hbase.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01'     => 'hbase.aliyuncs.com',
+            'cn-zhengzhou-nebula-1'       => 'hbase.aliyuncs.com',
+            'eu-west-1-oxs'               => 'hbase.aliyuncs.com',
+            'rus-west-1-pop'              => 'hbase.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hbase', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -188,10 +210,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserHdfsInfoResponse
+     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfoWithOptions($request, $runtime)
     {
@@ -232,14 +254,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserHdfsInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AddUserHdfsInfoRequest $request
+     * @param AddUserHdfsInfoRequest $request AddUserHdfsInfoRequest
      *
-     * @return AddUserHdfsInfoResponse
+     * @return AddUserHdfsInfoResponse AddUserHdfsInfoResponse
      */
     public function addUserHdfsInfo($request)
     {
@@ -249,10 +274,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -284,14 +309,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocatePublicNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AllocatePublicNetworkAddressRequest $request
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
      *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddress($request)
     {
@@ -301,10 +329,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CheckVersionsOfComponentsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CheckVersionsOfComponentsRequest $request CheckVersionsOfComponentsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckVersionsOfComponentsResponse
+     * @return CheckVersionsOfComponentsResponse CheckVersionsOfComponentsResponse
      */
     public function checkVersionsOfComponentsWithOptions($request, $runtime)
     {
@@ -345,14 +373,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckVersionsOfComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckVersionsOfComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckVersionsOfComponentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CheckVersionsOfComponentsRequest $request
+     * @param CheckVersionsOfComponentsRequest $request CheckVersionsOfComponentsRequest
      *
-     * @return CheckVersionsOfComponentsResponse
+     * @return CheckVersionsOfComponentsResponse CheckVersionsOfComponentsResponse
      */
     public function checkVersionsOfComponents($request)
     {
@@ -362,10 +393,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CloseBackupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CloseBackupRequest $request CloseBackupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseBackupResponse
+     * @return CloseBackupResponse CloseBackupResponse
      */
     public function closeBackupWithOptions($request, $runtime)
     {
@@ -403,14 +434,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CloseBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloseBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseBackupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CloseBackupRequest $request
+     * @param CloseBackupRequest $request CloseBackupRequest
      *
-     * @return CloseBackupResponse
+     * @return CloseBackupResponse CloseBackupResponse
      */
     public function closeBackup($request)
     {
@@ -420,10 +454,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ConvertClusterRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ConvertClusterRequest $request ConvertClusterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConvertClusterResponse
+     * @return ConvertClusterResponse ConvertClusterResponse
      */
     public function convertClusterWithOptions($request, $runtime)
     {
@@ -461,14 +495,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ConvertClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConvertClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConvertClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ConvertClusterRequest $request
+     * @param ConvertClusterRequest $request ConvertClusterRequest
      *
-     * @return ConvertClusterResponse
+     * @return ConvertClusterResponse ConvertClusterResponse
      */
     public function convertCluster($request)
     {
@@ -478,10 +515,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 创建实例
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
@@ -591,14 +630,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @summary 创建实例
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -608,10 +652,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalResourceResponse
+     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
      */
     public function createGlobalResourceWithOptions($request, $runtime)
     {
@@ -655,14 +699,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateGlobalResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateGlobalResourceRequest $request
+     * @param CreateGlobalResourceRequest $request CreateGlobalResourceRequest
      *
-     * @return CreateGlobalResourceResponse
+     * @return CreateGlobalResourceResponse CreateGlobalResourceResponse
      */
     public function createGlobalResource($request)
     {
@@ -672,10 +719,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateHbaseSlbServerRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateHbaseSlbServerRequest $request CreateHbaseSlbServerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHbaseSlbServerResponse
+     * @return CreateHbaseSlbServerResponse CreateHbaseSlbServerResponse
      */
     public function createHbaseSlbServerWithOptions($request, $runtime)
     {
@@ -716,14 +763,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHbaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHbaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHbaseSlbServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateHbaseSlbServerRequest $request
+     * @param CreateHbaseSlbServerRequest $request CreateHbaseSlbServerRequest
      *
-     * @return CreateHbaseSlbServerResponse
+     * @return CreateHbaseSlbServerResponse CreateHbaseSlbServerResponse
      */
     public function createHbaseSlbServer($request)
     {
@@ -733,10 +783,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 创建订阅
+     *  *
+     * @param CreateSubscriptionRequest $request CreateSubscriptionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubscriptionResponse
+     * @return CreateSubscriptionResponse CreateSubscriptionResponse
      */
     public function createSubscriptionWithOptions($request, $runtime)
     {
@@ -795,14 +847,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateSubscriptionRequest $request
+     * @summary 创建订阅
+     *  *
+     * @param CreateSubscriptionRequest $request CreateSubscriptionRequest
      *
-     * @return CreateSubscriptionResponse
+     * @return CreateSubscriptionResponse CreateSubscriptionResponse
      */
     public function createSubscription($request)
     {
@@ -812,10 +869,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -856,14 +913,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -873,10 +933,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalResourceResponse
+     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
      */
     public function deleteGlobalResourceWithOptions($request, $runtime)
     {
@@ -920,14 +980,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteGlobalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteGlobalResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteGlobalResourceRequest $request
+     * @param DeleteGlobalResourceRequest $request DeleteGlobalResourceRequest
      *
-     * @return DeleteGlobalResourceResponse
+     * @return DeleteGlobalResourceResponse DeleteGlobalResourceResponse
      */
     public function deleteGlobalResource($request)
     {
@@ -937,10 +1000,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteHbaseSlbServerRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteHbaseSlbServerRequest $request DeleteHbaseSlbServerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHbaseSlbServerResponse
+     * @return DeleteHbaseSlbServerResponse DeleteHbaseSlbServerResponse
      */
     public function deleteHbaseSlbServerWithOptions($request, $runtime)
     {
@@ -981,14 +1044,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHbaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHbaseSlbServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHbaseSlbServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteHbaseSlbServerRequest $request
+     * @param DeleteHbaseSlbServerRequest $request DeleteHbaseSlbServerRequest
      *
-     * @return DeleteHbaseSlbServerResponse
+     * @return DeleteHbaseSlbServerResponse DeleteHbaseSlbServerResponse
      */
     public function deleteHbaseSlbServer($request)
     {
@@ -998,10 +1064,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerlessInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteServerlessInstanceRequest $request DeleteServerlessInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerlessInstanceResponse
+     * @return DeleteServerlessInstanceResponse DeleteServerlessInstanceResponse
      */
     public function deleteServerlessInstanceWithOptions($request, $runtime)
     {
@@ -1042,14 +1108,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteServerlessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteServerlessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServerlessInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteServerlessInstanceRequest $request
+     * @param DeleteServerlessInstanceRequest $request DeleteServerlessInstanceRequest
      *
-     * @return DeleteServerlessInstanceResponse
+     * @return DeleteServerlessInstanceResponse DeleteServerlessInstanceResponse
      */
     public function deleteServerlessInstance($request)
     {
@@ -1059,10 +1128,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserHdfsInfoResponse
+     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfoWithOptions($request, $runtime)
     {
@@ -1103,14 +1172,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserHdfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserHdfsInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteUserHdfsInfoRequest $request
+     * @param DeleteUserHdfsInfoRequest $request DeleteUserHdfsInfoRequest
      *
-     * @return DeleteUserHdfsInfoResponse
+     * @return DeleteUserHdfsInfoResponse DeleteUserHdfsInfoResponse
      */
     public function deleteUserHdfsInfo($request)
     {
@@ -1120,10 +1192,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -1161,14 +1233,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1178,10 +1253,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -1240,14 +1315,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -1257,10 +1335,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterAttributeRequest $request DescribeClusterAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAttributeResponse
+     * @return DescribeClusterAttributeResponse DescribeClusterAttributeResponse
      */
     public function describeClusterAttributeWithOptions($request, $runtime)
     {
@@ -1298,14 +1376,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterAttributeRequest $request
+     * @param DescribeClusterAttributeRequest $request DescribeClusterAttributeRequest
      *
-     * @return DescribeClusterAttributeResponse
+     * @return DescribeClusterAttributeResponse DescribeClusterAttributeResponse
      */
     public function describeClusterAttribute($request)
     {
@@ -1315,10 +1396,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterConnectAddrsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeClusterConnectAddrsRequest $request DescribeClusterConnectAddrsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterConnectAddrsResponse
+     * @return DescribeClusterConnectAddrsResponse DescribeClusterConnectAddrsResponse
      */
     public function describeClusterConnectAddrsWithOptions($request, $runtime)
     {
@@ -1356,14 +1437,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeClusterConnectAddrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeClusterConnectAddrsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeClusterConnectAddrsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterConnectAddrsRequest $request
+     * @param DescribeClusterConnectAddrsRequest $request DescribeClusterConnectAddrsRequest
      *
-     * @return DescribeClusterConnectAddrsResponse
+     * @return DescribeClusterConnectAddrsResponse DescribeClusterConnectAddrsResponse
      */
     public function describeClusterConnectAddrs($request)
     {
@@ -1373,10 +1457,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeClusterListRequest $request DescribeClusterListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterListResponse
+     * @return DescribeClusterListResponse DescribeClusterListResponse
      */
     public function describeClusterListWithOptions($request, $runtime)
     {
@@ -1432,14 +1516,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeClusterListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterListRequest $request
+     * @param DescribeClusterListRequest $request DescribeClusterListRequest
      *
-     * @return DescribeClusterListResponse
+     * @return DescribeClusterListResponse DescribeClusterListResponse
      */
     public function describeClusterList($request)
     {
@@ -1449,10 +1536,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterModelRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeClusterModelRequest $request DescribeClusterModelRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterModelResponse
+     * @return DescribeClusterModelResponse DescribeClusterModelResponse
      */
     public function describeClusterModelWithOptions($request, $runtime)
     {
@@ -1490,14 +1577,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeClusterModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeClusterModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeClusterModelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterModelRequest $request
+     * @param DescribeClusterModelRequest $request DescribeClusterModelRequest
      *
-     * @return DescribeClusterModelResponse
+     * @return DescribeClusterModelResponse DescribeClusterModelResponse
      */
     public function describeClusterModel($request)
     {
@@ -1507,10 +1597,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterWhiteListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterWhiteListRequest $request DescribeClusterWhiteListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterWhiteListResponse
+     * @return DescribeClusterWhiteListResponse DescribeClusterWhiteListResponse
      */
     public function describeClusterWhiteListWithOptions($request, $runtime)
     {
@@ -1548,14 +1638,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeClusterWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeClusterWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeClusterWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeClusterWhiteListRequest $request
+     * @param DescribeClusterWhiteListRequest $request DescribeClusterWhiteListRequest
      *
-     * @return DescribeClusterWhiteListResponse
+     * @return DescribeClusterWhiteListResponse DescribeClusterWhiteListResponse
      */
     public function describeClusterWhiteList($request)
     {
@@ -1565,10 +1658,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeColdStorageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColdStorageResponse
+     * @return DescribeColdStorageResponse DescribeColdStorageResponse
      */
     public function describeColdStorageWithOptions($request, $runtime)
     {
@@ -1606,14 +1699,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeColdStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeColdStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeColdStorageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeColdStorageRequest $request
+     * @param DescribeColdStorageRequest $request DescribeColdStorageRequest
      *
-     * @return DescribeColdStorageResponse
+     * @return DescribeColdStorageResponse DescribeColdStorageResponse
      */
     public function describeColdStorage($request)
     {
@@ -1623,10 +1719,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeMultiModDbAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeMultiModDbAttributeRequest $request DescribeMultiModDbAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMultiModDbAttributeResponse
+     * @return DescribeMultiModDbAttributeResponse DescribeMultiModDbAttributeResponse
      */
     public function describeMultiModDbAttributeWithOptions($request, $runtime)
     {
@@ -1664,14 +1760,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeMultiModDbAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMultiModDbAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMultiModDbAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMultiModDbAttributeRequest $request
+     * @param DescribeMultiModDbAttributeRequest $request DescribeMultiModDbAttributeRequest
      *
-     * @return DescribeMultiModDbAttributeResponse
+     * @return DescribeMultiModDbAttributeResponse DescribeMultiModDbAttributeResponse
      */
     public function describeMultiModDbAttribute($request)
     {
@@ -1681,10 +1780,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsVSwitchsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchsWithOptions($request, $runtime)
     {
@@ -1728,14 +1827,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRdsVSwitchsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRdsVSwitchsRequest $request
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
      *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchs($request)
     {
@@ -1745,10 +1847,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -1783,14 +1885,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1800,10 +1905,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeServerlessInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeServerlessInstanceRequest $request DescribeServerlessInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServerlessInstanceResponse
+     * @return DescribeServerlessInstanceResponse DescribeServerlessInstanceResponse
      */
     public function describeServerlessInstanceWithOptions($request, $runtime)
     {
@@ -1835,14 +1940,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeServerlessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeServerlessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeServerlessInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeServerlessInstanceRequest $request
+     * @param DescribeServerlessInstanceRequest $request DescribeServerlessInstanceRequest
      *
-     * @return DescribeServerlessInstanceResponse
+     * @return DescribeServerlessInstanceResponse DescribeServerlessInstanceResponse
      */
     public function describeServerlessInstance($request)
     {
@@ -1852,10 +1960,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionInitializeProgressRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 查询订阅进度
+     *  *
+     * @param DescribeSubscriptionInitializeProgressRequest $request DescribeSubscriptionInitializeProgressRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubscriptionInitializeProgressResponse
+     * @return DescribeSubscriptionInitializeProgressResponse DescribeSubscriptionInitializeProgressResponse
      */
     public function describeSubscriptionInitializeProgressWithOptions($request, $runtime)
     {
@@ -1869,6 +1979,9 @@ class HBase extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -1893,14 +2006,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSubscriptionInitializeProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSubscriptionInitializeProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSubscriptionInitializeProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSubscriptionInitializeProgressRequest $request
+     * @summary 查询订阅进度
+     *  *
+     * @param DescribeSubscriptionInitializeProgressRequest $request DescribeSubscriptionInitializeProgressRequest
      *
-     * @return DescribeSubscriptionInitializeProgressResponse
+     * @return DescribeSubscriptionInitializeProgressResponse DescribeSubscriptionInitializeProgressResponse
      */
     public function describeSubscriptionInitializeProgress($request)
     {
@@ -1910,10 +2028,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionPerformanceRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 查询订阅
+     *  *
+     * @param DescribeSubscriptionPerformanceRequest $request DescribeSubscriptionPerformanceRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubscriptionPerformanceResponse
+     * @return DescribeSubscriptionPerformanceResponse DescribeSubscriptionPerformanceResponse
      */
     public function describeSubscriptionPerformanceWithOptions($request, $runtime)
     {
@@ -1927,6 +2047,9 @@ class HBase extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -1957,14 +2080,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSubscriptionPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSubscriptionPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSubscriptionPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSubscriptionPerformanceRequest $request
+     * @summary 查询订阅
+     *  *
+     * @param DescribeSubscriptionPerformanceRequest $request DescribeSubscriptionPerformanceRequest
      *
-     * @return DescribeSubscriptionPerformanceResponse
+     * @return DescribeSubscriptionPerformanceResponse DescribeSubscriptionPerformanceResponse
      */
     public function describeSubscriptionPerformance($request)
     {
@@ -1974,10 +2102,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionPermissionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 查询订阅权限
+     *  *
+     * @param DescribeSubscriptionPermissionRequest $request DescribeSubscriptionPermissionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubscriptionPermissionResponse
+     * @return DescribeSubscriptionPermissionResponse DescribeSubscriptionPermissionResponse
      */
     public function describeSubscriptionPermissionWithOptions($request, $runtime)
     {
@@ -1985,6 +2115,9 @@ class HBase extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2006,14 +2139,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSubscriptionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSubscriptionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSubscriptionPermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSubscriptionPermissionRequest $request
+     * @summary 查询订阅权限
+     *  *
+     * @param DescribeSubscriptionPermissionRequest $request DescribeSubscriptionPermissionRequest
      *
-     * @return DescribeSubscriptionPermissionResponse
+     * @return DescribeSubscriptionPermissionResponse DescribeSubscriptionPermissionResponse
      */
     public function describeSubscriptionPermission($request)
     {
@@ -2023,10 +2161,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询订阅列表
+     *  *
+     * @param DescribeSubscriptionsRequest $request DescribeSubscriptionsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubscriptionsResponse
+     * @return DescribeSubscriptionsResponse DescribeSubscriptionsResponse
      */
     public function describeSubscriptionsWithOptions($request, $runtime)
     {
@@ -2040,6 +2180,9 @@ class HBase extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -2064,14 +2207,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSubscriptionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSubscriptionsRequest $request
+     * @summary 查询订阅列表
+     *  *
+     * @param DescribeSubscriptionsRequest $request DescribeSubscriptionsRequest
      *
-     * @return DescribeSubscriptionsResponse
+     * @return DescribeSubscriptionsResponse DescribeSubscriptionsResponse
      */
     public function describeSubscriptions($request)
     {
@@ -2081,10 +2229,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param EnableServerlessPublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param EnableServerlessPublicConnectionRequest $request EnableServerlessPublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableServerlessPublicConnectionResponse
+     * @return EnableServerlessPublicConnectionResponse EnableServerlessPublicConnectionResponse
      */
     public function enableServerlessPublicConnectionWithOptions($request, $runtime)
     {
@@ -2125,14 +2273,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableServerlessPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableServerlessPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableServerlessPublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EnableServerlessPublicConnectionRequest $request
+     * @param EnableServerlessPublicConnectionRequest $request EnableServerlessPublicConnectionRequest
      *
-     * @return EnableServerlessPublicConnectionResponse
+     * @return EnableServerlessPublicConnectionResponse EnableServerlessPublicConnectionResponse
      */
     public function enableServerlessPublicConnection($request)
     {
@@ -2142,10 +2293,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMultimodeCmsUrlResponse
+     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrlWithOptions($request, $runtime)
     {
@@ -2183,14 +2334,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMultimodeCmsUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMultimodeCmsUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMultimodeCmsUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetMultimodeCmsUrlRequest $request
+     * @param GetMultimodeCmsUrlRequest $request GetMultimodeCmsUrlRequest
      *
-     * @return GetMultimodeCmsUrlResponse
+     * @return GetMultimodeCmsUrlResponse GetMultimodeCmsUrlResponse
      */
     public function getMultimodeCmsUrl($request)
     {
@@ -2200,10 +2354,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListClusterServiceConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListClusterServiceConfigRequest $request ListClusterServiceConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterServiceConfigResponse
+     * @return ListClusterServiceConfigResponse ListClusterServiceConfigResponse
      */
     public function listClusterServiceConfigWithOptions($request, $runtime)
     {
@@ -2241,14 +2395,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClusterServiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListClusterServiceConfigRequest $request
+     * @param ListClusterServiceConfigRequest $request ListClusterServiceConfigRequest
      *
-     * @return ListClusterServiceConfigResponse
+     * @return ListClusterServiceConfigResponse ListClusterServiceConfigResponse
      */
     public function listClusterServiceConfig($request)
     {
@@ -2258,10 +2415,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListClusterServiceConfigHistoryRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ListClusterServiceConfigHistoryRequest $request ListClusterServiceConfigHistoryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterServiceConfigHistoryResponse
+     * @return ListClusterServiceConfigHistoryResponse ListClusterServiceConfigHistoryResponse
      */
     public function listClusterServiceConfigHistoryWithOptions($request, $runtime)
     {
@@ -2305,14 +2462,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClusterServiceConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClusterServiceConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClusterServiceConfigHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListClusterServiceConfigHistoryRequest $request
+     * @param ListClusterServiceConfigHistoryRequest $request ListClusterServiceConfigHistoryRequest
      *
-     * @return ListClusterServiceConfigHistoryResponse
+     * @return ListClusterServiceConfigHistoryResponse ListClusterServiceConfigHistoryResponse
      */
     public function listClusterServiceConfigHistory($request)
     {
@@ -2322,10 +2482,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListHbaseInstancesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询hbase实例列表
+     *  *
+     * @param ListHbaseInstancesRequest $request ListHbaseInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHbaseInstancesResponse
+     * @return ListHbaseInstancesResponse ListHbaseInstancesResponse
      */
     public function listHbaseInstancesWithOptions($request, $runtime)
     {
@@ -2366,14 +2528,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHbaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHbaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHbaseInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListHbaseInstancesRequest $request
+     * @summary 查询hbase实例列表
+     *  *
+     * @param ListHbaseInstancesRequest $request ListHbaseInstancesRequest
      *
-     * @return ListHbaseInstancesResponse
+     * @return ListHbaseInstancesResponse ListHbaseInstancesResponse
      */
     public function listHbaseInstances($request)
     {
@@ -2383,10 +2550,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -2433,14 +2600,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2450,10 +2620,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -2506,14 +2676,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -2523,10 +2696,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterNameRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ModifyClusterNameRequest $request ModifyClusterNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterNameResponse
+     * @return ModifyClusterNameResponse ModifyClusterNameResponse
      */
     public function modifyClusterNameWithOptions($request, $runtime)
     {
@@ -2567,14 +2740,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyClusterNameRequest $request
+     * @param ModifyClusterNameRequest $request ModifyClusterNameRequest
      *
-     * @return ModifyClusterNameResponse
+     * @return ModifyClusterNameResponse ModifyClusterNameResponse
      */
     public function modifyClusterName($request)
     {
@@ -2584,10 +2760,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterNetTypeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyClusterNetTypeRequest $request ModifyClusterNetTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterNetTypeResponse
+     * @return ModifyClusterNetTypeResponse ModifyClusterNetTypeResponse
      */
     public function modifyClusterNetTypeWithOptions($request, $runtime)
     {
@@ -2634,14 +2810,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterNetTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyClusterNetTypeRequest $request
+     * @param ModifyClusterNetTypeRequest $request ModifyClusterNetTypeRequest
      *
-     * @return ModifyClusterNetTypeResponse
+     * @return ModifyClusterNetTypeResponse ModifyClusterNetTypeResponse
      */
     public function modifyClusterNetType($request)
     {
@@ -2651,10 +2830,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterSecurityIpListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ModifyClusterSecurityIpListRequest $request ModifyClusterSecurityIpListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterSecurityIpListResponse
+     * @return ModifyClusterSecurityIpListResponse ModifyClusterSecurityIpListResponse
      */
     public function modifyClusterSecurityIpListWithOptions($request, $runtime)
     {
@@ -2695,14 +2874,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterSecurityIpListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterSecurityIpListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterSecurityIpListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyClusterSecurityIpListRequest $request
+     * @param ModifyClusterSecurityIpListRequest $request ModifyClusterSecurityIpListRequest
      *
-     * @return ModifyClusterSecurityIpListResponse
+     * @return ModifyClusterSecurityIpListResponse ModifyClusterSecurityIpListResponse
      */
     public function modifyClusterSecurityIpList($request)
     {
@@ -2712,10 +2894,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyClusterServiceConfigRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyClusterServiceConfigRequest $request ModifyClusterServiceConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterServiceConfigResponse
+     * @return ModifyClusterServiceConfigResponse ModifyClusterServiceConfigResponse
      */
     public function modifyClusterServiceConfigWithOptions($request, $runtime)
     {
@@ -2765,14 +2947,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterServiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyClusterServiceConfigRequest $request
+     * @param ModifyClusterServiceConfigRequest $request ModifyClusterServiceConfigRequest
      *
-     * @return ModifyClusterServiceConfigResponse
+     * @return ModifyClusterServiceConfigResponse ModifyClusterServiceConfigResponse
      */
     public function modifyClusterServiceConfig($request)
     {
@@ -2782,10 +2967,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyHasRootPasswordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ModifyHasRootPasswordRequest $request ModifyHasRootPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHasRootPasswordResponse
+     * @return ModifyHasRootPasswordResponse ModifyHasRootPasswordResponse
      */
     public function modifyHasRootPasswordWithOptions($request, $runtime)
     {
@@ -2826,14 +3011,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHasRootPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHasRootPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHasRootPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyHasRootPasswordRequest $request
+     * @param ModifyHasRootPasswordRequest $request ModifyHasRootPasswordRequest
      *
-     * @return ModifyHasRootPasswordResponse
+     * @return ModifyHasRootPasswordResponse ModifyHasRootPasswordResponse
      */
     public function modifyHasRootPassword($request)
     {
@@ -2843,10 +3031,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyRestartClusterRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ModifyRestartClusterRequest $request ModifyRestartClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRestartClusterResponse
+     * @return ModifyRestartClusterResponse ModifyRestartClusterResponse
      */
     public function modifyRestartClusterWithOptions($request, $runtime)
     {
@@ -2887,14 +3075,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyRestartClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyRestartClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRestartClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyRestartClusterRequest $request
+     * @param ModifyRestartClusterRequest $request ModifyRestartClusterRequest
      *
-     * @return ModifyRestartClusterResponse
+     * @return ModifyRestartClusterResponse ModifyRestartClusterResponse
      */
     public function modifyRestartCluster($request)
     {
@@ -2904,10 +3095,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyRollbackHasForHbaseRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyRollbackHasForHbaseRequest $request ModifyRollbackHasForHbaseRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRollbackHasForHbaseResponse
+     * @return ModifyRollbackHasForHbaseResponse ModifyRollbackHasForHbaseResponse
      */
     public function modifyRollbackHasForHbaseWithOptions($request, $runtime)
     {
@@ -2948,14 +3139,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyRollbackHasForHbaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyRollbackHasForHbaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRollbackHasForHbaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyRollbackHasForHbaseRequest $request
+     * @param ModifyRollbackHasForHbaseRequest $request ModifyRollbackHasForHbaseRequest
      *
-     * @return ModifyRollbackHasForHbaseResponse
+     * @return ModifyRollbackHasForHbaseResponse ModifyRollbackHasForHbaseResponse
      */
     public function modifyRollbackHasForHbase($request)
     {
@@ -2965,10 +3159,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySubscriptionDescriptionRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 更新订阅描述
+     *  *
+     * @param ModifySubscriptionDescriptionRequest $request ModifySubscriptionDescriptionRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySubscriptionDescriptionResponse
+     * @return ModifySubscriptionDescriptionResponse ModifySubscriptionDescriptionResponse
      */
     public function modifySubscriptionDescriptionWithOptions($request, $runtime)
     {
@@ -2976,6 +3172,9 @@ class HBase extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3003,14 +3202,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifySubscriptionDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySubscriptionDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySubscriptionDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySubscriptionDescriptionRequest $request
+     * @summary 更新订阅描述
+     *  *
+     * @param ModifySubscriptionDescriptionRequest $request ModifySubscriptionDescriptionRequest
      *
-     * @return ModifySubscriptionDescriptionResponse
+     * @return ModifySubscriptionDescriptionResponse ModifySubscriptionDescriptionResponse
      */
     public function modifySubscriptionDescription($request)
     {
@@ -3020,10 +3224,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySubscriptionMappingRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新订阅
+     *  *
+     * @param ModifySubscriptionMappingRequest $request ModifySubscriptionMappingRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySubscriptionMappingResponse
+     * @return ModifySubscriptionMappingResponse ModifySubscriptionMappingResponse
      */
     public function modifySubscriptionMappingWithOptions($request, $runtime)
     {
@@ -3034,6 +3240,9 @@ class HBase extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3058,14 +3267,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifySubscriptionMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySubscriptionMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySubscriptionMappingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySubscriptionMappingRequest $request
+     * @summary 更新订阅
+     *  *
+     * @param ModifySubscriptionMappingRequest $request ModifySubscriptionMappingRequest
      *
-     * @return ModifySubscriptionMappingResponse
+     * @return ModifySubscriptionMappingResponse ModifySubscriptionMappingResponse
      */
     public function modifySubscriptionMapping($request)
     {
@@ -3075,10 +3289,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifySubscriptionPermissionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新订阅权限
+     *  *
+     * @param ModifySubscriptionPermissionRequest $request ModifySubscriptionPermissionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySubscriptionPermissionResponse
+     * @return ModifySubscriptionPermissionResponse ModifySubscriptionPermissionResponse
      */
     public function modifySubscriptionPermissionWithOptions($request, $runtime)
     {
@@ -3086,6 +3302,9 @@ class HBase extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3110,14 +3329,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifySubscriptionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySubscriptionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySubscriptionPermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySubscriptionPermissionRequest $request
+     * @summary 更新订阅权限
+     *  *
+     * @param ModifySubscriptionPermissionRequest $request ModifySubscriptionPermissionRequest
      *
-     * @return ModifySubscriptionPermissionResponse
+     * @return ModifySubscriptionPermissionResponse ModifySubscriptionPermissionResponse
      */
     public function modifySubscriptionPermission($request)
     {
@@ -3127,10 +3351,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyUIProxyAccountPasswordRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param ModifyUIProxyAccountPasswordRequest $request ModifyUIProxyAccountPasswordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUIProxyAccountPasswordResponse
+     * @return ModifyUIProxyAccountPasswordResponse ModifyUIProxyAccountPasswordResponse
      */
     public function modifyUIProxyAccountPasswordWithOptions($request, $runtime)
     {
@@ -3174,14 +3398,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUIProxyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUIProxyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUIProxyAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyUIProxyAccountPasswordRequest $request
+     * @param ModifyUIProxyAccountPasswordRequest $request ModifyUIProxyAccountPasswordRequest
      *
-     * @return ModifyUIProxyAccountPasswordResponse
+     * @return ModifyUIProxyAccountPasswordResponse ModifyUIProxyAccountPasswordResponse
      */
     public function modifyUIProxyAccountPassword($request)
     {
@@ -3191,10 +3418,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ModifyUpgradeToHasForHbaseRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyUpgradeToHasForHbaseRequest $request ModifyUpgradeToHasForHbaseRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUpgradeToHasForHbaseResponse
+     * @return ModifyUpgradeToHasForHbaseResponse ModifyUpgradeToHasForHbaseResponse
      */
     public function modifyUpgradeToHasForHbaseWithOptions($request, $runtime)
     {
@@ -3238,14 +3465,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUpgradeToHasForHbaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUpgradeToHasForHbaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUpgradeToHasForHbaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyUpgradeToHasForHbaseRequest $request
+     * @param ModifyUpgradeToHasForHbaseRequest $request ModifyUpgradeToHasForHbaseRequest
      *
-     * @return ModifyUpgradeToHasForHbaseResponse
+     * @return ModifyUpgradeToHasForHbaseResponse ModifyUpgradeToHasForHbaseResponse
      */
     public function modifyUpgradeToHasForHbase($request)
     {
@@ -3255,10 +3485,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param MultimodAddComponentsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param MultimodAddComponentsRequest $request MultimodAddComponentsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return MultimodAddComponentsResponse
+     * @return MultimodAddComponentsResponse MultimodAddComponentsResponse
      */
     public function multimodAddComponentsWithOptions($request, $runtime)
     {
@@ -3299,14 +3529,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MultimodAddComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MultimodAddComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MultimodAddComponentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param MultimodAddComponentsRequest $request
+     * @param MultimodAddComponentsRequest $request MultimodAddComponentsRequest
      *
-     * @return MultimodAddComponentsResponse
+     * @return MultimodAddComponentsResponse MultimodAddComponentsResponse
      */
     public function multimodAddComponents($request)
     {
@@ -3316,10 +3549,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param OpenBackupRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param OpenBackupRequest $request OpenBackupRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenBackupResponse
+     * @return OpenBackupResponse OpenBackupResponse
      */
     public function openBackupWithOptions($request, $runtime)
     {
@@ -3348,14 +3581,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OpenBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenBackupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param OpenBackupRequest $request
+     * @param OpenBackupRequest $request OpenBackupRequest
      *
-     * @return OpenBackupResponse
+     * @return OpenBackupResponse OpenBackupResponse
      */
     public function openBackup($request)
     {
@@ -3365,10 +3601,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryHBaseHaDBResponse
+     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDBWithOptions($request, $runtime)
     {
@@ -3406,14 +3642,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryHBaseHaDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryHBaseHaDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryHBaseHaDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryHBaseHaDBRequest $request
+     * @param QueryHBaseHaDBRequest $request QueryHBaseHaDBRequest
      *
-     * @return QueryHBaseHaDBResponse
+     * @return QueryHBaseHaDBResponse QueryHBaseHaDBResponse
      */
     public function queryHBaseHaDB($request)
     {
@@ -3423,10 +3662,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QuerySparkRelateHBaseRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QuerySparkRelateHBaseRequest $request QuerySparkRelateHBaseRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySparkRelateHBaseResponse
+     * @return QuerySparkRelateHBaseResponse QuerySparkRelateHBaseResponse
      */
     public function querySparkRelateHBaseWithOptions($request, $runtime)
     {
@@ -3464,14 +3703,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QuerySparkRelateHBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySparkRelateHBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySparkRelateHBaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySparkRelateHBaseRequest $request
+     * @param QuerySparkRelateHBaseRequest $request QuerySparkRelateHBaseRequest
      *
-     * @return QuerySparkRelateHBaseResponse
+     * @return QuerySparkRelateHBaseResponse QuerySparkRelateHBaseResponse
      */
     public function querySparkRelateHBase($request)
     {
@@ -3481,10 +3723,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param QueryXpackRelatedDBRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param QueryXpackRelatedDBRequest $request QueryXpackRelatedDBRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryXpackRelatedDBResponse
+     * @return QueryXpackRelatedDBResponse QueryXpackRelatedDBResponse
      */
     public function queryXpackRelatedDBWithOptions($request, $runtime)
     {
@@ -3525,14 +3767,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryXpackRelatedDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryXpackRelatedDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryXpackRelatedDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryXpackRelatedDBRequest $request
+     * @param QueryXpackRelatedDBRequest $request QueryXpackRelatedDBRequest
      *
-     * @return QueryXpackRelatedDBResponse
+     * @return QueryXpackRelatedDBResponse QueryXpackRelatedDBResponse
      */
     public function queryXpackRelatedDB($request)
     {
@@ -3542,10 +3787,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RelateDbForHBaseHaResponse
+     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHaWithOptions($request, $runtime)
     {
@@ -3643,14 +3888,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RelateDbForHBaseHaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RelateDbForHBaseHaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RelateDbForHBaseHaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RelateDbForHBaseHaRequest $request
+     * @param RelateDbForHBaseHaRequest $request RelateDbForHBaseHaRequest
      *
-     * @return RelateDbForHBaseHaResponse
+     * @return RelateDbForHBaseHaResponse RelateDbForHBaseHaResponse
      */
     public function relateDbForHBaseHa($request)
     {
@@ -3660,10 +3908,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddressWithOptions($request, $runtime)
     {
@@ -3695,14 +3943,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleasePublicNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ReleasePublicNetworkAddressRequest $request
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
      *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddress($request)
     {
@@ -3712,10 +3963,12 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ReleaseSubscriptionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 是否订阅
+     *  *
+     * @param ReleaseSubscriptionRequest $request ReleaseSubscriptionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseSubscriptionResponse
+     * @return ReleaseSubscriptionResponse ReleaseSubscriptionResponse
      */
     public function releaseSubscriptionWithOptions($request, $runtime)
     {
@@ -3723,6 +3976,9 @@ class HBase extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -3747,14 +4003,19 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ReleaseSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ReleaseSubscriptionRequest $request
+     * @summary 是否订阅
+     *  *
+     * @param ReleaseSubscriptionRequest $request ReleaseSubscriptionRequest
      *
-     * @return ReleaseSubscriptionResponse
+     * @return ReleaseSubscriptionResponse ReleaseSubscriptionResponse
      */
     public function releaseSubscription($request)
     {
@@ -3764,10 +4025,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param RenewClusterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param RenewClusterRequest $request RenewClusterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewClusterResponse
+     * @return RenewClusterResponse RenewClusterResponse
      */
     public function renewClusterWithOptions($request, $runtime)
     {
@@ -3805,14 +4066,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenewClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RenewClusterRequest $request
+     * @param RenewClusterRequest $request RenewClusterRequest
      *
-     * @return RenewClusterResponse
+     * @return RenewClusterResponse RenewClusterResponse
      */
     public function renewCluster($request)
     {
@@ -3822,10 +4086,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param ResizeClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ResizeClusterRequest $request ResizeClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeClusterResponse
+     * @return ResizeClusterResponse ResizeClusterResponse
      */
     public function resizeClusterWithOptions($request, $runtime)
     {
@@ -3890,14 +4154,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResizeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResizeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResizeClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ResizeClusterRequest $request
+     * @param ResizeClusterRequest $request ResizeClusterRequest
      *
-     * @return ResizeClusterResponse
+     * @return ResizeClusterResponse ResizeClusterResponse
      */
     public function resizeCluster($request)
     {
@@ -3907,10 +4174,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param SparkRelateHBaseRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SparkRelateHBaseRequest $request SparkRelateHBaseRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SparkRelateHBaseResponse
+     * @return SparkRelateHBaseResponse SparkRelateHBaseResponse
      */
     public function sparkRelateHBaseWithOptions($request, $runtime)
     {
@@ -3951,14 +4218,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SparkRelateHBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SparkRelateHBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SparkRelateHBaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SparkRelateHBaseRequest $request
+     * @param SparkRelateHBaseRequest $request SparkRelateHBaseRequest
      *
-     * @return SparkRelateHBaseResponse
+     * @return SparkRelateHBaseResponse SparkRelateHBaseResponse
      */
     public function sparkRelateHBase($request)
     {
@@ -3968,10 +4238,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -4015,14 +4285,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4032,10 +4305,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -4082,14 +4355,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4099,10 +4375,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeMinorVersionResponse
+     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersionWithOptions($request, $runtime)
     {
@@ -4149,14 +4425,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeMinorVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeMinorVersionRequest $request
+     * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
      *
-     * @return UpgradeMinorVersionResponse
+     * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse
      */
     public function upgradeMinorVersion($request)
     {
@@ -4166,10 +4445,10 @@ class HBase extends OpenApiClient
     }
 
     /**
-     * @param XpackRelateDBRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param XpackRelateDBRequest $request XpackRelateDBRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return XpackRelateDBResponse
+     * @return XpackRelateDBResponse XpackRelateDBResponse
      */
     public function xpackRelateDBWithOptions($request, $runtime)
     {
@@ -4213,14 +4492,17 @@ class HBase extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return XpackRelateDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return XpackRelateDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return XpackRelateDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param XpackRelateDBRequest $request
+     * @param XpackRelateDBRequest $request XpackRelateDBRequest
      *
-     * @return XpackRelateDBResponse
+     * @return XpackRelateDBResponse XpackRelateDBResponse
      */
     public function xpackRelateDB($request)
     {

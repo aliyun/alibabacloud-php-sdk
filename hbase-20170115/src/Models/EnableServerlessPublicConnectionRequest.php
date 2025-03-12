@@ -14,6 +14,8 @@ class EnableServerlessPublicConnectionRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +26,8 @@ class EnableServerlessPublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class EnableServerlessPublicConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $zoneId;

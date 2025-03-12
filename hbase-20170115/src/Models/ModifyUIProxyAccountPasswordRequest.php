@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyUIProxyAccountPasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
@@ -29,6 +35,8 @@ class ModifyUIProxyAccountPasswordRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

@@ -14,6 +14,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddUserHdfsInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $extInfo;
@@ -24,6 +28,8 @@ class AddUserHdfsInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
