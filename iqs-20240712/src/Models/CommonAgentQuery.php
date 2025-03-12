@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CommonAgentQuery extends Model
 {
@@ -12,6 +12,7 @@ class CommonAgentQuery extends Model
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class CommonAgentQuery extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
-
         if (null !== $this->querySceneEnumCode) {
             $res['querySceneEnumCode'] = $this->querySceneEnumCode;
         }
@@ -40,18 +39,17 @@ class CommonAgentQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CommonAgentQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
-
         if (isset($map['querySceneEnumCode'])) {
             $model->querySceneEnumCode = $map['querySceneEnumCode'];
         }

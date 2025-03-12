@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\QueryResult\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metadata extends Model
 {
@@ -12,26 +12,32 @@ class metadata extends Model
      * @var string
      */
     public $averageSpend;
+
     /**
      * @var string
      */
     public $businessArea;
+
     /**
      * @var string
      */
     public $dailyOpeningHours;
+
     /**
      * @var string
      */
     public $mainTag;
+
     /**
      * @var string
      */
     public $phone;
+
     /**
      * @var string
      */
     public $score;
+
     /**
      * @var string
      */
@@ -48,36 +54,29 @@ class metadata extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->averageSpend) {
             $res['averageSpend'] = $this->averageSpend;
         }
-
         if (null !== $this->businessArea) {
             $res['businessArea'] = $this->businessArea;
         }
-
         if (null !== $this->dailyOpeningHours) {
             $res['dailyOpeningHours'] = $this->dailyOpeningHours;
         }
-
         if (null !== $this->mainTag) {
             $res['mainTag'] = $this->mainTag;
         }
-
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
-
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
-
         if (null !== $this->weeklyOpeningDays) {
             $res['weeklyOpeningDays'] = $this->weeklyOpeningDays;
         }
@@ -85,38 +84,32 @@ class metadata extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['averageSpend'])) {
             $model->averageSpend = $map['averageSpend'];
         }
-
         if (isset($map['businessArea'])) {
             $model->businessArea = $map['businessArea'];
         }
-
         if (isset($map['dailyOpeningHours'])) {
             $model->dailyOpeningHours = $map['dailyOpeningHours'];
         }
-
         if (isset($map['mainTag'])) {
             $model->mainTag = $map['mainTag'];
         }
-
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }
-
         if (isset($map['score'])) {
             $model->score = $map['score'];
         }
-
         if (isset($map['weeklyOpeningDays'])) {
             $model->weeklyOpeningDays = $map['weeklyOpeningDays'];
         }

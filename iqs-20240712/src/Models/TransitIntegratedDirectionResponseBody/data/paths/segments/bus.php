@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines;
+use AlibabaCloud\Tea\Model;
 
 class bus extends Model
 {
@@ -13,6 +13,7 @@ class bus extends Model
      * @var buslines[]
      */
     public $buslines;
+
     /**
      * @var string
      */
@@ -24,25 +25,20 @@ class bus extends Model
 
     public function validate()
     {
-        if (\is_array($this->buslines)) {
-            Model::validateArray($this->buslines);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->buslines) {
-            if (\is_array($this->buslines)) {
-                $res['buslines'] = [];
-                $n1              = 0;
-                foreach ($this->buslines as $item1) {
-                    $res['buslines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['buslines'] = [];
+            if (null !== $this->buslines && \is_array($this->buslines)) {
+                $n = 0;
+                foreach ($this->buslines as $item) {
+                    $res['buslines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -50,24 +46,23 @@ class bus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buslines'])) {
             if (!empty($map['buslines'])) {
                 $model->buslines = [];
-                $n1              = 0;
-                foreach ($map['buslines'] as $item1) {
-                    $model->buslines[$n1++] = buslines::fromMap($item1);
+                $n               = 0;
+                foreach ($map['buslines'] as $item) {
+                    $model->buslines[$n++] = null !== $item ? buslines::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }

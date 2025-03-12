@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking\cost;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking\steps;
+use AlibabaCloud\Tea\Model;
 
 class walking extends Model
 {
@@ -14,22 +14,33 @@ class walking extends Model
      * @var cost
      */
     public $cost;
+
     /**
+     * @example 116.468208,39.998875
+     *
      * @var string
      */
     public $destination;
+
     /**
+     * @example 546
+     *
      * @var string
      */
     public $distanceMeter;
+
     /**
      * @var string
      */
     public $index;
+
     /**
+     * @example 116.466568,39.995552
+     *
      * @var string
      */
     public $origin;
+
     /**
      * @var steps[]
      */
@@ -45,44 +56,32 @@ class walking extends Model
 
     public function validate()
     {
-        if (null !== $this->cost) {
-            $this->cost->validate();
-        }
-        if (\is_array($this->steps)) {
-            Model::validateArray($this->steps);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cost) {
-            $res['cost'] = null !== $this->cost ? $this->cost->toArray($noStream) : $this->cost;
+            $res['cost'] = null !== $this->cost ? $this->cost->toMap() : null;
         }
-
         if (null !== $this->destination) {
             $res['destination'] = $this->destination;
         }
-
         if (null !== $this->distanceMeter) {
             $res['distanceMeter'] = $this->distanceMeter;
         }
-
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
-
         if (null !== $this->origin) {
             $res['origin'] = $this->origin;
         }
-
         if (null !== $this->steps) {
-            if (\is_array($this->steps)) {
-                $res['steps'] = [];
-                $n1           = 0;
-                foreach ($this->steps as $item1) {
-                    $res['steps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['steps'] = [];
+            if (null !== $this->steps && \is_array($this->steps)) {
+                $n = 0;
+                foreach ($this->steps as $item) {
+                    $res['steps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -90,40 +89,35 @@ class walking extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return walking
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cost'])) {
             $model->cost = cost::fromMap($map['cost']);
         }
-
         if (isset($map['destination'])) {
             $model->destination = $map['destination'];
         }
-
         if (isset($map['distanceMeter'])) {
             $model->distanceMeter = $map['distanceMeter'];
         }
-
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
-
         if (isset($map['origin'])) {
             $model->origin = $map['origin'];
         }
-
         if (isset($map['steps'])) {
             if (!empty($map['steps'])) {
                 $model->steps = [];
-                $n1           = 0;
-                foreach ($map['steps'] as $item1) {
-                    $model->steps[$n1++] = steps::fromMap($item1);
+                $n            = 0;
+                foreach ($map['steps'] as $item) {
+                    $model->steps[$n++] = null !== $item ? steps::fromMap($item) : $item;
                 }
             }
         }

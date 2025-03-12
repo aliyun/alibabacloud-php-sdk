@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class GeoCodeResponseBody extends Model
 {
@@ -13,76 +13,58 @@ class GeoCodeResponseBody extends Model
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'data'      => 'data',
         'requestId' => 'requestId',
-        'success'   => 'success',
     ];
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['data'] = [];
-                $n1          = 0;
-                foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-
-        if (null !== $this->success) {
-            $res['success'] = $this->success;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GeoCodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n1          = 0;
-                foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                $n           = 0;
+                foreach ($map['data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-
-        if (isset($map['success'])) {
-            $model->success = $map['success'];
         }
 
         return $model;

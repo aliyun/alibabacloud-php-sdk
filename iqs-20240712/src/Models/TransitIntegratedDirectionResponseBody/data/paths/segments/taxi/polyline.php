@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IQS\V20240712\Models;
+namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\taxi;
 
 use AlibabaCloud\Tea\Model;
 
-class CommonQueryBySceneRequest extends Model
+class polyline extends Model
 {
     /**
-     * @var CommonAgentQuery
+     * @var string
      */
-    public $body;
+    public $polyline;
     protected $_name = [
-        'body' => 'body',
+        'polyline' => 'polyline',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class CommonQueryBySceneRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->polyline) {
+            $res['polyline'] = $this->polyline;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class CommonQueryBySceneRequest extends Model
     /**
      * @param array $map
      *
-     * @return CommonQueryBySceneRequest
+     * @return polyline
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = CommonAgentQuery::fromMap($map['body']);
+        if (isset($map['polyline'])) {
+            $model->polyline = $map['polyline'];
         }
 
         return $model;

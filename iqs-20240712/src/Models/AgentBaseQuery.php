@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AgentBaseQuery extends Model
 {
@@ -18,10 +18,9 @@ class AgentBaseQuery extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->query) {
@@ -31,11 +30,11 @@ class AgentBaseQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AgentBaseQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

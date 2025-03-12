@@ -4,34 +4,42 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus\buslines;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cost extends Model
 {
     /**
+     * @example 1521
+     *
      * @var string
      */
     public $durationSecond;
+
     /**
      * @var string
      */
     public $taxiFee;
+
     /**
      * @var string
      */
     public $tollDistanceMeter;
+
     /**
      * @var string
      */
     public $tollRoads;
+
     /**
      * @var string
      */
     public $tolls;
+
     /**
      * @var string
      */
     public $trafficLights;
+
     /**
      * @var string
      */
@@ -48,36 +56,29 @@ class cost extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->durationSecond) {
             $res['durationSecond'] = $this->durationSecond;
         }
-
         if (null !== $this->taxiFee) {
             $res['taxiFee'] = $this->taxiFee;
         }
-
         if (null !== $this->tollDistanceMeter) {
             $res['tollDistanceMeter'] = $this->tollDistanceMeter;
         }
-
         if (null !== $this->tollRoads) {
             $res['tollRoads'] = $this->tollRoads;
         }
-
         if (null !== $this->tolls) {
             $res['tolls'] = $this->tolls;
         }
-
         if (null !== $this->trafficLights) {
             $res['trafficLights'] = $this->trafficLights;
         }
-
         if (null !== $this->transitFee) {
             $res['transitFee'] = $this->transitFee;
         }
@@ -85,38 +86,32 @@ class cost extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cost
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['durationSecond'])) {
             $model->durationSecond = $map['durationSecond'];
         }
-
         if (isset($map['taxiFee'])) {
             $model->taxiFee = $map['taxiFee'];
         }
-
         if (isset($map['tollDistanceMeter'])) {
             $model->tollDistanceMeter = $map['tollDistanceMeter'];
         }
-
         if (isset($map['tollRoads'])) {
             $model->tollRoads = $map['tollRoads'];
         }
-
         if (isset($map['tolls'])) {
             $model->tolls = $map['tolls'];
         }
-
         if (isset($map['trafficLights'])) {
             $model->trafficLights = $map['trafficLights'];
         }
-
         if (isset($map['transitFee'])) {
             $model->transitFee = $map['transitFee'];
         }

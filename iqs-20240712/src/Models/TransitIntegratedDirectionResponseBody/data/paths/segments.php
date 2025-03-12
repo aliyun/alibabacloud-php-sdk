@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\bus;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\railway;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\taxi;
 use AlibabaCloud\SDK\IQS\V20240712\Models\TransitIntegratedDirectionResponseBody\data\paths\segments\walking;
+use AlibabaCloud\Tea\Model;
 
 class segments extends Model
 {
@@ -16,14 +16,17 @@ class segments extends Model
      * @var bus
      */
     public $bus;
+
     /**
      * @var railway
      */
     public $railway;
+
     /**
      * @var taxi
      */
     public $taxi;
+
     /**
      * @var walking
      */
@@ -37,63 +40,44 @@ class segments extends Model
 
     public function validate()
     {
-        if (null !== $this->bus) {
-            $this->bus->validate();
-        }
-        if (null !== $this->railway) {
-            $this->railway->validate();
-        }
-        if (null !== $this->taxi) {
-            $this->taxi->validate();
-        }
-        if (null !== $this->walking) {
-            $this->walking->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bus) {
-            $res['bus'] = null !== $this->bus ? $this->bus->toArray($noStream) : $this->bus;
+            $res['bus'] = null !== $this->bus ? $this->bus->toMap() : null;
         }
-
         if (null !== $this->railway) {
-            $res['railway'] = null !== $this->railway ? $this->railway->toArray($noStream) : $this->railway;
+            $res['railway'] = null !== $this->railway ? $this->railway->toMap() : null;
         }
-
         if (null !== $this->taxi) {
-            $res['taxi'] = null !== $this->taxi ? $this->taxi->toArray($noStream) : $this->taxi;
+            $res['taxi'] = null !== $this->taxi ? $this->taxi->toMap() : null;
         }
-
         if (null !== $this->walking) {
-            $res['walking'] = null !== $this->walking ? $this->walking->toArray($noStream) : $this->walking;
+            $res['walking'] = null !== $this->walking ? $this->walking->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return segments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bus'])) {
             $model->bus = bus::fromMap($map['bus']);
         }
-
         if (isset($map['railway'])) {
             $model->railway = railway::fromMap($map['railway']);
         }
-
         if (isset($map['taxi'])) {
             $model->taxi = taxi::fromMap($map['taxi']);
         }
-
         if (isset($map['walking'])) {
             $model->walking = walking::fromMap($map['walking']);
         }
