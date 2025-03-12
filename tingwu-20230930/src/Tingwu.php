@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTranscriptionPhrasesRequest;
@@ -16,10 +16,11 @@ use AlibabaCloud\SDK\Tingwu\V20230930\Models\GetTranscriptionPhrasesResponse;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\ListTranscriptionPhrasesResponse;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\UpdateTranscriptionPhrasesRequest;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\UpdateTranscriptionPhrasesResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Tingwu extends OpenApiClient
 {
@@ -44,60 +45,49 @@ class Tingwu extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 创建听悟任务
+     * @summary 创建听悟任务
+     *  *
+     * @param CreateTaskRequest $request CreateTaskRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateTaskResponse
-     *
-     * @param CreateTaskRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateTaskResponse
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTaskWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operation) {
-            @$query['operation'] = $request->operation;
+        if (!Utils::isUnset($request->operation)) {
+            $query['operation'] = $request->operation;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $body = [];
-        if (null !== $request->appKey) {
-            @$body['AppKey'] = $request->appKey;
+        if (!Utils::isUnset($request->appKey)) {
+            $body['AppKey'] = $request->appKey;
         }
-
-        if (null !== $request->input) {
-            @$body['Input'] = $request->input;
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
         }
-
-        if (null !== $request->parameters) {
-            @$body['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTask',
@@ -110,7 +100,7 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -118,14 +108,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建听悟任务
+     * @summary 创建听悟任务
+     *  *
+     * @param CreateTaskRequest $request CreateTaskRequest
      *
-     * @param request - CreateTaskRequest
-     * @returns CreateTaskResponse
-     *
-     * @param CreateTaskRequest $request
-     *
-     * @return CreateTaskResponse
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTask($request)
     {
@@ -136,38 +123,30 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建热词词表.
+     * @summary 创建热词词表
+     *  *
+     * @param CreateTranscriptionPhrasesRequest $request CreateTranscriptionPhrasesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTranscriptionPhrasesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateTranscriptionPhrasesResponse
-     *
-     * @param CreateTranscriptionPhrasesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateTranscriptionPhrasesResponse
+     * @return CreateTranscriptionPhrasesResponse CreateTranscriptionPhrasesResponse
      */
     public function createTranscriptionPhrasesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->wordWeights) {
-            @$body['WordWeights'] = $request->wordWeights;
+        if (!Utils::isUnset($request->wordWeights)) {
+            $body['WordWeights'] = $request->wordWeights;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTranscriptionPhrases',
@@ -180,7 +159,7 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -188,14 +167,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 创建热词词表.
+     * @summary 创建热词词表
+     *  *
+     * @param CreateTranscriptionPhrasesRequest $request CreateTranscriptionPhrasesRequest
      *
-     * @param request - CreateTranscriptionPhrasesRequest
-     * @returns CreateTranscriptionPhrasesResponse
-     *
-     * @param CreateTranscriptionPhrasesRequest $request
-     *
-     * @return CreateTranscriptionPhrasesResponse
+     * @return CreateTranscriptionPhrasesResponse CreateTranscriptionPhrasesResponse
      */
     public function createTranscriptionPhrases($request)
     {
@@ -206,17 +182,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 删除词表.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteTranscriptionPhrasesResponse
-     *
+     * @summary 删除词表
+     *  *
      * @param string         $PhraseId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteTranscriptionPhrasesResponse
+     * @return DeleteTranscriptionPhrasesResponse DeleteTranscriptionPhrasesResponse
      */
     public function deleteTranscriptionPhrasesWithOptions($PhraseId, $headers, $runtime)
     {
@@ -227,14 +199,14 @@ class Tingwu extends OpenApiClient
             'action'      => 'DeleteTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . OpenApiUtilClient::getEncodeParam($PhraseId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -242,13 +214,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 删除词表.
-     *
-     * @returns DeleteTranscriptionPhrasesResponse
-     *
+     * @summary 删除词表
+     *  *
      * @param string $PhraseId
      *
-     * @return DeleteTranscriptionPhrasesResponse
+     * @return DeleteTranscriptionPhrasesResponse DeleteTranscriptionPhrasesResponse
      */
     public function deleteTranscriptionPhrases($PhraseId)
     {
@@ -259,17 +229,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询听悟任务信息.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetTaskInfoResponse
-     *
+     * @summary 查询听悟任务信息
+     *  *
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskInfoResponse
+     * @return GetTaskInfoResponse GetTaskInfoResponse
      */
     public function getTaskInfoWithOptions($TaskId, $headers, $runtime)
     {
@@ -280,14 +246,14 @@ class Tingwu extends OpenApiClient
             'action'      => 'GetTaskInfo',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/tasks/' . Url::percentEncode($TaskId) . '',
+            'pathname'    => '/openapi/tingwu/v2/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -295,13 +261,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询听悟任务信息.
-     *
-     * @returns GetTaskInfoResponse
-     *
+     * @summary 查询听悟任务信息
+     *  *
      * @param string $TaskId
      *
-     * @return GetTaskInfoResponse
+     * @return GetTaskInfoResponse GetTaskInfoResponse
      */
     public function getTaskInfo($TaskId)
     {
@@ -312,17 +276,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询热词词表信息.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetTranscriptionPhrasesResponse
-     *
+     * @summary 查询热词词表信息
+     *  *
      * @param string         $PhraseId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTranscriptionPhrasesResponse
+     * @return GetTranscriptionPhrasesResponse GetTranscriptionPhrasesResponse
      */
     public function getTranscriptionPhrasesWithOptions($PhraseId, $headers, $runtime)
     {
@@ -333,14 +293,14 @@ class Tingwu extends OpenApiClient
             'action'      => 'GetTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . OpenApiUtilClient::getEncodeParam($PhraseId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -348,13 +308,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 查询热词词表信息.
-     *
-     * @returns GetTranscriptionPhrasesResponse
-     *
+     * @summary 查询热词词表信息
+     *  *
      * @param string $PhraseId
      *
-     * @return GetTranscriptionPhrasesResponse
+     * @return GetTranscriptionPhrasesResponse GetTranscriptionPhrasesResponse
      */
     public function getTranscriptionPhrases($PhraseId)
     {
@@ -365,16 +323,12 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 列举用户所有热词词表信息.
+     * @summary 列举用户所有热词词表信息
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTranscriptionPhrasesResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListTranscriptionPhrasesResponse
+     * @return ListTranscriptionPhrasesResponse ListTranscriptionPhrasesResponse
      */
     public function listTranscriptionPhrasesWithOptions($headers, $runtime)
     {
@@ -392,7 +346,7 @@ class Tingwu extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -400,11 +354,9 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 列举用户所有热词词表信息.
-     *
-     * @returns ListTranscriptionPhrasesResponse
-     *
-     * @return ListTranscriptionPhrasesResponse
+     * @summary 列举用户所有热词词表信息
+     *  *
+     * @return ListTranscriptionPhrasesResponse ListTranscriptionPhrasesResponse
      */
     public function listTranscriptionPhrases()
     {
@@ -415,52 +367,44 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 更新热词词表.
-     *
-     * @param request - UpdateTranscriptionPhrasesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateTranscriptionPhrasesResponse
-     *
+     * @summary 更新热词词表
+     *  *
      * @param string                            $PhraseId
-     * @param UpdateTranscriptionPhrasesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateTranscriptionPhrasesRequest $request  UpdateTranscriptionPhrasesRequest
+     * @param string[]                          $headers  map
+     * @param RuntimeOptions                    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTranscriptionPhrasesResponse
+     * @return UpdateTranscriptionPhrasesResponse UpdateTranscriptionPhrasesResponse
      */
     public function updateTranscriptionPhrasesWithOptions($PhraseId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->wordWeights) {
-            @$body['WordWeights'] = $request->wordWeights;
+        if (!Utils::isUnset($request->wordWeights)) {
+            $body['WordWeights'] = $request->wordWeights;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTranscriptionPhrases',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . Url::percentEncode($PhraseId) . '',
+            'pathname'    => '/openapi/tingwu/v2/resources/phrases/' . OpenApiUtilClient::getEncodeParam($PhraseId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateTranscriptionPhrasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -468,15 +412,12 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * 更新热词词表.
-     *
-     * @param request - UpdateTranscriptionPhrasesRequest
-     * @returns UpdateTranscriptionPhrasesResponse
-     *
+     * @summary 更新热词词表
+     *  *
      * @param string                            $PhraseId
-     * @param UpdateTranscriptionPhrasesRequest $request
+     * @param UpdateTranscriptionPhrasesRequest $request  UpdateTranscriptionPhrasesRequest
      *
-     * @return UpdateTranscriptionPhrasesResponse
+     * @return UpdateTranscriptionPhrasesResponse UpdateTranscriptionPhrasesResponse
      */
     public function updateTranscriptionPhrases($PhraseId, $request)
     {

@@ -4,29 +4,41 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\input;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
+use AlibabaCloud\Tea\Model;
 
 class CreateTaskRequest extends Model
 {
     /**
+     * @example JV1sRTisRMi****
+     *
      * @var string
      */
     public $appKey;
+
     /**
      * @var input
      */
     public $input;
+
     /**
      * @var parameters
      */
     public $parameters;
+
     /**
+     * @example stop
+     *
      * @var string
      */
     public $operation;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example offline
+     *
      * @var string
      */
     public $type;
@@ -40,34 +52,23 @@ class CreateTaskRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->input) {
-            $this->input->validate();
-        }
-        if (null !== $this->parameters) {
-            $this->parameters->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
-
         if (null !== $this->parameters) {
-            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toArray($noStream) : $this->parameters;
+            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
-
         if (null !== $this->operation) {
             $res['operation'] = $this->operation;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -75,30 +76,26 @@ class CreateTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
         }
-
         if (isset($map['Parameters'])) {
             $model->parameters = parameters::fromMap($map['Parameters']);
         }
-
         if (isset($map['operation'])) {
             $model->operation = $map['operation'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

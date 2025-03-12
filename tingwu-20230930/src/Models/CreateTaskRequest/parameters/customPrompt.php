@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\customPrompt\contents;
+use AlibabaCloud\Tea\Model;
 
 class customPrompt extends Model
 {
@@ -19,21 +19,17 @@ class customPrompt extends Model
 
     public function validate()
     {
-        if (\is_array($this->contents)) {
-            Model::validateArray($this->contents);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contents) {
-            if (\is_array($this->contents)) {
-                $res['Contents'] = [];
-                $n1              = 0;
-                foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Contents'] = [];
+            if (null !== $this->contents && \is_array($this->contents)) {
+                $n = 0;
+                foreach ($this->contents as $item) {
+                    $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class customPrompt extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customPrompt
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n1              = 0;
-                foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1++] = contents::fromMap($item1);
+                $n               = 0;
+                foreach ($map['Contents'] as $item) {
+                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
         }

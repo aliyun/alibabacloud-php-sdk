@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\contentExtraction;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class extractionContents extends Model
 {
@@ -12,6 +12,7 @@ class extractionContents extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class extractionContents extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -40,18 +39,17 @@ class extractionContents extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return extractionContents
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class summarization extends Model
 {
     /**
+     * @example Paragraph
+     *
      * @var string[]
      */
     public $types;
@@ -18,43 +20,29 @@ class summarization extends Model
 
     public function validate()
     {
-        if (\is_array($this->types)) {
-            Model::validateArray($this->types);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->types) {
-            if (\is_array($this->types)) {
-                $res['Types'] = [];
-                $n1           = 0;
-                foreach ($this->types as $item1) {
-                    $res['Types'][$n1++] = $item1;
-                }
-            }
+            $res['Types'] = $this->types;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return summarization
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = [];
-                $n1           = 0;
-                foreach ($map['Types'] as $item1) {
-                    $model->types[$n1++] = $item1;
-                }
+                $model->types = $map['Types'];
             }
         }
 
