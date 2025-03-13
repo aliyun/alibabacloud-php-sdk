@@ -5014,20 +5014,19 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates a custom image. After you call this operation to create a custom image, you can call the RunInstances operation to create Elastic Compute Service (ECS) instances from the custom image or call the ReplaceSystemDisk operation to replace system disks by using the custom image.
      *  *
-     * @description ## [](#)Usage notes
+     * @description Before you call this operation, read [Overview](https://help.aliyun.com/document_detail/172789.html).
      * Take note of the following items:
-     * *   You can use the created custom image only if the image is in the Available (Available) state.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
-     * *   To optimize the image, we recommend that you specify DetectionStrategy when you create the image. For more information, see [Overview of image check](https://help.aliyun.com/document_detail/439819.html).
-     * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of these parameters, the custom image is created based on the parameter that has a higher priority.
-     * *   **Method 1**: Create a custom image from an instance. You need to only specify the ID of the instance by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. We recommend that you stop instances by calling the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation before you create custom images from the instances.
-     * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
-     * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`.
-     * When you use Method 3 to create a custom image, take note of the following items:
-     * *   You can specify only one snapshot to use to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
-     * *   You can specify up to 16 snapshots to use to create data disks in the custom image. The device names of the data disks are unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
-     * *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
-     * *   The specified disk snapshot must be created after July 15, 2013.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons, and you cannot create a custom image from the instance.
+     * *   To optimize the image, we recommend that you specify `DetectionStrategy` when you create a custom image. For more information, see [Overview](https://help.aliyun.com/document_detail/439819.html).
+     * *   You can use the created custom image only if the image is in the Available (`Available`) state.
+     * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority from high to low: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of the preceding parameters, the custom image is created based on the parameter that has a higher priority.
+     * *   **Create a custom image from an ECS instance**. You need to only specify the instance ID by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running ECS instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. Before you create a custom image from the instance, we recommend that you stop the instance by calling the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation.
+     * *   **Create a custom image from a system disk snapshot of an ECS instance**. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
+     * *   **Create a custom image from multiple snapshots**. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`. Take note of the following items:
+     *     *   You can specify only one snapshot to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
+     *     *   You can specify up to 16 snapshots to create data disks in the custom image. The device names of the data disks must be unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
+     *     *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
+     *     *   The specified snapshot must be created after July 15, 2013.
      *  *
      * @param CreateImageRequest $request CreateImageRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5122,20 +5121,19 @@ class Ecs extends OpenApiClient
     /**
      * @summary Creates a custom image. After you call this operation to create a custom image, you can call the RunInstances operation to create Elastic Compute Service (ECS) instances from the custom image or call the ReplaceSystemDisk operation to replace system disks by using the custom image.
      *  *
-     * @description ## [](#)Usage notes
+     * @description Before you call this operation, read [Overview](https://help.aliyun.com/document_detail/172789.html).
      * Take note of the following items:
-     * *   You can use the created custom image only if the image is in the Available (Available) state.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of an instance, the instance is locked for security reasons. No operations are allowed on the instance.
-     * *   To optimize the image, we recommend that you specify DetectionStrategy when you create the image. For more information, see [Overview of image check](https://help.aliyun.com/document_detail/439819.html).
-     * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of these parameters, the custom image is created based on the parameter that has a higher priority.
-     * *   **Method 1**: Create a custom image from an instance. You need to only specify the ID of the instance by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. We recommend that you stop instances by calling the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation before you create custom images from the instances.
-     * *   **Method 2**: Create a custom image from the system disk snapshot of an instance. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
-     * *   **Method 3**: Create a custom image from multiple disk snapshots. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`.
-     * When you use Method 3 to create a custom image, take note of the following items:
-     * *   You can specify only one snapshot to use to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
-     * *   You can specify up to 16 snapshots to use to create data disks in the custom image. The device names of the data disks are unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
-     * *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
-     * *   The specified disk snapshot must be created after July 15, 2013.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ECS instance, the instance is locked for security reasons, and you cannot create a custom image from the instance.
+     * *   To optimize the image, we recommend that you specify `DetectionStrategy` when you create a custom image. For more information, see [Overview](https://help.aliyun.com/document_detail/439819.html).
+     * *   You can use the created custom image only if the image is in the Available (`Available`) state.
+     * You can call the CreateImage operation to create a custom image by using one of the following methods. The following request parameters are sorted by priority from high to low: `InstanceId` > `DiskDeviceMapping` > `SnapshotId`. If your request contains two or more of the preceding parameters, the custom image is created based on the parameter that has a higher priority.
+     * *   **Create a custom image from an ECS instance**. You need to only specify the instance ID by using `InstanceId`. The instance must be in the Running (`Running`) or Stopped (`Stopped`) state. After you call the CreateImage operation, a snapshot is created for each disk of the instance. When you create a custom image from a running ECS instance, cache data may not be written to disks. In this case, the data of the custom image may be slightly different from the data of the instance. Before you create a custom image from the instance, we recommend that you stop the instance by calling the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation.
+     * *   **Create a custom image from a system disk snapshot of an ECS instance**. You need to only specify the ID of the system disk snapshot by using `SnapshotId`. The specified system disk snapshot must be created after July 15, 2013.
+     * *   **Create a custom image from multiple snapshots**. You must specify data mappings between the snapshots and the disks to be created by using the parameters that start with `DiskDeviceMapping`. Take note of the following items:
+     *     *   You can specify only one snapshot to create the system disk in the custom image. The device name of the system disk must be /dev/xvda.
+     *     *   You can specify up to 16 snapshots to create data disks in the custom image. The device names of the data disks must be unique and range from /dev/xvdb to /dev/xvdz in alphabetical order.
+     *     *   You can leave `SnapshotId` empty. In this case, an empty data disk with the specified size is created.
+     *     *   The specified snapshot must be created after July 15, 2013.
      *  *
      * @param CreateImageRequest $request CreateImageRequest
      *

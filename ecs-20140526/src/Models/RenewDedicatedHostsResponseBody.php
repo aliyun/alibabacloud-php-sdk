@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewDedicatedHostsResponseBody extends Model
 {
     /**
+     * @example 23841229****
+     *
      * @var string
      */
     public $orderId;

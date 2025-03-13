@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class CreateImageRequest extends Model
 {
     /**
-     * @description The system architecture of the system disk. If you specify a data disk snapshot to create the system disk of the custom image, you must use Architecture to specify the system architecture of the system disk. Valid values:
+     * @description The system architecture of the system disk. If you specify a data disk snapshot to create the system disk of the custom image, use Architecture to specify the system architecture of the system disk. Valid values:
      *
      *   i386
      *   x86_64
@@ -68,7 +68,7 @@ class CreateImageRequest extends Model
     public $detectionStrategy;
 
     /**
-     * @description The information about the custom image.
+     * @description The information about the custom image. To create a custom image from multiple snapshots, specify the parameters in this parameter list.
      *
      * @var diskDeviceMapping[]
      */
@@ -102,7 +102,7 @@ class CreateImageRequest extends Model
     /**
      * @description The image version.
      *
-     * > If you specify an instance by configuring `InstanceId`, and the instance uses an Alibaba Cloud Marketplace image or a custom image that is created from an Alibaba Cloud Marketplace image, you must leave this parameter empty or set this parameter to the value of ImageVersion of the instance.
+     * >  If you specify an ECS instance that runs an Alibaba Cloud Marketplace image or a custom image derived from an Alibaba Cloud Marketplace image by using `InstanceId`, you must leave this parameter empty or set this parameter to the `ImageVersion` value of the image run by the specified ECS instance.
      * @example 2017011017
      *
      * @var string
@@ -110,7 +110,7 @@ class CreateImageRequest extends Model
     public $imageVersion;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the ECS instance from which to create the custom image. To create a custom image from an ECS instance, you must specify this parameter.
      *
      * @example i-bp1g6zv0ce8oghu7****
      *
@@ -176,9 +176,9 @@ class CreateImageRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the custom image. If you do not specify this parameter, the image is assigned to the default resource group.
+     * @description The ID of the resource group to which to assign the custom image. If you leave this parameter empty, the image is assigned to the default resource group.
      *
-     * >  If you call the CreateImage operation as a Resource Access Management (RAM) user who does not have the permissions to manage the default resource group and do not specify `ResourceGroupId`, the `Forbbiden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user has the permissions to manage or grant the RAM user the permissions to manage the default resource group before you call the CreateImage operation again.
+     * >  If you call the CreateImage operation as a Resource Access Management (RAM) user who does not have permissions on the default resource group and leave `ResourceGroupId` empty, the `Forbidden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group on which the RAM user has permissions or grant the RAM user permissions on the default resource group, and then call the CreateImage operation again.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -196,8 +196,9 @@ class CreateImageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the snapshot that you want to use to create the custom image.
+     * @description The ID of the snapshot from which to create the custom image.
      *
+     * >  To create a custom image from only a system disk snapshot of an ECS instance, you can specify this parameter or `DiskDeviceMapping.SnapshotId`. To create a custom image from multiple snapshots, you can specify only `DiskDeviceMapping.SnapshotId`.
      * @example s-bp17441ohwkdca0****
      *
      * @var string
