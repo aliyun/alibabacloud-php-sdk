@@ -16,19 +16,17 @@ namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttribu
 
 use AlibabaCloud\Tea\Model;
 
-class nodes extends Model
+class multiZones extends Model
 {
     /**
-     * @description The node status.
+     * @description 交换机ID数组。
      *
-     * @example active
-     *
-     * @var string
+     * @var string[]
      */
-    public $nodeStatus;
+    public $vSwitchIds;
 
     /**
-     * @description The zone ID.
+     * @description 可用区ID。
      *
      * @example cn-hangzhou-h
      *
@@ -36,7 +34,7 @@ class nodes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'nodeStatus' => 'NodeStatus',
+        'vSwitchIds' => 'VSwitchIds',
         'zoneId' => 'ZoneId',
     ];
 
@@ -45,8 +43,8 @@ class nodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nodeStatus) {
-            $res['NodeStatus'] = $this->nodeStatus;
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -58,13 +56,15 @@ class nodes extends Model
     /**
      * @param array $map
      *
-     * @return nodes
+     * @return multiZones
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NodeStatus'])) {
-            $model->nodeStatus = $map['NodeStatus'];
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = $map['VSwitchIds'];
+            }
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

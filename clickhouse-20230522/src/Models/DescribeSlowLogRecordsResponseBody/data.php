@@ -1,66 +1,84 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsResponseBody\data\resultSet;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example cc-bp100p4q1g9z32****
+     *
      * @var int
      */
     public $DBInstanceID;
+
     /**
+     * @description The cluster name.
+     *
+     * @example TestCluster
+     *
      * @var string
      */
     public $DBInstanceName;
+
     /**
+     * @description The result sets.
+     *
      * @var resultSet[]
      */
     public $resultSet;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'DBInstanceID'   => 'DBInstanceID',
+        'DBInstanceID' => 'DBInstanceID',
         'DBInstanceName' => 'DBInstanceName',
-        'resultSet'      => 'ResultSet',
-        'totalCount'     => 'TotalCount',
+        'resultSet' => 'ResultSet',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resultSet)) {
-            Model::validateArray($this->resultSet);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceID) {
             $res['DBInstanceID'] = $this->DBInstanceID;
         }
-
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-
         if (null !== $this->resultSet) {
-            if (\is_array($this->resultSet)) {
-                $res['ResultSet'] = [];
-                $n1               = 0;
-                foreach ($this->resultSet as $item1) {
-                    $res['ResultSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResultSet'] = [];
+            if (null !== $this->resultSet && \is_array($this->resultSet)) {
+                $n = 0;
+                foreach ($this->resultSet as $item) {
+                    $res['ResultSet'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,32 +86,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceID'])) {
             $model->DBInstanceID = $map['DBInstanceID'];
         }
-
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-
         if (isset($map['ResultSet'])) {
             if (!empty($map['ResultSet'])) {
                 $model->resultSet = [];
-                $n1               = 0;
-                foreach ($map['ResultSet'] as $item1) {
-                    $model->resultSet[$n1++] = resultSet::fromMap($item1);
+                $n = 0;
+                foreach ($map['ResultSet'] as $item) {
+                    $model->resultSet[$n++] = null !== $item ? resultSet::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

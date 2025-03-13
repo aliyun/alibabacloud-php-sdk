@@ -1,3 +1,7 @@
+2025-03-13 Version: 1.0.4
+- Update API DescribeDBInstanceAttribute: update response param.
+
+
 2025-02-06 Version: 1.0.3
 - Update API CreateDBInstance: add param DeploySchema.
 
