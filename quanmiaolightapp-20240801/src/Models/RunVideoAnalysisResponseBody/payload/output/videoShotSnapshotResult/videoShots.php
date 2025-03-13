@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoShotSnapshotResult;
 
@@ -34,16 +44,14 @@ class videoShots extends Model
      */
     public $videoSnapshots;
     protected $_name = [
-        'endTime'         => 'endTime',
-        'endTimeFormat'   => 'endTimeFormat',
-        'startTime'       => 'startTime',
+        'endTime' => 'endTime',
+        'endTimeFormat' => 'endTimeFormat',
+        'startTime' => 'startTime',
         'startTimeFormat' => 'startTimeFormat',
-        'videoSnapshots'  => 'videoSnapshots',
+        'videoSnapshots' => 'videoSnapshots',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -96,7 +104,7 @@ class videoShots extends Model
         if (isset($map['videoSnapshots'])) {
             if (!empty($map['videoSnapshots'])) {
                 $model->videoSnapshots = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['videoSnapshots'] as $item) {
                     $model->videoSnapshots[$n++] = null !== $item ? videoSnapshots::fromMap($item) : $item;
                 }

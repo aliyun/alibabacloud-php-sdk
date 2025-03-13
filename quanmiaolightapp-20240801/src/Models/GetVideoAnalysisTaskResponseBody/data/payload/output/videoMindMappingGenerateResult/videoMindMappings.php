@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoMindMappingGenerateResult;
 
@@ -20,12 +30,10 @@ class videoMindMappings extends Model
     public $name;
     protected $_name = [
         'childNodes' => 'childNodes',
-        'name'       => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -57,7 +65,7 @@ class videoMindMappings extends Model
         if (isset($map['childNodes'])) {
             if (!empty($map['childNodes'])) {
                 $model->childNodes = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['childNodes'] as $item) {
                     $model->childNodes[$n++] = null !== $item ? childNodes::fromMap($item) : $item;
                 }

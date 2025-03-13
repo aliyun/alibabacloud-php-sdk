@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
 
@@ -39,16 +49,14 @@ class videoAnalysisResult extends Model
      */
     public $videoShotAnalysisResults;
     protected $_name = [
-        'generateFinished'         => 'generateFinished',
-        'modelId'                  => 'modelId',
-        'text'                     => 'text',
-        'usage'                    => 'usage',
+        'generateFinished' => 'generateFinished',
+        'modelId' => 'modelId',
+        'text' => 'text',
+        'usage' => 'usage',
         'videoShotAnalysisResults' => 'videoShotAnalysisResults',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -101,7 +109,7 @@ class videoAnalysisResult extends Model
         if (isset($map['videoShotAnalysisResults'])) {
             if (!empty($map['videoShotAnalysisResults'])) {
                 $model->videoShotAnalysisResults = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['videoShotAnalysisResults'] as $item) {
                     $model->videoShotAnalysisResults[$n++] = null !== $item ? videoShotAnalysisResults::fromMap($item) : $item;
                 }

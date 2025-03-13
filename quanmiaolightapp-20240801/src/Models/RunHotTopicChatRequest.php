@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
@@ -82,23 +92,21 @@ class RunHotTopicChatRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'category'                      => 'category',
-        'generateOptions'               => 'generateOptions',
-        'hotTopicVersion'               => 'hotTopicVersion',
-        'hotTopics'                     => 'hotTopics',
-        'imageCount'                    => 'imageCount',
-        'messages'                      => 'messages',
-        'modelCustomPromptTemplate'     => 'modelCustomPromptTemplate',
-        'modelId'                       => 'modelId',
-        'originalSessionId'             => 'originalSessionId',
-        'prompt'                        => 'prompt',
+        'category' => 'category',
+        'generateOptions' => 'generateOptions',
+        'hotTopicVersion' => 'hotTopicVersion',
+        'hotTopics' => 'hotTopics',
+        'imageCount' => 'imageCount',
+        'messages' => 'messages',
+        'modelCustomPromptTemplate' => 'modelCustomPromptTemplate',
+        'modelId' => 'modelId',
+        'originalSessionId' => 'originalSessionId',
+        'prompt' => 'prompt',
         'stepForBroadcastContentConfig' => 'stepForBroadcastContentConfig',
-        'taskId'                        => 'taskId',
+        'taskId' => 'taskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -179,7 +187,7 @@ class RunHotTopicChatRequest extends Model
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['messages'] as $item) {
                     $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
                 }

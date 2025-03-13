@@ -1,15 +1,31 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\frameSampleMethod;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\textProcessTasks;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\videoRoles;
 use AlibabaCloud\Tea\Model;
 
 class SubmitVideoAnalysisTaskRequest extends Model
 {
+    /**
+     * @var float
+     */
+    public $faceIdentitySimilarityMinScore;
+
     /**
      * @var frameSampleMethod
      */
@@ -54,6 +70,11 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $snapshotInterval;
 
     /**
+     * @var textProcessTasks[]
+     */
+    public $textProcessTasks;
+
+    /**
      * @var string
      */
     public $videoExtraInfo;
@@ -76,6 +97,11 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public $videoRoles;
 
     /**
+     * @var int
+     */
+    public $videoShotFaceIdentityCount;
+
+    /**
      * @description This parameter is required.
      *
      * @example http://xxxx.mp4
@@ -84,27 +110,31 @@ class SubmitVideoAnalysisTaskRequest extends Model
      */
     public $videoUrl;
     protected $_name = [
-        'frameSampleMethod'              => 'frameSampleMethod',
-        'generateOptions'                => 'generateOptions',
-        'language'                       => 'language',
-        'modelCustomPromptTemplate'      => 'modelCustomPromptTemplate',
-        'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
-        'modelId'                        => 'modelId',
-        'snapshotInterval'               => 'snapshotInterval',
-        'videoExtraInfo'                 => 'videoExtraInfo',
+        'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
+        'frameSampleMethod' => 'frameSampleMethod',
+        'generateOptions' => 'generateOptions',
+        'language' => 'language',
+        'modelCustomPromptTemplate' => 'modelCustomPromptTemplate',
+        'modelCustomPromptTemplateId' => 'modelCustomPromptTemplateId',
+        'modelId' => 'modelId',
+        'snapshotInterval' => 'snapshotInterval',
+        'textProcessTasks' => 'textProcessTasks',
+        'videoExtraInfo' => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
-        'videoModelId'                   => 'videoModelId',
-        'videoRoles'                     => 'videoRoles',
-        'videoUrl'                       => 'videoUrl',
+        'videoModelId' => 'videoModelId',
+        'videoRoles' => 'videoRoles',
+        'videoShotFaceIdentityCount' => 'videoShotFaceIdentityCount',
+        'videoUrl' => 'videoUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceIdentitySimilarityMinScore) {
+            $res['faceIdentitySimilarityMinScore'] = $this->faceIdentitySimilarityMinScore;
+        }
         if (null !== $this->frameSampleMethod) {
             $res['frameSampleMethod'] = null !== $this->frameSampleMethod ? $this->frameSampleMethod->toMap() : null;
         }
@@ -126,6 +156,15 @@ class SubmitVideoAnalysisTaskRequest extends Model
         if (null !== $this->snapshotInterval) {
             $res['snapshotInterval'] = $this->snapshotInterval;
         }
+        if (null !== $this->textProcessTasks) {
+            $res['textProcessTasks'] = [];
+            if (null !== $this->textProcessTasks && \is_array($this->textProcessTasks)) {
+                $n = 0;
+                foreach ($this->textProcessTasks as $item) {
+                    $res['textProcessTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->videoExtraInfo) {
             $res['videoExtraInfo'] = $this->videoExtraInfo;
         }
@@ -144,6 +183,9 @@ class SubmitVideoAnalysisTaskRequest extends Model
                 }
             }
         }
+        if (null !== $this->videoShotFaceIdentityCount) {
+            $res['videoShotFaceIdentityCount'] = $this->videoShotFaceIdentityCount;
+        }
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
         }
@@ -159,6 +201,9 @@ class SubmitVideoAnalysisTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['faceIdentitySimilarityMinScore'])) {
+            $model->faceIdentitySimilarityMinScore = $map['faceIdentitySimilarityMinScore'];
+        }
         if (isset($map['frameSampleMethod'])) {
             $model->frameSampleMethod = frameSampleMethod::fromMap($map['frameSampleMethod']);
         }
@@ -182,6 +227,15 @@ class SubmitVideoAnalysisTaskRequest extends Model
         if (isset($map['snapshotInterval'])) {
             $model->snapshotInterval = $map['snapshotInterval'];
         }
+        if (isset($map['textProcessTasks'])) {
+            if (!empty($map['textProcessTasks'])) {
+                $model->textProcessTasks = [];
+                $n = 0;
+                foreach ($map['textProcessTasks'] as $item) {
+                    $model->textProcessTasks[$n++] = null !== $item ? textProcessTasks::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['videoExtraInfo'])) {
             $model->videoExtraInfo = $map['videoExtraInfo'];
         }
@@ -194,11 +248,14 @@ class SubmitVideoAnalysisTaskRequest extends Model
         if (isset($map['videoRoles'])) {
             if (!empty($map['videoRoles'])) {
                 $model->videoRoles = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['videoRoles'] as $item) {
                     $model->videoRoles[$n++] = null !== $item ? videoRoles::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['videoShotFaceIdentityCount'])) {
+            $model->videoShotFaceIdentityCount = $map['videoShotFaceIdentityCount'];
         }
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];

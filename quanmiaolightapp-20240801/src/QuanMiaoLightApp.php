@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801;
 
@@ -115,18 +125,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateBroadcastNews',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/GenerateBroadcastNews',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateBroadcastNews',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/GenerateBroadcastNews',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateBroadcastNewsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -187,18 +197,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenerateOutputFormat',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/generateOutputFormat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenerateOutputFormat',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/generateOutputFormat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -242,18 +252,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTagMiningAnalysisTask',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/getTagMiningAnalysisTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTagMiningAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/getTagMiningAnalysisTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -293,15 +303,15 @@ class QuanMiaoLightApp extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetVideoAnalysisConfig',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/getVideoAnalysisConfig',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetVideoAnalysisConfig',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/videoAnalysis/getVideoAnalysisConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -344,18 +354,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoAnalysisTask',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/getVideoAnalysisTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetVideoAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/videoAnalysis/getVideoAnalysisTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -411,18 +421,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListHotTopicSummaries',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/listHotTopicSummaries',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListHotTopicSummaries',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/listHotTopicSummaries',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListHotTopicSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -513,18 +523,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunHotTopicChat',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runHotTopicChat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunHotTopicChat',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runHotTopicChat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunHotTopicChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -582,18 +592,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunHotTopicSummary',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runHotTopicSummary',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunHotTopicSummary',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runHotTopicSummary',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunHotTopicSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -651,18 +661,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunMarketingInformationExtract',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runMarketingInformationExtract',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunMarketingInformationExtract',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runMarketingInformationExtract',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunMarketingInformationExtractResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -724,18 +734,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunMarketingInformationWriting',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runMarketingInformationWriting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunMarketingInformationWriting',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runMarketingInformationWriting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunMarketingInformationWritingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -802,18 +812,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunNetworkContentAudit',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runNetworkContentAudit',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunNetworkContentAudit',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runNetworkContentAudit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunNetworkContentAuditResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -860,18 +870,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunScriptChat',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptChat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunScriptChat',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runScriptChat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -921,18 +931,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunScriptContinue',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptContinue',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunScriptContinue',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runScriptContinue',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunScriptContinueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -994,18 +1004,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunScriptPlanning',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptPlanning',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunScriptPlanning',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runScriptPlanning',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunScriptPlanningResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1049,18 +1059,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunScriptRefine',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptRefine',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunScriptRefine',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runScriptRefine',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1127,18 +1137,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunStyleWriting',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runStyleWriting',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunStyleWriting',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runStyleWriting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunStyleWritingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1205,18 +1215,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunTagMiningAnalysis',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runTagMiningAnalysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunTagMiningAnalysis',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runTagMiningAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1262,10 +1272,16 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->generateOptions)) {
             $request->generateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->generateOptions, 'generateOptions', 'json');
         }
+        if (!Utils::isUnset($tmpReq->textProcessTasks)) {
+            $request->textProcessTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textProcessTasks, 'textProcessTasks', 'json');
+        }
         if (!Utils::isUnset($tmpReq->videoRoles)) {
             $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->faceIdentitySimilarityMinScore)) {
+            $body['faceIdentitySimilarityMinScore'] = $request->faceIdentitySimilarityMinScore;
+        }
         if (!Utils::isUnset($request->frameSampleMethodShrink)) {
             $body['frameSampleMethod'] = $request->frameSampleMethodShrink;
         }
@@ -1293,6 +1309,9 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->taskId)) {
             $body['taskId'] = $request->taskId;
         }
+        if (!Utils::isUnset($request->textProcessTasksShrink)) {
+            $body['textProcessTasks'] = $request->textProcessTasksShrink;
+        }
         if (!Utils::isUnset($request->videoExtraInfo)) {
             $body['videoExtraInfo'] = $request->videoExtraInfo;
         }
@@ -1305,23 +1324,26 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->videoRolesShrink)) {
             $body['videoRoles'] = $request->videoRolesShrink;
         }
+        if (!Utils::isUnset($request->videoShotFaceIdentityCount)) {
+            $body['videoShotFaceIdentityCount'] = $request->videoShotFaceIdentityCount;
+        }
         if (!Utils::isUnset($request->videoUrl)) {
             $body['videoUrl'] = $request->videoUrl;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunVideoAnalysis',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runVideoAnalysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunVideoAnalysis',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/runVideoAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunVideoAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1394,18 +1416,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitTagMiningAnalysisTask',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/submitTagMiningAnalysisTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitTagMiningAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/submitTagMiningAnalysisTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SubmitTagMiningAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1451,10 +1473,16 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->generateOptions)) {
             $request->generateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->generateOptions, 'generateOptions', 'json');
         }
+        if (!Utils::isUnset($tmpReq->textProcessTasks)) {
+            $request->textProcessTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textProcessTasks, 'textProcessTasks', 'json');
+        }
         if (!Utils::isUnset($tmpReq->videoRoles)) {
             $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->faceIdentitySimilarityMinScore)) {
+            $body['faceIdentitySimilarityMinScore'] = $request->faceIdentitySimilarityMinScore;
+        }
         if (!Utils::isUnset($request->frameSampleMethodShrink)) {
             $body['frameSampleMethod'] = $request->frameSampleMethodShrink;
         }
@@ -1476,6 +1504,9 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->snapshotInterval)) {
             $body['snapshotInterval'] = $request->snapshotInterval;
         }
+        if (!Utils::isUnset($request->textProcessTasksShrink)) {
+            $body['textProcessTasks'] = $request->textProcessTasksShrink;
+        }
         if (!Utils::isUnset($request->videoExtraInfo)) {
             $body['videoExtraInfo'] = $request->videoExtraInfo;
         }
@@ -1488,23 +1519,26 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->videoRolesShrink)) {
             $body['videoRoles'] = $request->videoRolesShrink;
         }
+        if (!Utils::isUnset($request->videoShotFaceIdentityCount)) {
+            $body['videoShotFaceIdentityCount'] = $request->videoShotFaceIdentityCount;
+        }
         if (!Utils::isUnset($request->videoUrl)) {
             $body['videoUrl'] = $request->videoUrl;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitVideoAnalysisTask',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/submitVideoAnalysisTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitVideoAnalysisTask',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/videoAnalysis/submitVideoAnalysisTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1548,18 +1582,18 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVideoAnalysisConfig',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisConfig',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVideoAnalysisConfig',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisConfig',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));

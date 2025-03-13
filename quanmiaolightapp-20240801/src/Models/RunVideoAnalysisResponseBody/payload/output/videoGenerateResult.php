@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
 
@@ -17,6 +27,11 @@ class videoGenerateResult extends Model
     public $generateFinished;
 
     /**
+     * @var int
+     */
+    public $index;
+
+    /**
      * @example qwen-max
      *
      * @var string
@@ -31,6 +46,11 @@ class videoGenerateResult extends Model
     /**
      * @var string
      */
+    public $reasonText;
+
+    /**
+     * @var string
+     */
     public $text;
 
     /**
@@ -39,15 +59,15 @@ class videoGenerateResult extends Model
     public $usage;
     protected $_name = [
         'generateFinished' => 'generateFinished',
-        'modelId'          => 'modelId',
-        'modelReduce'      => 'modelReduce',
-        'text'             => 'text',
-        'usage'            => 'usage',
+        'index' => 'index',
+        'modelId' => 'modelId',
+        'modelReduce' => 'modelReduce',
+        'reasonText' => 'reasonText',
+        'text' => 'text',
+        'usage' => 'usage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -55,11 +75,17 @@ class videoGenerateResult extends Model
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
         }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
+        }
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
         if (null !== $this->modelReduce) {
             $res['modelReduce'] = $this->modelReduce;
+        }
+        if (null !== $this->reasonText) {
+            $res['reasonText'] = $this->reasonText;
         }
         if (null !== $this->text) {
             $res['text'] = $this->text;
@@ -82,11 +108,17 @@ class videoGenerateResult extends Model
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
         }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
+        }
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
         if (isset($map['modelReduce'])) {
             $model->modelReduce = $map['modelReduce'];
+        }
+        if (isset($map['reasonText'])) {
+            $model->reasonText = $map['reasonText'];
         }
         if (isset($map['text'])) {
             $model->text = $map['text'];

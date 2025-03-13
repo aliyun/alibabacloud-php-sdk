@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
@@ -8,6 +18,11 @@ use AlibabaCloud\Tea\Model;
 
 class RunVideoAnalysisShrinkRequest extends Model
 {
+    /**
+     * @var float
+     */
+    public $faceIdentitySimilarityMinScore;
+
     /**
      * @var string
      */
@@ -66,6 +81,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $textProcessTasksShrink;
+
+    /**
+     * @var string
+     */
     public $videoExtraInfo;
 
     /**
@@ -86,35 +106,44 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $videoRolesShrink;
 
     /**
+     * @var int
+     */
+    public $videoShotFaceIdentityCount;
+
+    /**
      * @example http://xxxx.mp4
      *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
-        'frameSampleMethodShrink'        => 'frameSampleMethod',
-        'generateOptionsShrink'          => 'generateOptions',
-        'language'                       => 'language',
-        'modelCustomPromptTemplate'      => 'modelCustomPromptTemplate',
-        'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
-        'modelId'                        => 'modelId',
-        'originalSessionId'              => 'originalSessionId',
-        'snapshotInterval'               => 'snapshotInterval',
-        'taskId'                         => 'taskId',
-        'videoExtraInfo'                 => 'videoExtraInfo',
+        'faceIdentitySimilarityMinScore' => 'faceIdentitySimilarityMinScore',
+        'frameSampleMethodShrink' => 'frameSampleMethod',
+        'generateOptionsShrink' => 'generateOptions',
+        'language' => 'language',
+        'modelCustomPromptTemplate' => 'modelCustomPromptTemplate',
+        'modelCustomPromptTemplateId' => 'modelCustomPromptTemplateId',
+        'modelId' => 'modelId',
+        'originalSessionId' => 'originalSessionId',
+        'snapshotInterval' => 'snapshotInterval',
+        'taskId' => 'taskId',
+        'textProcessTasksShrink' => 'textProcessTasks',
+        'videoExtraInfo' => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
-        'videoModelId'                   => 'videoModelId',
-        'videoRolesShrink'               => 'videoRoles',
-        'videoUrl'                       => 'videoUrl',
+        'videoModelId' => 'videoModelId',
+        'videoRolesShrink' => 'videoRoles',
+        'videoShotFaceIdentityCount' => 'videoShotFaceIdentityCount',
+        'videoUrl' => 'videoUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceIdentitySimilarityMinScore) {
+            $res['faceIdentitySimilarityMinScore'] = $this->faceIdentitySimilarityMinScore;
+        }
         if (null !== $this->frameSampleMethodShrink) {
             $res['frameSampleMethod'] = $this->frameSampleMethodShrink;
         }
@@ -142,6 +171,9 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
+        if (null !== $this->textProcessTasksShrink) {
+            $res['textProcessTasks'] = $this->textProcessTasksShrink;
+        }
         if (null !== $this->videoExtraInfo) {
             $res['videoExtraInfo'] = $this->videoExtraInfo;
         }
@@ -153,6 +185,9 @@ class RunVideoAnalysisShrinkRequest extends Model
         }
         if (null !== $this->videoRolesShrink) {
             $res['videoRoles'] = $this->videoRolesShrink;
+        }
+        if (null !== $this->videoShotFaceIdentityCount) {
+            $res['videoShotFaceIdentityCount'] = $this->videoShotFaceIdentityCount;
         }
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
@@ -169,6 +204,9 @@ class RunVideoAnalysisShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['faceIdentitySimilarityMinScore'])) {
+            $model->faceIdentitySimilarityMinScore = $map['faceIdentitySimilarityMinScore'];
+        }
         if (isset($map['frameSampleMethod'])) {
             $model->frameSampleMethodShrink = $map['frameSampleMethod'];
         }
@@ -196,6 +234,9 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
+        if (isset($map['textProcessTasks'])) {
+            $model->textProcessTasksShrink = $map['textProcessTasks'];
+        }
         if (isset($map['videoExtraInfo'])) {
             $model->videoExtraInfo = $map['videoExtraInfo'];
         }
@@ -207,6 +248,9 @@ class RunVideoAnalysisShrinkRequest extends Model
         }
         if (isset($map['videoRoles'])) {
             $model->videoRolesShrink = $map['videoRoles'];
+        }
+        if (isset($map['videoShotFaceIdentityCount'])) {
+            $model->videoShotFaceIdentityCount = $map['videoShotFaceIdentityCount'];
         }
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];

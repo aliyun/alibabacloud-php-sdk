@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponseBody;
 
@@ -31,15 +41,13 @@ class data extends Model
      */
     public $status;
     protected $_name = [
-        'errorCode'    => 'errorCode',
+        'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
-        'results'      => 'results',
-        'status'       => 'status',
+        'results' => 'results',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -83,7 +91,7 @@ class data extends Model
         if (isset($map['results'])) {
             if (!empty($map['results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

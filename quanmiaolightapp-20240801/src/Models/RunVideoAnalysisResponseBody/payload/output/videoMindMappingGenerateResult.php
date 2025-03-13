@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
 
@@ -44,17 +54,15 @@ class videoMindMappingGenerateResult extends Model
      */
     public $videoMindMappings;
     protected $_name = [
-        'generateFinished'  => 'generateFinished',
-        'modelId'           => 'modelId',
-        'modelReduce'       => 'modelReduce',
-        'text'              => 'text',
-        'usage'             => 'usage',
+        'generateFinished' => 'generateFinished',
+        'modelId' => 'modelId',
+        'modelReduce' => 'modelReduce',
+        'text' => 'text',
+        'usage' => 'usage',
         'videoMindMappings' => 'videoMindMappings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -113,7 +121,7 @@ class videoMindMappingGenerateResult extends Model
         if (isset($map['videoMindMappings'])) {
             if (!empty($map['videoMindMappings'])) {
                 $model->videoMindMappings = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['videoMindMappings'] as $item) {
                     $model->videoMindMappings[$n++] = null !== $item ? videoMindMappings::fromMap($item) : $item;
                 }

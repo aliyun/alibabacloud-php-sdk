@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponseBody\payload;
 
@@ -43,17 +53,15 @@ class output extends Model
      */
     public $text;
     protected $_name = [
-        'articles'          => 'articles',
+        'articles' => 'articles',
         'hotTopicSummaries' => 'hotTopicSummaries',
-        'multimodalMedias'  => 'multimodalMedias',
-        'recommendQueries'  => 'recommendQueries',
-        'searchQuery'       => 'searchQuery',
-        'text'              => 'text',
+        'multimodalMedias' => 'multimodalMedias',
+        'recommendQueries' => 'recommendQueries',
+        'searchQuery' => 'searchQuery',
+        'text' => 'text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -109,7 +117,7 @@ class output extends Model
         if (isset($map['articles'])) {
             if (!empty($map['articles'])) {
                 $model->articles = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['articles'] as $item) {
                     $model->articles[$n++] = null !== $item ? articles::fromMap($item) : $item;
                 }
@@ -118,7 +126,7 @@ class output extends Model
         if (isset($map['hotTopicSummaries'])) {
             if (!empty($map['hotTopicSummaries'])) {
                 $model->hotTopicSummaries = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['hotTopicSummaries'] as $item) {
                     $model->hotTopicSummaries[$n++] = null !== $item ? hotTopicSummaries::fromMap($item) : $item;
                 }
@@ -127,7 +135,7 @@ class output extends Model
         if (isset($map['multimodalMedias'])) {
             if (!empty($map['multimodalMedias'])) {
                 $model->multimodalMedias = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['multimodalMedias'] as $item) {
                     $model->multimodalMedias[$n++] = null !== $item ? multimodalMedias::fromMap($item) : $item;
                 }

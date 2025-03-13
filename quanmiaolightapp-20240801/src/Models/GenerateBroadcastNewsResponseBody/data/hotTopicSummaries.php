@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponseBody\data;
 
@@ -52,18 +62,16 @@ class hotTopicSummaries extends Model
      */
     public $textSummary;
     protected $_name = [
-        'category'        => 'category',
-        'hotTopic'        => 'hotTopic',
+        'category' => 'category',
+        'hotTopic' => 'hotTopic',
         'hotTopicVersion' => 'hotTopicVersion',
-        'hotValue'        => 'hotValue',
-        'id'              => 'id',
-        'images'          => 'images',
-        'textSummary'     => 'textSummary',
+        'hotValue' => 'hotValue',
+        'id' => 'id',
+        'images' => 'images',
+        'textSummary' => 'textSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -125,7 +133,7 @@ class hotTopicSummaries extends Model
         if (isset($map['images'])) {
             if (!empty($map['images'])) {
                 $model->images = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['images'] as $item) {
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
