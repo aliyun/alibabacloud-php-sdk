@@ -4,18 +4,28 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAppPolicyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example pg-ee2znjktwgxu2****
+     *
      * @var string
      */
     public $appPolicyId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
@@ -28,20 +38,17 @@ class ModifyAppPolicyShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
         }
-
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-
         if (null !== $this->videoPolicyShrink) {
             $res['VideoPolicy'] = $this->videoPolicyShrink;
         }
@@ -49,22 +56,20 @@ class ModifyAppPolicyShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAppPolicyShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
         }
-
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-
         if (isset($map['VideoPolicy'])) {
             $model->videoPolicyShrink = $map['VideoPolicy'];
         }

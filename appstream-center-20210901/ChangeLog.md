@@ -1,3 +1,8 @@
+2025-03-13 Version: 3.1.0
+- Support API ListNodes.
+- Support API ModifyNodePoolAmount.
+
+
 2025-02-24 Version: 3.0.2
 - Update API CreateAppInstanceGroup: update param RuntimePolicy.
 - Update API CreateAppInstanceGroup: update param StoragePolicy.

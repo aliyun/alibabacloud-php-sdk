@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\storagePolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userProfile extends Model
 {
@@ -12,10 +12,12 @@ class userProfile extends Model
      * @var string
      */
     public $remoteStoragePath;
+
     /**
      * @var string
      */
     public $remoteStorageType;
+
     /**
      * @var bool
      */
@@ -28,20 +30,17 @@ class userProfile extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->remoteStoragePath) {
             $res['RemoteStoragePath'] = $this->remoteStoragePath;
         }
-
         if (null !== $this->remoteStorageType) {
             $res['RemoteStorageType'] = $this->remoteStorageType;
         }
-
         if (null !== $this->userProfileSwitch) {
             $res['UserProfileSwitch'] = $this->userProfileSwitch;
         }
@@ -49,22 +48,20 @@ class userProfile extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userProfile
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemoteStoragePath'])) {
             $model->remoteStoragePath = $map['RemoteStoragePath'];
         }
-
         if (isset($map['RemoteStorageType'])) {
             $model->remoteStorageType = $map['RemoteStorageType'];
         }
-
         if (isset($map['UserProfileSwitch'])) {
             $model->userProfileSwitch = $map['UserProfileSwitch'];
         }

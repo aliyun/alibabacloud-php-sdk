@@ -4,15 +4,30 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppInstanceGroupRequest extends Model
 {
     /**
+     * @description The ID of the delivery group.
+     *
+     * This parameter is required.
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
     public $appInstanceGroupId;
+
     /**
+     * @description The product type.
+     *
+     * Valid value:
+     *
+     *   CloudApp: App Streaming
+     *
+     * This parameter is required.
+     * @example CloudApp
+     *
      * @var string
      */
     public $productType;
@@ -23,16 +38,14 @@ class DeleteAppInstanceGroupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
-
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -40,18 +53,17 @@ class DeleteAppInstanceGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppInstanceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
-
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

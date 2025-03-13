@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityPolicy extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $resetAfterUnbind;
+
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipUserAuthCheck;
@@ -23,16 +28,14 @@ class securityPolicy extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resetAfterUnbind) {
             $res['ResetAfterUnbind'] = $this->resetAfterUnbind;
         }
-
         if (null !== $this->skipUserAuthCheck) {
             $res['SkipUserAuthCheck'] = $this->skipUserAuthCheck;
         }
@@ -40,18 +43,17 @@ class securityPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResetAfterUnbind'])) {
             $model->resetAfterUnbind = $map['ResetAfterUnbind'];
         }
-
         if (isset($map['SkipUserAuthCheck'])) {
             $model->skipUserAuthCheck = $map['SkipUserAuthCheck'];
         }

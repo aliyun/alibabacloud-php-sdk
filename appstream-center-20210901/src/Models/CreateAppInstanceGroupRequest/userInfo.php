@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class userInfo extends Model
 {
     /**
+     * @example Simple
+     *
      * @var string
      */
     public $type;
@@ -18,10 +20,9 @@ class userInfo extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
@@ -31,11 +32,11 @@ class userInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
