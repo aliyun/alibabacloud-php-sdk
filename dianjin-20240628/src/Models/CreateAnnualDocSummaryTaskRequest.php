@@ -1,84 +1,89 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskRequest\docInfos;
+use AlibabaCloud\Tea\Model;
 
 class CreateAnnualDocSummaryTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $anaYears;
+
     /**
+     * @description This parameter is required.
+     *
      * @var docInfos[]
      */
     public $docInfos;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableTable;
+
     /**
      * @var string
      */
     public $instruction;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example qwen-plus
+     *
      * @var string
      */
     public $modelId;
     protected $_name = [
-        'anaYears'    => 'anaYears',
-        'docInfos'    => 'docInfos',
+        'anaYears' => 'anaYears',
+        'docInfos' => 'docInfos',
         'enableTable' => 'enableTable',
         'instruction' => 'instruction',
-        'modelId'     => 'modelId',
+        'modelId' => 'modelId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->anaYears)) {
-            Model::validateArray($this->anaYears);
-        }
-        if (\is_array($this->docInfos)) {
-            Model::validateArray($this->docInfos);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->anaYears) {
-            if (\is_array($this->anaYears)) {
-                $res['anaYears'] = [];
-                $n1              = 0;
-                foreach ($this->anaYears as $item1) {
-                    $res['anaYears'][$n1++] = $item1;
-                }
-            }
+            $res['anaYears'] = $this->anaYears;
         }
-
         if (null !== $this->docInfos) {
-            if (\is_array($this->docInfos)) {
-                $res['docInfos'] = [];
-                $n1              = 0;
-                foreach ($this->docInfos as $item1) {
-                    $res['docInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['docInfos'] = [];
+            if (null !== $this->docInfos && \is_array($this->docInfos)) {
+                $n = 0;
+                foreach ($this->docInfos as $item) {
+                    $res['docInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->enableTable) {
             $res['enableTable'] = $this->enableTable;
         }
-
         if (null !== $this->instruction) {
             $res['instruction'] = $this->instruction;
         }
-
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
@@ -86,42 +91,34 @@ class CreateAnnualDocSummaryTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAnnualDocSummaryTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['anaYears'])) {
             if (!empty($map['anaYears'])) {
-                $model->anaYears = [];
-                $n1              = 0;
-                foreach ($map['anaYears'] as $item1) {
-                    $model->anaYears[$n1++] = $item1;
-                }
+                $model->anaYears = $map['anaYears'];
             }
         }
-
         if (isset($map['docInfos'])) {
             if (!empty($map['docInfos'])) {
                 $model->docInfos = [];
-                $n1              = 0;
-                foreach ($map['docInfos'] as $item1) {
-                    $model->docInfos[$n1++] = docInfos::fromMap($item1);
+                $n = 0;
+                foreach ($map['docInfos'] as $item) {
+                    $model->docInfos[$n++] = null !== $item ? docInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['enableTable'])) {
             $model->enableTable = $map['enableTable'];
         }
-
         if (isset($map['instruction'])) {
             $model->instruction = $map['instruction'];
         }
-
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }

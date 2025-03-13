@@ -1,46 +1,61 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools\function_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class parameters extends Model
 {
     /**
+     * @example {
+     * "location": {
+     * "type": "string",
+     * "description": "The city and state, e.g. San Francisco, CA"
+     * },
+     * "unit": {
+     * "type": "string",
+     * "enum": [
+     * "celsius",
+     * "fahrenheit"
+     * ]
+     * }
+     * }
+     *
      * @var mixed[]
      */
     public $properties;
+
     /**
+     * @example object
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'properties' => 'properties',
-        'type'       => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->properties)) {
-            Model::validateArray($this->properties);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->properties) {
-            if (\is_array($this->properties)) {
-                $res['properties'] = [];
-                foreach ($this->properties as $key1 => $value1) {
-                    $res['properties'][$key1] = $value1;
-                }
-            }
+            $res['properties'] = $this->properties;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -48,23 +63,17 @@ class parameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return parameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['properties'])) {
-            if (!empty($map['properties'])) {
-                $model->properties = [];
-                foreach ($map['properties'] as $key1 => $value1) {
-                    $model->properties[$key1] = $value1;
-                }
-            }
+            $model->properties = $map['properties'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

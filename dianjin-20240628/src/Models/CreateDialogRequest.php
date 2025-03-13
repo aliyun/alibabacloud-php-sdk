@@ -1,100 +1,104 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDialogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example taobao
+     *
      * @var string
      */
     public $channel;
+
     /**
      * @var bool
      */
     public $enableLibrary;
+
     /**
+     * @example null
+     *
      * @var mixed[]
      */
     public $metaData;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example live_broadcast_qa
+     *
      * @var string
      */
     public $playCode;
+
     /**
      * @var string[]
      */
     public $qaLibraryList;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example ebf83826-dc1c-46f8-9759-0fb6da4c8xxx
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $selfDirected;
     protected $_name = [
-        'channel'       => 'channel',
+        'channel' => 'channel',
         'enableLibrary' => 'enableLibrary',
-        'metaData'      => 'metaData',
-        'playCode'      => 'playCode',
+        'metaData' => 'metaData',
+        'playCode' => 'playCode',
         'qaLibraryList' => 'qaLibraryList',
-        'requestId'     => 'requestId',
-        'selfDirected'  => 'selfDirected',
+        'requestId' => 'requestId',
+        'selfDirected' => 'selfDirected',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->metaData)) {
-            Model::validateArray($this->metaData);
-        }
-        if (\is_array($this->qaLibraryList)) {
-            Model::validateArray($this->qaLibraryList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
-
         if (null !== $this->enableLibrary) {
             $res['enableLibrary'] = $this->enableLibrary;
         }
-
         if (null !== $this->metaData) {
-            if (\is_array($this->metaData)) {
-                $res['metaData'] = [];
-                foreach ($this->metaData as $key1 => $value1) {
-                    $res['metaData'][$key1] = $value1;
-                }
-            }
+            $res['metaData'] = $this->metaData;
         }
-
         if (null !== $this->playCode) {
             $res['playCode'] = $this->playCode;
         }
-
         if (null !== $this->qaLibraryList) {
-            if (\is_array($this->qaLibraryList)) {
-                $res['qaLibraryList'] = [];
-                $n1                   = 0;
-                foreach ($this->qaLibraryList as $item1) {
-                    $res['qaLibraryList'][$n1++] = $item1;
-                }
-            }
+            $res['qaLibraryList'] = $this->qaLibraryList;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->selfDirected) {
             $res['selfDirected'] = $this->selfDirected;
         }
@@ -102,49 +106,34 @@ class CreateDialogRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDialogRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
-
         if (isset($map['enableLibrary'])) {
             $model->enableLibrary = $map['enableLibrary'];
         }
-
         if (isset($map['metaData'])) {
-            if (!empty($map['metaData'])) {
-                $model->metaData = [];
-                foreach ($map['metaData'] as $key1 => $value1) {
-                    $model->metaData[$key1] = $value1;
-                }
-            }
+            $model->metaData = $map['metaData'];
         }
-
         if (isset($map['playCode'])) {
             $model->playCode = $map['playCode'];
         }
-
         if (isset($map['qaLibraryList'])) {
             if (!empty($map['qaLibraryList'])) {
-                $model->qaLibraryList = [];
-                $n1                   = 0;
-                foreach ($map['qaLibraryList'] as $item1) {
-                    $model->qaLibraryList[$n1++] = $item1;
-                }
+                $model->qaLibraryList = $map['qaLibraryList'];
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['selfDirected'])) {
             $model->selfDirected = $map['selfDirected'];
         }

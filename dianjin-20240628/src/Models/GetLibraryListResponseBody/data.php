@@ -1,75 +1,87 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponseBody\data\records;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var records[]
      */
     public $records;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $totalPages;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalRecords;
     protected $_name = [
-        'currentPage'  => 'currentPage',
-        'pageSize'     => 'pageSize',
-        'records'      => 'records',
-        'totalPages'   => 'totalPages',
+        'currentPage' => 'currentPage',
+        'pageSize' => 'pageSize',
+        'records' => 'records',
+        'totalPages' => 'totalPages',
         'totalRecords' => 'totalRecords',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->records)) {
-            Model::validateArray($this->records);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->records) {
-            if (\is_array($this->records)) {
-                $res['records'] = [];
-                $n1             = 0;
-                foreach ($this->records as $item1) {
-                    $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['records'] = [];
+            if (null !== $this->records && \is_array($this->records)) {
+                $n = 0;
+                foreach ($this->records as $item) {
+                    $res['records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalPages) {
             $res['totalPages'] = $this->totalPages;
         }
-
         if (null !== $this->totalRecords) {
             $res['totalRecords'] = $this->totalRecords;
         }
@@ -77,36 +89,32 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n1             = 0;
-                foreach ($map['records'] as $item1) {
-                    $model->records[$n1++] = records::fromMap($item1);
+                $n = 0;
+                foreach ($map['records'] as $item) {
+                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['totalPages'])) {
             $model->totalPages = $map['totalPages'];
         }
-
         if (isset($map['totalRecords'])) {
             $model->totalRecords = $map['totalRecords'];
         }

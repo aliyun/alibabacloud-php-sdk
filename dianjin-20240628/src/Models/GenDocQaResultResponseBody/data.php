@@ -1,66 +1,76 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponseBody\data\parseQaResults;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example PROCESSING
+     *
      * @var string
      */
     public $currentStatus;
+
     /**
+     * @example 873648346573245
+     *
      * @var string
      */
     public $docId;
+
     /**
+     * @example 7wxwrjpabj
+     *
      * @var string
      */
     public $libraryId;
+
     /**
      * @var parseQaResults[]
      */
     public $parseQaResults;
     protected $_name = [
-        'currentStatus'  => 'currentStatus',
-        'docId'          => 'docId',
-        'libraryId'      => 'libraryId',
+        'currentStatus' => 'currentStatus',
+        'docId' => 'docId',
+        'libraryId' => 'libraryId',
         'parseQaResults' => 'parseQaResults',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parseQaResults)) {
-            Model::validateArray($this->parseQaResults);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentStatus) {
             $res['currentStatus'] = $this->currentStatus;
         }
-
         if (null !== $this->docId) {
             $res['docId'] = $this->docId;
         }
-
         if (null !== $this->libraryId) {
             $res['libraryId'] = $this->libraryId;
         }
-
         if (null !== $this->parseQaResults) {
-            if (\is_array($this->parseQaResults)) {
-                $res['parseQaResults'] = [];
-                $n1                    = 0;
-                foreach ($this->parseQaResults as $item1) {
-                    $res['parseQaResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['parseQaResults'] = [];
+            if (null !== $this->parseQaResults && \is_array($this->parseQaResults)) {
+                $n = 0;
+                foreach ($this->parseQaResults as $item) {
+                    $res['parseQaResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +78,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentStatus'])) {
             $model->currentStatus = $map['currentStatus'];
         }
-
         if (isset($map['docId'])) {
             $model->docId = $map['docId'];
         }
-
         if (isset($map['libraryId'])) {
             $model->libraryId = $map['libraryId'];
         }
-
         if (isset($map['parseQaResults'])) {
             if (!empty($map['parseQaResults'])) {
                 $model->parseQaResults = [];
-                $n1                    = 0;
-                foreach ($map['parseQaResults'] as $item1) {
-                    $model->parseQaResults[$n1++] = parseQaResults::fromMap($item1);
+                $n = 0;
+                foreach ($map['parseQaResults'] as $item) {
+                    $model->parseQaResults[$n++] = null !== $item ? parseQaResults::fromMap($item) : $item;
                 }
             }
         }

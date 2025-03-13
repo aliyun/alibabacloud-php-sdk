@@ -1,56 +1,69 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentRequest\filters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class and_ extends Model
 {
     /**
+     * @example 20
+     *
      * @var float
      */
     public $boost;
+
     /**
+     * @example docType
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @example contains
+     *
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'boost'    => 'boost',
-        'key'      => 'key',
+        'boost' => 'boost',
+        'key' => 'key',
         'operator' => 'operator',
-        'value'    => 'value',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->boost) {
             $res['boost'] = $this->boost;
         }
-
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
-
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -58,26 +71,23 @@ class and_ extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return and_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['boost'])) {
             $model->boost = $map['boost'];
         }
-
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
-
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

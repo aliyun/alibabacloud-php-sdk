@@ -1,96 +1,114 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetLibraryListResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class GetLibraryListResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var int
      */
     public $cost;
+
     /**
      * @var data
      */
     public $data;
+
     /**
+     * @example null
+     *
      * @var string
      */
     public $dataType;
+
     /**
+     * @example 0
+     *
      * @var string
      */
     public $errCode;
+
     /**
+     * @example ok
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @example 0a06dfe817156528535968405edce3
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
+
     /**
+     * @example 2024-01-01 00:00:00
+     *
      * @var string
      */
     public $time;
     protected $_name = [
-        'cost'      => 'cost',
-        'data'      => 'data',
-        'dataType'  => 'dataType',
-        'errCode'   => 'errCode',
-        'message'   => 'message',
+        'cost' => 'cost',
+        'data' => 'data',
+        'dataType' => 'dataType',
+        'errCode' => 'errCode',
+        'message' => 'message',
         'requestId' => 'requestId',
-        'success'   => 'success',
-        'time'      => 'time',
+        'success' => 'success',
+        'time' => 'time',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cost) {
             $res['cost'] = $this->cost;
         }
-
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->dataType) {
             $res['dataType'] = $this->dataType;
         }
-
         if (null !== $this->errCode) {
             $res['errCode'] = $this->errCode;
         }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
@@ -98,42 +116,35 @@ class GetLibraryListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetLibraryListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cost'])) {
             $model->cost = $map['cost'];
         }
-
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
-
         if (isset($map['dataType'])) {
             $model->dataType = $map['dataType'];
         }
-
         if (isset($map['errCode'])) {
             $model->errCode = $map['errCode'];
         }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }

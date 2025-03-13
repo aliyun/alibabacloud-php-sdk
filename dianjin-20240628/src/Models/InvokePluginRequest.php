@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InvokePluginRequest extends Model
 {
@@ -12,35 +22,26 @@ class InvokePluginRequest extends Model
      * @var mixed[]
      */
     public $params;
+
     /**
+     * @example 3mj87da7zr
+     *
      * @var string
      */
     public $pluginId;
     protected $_name = [
-        'params'   => 'params',
+        'params' => 'params',
         'pluginId' => 'pluginId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->params)) {
-            Model::validateArray($this->params);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->params) {
-            if (\is_array($this->params)) {
-                $res['params'] = [];
-                foreach ($this->params as $key1 => $value1) {
-                    $res['params'][$key1] = $value1;
-                }
-            }
+            $res['params'] = $this->params;
         }
-
         if (null !== $this->pluginId) {
             $res['pluginId'] = $this->pluginId;
         }
@@ -48,23 +49,17 @@ class InvokePluginRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InvokePluginRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['params'])) {
-            if (!empty($map['params'])) {
-                $model->params = [];
-                foreach ($map['params'] as $key1 => $value1) {
-                    $model->params[$key1] = $value1;
-                }
-            }
+            $model->params = $map['params'];
         }
-
         if (isset($map['pluginId'])) {
             $model->pluginId = $map['pluginId'];
         }

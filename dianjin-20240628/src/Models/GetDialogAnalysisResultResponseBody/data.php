@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponseBody\data\dialogAnalysisRespList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +27,17 @@ class data extends Model
         'dialogAnalysisRespList' => 'dialogAnalysisRespList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dialogAnalysisRespList)) {
-            Model::validateArray($this->dialogAnalysisRespList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dialogAnalysisRespList) {
-            if (\is_array($this->dialogAnalysisRespList)) {
-                $res['dialogAnalysisRespList'] = [];
-                $n1                            = 0;
-                foreach ($this->dialogAnalysisRespList as $item1) {
-                    $res['dialogAnalysisRespList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['dialogAnalysisRespList'] = [];
+            if (null !== $this->dialogAnalysisRespList && \is_array($this->dialogAnalysisRespList)) {
+                $n = 0;
+                foreach ($this->dialogAnalysisRespList as $item) {
+                    $res['dialogAnalysisRespList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dialogAnalysisRespList'])) {
             if (!empty($map['dialogAnalysisRespList'])) {
                 $model->dialogAnalysisRespList = [];
-                $n1                            = 0;
-                foreach ($map['dialogAnalysisRespList'] as $item1) {
-                    $model->dialogAnalysisRespList[$n1++] = dialogAnalysisRespList::fromMap($item1);
+                $n = 0;
+                foreach ($map['dialogAnalysisRespList'] as $item) {
+                    $model->dialogAnalysisRespList[$n++] = null !== $item ? dialogAnalysisRespList::fromMap($item) : $item;
                 }
             }
         }

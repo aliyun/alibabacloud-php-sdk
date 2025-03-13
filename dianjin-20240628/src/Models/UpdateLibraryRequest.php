@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateLibraryRequest\indexSetting;
+use AlibabaCloud\Tea\Model;
 
 class UpdateLibraryRequest extends Model
 {
@@ -13,48 +23,46 @@ class UpdateLibraryRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var indexSetting
      */
     public $indexSetting;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example dsfbashdbb
+     *
      * @var string
      */
     public $libraryId;
+
     /**
      * @var string
      */
     public $libraryName;
     protected $_name = [
-        'description'  => 'description',
+        'description' => 'description',
         'indexSetting' => 'indexSetting',
-        'libraryId'    => 'libraryId',
-        'libraryName'  => 'libraryName',
+        'libraryId' => 'libraryId',
+        'libraryName' => 'libraryName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->indexSetting) {
-            $this->indexSetting->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->indexSetting) {
-            $res['indexSetting'] = null !== $this->indexSetting ? $this->indexSetting->toArray($noStream) : $this->indexSetting;
+            $res['indexSetting'] = null !== $this->indexSetting ? $this->indexSetting->toMap() : null;
         }
-
         if (null !== $this->libraryId) {
             $res['libraryId'] = $this->libraryId;
         }
-
         if (null !== $this->libraryName) {
             $res['libraryName'] = $this->libraryName;
         }
@@ -62,26 +70,23 @@ class UpdateLibraryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateLibraryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['indexSetting'])) {
             $model->indexSetting = indexSetting::fromMap($map['indexSetting']);
         }
-
         if (isset($map['libraryId'])) {
             $model->libraryId = $map['libraryId'];
         }
-
         if (isset($map['libraryName'])) {
             $model->libraryName = $map['libraryName'];
         }

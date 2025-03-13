@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSummaryTaskResultResponse extends Model
 {
@@ -12,75 +22,54 @@ class GetSummaryTaskResultResponse extends Model
      * @var string[]
      */
     public $headers;
+
     /**
      * @var int
      */
     public $statusCode;
+
     /**
      * @var GetSummaryTaskResultResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['headers'] = [];
-                foreach ($this->headers as $key1 => $value1) {
-                    $res['headers'][$key1] = $value1;
-                }
-            }
+            $res['headers'] = $this->headers;
         }
-
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
-
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSummaryTaskResultResponse
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
-            if (!empty($map['headers'])) {
-                $model->headers = [];
-                foreach ($map['headers'] as $key1 => $value1) {
-                    $model->headers[$key1] = $value1;
-                }
-            }
+            $model->headers = $map['headers'];
         }
-
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
         }
-
         if (isset($map['body'])) {
             $model->body = GetSummaryTaskResultResponseBody::fromMap($map['body']);
         }

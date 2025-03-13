@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools\function_\parameters;
+use AlibabaCloud\Tea\Model;
 
 class function_ extends Model
 {
@@ -13,91 +23,71 @@ class function_ extends Model
      * @var string
      */
     public $description;
+
     /**
+     * @example get_time
+     *
      * @var string
      */
     public $name;
+
     /**
      * @var parameters
      */
     public $parameters;
+
     /**
      * @var string[]
      */
     public $required;
     protected $_name = [
         'description' => 'description',
-        'name'        => 'name',
-        'parameters'  => 'parameters',
-        'required'    => 'required',
+        'name' => 'name',
+        'parameters' => 'parameters',
+        'required' => 'required',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->parameters) {
-            $this->parameters->validate();
-        }
-        if (\is_array($this->required)) {
-            Model::validateArray($this->required);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->parameters) {
-            $res['parameters'] = null !== $this->parameters ? $this->parameters->toArray($noStream) : $this->parameters;
+            $res['parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
         }
-
         if (null !== $this->required) {
-            if (\is_array($this->required)) {
-                $res['required'] = [];
-                $n1              = 0;
-                foreach ($this->required as $item1) {
-                    $res['required'][$n1++] = $item1;
-                }
-            }
+            $res['required'] = $this->required;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return function_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['parameters'])) {
             $model->parameters = parameters::fromMap($map['parameters']);
         }
-
         if (isset($map['required'])) {
             if (!empty($map['required'])) {
-                $model->required = [];
-                $n1              = 0;
-                foreach ($map['required'] as $item1) {
-                    $model->required[$n1++] = $item1;
-                }
+                $model->required = $map['required'];
             }
         }
 

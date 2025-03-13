@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\chunkList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pos extends Model
 {
@@ -12,90 +22,61 @@ class pos extends Model
      * @var float[]
      */
     public $axisArray;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
+
     /**
      * @var int[]
      */
     public $textHighlightArea;
     protected $_name = [
-        'axisArray'         => 'axisArray',
-        'page'              => 'page',
+        'axisArray' => 'axisArray',
+        'page' => 'page',
         'textHighlightArea' => 'textHighlightArea',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->axisArray)) {
-            Model::validateArray($this->axisArray);
-        }
-        if (\is_array($this->textHighlightArea)) {
-            Model::validateArray($this->textHighlightArea);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->axisArray) {
-            if (\is_array($this->axisArray)) {
-                $res['axisArray'] = [];
-                $n1               = 0;
-                foreach ($this->axisArray as $item1) {
-                    $res['axisArray'][$n1++] = $item1;
-                }
-            }
+            $res['axisArray'] = $this->axisArray;
         }
-
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
-
         if (null !== $this->textHighlightArea) {
-            if (\is_array($this->textHighlightArea)) {
-                $res['textHighlightArea'] = [];
-                $n1                       = 0;
-                foreach ($this->textHighlightArea as $item1) {
-                    $res['textHighlightArea'][$n1++] = $item1;
-                }
-            }
+            $res['textHighlightArea'] = $this->textHighlightArea;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['axisArray'])) {
             if (!empty($map['axisArray'])) {
-                $model->axisArray = [];
-                $n1               = 0;
-                foreach ($map['axisArray'] as $item1) {
-                    $model->axisArray[$n1++] = $item1;
-                }
+                $model->axisArray = $map['axisArray'];
             }
         }
-
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
-
         if (isset($map['textHighlightArea'])) {
             if (!empty($map['textHighlightArea'])) {
-                $model->textHighlightArea = [];
-                $n1                       = 0;
-                foreach ($map['textHighlightArea'] as $item1) {
-                    $model->textHighlightArea[$n1++] = $item1;
-                }
+                $model->textHighlightArea = $map['textHighlightArea'];
             }
         }
 

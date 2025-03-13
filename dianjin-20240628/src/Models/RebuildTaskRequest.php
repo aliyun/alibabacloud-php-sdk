@@ -1,14 +1,26 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RebuildTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $taskIds;
@@ -16,45 +28,29 @@ class RebuildTaskRequest extends Model
         'taskIds' => 'taskIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskIds)) {
-            Model::validateArray($this->taskIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskIds) {
-            if (\is_array($this->taskIds)) {
-                $res['taskIds'] = [];
-                $n1             = 0;
-                foreach ($this->taskIds as $item1) {
-                    $res['taskIds'][$n1++] = $item1;
-                }
-            }
+            $res['taskIds'] = $this->taskIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RebuildTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskIds'])) {
             if (!empty($map['taskIds'])) {
-                $model->taskIds = [];
-                $n1             = 0;
-                foreach ($map['taskIds'] as $item1) {
-                    $model->taskIds[$n1++] = $item1;
-                }
+                $model->taskIds = $map['taskIds'];
             }
         }
 

@@ -1,15 +1,25 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\chunkList;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\chunkPartList;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\documents;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\textChunkList;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentResponseBody\data\vectorChunkList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,153 +27,134 @@ class data extends Model
      * @var chunkList[]
      */
     public $chunkList;
+
     /**
      * @var chunkPartList[]
      */
     public $chunkPartList;
+
     /**
      * @var string[]
      */
     public $chunkTextList;
+
     /**
      * @var documents[]
      */
     public $documents;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $embeddingElapsedMs;
+
     /**
      * @var textChunkList[]
      */
     public $textChunkList;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $textSearchElapsedMs;
+
     /**
+     * @example 400
+     *
      * @var int
      */
     public $totalElapsedMs;
+
     /**
      * @var vectorChunkList[]
      */
     public $vectorChunkList;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $vectorSearchElapsedMs;
     protected $_name = [
-        'chunkList'             => 'chunkList',
-        'chunkPartList'         => 'chunkPartList',
-        'chunkTextList'         => 'chunkTextList',
-        'documents'             => 'documents',
-        'embeddingElapsedMs'    => 'embeddingElapsedMs',
-        'textChunkList'         => 'textChunkList',
-        'textSearchElapsedMs'   => 'textSearchElapsedMs',
-        'totalElapsedMs'        => 'totalElapsedMs',
-        'vectorChunkList'       => 'vectorChunkList',
+        'chunkList' => 'chunkList',
+        'chunkPartList' => 'chunkPartList',
+        'chunkTextList' => 'chunkTextList',
+        'documents' => 'documents',
+        'embeddingElapsedMs' => 'embeddingElapsedMs',
+        'textChunkList' => 'textChunkList',
+        'textSearchElapsedMs' => 'textSearchElapsedMs',
+        'totalElapsedMs' => 'totalElapsedMs',
+        'vectorChunkList' => 'vectorChunkList',
         'vectorSearchElapsedMs' => 'vectorSearchElapsedMs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->chunkList)) {
-            Model::validateArray($this->chunkList);
-        }
-        if (\is_array($this->chunkPartList)) {
-            Model::validateArray($this->chunkPartList);
-        }
-        if (\is_array($this->chunkTextList)) {
-            Model::validateArray($this->chunkTextList);
-        }
-        if (\is_array($this->documents)) {
-            Model::validateArray($this->documents);
-        }
-        if (\is_array($this->textChunkList)) {
-            Model::validateArray($this->textChunkList);
-        }
-        if (\is_array($this->vectorChunkList)) {
-            Model::validateArray($this->vectorChunkList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chunkList) {
-            if (\is_array($this->chunkList)) {
-                $res['chunkList'] = [];
-                $n1               = 0;
-                foreach ($this->chunkList as $item1) {
-                    $res['chunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['chunkList'] = [];
+            if (null !== $this->chunkList && \is_array($this->chunkList)) {
+                $n = 0;
+                foreach ($this->chunkList as $item) {
+                    $res['chunkList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->chunkPartList) {
-            if (\is_array($this->chunkPartList)) {
-                $res['chunkPartList'] = [];
-                $n1                   = 0;
-                foreach ($this->chunkPartList as $item1) {
-                    $res['chunkPartList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['chunkPartList'] = [];
+            if (null !== $this->chunkPartList && \is_array($this->chunkPartList)) {
+                $n = 0;
+                foreach ($this->chunkPartList as $item) {
+                    $res['chunkPartList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->chunkTextList) {
-            if (\is_array($this->chunkTextList)) {
-                $res['chunkTextList'] = [];
-                $n1                   = 0;
-                foreach ($this->chunkTextList as $item1) {
-                    $res['chunkTextList'][$n1++] = $item1;
-                }
-            }
+            $res['chunkTextList'] = $this->chunkTextList;
         }
-
         if (null !== $this->documents) {
-            if (\is_array($this->documents)) {
-                $res['documents'] = [];
-                $n1               = 0;
-                foreach ($this->documents as $item1) {
-                    $res['documents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['documents'] = [];
+            if (null !== $this->documents && \is_array($this->documents)) {
+                $n = 0;
+                foreach ($this->documents as $item) {
+                    $res['documents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->embeddingElapsedMs) {
             $res['embeddingElapsedMs'] = $this->embeddingElapsedMs;
         }
-
         if (null !== $this->textChunkList) {
-            if (\is_array($this->textChunkList)) {
-                $res['textChunkList'] = [];
-                $n1                   = 0;
-                foreach ($this->textChunkList as $item1) {
-                    $res['textChunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['textChunkList'] = [];
+            if (null !== $this->textChunkList && \is_array($this->textChunkList)) {
+                $n = 0;
+                foreach ($this->textChunkList as $item) {
+                    $res['textChunkList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->textSearchElapsedMs) {
             $res['textSearchElapsedMs'] = $this->textSearchElapsedMs;
         }
-
         if (null !== $this->totalElapsedMs) {
             $res['totalElapsedMs'] = $this->totalElapsedMs;
         }
-
         if (null !== $this->vectorChunkList) {
-            if (\is_array($this->vectorChunkList)) {
-                $res['vectorChunkList'] = [];
-                $n1                     = 0;
-                foreach ($this->vectorChunkList as $item1) {
-                    $res['vectorChunkList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['vectorChunkList'] = [];
+            if (null !== $this->vectorChunkList && \is_array($this->vectorChunkList)) {
+                $n = 0;
+                foreach ($this->vectorChunkList as $item) {
+                    $res['vectorChunkList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->vectorSearchElapsedMs) {
             $res['vectorSearchElapsedMs'] = $this->vectorSearchElapsedMs;
         }
@@ -171,86 +162,73 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chunkList'])) {
             if (!empty($map['chunkList'])) {
                 $model->chunkList = [];
-                $n1               = 0;
-                foreach ($map['chunkList'] as $item1) {
-                    $model->chunkList[$n1++] = chunkList::fromMap($item1);
+                $n = 0;
+                foreach ($map['chunkList'] as $item) {
+                    $model->chunkList[$n++] = null !== $item ? chunkList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['chunkPartList'])) {
             if (!empty($map['chunkPartList'])) {
                 $model->chunkPartList = [];
-                $n1                   = 0;
-                foreach ($map['chunkPartList'] as $item1) {
-                    $model->chunkPartList[$n1++] = chunkPartList::fromMap($item1);
+                $n = 0;
+                foreach ($map['chunkPartList'] as $item) {
+                    $model->chunkPartList[$n++] = null !== $item ? chunkPartList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['chunkTextList'])) {
             if (!empty($map['chunkTextList'])) {
-                $model->chunkTextList = [];
-                $n1                   = 0;
-                foreach ($map['chunkTextList'] as $item1) {
-                    $model->chunkTextList[$n1++] = $item1;
-                }
+                $model->chunkTextList = $map['chunkTextList'];
             }
         }
-
         if (isset($map['documents'])) {
             if (!empty($map['documents'])) {
                 $model->documents = [];
-                $n1               = 0;
-                foreach ($map['documents'] as $item1) {
-                    $model->documents[$n1++] = documents::fromMap($item1);
+                $n = 0;
+                foreach ($map['documents'] as $item) {
+                    $model->documents[$n++] = null !== $item ? documents::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['embeddingElapsedMs'])) {
             $model->embeddingElapsedMs = $map['embeddingElapsedMs'];
         }
-
         if (isset($map['textChunkList'])) {
             if (!empty($map['textChunkList'])) {
                 $model->textChunkList = [];
-                $n1                   = 0;
-                foreach ($map['textChunkList'] as $item1) {
-                    $model->textChunkList[$n1++] = textChunkList::fromMap($item1);
+                $n = 0;
+                foreach ($map['textChunkList'] as $item) {
+                    $model->textChunkList[$n++] = null !== $item ? textChunkList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['textSearchElapsedMs'])) {
             $model->textSearchElapsedMs = $map['textSearchElapsedMs'];
         }
-
         if (isset($map['totalElapsedMs'])) {
             $model->totalElapsedMs = $map['totalElapsedMs'];
         }
-
         if (isset($map['vectorChunkList'])) {
             if (!empty($map['vectorChunkList'])) {
                 $model->vectorChunkList = [];
-                $n1                     = 0;
-                foreach ($map['vectorChunkList'] as $item1) {
-                    $model->vectorChunkList[$n1++] = vectorChunkList::fromMap($item1);
+                $n = 0;
+                foreach ($map['vectorChunkList'] as $item) {
+                    $model->vectorChunkList[$n++] = null !== $item ? vectorChunkList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['vectorSearchElapsedMs'])) {
             $model->vectorSearchElapsedMs = $map['vectorSearchElapsedMs'];
         }

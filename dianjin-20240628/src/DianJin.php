@@ -1,13 +1,25 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\DianJin\V20240628;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
@@ -97,11 +109,12 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class DianJin extends OpenApiClient
 {
@@ -126,72 +139,61 @@ class DianJin extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 创建按年文档总结任务
-     *
-     * @param request - CreateAnnualDocSummaryTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAnnualDocSummaryTaskResponse
-     *
+     * @summary 创建按年文档总结任务
+     *  *
      * @param string                            $workspaceId
-     * @param CreateAnnualDocSummaryTaskRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param CreateAnnualDocSummaryTaskRequest $request     CreateAnnualDocSummaryTaskRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateAnnualDocSummaryTaskResponse
+     * @return CreateAnnualDocSummaryTaskResponse CreateAnnualDocSummaryTaskResponse
      */
     public function createAnnualDocSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->anaYears) {
-            @$body['anaYears'] = $request->anaYears;
+        if (!Utils::isUnset($request->anaYears)) {
+            $body['anaYears'] = $request->anaYears;
         }
-
-        if (null !== $request->docInfos) {
-            @$body['docInfos'] = $request->docInfos;
+        if (!Utils::isUnset($request->docInfos)) {
+            $body['docInfos'] = $request->docInfos;
         }
-
-        if (null !== $request->enableTable) {
-            @$body['enableTable'] = $request->enableTable;
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
         }
-
-        if (null !== $request->instruction) {
-            @$body['instruction'] = $request->instruction;
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnnualDocSummaryTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/summary/doc/annual',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAnnualDocSummaryTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/summary/doc/annual',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAnnualDocSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -199,15 +201,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建按年文档总结任务
-     *
-     * @param request - CreateAnnualDocSummaryTaskRequest
-     * @returns CreateAnnualDocSummaryTaskResponse
-     *
+     * @summary 创建按年文档总结任务
+     *  *
      * @param string                            $workspaceId
-     * @param CreateAnnualDocSummaryTaskRequest $request
+     * @param CreateAnnualDocSummaryTaskRequest $request     CreateAnnualDocSummaryTaskRequest
      *
-     * @return CreateAnnualDocSummaryTaskResponse
+     * @return CreateAnnualDocSummaryTaskResponse CreateAnnualDocSummaryTaskResponse
      */
     public function createAnnualDocSummaryTask($workspaceId, $request)
     {
@@ -218,68 +217,56 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建外呼会话.
-     *
-     * @param request - CreateDialogRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDialogResponse
-     *
+     * @summary 创建外呼会话
+     *  *
      * @param string              $workspaceId
-     * @param CreateDialogRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateDialogRequest $request     CreateDialogRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateDialogResponse
+     * @return CreateDialogResponse CreateDialogResponse
      */
     public function createDialogWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->channel) {
-            @$body['channel'] = $request->channel;
+        if (!Utils::isUnset($request->channel)) {
+            $body['channel'] = $request->channel;
         }
-
-        if (null !== $request->enableLibrary) {
-            @$body['enableLibrary'] = $request->enableLibrary;
+        if (!Utils::isUnset($request->enableLibrary)) {
+            $body['enableLibrary'] = $request->enableLibrary;
         }
-
-        if (null !== $request->metaData) {
-            @$body['metaData'] = $request->metaData;
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
         }
-
-        if (null !== $request->playCode) {
-            @$body['playCode'] = $request->playCode;
+        if (!Utils::isUnset($request->playCode)) {
+            $body['playCode'] = $request->playCode;
         }
-
-        if (null !== $request->qaLibraryList) {
-            @$body['qaLibraryList'] = $request->qaLibraryList;
+        if (!Utils::isUnset($request->qaLibraryList)) {
+            $body['qaLibraryList'] = $request->qaLibraryList;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
-        if (null !== $request->selfDirected) {
-            @$body['selfDirected'] = $request->selfDirected;
+        if (!Utils::isUnset($request->selfDirected)) {
+            $body['selfDirected'] = $request->selfDirected;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDialog',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/dialog/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDialog',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/dialog/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -287,15 +274,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建外呼会话.
-     *
-     * @param request - CreateDialogRequest
-     * @returns CreateDialogResponse
-     *
+     * @summary 创建外呼会话
+     *  *
      * @param string              $workspaceId
-     * @param CreateDialogRequest $request
+     * @param CreateDialogRequest $request     CreateDialogRequest
      *
-     * @return CreateDialogResponse
+     * @return CreateDialogResponse CreateDialogResponse
      */
     public function createDialog($workspaceId, $request)
     {
@@ -306,56 +290,114 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结任务
+     * @summary 创建会话分析任务
+     *  *
+     * @param string                          $workspaceId
+     * @param CreateDialogAnalysisTaskRequest $request     CreateDialogAnalysisTaskRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDocsSummaryTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDocsSummaryTaskResponse
+     * @return CreateDialogAnalysisTaskResponse CreateDialogAnalysisTaskResponse
+     */
+    public function createDialogAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->analysisNodes)) {
+            $body['analysisNodes'] = $request->analysisNodes;
+        }
+        if (!Utils::isUnset($request->conversationList)) {
+            $body['conversationList'] = $request->conversationList;
+        }
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
+        }
+        if (!Utils::isUnset($request->playCode)) {
+            $body['playCode'] = $request->playCode;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDialogAnalysisTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/dialog/analysis/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDialogAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateDialogAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建会话分析任务
+     *  *
+     * @param string                          $workspaceId
+     * @param CreateDialogAnalysisTaskRequest $request     CreateDialogAnalysisTaskRequest
      *
+     * @return CreateDialogAnalysisTaskResponse CreateDialogAnalysisTaskResponse
+     */
+    public function createDialogAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDialogAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建财报总结任务
+     *  *
      * @param string                       $workspaceId
-     * @param CreateDocsSummaryTaskRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param CreateDocsSummaryTaskRequest $request     CreateDocsSummaryTaskRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateDocsSummaryTaskResponse
+     * @return CreateDocsSummaryTaskResponse CreateDocsSummaryTaskResponse
      */
     public function createDocsSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docInfos) {
-            @$body['docInfos'] = $request->docInfos;
+        if (!Utils::isUnset($request->docInfos)) {
+            $body['docInfos'] = $request->docInfos;
         }
-
-        if (null !== $request->enableTable) {
-            @$body['enableTable'] = $request->enableTable;
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
         }
-
-        if (null !== $request->instruction) {
-            @$body['instruction'] = $request->instruction;
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDocsSummaryTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/summary/docs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDocsSummaryTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/summary/docs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDocsSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -363,15 +405,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结任务
-     *
-     * @param request - CreateDocsSummaryTaskRequest
-     * @returns CreateDocsSummaryTaskResponse
-     *
+     * @summary 创建财报总结任务
+     *  *
      * @param string                       $workspaceId
-     * @param CreateDocsSummaryTaskRequest $request
+     * @param CreateDocsSummaryTaskRequest $request     CreateDocsSummaryTaskRequest
      *
-     * @return CreateDocsSummaryTaskResponse
+     * @return CreateDocsSummaryTaskResponse CreateDocsSummaryTaskResponse
      */
     public function createDocsSummaryTask($workspaceId, $request)
     {
@@ -382,72 +421,59 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结任务
-     *
-     * @param request - CreateFinReportSummaryTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateFinReportSummaryTaskResponse
-     *
+     * @summary 创建财报总结任务
+     *  *
      * @param string                            $workspaceId
-     * @param CreateFinReportSummaryTaskRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param CreateFinReportSummaryTaskRequest $request     CreateFinReportSummaryTaskRequest
+     * @param string[]                          $headers     map
+     * @param RuntimeOptions                    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateFinReportSummaryTaskResponse
+     * @return CreateFinReportSummaryTaskResponse CreateFinReportSummaryTaskResponse
      */
     public function createFinReportSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->enableTable) {
-            @$body['enableTable'] = $request->enableTable;
+        if (!Utils::isUnset($request->enableTable)) {
+            $body['enableTable'] = $request->enableTable;
         }
-
-        if (null !== $request->endPage) {
-            @$body['endPage'] = $request->endPage;
+        if (!Utils::isUnset($request->endPage)) {
+            $body['endPage'] = $request->endPage;
         }
-
-        if (null !== $request->instruction) {
-            @$body['instruction'] = $request->instruction;
+        if (!Utils::isUnset($request->instruction)) {
+            $body['instruction'] = $request->instruction;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
-        if (null !== $request->startPage) {
-            @$body['startPage'] = $request->startPage;
+        if (!Utils::isUnset($request->startPage)) {
+            $body['startPage'] = $request->startPage;
         }
-
-        if (null !== $request->taskType) {
-            @$body['taskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $body['taskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFinReportSummaryTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/summary',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFinReportSummaryTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/summary',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateFinReportSummaryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -455,15 +481,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结任务
-     *
-     * @param request - CreateFinReportSummaryTaskRequest
-     * @returns CreateFinReportSummaryTaskResponse
-     *
+     * @summary 创建财报总结任务
+     *  *
      * @param string                            $workspaceId
-     * @param CreateFinReportSummaryTaskRequest $request
+     * @param CreateFinReportSummaryTaskRequest $request     CreateFinReportSummaryTaskRequest
      *
-     * @return CreateFinReportSummaryTaskResponse
+     * @return CreateFinReportSummaryTaskResponse CreateFinReportSummaryTaskResponse
      */
     public function createFinReportSummaryTask($workspaceId, $request)
     {
@@ -474,52 +497,44 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建文档库.
-     *
-     * @param request - CreateLibraryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateLibraryResponse
-     *
+     * @summary 创建文档库
+     *  *
      * @param string               $workspaceId
-     * @param CreateLibraryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateLibraryRequest $request     CreateLibraryRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateLibraryResponse
+     * @return CreateLibraryResponse CreateLibraryResponse
      */
     public function createLibraryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->indexSetting) {
-            @$body['indexSetting'] = $request->indexSetting;
+        if (!Utils::isUnset($request->indexSetting)) {
+            $body['indexSetting'] = $request->indexSetting;
         }
-
-        if (null !== $request->libraryName) {
-            @$body['libraryName'] = $request->libraryName;
+        if (!Utils::isUnset($request->libraryName)) {
+            $body['libraryName'] = $request->libraryName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLibrary',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateLibrary',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -527,15 +542,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建文档库.
-     *
-     * @param request - CreateLibraryRequest
-     * @returns CreateLibraryResponse
-     *
+     * @summary 创建文档库
+     *  *
      * @param string               $workspaceId
-     * @param CreateLibraryRequest $request
+     * @param CreateLibraryRequest $request     CreateLibraryRequest
      *
-     * @return CreateLibraryResponse
+     * @return CreateLibraryResponse CreateLibraryResponse
      */
     public function createLibrary($workspaceId, $request)
     {
@@ -546,60 +558,50 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建PDF翻译任务
-     *
-     * @param request - CreatePdfTranslateTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePdfTranslateTaskResponse
-     *
+     * @summary 创建PDF翻译任务
+     *  *
      * @param string                        $workspaceId
-     * @param CreatePdfTranslateTaskRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreatePdfTranslateTaskRequest $request     CreatePdfTranslateTaskRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreatePdfTranslateTaskResponse
+     * @return CreatePdfTranslateTaskResponse CreatePdfTranslateTaskResponse
      */
     public function createPdfTranslateTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->knowledge) {
-            @$body['knowledge'] = $request->knowledge;
+        if (!Utils::isUnset($request->knowledge)) {
+            $body['knowledge'] = $request->knowledge;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
-        if (null !== $request->translateTo) {
-            @$body['translateTo'] = $request->translateTo;
+        if (!Utils::isUnset($request->translateTo)) {
+            $body['translateTo'] = $request->translateTo;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePdfTranslateTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/pdfTranslate',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePdfTranslateTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/pdfTranslate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePdfTranslateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -607,15 +609,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建PDF翻译任务
-     *
-     * @param request - CreatePdfTranslateTaskRequest
-     * @returns CreatePdfTranslateTaskResponse
-     *
+     * @summary 创建PDF翻译任务
+     *  *
      * @param string                        $workspaceId
-     * @param CreatePdfTranslateTaskRequest $request
+     * @param CreatePdfTranslateTaskRequest $request     CreatePdfTranslateTaskRequest
      *
-     * @return CreatePdfTranslateTaskResponse
+     * @return CreatePdfTranslateTaskResponse CreatePdfTranslateTaskResponse
      */
     public function createPdfTranslateTask($workspaceId, $request)
     {
@@ -626,56 +625,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建预定义文档.
-     *
-     * @param request - CreatePredefinedDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreatePredefinedDocumentResponse
-     *
+     * @summary 创建预定义文档
+     *  *
      * @param string                          $workspaceId
-     * @param CreatePredefinedDocumentRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreatePredefinedDocumentRequest $request     CreatePredefinedDocumentRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreatePredefinedDocumentResponse
+     * @return CreatePredefinedDocumentResponse CreatePredefinedDocumentResponse
      */
     public function createPredefinedDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->chunks) {
-            @$body['chunks'] = $request->chunks;
+        if (!Utils::isUnset($request->chunks)) {
+            $body['chunks'] = $request->chunks;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
+        if (!Utils::isUnset($request->metadata)) {
+            $body['metadata'] = $request->metadata;
         }
-
-        if (null !== $request->title) {
-            @$body['title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePredefinedDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/createPredefinedDocument',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePredefinedDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/createPredefinedDocument',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePredefinedDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -683,15 +673,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建预定义文档.
-     *
-     * @param request - CreatePredefinedDocumentRequest
-     * @returns CreatePredefinedDocumentResponse
-     *
+     * @summary 创建预定义文档
+     *  *
      * @param string                          $workspaceId
-     * @param CreatePredefinedDocumentRequest $request
+     * @param CreatePredefinedDocumentRequest $request     CreatePredefinedDocumentRequest
      *
-     * @return CreatePredefinedDocumentResponse
+     * @return CreatePredefinedDocumentResponse CreatePredefinedDocumentResponse
      */
     public function createPredefinedDocument($workspaceId, $request)
     {
@@ -702,64 +689,53 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结的任务
-     *
-     * @param request - CreateQualityCheckTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateQualityCheckTaskResponse
-     *
+     * @summary 创建财报总结的任务
+     *  *
      * @param string                        $workspaceId
-     * @param CreateQualityCheckTaskRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateQualityCheckTaskRequest $request     CreateQualityCheckTaskRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityCheckTaskResponse
+     * @return CreateQualityCheckTaskResponse CreateQualityCheckTaskResponse
      */
     public function createQualityCheckTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->conversationList) {
-            @$body['conversationList'] = $request->conversationList;
+        if (!Utils::isUnset($request->conversationList)) {
+            $body['conversationList'] = $request->conversationList;
         }
-
-        if (null !== $request->gmtService) {
-            @$body['gmtService'] = $request->gmtService;
+        if (!Utils::isUnset($request->gmtService)) {
+            $body['gmtService'] = $request->gmtService;
         }
-
-        if (null !== $request->metaData) {
-            @$body['metaData'] = $request->metaData;
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
         }
-
-        if (null !== $request->qualityGroup) {
-            @$body['qualityGroup'] = $request->qualityGroup;
+        if (!Utils::isUnset($request->qualityGroup)) {
+            $body['qualityGroup'] = $request->qualityGroup;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityCheckTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/qualitycheck/task/submit',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateQualityCheckTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/qualitycheck/task/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateQualityCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -767,15 +743,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 创建财报总结的任务
-     *
-     * @param request - CreateQualityCheckTaskRequest
-     * @returns CreateQualityCheckTaskResponse
-     *
+     * @summary 创建财报总结的任务
+     *  *
      * @param string                        $workspaceId
-     * @param CreateQualityCheckTaskRequest $request
+     * @param CreateQualityCheckTaskRequest $request     CreateQualityCheckTaskRequest
      *
-     * @return CreateQualityCheckTaskResponse
+     * @return CreateQualityCheckTaskResponse CreateQualityCheckTaskResponse
      */
     public function createQualityCheckTask($workspaceId, $request)
     {
@@ -786,48 +759,41 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 删除文档.
-     *
-     * @param request - DeleteDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDocumentResponse
-     *
+     * @summary 删除文档
+     *  *
      * @param string                $workspaceId
-     * @param DeleteDocumentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteDocumentRequest $request     DeleteDocumentRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docIds) {
-            @$body['docIds'] = $request->docIds;
+        if (!Utils::isUnset($request->docIds)) {
+            $body['docIds'] = $request->docIds;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -835,15 +801,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 删除文档.
-     *
-     * @param request - DeleteDocumentRequest
-     * @returns DeleteDocumentResponse
-     *
+     * @summary 删除文档
+     *  *
      * @param string                $workspaceId
-     * @param DeleteDocumentRequest $request
+     * @param DeleteDocumentRequest $request     DeleteDocumentRequest
      *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocument($workspaceId, $request)
     {
@@ -854,44 +817,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 删除文档库.
-     *
-     * @param request - DeleteLibraryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteLibraryResponse
-     *
+     * @summary 删除文档库
+     *  *
      * @param string               $workspaceId
-     * @param DeleteLibraryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteLibraryRequest $request     DeleteLibraryRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteLibraryResponse
+     * @return DeleteLibraryResponse DeleteLibraryResponse
      */
     public function deleteLibraryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libraryId) {
-            @$query['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $query['libraryId'] = $request->libraryId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLibrary',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/delete',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteLibrary',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -899,15 +856,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 删除文档库.
-     *
-     * @param request - DeleteLibraryRequest
-     * @returns DeleteLibraryResponse
-     *
+     * @summary 删除文档库
+     *  *
      * @param string               $workspaceId
-     * @param DeleteLibraryRequest $request
+     * @param DeleteLibraryRequest $request     DeleteLibraryRequest
      *
-     * @return DeleteLibraryResponse
+     * @return DeleteLibraryResponse DeleteLibraryResponse
      */
     public function deleteLibrary($workspaceId, $request)
     {
@@ -918,44 +872,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 中断任务
-     *
-     * @param request - EvictTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EvictTaskResponse
-     *
+     * @summary 中断任务
+     *  *
      * @param string           $workspaceId
-     * @param EvictTaskRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param EvictTaskRequest $request     EvictTaskRequest
+     * @param string[]         $headers     map
+     * @param RuntimeOptions   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return EvictTaskResponse
+     * @return EvictTaskResponse EvictTaskResponse
      */
     public function evictTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['taskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EvictTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/evict',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EvictTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/evict',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EvictTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -963,15 +911,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 中断任务
-     *
-     * @param request - EvictTaskRequest
-     * @returns EvictTaskResponse
-     *
+     * @summary 中断任务
+     *  *
      * @param string           $workspaceId
-     * @param EvictTaskRequest $request
+     * @param EvictTaskRequest $request     EvictTaskRequest
      *
-     * @return EvictTaskResponse
+     * @return EvictTaskResponse EvictTaskResponse
      */
     public function evictTask($workspaceId, $request)
     {
@@ -982,52 +927,44 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 根据文档解析问答QA.
-     *
-     * @param request - GenDocQaResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GenDocQaResultResponse
-     *
+     * @summary 根据文档解析问答QA
+     *  *
      * @param string                $workspaceId
-     * @param GenDocQaResultRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GenDocQaResultRequest $request     GenDocQaResultRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GenDocQaResultResponse
+     * @return GenDocQaResultResponse GenDocQaResultResponse
      */
     public function genDocQaResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GenDocQaResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/qa/parse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenDocQaResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/qa/parse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenDocQaResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1035,15 +972,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 根据文档解析问答QA.
-     *
-     * @param request - GenDocQaResultRequest
-     * @returns GenDocQaResultResponse
-     *
+     * @summary 根据文档解析问答QA
+     *  *
      * @param string                $workspaceId
-     * @param GenDocQaResultRequest $request
+     * @param GenDocQaResultRequest $request     GenDocQaResultRequest
      *
-     * @return GenDocQaResultResponse
+     * @return GenDocQaResultResponse GenDocQaResultResponse
      */
     public function genDocQaResult($workspaceId, $request)
     {
@@ -1054,17 +988,13 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取app配置.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAppConfigResponse
-     *
+     * @summary 获取app配置
+     *  *
      * @param string         $workspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetAppConfigResponse
+     * @return GetAppConfigResponse GetAppConfigResponse
      */
     public function getAppConfigWithOptions($workspaceId, $headers, $runtime)
     {
@@ -1072,17 +1002,17 @@ class DianJin extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAppConfig',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/app/config',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAppConfig',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/app/config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1090,13 +1020,11 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取app配置.
-     *
-     * @returns GetAppConfigResponse
-     *
+     * @summary 获取app配置
+     *  *
      * @param string $workspaceId
      *
-     * @return GetAppConfigResponse
+     * @return GetAppConfigResponse GetAppConfigResponse
      */
     public function getAppConfig($workspaceId)
     {
@@ -1107,48 +1035,41 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取问答结果.
-     *
-     * @param request - GetChatQuestionRespRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetChatQuestionRespResponse
-     *
+     * @summary 获取问答结果
+     *  *
      * @param string                     $workspaceId
-     * @param GetChatQuestionRespRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetChatQuestionRespRequest $request     GetChatQuestionRespRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetChatQuestionRespResponse
+     * @return GetChatQuestionRespResponse GetChatQuestionRespResponse
      */
     public function getChatQuestionRespWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->batchId) {
-            @$body['batchId'] = $request->batchId;
+        if (!Utils::isUnset($request->batchId)) {
+            $body['batchId'] = $request->batchId;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetChatQuestionResp',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/chat/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetChatQuestionResp',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/chat/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetChatQuestionRespResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1156,15 +1077,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取问答结果.
-     *
-     * @param request - GetChatQuestionRespRequest
-     * @returns GetChatQuestionRespResponse
-     *
+     * @summary 获取问答结果
+     *  *
      * @param string                     $workspaceId
-     * @param GetChatQuestionRespRequest $request
+     * @param GetChatQuestionRespRequest $request     GetChatQuestionRespRequest
      *
-     * @return GetChatQuestionRespResponse
+     * @return GetChatQuestionRespResponse GetChatQuestionRespResponse
      */
     public function getChatQuestionResp($workspaceId, $request)
     {
@@ -1175,60 +1093,50 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取外呼会话分析结果.
-     *
-     * @param request - GetDialogAnalysisResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDialogAnalysisResultResponse
-     *
+     * @summary 获取外呼会话分析结果
+     *  *
      * @param string                         $workspaceId
-     * @param GetDialogAnalysisResultRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetDialogAnalysisResultRequest $request     GetDialogAnalysisResultRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetDialogAnalysisResultResponse
+     * @return GetDialogAnalysisResultResponse GetDialogAnalysisResultResponse
      */
     public function getDialogAnalysisResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->asc) {
-            @$body['asc'] = $request->asc;
+        if (!Utils::isUnset($request->asc)) {
+            $body['asc'] = $request->asc;
         }
-
-        if (null !== $request->endTime) {
-            @$body['endTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
         }
-
-        if (null !== $request->sessionIds) {
-            @$body['sessionIds'] = $request->sessionIds;
+        if (!Utils::isUnset($request->sessionIds)) {
+            $body['sessionIds'] = $request->sessionIds;
         }
-
-        if (null !== $request->startTime) {
-            @$body['startTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
         }
-
-        if (null !== $request->useUrl) {
-            @$body['useUrl'] = $request->useUrl;
+        if (!Utils::isUnset($request->useUrl)) {
+            $body['useUrl'] = $request->useUrl;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDialogAnalysisResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/dialog/analysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDialogAnalysisResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/dialog/analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDialogAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1236,15 +1144,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取外呼会话分析结果.
-     *
-     * @param request - GetDialogAnalysisResultRequest
-     * @returns GetDialogAnalysisResultResponse
-     *
+     * @summary 获取外呼会话分析结果
+     *  *
      * @param string                         $workspaceId
-     * @param GetDialogAnalysisResultRequest $request
+     * @param GetDialogAnalysisResultRequest $request     GetDialogAnalysisResultRequest
      *
-     * @return GetDialogAnalysisResultResponse
+     * @return GetDialogAnalysisResultResponse GetDialogAnalysisResultResponse
      */
     public function getDialogAnalysisResult($workspaceId, $request)
     {
@@ -1255,72 +1160,59 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档的chunk列表.
-     *
-     * @param request - GetDocumentChunkListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDocumentChunkListResponse
-     *
+     * @summary 获取文档的chunk列表
+     *  *
      * @param string                      $workspaceId
-     * @param GetDocumentChunkListRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetDocumentChunkListRequest $request     GetDocumentChunkListRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentChunkListResponse
+     * @return GetDocumentChunkListResponse GetDocumentChunkListResponse
      */
     public function getDocumentChunkListWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->chunkIdList) {
-            @$body['chunkIdList'] = $request->chunkIdList;
+        if (!Utils::isUnset($request->chunkIdList)) {
+            $body['chunkIdList'] = $request->chunkIdList;
         }
-
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->order) {
-            @$body['order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
         }
-
-        if (null !== $request->orderBy) {
-            @$body['orderBy'] = $request->orderBy;
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['orderBy'] = $request->orderBy;
         }
-
-        if (null !== $request->page) {
-            @$body['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->searchQuery) {
-            @$body['searchQuery'] = $request->searchQuery;
+        if (!Utils::isUnset($request->searchQuery)) {
+            $body['searchQuery'] = $request->searchQuery;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentChunkList',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/getDocumentChunk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentChunkList',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/getDocumentChunk',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDocumentChunkListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1328,15 +1220,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档的chunk列表.
-     *
-     * @param request - GetDocumentChunkListRequest
-     * @returns GetDocumentChunkListResponse
-     *
+     * @summary 获取文档的chunk列表
+     *  *
      * @param string                      $workspaceId
-     * @param GetDocumentChunkListRequest $request
+     * @param GetDocumentChunkListRequest $request     GetDocumentChunkListRequest
      *
-     * @return GetDocumentChunkListResponse
+     * @return GetDocumentChunkListResponse GetDocumentChunkListResponse
      */
     public function getDocumentChunkList($workspaceId, $request)
     {
@@ -1347,56 +1236,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库的文档列表.
-     *
-     * @param request - GetDocumentListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDocumentListResponse
-     *
+     * @summary 分页查询文档库的文档列表
+     *  *
      * @param string                 $workspaceId
-     * @param GetDocumentListRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetDocumentListRequest $request     GetDocumentListRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentListResponse
+     * @return GetDocumentListResponse GetDocumentListResponse
      */
     public function getDocumentListWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libraryId) {
-            @$query['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $query['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$query['status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentList',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/listDocument',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentList',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/listDocument',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1404,15 +1284,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库的文档列表.
-     *
-     * @param request - GetDocumentListRequest
-     * @returns GetDocumentListResponse
-     *
+     * @summary 分页查询文档库的文档列表
+     *  *
      * @param string                 $workspaceId
-     * @param GetDocumentListRequest $request
+     * @param GetDocumentListRequest $request     GetDocumentListRequest
      *
-     * @return GetDocumentListResponse
+     * @return GetDocumentListResponse GetDocumentListResponse
      */
     public function getDocumentList($workspaceId, $request)
     {
@@ -1423,44 +1300,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档URL.
-     *
-     * @param request - GetDocumentUrlRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetDocumentUrlResponse
-     *
+     * @summary 获取文档URL
+     *  *
      * @param string                $workspaceId
-     * @param GetDocumentUrlRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetDocumentUrlRequest $request     GetDocumentUrlRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetDocumentUrlResponse
+     * @return GetDocumentUrlResponse GetDocumentUrlResponse
      */
     public function getDocumentUrlWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->documentId) {
-            @$query['documentId'] = $request->documentId;
+        if (!Utils::isUnset($request->documentId)) {
+            $query['documentId'] = $request->documentId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentUrl',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/url',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentUrl',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/url',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetDocumentUrlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1468,15 +1339,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档URL.
-     *
-     * @param request - GetDocumentUrlRequest
-     * @returns GetDocumentUrlResponse
-     *
+     * @summary 获取文档URL
+     *  *
      * @param string                $workspaceId
-     * @param GetDocumentUrlRequest $request
+     * @param GetDocumentUrlRequest $request     GetDocumentUrlRequest
      *
-     * @return GetDocumentUrlResponse
+     * @return GetDocumentUrlResponse GetDocumentUrlResponse
      */
     public function getDocumentUrl($workspaceId, $request)
     {
@@ -1487,68 +1355,56 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 带条件的分页查询文档库的文档列表.
-     *
-     * @param request - GetFilterDocumentListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetFilterDocumentListResponse
-     *
+     * @summary 带条件的分页查询文档库的文档列表
+     *  *
      * @param string                       $workspaceId
-     * @param GetFilterDocumentListRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param GetFilterDocumentListRequest $request     GetFilterDocumentListRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetFilterDocumentListResponse
+     * @return GetFilterDocumentListResponse GetFilterDocumentListResponse
      */
     public function getFilterDocumentListWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->and) {
-            @$body['and'] = $request->and;
+        if (!Utils::isUnset($request->and_)) {
+            $body['and'] = $request->and_;
         }
-
-        if (null !== $request->docIdList) {
-            @$body['docIdList'] = $request->docIdList;
+        if (!Utils::isUnset($request->docIdList)) {
+            $body['docIdList'] = $request->docIdList;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->or) {
-            @$body['or'] = $request->or;
+        if (!Utils::isUnset($request->or_)) {
+            $body['or'] = $request->or_;
         }
-
-        if (null !== $request->page) {
-            @$body['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->status) {
-            @$body['status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFilterDocumentList',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/filterDocument',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFilterDocumentList',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/filterDocument',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetFilterDocumentListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1556,15 +1412,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 带条件的分页查询文档库的文档列表.
-     *
-     * @param request - GetFilterDocumentListRequest
-     * @returns GetFilterDocumentListResponse
-     *
+     * @summary 带条件的分页查询文档库的文档列表
+     *  *
      * @param string                       $workspaceId
-     * @param GetFilterDocumentListRequest $request
+     * @param GetFilterDocumentListRequest $request     GetFilterDocumentListRequest
      *
-     * @return GetFilterDocumentListResponse
+     * @return GetFilterDocumentListResponse GetFilterDocumentListResponse
      */
     public function getFilterDocumentList($workspaceId, $request)
     {
@@ -1575,56 +1428,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库列表.
-     *
-     * @param request - GetHistoryListByBizTypeRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetHistoryListByBizTypeResponse
-     *
+     * @summary 分页查询文档库列表
+     *  *
      * @param string                         $workspaceId
-     * @param GetHistoryListByBizTypeRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetHistoryListByBizTypeRequest $request     GetHistoryListByBizTypeRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetHistoryListByBizTypeResponse
+     * @return GetHistoryListByBizTypeResponse GetHistoryListByBizTypeResponse
      */
     public function getHistoryListByBizTypeWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->bizId) {
-            @$query['bizId'] = $request->bizId;
+        if (!Utils::isUnset($request->bizId)) {
+            $query['bizId'] = $request->bizId;
         }
-
-        if (null !== $request->bizType) {
-            @$query['bizType'] = $request->bizType;
+        if (!Utils::isUnset($request->bizType)) {
+            $query['bizType'] = $request->bizType;
         }
-
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHistoryListByBizType',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/history/list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetHistoryListByBizType',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/history/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetHistoryListByBizTypeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1632,15 +1476,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库列表.
-     *
-     * @param request - GetHistoryListByBizTypeRequest
-     * @returns GetHistoryListByBizTypeResponse
-     *
+     * @summary 分页查询文档库列表
+     *  *
      * @param string                         $workspaceId
-     * @param GetHistoryListByBizTypeRequest $request
+     * @param GetHistoryListByBizTypeRequest $request     GetHistoryListByBizTypeRequest
      *
-     * @return GetHistoryListByBizTypeResponse
+     * @return GetHistoryListByBizTypeResponse GetHistoryListByBizTypeResponse
      */
     public function getHistoryListByBizType($workspaceId, $request)
     {
@@ -1651,44 +1492,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档库配置详情.
-     *
-     * @param request - GetLibraryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetLibraryResponse
-     *
+     * @summary 获取文档库配置详情
+     *  *
      * @param string            $workspaceId
-     * @param GetLibraryRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetLibraryRequest $request     GetLibraryRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetLibraryResponse
+     * @return GetLibraryResponse GetLibraryResponse
      */
     public function getLibraryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libraryId) {
-            @$query['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $query['libraryId'] = $request->libraryId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLibrary',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/get',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLibrary',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1696,15 +1531,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档库配置详情.
-     *
-     * @param request - GetLibraryRequest
-     * @returns GetLibraryResponse
-     *
+     * @summary 获取文档库配置详情
+     *  *
      * @param string            $workspaceId
-     * @param GetLibraryRequest $request
+     * @param GetLibraryRequest $request     GetLibraryRequest
      *
-     * @return GetLibraryResponse
+     * @return GetLibraryResponse GetLibraryResponse
      */
     public function getLibrary($workspaceId, $request)
     {
@@ -1715,52 +1547,44 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库列表.
-     *
-     * @param request - GetLibraryListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetLibraryListResponse
-     *
+     * @summary 分页查询文档库列表
+     *  *
      * @param string                $workspaceId
-     * @param GetLibraryListRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetLibraryListRequest $request     GetLibraryListRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetLibraryListResponse
+     * @return GetLibraryListResponse GetLibraryListResponse
      */
     public function getLibraryListWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->query) {
-            @$query['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['query'] = $request->query;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLibraryList',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/list',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLibraryList',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetLibraryListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1768,15 +1592,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 分页查询文档库列表.
-     *
-     * @param request - GetLibraryListRequest
-     * @returns GetLibraryListResponse
-     *
+     * @summary 分页查询文档库列表
+     *  *
      * @param string                $workspaceId
-     * @param GetLibraryListRequest $request
+     * @param GetLibraryListRequest $request     GetLibraryListRequest
      *
-     * @return GetLibraryListResponse
+     * @return GetLibraryListResponse GetLibraryListResponse
      */
     public function getLibraryList($workspaceId, $request)
     {
@@ -1787,52 +1608,44 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取解析结果.
-     *
-     * @param request - GetParseResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetParseResultResponse
-     *
+     * @summary 获取解析结果
+     *  *
      * @param string                $workspaceId
-     * @param GetParseResultRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetParseResultRequest $request     GetParseResultRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetParseResultResponse
+     * @return GetParseResultResponse GetParseResultResponse
      */
     public function getParseResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->useUrlResult) {
-            @$body['useUrlResult'] = $request->useUrlResult;
+        if (!Utils::isUnset($request->useUrlResult)) {
+            $body['useUrlResult'] = $request->useUrlResult;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetParseResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/getParseResult',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetParseResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/getParseResult',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetParseResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1840,15 +1653,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取解析结果.
-     *
-     * @param request - GetParseResultRequest
-     * @returns GetParseResultResponse
-     *
+     * @summary 获取解析结果
+     *  *
      * @param string                $workspaceId
-     * @param GetParseResultRequest $request
+     * @param GetParseResultRequest $request     GetParseResultRequest
      *
-     * @return GetParseResultResponse
+     * @return GetParseResultResponse GetParseResultResponse
      */
     public function getParseResult($workspaceId, $request)
     {
@@ -1859,44 +1669,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取异步任务的结果.
-     *
-     * @param request - GetQualityCheckTaskResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetQualityCheckTaskResultResponse
-     *
+     * @summary 获取异步任务的结果
+     *  *
      * @param string                           $workspaceId
-     * @param GetQualityCheckTaskResultRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetQualityCheckTaskResultRequest $request     GetQualityCheckTaskResultRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetQualityCheckTaskResultResponse
+     * @return GetQualityCheckTaskResultResponse GetQualityCheckTaskResultResponse
      */
     public function getQualityCheckTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['taskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityCheckTaskResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/qualitycheck/task/query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetQualityCheckTaskResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/qualitycheck/task/query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetQualityCheckTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1904,15 +1708,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取异步任务的结果.
-     *
-     * @param request - GetQualityCheckTaskResultRequest
-     * @returns GetQualityCheckTaskResultResponse
-     *
+     * @summary 获取异步任务的结果
+     *  *
      * @param string                           $workspaceId
-     * @param GetQualityCheckTaskResultRequest $request
+     * @param GetQualityCheckTaskResultRequest $request     GetQualityCheckTaskResultRequest
      *
-     * @return GetQualityCheckTaskResultResponse
+     * @return GetQualityCheckTaskResultResponse GetQualityCheckTaskResultResponse
      */
     public function getQualityCheckTaskResult($workspaceId, $request)
     {
@@ -1923,44 +1724,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取财报总结任务结果.
-     *
-     * @param request - GetSummaryTaskResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetSummaryTaskResultResponse
-     *
+     * @summary 获取财报总结任务结果
+     *  *
      * @param string                      $workspaceId
-     * @param GetSummaryTaskResultRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetSummaryTaskResultRequest $request     GetSummaryTaskResultRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetSummaryTaskResultResponse
+     * @return GetSummaryTaskResultResponse GetSummaryTaskResultResponse
      */
     public function getSummaryTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['taskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSummaryTaskResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/summary/result',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSummaryTaskResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/summary/result',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSummaryTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1968,15 +1763,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取财报总结任务结果.
-     *
-     * @param request - GetSummaryTaskResultRequest
-     * @returns GetSummaryTaskResultResponse
-     *
+     * @summary 获取财报总结任务结果
+     *  *
      * @param string                      $workspaceId
-     * @param GetSummaryTaskResultRequest $request
+     * @param GetSummaryTaskResultRequest $request     GetSummaryTaskResultRequest
      *
-     * @return GetSummaryTaskResultResponse
+     * @return GetSummaryTaskResultResponse GetSummaryTaskResultResponse
      */
     public function getSummaryTaskResult($workspaceId, $request)
     {
@@ -1987,44 +1779,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取异步任务结果.
-     *
-     * @param request - GetTaskResultRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetTaskResultResponse
-     *
+     * @summary 获取异步任务结果
+     *  *
      * @param string               $workspaceId
-     * @param GetTaskResultRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetTaskResultRequest $request     GetTaskResultRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTaskResultResponse
+     * @return GetTaskResultResponse GetTaskResultResponse
      */
     public function getTaskResultWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['taskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskResult',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/result',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskResult',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/result',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2032,15 +1818,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取异步任务结果.
-     *
-     * @param request - GetTaskResultRequest
-     * @returns GetTaskResultResponse
-     *
+     * @summary 获取异步任务结果
+     *  *
      * @param string               $workspaceId
-     * @param GetTaskResultRequest $request
+     * @param GetTaskResultRequest $request     GetTaskResultRequest
      *
-     * @return GetTaskResultResponse
+     * @return GetTaskResultResponse GetTaskResultResponse
      */
     public function getTaskResult($workspaceId, $request)
     {
@@ -2051,44 +1834,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取财报总结任务结果.
-     *
-     * @param request - GetTaskStatusRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetTaskStatusResponse
-     *
+     * @summary 获取财报总结任务结果
+     *  *
      * @param string               $workspaceId
-     * @param GetTaskStatusRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetTaskStatusRequest $request     GetTaskStatusRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->taskId) {
-            @$query['taskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskStatus',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskStatus',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2096,15 +1873,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取财报总结任务结果.
-     *
-     * @param request - GetTaskStatusRequest
-     * @returns GetTaskStatusResponse
-     *
+     * @summary 获取财报总结任务结果
+     *  *
      * @param string               $workspaceId
-     * @param GetTaskStatusRequest $request
+     * @param GetTaskStatusRequest $request     GetTaskStatusRequest
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatus($workspaceId, $request)
     {
@@ -2115,48 +1889,41 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 插件调试接口.
-     *
-     * @param request - InvokePluginRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns InvokePluginResponse
-     *
+     * @summary 插件调试接口
+     *  *
      * @param string              $workspaceId
-     * @param InvokePluginRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param InvokePluginRequest $request     InvokePluginRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return InvokePluginResponse
+     * @return InvokePluginResponse InvokePluginResponse
      */
     public function invokePluginWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->params) {
-            @$body['params'] = $request->params;
+        if (!Utils::isUnset($request->params)) {
+            $body['params'] = $request->params;
         }
-
-        if (null !== $request->pluginId) {
-            @$body['pluginId'] = $request->pluginId;
+        if (!Utils::isUnset($request->pluginId)) {
+            $body['pluginId'] = $request->pluginId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvokePlugin',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/plugin/invoke',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvokePlugin',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/plugin/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return InvokePluginResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2164,15 +1931,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 插件调试接口.
-     *
-     * @param request - InvokePluginRequest
-     * @returns InvokePluginResponse
-     *
+     * @summary 插件调试接口
+     *  *
      * @param string              $workspaceId
-     * @param InvokePluginRequest $request
+     * @param InvokePluginRequest $request     InvokePluginRequest
      *
-     * @return InvokePluginResponse
+     * @return InvokePluginResponse InvokePluginResponse
      */
     public function invokePlugin($workspaceId, $request)
     {
@@ -2183,44 +1947,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档预览.
-     *
-     * @param request - PreviewDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns PreviewDocumentResponse
-     *
+     * @summary 获取文档预览
+     *  *
      * @param string                 $workspaceId
-     * @param PreviewDocumentRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param PreviewDocumentRequest $request     PreviewDocumentRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return PreviewDocumentResponse
+     * @return PreviewDocumentResponse PreviewDocumentResponse
      */
     public function previewDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->documentId) {
-            @$query['documentId'] = $request->documentId;
+        if (!Utils::isUnset($request->documentId)) {
+            $query['documentId'] = $request->documentId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PreviewDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/preview',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PreviewDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/preview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PreviewDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2228,15 +1986,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取文档预览.
-     *
-     * @param request - PreviewDocumentRequest
-     * @returns PreviewDocumentResponse
-     *
+     * @summary 获取文档预览
+     *  *
      * @param string                 $workspaceId
-     * @param PreviewDocumentRequest $request
+     * @param PreviewDocumentRequest $request     PreviewDocumentRequest
      *
-     * @return PreviewDocumentResponse
+     * @return PreviewDocumentResponse PreviewDocumentResponse
      */
     public function previewDocument($workspaceId, $request)
     {
@@ -2247,44 +2002,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 重新索引.
-     *
-     * @param request - ReIndexRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ReIndexResponse
-     *
+     * @summary 重新索引
+     *  *
      * @param string         $workspaceId
-     * @param ReIndexRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param ReIndexRequest $request     ReIndexRequest
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ReIndexResponse
+     * @return ReIndexResponse ReIndexResponse
      */
     public function reIndexWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->documentId) {
-            @$query['documentId'] = $request->documentId;
+        if (!Utils::isUnset($request->documentId)) {
+            $query['documentId'] = $request->documentId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReIndex',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/reIndex',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReIndex',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/reIndex',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ReIndexResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2292,15 +2041,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 重新索引.
-     *
-     * @param request - ReIndexRequest
-     * @returns ReIndexResponse
-     *
+     * @summary 重新索引
+     *  *
      * @param string         $workspaceId
-     * @param ReIndexRequest $request
+     * @param ReIndexRequest $request     ReIndexRequest
      *
-     * @return ReIndexResponse
+     * @return ReIndexResponse ReIndexResponse
      */
     public function reIndex($workspaceId, $request)
     {
@@ -2311,80 +2057,65 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 实时对话.
-     *
-     * @param request - RealTimeDialogRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RealTimeDialogResponse
-     *
+     * @summary 实时对话
+     *  *
      * @param string                $workspaceId
-     * @param RealTimeDialogRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param RealTimeDialogRequest $request     RealTimeDialogRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RealTimeDialogResponse
+     * @return RealTimeDialogResponse RealTimeDialogResponse
      */
     public function realTimeDialogWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->analysis) {
-            @$body['analysis'] = $request->analysis;
+        if (!Utils::isUnset($request->analysis)) {
+            $body['analysis'] = $request->analysis;
         }
-
-        if (null !== $request->bizType) {
-            @$body['bizType'] = $request->bizType;
+        if (!Utils::isUnset($request->bizType)) {
+            $body['bizType'] = $request->bizType;
         }
-
-        if (null !== $request->conversationModel) {
-            @$body['conversationModel'] = $request->conversationModel;
+        if (!Utils::isUnset($request->conversationModel)) {
+            $body['conversationModel'] = $request->conversationModel;
         }
-
-        if (null !== $request->dialogMemoryTurns) {
-            @$body['dialogMemoryTurns'] = $request->dialogMemoryTurns;
+        if (!Utils::isUnset($request->dialogMemoryTurns)) {
+            $body['dialogMemoryTurns'] = $request->dialogMemoryTurns;
         }
-
-        if (null !== $request->metaData) {
-            @$body['metaData'] = $request->metaData;
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
         }
-
-        if (null !== $request->recommend) {
-            @$body['recommend'] = $request->recommend;
+        if (!Utils::isUnset($request->recommend)) {
+            $body['recommend'] = $request->recommend;
         }
-
-        if (null !== $request->scriptContentPlayed) {
-            @$body['scriptContentPlayed'] = $request->scriptContentPlayed;
+        if (!Utils::isUnset($request->scriptContentPlayed)) {
+            $body['scriptContentPlayed'] = $request->scriptContentPlayed;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->stream) {
-            @$body['stream'] = $request->stream;
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
         }
-
-        if (null !== $request->userVad) {
-            @$body['userVad'] = $request->userVad;
+        if (!Utils::isUnset($request->userVad)) {
+            $body['userVad'] = $request->userVad;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RealTimeDialog',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/realtime/dialog/chat',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RealTimeDialog',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/realtime/dialog/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RealTimeDialogResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2392,15 +2123,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 实时对话.
-     *
-     * @param request - RealTimeDialogRequest
-     * @returns RealTimeDialogResponse
-     *
+     * @summary 实时对话
+     *  *
      * @param string                $workspaceId
-     * @param RealTimeDialogRequest $request
+     * @param RealTimeDialogRequest $request     RealTimeDialogRequest
      *
-     * @return RealTimeDialogResponse
+     * @return RealTimeDialogResponse RealTimeDialogResponse
      */
     public function realTimeDialog($workspaceId, $request)
     {
@@ -2411,44 +2139,38 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 重建任务
-     *
-     * @param request - RebuildTaskRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RebuildTaskResponse
-     *
+     * @summary 重建任务
+     *  *
      * @param string             $workspaceId
-     * @param RebuildTaskRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param RebuildTaskRequest $request     RebuildTaskRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RebuildTaskResponse
+     * @return RebuildTaskResponse RebuildTaskResponse
      */
     public function rebuildTaskWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->taskIds) {
-            @$body['taskIds'] = $request->taskIds;
+        if (!Utils::isUnset($request->taskIds)) {
+            $body['taskIds'] = $request->taskIds;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RebuildTask',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/task/rebuild',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RebuildTask',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/task/rebuild',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RebuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2456,15 +2178,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 重建任务
-     *
-     * @param request - RebuildTaskRequest
-     * @returns RebuildTaskResponse
-     *
+     * @summary 重建任务
+     *  *
      * @param string             $workspaceId
-     * @param RebuildTaskRequest $request
+     * @param RebuildTaskRequest $request     RebuildTaskRequest
      *
-     * @return RebuildTaskResponse
+     * @return RebuildTaskResponse RebuildTaskResponse
      */
     public function rebuildTask($workspaceId, $request)
     {
@@ -2475,56 +2194,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 文档召回。
-     *
-     * @param request - RecallDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RecallDocumentResponse
-     *
+     * @summary 文档召回。
+     *  *
      * @param string                $workspaceId
-     * @param RecallDocumentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param RecallDocumentRequest $request     RecallDocumentRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RecallDocumentResponse
+     * @return RecallDocumentResponse RecallDocumentResponse
      */
     public function recallDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->filters) {
-            @$body['filters'] = $request->filters;
+        if (!Utils::isUnset($request->filters)) {
+            $body['filters'] = $request->filters;
         }
-
-        if (null !== $request->query) {
-            @$body['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
         }
-
-        if (null !== $request->rearrangement) {
-            @$body['rearrangement'] = $request->rearrangement;
+        if (!Utils::isUnset($request->rearrangement)) {
+            $body['rearrangement'] = $request->rearrangement;
         }
-
-        if (null !== $request->topK) {
-            @$body['topK'] = $request->topK;
+        if (!Utils::isUnset($request->topK)) {
+            $body['topK'] = $request->topK;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RecallDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/recallDocument',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RecallDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/recallDocument',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RecallDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2532,15 +2242,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 文档召回。
-     *
-     * @param request - RecallDocumentRequest
-     * @returns RecallDocumentResponse
-     *
+     * @summary 文档召回。
+     *  *
      * @param string                $workspaceId
-     * @param RecallDocumentRequest $request
+     * @param RecallDocumentRequest $request     RecallDocumentRequest
      *
-     * @return RecallDocumentResponse
+     * @return RecallDocumentResponse RecallDocumentResponse
      */
     public function recallDocument($workspaceId, $request)
     {
@@ -2551,76 +2258,62 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 意图识别.
-     *
-     * @param request - RecognizeIntentionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RecognizeIntentionResponse
-     *
+     * @summary 意图识别
+     *  *
      * @param string                    $workspaceId
-     * @param RecognizeIntentionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param RecognizeIntentionRequest $request     RecognizeIntentionRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RecognizeIntentionResponse
+     * @return RecognizeIntentionResponse RecognizeIntentionResponse
      */
     public function recognizeIntentionWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->analysis) {
-            @$body['analysis'] = $request->analysis;
+        if (!Utils::isUnset($request->analysis)) {
+            $body['analysis'] = $request->analysis;
         }
-
-        if (null !== $request->bizType) {
-            @$body['bizType'] = $request->bizType;
+        if (!Utils::isUnset($request->bizType)) {
+            $body['bizType'] = $request->bizType;
         }
-
-        if (null !== $request->conversation) {
-            @$body['conversation'] = $request->conversation;
+        if (!Utils::isUnset($request->conversation)) {
+            $body['conversation'] = $request->conversation;
         }
-
-        if (null !== $request->globalIntentionList) {
-            @$body['globalIntentionList'] = $request->globalIntentionList;
+        if (!Utils::isUnset($request->globalIntentionList)) {
+            $body['globalIntentionList'] = $request->globalIntentionList;
         }
-
-        if (null !== $request->hierarchicalIntentionList) {
-            @$body['hierarchicalIntentionList'] = $request->hierarchicalIntentionList;
+        if (!Utils::isUnset($request->hierarchicalIntentionList)) {
+            $body['hierarchicalIntentionList'] = $request->hierarchicalIntentionList;
         }
-
-        if (null !== $request->intentionDomainCode) {
-            @$body['intentionDomainCode'] = $request->intentionDomainCode;
+        if (!Utils::isUnset($request->intentionDomainCode)) {
+            $body['intentionDomainCode'] = $request->intentionDomainCode;
         }
-
-        if (null !== $request->intentionList) {
-            @$body['intentionList'] = $request->intentionList;
+        if (!Utils::isUnset($request->intentionList)) {
+            $body['intentionList'] = $request->intentionList;
         }
-
-        if (null !== $request->opType) {
-            @$body['opType'] = $request->opType;
+        if (!Utils::isUnset($request->opType)) {
+            $body['opType'] = $request->opType;
         }
-
-        if (null !== $request->recommend) {
-            @$body['recommend'] = $request->recommend;
+        if (!Utils::isUnset($request->recommend)) {
+            $body['recommend'] = $request->recommend;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RecognizeIntention',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/recog/intent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RecognizeIntention',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/recog/intent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RecognizeIntentionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2628,15 +2321,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 意图识别.
-     *
-     * @param request - RecognizeIntentionRequest
-     * @returns RecognizeIntentionResponse
-     *
+     * @summary 意图识别
+     *  *
      * @param string                    $workspaceId
-     * @param RecognizeIntentionRequest $request
+     * @param RecognizeIntentionRequest $request     RecognizeIntentionRequest
      *
-     * @return RecognizeIntentionResponse
+     * @return RecognizeIntentionResponse RecognizeIntentionResponse
      */
     public function recognizeIntention($workspaceId, $request)
     {
@@ -2647,68 +2337,56 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 运行智能体.
-     *
-     * @param request - RunAgentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunAgentResponse
-     *
+     * @summary 运行智能体
+     *  *
      * @param string          $workspaceId
-     * @param RunAgentRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param RunAgentRequest $request     RunAgentRequest
+     * @param string[]        $headers     map
+     * @param RuntimeOptions  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RunAgentResponse
+     * @return RunAgentResponse RunAgentResponse
      */
     public function runAgentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->botId) {
-            @$body['botId'] = $request->botId;
+        if (!Utils::isUnset($request->botId)) {
+            $body['botId'] = $request->botId;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
-        if (null !== $request->stream) {
-            @$body['stream'] = $request->stream;
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
         }
-
-        if (null !== $request->threadId) {
-            @$body['threadId'] = $request->threadId;
+        if (!Utils::isUnset($request->threadId)) {
+            $body['threadId'] = $request->threadId;
         }
-
-        if (null !== $request->useDraft) {
-            @$body['useDraft'] = $request->useDraft;
+        if (!Utils::isUnset($request->useDraft)) {
+            $body['useDraft'] = $request->useDraft;
         }
-
-        if (null !== $request->userContent) {
-            @$body['userContent'] = $request->userContent;
+        if (!Utils::isUnset($request->userContent)) {
+            $body['userContent'] = $request->userContent;
         }
-
-        if (null !== $request->versionId) {
-            @$body['versionId'] = $request->versionId;
+        if (!Utils::isUnset($request->versionId)) {
+            $body['versionId'] = $request->versionId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunAgent',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/bot/thread/run',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunAgent',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/bot/thread/run',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunAgentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2716,15 +2394,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 运行智能体.
-     *
-     * @param request - RunAgentRequest
-     * @returns RunAgentResponse
-     *
+     * @summary 运行智能体
+     *  *
      * @param string          $workspaceId
-     * @param RunAgentRequest $request
+     * @param RunAgentRequest $request     RunAgentRequest
      *
-     * @return RunAgentResponse
+     * @return RunAgentResponse RunAgentResponse
      */
     public function runAgent($workspaceId, $request)
     {
@@ -2735,64 +2410,53 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取生成式对话结果.
-     *
-     * @param request - RunChatResultGenerationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunChatResultGenerationResponse
-     *
+     * @summary 获取生成式对话结果
+     *  *
      * @param string                         $workspaceId
-     * @param RunChatResultGenerationRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param RunChatResultGenerationRequest $request     RunChatResultGenerationRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RunChatResultGenerationResponse
+     * @return RunChatResultGenerationResponse RunChatResultGenerationResponse
      */
     public function runChatResultGenerationWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->inferenceParameters) {
-            @$body['inferenceParameters'] = $request->inferenceParameters;
+        if (!Utils::isUnset($request->inferenceParameters)) {
+            $body['inferenceParameters'] = $request->inferenceParameters;
         }
-
-        if (null !== $request->messages) {
-            @$body['messages'] = $request->messages;
+        if (!Utils::isUnset($request->messages)) {
+            $body['messages'] = $request->messages;
         }
-
-        if (null !== $request->modelId) {
-            @$body['modelId'] = $request->modelId;
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->stream) {
-            @$body['stream'] = $request->stream;
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
         }
-
-        if (null !== $request->tools) {
-            @$body['tools'] = $request->tools;
+        if (!Utils::isUnset($request->tools)) {
+            $body['tools'] = $request->tools;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunChatResultGeneration',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/run/chat/generation',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunChatResultGeneration',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/run/chat/generation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunChatResultGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2800,15 +2464,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取生成式对话结果.
-     *
-     * @param request - RunChatResultGenerationRequest
-     * @returns RunChatResultGenerationResponse
-     *
+     * @summary 获取生成式对话结果
+     *  *
      * @param string                         $workspaceId
-     * @param RunChatResultGenerationRequest $request
+     * @param RunChatResultGenerationRequest $request     RunChatResultGenerationRequest
      *
-     * @return RunChatResultGenerationResponse
+     * @return RunChatResultGenerationResponse RunChatResultGenerationResponse
      */
     public function runChatResultGeneration($workspaceId, $request)
     {
@@ -2819,112 +2480,89 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取生成式对话结果.
-     *
-     * @param request - RunLibraryChatGenerationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunLibraryChatGenerationResponse
-     *
+     * @summary 获取生成式对话结果
+     *  *
      * @param string                          $workspaceId
-     * @param RunLibraryChatGenerationRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param RunLibraryChatGenerationRequest $request     RunLibraryChatGenerationRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RunLibraryChatGenerationResponse
+     * @return RunLibraryChatGenerationResponse RunLibraryChatGenerationResponse
      */
     public function runLibraryChatGenerationWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docIdList) {
-            @$body['docIdList'] = $request->docIdList;
+        if (!Utils::isUnset($request->docIdList)) {
+            $body['docIdList'] = $request->docIdList;
         }
-
-        if (null !== $request->enableFollowUp) {
-            @$body['enableFollowUp'] = $request->enableFollowUp;
+        if (!Utils::isUnset($request->enableFollowUp)) {
+            $body['enableFollowUp'] = $request->enableFollowUp;
         }
-
-        if (null !== $request->enableMultiQuery) {
-            @$body['enableMultiQuery'] = $request->enableMultiQuery;
+        if (!Utils::isUnset($request->enableMultiQuery)) {
+            $body['enableMultiQuery'] = $request->enableMultiQuery;
         }
-
-        if (null !== $request->enableOpenQa) {
-            @$body['enableOpenQa'] = $request->enableOpenQa;
+        if (!Utils::isUnset($request->enableOpenQa)) {
+            $body['enableOpenQa'] = $request->enableOpenQa;
         }
-
-        if (null !== $request->followUpLlm) {
-            @$body['followUpLlm'] = $request->followUpLlm;
+        if (!Utils::isUnset($request->followUpLlm)) {
+            $body['followUpLlm'] = $request->followUpLlm;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->llmType) {
-            @$body['llmType'] = $request->llmType;
+        if (!Utils::isUnset($request->llmType)) {
+            $body['llmType'] = $request->llmType;
         }
-
-        if (null !== $request->multiQueryLlm) {
-            @$body['multiQueryLlm'] = $request->multiQueryLlm;
+        if (!Utils::isUnset($request->multiQueryLlm)) {
+            $body['multiQueryLlm'] = $request->multiQueryLlm;
         }
-
-        if (null !== $request->query) {
-            @$body['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
         }
-
-        if (null !== $request->queryCriteria) {
-            @$body['queryCriteria'] = $request->queryCriteria;
+        if (!Utils::isUnset($request->queryCriteria)) {
+            $body['queryCriteria'] = $request->queryCriteria;
         }
-
-        if (null !== $request->rerankType) {
-            @$body['rerankType'] = $request->rerankType;
+        if (!Utils::isUnset($request->rerankType)) {
+            $body['rerankType'] = $request->rerankType;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->stream) {
-            @$body['stream'] = $request->stream;
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
         }
-
-        if (null !== $request->subQueryList) {
-            @$body['subQueryList'] = $request->subQueryList;
+        if (!Utils::isUnset($request->subQueryList)) {
+            $body['subQueryList'] = $request->subQueryList;
         }
-
-        if (null !== $request->textSearchParameter) {
-            @$body['textSearchParameter'] = $request->textSearchParameter;
+        if (!Utils::isUnset($request->textSearchParameter)) {
+            $body['textSearchParameter'] = $request->textSearchParameter;
         }
-
-        if (null !== $request->topK) {
-            @$body['topK'] = $request->topK;
+        if (!Utils::isUnset($request->topK)) {
+            $body['topK'] = $request->topK;
         }
-
-        if (null !== $request->vectorSearchParameter) {
-            @$body['vectorSearchParameter'] = $request->vectorSearchParameter;
+        if (!Utils::isUnset($request->vectorSearchParameter)) {
+            $body['vectorSearchParameter'] = $request->vectorSearchParameter;
         }
-
-        if (null !== $request->withDocumentReference) {
-            @$body['withDocumentReference'] = $request->withDocumentReference;
+        if (!Utils::isUnset($request->withDocumentReference)) {
+            $body['withDocumentReference'] = $request->withDocumentReference;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunLibraryChatGeneration',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/run/library/chat/generation',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunLibraryChatGeneration',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/run/library/chat/generation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunLibraryChatGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2932,15 +2570,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 获取生成式对话结果.
-     *
-     * @param request - RunLibraryChatGenerationRequest
-     * @returns RunLibraryChatGenerationResponse
-     *
+     * @summary 获取生成式对话结果
+     *  *
      * @param string                          $workspaceId
-     * @param RunLibraryChatGenerationRequest $request
+     * @param RunLibraryChatGenerationRequest $request     RunLibraryChatGenerationRequest
      *
-     * @return RunLibraryChatGenerationResponse
+     * @return RunLibraryChatGenerationResponse RunLibraryChatGenerationResponse
      */
     public function runLibraryChatGeneration($workspaceId, $request)
     {
@@ -2951,64 +2586,53 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 提交问题列表.
-     *
-     * @param request - SubmitChatQuestionRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SubmitChatQuestionResponse
-     *
+     * @summary 提交问题列表
+     *  *
      * @param string                    $workspaceId
-     * @param SubmitChatQuestionRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param SubmitChatQuestionRequest $request     SubmitChatQuestionRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return SubmitChatQuestionResponse
+     * @return SubmitChatQuestionResponse SubmitChatQuestionResponse
      */
     public function submitChatQuestionWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->gmtService) {
-            @$body['gmtService'] = $request->gmtService;
+        if (!Utils::isUnset($request->gmtService)) {
+            $body['gmtService'] = $request->gmtService;
         }
-
-        if (null !== $request->liveScriptContent) {
-            @$body['liveScriptContent'] = $request->liveScriptContent;
+        if (!Utils::isUnset($request->liveScriptContent)) {
+            $body['liveScriptContent'] = $request->liveScriptContent;
         }
-
-        if (null !== $request->openSmallTalk) {
-            @$body['openSmallTalk'] = $request->openSmallTalk;
+        if (!Utils::isUnset($request->openSmallTalk)) {
+            $body['openSmallTalk'] = $request->openSmallTalk;
         }
-
-        if (null !== $request->questionList) {
-            @$body['questionList'] = $request->questionList;
+        if (!Utils::isUnset($request->questionList)) {
+            $body['questionList'] = $request->questionList;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitChatQuestion',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/chat/submit',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitChatQuestion',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/chat/submit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SubmitChatQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3016,15 +2640,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 提交问题列表.
-     *
-     * @param request - SubmitChatQuestionRequest
-     * @returns SubmitChatQuestionResponse
-     *
+     * @summary 提交问题列表
+     *  *
      * @param string                    $workspaceId
-     * @param SubmitChatQuestionRequest $request
+     * @param SubmitChatQuestionRequest $request     SubmitChatQuestionRequest
      *
-     * @return SubmitChatQuestionResponse
+     * @return SubmitChatQuestionResponse SubmitChatQuestionResponse
      */
     public function submitChatQuestion($workspaceId, $request)
     {
@@ -3035,56 +2656,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新文档.
-     *
-     * @param request - UpdateDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateDocumentResponse
-     *
+     * @summary 更新文档
+     *  *
      * @param string                $workspaceId
-     * @param UpdateDocumentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateDocumentRequest $request     UpdateDocumentRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateDocumentResponse
+     * @return UpdateDocumentResponse UpdateDocumentResponse
      */
     public function updateDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->docId) {
-            @$body['docId'] = $request->docId;
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->meta) {
-            @$body['meta'] = $request->meta;
+        if (!Utils::isUnset($request->meta)) {
+            $body['meta'] = $request->meta;
         }
-
-        if (null !== $request->title) {
-            @$body['title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/updateDocument',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/updateDocument',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3092,15 +2704,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新文档.
-     *
-     * @param request - UpdateDocumentRequest
-     * @returns UpdateDocumentResponse
-     *
+     * @summary 更新文档
+     *  *
      * @param string                $workspaceId
-     * @param UpdateDocumentRequest $request
+     * @param UpdateDocumentRequest $request     UpdateDocumentRequest
      *
-     * @return UpdateDocumentResponse
+     * @return UpdateDocumentResponse UpdateDocumentResponse
      */
     public function updateDocument($workspaceId, $request)
     {
@@ -3111,56 +2720,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新文档库配置.
-     *
-     * @param request - UpdateLibraryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateLibraryResponse
-     *
+     * @summary 更新文档库配置
+     *  *
      * @param string               $workspaceId
-     * @param UpdateLibraryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateLibraryRequest $request     UpdateLibraryRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateLibraryResponse
+     * @return UpdateLibraryResponse UpdateLibraryResponse
      */
     public function updateLibraryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->indexSetting) {
-            @$body['indexSetting'] = $request->indexSetting;
+        if (!Utils::isUnset($request->indexSetting)) {
+            $body['indexSetting'] = $request->indexSetting;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
-        if (null !== $request->libraryName) {
-            @$body['libraryName'] = $request->libraryName;
+        if (!Utils::isUnset($request->libraryName)) {
+            $body['libraryName'] = $request->libraryName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLibrary',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/update',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateLibrary',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/update',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3168,15 +2768,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新文档库配置.
-     *
-     * @param request - UpdateLibraryRequest
-     * @returns UpdateLibraryResponse
-     *
+     * @summary 更新文档库配置
+     *  *
      * @param string               $workspaceId
-     * @param UpdateLibraryRequest $request
+     * @param UpdateLibraryRequest $request     UpdateLibraryRequest
      *
-     * @return UpdateLibraryResponse
+     * @return UpdateLibraryResponse UpdateLibraryResponse
      */
     public function updateLibrary($workspaceId, $request)
     {
@@ -3187,52 +2784,44 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新QA问答库.
-     *
-     * @param request - UpdateQaLibraryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateQaLibraryResponse
-     *
+     * @summary 更新QA问答库
+     *  *
      * @param string                 $workspaceId
-     * @param UpdateQaLibraryRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateQaLibraryRequest $request     UpdateQaLibraryRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateQaLibraryResponse
+     * @return UpdateQaLibraryResponse UpdateQaLibraryResponse
      */
     public function updateQaLibraryWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->parseQaResults) {
-            @$body['parseQaResults'] = $request->parseQaResults;
+        if (!Utils::isUnset($request->parseQaResults)) {
+            $body['parseQaResults'] = $request->parseQaResults;
         }
-
-        if (null !== $request->qaLibraryId) {
-            @$body['qaLibraryId'] = $request->qaLibraryId;
+        if (!Utils::isUnset($request->qaLibraryId)) {
+            $body['qaLibraryId'] = $request->qaLibraryId;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQaLibrary',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/virtualHuman/qa/upload',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateQaLibrary',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/virtualHuman/qa/upload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateQaLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3240,15 +2829,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 更新QA问答库.
-     *
-     * @param request - UpdateQaLibraryRequest
-     * @returns UpdateQaLibraryResponse
-     *
+     * @summary 更新QA问答库
+     *  *
      * @param string                 $workspaceId
-     * @param UpdateQaLibraryRequest $request
+     * @param UpdateQaLibraryRequest $request     UpdateQaLibraryRequest
      *
-     * @return UpdateQaLibraryResponse
+     * @return UpdateQaLibraryResponse UpdateQaLibraryResponse
      */
     public function updateQaLibrary($workspaceId, $request)
     {
@@ -3259,56 +2845,47 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 上传文档到文档库.
-     *
-     * @param request - UploadDocumentRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UploadDocumentResponse
-     *
+     * @summary 上传文档到文档库
+     *  *
      * @param string                $workspaceId
-     * @param UploadDocumentRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UploadDocumentRequest $request     UploadDocumentRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UploadDocumentResponse
+     * @return UploadDocumentResponse UploadDocumentResponse
      */
     public function uploadDocumentWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->data) {
-            @$body['data'] = $request->data;
+        if (!Utils::isUnset($request->data)) {
+            $body['data'] = $request->data;
         }
-
-        if (null !== $request->fileName) {
-            @$body['fileName'] = $request->fileName;
+        if (!Utils::isUnset($request->fileName)) {
+            $body['fileName'] = $request->fileName;
         }
-
-        if (null !== $request->fileUrl) {
-            @$body['fileUrl'] = $request->fileUrl;
+        if (!Utils::isUnset($request->fileUrl)) {
+            $body['fileUrl'] = $request->fileUrl;
         }
-
-        if (null !== $request->libraryId) {
-            @$body['libraryId'] = $request->libraryId;
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadDocument',
-            'version'     => '2024-06-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/api/library/document/upload',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UploadDocument',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/'.OpenApiUtilClient::getEncodeParam($workspaceId).'/api/library/document/upload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UploadDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3316,15 +2893,12 @@ class DianJin extends OpenApiClient
     }
 
     /**
-     * 上传文档到文档库.
-     *
-     * @param request - UploadDocumentRequest
-     * @returns UploadDocumentResponse
-     *
+     * @summary 上传文档到文档库
+     *  *
      * @param string                $workspaceId
-     * @param UploadDocumentRequest $request
+     * @param UploadDocumentRequest $request     UploadDocumentRequest
      *
-     * @return UploadDocumentResponse
+     * @return UploadDocumentResponse UploadDocumentResponse
      */
     public function uploadDocument($workspaceId, $request)
     {
@@ -3345,73 +2919,71 @@ class DianJin extends OpenApiClient
     public function uploadDocumentAdvance($workspaceId, $request, $headers, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'DianJin',
+            'product' => 'DianJin',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
         $uploadDocumentReq = new UploadDocumentRequest([]);
-        Utils::convert($request, $uploadDocumentReq);
-        if (null !== $request->fileUrlObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+        OpenApiUtilClient::convert($request, $uploadDocumentReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileUrlObject,
+            $ossConfig->endpoint = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $uploadDocumentReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+            $uploadDocumentReq->fileUrl = 'http://'.$authResponse->body->bucket.'.'.$authResponse->body->endpoint.'/'.$authResponse->body->objectKey.'';
         }
 
         return $this->uploadDocumentWithOptions($workspaceId, $uploadDocumentReq, $headers, $runtime);
