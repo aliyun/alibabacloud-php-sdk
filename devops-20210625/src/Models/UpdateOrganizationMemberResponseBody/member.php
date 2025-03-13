@@ -4,14 +4,17 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateOrganizationMemberResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class member extends Model
 {
     /**
+     * @example 292035769476261xxx
+     *
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
@@ -23,16 +26,14 @@ class member extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->organizationMemberName) {
             $res['organizationMemberName'] = $this->organizationMemberName;
         }
@@ -40,18 +41,17 @@ class member extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return member
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['organizationMemberName'])) {
             $model->organizationMemberName = $map['organizationMemberName'];
         }

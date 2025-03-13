@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateOrganizationMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationMemberName;
@@ -18,10 +20,9 @@ class UpdateOrganizationMemberRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->organizationMemberName) {
@@ -31,11 +32,11 @@ class UpdateOrganizationMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateOrganizationMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

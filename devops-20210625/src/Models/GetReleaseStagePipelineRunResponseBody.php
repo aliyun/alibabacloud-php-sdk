@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun;
+use AlibabaCloud\Tea\Model;
 
 class GetReleaseStagePipelineRunResponseBody extends Model
 {
@@ -19,27 +19,23 @@ class GetReleaseStagePipelineRunResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->pipelineRun) {
-            $this->pipelineRun->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pipelineRun) {
-            $res['pipelineRun'] = null !== $this->pipelineRun ? $this->pipelineRun->toArray($noStream) : $this->pipelineRun;
+            $res['pipelineRun'] = null !== $this->pipelineRun ? $this->pipelineRun->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetReleaseStagePipelineRunResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

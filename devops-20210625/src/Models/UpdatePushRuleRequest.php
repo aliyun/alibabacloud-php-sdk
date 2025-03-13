@@ -4,20 +4,28 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePushRuleRequest\ruleInfos;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePushRuleRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
+
     /**
      * @var ruleInfos[]
      */
     public $ruleInfos;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 5ebbc0228123212b59xxxxx
+     *
      * @var string
      */
     public $organizationId;
@@ -29,29 +37,23 @@ class UpdatePushRuleRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleInfos)) {
-            Model::validateArray($this->ruleInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
-
         if (null !== $this->ruleInfos) {
-            if (\is_array($this->ruleInfos)) {
-                $res['ruleInfos'] = [];
-                $n1               = 0;
-                foreach ($this->ruleInfos as $item1) {
-                    $res['ruleInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ruleInfos'] = [];
+            if (null !== $this->ruleInfos && \is_array($this->ruleInfos)) {
+                $n = 0;
+                foreach ($this->ruleInfos as $item) {
+                    $res['ruleInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -59,28 +61,26 @@ class UpdatePushRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePushRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
-
         if (isset($map['ruleInfos'])) {
             if (!empty($map['ruleInfos'])) {
                 $model->ruleInfos = [];
-                $n1               = 0;
-                foreach ($map['ruleInfos'] as $item1) {
-                    $model->ruleInfos[$n1++] = ruleInfos::fromMap($item1);
+                $n                = 0;
+                foreach ($map['ruleInfos'] as $item) {
+                    $model->ruleInfos[$n++] = null !== $item ? ruleInfos::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

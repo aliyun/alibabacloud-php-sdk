@@ -4,19 +4,25 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListOrganizationsRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $accessLevel;
+
     /**
      * @var string
      */
     public $accessToken;
+
     /**
+     * @example 60
+     *
      * @var int
      */
     public $minAccessLevel;
@@ -28,20 +34,17 @@ class ListOrganizationsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessLevel) {
             $res['accessLevel'] = $this->accessLevel;
         }
-
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
-
         if (null !== $this->minAccessLevel) {
             $res['minAccessLevel'] = $this->minAccessLevel;
         }
@@ -49,22 +52,20 @@ class ListOrganizationsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListOrganizationsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessLevel'])) {
             $model->accessLevel = $map['accessLevel'];
         }
-
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
-
         if (isset($map['minAccessLevel'])) {
             $model->minAccessLevel = $map['minAccessLevel'];
         }

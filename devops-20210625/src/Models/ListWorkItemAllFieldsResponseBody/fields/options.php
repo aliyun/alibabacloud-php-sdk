@@ -4,35 +4,55 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponseBody\fields;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class options extends Model
 {
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $displayValue;
+
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $fieldIdentifier;
+
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $identifier;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $level;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $position;
+
     /**
+     * @example 重复的缺陷
+     *
      * @var string
      */
     public $value;
+
     /**
+     * @example null
+     *
      * @var string
      */
     public $valueEn;
@@ -48,36 +68,29 @@ class options extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayValue) {
             $res['displayValue'] = $this->displayValue;
         }
-
         if (null !== $this->fieldIdentifier) {
             $res['fieldIdentifier'] = $this->fieldIdentifier;
         }
-
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
-
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
-
         if (null !== $this->position) {
             $res['position'] = $this->position;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
-
         if (null !== $this->valueEn) {
             $res['valueEn'] = $this->valueEn;
         }
@@ -85,38 +98,32 @@ class options extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return options
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayValue'])) {
             $model->displayValue = $map['displayValue'];
         }
-
         if (isset($map['fieldIdentifier'])) {
             $model->fieldIdentifier = $map['fieldIdentifier'];
         }
-
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
-
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
-
         if (isset($map['position'])) {
             $model->position = $map['position'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
-
         if (isset($map['valueEn'])) {
             $model->valueEn = $map['valueEn'];
         }

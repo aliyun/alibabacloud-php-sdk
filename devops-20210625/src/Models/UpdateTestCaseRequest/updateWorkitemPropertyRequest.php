@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class updateWorkitemPropertyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example tc.type
+     *
      * @var string
      */
     public $fieldIdentifier;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 0a032xx28107xxxx53e87a9
+     *
      * @var string
      */
     public $fieldValue;
@@ -23,16 +32,14 @@ class updateWorkitemPropertyRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldIdentifier) {
             $res['fieldIdentifier'] = $this->fieldIdentifier;
         }
-
         if (null !== $this->fieldValue) {
             $res['fieldValue'] = $this->fieldValue;
         }
@@ -40,18 +47,17 @@ class updateWorkitemPropertyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return updateWorkitemPropertyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldIdentifier'])) {
             $model->fieldIdentifier = $map['fieldIdentifier'];
         }
-
         if (isset($map['fieldValue'])) {
             $model->fieldValue = $map['fieldValue'];
         }

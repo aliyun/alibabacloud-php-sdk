@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTestCaseFieldsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
@@ -18,10 +22,9 @@ class ListTestCaseFieldsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->spaceIdentifier) {
@@ -31,11 +34,11 @@ class ListTestCaseFieldsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTestCaseFieldsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

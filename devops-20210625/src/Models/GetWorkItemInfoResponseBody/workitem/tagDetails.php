@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagDetails extends Model
 {
@@ -12,10 +12,12 @@ class tagDetails extends Model
      * @var string
      */
     public $color;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
@@ -28,20 +30,17 @@ class tagDetails extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->color) {
             $res['color'] = $this->color;
         }
-
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -49,22 +48,20 @@ class tagDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['color'])) {
             $model->color = $map['color'];
         }
-
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

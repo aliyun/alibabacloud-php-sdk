@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example master
+     *
      * @var string
      */
     public $branchName;
+
     /**
+     * @example /src/main/test.java
+     *
      * @var string
      */
     public $filePath;
@@ -23,16 +28,14 @@ class result extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->branchName) {
             $res['branchName'] = $this->branchName;
         }
-
         if (null !== $this->filePath) {
             $res['filePath'] = $this->filePath;
         }
@@ -40,18 +43,17 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['branchName'])) {
             $model->branchName = $map['branchName'];
         }
-
         if (isset($map['filePath'])) {
             $model->filePath = $map['filePath'];
         }

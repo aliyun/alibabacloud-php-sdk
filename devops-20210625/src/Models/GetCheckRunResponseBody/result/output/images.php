@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetCheckRunResponseBody\result\output;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
     /**
+     * @example test-image-alt
+     *
      * @var string
      */
     public $alt;
+
     /**
+     * @example test
+     *
      * @var string
      */
     public $caption;
+
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $imageUrl;
@@ -28,20 +36,17 @@ class images extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alt) {
             $res['alt'] = $this->alt;
         }
-
         if (null !== $this->caption) {
             $res['caption'] = $this->caption;
         }
-
         if (null !== $this->imageUrl) {
             $res['imageUrl'] = $this->imageUrl;
         }
@@ -49,22 +54,20 @@ class images extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return images
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alt'])) {
             $model->alt = $map['alt'];
         }
-
         if (isset($map['caption'])) {
             $model->caption = $map['caption'];
         }
-
         if (isset($map['imageUrl'])) {
             $model->imageUrl = $map['imageUrl'];
         }

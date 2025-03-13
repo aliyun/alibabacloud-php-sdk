@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPipelineArtifactUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example test.tgz
+     *
      * @var string
      */
     public $fileName;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example /test/test/test.tgz
+     *
      * @var string
      */
     public $filePath;
@@ -23,16 +32,14 @@ class GetPipelineArtifactUrlRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
-
         if (null !== $this->filePath) {
             $res['filePath'] = $this->filePath;
         }
@@ -40,18 +47,17 @@ class GetPipelineArtifactUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPipelineArtifactUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
-
         if (isset($map['filePath'])) {
             $model->filePath = $map['filePath'];
         }

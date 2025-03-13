@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Request;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fieldValueList extends Model
 {
     /**
+     * @example 6aexxxxxa1d98c09c60xxxx16
+     *
      * @var string
      */
     public $fieldIdentifier;
+
     /**
+     * @example 10
+     *
      * @var string
      */
     public $value;
@@ -23,16 +28,14 @@ class fieldValueList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldIdentifier) {
             $res['fieldIdentifier'] = $this->fieldIdentifier;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -40,18 +43,17 @@ class fieldValueList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fieldValueList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldIdentifier'])) {
             $model->fieldIdentifier = $map['fieldIdentifier'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

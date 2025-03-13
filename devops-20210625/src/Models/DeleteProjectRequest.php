@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 7fb72727f32143574f7a...
+     *
      * @var string
      */
     public $identifier;
@@ -18,10 +22,9 @@ class DeleteProjectRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identifier) {
@@ -31,11 +34,11 @@ class DeleteProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

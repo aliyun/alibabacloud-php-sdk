@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponseBody\result\commit;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -13,11 +13,17 @@ class result extends Model
      * @var commit
      */
     public $commit;
+
     /**
+     * @example master
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @example false
+     *
      * @var string
      */
     public $protected;
@@ -29,23 +35,17 @@ class result extends Model
 
     public function validate()
     {
-        if (null !== $this->commit) {
-            $this->commit->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commit) {
-            $res['commit'] = null !== $this->commit ? $this->commit->toArray($noStream) : $this->commit;
+            $res['commit'] = null !== $this->commit ? $this->commit->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->protected) {
             $res['protected'] = $this->protected;
         }
@@ -53,22 +53,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commit'])) {
             $model->commit = commit::fromMap($map['commit']);
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['protected'])) {
             $model->protected = $map['protected'];
         }

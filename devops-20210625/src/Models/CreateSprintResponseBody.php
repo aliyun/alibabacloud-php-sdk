@@ -4,28 +4,40 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponseBody\sprint;
+use AlibabaCloud\Tea\Model;
 
 class CreateSprintResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var sprint
      */
     public $sprint;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -39,31 +51,23 @@ class CreateSprintResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->sprint) {
-            $this->sprint->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->sprint) {
-            $res['sprint'] = null !== $this->sprint ? $this->sprint->toArray($noStream) : $this->sprint;
+            $res['sprint'] = null !== $this->sprint ? $this->sprint->toMap() : null;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -71,30 +75,26 @@ class CreateSprintResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSprintResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['sprint'])) {
             $model->sprint = sprint::fromMap($map['sprint']);
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

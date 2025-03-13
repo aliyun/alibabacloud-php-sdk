@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateAppMemberRequest\player;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAppMemberRequest extends Model
 {
@@ -13,11 +13,15 @@ class UpdateAppMemberRequest extends Model
      * @var player
      */
     public $player;
+
     /**
      * @var string[]
      */
     public $roleNames;
+
     /**
+     * @example 66c0c9fffeb86b450c199fcd
+     *
      * @var string
      */
     public $organizationId;
@@ -29,32 +33,17 @@ class UpdateAppMemberRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->player) {
-            $this->player->validate();
-        }
-        if (\is_array($this->roleNames)) {
-            Model::validateArray($this->roleNames);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->player) {
-            $res['player'] = null !== $this->player ? $this->player->toArray($noStream) : $this->player;
+            $res['player'] = null !== $this->player ? $this->player->toMap() : null;
         }
-
         if (null !== $this->roleNames) {
-            if (\is_array($this->roleNames)) {
-                $res['roleNames'] = [];
-                $n1               = 0;
-                foreach ($this->roleNames as $item1) {
-                    $res['roleNames'][$n1++] = $item1;
-                }
-            }
+            $res['roleNames'] = $this->roleNames;
         }
-
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -62,28 +51,22 @@ class UpdateAppMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAppMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['player'])) {
             $model->player = player::fromMap($map['player']);
         }
-
         if (isset($map['roleNames'])) {
             if (!empty($map['roleNames'])) {
-                $model->roleNames = [];
-                $n1               = 0;
-                foreach ($map['roleNames'] as $item1) {
-                    $model->roleNames[$n1++] = $item1;
-                }
+                $model->roleNames = $map['roleNames'];
             }
         }
-
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

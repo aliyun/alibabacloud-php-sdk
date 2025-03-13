@@ -4,27 +4,45 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSprintRequest extends Model
 {
     /**
+     * @example 2021-12-02
+     *
      * @var string
      */
     public $endDate;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example asd345xxxxx9q9845xxxxx34
+     *
      * @var string
      */
     public $spaceIdentifier;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $staffIds;
+
     /**
+     * @example 2021-12-01
+     *
      * @var string
      */
     public $startDate;
@@ -38,37 +56,23 @@ class CreateSprintRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->staffIds)) {
-            Model::validateArray($this->staffIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->spaceIdentifier) {
             $res['spaceIdentifier'] = $this->spaceIdentifier;
         }
-
         if (null !== $this->staffIds) {
-            if (\is_array($this->staffIds)) {
-                $res['staffIds'] = [];
-                $n1              = 0;
-                foreach ($this->staffIds as $item1) {
-                    $res['staffIds'][$n1++] = $item1;
-                }
-            }
+            $res['staffIds'] = $this->staffIds;
         }
-
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
@@ -76,36 +80,28 @@ class CreateSprintRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSprintRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['spaceIdentifier'])) {
             $model->spaceIdentifier = $map['spaceIdentifier'];
         }
-
         if (isset($map['staffIds'])) {
             if (!empty($map['staffIds'])) {
-                $model->staffIds = [];
-                $n1              = 0;
-                foreach ($map['staffIds'] as $item1) {
-                    $model->staffIds[$n1++] = $item1;
-                }
+                $model->staffIds = $map['staffIds'];
             }
         }
-
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }

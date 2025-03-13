@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkItemActivityResponseBody extends Model
 {
@@ -13,19 +13,31 @@ class GetWorkItemActivityResponseBody extends Model
      * @var activities[]
      */
     public $activities;
+
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -39,37 +51,29 @@ class GetWorkItemActivityResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->activities)) {
-            Model::validateArray($this->activities);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->activities) {
-            if (\is_array($this->activities)) {
-                $res['activities'] = [];
-                $n1                = 0;
-                foreach ($this->activities as $item1) {
-                    $res['activities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['activities'] = [];
+            if (null !== $this->activities && \is_array($this->activities)) {
+                $n = 0;
+                foreach ($this->activities as $item) {
+                    $res['activities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -77,36 +81,32 @@ class GetWorkItemActivityResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkItemActivityResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['activities'])) {
             if (!empty($map['activities'])) {
                 $model->activities = [];
-                $n1                = 0;
-                foreach ($map['activities'] as $item1) {
-                    $model->activities[$n1++] = activities::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['activities'] as $item) {
+                    $model->activities[$n++] = null !== $item ? activities::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

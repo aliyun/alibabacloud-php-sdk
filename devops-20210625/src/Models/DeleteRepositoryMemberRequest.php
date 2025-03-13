@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRepositoryMemberRequest extends Model
 {
     /**
+     * @example f0b1e61db5961df5975a93f9129d2513
+     *
      * @var string
      */
     public $accessToken;
+
     /**
+     * @example USERS
+     *
      * @var string
      */
     public $memberType;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 632bbfdf419338aaa2b1360a
+     *
      * @var string
      */
     public $organizationId;
@@ -28,20 +38,17 @@ class DeleteRepositoryMemberRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
-
         if (null !== $this->memberType) {
             $res['memberType'] = $this->memberType;
         }
-
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -49,22 +56,20 @@ class DeleteRepositoryMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRepositoryMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
-
         if (isset($map['memberType'])) {
             $model->memberType = $map['memberType'];
         }
-
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

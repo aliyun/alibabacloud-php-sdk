@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateResourceMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1111111111111
+     *
      * @var string
      */
     public $accountId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $roleName;
@@ -23,16 +32,14 @@ class CreateResourceMemberRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->roleName) {
             $res['roleName'] = $this->roleName;
         }
@@ -40,18 +47,17 @@ class CreateResourceMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateResourceMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['roleName'])) {
             $model->roleName = $map['roleName'];
         }

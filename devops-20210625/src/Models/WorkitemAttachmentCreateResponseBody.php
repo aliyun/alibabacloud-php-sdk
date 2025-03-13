@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WorkitemAttachmentCreateResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example InvalidTagGroup.IdNotFoundntraceId: 2137844496.4337.16624448853053831
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
+     * @example F590C9D8-E908-5B6C-95AC-56B7E8011FFA
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;
@@ -33,24 +44,20 @@ class WorkitemAttachmentCreateResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -58,26 +65,23 @@ class WorkitemAttachmentCreateResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WorkitemAttachmentCreateResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

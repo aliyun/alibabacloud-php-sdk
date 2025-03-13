@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTestResultRequest extends Model
 {
     /**
+     * @example 131xxx38624xxxx68
+     *
      * @var string
      */
     public $executor;
+
     /**
+     * @example TO DO
+     *
      * @var string
      */
     public $status;
@@ -23,16 +28,14 @@ class UpdateTestResultRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->executor) {
             $res['executor'] = $this->executor;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -40,18 +43,17 @@ class UpdateTestResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTestResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['executor'])) {
             $model->executor = $map['executor'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

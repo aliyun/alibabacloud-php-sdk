@@ -4,23 +4,38 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListSprintsRequest extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $spaceIdentifier;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example Project
+     *
      * @var string
      */
     public $spaceType;
@@ -33,24 +48,20 @@ class ListSprintsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->spaceIdentifier) {
             $res['spaceIdentifier'] = $this->spaceIdentifier;
         }
-
         if (null !== $this->spaceType) {
             $res['spaceType'] = $this->spaceType;
         }
@@ -58,26 +69,23 @@ class ListSprintsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListSprintsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['spaceIdentifier'])) {
             $model->spaceIdentifier = $map['spaceIdentifier'];
         }
-
         if (isset($map['spaceType'])) {
             $model->spaceType = $map['spaceType'];
         }

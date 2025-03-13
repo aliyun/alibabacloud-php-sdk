@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\DeleteTagResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example v1.0
+     *
      * @var string
      */
     public $tagName;
@@ -18,10 +20,9 @@ class result extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagName) {
@@ -31,11 +32,11 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

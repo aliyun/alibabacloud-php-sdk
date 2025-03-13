@@ -4,53 +4,79 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun\sources;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun\stages;
+use AlibabaCloud\Tea\Model;
 
 class pipelineRun extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
+
     /**
+     * @example 1111111111
+     *
      * @var string
      */
     public $creatorAccountId;
+
     /**
+     * @example 11111111111
+     *
      * @var string
      */
     public $modifierAccountId;
+
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $pipelineId;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pipelineRunId;
+
     /**
      * @var sources[]
      */
     public $sources;
+
     /**
      * @var string[][]
      */
     public $stageGroup;
+
     /**
      * @var stages[]
      */
     public $stages;
+
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $triggerMode;
+
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;
@@ -70,85 +96,53 @@ class pipelineRun extends Model
 
     public function validate()
     {
-        if (\is_array($this->sources)) {
-            Model::validateArray($this->sources);
-        }
-        if (\is_array($this->stageGroup)) {
-            Model::validateArray($this->stageGroup);
-        }
-        if (\is_array($this->stages)) {
-            Model::validateArray($this->stages);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
         }
-
         if (null !== $this->modifierAccountId) {
             $res['modifierAccountId'] = $this->modifierAccountId;
         }
-
         if (null !== $this->pipelineId) {
             $res['pipelineId'] = $this->pipelineId;
         }
-
         if (null !== $this->pipelineRunId) {
             $res['pipelineRunId'] = $this->pipelineRunId;
         }
-
         if (null !== $this->sources) {
-            if (\is_array($this->sources)) {
-                $res['sources'] = [];
-                $n1             = 0;
-                foreach ($this->sources as $item1) {
-                    $res['sources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['sources'] = [];
+            if (null !== $this->sources && \is_array($this->sources)) {
+                $n = 0;
+                foreach ($this->sources as $item) {
+                    $res['sources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->stageGroup) {
-            if (\is_array($this->stageGroup)) {
-                $res['stageGroup'] = [];
-                $n1                = 0;
-                foreach ($this->stageGroup as $item1) {
-                    if (\is_array($item1)) {
-                        $res['stageGroup'][$n1++] = [];
-                        $n2                       = 0;
-                        foreach ($item1 as $item2) {
-                            $res['stageGroup'][$n1++][$n2++] = $item2;
-                        }
-                    }
-                }
-            }
+            $res['stageGroup'] = $this->stageGroup;
         }
-
         if (null !== $this->stages) {
-            if (\is_array($this->stages)) {
-                $res['stages'] = [];
-                $n1            = 0;
-                foreach ($this->stages as $item1) {
-                    $res['stages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['stages'] = [];
+            if (null !== $this->stages && \is_array($this->stages)) {
+                $n = 0;
+                foreach ($this->stages as $item) {
+                    $res['stages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-
         if (null !== $this->triggerMode) {
             $res['triggerMode'] = $this->triggerMode;
         }
-
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -156,78 +150,58 @@ class pipelineRun extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pipelineRun
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
         }
-
         if (isset($map['modifierAccountId'])) {
             $model->modifierAccountId = $map['modifierAccountId'];
         }
-
         if (isset($map['pipelineId'])) {
             $model->pipelineId = $map['pipelineId'];
         }
-
         if (isset($map['pipelineRunId'])) {
             $model->pipelineRunId = $map['pipelineRunId'];
         }
-
         if (isset($map['sources'])) {
             if (!empty($map['sources'])) {
                 $model->sources = [];
-                $n1             = 0;
-                foreach ($map['sources'] as $item1) {
-                    $model->sources[$n1++] = sources::fromMap($item1);
+                $n              = 0;
+                foreach ($map['sources'] as $item) {
+                    $model->sources[$n++] = null !== $item ? sources::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['stageGroup'])) {
             if (!empty($map['stageGroup'])) {
-                $model->stageGroup = [];
-                $n1                = 0;
-                foreach ($map['stageGroup'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->stageGroup[$n1++] = [];
-                        $n2                       = 0;
-                        foreach ($item1 as $item2) {
-                            $model->stageGroup[$n1++][$n2++] = $item2;
-                        }
-                    }
-                }
+                $model->stageGroup = $map['stageGroup'];
             }
         }
-
         if (isset($map['stages'])) {
             if (!empty($map['stages'])) {
                 $model->stages = [];
-                $n1            = 0;
-                foreach ($map['stages'] as $item1) {
-                    $model->stages[$n1++] = stages::fromMap($item1);
+                $n             = 0;
+                foreach ($map['stages'] as $item) {
+                    $model->stages[$n++] = null !== $item ? stages::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-
         if (isset($map['triggerMode'])) {
             $model->triggerMode = $map['triggerMode'];
         }
-
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }

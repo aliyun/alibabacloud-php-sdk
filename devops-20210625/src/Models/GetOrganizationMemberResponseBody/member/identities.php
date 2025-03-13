@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponseBody\member;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class identities extends Model
 {
     /**
+     * @example 1236666
+     *
      * @var string
      */
     public $externUid;
+
     /**
+     * @example Dingtalk
+     *
      * @var string
      */
     public $provider;
@@ -23,16 +28,14 @@ class identities extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->externUid) {
             $res['externUid'] = $this->externUid;
         }
-
         if (null !== $this->provider) {
             $res['provider'] = $this->provider;
         }
@@ -40,18 +43,17 @@ class identities extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return identities
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['externUid'])) {
             $model->externUid = $map['externUid'];
         }
-
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
         }

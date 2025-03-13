@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponseBody\pipelineRun\stages\stageInfo;
+use AlibabaCloud\Tea\Model;
 
 class stages extends Model
 {
@@ -13,6 +13,7 @@ class stages extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var stageInfo
      */
@@ -24,38 +25,32 @@ class stages extends Model
 
     public function validate()
     {
-        if (null !== $this->stageInfo) {
-            $this->stageInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->stageInfo) {
-            $res['stageInfo'] = null !== $this->stageInfo ? $this->stageInfo->toArray($noStream) : $this->stageInfo;
+            $res['stageInfo'] = null !== $this->stageInfo ? $this->stageInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stages
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['stageInfo'])) {
             $model->stageInfo = stageInfo::fromMap($map['stageInfo']);
         }

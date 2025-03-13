@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteProjectResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -38,28 +52,23 @@ class DeleteProjectResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -67,30 +76,26 @@ class DeleteProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class projectCloneDownloadMethodList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowed;
+
     /**
+     * @example project:download
+     *
      * @var string
      */
     public $permissionCode;
@@ -23,16 +28,14 @@ class projectCloneDownloadMethodList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowed) {
             $res['allowed'] = $this->allowed;
         }
-
         if (null !== $this->permissionCode) {
             $res['permissionCode'] = $this->permissionCode;
         }
@@ -40,18 +43,17 @@ class projectCloneDownloadMethodList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return projectCloneDownloadMethodList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowed'])) {
             $model->allowed = $map['allowed'];
         }
-
         if (isset($map['permissionCode'])) {
             $model->permissionCode = $map['permissionCode'];
         }

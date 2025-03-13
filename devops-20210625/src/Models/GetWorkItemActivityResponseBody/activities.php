@@ -4,50 +4,75 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities\newValue;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities\oldValue;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities\property;
+use AlibabaCloud\Tea\Model;
 
 class activities extends Model
 {
     /**
+     * @example update
+     *
      * @var string
      */
     public $actionType;
+
     /**
+     * @example 3201131
+     *
      * @var int
      */
     public $eventId;
+
     /**
+     * @example 1640867079624
+     *
      * @var int
      */
     public $eventTime;
+
     /**
+     * @example workitem.updated
+     *
      * @var string
      */
     public $eventType;
+
     /**
      * @var newValue[]
      */
     public $newValue;
+
     /**
      * @var oldValue[]
      */
     public $oldValue;
+
     /**
+     * @example 19xx7043xxxxxxx914
+     *
      * @var string
      */
     public $operator;
+
     /**
+     * @example 3201132
+     *
      * @var int
      */
     public $parentEventId;
+
     /**
+     * @example public
+     *
      * @var property
      */
     public $property;
+
     /**
+     * @example e8bxxxxxxxxxxxxxxxx23
+     *
      * @var string
      */
     public $resourceIdentifier;
@@ -66,69 +91,50 @@ class activities extends Model
 
     public function validate()
     {
-        if (\is_array($this->newValue)) {
-            Model::validateArray($this->newValue);
-        }
-        if (\is_array($this->oldValue)) {
-            Model::validateArray($this->oldValue);
-        }
-        if (null !== $this->property) {
-            $this->property->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['actionType'] = $this->actionType;
         }
-
         if (null !== $this->eventId) {
             $res['eventId'] = $this->eventId;
         }
-
         if (null !== $this->eventTime) {
             $res['eventTime'] = $this->eventTime;
         }
-
         if (null !== $this->eventType) {
             $res['eventType'] = $this->eventType;
         }
-
         if (null !== $this->newValue) {
-            if (\is_array($this->newValue)) {
-                $res['newValue'] = [];
-                $n1              = 0;
-                foreach ($this->newValue as $item1) {
-                    $res['newValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['newValue'] = [];
+            if (null !== $this->newValue && \is_array($this->newValue)) {
+                $n = 0;
+                foreach ($this->newValue as $item) {
+                    $res['newValue'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->oldValue) {
-            if (\is_array($this->oldValue)) {
-                $res['oldValue'] = [];
-                $n1              = 0;
-                foreach ($this->oldValue as $item1) {
-                    $res['oldValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['oldValue'] = [];
+            if (null !== $this->oldValue && \is_array($this->oldValue)) {
+                $n = 0;
+                foreach ($this->oldValue as $item) {
+                    $res['oldValue'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
-
         if (null !== $this->parentEventId) {
             $res['parentEventId'] = $this->parentEventId;
         }
-
         if (null !== $this->property) {
-            $res['property'] = null !== $this->property ? $this->property->toArray($noStream) : $this->property;
+            $res['property'] = null !== $this->property ? $this->property->toMap() : null;
         }
-
         if (null !== $this->resourceIdentifier) {
             $res['resourceIdentifier'] = $this->resourceIdentifier;
         }
@@ -136,62 +142,53 @@ class activities extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return activities
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actionType'])) {
             $model->actionType = $map['actionType'];
         }
-
         if (isset($map['eventId'])) {
             $model->eventId = $map['eventId'];
         }
-
         if (isset($map['eventTime'])) {
             $model->eventTime = $map['eventTime'];
         }
-
         if (isset($map['eventType'])) {
             $model->eventType = $map['eventType'];
         }
-
         if (isset($map['newValue'])) {
             if (!empty($map['newValue'])) {
                 $model->newValue = [];
-                $n1              = 0;
-                foreach ($map['newValue'] as $item1) {
-                    $model->newValue[$n1++] = newValue::fromMap($item1);
+                $n               = 0;
+                foreach ($map['newValue'] as $item) {
+                    $model->newValue[$n++] = null !== $item ? newValue::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['oldValue'])) {
             if (!empty($map['oldValue'])) {
                 $model->oldValue = [];
-                $n1              = 0;
-                foreach ($map['oldValue'] as $item1) {
-                    $model->oldValue[$n1++] = oldValue::fromMap($item1);
+                $n               = 0;
+                foreach ($map['oldValue'] as $item) {
+                    $model->oldValue[$n++] = null !== $item ? oldValue::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
-
         if (isset($map['parentEventId'])) {
             $model->parentEventId = $map['parentEventId'];
         }
-
         if (isset($map['property'])) {
             $model->property = property::fromMap($map['property']);
         }
-
         if (isset($map['resourceIdentifier'])) {
             $model->resourceIdentifier = $map['resourceIdentifier'];
         }

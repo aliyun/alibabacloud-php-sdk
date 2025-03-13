@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersResponseBody\members;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class division extends Model
 {
     /**
+     * @example 1345xxxxxxx947xxxx
+     *
      * @var string
      */
     public $identifier;
@@ -18,10 +20,9 @@ class division extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identifier) {
@@ -31,11 +32,11 @@ class division extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return division
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

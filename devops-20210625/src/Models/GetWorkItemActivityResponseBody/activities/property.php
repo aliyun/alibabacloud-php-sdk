@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class property extends Model
 {
     /**
+     * @example 标题
+     *
      * @var string
      */
     public $displayName;
+
     /**
+     * @example subject
+     *
      * @var string
      */
     public $propertyIdentifier;
+
     /**
+     * @example subject
+     *
      * @var string
      */
     public $propertyName;
+
     /**
+     * @example null
+     *
      * @var string
      */
     public $propertyType;
@@ -33,24 +44,20 @@ class property extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
-
         if (null !== $this->propertyIdentifier) {
             $res['propertyIdentifier'] = $this->propertyIdentifier;
         }
-
         if (null !== $this->propertyName) {
             $res['propertyName'] = $this->propertyName;
         }
-
         if (null !== $this->propertyType) {
             $res['propertyType'] = $this->propertyType;
         }
@@ -58,26 +65,23 @@ class property extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return property
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
-
         if (isset($map['propertyIdentifier'])) {
             $model->propertyIdentifier = $map['propertyIdentifier'];
         }
-
         if (isset($map['propertyName'])) {
             $model->propertyName = $map['propertyName'];
         }
-
         if (isset($map['propertyType'])) {
             $model->propertyType = $map['propertyType'];
         }

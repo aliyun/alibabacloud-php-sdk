@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePipelineGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -18,10 +20,9 @@ class CreatePipelineGroupRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +32,11 @@ class CreatePipelineGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePipelineGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

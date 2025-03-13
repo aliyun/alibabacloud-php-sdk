@@ -4,31 +4,48 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListProjectsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example Project
+     *
      * @var string
      */
     public $category;
+
     /**
+     * @description {"conditionGroups":[[]]}
+     *
      * @var string
      */
     public $conditions;
+
     /**
      * @var string
      */
     public $extraConditions;
+
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example ""
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @example public
+     *
      * @var string
      */
     public $scope;
@@ -43,32 +60,26 @@ class ListProjectsRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-
         if (null !== $this->conditions) {
             $res['conditions'] = $this->conditions;
         }
-
         if (null !== $this->extraConditions) {
             $res['extraConditions'] = $this->extraConditions;
         }
-
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
@@ -76,34 +87,29 @@ class ListProjectsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListProjectsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-
         if (isset($map['conditions'])) {
             $model->conditions = $map['conditions'];
         }
-
         if (isset($map['extraConditions'])) {
             $model->extraConditions = $map['extraConditions'];
         }
-
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }

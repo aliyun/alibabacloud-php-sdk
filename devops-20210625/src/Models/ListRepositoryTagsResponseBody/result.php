@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTagsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTagsResponseBody\result\commit;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -13,15 +13,22 @@ class result extends Model
      * @var commit
      */
     public $commit;
+
     /**
+     * @example 9a494e7b88ca35cde00579af2df4ab46136c022e
+     *
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $message;
+
     /**
+     * @example tag v1.0
+     *
      * @var string
      */
     public $name;
@@ -34,27 +41,20 @@ class result extends Model
 
     public function validate()
     {
-        if (null !== $this->commit) {
-            $this->commit->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commit) {
-            $res['commit'] = null !== $this->commit ? $this->commit->toArray($noStream) : $this->commit;
+            $res['commit'] = null !== $this->commit ? $this->commit->toMap() : null;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -62,26 +62,23 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commit'])) {
             $model->commit = commit::fromMap($map['commit']);
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

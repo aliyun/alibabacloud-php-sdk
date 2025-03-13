@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateWorkItemRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example subject
+     *
      * @var string
      */
     public $fieldType;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example e8b2xxxxxx2abdxxxxxxxx23
+     *
      * @var string
      */
     public $identifier;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example subject
+     *
      * @var string
      */
     public $propertyKey;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example newValue
+     *
      * @var string
      */
     public $propertyValue;
@@ -33,24 +52,20 @@ class UpdateWorkItemRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldType) {
             $res['fieldType'] = $this->fieldType;
         }
-
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
-
         if (null !== $this->propertyKey) {
             $res['propertyKey'] = $this->propertyKey;
         }
-
         if (null !== $this->propertyValue) {
             $res['propertyValue'] = $this->propertyValue;
         }
@@ -58,26 +73,23 @@ class UpdateWorkItemRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateWorkItemRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldType'])) {
             $model->fieldType = $map['fieldType'];
         }
-
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
-
         if (isset($map['propertyKey'])) {
             $model->propertyKey = $map['propertyKey'];
         }
-
         if (isset($map['propertyValue'])) {
             $model->propertyValue = $map['propertyValue'];
         }

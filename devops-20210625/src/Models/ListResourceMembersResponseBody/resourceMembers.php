@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceMembers extends Model
 {
     /**
+     * @example 22212212
+     *
      * @var string
      */
     public $accountId;
+
     /**
+     * @example admin
+     *
      * @var string
      */
     public $roleName;
+
     /**
+     * @example 张三
+     *
      * @var string
      */
     public $username;
@@ -28,20 +36,17 @@ class resourceMembers extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
         }
-
         if (null !== $this->roleName) {
             $res['roleName'] = $this->roleName;
         }
-
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -49,22 +54,20 @@ class resourceMembers extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceMembers
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
         }
-
         if (isset($map['roleName'])) {
             $model->roleName = $map['roleName'];
         }
-
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

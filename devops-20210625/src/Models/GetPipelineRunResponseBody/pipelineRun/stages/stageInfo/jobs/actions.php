@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun\stages\stageInfo\jobs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class actions extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disable;
+
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $params;
+
     /**
+     * @example PassPipelineValidate
+     *
      * @var string
      */
     public $type;
@@ -28,28 +36,17 @@ class actions extends Model
 
     public function validate()
     {
-        if (\is_array($this->params)) {
-            Model::validateArray($this->params);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->disable) {
             $res['disable'] = $this->disable;
         }
-
         if (null !== $this->params) {
-            if (\is_array($this->params)) {
-                $res['params'] = [];
-                foreach ($this->params as $key1 => $value1) {
-                    $res['params'][$key1] = $value1;
-                }
-            }
+            $res['params'] = $this->params;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -57,27 +54,20 @@ class actions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return actions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disable'])) {
             $model->disable = $map['disable'];
         }
-
         if (isset($map['params'])) {
-            if (!empty($map['params'])) {
-                $model->params = [];
-                foreach ($map['params'] as $key1 => $value1) {
-                    $model->params[$key1] = $value1;
-                }
-            }
+            $model->params = $map['params'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteChangeRequestReleaseStageResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $object;
+
     /**
+     * @example 3259***
+     *
      * @var int
      */
     public $pipelineId;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pipelineRunId;
@@ -28,20 +36,17 @@ class ExecuteChangeRequestReleaseStageResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->object) {
             $res['object'] = $this->object;
         }
-
         if (null !== $this->pipelineId) {
             $res['pipelineId'] = $this->pipelineId;
         }
-
         if (null !== $this->pipelineRunId) {
             $res['pipelineRunId'] = $this->pipelineRunId;
         }
@@ -49,22 +54,20 @@ class ExecuteChangeRequestReleaseStageResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteChangeRequestReleaseStageResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['object'])) {
             $model->object = $map['object'];
         }
-
         if (isset($map['pipelineId'])) {
             $model->pipelineId = $map['pipelineId'];
         }
-
         if (isset($map['pipelineRunId'])) {
             $model->pipelineRunId = $map['pipelineRunId'];
         }

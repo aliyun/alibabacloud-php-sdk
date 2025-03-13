@@ -4,39 +4,62 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateCommitWithMultipleFilesResponseBody\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class committer extends Model
 {
     /**
+     * @example 235671547828975455
+     *
      * @var string
      */
     public $aliyunPk;
+
     /**
+     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
+     *
      * @var string
      */
     public $avatarUrl;
+
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
+
     /**
+     * @example 24661
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @example committer-codeup
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
+
     /**
+     * @example committer-codeup
+     *
      * @var string
      */
     public $username;
+
     /**
+     * @example ""
+     *
      * @var string
      */
     public $websiteUrl;
@@ -53,40 +76,32 @@ class committer extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliyunPk) {
             $res['aliyunPk'] = $this->aliyunPk;
         }
-
         if (null !== $this->avatarUrl) {
             $res['avatarUrl'] = $this->avatarUrl;
         }
-
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
-
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
-
         if (null !== $this->websiteUrl) {
             $res['websiteUrl'] = $this->websiteUrl;
         }
@@ -94,42 +109,35 @@ class committer extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return committer
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliyunPk'])) {
             $model->aliyunPk = $map['aliyunPk'];
         }
-
         if (isset($map['avatarUrl'])) {
             $model->avatarUrl = $map['avatarUrl'];
         }
-
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }
-
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }
-
         if (isset($map['websiteUrl'])) {
             $model->websiteUrl = $map['websiteUrl'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetWorkitemAttachmentCreatemetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example application.jar
+     *
      * @var string
      */
     public $fileName;
@@ -18,10 +22,9 @@ class GetWorkitemAttachmentCreatemetaRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileName) {
@@ -31,11 +34,11 @@ class GetWorkitemAttachmentCreatemetaRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetWorkitemAttachmentCreatemetaRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

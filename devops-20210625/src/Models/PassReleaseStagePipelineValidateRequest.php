@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PassReleaseStagePipelineValidateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 226241***
+     *
      * @var string
      */
     public $jobId;
+
     /**
+     * @example 66c0c9fffeb86b450c199***
+     *
      * @var string
      */
     public $organizationId;
@@ -23,16 +30,14 @@ class PassReleaseStagePipelineValidateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
         }
-
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -40,18 +45,17 @@ class PassReleaseStagePipelineValidateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PassReleaseStagePipelineValidateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
         }
-
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

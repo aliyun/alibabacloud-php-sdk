@@ -4,22 +4,29 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseResponseBody\testcase;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class directory extends Model
 {
     /**
+     * @example 0bc1150dcxxxxxxxx04c
+     *
      * @var string
      */
     public $childIdentifier;
+
     /**
+     * @example 0bc1150dcxxxxxxxx04c
+     *
      * @var string
      */
     public $directoryIdentifier;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
@@ -33,67 +40,47 @@ class directory extends Model
 
     public function validate()
     {
-        if (\is_array($this->pathName)) {
-            Model::validateArray($this->pathName);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->childIdentifier) {
             $res['childIdentifier'] = $this->childIdentifier;
         }
-
         if (null !== $this->directoryIdentifier) {
             $res['directoryIdentifier'] = $this->directoryIdentifier;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->pathName) {
-            if (\is_array($this->pathName)) {
-                $res['pathName'] = [];
-                $n1              = 0;
-                foreach ($this->pathName as $item1) {
-                    $res['pathName'][$n1++] = $item1;
-                }
-            }
+            $res['pathName'] = $this->pathName;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return directory
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['childIdentifier'])) {
             $model->childIdentifier = $map['childIdentifier'];
         }
-
         if (isset($map['directoryIdentifier'])) {
             $model->directoryIdentifier = $map['directoryIdentifier'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['pathName'])) {
             if (!empty($map['pathName'])) {
-                $model->pathName = [];
-                $n1              = 0;
-                foreach ($map['pathName'] as $item1) {
-                    $model->pathName[$n1++] = $item1;
-                }
+                $model->pathName = $map['pathName'];
             }
         }
 

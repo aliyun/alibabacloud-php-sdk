@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAppMemberRequest extends Model
 {
     /**
+     * @example 66c0c9fffeb86b450c199fcd
+     *
      * @var string
      */
     public $organizationId;
+
     /**
+     * @example 1332695887xxxxxx
+     *
      * @var string
      */
     public $subjectId;
+
     /**
+     * @example User
+     *
      * @var string
      */
     public $subjectType;
@@ -28,20 +36,17 @@ class DeleteAppMemberRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
-
         if (null !== $this->subjectId) {
             $res['subjectId'] = $this->subjectId;
         }
-
         if (null !== $this->subjectType) {
             $res['subjectType'] = $this->subjectType;
         }
@@ -49,22 +54,20 @@ class DeleteAppMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAppMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }
-
         if (isset($map['subjectId'])) {
             $model->subjectId = $map['subjectId'];
         }
-
         if (isset($map['subjectType'])) {
             $model->subjectType = $map['subjectType'];
         }

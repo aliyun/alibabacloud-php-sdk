@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdatePushReviewOnOffRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 5ebbc0228123212b59xxxxx
+     *
      * @var string
      */
     public $organizationId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $trunkMode;
@@ -23,16 +32,14 @@ class UpdatePushReviewOnOffRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
-
         if (null !== $this->trunkMode) {
             $res['trunkMode'] = $this->trunkMode;
         }
@@ -40,18 +47,17 @@ class UpdatePushReviewOnOffRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdatePushReviewOnOffRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }
-
         if (isset($map['trunkMode'])) {
             $model->trunkMode = $map['trunkMode'];
         }

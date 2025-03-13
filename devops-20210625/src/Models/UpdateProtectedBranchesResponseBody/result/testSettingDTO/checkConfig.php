@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponseBody\result\testSettingDTO;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponseBody\result\testSettingDTO\checkConfig\checkItems;
+use AlibabaCloud\Tea\Model;
 
 class checkConfig extends Model
 {
@@ -19,21 +19,17 @@ class checkConfig extends Model
 
     public function validate()
     {
-        if (\is_array($this->checkItems)) {
-            Model::validateArray($this->checkItems);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkItems) {
-            if (\is_array($this->checkItems)) {
-                $res['checkItems'] = [];
-                $n1                = 0;
-                foreach ($this->checkItems as $item1) {
-                    $res['checkItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['checkItems'] = [];
+            if (null !== $this->checkItems && \is_array($this->checkItems)) {
+                $n = 0;
+                foreach ($this->checkItems as $item) {
+                    $res['checkItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class checkConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['checkItems'])) {
             if (!empty($map['checkItems'])) {
                 $model->checkItems = [];
-                $n1                = 0;
-                foreach ($map['checkItems'] as $item1) {
-                    $model->checkItems[$n1++] = checkItems::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['checkItems'] as $item) {
+                    $model->checkItems[$n++] = null !== $item ? checkItems::fromMap($item) : $item;
                 }
             }
         }

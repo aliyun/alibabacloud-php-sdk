@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WorkitemAttachmentCreateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1106473328927498/1106473328927498/5ec071g0e5ij85fche8cddchje.xlsx
+     *
      * @var string
      */
     public $fileKey;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx.tgz
+     *
      * @var string
      */
     public $originalFilename;
@@ -23,16 +32,14 @@ class WorkitemAttachmentCreateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileKey) {
             $res['fileKey'] = $this->fileKey;
         }
-
         if (null !== $this->originalFilename) {
             $res['originalFilename'] = $this->originalFilename;
         }
@@ -40,18 +47,17 @@ class WorkitemAttachmentCreateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WorkitemAttachmentCreateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileKey'])) {
             $model->fileKey = $map['fileKey'];
         }
-
         if (isset($map['originalFilename'])) {
             $model->originalFilename = $map['originalFilename'];
         }

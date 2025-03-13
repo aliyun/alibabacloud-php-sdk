@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseResponseBody\testcase\detailInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class expectedResult extends Model
 {
@@ -12,11 +12,17 @@ class expectedResult extends Model
      * @var string
      */
     public $expectContent;
+
     /**
+     * @example RICHTEXT
+     *
      * @var string
      */
     public $expectContentType;
+
     /**
+     * @example 59253164xxxxxxf2e98dbc7e27
+     *
      * @var string
      */
     public $expectIdentifier;
@@ -28,20 +34,17 @@ class expectedResult extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->expectContent) {
             $res['expectContent'] = $this->expectContent;
         }
-
         if (null !== $this->expectContentType) {
             $res['expectContentType'] = $this->expectContentType;
         }
-
         if (null !== $this->expectIdentifier) {
             $res['expectIdentifier'] = $this->expectIdentifier;
         }
@@ -49,22 +52,20 @@ class expectedResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return expectedResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expectContent'])) {
             $model->expectContent = $map['expectContent'];
         }
-
         if (isset($map['expectContentType'])) {
             $model->expectContentType = $map['expectContentType'];
         }
-
         if (isset($map['expectIdentifier'])) {
             $model->expectIdentifier = $map['expectIdentifier'];
         }

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponseBody\testcase;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponseBody\testcase\detailInfo\expectedResult;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponseBody\testcase\detailInfo\precondition;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponseBody\testcase\detailInfo\stepContent;
+use AlibabaCloud\Tea\Model;
 
 class detailInfo extends Model
 {
@@ -15,15 +15,20 @@ class detailInfo extends Model
      * @var expectedResult
      */
     public $expectedResult;
+
     /**
      * @var precondition
      */
     public $precondition;
+
     /**
      * @var stepContent
      */
     public $stepContent;
+
     /**
+     * @example TEXT/TABLE
+     *
      * @var string
      */
     public $stepType;
@@ -36,33 +41,20 @@ class detailInfo extends Model
 
     public function validate()
     {
-        if (null !== $this->expectedResult) {
-            $this->expectedResult->validate();
-        }
-        if (null !== $this->precondition) {
-            $this->precondition->validate();
-        }
-        if (null !== $this->stepContent) {
-            $this->stepContent->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->expectedResult) {
-            $res['expectedResult'] = null !== $this->expectedResult ? $this->expectedResult->toArray($noStream) : $this->expectedResult;
+            $res['expectedResult'] = null !== $this->expectedResult ? $this->expectedResult->toMap() : null;
         }
-
         if (null !== $this->precondition) {
-            $res['precondition'] = null !== $this->precondition ? $this->precondition->toArray($noStream) : $this->precondition;
+            $res['precondition'] = null !== $this->precondition ? $this->precondition->toMap() : null;
         }
-
         if (null !== $this->stepContent) {
-            $res['stepContent'] = null !== $this->stepContent ? $this->stepContent->toArray($noStream) : $this->stepContent;
+            $res['stepContent'] = null !== $this->stepContent ? $this->stepContent->toMap() : null;
         }
-
         if (null !== $this->stepType) {
             $res['stepType'] = $this->stepType;
         }
@@ -70,26 +62,23 @@ class detailInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detailInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expectedResult'])) {
             $model->expectedResult = expectedResult::fromMap($map['expectedResult']);
         }
-
         if (isset($map['precondition'])) {
             $model->precondition = precondition::fromMap($map['precondition']);
         }
-
         if (isset($map['stepContent'])) {
             $model->stepContent = stepContent::fromMap($map['stepContent']);
         }
-
         if (isset($map['stepType'])) {
             $model->stepType = $map['stepType'];
         }

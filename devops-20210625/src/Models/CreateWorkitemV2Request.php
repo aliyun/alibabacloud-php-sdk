@@ -4,64 +4,101 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Request\fieldValueList;
+use AlibabaCloud\Tea\Model;
 
 class CreateWorkitemV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 19xxxx31947xxxx
+     *
      * @var string
      */
     public $assignedTo;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example Req
+     *
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var fieldValueList[]
      */
     public $fieldValueList;
+
     /**
+     * @example 11223331122
+     *
      * @var string
      */
     public $parentIdentifier;
+
     /**
      * @var string[]
      */
     public $participants;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example asd345xxxxx9q9845xxxxx34
+     *
      * @var string
      */
     public $spaceIdentifier;
+
     /**
+     * @example 455532323455
+     *
      * @var string
      */
     public $sprintIdentifier;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subject;
+
     /**
      * @var string[]
      */
     public $tags;
+
     /**
      * @var string[]
      */
     public $trackers;
+
     /**
+     * @example 1561159309......
+     *
      * @var string
      */
     public $verifier;
+
     /**
      * @var string[]
      */
     public $versions;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 9uy29901re573f561d69jn40
+     *
      * @var string
      */
     public $workitemTypeIdentifier;
@@ -84,109 +121,56 @@ class CreateWorkitemV2Request extends Model
 
     public function validate()
     {
-        if (\is_array($this->fieldValueList)) {
-            Model::validateArray($this->fieldValueList);
-        }
-        if (\is_array($this->participants)) {
-            Model::validateArray($this->participants);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        if (\is_array($this->trackers)) {
-            Model::validateArray($this->trackers);
-        }
-        if (\is_array($this->versions)) {
-            Model::validateArray($this->versions);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assignedTo) {
             $res['assignedTo'] = $this->assignedTo;
         }
-
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->fieldValueList) {
-            if (\is_array($this->fieldValueList)) {
-                $res['fieldValueList'] = [];
-                $n1                    = 0;
-                foreach ($this->fieldValueList as $item1) {
-                    $res['fieldValueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['fieldValueList'] = [];
+            if (null !== $this->fieldValueList && \is_array($this->fieldValueList)) {
+                $n = 0;
+                foreach ($this->fieldValueList as $item) {
+                    $res['fieldValueList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->parentIdentifier) {
             $res['parentIdentifier'] = $this->parentIdentifier;
         }
-
         if (null !== $this->participants) {
-            if (\is_array($this->participants)) {
-                $res['participants'] = [];
-                $n1                  = 0;
-                foreach ($this->participants as $item1) {
-                    $res['participants'][$n1++] = $item1;
-                }
-            }
+            $res['participants'] = $this->participants;
         }
-
         if (null !== $this->spaceIdentifier) {
             $res['spaceIdentifier'] = $this->spaceIdentifier;
         }
-
         if (null !== $this->sprintIdentifier) {
             $res['sprintIdentifier'] = $this->sprintIdentifier;
         }
-
         if (null !== $this->subject) {
             $res['subject'] = $this->subject;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1          = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = $item1;
-                }
-            }
+            $res['tags'] = $this->tags;
         }
-
         if (null !== $this->trackers) {
-            if (\is_array($this->trackers)) {
-                $res['trackers'] = [];
-                $n1              = 0;
-                foreach ($this->trackers as $item1) {
-                    $res['trackers'][$n1++] = $item1;
-                }
-            }
+            $res['trackers'] = $this->trackers;
         }
-
         if (null !== $this->verifier) {
             $res['verifier'] = $this->verifier;
         }
-
         if (null !== $this->versions) {
-            if (\is_array($this->versions)) {
-                $res['versions'] = [];
-                $n1              = 0;
-                foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = $item1;
-                }
-            }
+            $res['versions'] = $this->versions;
         }
-
         if (null !== $this->workitemTypeIdentifier) {
             $res['workitemTypeIdentifier'] = $this->workitemTypeIdentifier;
         }
@@ -194,96 +178,67 @@ class CreateWorkitemV2Request extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateWorkitemV2Request
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assignedTo'])) {
             $model->assignedTo = $map['assignedTo'];
         }
-
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['fieldValueList'])) {
             if (!empty($map['fieldValueList'])) {
                 $model->fieldValueList = [];
-                $n1                    = 0;
-                foreach ($map['fieldValueList'] as $item1) {
-                    $model->fieldValueList[$n1++] = fieldValueList::fromMap($item1);
+                $n                     = 0;
+                foreach ($map['fieldValueList'] as $item) {
+                    $model->fieldValueList[$n++] = null !== $item ? fieldValueList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['parentIdentifier'])) {
             $model->parentIdentifier = $map['parentIdentifier'];
         }
-
         if (isset($map['participants'])) {
             if (!empty($map['participants'])) {
-                $model->participants = [];
-                $n1                  = 0;
-                foreach ($map['participants'] as $item1) {
-                    $model->participants[$n1++] = $item1;
-                }
+                $model->participants = $map['participants'];
             }
         }
-
         if (isset($map['spaceIdentifier'])) {
             $model->spaceIdentifier = $map['spaceIdentifier'];
         }
-
         if (isset($map['sprintIdentifier'])) {
             $model->sprintIdentifier = $map['sprintIdentifier'];
         }
-
         if (isset($map['subject'])) {
             $model->subject = $map['subject'];
         }
-
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1          = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = $item1;
-                }
+                $model->tags = $map['tags'];
             }
         }
-
         if (isset($map['trackers'])) {
             if (!empty($map['trackers'])) {
-                $model->trackers = [];
-                $n1              = 0;
-                foreach ($map['trackers'] as $item1) {
-                    $model->trackers[$n1++] = $item1;
-                }
+                $model->trackers = $map['trackers'];
             }
         }
-
         if (isset($map['verifier'])) {
             $model->verifier = $map['verifier'];
         }
-
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
-                $model->versions = [];
-                $n1              = 0;
-                foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = $item1;
-                }
+                $model->versions = $map['versions'];
             }
         }
-
         if (isset($map['workitemTypeIdentifier'])) {
             $model->workitemTypeIdentifier = $map['workitemTypeIdentifier'];
         }

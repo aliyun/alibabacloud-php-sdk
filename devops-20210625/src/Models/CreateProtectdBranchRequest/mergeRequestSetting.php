@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mergeRequestSetting extends Model
 {
@@ -12,35 +12,57 @@ class mergeRequestSetting extends Model
      * @var int[]
      */
     public $allowMergeRequestRoles;
+
     /**
      * @var string[]
      */
     public $defaultAssignees;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAllowSelfApproval;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequireDiscussionProcessed;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRequired;
+
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isResetApprovalWhenNewPush;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minimumApproval;
+
     /**
+     * @example general
+     *
      * @var string
      */
     public $mrMode;
+
     /**
+     * @example **.java
+     *
      * @var string
      */
     public $whiteList;
@@ -58,62 +80,35 @@ class mergeRequestSetting extends Model
 
     public function validate()
     {
-        if (\is_array($this->allowMergeRequestRoles)) {
-            Model::validateArray($this->allowMergeRequestRoles);
-        }
-        if (\is_array($this->defaultAssignees)) {
-            Model::validateArray($this->defaultAssignees);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowMergeRequestRoles) {
-            if (\is_array($this->allowMergeRequestRoles)) {
-                $res['allowMergeRequestRoles'] = [];
-                $n1                            = 0;
-                foreach ($this->allowMergeRequestRoles as $item1) {
-                    $res['allowMergeRequestRoles'][$n1++] = $item1;
-                }
-            }
+            $res['allowMergeRequestRoles'] = $this->allowMergeRequestRoles;
         }
-
         if (null !== $this->defaultAssignees) {
-            if (\is_array($this->defaultAssignees)) {
-                $res['defaultAssignees'] = [];
-                $n1                      = 0;
-                foreach ($this->defaultAssignees as $item1) {
-                    $res['defaultAssignees'][$n1++] = $item1;
-                }
-            }
+            $res['defaultAssignees'] = $this->defaultAssignees;
         }
-
         if (null !== $this->isAllowSelfApproval) {
             $res['isAllowSelfApproval'] = $this->isAllowSelfApproval;
         }
-
         if (null !== $this->isRequireDiscussionProcessed) {
             $res['isRequireDiscussionProcessed'] = $this->isRequireDiscussionProcessed;
         }
-
         if (null !== $this->isRequired) {
             $res['isRequired'] = $this->isRequired;
         }
-
         if (null !== $this->isResetApprovalWhenNewPush) {
             $res['isResetApprovalWhenNewPush'] = $this->isResetApprovalWhenNewPush;
         }
-
         if (null !== $this->minimumApproval) {
             $res['minimumApproval'] = $this->minimumApproval;
         }
-
         if (null !== $this->mrMode) {
             $res['mrMode'] = $this->mrMode;
         }
-
         if (null !== $this->whiteList) {
             $res['whiteList'] = $this->whiteList;
         }
@@ -121,58 +116,42 @@ class mergeRequestSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mergeRequestSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowMergeRequestRoles'])) {
             if (!empty($map['allowMergeRequestRoles'])) {
-                $model->allowMergeRequestRoles = [];
-                $n1                            = 0;
-                foreach ($map['allowMergeRequestRoles'] as $item1) {
-                    $model->allowMergeRequestRoles[$n1++] = $item1;
-                }
+                $model->allowMergeRequestRoles = $map['allowMergeRequestRoles'];
             }
         }
-
         if (isset($map['defaultAssignees'])) {
             if (!empty($map['defaultAssignees'])) {
-                $model->defaultAssignees = [];
-                $n1                      = 0;
-                foreach ($map['defaultAssignees'] as $item1) {
-                    $model->defaultAssignees[$n1++] = $item1;
-                }
+                $model->defaultAssignees = $map['defaultAssignees'];
             }
         }
-
         if (isset($map['isAllowSelfApproval'])) {
             $model->isAllowSelfApproval = $map['isAllowSelfApproval'];
         }
-
         if (isset($map['isRequireDiscussionProcessed'])) {
             $model->isRequireDiscussionProcessed = $map['isRequireDiscussionProcessed'];
         }
-
         if (isset($map['isRequired'])) {
             $model->isRequired = $map['isRequired'];
         }
-
         if (isset($map['isResetApprovalWhenNewPush'])) {
             $model->isResetApprovalWhenNewPush = $map['isResetApprovalWhenNewPush'];
         }
-
         if (isset($map['minimumApproval'])) {
             $model->minimumApproval = $map['minimumApproval'];
         }
-
         if (isset($map['mrMode'])) {
             $model->mrMode = $map['mrMode'];
         }
-
         if (isset($map['whiteList'])) {
             $model->whiteList = $map['whiteList'];
         }

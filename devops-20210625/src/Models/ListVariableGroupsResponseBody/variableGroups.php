@@ -4,44 +4,66 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponseBody\variableGroups\relatedPipelines;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponseBody\variableGroups\variables;
+use AlibabaCloud\Tea\Model;
 
 class variableGroups extends Model
 {
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $createTime;
+
     /**
+     * @example 13232343434343
+     *
      * @var string
      */
     public $creatorAccountId;
+
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @example 12234
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @example 13232343434343
+     *
      * @var string
      */
     public $modifierAccountId;
+
     /**
+     * @example 变量组
+     *
      * @var string
      */
     public $name;
+
     /**
      * @var relatedPipelines[]
      */
     public $relatedPipelines;
+
     /**
+     * @example 1586863220000
+     *
      * @var int
      */
     public $updateTime;
+
     /**
      * @var variables[]
      */
@@ -60,62 +82,47 @@ class variableGroups extends Model
 
     public function validate()
     {
-        if (\is_array($this->relatedPipelines)) {
-            Model::validateArray($this->relatedPipelines);
-        }
-        if (\is_array($this->variables)) {
-            Model::validateArray($this->variables);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-
         if (null !== $this->creatorAccountId) {
             $res['creatorAccountId'] = $this->creatorAccountId;
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->modifierAccountId) {
             $res['modifierAccountId'] = $this->modifierAccountId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->relatedPipelines) {
-            if (\is_array($this->relatedPipelines)) {
-                $res['relatedPipelines'] = [];
-                $n1                      = 0;
-                foreach ($this->relatedPipelines as $item1) {
-                    $res['relatedPipelines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['relatedPipelines'] = [];
+            if (null !== $this->relatedPipelines && \is_array($this->relatedPipelines)) {
+                $n = 0;
+                foreach ($this->relatedPipelines as $item) {
+                    $res['relatedPipelines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
-
         if (null !== $this->variables) {
-            if (\is_array($this->variables)) {
-                $res['variables'] = [];
-                $n1               = 0;
-                foreach ($this->variables as $item1) {
-                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['variables'] = [];
+            if (null !== $this->variables && \is_array($this->variables)) {
+                $n = 0;
+                foreach ($this->variables as $item) {
+                    $res['variables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -123,58 +130,50 @@ class variableGroups extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return variableGroups
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-
         if (isset($map['creatorAccountId'])) {
             $model->creatorAccountId = $map['creatorAccountId'];
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['modifierAccountId'])) {
             $model->modifierAccountId = $map['modifierAccountId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['relatedPipelines'])) {
             if (!empty($map['relatedPipelines'])) {
                 $model->relatedPipelines = [];
-                $n1                      = 0;
-                foreach ($map['relatedPipelines'] as $item1) {
-                    $model->relatedPipelines[$n1++] = relatedPipelines::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['relatedPipelines'] as $item) {
+                    $model->relatedPipelines[$n++] = null !== $item ? relatedPipelines::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
-
         if (isset($map['variables'])) {
             if (!empty($map['variables'])) {
                 $model->variables = [];
-                $n1               = 0;
-                foreach ($map['variables'] as $item1) {
-                    $model->variables[$n1++] = variables::fromMap($item1);
+                $n                = 0;
+                foreach ($map['variables'] as $item) {
+                    $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
                 }
             }
         }

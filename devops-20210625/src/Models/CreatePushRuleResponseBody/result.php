@@ -4,23 +4,32 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreatePushRuleResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePushRuleResponseBody\result\ruleInfos;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 2023-09-03T18:20:06+08:00
+     *
      * @var string
      */
     public $gmtCreate;
+
     /**
+     * @example 2023-09-03T18:20:06+08:00
+     *
      * @var string
      */
     public $gmtModified;
+
     /**
+     * @example 2077
+     *
      * @var int
      */
     public $id;
+
     /**
      * @var ruleInfos[]
      */
@@ -34,33 +43,26 @@ class result extends Model
 
     public function validate()
     {
-        if (\is_array($this->ruleInfos)) {
-            Model::validateArray($this->ruleInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->ruleInfos) {
-            if (\is_array($this->ruleInfos)) {
-                $res['ruleInfos'] = [];
-                $n1               = 0;
-                foreach ($this->ruleInfos as $item1) {
-                    $res['ruleInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ruleInfos'] = [];
+            if (null !== $this->ruleInfos && \is_array($this->ruleInfos)) {
+                $n = 0;
+                foreach ($this->ruleInfos as $item) {
+                    $res['ruleInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +70,29 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
-
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['ruleInfos'])) {
             if (!empty($map['ruleInfos'])) {
                 $model->ruleInfos = [];
-                $n1               = 0;
-                foreach ($map['ruleInfos'] as $item1) {
-                    $model->ruleInfos[$n1++] = ruleInfos::fromMap($item1);
+                $n                = 0;
+                foreach ($map['ruleInfos'] as $item) {
+                    $model->ruleInfos[$n++] = null !== $item ? ruleInfos::fromMap($item) : $item;
                 }
             }
         }

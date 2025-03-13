@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRecordResponseBody\workitemTime;
+use AlibabaCloud\Tea\Model;
 
 class CreateWorkitemRecordResponseBody extends Model
 {
@@ -13,19 +13,33 @@ class CreateWorkitemRecordResponseBody extends Model
      * @var workitemTime
      */
     public $workitemTime;
+
     /**
+     * @example success
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @description Id of the request
+     *
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -39,31 +53,23 @@ class CreateWorkitemRecordResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->workitemTime) {
-            $this->workitemTime->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workitemTime) {
-            $res['WorkitemTime'] = null !== $this->workitemTime ? $this->workitemTime->toArray($noStream) : $this->workitemTime;
+            $res['WorkitemTime'] = null !== $this->workitemTime ? $this->workitemTime->toMap() : null;
         }
-
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -71,30 +77,26 @@ class CreateWorkitemRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateWorkitemRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkitemTime'])) {
             $model->workitemTime = workitemTime::fromMap($map['WorkitemTime']);
         }
-
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

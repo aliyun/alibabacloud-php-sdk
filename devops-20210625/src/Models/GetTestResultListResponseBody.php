@@ -4,27 +4,39 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetTestResultListResponseBody\testResult;
+use AlibabaCloud\Tea\Model;
 
 class GetTestResultListResponseBody extends Model
 {
     /**
+     * @example Openapi.RequestError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example error
+     *
      * @var string
      */
     public $errorMsg;
+
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
+
     /**
      * @var testResult[]
      */
@@ -39,37 +51,29 @@ class GetTestResultListResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->testResult)) {
-            Model::validateArray($this->testResult);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-
         if (null !== $this->testResult) {
-            if (\is_array($this->testResult)) {
-                $res['testResult'] = [];
-                $n1                = 0;
-                foreach ($this->testResult as $item1) {
-                    $res['testResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['testResult'] = [];
+            if (null !== $this->testResult && \is_array($this->testResult)) {
+                $n = 0;
+                foreach ($this->testResult as $item) {
+                    $res['testResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -77,36 +81,32 @@ class GetTestResultListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTestResultListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-
         if (isset($map['testResult'])) {
             if (!empty($map['testResult'])) {
                 $model->testResult = [];
-                $n1                = 0;
-                foreach ($map['testResult'] as $item1) {
-                    $model->testResult[$n1++] = testResult::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['testResult'] as $item) {
+                    $model->testResult[$n++] = null !== $item ? testResult::fromMap($item) : $item;
                 }
             }
         }
