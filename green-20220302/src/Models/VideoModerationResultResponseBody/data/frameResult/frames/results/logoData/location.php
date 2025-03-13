@@ -2,44 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\logoData;
+namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\logoData;
 
 use AlibabaCloud\Tea\Model;
 
 class location extends Model
 {
     /**
-     * @description The width of the text area, in pixels.
-     *
-     * @example 440
-     *
      * @var int
      */
     public $h;
 
     /**
-     * @description The height of the text area, in pixels.
-     *
-     * @example 330
-     *
      * @var int
      */
     public $w;
 
     /**
-     * @description The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @description The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $y;

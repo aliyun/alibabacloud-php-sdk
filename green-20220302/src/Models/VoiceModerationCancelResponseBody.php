@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class VoiceModerationCancelResponseBody extends Model
 {
     /**
+     * @description The returned HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
+
     /**
+     * @description The message that is returned in response to the request.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The request ID.
+     *
+     * @example 4A926AE2-4C96-573F-824F-0532960799F8
+     *
      * @var string
      */
     public $requestId;
@@ -28,20 +42,17 @@ class VoiceModerationCancelResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +60,20 @@ class VoiceModerationCancelResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return VoiceModerationCancelResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

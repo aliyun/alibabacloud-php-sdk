@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ManualModerationRequest extends Model
 {
     /**
+     * @example imageManualCheck
+     *
      * @var string
      */
     public $service;
+
     /**
+     * @example {"url": "https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4", "dataId": "data1234"}
+     *
      * @var string
      */
     public $serviceParameters;
@@ -23,16 +28,14 @@ class ManualModerationRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
-
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -40,18 +43,17 @@ class ManualModerationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ManualModerationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
-
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

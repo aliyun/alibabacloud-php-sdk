@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -12,7 +12,10 @@ class result extends Model
      * @var string
      */
     public $description;
+
     /**
+     * @example violent_explosion
+     *
      * @var string
      */
     public $label;
@@ -23,16 +26,14 @@ class result extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -40,18 +41,17 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

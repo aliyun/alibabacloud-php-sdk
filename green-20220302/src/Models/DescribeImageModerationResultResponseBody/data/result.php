@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageModerationResultResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @description The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
+     *
+     * @example 81.22
+     *
      * @var float
      */
     public $confidence;
+
     /**
+     * @description The description of the result.
+     *
+     * @example no risk
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The labels returned after the image moderation.
+     *
+     * @example violent_explosion
+     *
      * @var string
      */
     public $label;
@@ -28,20 +42,17 @@ class result extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -49,22 +60,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

@@ -2,24 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext;
+namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results;
 
-use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\logoData\location;
-use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\logoData\logo;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\logoData\location;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\logoData\logo;
 use AlibabaCloud\Tea\Model;
 
 class logoData extends Model
 {
     /**
-     * @description Location information.
-     *
      * @var location
      */
     public $location;
 
     /**
-     * @description Logo information.
-     *
      * @var logo[]
      */
     public $logo;

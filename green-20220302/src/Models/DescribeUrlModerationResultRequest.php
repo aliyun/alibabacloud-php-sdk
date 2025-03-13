@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUrlModerationResultRequest extends Model
 {
     /**
+     * @description The ReqId field returned by an asynchronous URL moderation operation.
+     *
+     * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+     *
      * @var string
      */
     public $reqId;
@@ -18,10 +22,9 @@ class DescribeUrlModerationResultRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reqId) {
@@ -31,11 +34,11 @@ class DescribeUrlModerationResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUrlModerationResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

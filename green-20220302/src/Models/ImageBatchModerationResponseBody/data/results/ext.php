@@ -4,27 +4,38 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\customImage;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\logoData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\publicFigure;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\textInImage;
+use AlibabaCloud\Tea\Model;
 
 class ext extends Model
 {
     /**
+     * @description Custom image library hit information list.
+     *
      * @var customImage[]
      */
     public $customImage;
+
     /**
+     * @description Logo identification information.
+     *
      * @var logoData
      */
     public $logoData;
+
     /**
+     * @description List of character information.
+     *
      * @var publicFigure[]
      */
     public $publicFigure;
+
     /**
+     * @description Return the text information from the recognized images.
+     *
      * @var textInImage
      */
     public $textInImage;
@@ -37,87 +48,68 @@ class ext extends Model
 
     public function validate()
     {
-        if (\is_array($this->customImage)) {
-            Model::validateArray($this->customImage);
-        }
-        if (null !== $this->logoData) {
-            $this->logoData->validate();
-        }
-        if (\is_array($this->publicFigure)) {
-            Model::validateArray($this->publicFigure);
-        }
-        if (null !== $this->textInImage) {
-            $this->textInImage->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->customImage) {
-            if (\is_array($this->customImage)) {
-                $res['CustomImage'] = [];
-                $n1                 = 0;
-                foreach ($this->customImage as $item1) {
-                    $res['CustomImage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CustomImage'] = [];
+            if (null !== $this->customImage && \is_array($this->customImage)) {
+                $n = 0;
+                foreach ($this->customImage as $item) {
+                    $res['CustomImage'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->logoData) {
-            $res['LogoData'] = null !== $this->logoData ? $this->logoData->toArray($noStream) : $this->logoData;
+            $res['LogoData'] = null !== $this->logoData ? $this->logoData->toMap() : null;
         }
-
         if (null !== $this->publicFigure) {
-            if (\is_array($this->publicFigure)) {
-                $res['PublicFigure'] = [];
-                $n1                  = 0;
-                foreach ($this->publicFigure as $item1) {
-                    $res['PublicFigure'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PublicFigure'] = [];
+            if (null !== $this->publicFigure && \is_array($this->publicFigure)) {
+                $n = 0;
+                foreach ($this->publicFigure as $item) {
+                    $res['PublicFigure'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->textInImage) {
-            $res['TextInImage'] = null !== $this->textInImage ? $this->textInImage->toArray($noStream) : $this->textInImage;
+            $res['TextInImage'] = null !== $this->textInImage ? $this->textInImage->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
-                $n1                 = 0;
-                foreach ($map['CustomImage'] as $item1) {
-                    $model->customImage[$n1++] = customImage::fromMap($item1);
+                $n                  = 0;
+                foreach ($map['CustomImage'] as $item) {
+                    $model->customImage[$n++] = null !== $item ? customImage::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LogoData'])) {
             $model->logoData = logoData::fromMap($map['LogoData']);
         }
-
         if (isset($map['PublicFigure'])) {
             if (!empty($map['PublicFigure'])) {
                 $model->publicFigure = [];
-                $n1                  = 0;
-                foreach ($map['PublicFigure'] as $item1) {
-                    $model->publicFigure[$n1++] = publicFigure::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['PublicFigure'] as $item) {
+                    $model->publicFigure[$n++] = null !== $item ? publicFigure::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TextInImage'])) {
             $model->textInImage = textInImage::fromMap($map['TextInImage']);
         }

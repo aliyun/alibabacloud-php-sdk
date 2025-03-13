@@ -4,33 +4,58 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageResult;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeFileModerationResultResponseBody\data\pageSummary;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the moderated object.
+     *
+     * @example 26769ada6e264e7ba9aa048241e12be9
+     *
      * @var string
      */
     public $dataId;
+
     /**
+     * @description Optional. The document type.
+     *
+     * @example doc
+     *
      * @var string
      */
     public $docType;
+
     /**
+     * @description An array that consists of the moderation results.
+     *
      * @var pageResult[]
      */
     public $pageResult;
+
     /**
+     * @description Summary of results
+     *
      * @var pageSummary
      */
     public $pageSummary;
+
     /**
+     * @description Risk Level
+     *
+     * @example high
+     *
      * @var string
      */
     public $riskLevel;
+
     /**
+     * @description The URL of the moderated object.
+     *
+     * @example https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
+     *
      * @var string
      */
     public $url;
@@ -45,44 +70,32 @@ class data extends Model
 
     public function validate()
     {
-        if (\is_array($this->pageResult)) {
-            Model::validateArray($this->pageResult);
-        }
-        if (null !== $this->pageSummary) {
-            $this->pageSummary->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->pageResult) {
-            if (\is_array($this->pageResult)) {
-                $res['PageResult'] = [];
-                $n1                = 0;
-                foreach ($this->pageResult as $item1) {
-                    $res['PageResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['PageResult'] = [];
+            if (null !== $this->pageResult && \is_array($this->pageResult)) {
+                $n = 0;
+                foreach ($this->pageResult as $item) {
+                    $res['PageResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageSummary) {
-            $res['PageSummary'] = null !== $this->pageSummary ? $this->pageSummary->toArray($noStream) : $this->pageSummary;
+            $res['PageSummary'] = null !== $this->pageSummary ? $this->pageSummary->toMap() : null;
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -90,40 +103,35 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['PageResult'])) {
             if (!empty($map['PageResult'])) {
                 $model->pageResult = [];
-                $n1                = 0;
-                foreach ($map['PageResult'] as $item1) {
-                    $model->pageResult[$n1++] = pageResult::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['PageResult'] as $item) {
+                    $model->pageResult[$n++] = null !== $item ? pageResult::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageSummary'])) {
             $model->pageSummary = pageSummary::fromMap($map['PageSummary']);
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
