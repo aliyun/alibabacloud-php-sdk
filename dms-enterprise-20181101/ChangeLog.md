@@ -1,3 +1,6 @@
+2025-03-13 Version: 1.69.1
+- Generated php 2018-11-01 for dms-enterprise.
+
 2025-03-13 Version: 1.69.0
 - Support API TryRunTaskFlow.
 - Update API BatchCreateDataLakePartitions: add param WorkspaceId.
