@@ -4,15 +4,19 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribeSellerInstancesRequest;
+use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\DescribeSellerInstancesResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class MarketplaceIntl extends OpenApiClient
 {
@@ -37,47 +41,101 @@ class MarketplaceIntl extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * isv推送实例消息给用户.
+     * @summary 卖家查询实例列表
+     *  *
+     * @param DescribeSellerInstancesRequest $request DescribeSellerInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - NoticeInstanceUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns NoticeInstanceUserResponse
+     * @return DescribeSellerInstancesResponse DescribeSellerInstancesResponse
+     */
+    public function describeSellerInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSellerInstances',
+            'version'     => '2022-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSellerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSellerInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 卖家查询实例列表
+     *  *
+     * @param DescribeSellerInstancesRequest $request DescribeSellerInstancesRequest
      *
-     * @param NoticeInstanceUserRequest $request
-     * @param RuntimeOptions            $runtime
+     * @return DescribeSellerInstancesResponse DescribeSellerInstancesResponse
+     */
+    public function describeSellerInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSellerInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary isv推送实例消息给用户
+     *  *
+     * @param NoticeInstanceUserRequest $request NoticeInstanceUserRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return NoticeInstanceUserResponse
+     * @return NoticeInstanceUserResponse NoticeInstanceUserResponse
      */
     public function noticeInstanceUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->instanceId) {
-            @$body['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->noticeParam) {
-            @$body['NoticeParam'] = $request->noticeParam;
+        if (!Utils::isUnset($request->noticeParam)) {
+            $body['NoticeParam'] = $request->noticeParam;
         }
-
-        if (null !== $request->noticeType) {
-            @$body['NoticeType'] = $request->noticeType;
+        if (!Utils::isUnset($request->noticeType)) {
+            $body['NoticeType'] = $request->noticeType;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'NoticeInstanceUser',
@@ -90,7 +148,7 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return NoticeInstanceUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -98,14 +156,11 @@ class MarketplaceIntl extends OpenApiClient
     }
 
     /**
-     * isv推送实例消息给用户.
+     * @summary isv推送实例消息给用户
+     *  *
+     * @param NoticeInstanceUserRequest $request NoticeInstanceUserRequest
      *
-     * @param request - NoticeInstanceUserRequest
-     * @returns NoticeInstanceUserResponse
-     *
-     * @param NoticeInstanceUserRequest $request
-     *
-     * @return NoticeInstanceUserResponse
+     * @return NoticeInstanceUserResponse NoticeInstanceUserResponse
      */
     public function noticeInstanceUser($request)
     {
@@ -115,31 +170,25 @@ class MarketplaceIntl extends OpenApiClient
     }
 
     /**
-     * 国际云市场推送计量数据.
+     * @summary 国际云市场推送计量数据
+     *  *
+     * @param PushMeteringDataRequest $request PushMeteringDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PushMeteringDataRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns PushMeteringDataResponse
-     *
-     * @param PushMeteringDataRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return PushMeteringDataResponse
+     * @return PushMeteringDataResponse PushMeteringDataResponse
      */
     public function pushMeteringDataWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->gmtCreate) {
-            @$body['GmtCreate'] = $request->gmtCreate;
+        if (!Utils::isUnset($request->gmtCreate)) {
+            $body['GmtCreate'] = $request->gmtCreate;
         }
-
-        if (null !== $request->meteringData) {
-            @$body['MeteringData'] = $request->meteringData;
+        if (!Utils::isUnset($request->meteringData)) {
+            $body['MeteringData'] = $request->meteringData;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PushMeteringData',
@@ -152,7 +201,7 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -160,14 +209,11 @@ class MarketplaceIntl extends OpenApiClient
     }
 
     /**
-     * 国际云市场推送计量数据.
+     * @summary 国际云市场推送计量数据
+     *  *
+     * @param PushMeteringDataRequest $request PushMeteringDataRequest
      *
-     * @param request - PushMeteringDataRequest
-     * @returns PushMeteringDataResponse
-     *
-     * @param PushMeteringDataRequest $request
-     *
-     * @return PushMeteringDataResponse
+     * @return PushMeteringDataResponse PushMeteringDataResponse
      */
     public function pushMeteringData($request)
     {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class NoticeInstanceUserResponse extends Model
+class DescribeSellerInstancesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class NoticeInstanceUserResponse extends Model
     public $statusCode;
 
     /**
-     * @var NoticeInstanceUserResponseBody
+     * @var DescribeSellerInstancesResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class NoticeInstanceUserResponse extends Model
     /**
      * @param array $map
      *
-     * @return NoticeInstanceUserResponse
+     * @return DescribeSellerInstancesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class NoticeInstanceUserResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = NoticeInstanceUserResponseBody::fromMap($map['body']);
+            $model->body = DescribeSellerInstancesResponseBody::fromMap($map['body']);
         }
 
         return $model;

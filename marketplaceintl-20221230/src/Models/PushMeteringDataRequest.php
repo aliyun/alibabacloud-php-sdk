@@ -4,15 +4,18 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest\meteringData;
+use AlibabaCloud\Tea\Model;
 
 class PushMeteringDataRequest extends Model
 {
     /**
+     * @example 2023-01-11 10:31:00
+     *
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var meteringData[]
      */
@@ -24,25 +27,20 @@ class PushMeteringDataRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->meteringData)) {
-            Model::validateArray($this->meteringData);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->meteringData) {
-            if (\is_array($this->meteringData)) {
-                $res['MeteringData'] = [];
-                $n1                  = 0;
-                foreach ($this->meteringData as $item1) {
-                    $res['MeteringData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MeteringData'] = [];
+            if (null !== $this->meteringData && \is_array($this->meteringData)) {
+                $n = 0;
+                foreach ($this->meteringData as $item) {
+                    $res['MeteringData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +48,23 @@ class PushMeteringDataRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PushMeteringDataRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['MeteringData'])) {
             if (!empty($map['MeteringData'])) {
                 $model->meteringData = [];
-                $n1                  = 0;
-                foreach ($map['MeteringData'] as $item1) {
-                    $model->meteringData[$n1++] = meteringData::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['MeteringData'] as $item) {
+                    $model->meteringData[$n++] = null !== $item ? meteringData::fromMap($item) : $item;
                 }
             }
         }
