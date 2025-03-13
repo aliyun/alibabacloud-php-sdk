@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class databaseIds extends Model
 {
@@ -16,45 +26,29 @@ class databaseIds extends Model
         'databaseIds' => 'DatabaseIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->databaseIds)) {
-            Model::validateArray($this->databaseIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->databaseIds) {
-            if (\is_array($this->databaseIds)) {
-                $res['DatabaseIds'] = [];
-                $n1                 = 0;
-                foreach ($this->databaseIds as $item1) {
-                    $res['DatabaseIds'][$n1++] = $item1;
-                }
-            }
+            $res['DatabaseIds'] = $this->databaseIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return databaseIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseIds'])) {
             if (!empty($map['DatabaseIds'])) {
-                $model->databaseIds = [];
-                $n1                 = 0;
-                foreach ($map['DatabaseIds'] as $item1) {
-                    $model->databaseIds[$n1++] = $item1;
-                }
+                $model->databaseIds = $map['DatabaseIds'];
             }
         }
 

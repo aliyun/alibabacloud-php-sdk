@@ -1,56 +1,85 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateProxyRequest extends Model
 {
     /**
+     * @description The ID of the database instance. You can call the [ListInstances](https://www.alibabacloud.com/help/en/data-management-service/latest/listinstances) or [GetInstance](https://www.alibabacloud.com/help/en/data-management-service/latest/getinstance) operation to query the database instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example 183****
+     *
      * @var int
      */
     public $instanceId;
+
     /**
+     * @description The password of the database account.
+     *
+     * This parameter is required.
+     *
+     * @example ******
+     *
      * @var string
      */
     public $password;
+
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
+
     /**
+     * @description The username of the database account.
+     *
+     * This parameter is required.
+     *
+     * @example username
+     *
      * @var string
      */
     public $username;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'password'   => 'Password',
-        'tid'        => 'Tid',
-        'username'   => 'Username',
+        'password' => 'Password',
+        'tid' => 'Tid',
+        'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -58,26 +87,23 @@ class CreateProxyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateProxyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

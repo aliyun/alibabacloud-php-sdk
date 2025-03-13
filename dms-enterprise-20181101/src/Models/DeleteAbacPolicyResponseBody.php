@@ -1,65 +1,82 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAbacPolicyResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletePolicyResult;
+
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'deletePolicyResult' => 'DeletePolicyResult',
-        'errorCode'          => 'ErrorCode',
-        'errorMessage'       => 'ErrorMessage',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deletePolicyResult) {
             $res['DeletePolicyResult'] = $this->deletePolicyResult;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -67,30 +84,26 @@ class DeleteAbacPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAbacPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeletePolicyResult'])) {
             $model->deletePolicyResult = $map['DeletePolicyResult'];
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

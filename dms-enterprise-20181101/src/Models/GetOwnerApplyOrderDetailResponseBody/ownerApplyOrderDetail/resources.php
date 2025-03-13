@@ -1,51 +1,68 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailResponseBody\ownerApplyOrderDetail;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailResponseBody\ownerApplyOrderDetail\resources\resourceDetail;
+use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The instance is a logical database.
+     *   **false**: The instance is not a logical database.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $logic;
+
     /**
+     * @description The details of the resource.
+     *
      * @var resourceDetail
      */
     public $resourceDetail;
+
     /**
+     * @description The ID of the resource.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $targetId;
     protected $_name = [
-        'logic'          => 'Logic',
+        'logic' => 'Logic',
         'resourceDetail' => 'ResourceDetail',
-        'targetId'       => 'TargetId',
+        'targetId' => 'TargetId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->resourceDetail) {
-            $this->resourceDetail->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-
         if (null !== $this->resourceDetail) {
-            $res['ResourceDetail'] = null !== $this->resourceDetail ? $this->resourceDetail->toArray($noStream) : $this->resourceDetail;
+            $res['ResourceDetail'] = null !== $this->resourceDetail ? $this->resourceDetail->toMap() : null;
         }
-
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
@@ -53,22 +70,20 @@ class resources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-
         if (isset($map['ResourceDetail'])) {
             $model->resourceDetail = resourceDetail::fromMap($map['ResourceDetail']);
         }
-
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }

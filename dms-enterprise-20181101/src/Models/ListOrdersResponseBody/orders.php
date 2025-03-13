@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListOrdersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListOrdersResponseBody\orders\order;
+use AlibabaCloud\Tea\Model;
 
 class orders extends Model
 {
@@ -17,23 +27,17 @@ class orders extends Model
         'order' => 'Order',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->order)) {
-            Model::validateArray($this->order);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->order) {
-            if (\is_array($this->order)) {
-                $res['Order'] = [];
-                $n1           = 0;
-                foreach ($this->order as $item1) {
-                    $res['Order'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Order'] = [];
+            if (null !== $this->order && \is_array($this->order)) {
+                $n = 0;
+                foreach ($this->order as $item) {
+                    $res['Order'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class orders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return orders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             if (!empty($map['Order'])) {
                 $model->order = [];
-                $n1           = 0;
-                foreach ($map['Order'] as $item1) {
-                    $model->order[$n1++] = order::fromMap($item1);
+                $n = 0;
+                foreach ($map['Order'] as $item) {
+                    $model->order[$n++] = null !== $item ? order::fromMap($item) : $item;
                 }
             }
         }

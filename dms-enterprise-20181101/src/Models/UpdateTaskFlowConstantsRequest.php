@@ -1,57 +1,73 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsRequest\dagConstants;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTaskFlowConstantsRequest extends Model
 {
     /**
+     * @description The constants for the task flow.
+     *
      * @var dagConstants[]
      */
     public $dagConstants;
+
     /**
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
+     *
+     * This parameter is required.
+     *
+     * @example 3****
+     *
      * @var int
      */
     public $dagId;
+
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
     protected $_name = [
         'dagConstants' => 'DagConstants',
-        'dagId'        => 'DagId',
-        'tid'          => 'Tid',
+        'dagId' => 'DagId',
+        'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dagConstants)) {
-            Model::validateArray($this->dagConstants);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dagConstants) {
-            if (\is_array($this->dagConstants)) {
-                $res['DagConstants'] = [];
-                $n1                  = 0;
-                foreach ($this->dagConstants as $item1) {
-                    $res['DagConstants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DagConstants'] = [];
+            if (null !== $this->dagConstants && \is_array($this->dagConstants)) {
+                $n = 0;
+                foreach ($this->dagConstants as $item) {
+                    $res['DagConstants'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -59,28 +75,26 @@ class UpdateTaskFlowConstantsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTaskFlowConstantsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagConstants'])) {
             if (!empty($map['DagConstants'])) {
                 $model->dagConstants = [];
-                $n1                  = 0;
-                foreach ($map['DagConstants'] as $item1) {
-                    $model->dagConstants[$n1++] = dagConstants::fromMap($item1);
+                $n = 0;
+                foreach ($map['DagConstants'] as $item) {
+                    $model->dagConstants[$n++] = null !== $item ? dagConstants::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTasksInTaskFlowResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTasksInTaskFlowResponseBody\tasks\task;
+use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
@@ -17,23 +27,17 @@ class tasks extends Model
         'task' => 'Task',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->task)) {
-            Model::validateArray($this->task);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->task) {
-            if (\is_array($this->task)) {
-                $res['Task'] = [];
-                $n1          = 0;
-                foreach ($this->task as $item1) {
-                    $res['Task'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Task'] = [];
+            if (null !== $this->task && \is_array($this->task)) {
+                $n = 0;
+                foreach ($this->task as $item) {
+                    $res['Task'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class tasks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tasks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Task'])) {
             if (!empty($map['Task'])) {
                 $model->task = [];
-                $n1          = 0;
-                foreach ($map['Task'] as $item1) {
-                    $model->task[$n1++] = task::fromMap($item1);
+                $n = 0;
+                foreach ($map['Task'] as $item) {
+                    $model->task[$n++] = null !== $item ? task::fromMap($item) : $item;
                 }
             }
         }

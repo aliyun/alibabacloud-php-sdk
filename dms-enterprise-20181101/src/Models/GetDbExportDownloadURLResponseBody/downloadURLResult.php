@@ -1,47 +1,60 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDbExportDownloadURLResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class downloadURLResult extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasResult;
+
     /**
+     * @example tip message
+     *
      * @var string
      */
     public $tipMessage;
+
     /**
+     * @example https://dms-idb-hangzhou.oss-cn-hangzhou.aliyuncs.com/xxx.zip
+     *
      * @var string
      */
     public $URL;
     protected $_name = [
-        'hasResult'  => 'HasResult',
+        'hasResult' => 'HasResult',
         'tipMessage' => 'TipMessage',
-        'URL'        => 'URL',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hasResult) {
             $res['HasResult'] = $this->hasResult;
         }
-
         if (null !== $this->tipMessage) {
             $res['TipMessage'] = $this->tipMessage;
         }
-
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
@@ -49,22 +62,20 @@ class downloadURLResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return downloadURLResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HasResult'])) {
             $model->hasResult = $map['HasResult'];
         }
-
         if (isset($map['TipMessage'])) {
             $model->tipMessage = $map['TipMessage'];
         }
-
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }

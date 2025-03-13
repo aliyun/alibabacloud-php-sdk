@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponseBody\opLogDetails\opLogDetail;
+use AlibabaCloud\Tea\Model;
 
 class opLogDetails extends Model
 {
@@ -17,23 +27,17 @@ class opLogDetails extends Model
         'opLogDetail' => 'OpLogDetail',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->opLogDetail)) {
-            Model::validateArray($this->opLogDetail);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opLogDetail) {
-            if (\is_array($this->opLogDetail)) {
-                $res['OpLogDetail'] = [];
-                $n1                 = 0;
-                foreach ($this->opLogDetail as $item1) {
-                    $res['OpLogDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OpLogDetail'] = [];
+            if (null !== $this->opLogDetail && \is_array($this->opLogDetail)) {
+                $n = 0;
+                foreach ($this->opLogDetail as $item) {
+                    $res['OpLogDetail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class opLogDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return opLogDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpLogDetail'])) {
             if (!empty($map['OpLogDetail'])) {
                 $model->opLogDetail = [];
-                $n1                 = 0;
-                foreach ($map['OpLogDetail'] as $item1) {
-                    $model->opLogDetail[$n1++] = opLogDetail::fromMap($item1);
+                $n = 0;
+                foreach ($map['OpLogDetail'] as $item) {
+                    $model->opLogDetail[$n++] = null !== $item ? opLogDetail::fromMap($item) : $item;
                 }
             }
         }

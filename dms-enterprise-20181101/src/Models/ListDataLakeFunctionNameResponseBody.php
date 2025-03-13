@@ -1,92 +1,102 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDataLakeFunctionNameResponseBody extends Model
 {
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string[]
      */
     public $functionNameList;
+
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example f056501ada12c1cc
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @example F1C78D32-1AFD-58AD-9DD2-C8A0896969DD
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'        => 'ErrorCode',
-        'errorMessage'     => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'functionNameList' => 'FunctionNameList',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->functionNameList)) {
-            Model::validateArray($this->functionNameList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->functionNameList) {
-            if (\is_array($this->functionNameList)) {
-                $res['FunctionNameList'] = [];
-                $n1                      = 0;
-                foreach ($this->functionNameList as $item1) {
-                    $res['FunctionNameList'][$n1++] = $item1;
-                }
-            }
+            $res['FunctionNameList'] = $this->functionNameList;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -94,44 +104,34 @@ class ListDataLakeFunctionNameResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDataLakeFunctionNameResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['FunctionNameList'])) {
             if (!empty($map['FunctionNameList'])) {
-                $model->functionNameList = [];
-                $n1                      = 0;
-                foreach ($map['FunctionNameList'] as $item1) {
-                    $model->functionNameList[$n1++] = $item1;
-                }
+                $model->functionNameList = $map['FunctionNameList'];
             }
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

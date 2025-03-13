@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesResponseBody\workflowNodes\workflowNode;
+use AlibabaCloud\Tea\Model;
 
 class workflowNodes extends Model
 {
@@ -17,23 +27,17 @@ class workflowNodes extends Model
         'workflowNode' => 'WorkflowNode',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->workflowNode)) {
-            Model::validateArray($this->workflowNode);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workflowNode) {
-            if (\is_array($this->workflowNode)) {
-                $res['WorkflowNode'] = [];
-                $n1                  = 0;
-                foreach ($this->workflowNode as $item1) {
-                    $res['WorkflowNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WorkflowNode'] = [];
+            if (null !== $this->workflowNode && \is_array($this->workflowNode)) {
+                $n = 0;
+                foreach ($this->workflowNode as $item) {
+                    $res['WorkflowNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class workflowNodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workflowNodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkflowNode'])) {
             if (!empty($map['WorkflowNode'])) {
                 $model->workflowNode = [];
-                $n1                  = 0;
-                foreach ($map['WorkflowNode'] as $item1) {
-                    $model->workflowNode[$n1++] = workflowNode::fromMap($item1);
+                $n = 0;
+                foreach ($map['WorkflowNode'] as $item) {
+                    $model->workflowNode[$n++] = null !== $item ? workflowNode::fromMap($item) : $item;
                 }
             }
         }

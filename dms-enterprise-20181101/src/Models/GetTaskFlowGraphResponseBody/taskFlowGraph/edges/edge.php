@@ -1,56 +1,79 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphResponseBody\taskFlowGraph\edges;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class edge extends Model
 {
     /**
+     * @description The ID of the task flow.
+     *
+     * @example 15***
+     *
      * @var int
      */
     public $dagId;
+
     /**
+     * @description The ID of the task flow edge.
+     *
+     * @example 24***
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The ID of the end node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeEnd;
+
     /**
+     * @description The ID of the start node on the edge.
+     *
+     * @example 44***
+     *
      * @var int
      */
     public $nodeFrom;
     protected $_name = [
-        'dagId'    => 'DagId',
-        'id'       => 'Id',
-        'nodeEnd'  => 'NodeEnd',
+        'dagId' => 'DagId',
+        'id' => 'Id',
+        'nodeEnd' => 'NodeEnd',
         'nodeFrom' => 'NodeFrom',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->nodeEnd) {
             $res['NodeEnd'] = $this->nodeEnd;
         }
-
         if (null !== $this->nodeFrom) {
             $res['NodeFrom'] = $this->nodeFrom;
         }
@@ -58,26 +81,23 @@ class edge extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return edge
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['NodeEnd'])) {
             $model->nodeEnd = $map['NodeEnd'];
         }
-
         if (isset($map['NodeFrom'])) {
             $model->nodeFrom = $map['NodeFrom'];
         }

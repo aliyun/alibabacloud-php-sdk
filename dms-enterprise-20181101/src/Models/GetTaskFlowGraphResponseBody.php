@@ -1,100 +1,121 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphResponseBody\taskFlowGraph;
+use AlibabaCloud\Tea\Model;
 
 class GetTaskFlowGraphResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example UnknownError
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example D9D91166-A626-5F4E-9CA6-7AB10C59DBD8
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
+
     /**
+     * @description The list of DAG variables of the task flow.
+     *
      * @var taskFlowGraph
      */
     public $taskFlowGraph;
     protected $_name = [
-        'errorCode'     => 'ErrorCode',
-        'errorMessage'  => 'ErrorMessage',
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'taskFlowGraph' => 'TaskFlowGraph',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->taskFlowGraph) {
-            $this->taskFlowGraph->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-
         if (null !== $this->taskFlowGraph) {
-            $res['TaskFlowGraph'] = null !== $this->taskFlowGraph ? $this->taskFlowGraph->toArray($noStream) : $this->taskFlowGraph;
+            $res['TaskFlowGraph'] = null !== $this->taskFlowGraph ? $this->taskFlowGraph->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTaskFlowGraphResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-
         if (isset($map['TaskFlowGraph'])) {
             $model->taskFlowGraph = taskFlowGraph::fromMap($map['TaskFlowGraph']);
         }

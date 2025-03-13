@@ -1,65 +1,69 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponseBody\dataExportOrderDetail\keyInfo;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportOrderDetailResponseBody\dataExportOrderDetail\orderDetail;
+use AlibabaCloud\Tea\Model;
 
 class dataExportOrderDetail extends Model
 {
     /**
+     * @description The status information.
+     *
      * @var keyInfo
      */
     public $keyInfo;
+
     /**
+     * @description The details of the ticket.
+     *
      * @var orderDetail
      */
     public $orderDetail;
     protected $_name = [
-        'keyInfo'     => 'KeyInfo',
+        'keyInfo' => 'KeyInfo',
         'orderDetail' => 'OrderDetail',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->keyInfo) {
-            $this->keyInfo->validate();
-        }
-        if (null !== $this->orderDetail) {
-            $this->orderDetail->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyInfo) {
-            $res['KeyInfo'] = null !== $this->keyInfo ? $this->keyInfo->toArray($noStream) : $this->keyInfo;
+            $res['KeyInfo'] = null !== $this->keyInfo ? $this->keyInfo->toMap() : null;
         }
-
         if (null !== $this->orderDetail) {
-            $res['OrderDetail'] = null !== $this->orderDetail ? $this->orderDetail->toArray($noStream) : $this->orderDetail;
+            $res['OrderDetail'] = null !== $this->orderDetail ? $this->orderDetail->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataExportOrderDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyInfo'])) {
             $model->keyInfo = keyInfo::fromMap($map['KeyInfo']);
         }
-
         if (isset($map['OrderDetail'])) {
             $model->orderDetail = orderDetail::fromMap($map['OrderDetail']);
         }

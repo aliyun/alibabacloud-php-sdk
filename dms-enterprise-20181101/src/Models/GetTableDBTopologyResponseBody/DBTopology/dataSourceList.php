@@ -1,75 +1,97 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponseBody\DBTopology;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponseBody\DBTopology\dataSourceList\databaseList;
+use AlibabaCloud\Tea\Model;
 
 class dataSourceList extends Model
 {
     /**
+     * @description The physical databases.
+     *
      * @var databaseList[]
      */
     public $databaseList;
+
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
+
     /**
+     * @description The endpoint of the data source.
+     *
+     * @example xxx.mysql.polardb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $host;
+
     /**
+     * @description The port that is used to connect to the data source.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description The system ID (SID) of the data source.
+     *
+     * @example def
+     *
      * @var string
      */
     public $sid;
     protected $_name = [
         'databaseList' => 'DatabaseList',
-        'dbType'       => 'DbType',
-        'host'         => 'Host',
-        'port'         => 'Port',
-        'sid'          => 'Sid',
+        'dbType' => 'DbType',
+        'host' => 'Host',
+        'port' => 'Port',
+        'sid' => 'Sid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->databaseList)) {
-            Model::validateArray($this->databaseList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->databaseList) {
-            if (\is_array($this->databaseList)) {
-                $res['DatabaseList'] = [];
-                $n1                  = 0;
-                foreach ($this->databaseList as $item1) {
-                    $res['DatabaseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DatabaseList'] = [];
+            if (null !== $this->databaseList && \is_array($this->databaseList)) {
+                $n = 0;
+                foreach ($this->databaseList as $item) {
+                    $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
         }
@@ -77,36 +99,32 @@ class dataSourceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataSourceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseList'])) {
             if (!empty($map['DatabaseList'])) {
                 $model->databaseList = [];
-                $n1                  = 0;
-                foreach ($map['DatabaseList'] as $item1) {
-                    $model->databaseList[$n1++] = databaseList::fromMap($item1);
+                $n = 0;
+                foreach ($map['DatabaseList'] as $item) {
+                    $model->databaseList[$n++] = null !== $item ? databaseList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];
         }

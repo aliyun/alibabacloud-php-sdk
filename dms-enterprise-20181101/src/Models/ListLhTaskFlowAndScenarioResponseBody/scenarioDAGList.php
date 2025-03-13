@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\scenarioDAG;
+use AlibabaCloud\Tea\Model;
 
 class scenarioDAGList extends Model
 {
@@ -17,23 +27,17 @@ class scenarioDAGList extends Model
         'scenarioDAG' => 'ScenarioDAG',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scenarioDAG)) {
-            Model::validateArray($this->scenarioDAG);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scenarioDAG) {
-            if (\is_array($this->scenarioDAG)) {
-                $res['ScenarioDAG'] = [];
-                $n1                 = 0;
-                foreach ($this->scenarioDAG as $item1) {
-                    $res['ScenarioDAG'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ScenarioDAG'] = [];
+            if (null !== $this->scenarioDAG && \is_array($this->scenarioDAG)) {
+                $n = 0;
+                foreach ($this->scenarioDAG as $item) {
+                    $res['ScenarioDAG'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class scenarioDAGList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scenarioDAGList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScenarioDAG'])) {
             if (!empty($map['ScenarioDAG'])) {
                 $model->scenarioDAG = [];
-                $n1                 = 0;
-                foreach ($map['ScenarioDAG'] as $item1) {
-                    $model->scenarioDAG[$n1++] = scenarioDAG::fromMap($item1);
+                $n = 0;
+                foreach ($map['ScenarioDAG'] as $item) {
+                    $model->scenarioDAG[$n++] = null !== $item ? scenarioDAG::fromMap($item) : $item;
                 }
             }
         }

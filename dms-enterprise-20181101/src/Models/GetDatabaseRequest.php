@@ -1,65 +1,100 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDatabaseRequest extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
+     * This parameter is required.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $host;
+
     /**
+     * @description The port that is used to connect to the database.
+     *
+     * This parameter is required.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description The name of the database.
+     *
+     * This parameter is required.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $schemaName;
+
     /**
+     * @description The system identifier (SID) of the database.
+     *
+     * >  The SID uniquely identifies an Oracle database. After a database is created, a SID is generated for the database.
+     *
+     * @example test_sid
+     *
      * @var string
      */
     public $sid;
+
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the ID of the tenant.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $tid;
     protected $_name = [
-        'host'       => 'Host',
-        'port'       => 'Port',
+        'host' => 'Host',
+        'port' => 'Port',
         'schemaName' => 'SchemaName',
-        'sid'        => 'Sid',
-        'tid'        => 'Tid',
+        'sid' => 'Sid',
+        'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
-
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -67,30 +102,26 @@ class GetDatabaseRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDatabaseRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
-
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

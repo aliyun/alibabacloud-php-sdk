@@ -1,137 +1,175 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDataLakePartitionByFilterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example hive
+     *
      * @var string
      */
     public $catalogName;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataRegion;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $dbName;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example ds>20241201
+     *
      * @var string
      */
     public $filter;
+
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example f056501ada12c1cc
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;
+
     /**
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
+
+    /**
+     * @var int
+     */
+    public $workspaceId;
     protected $_name = [
         'catalogName' => 'CatalogName',
-        'dataRegion'  => 'DataRegion',
-        'dbName'      => 'DbName',
-        'filter'      => 'Filter',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'tableName'   => 'TableName',
-        'tid'         => 'Tid',
+        'dataRegion' => 'DataRegion',
+        'dbName' => 'DbName',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'tableName' => 'TableName',
+        'tid' => 'Tid',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
-
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
-
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
+        }
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDataLakePartitionByFilterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
-
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
-
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
+        }
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

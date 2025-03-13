@@ -1,38 +1,51 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncExecSqlDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class structSyncExecSqlDetail extends Model
 {
     /**
+     * @description The SQL statements that are executed.
+     *
      * @var string
      */
     public $execSql;
+
     /**
+     * @description The total number of SQL statements.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSqlCount;
     protected $_name = [
-        'execSql'       => 'ExecSql',
+        'execSql' => 'ExecSql',
         'totalSqlCount' => 'TotalSqlCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->execSql) {
             $res['ExecSql'] = $this->execSql;
         }
-
         if (null !== $this->totalSqlCount) {
             $res['TotalSqlCount'] = $this->totalSqlCount;
         }
@@ -40,18 +53,17 @@ class structSyncExecSqlDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return structSyncExecSqlDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecSql'])) {
             $model->execSql = $map['ExecSql'];
         }
-
         if (isset($map['TotalSqlCount'])) {
             $model->totalSqlCount = $map['TotalSqlCount'];
         }

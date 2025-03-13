@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponseBody\searchTableList\searchTable;
+use AlibabaCloud\Tea\Model;
 
 class searchTableList extends Model
 {
@@ -17,23 +27,17 @@ class searchTableList extends Model
         'searchTable' => 'SearchTable',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->searchTable)) {
-            Model::validateArray($this->searchTable);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->searchTable) {
-            if (\is_array($this->searchTable)) {
-                $res['SearchTable'] = [];
-                $n1                 = 0;
-                foreach ($this->searchTable as $item1) {
-                    $res['SearchTable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SearchTable'] = [];
+            if (null !== $this->searchTable && \is_array($this->searchTable)) {
+                $n = 0;
+                foreach ($this->searchTable as $item) {
+                    $res['SearchTable'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class searchTableList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return searchTableList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SearchTable'])) {
             if (!empty($map['SearchTable'])) {
                 $model->searchTable = [];
-                $n1                 = 0;
-                foreach ($map['SearchTable'] as $item1) {
-                    $model->searchTable[$n1++] = searchTable::fromMap($item1);
+                $n = 0;
+                foreach ($map['SearchTable'] as $item) {
+                    $model->searchTable[$n++] = null !== $item ? searchTable::fromMap($item) : $item;
                 }
             }
         }

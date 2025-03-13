@@ -1,60 +1,78 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config;
+use AlibabaCloud\Tea\Model;
 
 class keyInfo extends Model
 {
     /**
+     * @description The time when the ticket was submitted.
+     *
+     * @example 2023-04-13 13:44:59
+     *
      * @var string
      */
     public $auditDate;
+
     /**
+     * @description The configuration information about the ticket.
+     *
      * @var config
      */
     public $config;
+
     /**
+     * @description The database ID.
+     *
+     * @example 2583****
+     *
      * @var int
      */
     public $dbId;
+
     /**
+     * @description The URL that is used to download the export result.
+     *
+     * @example https://oss.xxx.com
+     *
      * @var string
      */
     public $downloadURL;
     protected $_name = [
-        'auditDate'   => 'AuditDate',
-        'config'      => 'Config',
-        'dbId'        => 'DbId',
+        'auditDate' => 'AuditDate',
+        'config' => 'Config',
+        'dbId' => 'DbId',
         'downloadURL' => 'DownloadURL',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->config) {
-            $this->config->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auditDate) {
             $res['AuditDate'] = $this->auditDate;
         }
-
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
         }
-
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->downloadURL) {
             $res['DownloadURL'] = $this->downloadURL;
         }
@@ -62,26 +80,23 @@ class keyInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return keyInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditDate'])) {
             $model->auditDate = $map['AuditDate'];
         }
-
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
-
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['DownloadURL'])) {
             $model->downloadURL = $map['DownloadURL'];
         }

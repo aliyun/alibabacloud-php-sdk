@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class exportTypes extends Model
 {
@@ -16,45 +26,29 @@ class exportTypes extends Model
         'exportTypes' => 'ExportTypes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->exportTypes)) {
-            Model::validateArray($this->exportTypes);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exportTypes) {
-            if (\is_array($this->exportTypes)) {
-                $res['ExportTypes'] = [];
-                $n1                 = 0;
-                foreach ($this->exportTypes as $item1) {
-                    $res['ExportTypes'][$n1++] = $item1;
-                }
-            }
+            $res['ExportTypes'] = $this->exportTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return exportTypes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExportTypes'])) {
             if (!empty($map['ExportTypes'])) {
-                $model->exportTypes = [];
-                $n1                 = 0;
-                foreach ($map['ExportTypes'] as $item1) {
-                    $model->exportTypes[$n1++] = $item1;
-                }
+                $model->exportTypes = $map['ExportTypes'];
             }
         }
 

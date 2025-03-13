@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoResponseBody\orderBaseInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class relatedUserList extends Model
 {
@@ -16,45 +26,29 @@ class relatedUserList extends Model
         'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userIds)) {
-            Model::validateArray($this->userIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userIds) {
-            if (\is_array($this->userIds)) {
-                $res['UserIds'] = [];
-                $n1             = 0;
-                foreach ($this->userIds as $item1) {
-                    $res['UserIds'][$n1++] = $item1;
-                }
-            }
+            $res['UserIds'] = $this->userIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return relatedUserList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = [];
-                $n1             = 0;
-                foreach ($map['UserIds'] as $item1) {
-                    $model->userIds[$n1++] = $item1;
-                }
+                $model->userIds = $map['UserIds'];
             }
         }
 

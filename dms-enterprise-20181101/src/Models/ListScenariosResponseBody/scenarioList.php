@@ -1,56 +1,79 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scenarioList extends Model
 {
     /**
+     * @description The ID of the user who created the business scenario.
+     *
+     * @example 23***
+     *
      * @var string
      */
     public $creatorId;
+
     /**
+     * @description The description of the business scenario.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the business scenario.
+     *
+     * @example 41***
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The name of the business scenario.
+     *
+     * @example test
+     *
      * @var string
      */
     public $scenarioName;
     protected $_name = [
-        'creatorId'    => 'CreatorId',
-        'description'  => 'Description',
-        'id'           => 'Id',
+        'creatorId' => 'CreatorId',
+        'description' => 'Description',
+        'id' => 'Id',
         'scenarioName' => 'ScenarioName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->scenarioName) {
             $res['ScenarioName'] = $this->scenarioName;
         }
@@ -58,26 +81,23 @@ class scenarioList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scenarioList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ScenarioName'])) {
             $model->scenarioName = $map['ScenarioName'];
         }

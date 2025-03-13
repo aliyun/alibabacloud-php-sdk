@@ -1,47 +1,70 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListIndexesRequest extends Model
 {
     /**
+     * @description Specifies whether the table is a logical table.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $logic;
+
     /**
+     * @description The ID of the table.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $tableId;
+
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
+     *
+     * @example 0
+     *
      * @var int
      */
     public $tid;
     protected $_name = [
-        'logic'   => 'Logic',
+        'logic' => 'Logic',
         'tableId' => 'TableId',
-        'tid'     => 'Tid',
+        'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
         }
-
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,22 +72,20 @@ class ListIndexesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListIndexesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
         }
-
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

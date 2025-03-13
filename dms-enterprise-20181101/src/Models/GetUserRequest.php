@@ -1,47 +1,66 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUserRequest extends Model
 {
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
+
     /**
+     * @description The UID of the Alibaba Cloud account. You can view your UID by moving the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console.
+     *
+     * @example 22973492647626****
+     *
      * @var string
      */
     public $uid;
+
     /**
+     * @description The ID of the user. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) operation to query the ID of the user.
+     *
+     * @example 51****
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'tid'    => 'Tid',
-        'uid'    => 'Uid',
+        'tid' => 'Tid',
+        'uid' => 'Uid',
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -49,22 +68,20 @@ class GetUserRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

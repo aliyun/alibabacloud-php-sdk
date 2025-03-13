@@ -1,55 +1,68 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDataCorrectBackupFilesRequest extends Model
 {
     /**
+     * @description The parameters that are required to perform the operation. You do not need to specify this parameter.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $actionDetail;
+
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
+     *
+     * This parameter is required.
+     *
+     * @example 4200000
+     *
      * @var int
      */
     public $orderId;
+
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+     *
+     * @example 3***
+     *
      * @var int
      */
     public $tid;
     protected $_name = [
         'actionDetail' => 'ActionDetail',
-        'orderId'      => 'OrderId',
-        'tid'          => 'Tid',
+        'orderId' => 'OrderId',
+        'tid' => 'Tid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->actionDetail)) {
-            Model::validateArray($this->actionDetail);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->actionDetail) {
-            if (\is_array($this->actionDetail)) {
-                $res['ActionDetail'] = [];
-                foreach ($this->actionDetail as $key1 => $value1) {
-                    $res['ActionDetail'][$key1] = $value1;
-                }
-            }
+            $res['ActionDetail'] = $this->actionDetail;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -57,27 +70,20 @@ class GetDataCorrectBackupFilesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDataCorrectBackupFilesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionDetail'])) {
-            if (!empty($map['ActionDetail'])) {
-                $model->actionDetail = [];
-                foreach ($map['ActionDetail'] as $key1 => $value1) {
-                    $model->actionDetail[$key1] = $value1;
-                }
-            }
+            $model->actionDetail = $map['ActionDetail'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

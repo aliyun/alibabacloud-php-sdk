@@ -1,66 +1,98 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources;
+use AlibabaCloud\Tea\Model;
 
 class permApplyOrderDetail extends Model
 {
     /**
+     * @description The type of objects on which you apply for permissions. Valid values:
+     *
+     *   **DB**: database
+     *   **TAB**: table
+     *   **COL**: column
+     *   **INSTANT**: instance
+     *
+     * @example DB
+     *
      * @var string
      */
     public $applyType;
+
     /**
+     * @description The type of the permissions that you apply for. Valid values:
+     *
+     *   **1**: the permissions to query information.
+     *   **2**: the permissions to export information.
+     *   **3**: the permissions to query and export information.
+     *   **4**: the permissions to modify information.
+     *   **5**: the permissions to query and modify information.
+     *   **6**: the permissions to export and modify information.
+     *   **7**: the permissions to query, export, and modify information.
+     *   **8**: the permissions to log on to the database.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $permType;
+
     /**
+     * @description The list of resources.
+     *
      * @var resources[]
      */
     public $resources;
+
     /**
+     * @description The validity duration of the permissions. Unit: seconds.
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $seconds;
     protected $_name = [
         'applyType' => 'ApplyType',
-        'permType'  => 'PermType',
+        'permType' => 'PermType',
         'resources' => 'Resources',
-        'seconds'   => 'Seconds',
+        'seconds' => 'Seconds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resources)) {
-            Model::validateArray($this->resources);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applyType) {
             $res['ApplyType'] = $this->applyType;
         }
-
         if (null !== $this->permType) {
             $res['PermType'] = $this->permType;
         }
-
         if (null !== $this->resources) {
-            if (\is_array($this->resources)) {
-                $res['Resources'] = [];
-                $n1               = 0;
-                foreach ($this->resources as $item1) {
-                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Resources'] = [];
+            if (null !== $this->resources && \is_array($this->resources)) {
+                $n = 0;
+                foreach ($this->resources as $item) {
+                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->seconds) {
             $res['Seconds'] = $this->seconds;
         }
@@ -68,32 +100,29 @@ class permApplyOrderDetail extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return permApplyOrderDetail
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyType'])) {
             $model->applyType = $map['ApplyType'];
         }
-
         if (isset($map['PermType'])) {
             $model->permType = $map['PermType'];
         }
-
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
-                foreach ($map['Resources'] as $item1) {
-                    $model->resources[$n1++] = resources::fromMap($item1);
+                $n = 0;
+                foreach ($map['Resources'] as $item) {
+                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Seconds'])) {
             $model->seconds = $map['Seconds'];
         }

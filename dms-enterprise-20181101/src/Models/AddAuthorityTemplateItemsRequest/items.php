@@ -1,74 +1,82 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
+     * @example 2478****
+     *
      * @var int
      */
     public $dbId;
+
     /**
+     * @example 237****
+     *
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $permissionTypes;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
+
     /**
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'dbId'            => 'DbId',
-        'instanceId'      => 'InstanceId',
+        'dbId' => 'DbId',
+        'instanceId' => 'InstanceId',
         'permissionTypes' => 'PermissionTypes',
-        'resourceType'    => 'ResourceType',
-        'tableName'       => 'TableName',
+        'resourceType' => 'ResourceType',
+        'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->permissionTypes)) {
-            Model::validateArray($this->permissionTypes);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->permissionTypes) {
-            if (\is_array($this->permissionTypes)) {
-                $res['PermissionTypes'] = [];
-                $n1                     = 0;
-                foreach ($this->permissionTypes as $item1) {
-                    $res['PermissionTypes'][$n1++] = $item1;
-                }
-            }
+            $res['PermissionTypes'] = $this->permissionTypes;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -76,36 +84,28 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['PermissionTypes'])) {
             if (!empty($map['PermissionTypes'])) {
-                $model->permissionTypes = [];
-                $n1                     = 0;
-                foreach ($map['PermissionTypes'] as $item1) {
-                    $model->permissionTypes[$n1++] = $item1;
-                }
+                $model->permissionTypes = $map['PermissionTypes'];
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

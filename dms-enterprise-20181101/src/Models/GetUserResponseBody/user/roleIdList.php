@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserResponseBody\user;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class roleIdList extends Model
 {
@@ -16,45 +26,29 @@ class roleIdList extends Model
         'roleIds' => 'RoleIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->roleIds)) {
-            Model::validateArray($this->roleIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->roleIds) {
-            if (\is_array($this->roleIds)) {
-                $res['RoleIds'] = [];
-                $n1             = 0;
-                foreach ($this->roleIds as $item1) {
-                    $res['RoleIds'][$n1++] = $item1;
-                }
-            }
+            $res['RoleIds'] = $this->roleIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return roleIdList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleIds'])) {
             if (!empty($map['RoleIds'])) {
-                $model->roleIds = [];
-                $n1             = 0;
-                foreach ($map['RoleIds'] as $item1) {
-                    $model->roleIds[$n1++] = $item1;
-                }
+                $model->roleIds = $map['RoleIds'];
             }
         }
 

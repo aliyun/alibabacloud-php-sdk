@@ -1,66 +1,91 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult\objectMetadata\fields;
+use AlibabaCloud\Tea\Model;
 
 class objectMetadata extends Model
 {
     /**
+     * @description The fields in the metatable.
+     *
      * @var fields[]
      */
     public $fields;
+
     /**
+     * @description The object name.
+     *
+     * @example a
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The source of metadata. Valid values:
+     *
+     *   **DDL**: The metadata comes from parsed SQL statements or definition of databases and tables collected by DMS.
+     *   **LINEAGE**: The metadata comes from lineage analysis results.
+     *
+     * @example DDL
+     *
      * @var string
      */
     public $source;
+
     /**
+     * @description The object type. Valid values:
+     *
+     *   **TABLE**
+     *   **VIEW**
+     *   **TMP_TABLE**
+     *
+     * @example TABLE
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'fields' => 'Fields',
-        'name'   => 'Name',
+        'name' => 'Name',
         'source' => 'Source',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fields)) {
-            Model::validateArray($this->fields);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fields) {
-            if (\is_array($this->fields)) {
-                $res['Fields'] = [];
-                $n1            = 0;
-                foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Fields'] = [];
+            if (null !== $this->fields && \is_array($this->fields)) {
+                $n = 0;
+                foreach ($this->fields as $item) {
+                    $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,32 +93,29 @@ class objectMetadata extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return objectMetadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n1            = 0;
-                foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = fields::fromMap($item1);
+                $n = 0;
+                foreach ($map['Fields'] as $item) {
+                    $model->fields[$n++] = null !== $item ? fields::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

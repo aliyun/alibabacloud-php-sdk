@@ -1,58 +1,63 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult\lineages;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponseBody\lineageResult\objectMetadata;
+use AlibabaCloud\Tea\Model;
 
 class lineageResult extends Model
 {
     /**
+     * @description The details about the lineage.
+     *
      * @var lineages[]
      */
     public $lineages;
+
     /**
+     * @description The table and field metadata information.
+     *
      * @var objectMetadata[]
      */
     public $objectMetadata;
     protected $_name = [
-        'lineages'       => 'Lineages',
+        'lineages' => 'Lineages',
         'objectMetadata' => 'ObjectMetadata',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->lineages)) {
-            Model::validateArray($this->lineages);
-        }
-        if (\is_array($this->objectMetadata)) {
-            Model::validateArray($this->objectMetadata);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lineages) {
-            if (\is_array($this->lineages)) {
-                $res['Lineages'] = [];
-                $n1              = 0;
-                foreach ($this->lineages as $item1) {
-                    $res['Lineages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Lineages'] = [];
+            if (null !== $this->lineages && \is_array($this->lineages)) {
+                $n = 0;
+                foreach ($this->lineages as $item) {
+                    $res['Lineages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->objectMetadata) {
-            if (\is_array($this->objectMetadata)) {
-                $res['ObjectMetadata'] = [];
-                $n1                    = 0;
-                foreach ($this->objectMetadata as $item1) {
-                    $res['ObjectMetadata'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ObjectMetadata'] = [];
+            if (null !== $this->objectMetadata && \is_array($this->objectMetadata)) {
+                $n = 0;
+                foreach ($this->objectMetadata as $item) {
+                    $res['ObjectMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -60,30 +65,29 @@ class lineageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lineageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lineages'])) {
             if (!empty($map['Lineages'])) {
                 $model->lineages = [];
-                $n1              = 0;
-                foreach ($map['Lineages'] as $item1) {
-                    $model->lineages[$n1++] = lineages::fromMap($item1);
+                $n = 0;
+                foreach ($map['Lineages'] as $item) {
+                    $model->lineages[$n++] = null !== $item ? lineages::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ObjectMetadata'])) {
             if (!empty($map['ObjectMetadata'])) {
                 $model->objectMetadata = [];
-                $n1                    = 0;
-                foreach ($map['ObjectMetadata'] as $item1) {
-                    $model->objectMetadata[$n1++] = objectMetadata::fromMap($item1);
+                $n = 0;
+                foreach ($map['ObjectMetadata'] as $item) {
+                    $model->objectMetadata[$n++] = null !== $item ? objectMetadata::fromMap($item) : $item;
                 }
             }
         }

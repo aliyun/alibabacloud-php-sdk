@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponseBody\tableList\table;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ownerNameList extends Model
 {
@@ -16,45 +26,29 @@ class ownerNameList extends Model
         'ownerNames' => 'OwnerNames',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ownerNames)) {
-            Model::validateArray($this->ownerNames);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ownerNames) {
-            if (\is_array($this->ownerNames)) {
-                $res['OwnerNames'] = [];
-                $n1                = 0;
-                foreach ($this->ownerNames as $item1) {
-                    $res['OwnerNames'][$n1++] = $item1;
-                }
-            }
+            $res['OwnerNames'] = $this->ownerNames;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ownerNameList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerNames'])) {
             if (!empty($map['OwnerNames'])) {
-                $model->ownerNames = [];
-                $n1                = 0;
-                foreach ($map['OwnerNames'] as $item1) {
-                    $model->ownerNames[$n1++] = $item1;
-                }
+                $model->ownerNames = $map['OwnerNames'];
             }
         }
 

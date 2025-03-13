@@ -1,66 +1,84 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponseBody\trackResult\tableInfoList\columns;
+use AlibabaCloud\Tea\Model;
 
 class tableInfoList extends Model
 {
     /**
+     * @description The information about columns.
+     *
      * @var columns[]
      */
     public $columns;
+
     /**
+     * @description The description of the column.
+     *
+     * @example auto-description
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The name of the database.
+     *
+     * @example prod_eb_vas
+     *
      * @var string
      */
     public $schemaName;
+
     /**
+     * @description The name of the table.
+     *
+     * @example import_table_test1
+     *
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'columns'     => 'Columns',
+        'columns' => 'Columns',
         'description' => 'Description',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->columns)) {
-            Model::validateArray($this->columns);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columns) {
-            if (\is_array($this->columns)) {
-                $res['Columns'] = [];
-                $n1             = 0;
-                foreach ($this->columns as $item1) {
-                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Columns'] = [];
+            if (null !== $this->columns && \is_array($this->columns)) {
+                $n = 0;
+                foreach ($this->columns as $item) {
+                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
-
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -68,32 +86,29 @@ class tableInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tableInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
-                foreach ($map['Columns'] as $item1) {
-                    $model->columns[$n1++] = columns::fromMap($item1);
+                $n = 0;
+                foreach ($map['Columns'] as $item) {
+                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
-
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

@@ -1,48 +1,54 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedUsersForInstanceResponseBody\users;
+use AlibabaCloud\Tea\Model;
 
 class ListAuthorizedUsersForInstanceResponseBody extends Model
 {
     /**
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var users[]
      */
     public $users;
     protected $_name = [
         'requestId' => 'RequestId',
-        'users'     => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->users)) {
-            Model::validateArray($this->users);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->users) {
-            if (\is_array($this->users)) {
-                $res['Users'] = [];
-                $n1           = 0;
-                foreach ($this->users as $item1) {
-                    $res['Users'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Users'] = [];
+            if (null !== $this->users && \is_array($this->users)) {
+                $n = 0;
+                foreach ($this->users as $item) {
+                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +56,23 @@ class ListAuthorizedUsersForInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAuthorizedUsersForInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n1           = 0;
-                foreach ($map['Users'] as $item1) {
-                    $model->users[$n1++] = users::fromMap($item1);
+                $n = 0;
+                foreach ($map['Users'] as $item) {
+                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
                 }
             }
         }

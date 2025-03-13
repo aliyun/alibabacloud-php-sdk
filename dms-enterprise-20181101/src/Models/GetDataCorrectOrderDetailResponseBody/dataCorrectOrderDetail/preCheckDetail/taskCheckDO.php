@@ -1,47 +1,76 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\preCheckDetail;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskCheckDO extends Model
 {
     /**
+     * @description The state of the precheck. Valid values:
+     *
+     *   **WAITING**: The ticket is pending precheck.
+     *   **RUNNING**: The ticket is being prechecked.
+     *   **SUCCESS**: The ticket passes the precheck.
+     *   **FAIL**: The ticket fails the precheck.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $checkStatus;
+
     /**
+     * @description The check step of the precheck. Valid values:
+     *
+     *   **SQL_PARSE**: The system checks the syntax of the SQL statement.
+     *   **SQL_TYPE_CHECK**: The system checks the type of the SQL statement.
+     *   **PERMISSION_CHECK**: The system checks the permissions required for the data change.
+     *   **ROW_CHECK**: The system checks the number of affected rows.
+     *
+     * @example PERMISSION_CHECK
+     *
      * @var string
      */
     public $checkStep;
+
     /**
+     * @description The message that appears when a check step is executed.
+     *
+     * @example tip messsage
+     *
      * @var string
      */
     public $userTip;
     protected $_name = [
         'checkStatus' => 'CheckStatus',
-        'checkStep'   => 'CheckStep',
-        'userTip'     => 'UserTip',
+        'checkStep' => 'CheckStep',
+        'userTip' => 'UserTip',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkStatus) {
             $res['CheckStatus'] = $this->checkStatus;
         }
-
         if (null !== $this->checkStep) {
             $res['CheckStep'] = $this->checkStep;
         }
-
         if (null !== $this->userTip) {
             $res['UserTip'] = $this->userTip;
         }
@@ -49,22 +78,20 @@ class taskCheckDO extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskCheckDO
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckStatus'])) {
             $model->checkStatus = $map['CheckStatus'];
         }
-
         if (isset($map['CheckStep'])) {
             $model->checkStep = $map['CheckStep'];
         }
-
         if (isset($map['UserTip'])) {
             $model->userTip = $map['UserTip'];
         }

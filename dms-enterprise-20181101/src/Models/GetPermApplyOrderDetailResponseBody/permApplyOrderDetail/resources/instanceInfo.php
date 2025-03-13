@@ -1,128 +1,153 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPermApplyOrderDetailResponseBody\permApplyOrderDetail\resources;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceInfo extends Model
 {
     /**
+     * @description The type of the database engine.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $dbType;
+
     /**
+     * @description The ID of the database administrator (DBA) of the instance.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $dbaId;
+
     /**
+     * @description The nickname of the DBA of the instance.
+     *
+     * @example test_dba
+     *
      * @var string
      */
     public $dbaNickName;
+
     /**
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
+     *
+     * @example product
+     *
      * @var string
      */
     public $envType;
+
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $host;
+
     /**
+     * @description The ID of the instance.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The IDs of the owners of the instance.
+     *
      * @var int[]
      */
     public $ownerIds;
+
     /**
+     * @description The nicknames of the owners of the instance.
+     *
      * @var string[]
      */
     public $ownerNickName;
+
     /**
+     * @description The port that is used to connect to the instance.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description The name that is used to search for the instance.
+     *
+     * @example xxxx:3306
+     *
      * @var string
      */
     public $searchName;
     protected $_name = [
-        'dbType'        => 'DbType',
-        'dbaId'         => 'DbaId',
-        'dbaNickName'   => 'DbaNickName',
-        'envType'       => 'EnvType',
-        'host'          => 'Host',
-        'instanceId'    => 'InstanceId',
-        'ownerIds'      => 'OwnerIds',
+        'dbType' => 'DbType',
+        'dbaId' => 'DbaId',
+        'dbaNickName' => 'DbaNickName',
+        'envType' => 'EnvType',
+        'host' => 'Host',
+        'instanceId' => 'InstanceId',
+        'ownerIds' => 'OwnerIds',
         'ownerNickName' => 'OwnerNickName',
-        'port'          => 'Port',
-        'searchName'    => 'SearchName',
+        'port' => 'Port',
+        'searchName' => 'SearchName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ownerIds)) {
-            Model::validateArray($this->ownerIds);
-        }
-        if (\is_array($this->ownerNickName)) {
-            Model::validateArray($this->ownerNickName);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->dbaId) {
             $res['DbaId'] = $this->dbaId;
         }
-
         if (null !== $this->dbaNickName) {
             $res['DbaNickName'] = $this->dbaNickName;
         }
-
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
         }
-
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerIds) {
-            if (\is_array($this->ownerIds)) {
-                $res['OwnerIds'] = [];
-                $n1              = 0;
-                foreach ($this->ownerIds as $item1) {
-                    $res['OwnerIds'][$n1++] = $item1;
-                }
-            }
+            $res['OwnerIds'] = $this->ownerIds;
         }
-
         if (null !== $this->ownerNickName) {
-            if (\is_array($this->ownerNickName)) {
-                $res['OwnerNickName'] = [];
-                $n1                   = 0;
-                foreach ($this->ownerNickName as $item1) {
-                    $res['OwnerNickName'][$n1++] = $item1;
-                }
-            }
+            $res['OwnerNickName'] = $this->ownerNickName;
         }
-
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
@@ -130,62 +155,45 @@ class instanceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['DbaId'])) {
             $model->dbaId = $map['DbaId'];
         }
-
         if (isset($map['DbaNickName'])) {
             $model->dbaNickName = $map['DbaNickName'];
         }
-
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
-
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerIds'])) {
             if (!empty($map['OwnerIds'])) {
-                $model->ownerIds = [];
-                $n1              = 0;
-                foreach ($map['OwnerIds'] as $item1) {
-                    $model->ownerIds[$n1++] = $item1;
-                }
+                $model->ownerIds = $map['OwnerIds'];
             }
         }
-
         if (isset($map['OwnerNickName'])) {
             if (!empty($map['OwnerNickName'])) {
-                $model->ownerNickName = [];
-                $n1                   = 0;
-                foreach ($map['OwnerNickName'] as $item1) {
-                    $model->ownerNickName[$n1++] = $item1;
-                }
+                $model->ownerNickName = $map['OwnerNickName'];
             }
         }
-
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }
