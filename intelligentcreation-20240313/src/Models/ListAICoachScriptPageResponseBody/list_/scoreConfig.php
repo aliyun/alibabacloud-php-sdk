@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scoreConfig extends Model
 {
@@ -12,6 +12,7 @@ class scoreConfig extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
@@ -23,16 +24,14 @@ class scoreConfig extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
-
         if (null !== $this->passScore) {
             $res['passScore'] = $this->passScore;
         }
@@ -40,18 +39,17 @@ class scoreConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scoreConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
-
         if (isset($map['passScore'])) {
             $model->passScore = $map['passScore'];
         }

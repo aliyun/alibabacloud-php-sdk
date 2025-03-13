@@ -4,15 +4,18 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectResourceResponseBody\resourceInfoList;
+use AlibabaCloud\Tea\Model;
 
 class SelectResourceResponseBody extends Model
 {
     /**
+     * @example 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceInfoList[]
      */
@@ -24,25 +27,20 @@ class SelectResourceResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceInfoList)) {
-            Model::validateArray($this->resourceInfoList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceInfoList) {
-            if (\is_array($this->resourceInfoList)) {
-                $res['resourceInfoList'] = [];
-                $n1                      = 0;
-                foreach ($this->resourceInfoList as $item1) {
-                    $res['resourceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['resourceInfoList'] = [];
+            if (null !== $this->resourceInfoList && \is_array($this->resourceInfoList)) {
+                $n = 0;
+                foreach ($this->resourceInfoList as $item) {
+                    $res['resourceInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +48,23 @@ class SelectResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SelectResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['resourceInfoList'])) {
             if (!empty($map['resourceInfoList'])) {
                 $model->resourceInfoList = [];
-                $n1                      = 0;
-                foreach ($map['resourceInfoList'] as $item1) {
-                    $model->resourceInfoList[$n1++] = resourceInfoList::fromMap($item1);
+                $n                       = 0;
+                foreach ($map['resourceInfoList'] as $item) {
+                    $model->resourceInfoList[$n++] = null !== $item ? resourceInfoList::fromMap($item) : $item;
                 }
             }
         }

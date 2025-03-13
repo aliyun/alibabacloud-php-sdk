@@ -4,15 +4,18 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponseBody\availableIndustry\textModeTypes;
+use AlibabaCloud\Tea\Model;
 
 class availableIndustry extends Model
 {
     /**
+     * @example Car
+     *
      * @var string
      */
     public $name;
+
     /**
      * @var textModeTypes[]
      */
@@ -24,25 +27,20 @@ class availableIndustry extends Model
 
     public function validate()
     {
-        if (\is_array($this->textModeTypes)) {
-            Model::validateArray($this->textModeTypes);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->textModeTypes) {
-            if (\is_array($this->textModeTypes)) {
-                $res['textModeTypes'] = [];
-                $n1                   = 0;
-                foreach ($this->textModeTypes as $item1) {
-                    $res['textModeTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['textModeTypes'] = [];
+            if (null !== $this->textModeTypes && \is_array($this->textModeTypes)) {
+                $n = 0;
+                foreach ($this->textModeTypes as $item) {
+                    $res['textModeTypes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +48,23 @@ class availableIndustry extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return availableIndustry
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['textModeTypes'])) {
             if (!empty($map['textModeTypes'])) {
                 $model->textModeTypes = [];
-                $n1                   = 0;
-                foreach ($map['textModeTypes'] as $item1) {
-                    $model->textModeTypes[$n1++] = textModeTypes::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['textModeTypes'] as $item) {
+                    $model->textModeTypes[$n++] = null !== $item ? textModeTypes::fromMap($item) : $item;
                 }
             }
         }

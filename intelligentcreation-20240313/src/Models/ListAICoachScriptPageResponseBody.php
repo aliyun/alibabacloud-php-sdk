@@ -4,32 +4,49 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_;
+use AlibabaCloud\Tea\Model;
 
 class ListAICoachScriptPageResponseBody extends Model
 {
     /**
+     * @example PARAM_ERROR
+     *
      * @var string
      */
     public $errorCode;
+
     /**
+     * @example SYSTEM_ERROR
+     *
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var list_[]
      */
     public $list;
+
     /**
+     * @description Id of the request
+     *
+     * @example 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $total;
@@ -44,41 +61,32 @@ class ListAICoachScriptPageResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->list)) {
-            Model::validateArray($this->list);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->list) {
-            if (\is_array($this->list)) {
-                $res['list'] = [];
-                $n1          = 0;
-                foreach ($this->list as $item1) {
-                    $res['list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['list'] = [];
+            if (null !== $this->list && \is_array($this->list)) {
+                $n = 0;
+                foreach ($this->list as $item) {
+                    $res['list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -86,40 +94,35 @@ class ListAICoachScriptPageResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAICoachScriptPageResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
-
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
-
         if (isset($map['list'])) {
             if (!empty($map['list'])) {
                 $model->list = [];
-                $n1          = 0;
-                foreach ($map['list'] as $item1) {
-                    $model->list[$n1++] = list_::fromMap($item1);
+                $n           = 0;
+                foreach ($map['list'] as $item) {
+                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

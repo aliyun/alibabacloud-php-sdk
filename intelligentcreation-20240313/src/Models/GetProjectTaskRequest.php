@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetProjectTaskRequest extends Model
 {
     /**
+     * @example 20230823218109326025-1200
+     *
      * @var string
      */
     public $idempotentId;
+
     /**
+     * @example 313123123
+     *
      * @var string
      */
     public $taskId;
@@ -23,16 +28,14 @@ class GetProjectTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->idempotentId) {
             $res['IdempotentId'] = $this->idempotentId;
         }
-
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -40,18 +43,17 @@ class GetProjectTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetProjectTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdempotentId'])) {
             $model->idempotentId = $map['IdempotentId'];
         }
-
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

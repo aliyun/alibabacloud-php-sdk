@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAvatarProjectResponseBody\queryAvatarProjectResultList;
+use AlibabaCloud\Tea\Model;
 
 class ListAvatarProjectResponseBody extends Model
 {
@@ -13,7 +13,10 @@ class ListAvatarProjectResponseBody extends Model
      * @var queryAvatarProjectResultList[]
      */
     public $queryAvatarProjectResultList;
+
     /**
+     * @example D7F2B74F-63F2-5DD6-95E4-F408EAD6617E
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +27,20 @@ class ListAvatarProjectResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->queryAvatarProjectResultList)) {
-            Model::validateArray($this->queryAvatarProjectResultList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->queryAvatarProjectResultList) {
-            if (\is_array($this->queryAvatarProjectResultList)) {
-                $res['queryAvatarProjectResultList'] = [];
-                $n1                                  = 0;
-                foreach ($this->queryAvatarProjectResultList as $item1) {
-                    $res['queryAvatarProjectResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['queryAvatarProjectResultList'] = [];
+            if (null !== $this->queryAvatarProjectResultList && \is_array($this->queryAvatarProjectResultList)) {
+                $n = 0;
+                foreach ($this->queryAvatarProjectResultList as $item) {
+                    $res['queryAvatarProjectResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -50,24 +48,23 @@ class ListAvatarProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAvatarProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['queryAvatarProjectResultList'])) {
             if (!empty($map['queryAvatarProjectResultList'])) {
                 $model->queryAvatarProjectResultList = [];
-                $n1                                  = 0;
-                foreach ($map['queryAvatarProjectResultList'] as $item1) {
-                    $model->queryAvatarProjectResultList[$n1++] = queryAvatarProjectResultList::fromMap($item1);
+                $n                                   = 0;
+                foreach ($map['queryAvatarProjectResultList'] as $item) {
+                    $model->queryAvatarProjectResultList[$n++] = null !== $item ? queryAvatarProjectResultList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

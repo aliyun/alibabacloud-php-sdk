@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TextTheme extends Model
 {
@@ -12,6 +12,7 @@ class TextTheme extends Model
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class TextTheme extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -40,18 +39,17 @@ class TextTheme extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TextTheme
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

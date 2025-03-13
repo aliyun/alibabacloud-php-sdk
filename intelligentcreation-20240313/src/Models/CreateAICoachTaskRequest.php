@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateAICoachTaskRequest extends Model
 {
     /**
+     * @example 541E7123-2E8A-5BA2-AC38-665650C84129
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scriptRecordId;
+
     /**
      * @var string
      */
@@ -28,20 +32,17 @@ class CreateAICoachTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->scriptRecordId) {
             $res['scriptRecordId'] = $this->scriptRecordId;
         }
-
         if (null !== $this->studentId) {
             $res['studentId'] = $this->studentId;
         }
@@ -49,22 +50,20 @@ class CreateAICoachTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateAICoachTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['scriptRecordId'])) {
             $model->scriptRecordId = $map['scriptRecordId'];
         }
-
         if (isset($map['studentId'])) {
             $model->studentId = $map['studentId'];
         }

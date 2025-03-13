@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchGetProjectTaskShrinkRequest extends Model
 {
@@ -18,10 +18,9 @@ class BatchGetProjectTaskShrinkRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskIdListShrink) {
@@ -31,11 +30,11 @@ class BatchGetProjectTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchGetProjectTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

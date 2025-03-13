@@ -4,23 +4,34 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OperateAvatarProjectRequest extends Model
 {
     /**
+     * @example DELETE
+     *
      * @var string
      */
     public $operateType;
+
     /**
+     * @example 812907463682949120
+     *
      * @var string
      */
     public $projectId;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resChannelNumber;
+
     /**
+     * @example FREE
+     *
      * @var string
      */
     public $resType;
@@ -33,24 +44,20 @@ class OperateAvatarProjectRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operateType) {
             $res['operateType'] = $this->operateType;
         }
-
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
         }
-
         if (null !== $this->resChannelNumber) {
             $res['resChannelNumber'] = $this->resChannelNumber;
         }
-
         if (null !== $this->resType) {
             $res['resType'] = $this->resType;
         }
@@ -58,26 +65,23 @@ class OperateAvatarProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OperateAvatarProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['operateType'])) {
             $model->operateType = $map['operateType'];
         }
-
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
         }
-
         if (isset($map['resChannelNumber'])) {
             $model->resChannelNumber = $map['resChannelNumber'];
         }
-
         if (isset($map['resType'])) {
             $model->resType = $map['resType'];
         }

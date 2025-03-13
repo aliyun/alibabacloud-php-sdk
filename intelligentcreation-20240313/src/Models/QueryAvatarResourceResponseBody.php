@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarResourceResponseBody\queryResourceInfoList;
+use AlibabaCloud\Tea\Model;
 
 class QueryAvatarResourceResponseBody extends Model
 {
@@ -13,7 +13,10 @@ class QueryAvatarResourceResponseBody extends Model
      * @var queryResourceInfoList[]
      */
     public $queryResourceInfoList;
+
     /**
+     * @example D5798660-1531-5D12-9C20-16FEE9D22351
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +27,20 @@ class QueryAvatarResourceResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->queryResourceInfoList)) {
-            Model::validateArray($this->queryResourceInfoList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->queryResourceInfoList) {
-            if (\is_array($this->queryResourceInfoList)) {
-                $res['queryResourceInfoList'] = [];
-                $n1                           = 0;
-                foreach ($this->queryResourceInfoList as $item1) {
-                    $res['queryResourceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['queryResourceInfoList'] = [];
+            if (null !== $this->queryResourceInfoList && \is_array($this->queryResourceInfoList)) {
+                $n = 0;
+                foreach ($this->queryResourceInfoList as $item) {
+                    $res['queryResourceInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -50,24 +48,23 @@ class QueryAvatarResourceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryAvatarResourceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['queryResourceInfoList'])) {
             if (!empty($map['queryResourceInfoList'])) {
                 $model->queryResourceInfoList = [];
-                $n1                           = 0;
-                foreach ($map['queryResourceInfoList'] as $item1) {
-                    $model->queryResourceInfoList[$n1++] = queryResourceInfoList::fromMap($item1);
+                $n                            = 0;
+                foreach ($map['queryResourceInfoList'] as $item) {
+                    $model->queryResourceInfoList[$n++] = null !== $item ? queryResourceInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

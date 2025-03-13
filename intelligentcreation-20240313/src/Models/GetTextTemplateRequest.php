@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTextTemplateRequest extends Model
 {
     /**
+     * @example Car
+     *
      * @var string
      */
     public $industry;
@@ -18,10 +20,9 @@ class GetTextTemplateRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->industry) {
@@ -31,11 +32,11 @@ class GetTextTemplateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTextTemplateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

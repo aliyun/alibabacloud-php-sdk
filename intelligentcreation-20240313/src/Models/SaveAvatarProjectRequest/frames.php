@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest\frames\layers;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRequest\frames\videoScript;
+use AlibabaCloud\Tea\Model;
 
 class frames extends Model
 {
@@ -14,6 +14,7 @@ class frames extends Model
      * @var layers[]
      */
     public $layers;
+
     /**
      * @var videoScript
      */
@@ -25,53 +26,44 @@ class frames extends Model
 
     public function validate()
     {
-        if (\is_array($this->layers)) {
-            Model::validateArray($this->layers);
-        }
-        if (null !== $this->videoScript) {
-            $this->videoScript->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->layers) {
-            if (\is_array($this->layers)) {
-                $res['layers'] = [];
-                $n1            = 0;
-                foreach ($this->layers as $item1) {
-                    $res['layers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['layers'] = [];
+            if (null !== $this->layers && \is_array($this->layers)) {
+                $n = 0;
+                foreach ($this->layers as $item) {
+                    $res['layers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->videoScript) {
-            $res['videoScript'] = null !== $this->videoScript ? $this->videoScript->toArray($noStream) : $this->videoScript;
+            $res['videoScript'] = null !== $this->videoScript ? $this->videoScript->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return frames
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['layers'])) {
             if (!empty($map['layers'])) {
                 $model->layers = [];
-                $n1            = 0;
-                foreach ($map['layers'] as $item1) {
-                    $model->layers[$n1++] = layers::fromMap($item1);
+                $n             = 0;
+                foreach ($map['layers'] as $item) {
+                    $model->layers[$n++] = null !== $item ? layers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['videoScript'])) {
             $model->videoScript = videoScript::fromMap($map['videoScript']);
         }

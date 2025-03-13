@@ -4,19 +4,27 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class completeStrategy extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $clickCompleteAutoEnd;
+
     /**
+     * @example 75
+     *
      * @var int
      */
     public $duration;
+
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fullCoverageAutoEnd;
@@ -28,20 +36,17 @@ class completeStrategy extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clickCompleteAutoEnd) {
             $res['clickCompleteAutoEnd'] = $this->clickCompleteAutoEnd;
         }
-
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
         }
-
         if (null !== $this->fullCoverageAutoEnd) {
             $res['fullCoverageAutoEnd'] = $this->fullCoverageAutoEnd;
         }
@@ -49,22 +54,20 @@ class completeStrategy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return completeStrategy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clickCompleteAutoEnd'])) {
             $model->clickCompleteAutoEnd = $map['clickCompleteAutoEnd'];
         }
-
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
         }
-
         if (isset($map['fullCoverageAutoEnd'])) {
             $model->fullCoverageAutoEnd = $map['fullCoverageAutoEnd'];
         }

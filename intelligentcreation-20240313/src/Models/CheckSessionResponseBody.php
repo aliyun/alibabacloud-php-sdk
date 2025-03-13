@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckSessionResponseBody extends Model
 {
     /**
+     * @example 5389BE87-571B-573C-90ED-F07C5E68760B
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example FREE
+     *
      * @var string
      */
     public $status;
@@ -23,16 +28,14 @@ class CheckSessionResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -40,18 +43,17 @@ class CheckSessionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckSessionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

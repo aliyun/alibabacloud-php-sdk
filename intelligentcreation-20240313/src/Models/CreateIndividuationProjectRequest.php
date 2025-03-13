@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateIndividuationProjectRequest extends Model
 {
@@ -12,15 +12,22 @@ class CreateIndividuationProjectRequest extends Model
      * @var string
      */
     public $projectInfo;
+
     /**
+     * @example avatar-1
+     *
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $purpose;
+
     /**
+     * @example ail003
+     *
      * @var string
      */
     public $sceneId;
@@ -33,24 +40,20 @@ class CreateIndividuationProjectRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectInfo) {
             $res['projectInfo'] = $this->projectInfo;
         }
-
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
         }
-
         if (null !== $this->purpose) {
             $res['purpose'] = $this->purpose;
         }
-
         if (null !== $this->sceneId) {
             $res['sceneId'] = $this->sceneId;
         }
@@ -58,26 +61,23 @@ class CreateIndividuationProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateIndividuationProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['projectInfo'])) {
             $model->projectInfo = $map['projectInfo'];
         }
-
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
         }
-
         if (isset($map['purpose'])) {
             $model->purpose = $map['purpose'];
         }
-
         if (isset($map['sceneId'])) {
             $model->sceneId = $map['sceneId'];
         }

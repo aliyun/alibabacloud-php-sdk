@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAICoachTaskSessionHistoryRequest extends Model
 {
@@ -12,15 +12,22 @@ class GetAICoachTaskSessionHistoryRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
+     * @example 111
+     *
      * @var string
      */
     public $sessionId;
+
     /**
+     * @example 1251317954812712
+     *
      * @var string
      */
     public $uid;
@@ -33,24 +40,20 @@ class GetAICoachTaskSessionHistoryRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
-
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -58,26 +61,23 @@ class GetAICoachTaskSessionHistoryRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAICoachTaskSessionHistoryRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
-
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReferenceTag extends Model
 {
@@ -12,6 +12,7 @@ class ReferenceTag extends Model
      * @var string
      */
     public $referenceContent;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class ReferenceTag extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->referenceContent) {
             $res['referenceContent'] = $this->referenceContent;
         }
-
         if (null !== $this->referenceTitle) {
             $res['referenceTitle'] = $this->referenceTitle;
         }
@@ -40,18 +39,17 @@ class ReferenceTag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReferenceTag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['referenceContent'])) {
             $model->referenceContent = $map['referenceContent'];
         }
-
         if (isset($map['referenceTitle'])) {
             $model->referenceTitle = $map['referenceTitle'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIndividuationTextRequest extends Model
 {
@@ -18,43 +18,29 @@ class DeleteIndividuationTextRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->textIdList)) {
-            Model::validateArray($this->textIdList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->textIdList) {
-            if (\is_array($this->textIdList)) {
-                $res['textIdList'] = [];
-                $n1                = 0;
-                foreach ($this->textIdList as $item1) {
-                    $res['textIdList'][$n1++] = $item1;
-                }
-            }
+            $res['textIdList'] = $this->textIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIndividuationTextRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['textIdList'])) {
             if (!empty($map['textIdList'])) {
-                $model->textIdList = [];
-                $n1                = 0;
-                foreach ($map['textIdList'] as $item1) {
-                    $model->textIdList[$n1++] = $item1;
-                }
+                $model->textIdList = $map['textIdList'];
             }
         }
 

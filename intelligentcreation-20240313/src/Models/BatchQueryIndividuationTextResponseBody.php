@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextResponseBody\textList;
+use AlibabaCloud\Tea\Model;
 
 class BatchQueryIndividuationTextResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 14878724-A835-578D-9DD5-4779ADCE9221
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var textList[]
      */
@@ -24,25 +29,20 @@ class BatchQueryIndividuationTextResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->textList)) {
-            Model::validateArray($this->textList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->textList) {
-            if (\is_array($this->textList)) {
-                $res['textList'] = [];
-                $n1              = 0;
-                foreach ($this->textList as $item1) {
-                    $res['textList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['textList'] = [];
+            if (null !== $this->textList && \is_array($this->textList)) {
+                $n = 0;
+                foreach ($this->textList as $item) {
+                    $res['textList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class BatchQueryIndividuationTextResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchQueryIndividuationTextResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['textList'])) {
             if (!empty($map['textList'])) {
                 $model->textList = [];
-                $n1              = 0;
-                foreach ($map['textList'] as $item1) {
-                    $model->textList[$n1++] = textList::fromMap($item1);
+                $n               = 0;
+                foreach ($map['textList'] as $item) {
+                    $model->textList[$n++] = null !== $item ? textList::fromMap($item) : $item;
                 }
             }
         }

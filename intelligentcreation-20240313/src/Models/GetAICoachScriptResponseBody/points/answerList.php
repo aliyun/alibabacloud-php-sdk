@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points\answerList\parameters;
+use AlibabaCloud\Tea\Model;
 
 class answerList extends Model
 {
@@ -13,20 +13,39 @@ class answerList extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $nameList;
+
+    /**
+     * @var string
+     */
+    public $operators;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
+     * @example normalKnowledge
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;
     protected $_name = [
         'name'       => 'name',
+        'nameList'   => 'nameList',
+        'operators'  => 'operators',
         'parameters' => 'parameters',
         'type'       => 'type',
         'weight'     => 'weight',
@@ -34,33 +53,32 @@ class answerList extends Model
 
     public function validate()
     {
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
+        if (null !== $this->nameList) {
+            $res['nameList'] = $this->nameList;
+        }
+        if (null !== $this->operators) {
+            $res['operators'] = $this->operators;
+        }
         if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['parameters'] = [];
-                $n1                = 0;
-                foreach ($this->parameters as $item1) {
-                    $res['parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['parameters'] = [];
+            if (null !== $this->parameters && \is_array($this->parameters)) {
+                $n = 0;
+                foreach ($this->parameters as $item) {
+                    $res['parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -68,32 +86,37 @@ class answerList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return answerList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
+        if (isset($map['nameList'])) {
+            if (!empty($map['nameList'])) {
+                $model->nameList = $map['nameList'];
+            }
+        }
+        if (isset($map['operators'])) {
+            $model->operators = $map['operators'];
+        }
         if (isset($map['parameters'])) {
             if (!empty($map['parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
-                foreach ($map['parameters'] as $item1) {
-                    $model->parameters[$n1++] = parameters::fromMap($item1);
+                $n                 = 0;
+                foreach ($map['parameters'] as $item) {
+                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

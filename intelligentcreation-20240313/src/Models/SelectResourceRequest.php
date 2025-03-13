@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SelectResourceRequest extends Model
 {
     /**
+     * @example 1111
+     *
      * @var string
      */
     public $idempotentId;
@@ -18,10 +20,9 @@ class SelectResourceRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->idempotentId) {
@@ -31,11 +32,11 @@ class SelectResourceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SelectResourceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

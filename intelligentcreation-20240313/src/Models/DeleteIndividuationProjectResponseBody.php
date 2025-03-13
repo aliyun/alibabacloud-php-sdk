@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIndividuationProjectResponseBody extends Model
 {
@@ -12,11 +12,19 @@ class DeleteIndividuationProjectResponseBody extends Model
      * @var string
      */
     public $desc;
+
     /**
+     * @description Id of the request
+     *
+     * @example 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
@@ -28,20 +36,17 @@ class DeleteIndividuationProjectResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -49,22 +54,20 @@ class DeleteIndividuationProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIndividuationProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

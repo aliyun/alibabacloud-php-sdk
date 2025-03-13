@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckSessionRequest extends Model
 {
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $projectId;
+
     /**
+     * @example 121dlsga4o7golrl1hoja
+     *
      * @var string
      */
     public $sessionId;
@@ -23,16 +28,14 @@ class CheckSessionRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
         }
-
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
@@ -40,18 +43,17 @@ class CheckSessionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckSessionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
         }
-
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }

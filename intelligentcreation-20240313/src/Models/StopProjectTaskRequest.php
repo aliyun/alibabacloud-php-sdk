@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopProjectTaskRequest extends Model
 {
     /**
+     * @example 1111111
+     *
      * @var string
      */
     public $taskId;
@@ -18,10 +20,9 @@ class StopProjectTaskRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -31,11 +32,11 @@ class StopProjectTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopProjectTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

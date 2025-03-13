@@ -4,27 +4,39 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SendSdkMessageRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $header;
+
     /**
+     * @example avatar
+     *
      * @var string
      */
     public $moduleName;
+
     /**
+     * @example getProject
+     *
      * @var string
      */
     public $operationName;
+
     /**
+     * @example 123
+     *
      * @var string
      */
     public $userId;
@@ -38,28 +50,23 @@ class SendSdkMessageRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
-
         if (null !== $this->header) {
             $res['header'] = $this->header;
         }
-
         if (null !== $this->moduleName) {
             $res['moduleName'] = $this->moduleName;
         }
-
         if (null !== $this->operationName) {
             $res['operationName'] = $this->operationName;
         }
-
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -67,30 +74,26 @@ class SendSdkMessageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SendSdkMessageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
-
         if (isset($map['header'])) {
             $model->header = $map['header'];
         }
-
         if (isset($map['moduleName'])) {
             $model->moduleName = $map['moduleName'];
         }
-
         if (isset($map['operationName'])) {
             $model->operationName = $map['operationName'];
         }
-
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

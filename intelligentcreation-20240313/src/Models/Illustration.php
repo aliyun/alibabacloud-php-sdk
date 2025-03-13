@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Illustration extends Model
 {
@@ -12,6 +12,7 @@ class Illustration extends Model
      * @var int
      */
     public $illustrationId;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class Illustration extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->illustrationId) {
             $res['illustrationId'] = $this->illustrationId;
         }
-
         if (null !== $this->oss) {
             $res['oss'] = $this->oss;
         }
@@ -40,18 +39,17 @@ class Illustration extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Illustration
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['illustrationId'])) {
             $model->illustrationId = $map['illustrationId'];
         }
-
         if (isset($map['oss'])) {
             $model->oss = $map['oss'];
         }

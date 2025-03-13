@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SendTextMsgResponseBody extends Model
 {
     /**
+     * @example 827BF714-19E7-51B5-A434-C21BFEE05983
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
@@ -23,16 +28,14 @@ class SendTextMsgResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -40,18 +43,17 @@ class SendTextMsgResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SendTextMsgResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

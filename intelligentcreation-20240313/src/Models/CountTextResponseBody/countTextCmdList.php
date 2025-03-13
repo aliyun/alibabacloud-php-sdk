@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class countTextCmdList extends Model
 {
     /**
+     * @example 4
+     *
      * @var int
      */
     public $count;
+
     /**
+     * @example RED_BOOK
+     *
      * @var string
      */
     public $theme;
@@ -23,16 +28,14 @@ class countTextCmdList extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
-
         if (null !== $this->theme) {
             $res['theme'] = $this->theme;
         }
@@ -40,18 +43,17 @@ class countTextCmdList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return countTextCmdList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
-
         if (isset($map['theme'])) {
             $model->theme = $map['theme'];
         }
