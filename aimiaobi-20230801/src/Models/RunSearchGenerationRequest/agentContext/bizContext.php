@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest\agentContext\bizContext\multimodalMediaSelection;
+use AlibabaCloud\Tea\Model;
 
 class bizContext extends Model
 {
@@ -17,29 +27,23 @@ class bizContext extends Model
         'multimodalMediaSelection' => 'MultimodalMediaSelection',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->multimodalMediaSelection) {
-            $this->multimodalMediaSelection->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->multimodalMediaSelection) {
-            $res['MultimodalMediaSelection'] = null !== $this->multimodalMediaSelection ? $this->multimodalMediaSelection->toArray($noStream) : $this->multimodalMediaSelection;
+            $res['MultimodalMediaSelection'] = null !== $this->multimodalMediaSelection ? $this->multimodalMediaSelection->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bizContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

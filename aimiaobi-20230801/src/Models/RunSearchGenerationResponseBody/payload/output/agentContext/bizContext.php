@@ -1,123 +1,108 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent;
+use AlibabaCloud\Tea\Model;
 
 class bizContext extends Model
 {
     /**
+     * @example start
+     *
      * @var string
      */
     public $currentStep;
+
     /**
      * @var generatedContent
      */
     public $generatedContent;
+
     /**
+     * @example search
+     *
      * @var string
      */
     public $nextStep;
+
     /**
      * @var string[]
      */
     public $recommendSearchQueryList;
+
     /**
      * @var string[]
      */
     public $searchKeywords;
+
     /**
      * @var string[]
      */
     public $searchQueryList;
+
     /**
+     * @example searchQuery
+     *
      * @var string
      */
     public $supplementDataType;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supplementEnable;
     protected $_name = [
-        'currentStep'              => 'CurrentStep',
-        'generatedContent'         => 'GeneratedContent',
-        'nextStep'                 => 'NextStep',
+        'currentStep' => 'CurrentStep',
+        'generatedContent' => 'GeneratedContent',
+        'nextStep' => 'NextStep',
         'recommendSearchQueryList' => 'RecommendSearchQueryList',
-        'searchKeywords'           => 'SearchKeywords',
-        'searchQueryList'          => 'SearchQueryList',
-        'supplementDataType'       => 'SupplementDataType',
-        'supplementEnable'         => 'SupplementEnable',
+        'searchKeywords' => 'SearchKeywords',
+        'searchQueryList' => 'SearchQueryList',
+        'supplementDataType' => 'SupplementDataType',
+        'supplementEnable' => 'SupplementEnable',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->generatedContent) {
-            $this->generatedContent->validate();
-        }
-        if (\is_array($this->recommendSearchQueryList)) {
-            Model::validateArray($this->recommendSearchQueryList);
-        }
-        if (\is_array($this->searchKeywords)) {
-            Model::validateArray($this->searchKeywords);
-        }
-        if (\is_array($this->searchQueryList)) {
-            Model::validateArray($this->searchQueryList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currentStep) {
             $res['CurrentStep'] = $this->currentStep;
         }
-
         if (null !== $this->generatedContent) {
-            $res['GeneratedContent'] = null !== $this->generatedContent ? $this->generatedContent->toArray($noStream) : $this->generatedContent;
+            $res['GeneratedContent'] = null !== $this->generatedContent ? $this->generatedContent->toMap() : null;
         }
-
         if (null !== $this->nextStep) {
             $res['NextStep'] = $this->nextStep;
         }
-
         if (null !== $this->recommendSearchQueryList) {
-            if (\is_array($this->recommendSearchQueryList)) {
-                $res['RecommendSearchQueryList'] = [];
-                $n1                              = 0;
-                foreach ($this->recommendSearchQueryList as $item1) {
-                    $res['RecommendSearchQueryList'][$n1++] = $item1;
-                }
-            }
+            $res['RecommendSearchQueryList'] = $this->recommendSearchQueryList;
         }
-
         if (null !== $this->searchKeywords) {
-            if (\is_array($this->searchKeywords)) {
-                $res['SearchKeywords'] = [];
-                $n1                    = 0;
-                foreach ($this->searchKeywords as $item1) {
-                    $res['SearchKeywords'][$n1++] = $item1;
-                }
-            }
+            $res['SearchKeywords'] = $this->searchKeywords;
         }
-
         if (null !== $this->searchQueryList) {
-            if (\is_array($this->searchQueryList)) {
-                $res['SearchQueryList'] = [];
-                $n1                     = 0;
-                foreach ($this->searchQueryList as $item1) {
-                    $res['SearchQueryList'][$n1++] = $item1;
-                }
-            }
+            $res['SearchQueryList'] = $this->searchQueryList;
         }
-
         if (null !== $this->supplementDataType) {
             $res['SupplementDataType'] = $this->supplementDataType;
         }
-
         if (null !== $this->supplementEnable) {
             $res['SupplementEnable'] = $this->supplementEnable;
         }
@@ -125,60 +110,41 @@ class bizContext extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bizContext
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentStep'])) {
             $model->currentStep = $map['CurrentStep'];
         }
-
         if (isset($map['GeneratedContent'])) {
             $model->generatedContent = generatedContent::fromMap($map['GeneratedContent']);
         }
-
         if (isset($map['NextStep'])) {
             $model->nextStep = $map['NextStep'];
         }
-
         if (isset($map['RecommendSearchQueryList'])) {
             if (!empty($map['RecommendSearchQueryList'])) {
-                $model->recommendSearchQueryList = [];
-                $n1                              = 0;
-                foreach ($map['RecommendSearchQueryList'] as $item1) {
-                    $model->recommendSearchQueryList[$n1++] = $item1;
-                }
+                $model->recommendSearchQueryList = $map['RecommendSearchQueryList'];
             }
         }
-
         if (isset($map['SearchKeywords'])) {
             if (!empty($map['SearchKeywords'])) {
-                $model->searchKeywords = [];
-                $n1                    = 0;
-                foreach ($map['SearchKeywords'] as $item1) {
-                    $model->searchKeywords[$n1++] = $item1;
-                }
+                $model->searchKeywords = $map['SearchKeywords'];
             }
         }
-
         if (isset($map['SearchQueryList'])) {
             if (!empty($map['SearchQueryList'])) {
-                $model->searchQueryList = [];
-                $n1                     = 0;
-                foreach ($map['SearchQueryList'] as $item1) {
-                    $model->searchQueryList[$n1++] = $item1;
-                }
+                $model->searchQueryList = $map['SearchQueryList'];
             }
         }
-
         if (isset($map['SupplementDataType'])) {
             $model->supplementDataType = $map['SupplementDataType'];
         }
-
         if (isset($map['SupplementEnable'])) {
             $model->supplementEnable = $map['SupplementEnable'];
         }

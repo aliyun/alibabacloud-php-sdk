@@ -1,47 +1,60 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig\stepForNewsBroadcastContentConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class customHotValueWeights extends Model
 {
     /**
+     * @example views
+     *
      * @var string
      */
     public $dimension;
+
     /**
+     * @example 维度名称
+     *
      * @var string
      */
     public $dimensionName;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $weight;
     protected $_name = [
-        'dimension'     => 'Dimension',
+        'dimension' => 'Dimension',
         'dimensionName' => 'DimensionName',
-        'weight'        => 'Weight',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
-
         if (null !== $this->dimensionName) {
             $res['DimensionName'] = $this->dimensionName;
         }
-
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -49,22 +62,20 @@ class customHotValueWeights extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customHotValueWeights
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
-
         if (isset($map['DimensionName'])) {
             $model->dimensionName = $map['DimensionName'];
         }
-
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

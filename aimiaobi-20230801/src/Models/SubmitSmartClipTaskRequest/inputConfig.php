@@ -1,13 +1,23 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\inputConfig\backgroundMusics;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\inputConfig\stickers;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest\inputConfig\videoIds;
+use AlibabaCloud\Tea\Model;
 
 class inputConfig extends Model
 {
@@ -15,99 +25,71 @@ class inputConfig extends Model
      * @var backgroundMusics[]
      */
     public $backgroundMusics;
+
     /**
      * @var string[]
      */
     public $speechTexts;
+
     /**
      * @var stickers[]
      */
     public $stickers;
+
     /**
      * @var string[]
      */
     public $titles;
+
     /**
+     * @description This parameter is required.
+     *
      * @var videoIds[]
      */
     public $videoIds;
     protected $_name = [
         'backgroundMusics' => 'BackgroundMusics',
-        'speechTexts'      => 'SpeechTexts',
-        'stickers'         => 'Stickers',
-        'titles'           => 'Titles',
-        'videoIds'         => 'VideoIds',
+        'speechTexts' => 'SpeechTexts',
+        'stickers' => 'Stickers',
+        'titles' => 'Titles',
+        'videoIds' => 'VideoIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->backgroundMusics)) {
-            Model::validateArray($this->backgroundMusics);
-        }
-        if (\is_array($this->speechTexts)) {
-            Model::validateArray($this->speechTexts);
-        }
-        if (\is_array($this->stickers)) {
-            Model::validateArray($this->stickers);
-        }
-        if (\is_array($this->titles)) {
-            Model::validateArray($this->titles);
-        }
-        if (\is_array($this->videoIds)) {
-            Model::validateArray($this->videoIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backgroundMusics) {
-            if (\is_array($this->backgroundMusics)) {
-                $res['BackgroundMusics'] = [];
-                $n1                      = 0;
-                foreach ($this->backgroundMusics as $item1) {
-                    $res['BackgroundMusics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BackgroundMusics'] = [];
+            if (null !== $this->backgroundMusics && \is_array($this->backgroundMusics)) {
+                $n = 0;
+                foreach ($this->backgroundMusics as $item) {
+                    $res['BackgroundMusics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->speechTexts) {
-            if (\is_array($this->speechTexts)) {
-                $res['SpeechTexts'] = [];
-                $n1                 = 0;
-                foreach ($this->speechTexts as $item1) {
-                    $res['SpeechTexts'][$n1++] = $item1;
-                }
-            }
+            $res['SpeechTexts'] = $this->speechTexts;
         }
-
         if (null !== $this->stickers) {
-            if (\is_array($this->stickers)) {
-                $res['Stickers'] = [];
-                $n1              = 0;
-                foreach ($this->stickers as $item1) {
-                    $res['Stickers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Stickers'] = [];
+            if (null !== $this->stickers && \is_array($this->stickers)) {
+                $n = 0;
+                foreach ($this->stickers as $item) {
+                    $res['Stickers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->titles) {
-            if (\is_array($this->titles)) {
-                $res['Titles'] = [];
-                $n1            = 0;
-                foreach ($this->titles as $item1) {
-                    $res['Titles'][$n1++] = $item1;
-                }
-            }
+            $res['Titles'] = $this->titles;
         }
-
         if (null !== $this->videoIds) {
-            if (\is_array($this->videoIds)) {
-                $res['VideoIds'] = [];
-                $n1              = 0;
-                foreach ($this->videoIds as $item1) {
-                    $res['VideoIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['VideoIds'] = [];
+            if (null !== $this->videoIds && \is_array($this->videoIds)) {
+                $n = 0;
+                foreach ($this->videoIds as $item) {
+                    $res['VideoIds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -115,60 +97,48 @@ class inputConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return inputConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackgroundMusics'])) {
             if (!empty($map['BackgroundMusics'])) {
                 $model->backgroundMusics = [];
-                $n1                      = 0;
-                foreach ($map['BackgroundMusics'] as $item1) {
-                    $model->backgroundMusics[$n1++] = backgroundMusics::fromMap($item1);
+                $n = 0;
+                foreach ($map['BackgroundMusics'] as $item) {
+                    $model->backgroundMusics[$n++] = null !== $item ? backgroundMusics::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['SpeechTexts'])) {
             if (!empty($map['SpeechTexts'])) {
-                $model->speechTexts = [];
-                $n1                 = 0;
-                foreach ($map['SpeechTexts'] as $item1) {
-                    $model->speechTexts[$n1++] = $item1;
-                }
+                $model->speechTexts = $map['SpeechTexts'];
             }
         }
-
         if (isset($map['Stickers'])) {
             if (!empty($map['Stickers'])) {
                 $model->stickers = [];
-                $n1              = 0;
-                foreach ($map['Stickers'] as $item1) {
-                    $model->stickers[$n1++] = stickers::fromMap($item1);
+                $n = 0;
+                foreach ($map['Stickers'] as $item) {
+                    $model->stickers[$n++] = null !== $item ? stickers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Titles'])) {
             if (!empty($map['Titles'])) {
-                $model->titles = [];
-                $n1            = 0;
-                foreach ($map['Titles'] as $item1) {
-                    $model->titles[$n1++] = $item1;
-                }
+                $model->titles = $map['Titles'];
             }
         }
-
         if (isset($map['VideoIds'])) {
             if (!empty($map['VideoIds'])) {
                 $model->videoIds = [];
-                $n1              = 0;
-                foreach ($map['VideoIds'] as $item1) {
-                    $model->videoIds[$n1++] = videoIds::fromMap($item1);
+                $n = 0;
+                foreach ($map['VideoIds'] as $item) {
+                    $model->videoIds[$n++] = null !== $item ? videoIds::fromMap($item) : $item;
                 }
             }
         }

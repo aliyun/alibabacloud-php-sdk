@@ -1,102 +1,122 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest\documents\comments;
+use AlibabaCloud\Tea\Model;
 
 class documents extends Model
 {
     /**
+     * @example 作者
+     *
      * @var string
      */
     public $author;
+
     /**
      * @var comments[]
      */
     public $comments;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 文章内容
+     *
      * @var string
      */
     public $content;
+
     /**
+     * @example 2024-01-22 10:29:00
+     *
      * @var string
      */
     public $pubTime;
+
     /**
+     * @example 新浪
+     *
      * @var string
      */
     public $source;
+
     /**
+     * @example 文章摘要
+     *
      * @var string
      */
     public $summary;
+
     /**
+     * @example 文章标题
+     *
      * @var string
      */
     public $title;
+
     /**
+     * @example https://www.example.com/aaa.docx
+     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'author'   => 'Author',
+        'author' => 'Author',
         'comments' => 'Comments',
-        'content'  => 'Content',
-        'pubTime'  => 'PubTime',
-        'source'   => 'Source',
-        'summary'  => 'Summary',
-        'title'    => 'Title',
-        'url'      => 'Url',
+        'content' => 'Content',
+        'pubTime' => 'PubTime',
+        'source' => 'Source',
+        'summary' => 'Summary',
+        'title' => 'Title',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->comments)) {
-            Model::validateArray($this->comments);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->author) {
             $res['Author'] = $this->author;
         }
-
         if (null !== $this->comments) {
-            if (\is_array($this->comments)) {
-                $res['Comments'] = [];
-                $n1              = 0;
-                foreach ($this->comments as $item1) {
-                    $res['Comments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Comments'] = [];
+            if (null !== $this->comments && \is_array($this->comments)) {
+                $n = 0;
+                foreach ($this->comments as $item) {
+                    $res['Comments'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -104,48 +124,41 @@ class documents extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return documents
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
         }
-
         if (isset($map['Comments'])) {
             if (!empty($map['Comments'])) {
                 $model->comments = [];
-                $n1              = 0;
-                foreach ($map['Comments'] as $item1) {
-                    $model->comments[$n1++] = comments::fromMap($item1);
+                $n = 0;
+                foreach ($map['Comments'] as $item) {
+                    $model->comments[$n++] = null !== $item ? comments::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

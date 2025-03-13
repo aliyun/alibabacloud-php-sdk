@@ -1,38 +1,49 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data\summary;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class summaries extends Model
 {
     /**
+     * @example 摘要
+     *
      * @var string
      */
     public $summary;
+
     /**
+     * @example 标题
+     *
      * @var string
      */
     public $title;
     protected $_name = [
         'summary' => 'Summary',
-        'title'   => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -40,18 +51,17 @@ class summaries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return summaries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

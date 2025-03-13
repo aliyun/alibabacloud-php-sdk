@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunStyleFeatureAnalysisRequest extends Model
 {
@@ -12,54 +22,37 @@ class RunStyleFeatureAnalysisRequest extends Model
      * @var string[]
      */
     public $contents;
+
     /**
      * @var int[]
      */
     public $materialIds;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2setzb9x4ewsd
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'contents'    => 'Contents',
+        'contents' => 'Contents',
         'materialIds' => 'MaterialIds',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contents)) {
-            Model::validateArray($this->contents);
-        }
-        if (\is_array($this->materialIds)) {
-            Model::validateArray($this->materialIds);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contents) {
-            if (\is_array($this->contents)) {
-                $res['Contents'] = [];
-                $n1              = 0;
-                foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1++] = $item1;
-                }
-            }
+            $res['Contents'] = $this->contents;
         }
-
         if (null !== $this->materialIds) {
-            if (\is_array($this->materialIds)) {
-                $res['MaterialIds'] = [];
-                $n1                 = 0;
-                foreach ($this->materialIds as $item1) {
-                    $res['MaterialIds'][$n1++] = $item1;
-                }
-            }
+            $res['MaterialIds'] = $this->materialIds;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -67,34 +60,24 @@ class RunStyleFeatureAnalysisRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunStyleFeatureAnalysisRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
-                $model->contents = [];
-                $n1              = 0;
-                foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1++] = $item1;
-                }
+                $model->contents = $map['Contents'];
             }
         }
-
         if (isset($map['MaterialIds'])) {
             if (!empty($map['MaterialIds'])) {
-                $model->materialIds = [];
-                $n1                 = 0;
-                foreach ($map['MaterialIds'] as $item1) {
-                    $model->materialIds[$n1++] = $item1;
-                }
+                $model->materialIds = $map['MaterialIds'];
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

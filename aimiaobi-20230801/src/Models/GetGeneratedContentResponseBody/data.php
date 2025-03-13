@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -12,153 +22,159 @@ class data extends Model
      * @var string
      */
     public $content;
+
     /**
+     * @example media
+     *
      * @var string
      */
     public $contentDomain;
+
     /**
      * @var string
      */
     public $contentText;
+
     /**
+     * @example 2024-01-04 11:46:07
+     *
      * @var string
      */
     public $createTime;
+
     /**
+     * @example 1
+     *
      * @var string
      */
     public $createUser;
+
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $deviceId;
+
     /**
+     * @example 86
+     *
      * @var int
      */
     public $id;
+
     /**
      * @var string[]
      */
     public $keywordList;
+
     /**
      * @var string
      */
     public $keywords;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $title;
+
     /**
+     * @example 2024-01-04 11:46:07
+     *
      * @var string
      */
     public $updateTime;
+
     /**
+     * @example 1
+     *
      * @var string
      */
     public $updateUser;
+
     /**
+     * @example 0961a514-2e26-4aa6-b22b-f592d145fe47
+     *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'content'       => 'Content',
+        'content' => 'Content',
         'contentDomain' => 'ContentDomain',
-        'contentText'   => 'ContentText',
-        'createTime'    => 'CreateTime',
-        'createUser'    => 'CreateUser',
-        'deviceId'      => 'DeviceId',
-        'id'            => 'Id',
-        'keywordList'   => 'KeywordList',
-        'keywords'      => 'Keywords',
-        'prompt'        => 'Prompt',
-        'taskId'        => 'TaskId',
-        'title'         => 'Title',
-        'updateTime'    => 'UpdateTime',
-        'updateUser'    => 'UpdateUser',
-        'uuid'          => 'Uuid',
+        'contentText' => 'ContentText',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'deviceId' => 'DeviceId',
+        'id' => 'Id',
+        'keywordList' => 'KeywordList',
+        'keywords' => 'Keywords',
+        'prompt' => 'Prompt',
+        'taskId' => 'TaskId',
+        'title' => 'Title',
+        'updateTime' => 'UpdateTime',
+        'updateUser' => 'UpdateUser',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keywordList)) {
-            Model::validateArray($this->keywordList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->contentDomain) {
             $res['ContentDomain'] = $this->contentDomain;
         }
-
         if (null !== $this->contentText) {
             $res['ContentText'] = $this->contentText;
         }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
         }
-
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->keywordList) {
-            if (\is_array($this->keywordList)) {
-                $res['KeywordList'] = [];
-                $n1                 = 0;
-                foreach ($this->keywordList as $item1) {
-                    $res['KeywordList'][$n1++] = $item1;
-                }
-            }
+            $res['KeywordList'] = $this->keywordList;
         }
-
         if (null !== $this->keywords) {
             $res['Keywords'] = $this->keywords;
         }
-
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
-
         if (null !== $this->updateUser) {
             $res['UpdateUser'] = $this->updateUser;
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -166,76 +182,58 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['ContentDomain'])) {
             $model->contentDomain = $map['ContentDomain'];
         }
-
         if (isset($map['ContentText'])) {
             $model->contentText = $map['ContentText'];
         }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
         }
-
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['KeywordList'])) {
             if (!empty($map['KeywordList'])) {
-                $model->keywordList = [];
-                $n1                 = 0;
-                foreach ($map['KeywordList'] as $item1) {
-                    $model->keywordList[$n1++] = $item1;
-                }
+                $model->keywordList = $map['KeywordList'];
             }
         }
-
         if (isset($map['Keywords'])) {
             $model->keywords = $map['Keywords'];
         }
-
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
-
         if (isset($map['UpdateUser'])) {
             $model->updateUser = $map['UpdateUser'];
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

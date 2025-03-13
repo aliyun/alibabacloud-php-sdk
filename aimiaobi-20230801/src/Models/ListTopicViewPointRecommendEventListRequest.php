@@ -1,56 +1,73 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTopicViewPointRecommendEventListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
+
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @example 66
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example 下一页的token
+     *
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'agentKey'   => 'AgentKey',
-        'id'         => 'Id',
+        'agentKey' => 'AgentKey',
+        'id' => 'Id',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -58,26 +75,23 @@ class ListTopicViewPointRecommendEventListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTopicViewPointRecommendEventListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

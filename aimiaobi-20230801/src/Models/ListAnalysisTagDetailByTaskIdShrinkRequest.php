@@ -1,10 +1,20 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAnalysisTagDetailByTaskIdShrinkRequest extends Model
 {
@@ -12,72 +22,85 @@ class ListAnalysisTagDetailByTaskIdShrinkRequest extends Model
      * @var string
      */
     public $categoriesShrink;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example token-xxxx
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @example 3
+     *
      * @var int
      */
     public $size;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $taskId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'categoriesShrink' => 'Categories',
-        'current'          => 'Current',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'size'             => 'Size',
-        'taskId'           => 'TaskId',
-        'workspaceId'      => 'WorkspaceId',
+        'current' => 'Current',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'size' => 'Size',
+        'taskId' => 'TaskId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoriesShrink) {
             $res['Categories'] = $this->categoriesShrink;
         }
-
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -85,38 +108,32 @@ class ListAnalysisTagDetailByTaskIdShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAnalysisTagDetailByTaskIdShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             $model->categoriesShrink = $map['Categories'];
         }
-
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

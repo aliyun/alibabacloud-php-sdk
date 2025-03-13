@@ -1,65 +1,69 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig\stepForCustomSummaryStyleConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig\stepForNewsBroadcastContentConfig;
+use AlibabaCloud\Tea\Model;
 
 class hotTopicBroadcastConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var stepForCustomSummaryStyleConfig
      */
     public $stepForCustomSummaryStyleConfig;
+
     /**
+     * @description This parameter is required.
+     *
      * @var stepForNewsBroadcastContentConfig
      */
     public $stepForNewsBroadcastContentConfig;
     protected $_name = [
-        'stepForCustomSummaryStyleConfig'   => 'StepForCustomSummaryStyleConfig',
+        'stepForCustomSummaryStyleConfig' => 'StepForCustomSummaryStyleConfig',
         'stepForNewsBroadcastContentConfig' => 'StepForNewsBroadcastContentConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->stepForCustomSummaryStyleConfig) {
-            $this->stepForCustomSummaryStyleConfig->validate();
-        }
-        if (null !== $this->stepForNewsBroadcastContentConfig) {
-            $this->stepForNewsBroadcastContentConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->stepForCustomSummaryStyleConfig) {
-            $res['StepForCustomSummaryStyleConfig'] = null !== $this->stepForCustomSummaryStyleConfig ? $this->stepForCustomSummaryStyleConfig->toArray($noStream) : $this->stepForCustomSummaryStyleConfig;
+            $res['StepForCustomSummaryStyleConfig'] = null !== $this->stepForCustomSummaryStyleConfig ? $this->stepForCustomSummaryStyleConfig->toMap() : null;
         }
-
         if (null !== $this->stepForNewsBroadcastContentConfig) {
-            $res['StepForNewsBroadcastContentConfig'] = null !== $this->stepForNewsBroadcastContentConfig ? $this->stepForNewsBroadcastContentConfig->toArray($noStream) : $this->stepForNewsBroadcastContentConfig;
+            $res['StepForNewsBroadcastContentConfig'] = null !== $this->stepForNewsBroadcastContentConfig ? $this->stepForNewsBroadcastContentConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hotTopicBroadcastConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StepForCustomSummaryStyleConfig'])) {
             $model->stepForCustomSummaryStyleConfig = stepForCustomSummaryStyleConfig::fromMap($map['StepForCustomSummaryStyleConfig']);
         }
-
         if (isset($map['StepForNewsBroadcastContentConfig'])) {
             $model->stepForNewsBroadcastContentConfig = stepForNewsBroadcastContentConfig::fromMap($map['StepForNewsBroadcastContentConfig']);
         }

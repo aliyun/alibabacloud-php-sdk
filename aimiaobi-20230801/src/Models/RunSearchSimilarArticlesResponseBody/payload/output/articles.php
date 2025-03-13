@@ -1,83 +1,100 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesResponseBody\payload\output;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class articles extends Model
 {
     /**
+     * @example a26c2c1
+     *
      * @var string
      */
     public $docUuid;
+
     /**
+     * @example 2025-01-16 18:07:22
+     *
      * @var string
      */
     public $pubTime;
+
     /**
      * @var string
      */
     public $searchSourceName;
+
     /**
+     * @example xxx.com
+     *
      * @var string
      */
     public $source;
+
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $title;
+
     /**
+     * @example https://xxx
+     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'docUuid'          => 'DocUuid',
-        'pubTime'          => 'PubTime',
+        'docUuid' => 'DocUuid',
+        'pubTime' => 'PubTime',
         'searchSourceName' => 'SearchSourceName',
-        'source'           => 'Source',
-        'summary'          => 'Summary',
-        'title'            => 'Title',
-        'url'              => 'Url',
+        'source' => 'Source',
+        'summary' => 'Summary',
+        'title' => 'Title',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
-
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
         }
-
         if (null !== $this->searchSourceName) {
             $res['SearchSourceName'] = $this->searchSourceName;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -85,38 +102,32 @@ class articles extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return articles
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
-
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
         }
-
         if (isset($map['SearchSourceName'])) {
             $model->searchSourceName = $map['SearchSourceName'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

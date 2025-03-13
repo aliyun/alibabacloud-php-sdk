@@ -1,92 +1,113 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListDocsShrinkRequest extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $docName;
+
     /**
+     * @example pdf
+     *
      * @var string
      */
     public $docType;
+
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
+
     /**
+     * @example 52a33dc83779f63641e16f5146cd7125
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $skip;
+
     /**
      * @var string
      */
     public $statusesShrink;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2setzb9x4ewsd
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'categoryId'     => 'CategoryId',
-        'docName'        => 'DocName',
-        'docType'        => 'DocType',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'skip'           => 'Skip',
+        'categoryId' => 'CategoryId',
+        'docName' => 'DocName',
+        'docType' => 'DocType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'skip' => 'Skip',
         'statusesShrink' => 'Statuses',
-        'workspaceId'    => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->skip) {
             $res['Skip'] = $this->skip;
         }
-
         if (null !== $this->statusesShrink) {
             $res['Statuses'] = $this->statusesShrink;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -94,42 +115,35 @@ class ListDocsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDocsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Skip'])) {
             $model->skip = $map['Skip'];
         }
-
         if (isset($map['Statuses'])) {
             $model->statusesShrink = $map['Statuses'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

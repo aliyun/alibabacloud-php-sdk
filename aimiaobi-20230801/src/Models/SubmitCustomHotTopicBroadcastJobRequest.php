@@ -1,69 +1,72 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig;
+use AlibabaCloud\Tea\Model;
 
 class SubmitCustomHotTopicBroadcastJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var hotTopicBroadcastConfig
      */
     public $hotTopicBroadcastConfig;
+
     /**
+     * @example 热点版本
+     *
      * @var string
      */
     public $hotTopicVersion;
+
     /**
      * @var string[]
      */
     public $topics;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'hotTopicBroadcastConfig' => 'HotTopicBroadcastConfig',
-        'hotTopicVersion'         => 'HotTopicVersion',
-        'topics'                  => 'Topics',
-        'workspaceId'             => 'WorkspaceId',
+        'hotTopicVersion' => 'HotTopicVersion',
+        'topics' => 'Topics',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->hotTopicBroadcastConfig) {
-            $this->hotTopicBroadcastConfig->validate();
-        }
-        if (\is_array($this->topics)) {
-            Model::validateArray($this->topics);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hotTopicBroadcastConfig) {
-            $res['HotTopicBroadcastConfig'] = null !== $this->hotTopicBroadcastConfig ? $this->hotTopicBroadcastConfig->toArray($noStream) : $this->hotTopicBroadcastConfig;
+            $res['HotTopicBroadcastConfig'] = null !== $this->hotTopicBroadcastConfig ? $this->hotTopicBroadcastConfig->toMap() : null;
         }
-
         if (null !== $this->hotTopicVersion) {
             $res['HotTopicVersion'] = $this->hotTopicVersion;
         }
-
         if (null !== $this->topics) {
-            if (\is_array($this->topics)) {
-                $res['Topics'] = [];
-                $n1            = 0;
-                foreach ($this->topics as $item1) {
-                    $res['Topics'][$n1++] = $item1;
-                }
-            }
+            $res['Topics'] = $this->topics;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,32 +74,25 @@ class SubmitCustomHotTopicBroadcastJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitCustomHotTopicBroadcastJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HotTopicBroadcastConfig'])) {
             $model->hotTopicBroadcastConfig = hotTopicBroadcastConfig::fromMap($map['HotTopicBroadcastConfig']);
         }
-
         if (isset($map['HotTopicVersion'])) {
             $model->hotTopicVersion = $map['HotTopicVersion'];
         }
-
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
-                $model->topics = [];
-                $n1            = 0;
-                foreach ($map['Topics'] as $item1) {
-                    $model->topics[$n1++] = $item1;
-                }
+                $model->topics = $map['Topics'];
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

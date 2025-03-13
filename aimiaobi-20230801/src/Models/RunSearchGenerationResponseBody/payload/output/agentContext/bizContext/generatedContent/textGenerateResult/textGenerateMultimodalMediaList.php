@@ -1,57 +1,65 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textGenerateResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\payload\output\agentContext\bizContext\generatedContent\textGenerateResult\textGenerateMultimodalMediaList\multimodalMediaList;
+use AlibabaCloud\Tea\Model;
 
 class textGenerateMultimodalMediaList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $end;
+
     /**
      * @var multimodalMediaList[]
      */
     public $multimodalMediaList;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $start;
     protected $_name = [
-        'end'                 => 'End',
+        'end' => 'End',
         'multimodalMediaList' => 'MultimodalMediaList',
-        'start'               => 'Start',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->multimodalMediaList)) {
-            Model::validateArray($this->multimodalMediaList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
-
         if (null !== $this->multimodalMediaList) {
-            if (\is_array($this->multimodalMediaList)) {
-                $res['MultimodalMediaList'] = [];
-                $n1                         = 0;
-                foreach ($this->multimodalMediaList as $item1) {
-                    $res['MultimodalMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MultimodalMediaList'] = [];
+            if (null !== $this->multimodalMediaList && \is_array($this->multimodalMediaList)) {
+                $n = 0;
+                foreach ($this->multimodalMediaList as $item) {
+                    $res['MultimodalMediaList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -59,28 +67,26 @@ class textGenerateMultimodalMediaList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return textGenerateMultimodalMediaList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
-
         if (isset($map['MultimodalMediaList'])) {
             if (!empty($map['MultimodalMediaList'])) {
                 $model->multimodalMediaList = [];
-                $n1                         = 0;
-                foreach ($map['MultimodalMediaList'] as $item1) {
-                    $model->multimodalMediaList[$n1++] = multimodalMediaList::fromMap($item1);
+                $n = 0;
+                foreach ($map['MultimodalMediaList'] as $item) {
+                    $model->multimodalMediaList[$n++] = null !== $item ? multimodalMediaList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

@@ -1,74 +1,82 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListHotNewsWithTypeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example c160c841c8e54295bf2f441432785944_p_efm
+     *
      * @var string
      */
     public $agentKey;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
+
     /**
+     * @example society
+     *
      * @var string
      */
     public $newsType;
+
     /**
      * @var string[]
      */
     public $newsTypes;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
     protected $_name = [
-        'agentKey'  => 'AgentKey',
-        'current'   => 'Current',
-        'newsType'  => 'NewsType',
+        'agentKey' => 'AgentKey',
+        'current' => 'Current',
+        'newsType' => 'NewsType',
         'newsTypes' => 'NewsTypes',
-        'size'      => 'Size',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->newsTypes)) {
-            Model::validateArray($this->newsTypes);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
-
         if (null !== $this->newsType) {
             $res['NewsType'] = $this->newsType;
         }
-
         if (null !== $this->newsTypes) {
-            if (\is_array($this->newsTypes)) {
-                $res['NewsTypes'] = [];
-                $n1               = 0;
-                foreach ($this->newsTypes as $item1) {
-                    $res['NewsTypes'][$n1++] = $item1;
-                }
-            }
+            $res['NewsTypes'] = $this->newsTypes;
         }
-
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -76,36 +84,28 @@ class ListHotNewsWithTypeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListHotNewsWithTypeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
-
         if (isset($map['NewsType'])) {
             $model->newsType = $map['NewsType'];
         }
-
         if (isset($map['NewsTypes'])) {
             if (!empty($map['NewsTypes'])) {
-                $model->newsTypes = [];
-                $n1               = 0;
-                foreach ($map['NewsTypes'] as $item1) {
-                    $model->newsTypes[$n1++] = $item1;
-                }
+                $model->newsTypes = $map['NewsTypes'];
             }
         }
-
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

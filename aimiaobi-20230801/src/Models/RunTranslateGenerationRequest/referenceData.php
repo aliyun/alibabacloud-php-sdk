@@ -1,14 +1,26 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunTranslateGenerationRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class referenceData extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $contents;
@@ -16,45 +28,29 @@ class referenceData extends Model
         'contents' => 'Contents',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->contents)) {
-            Model::validateArray($this->contents);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contents) {
-            if (\is_array($this->contents)) {
-                $res['Contents'] = [];
-                $n1              = 0;
-                foreach ($this->contents as $item1) {
-                    $res['Contents'][$n1++] = $item1;
-                }
-            }
+            $res['Contents'] = $this->contents;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return referenceData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
-                $model->contents = [];
-                $n1              = 0;
-                foreach ($map['Contents'] as $item1) {
-                    $model->contents[$n1++] = $item1;
-                }
+                $model->contents = $map['Contents'];
             }
         }
 

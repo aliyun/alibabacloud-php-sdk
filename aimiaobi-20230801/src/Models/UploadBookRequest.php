@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadBookRequest\docs;
+use AlibabaCloud\Tea\Model;
 
 class UploadBookRequest extends Model
 {
@@ -13,45 +23,45 @@ class UploadBookRequest extends Model
      * @var string
      */
     public $categoryId;
+
     /**
+     * @description This parameter is required.
+     *
      * @var docs[]
      */
     public $docs;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-ipe7d81yq4sl5jmk
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'categoryId'  => 'CategoryId',
-        'docs'        => 'Docs',
+        'categoryId' => 'CategoryId',
+        'docs' => 'Docs',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->docs)) {
-            Model::validateArray($this->docs);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
-
         if (null !== $this->docs) {
-            if (\is_array($this->docs)) {
-                $res['Docs'] = [];
-                $n1          = 0;
-                foreach ($this->docs as $item1) {
-                    $res['Docs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Docs'] = [];
+            if (null !== $this->docs && \is_array($this->docs)) {
+                $n = 0;
+                foreach ($this->docs as $item) {
+                    $res['Docs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -59,28 +69,26 @@ class UploadBookRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadBookRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
-
         if (isset($map['Docs'])) {
             if (!empty($map['Docs'])) {
                 $model->docs = [];
-                $n1          = 0;
-                foreach ($map['Docs'] as $item1) {
-                    $model->docs[$n1++] = docs::fromMap($item1);
+                $n = 0;
+                foreach ($map['Docs'] as $item) {
+                    $model->docs[$n++] = null !== $item ? docs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

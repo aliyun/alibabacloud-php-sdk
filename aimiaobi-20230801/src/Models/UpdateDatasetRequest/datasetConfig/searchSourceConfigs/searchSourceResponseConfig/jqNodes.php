@@ -1,66 +1,75 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetRequest\datasetConfig\searchSourceConfigs\searchSourceResponseConfig\jqNodes\jqNodes;
+use AlibabaCloud\Tea\Model;
 
 class jqNodes extends Model
 {
     /**
-     * @var jqNodes[]
+     * @var jqNodes\jqNodes[]
      */
     public $jqNodes;
+
     /**
+     * @example 节点key
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @example 节点路径
+     *
      * @var string
      */
     public $path;
+
     /**
+     * @example 节点数据类型：string number list object base
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'jqNodes' => 'JqNodes',
-        'key'     => 'Key',
-        'path'    => 'Path',
-        'type'    => 'Type',
+        'key' => 'Key',
+        'path' => 'Path',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jqNodes)) {
-            Model::validateArray($this->jqNodes);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jqNodes) {
-            if (\is_array($this->jqNodes)) {
-                $res['JqNodes'] = [];
-                $n1             = 0;
-                foreach ($this->jqNodes as $item1) {
-                    $res['JqNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['JqNodes'] = [];
+            if (null !== $this->jqNodes && \is_array($this->jqNodes)) {
+                $n = 0;
+                foreach ($this->jqNodes as $item) {
+                    $res['JqNodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -68,32 +77,29 @@ class jqNodes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jqNodes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JqNodes'])) {
             if (!empty($map['JqNodes'])) {
                 $model->jqNodes = [];
-                $n1             = 0;
-                foreach ($map['JqNodes'] as $item1) {
-                    $model->jqNodes[$n1++] = self::fromMap($item1);
+                $n = 0;
+                foreach ($map['JqNodes'] as $item) {
+                    $model->jqNodes[$n++] = null !== $item ? jqNodes\jqNodes::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

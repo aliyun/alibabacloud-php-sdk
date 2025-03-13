@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig\searchParam\searchSources;
+use AlibabaCloud\Tea\Model;
 
 class searchParam extends Model
 {
@@ -17,23 +27,17 @@ class searchParam extends Model
         'searchSources' => 'SearchSources',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->searchSources)) {
-            Model::validateArray($this->searchSources);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->searchSources) {
-            if (\is_array($this->searchSources)) {
-                $res['SearchSources'] = [];
-                $n1                   = 0;
-                foreach ($this->searchSources as $item1) {
-                    $res['SearchSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SearchSources'] = [];
+            if (null !== $this->searchSources && \is_array($this->searchSources)) {
+                $n = 0;
+                foreach ($this->searchSources as $item) {
+                    $res['SearchSources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class searchParam extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return searchParam
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SearchSources'])) {
             if (!empty($map['SearchSources'])) {
                 $model->searchSources = [];
-                $n1                   = 0;
-                foreach ($map['SearchSources'] as $item1) {
-                    $model->searchSources[$n1++] = searchSources::fromMap($item1);
+                $n = 0;
+                foreach ($map['SearchSources'] as $item) {
+                    $model->searchSources[$n++] = null !== $item ? searchSources::fromMap($item) : $item;
                 }
             }
         }

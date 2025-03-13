@@ -1,115 +1,115 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingRequest\writingConfig\promptTag;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingRequest\writingConfig\tags;
+use AlibabaCloud\Tea\Model;
 
 class writingConfig extends Model
 {
     /**
+     * @example media
+     *
      * @var string
      */
     public $domain;
+
     /**
      * @var string[]
      */
     public $keywords;
+
     /**
      * @var promptTag
      */
     public $promptTag;
+
     /**
+     * @example 分步骤写作场景，传媒写作支持的写作场景:新闻写作(默认),新闻评论,通用文体，公文写作支持的写作场景:通知(默认),通告,通报,请示,决定,函,通用文体
+     *
      * @var string
      */
     public $scene;
+
     /**
+     * @example Writing
+     *
      * @var string
      */
     public $step;
+
     /**
      * @var string
      */
     public $summaryReturnType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useSearch;
     protected $_name = [
-        'domain'            => 'Domain',
-        'keywords'          => 'Keywords',
-        'promptTag'         => 'PromptTag',
-        'scene'             => 'Scene',
-        'step'              => 'Step',
+        'domain' => 'Domain',
+        'keywords' => 'Keywords',
+        'promptTag' => 'PromptTag',
+        'scene' => 'Scene',
+        'step' => 'Step',
         'summaryReturnType' => 'SummaryReturnType',
-        'tags'              => 'Tags',
-        'useSearch'         => 'UseSearch',
+        'tags' => 'Tags',
+        'useSearch' => 'UseSearch',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keywords)) {
-            Model::validateArray($this->keywords);
-        }
-        if (null !== $this->promptTag) {
-            $this->promptTag->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-
         if (null !== $this->keywords) {
-            if (\is_array($this->keywords)) {
-                $res['Keywords'] = [];
-                $n1              = 0;
-                foreach ($this->keywords as $item1) {
-                    $res['Keywords'][$n1++] = $item1;
-                }
-            }
+            $res['Keywords'] = $this->keywords;
         }
-
         if (null !== $this->promptTag) {
-            $res['PromptTag'] = null !== $this->promptTag ? $this->promptTag->toArray($noStream) : $this->promptTag;
+            $res['PromptTag'] = null !== $this->promptTag ? $this->promptTag->toMap() : null;
         }
-
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
-
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
-
         if (null !== $this->summaryReturnType) {
             $res['SummaryReturnType'] = $this->summaryReturnType;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1          = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->useSearch) {
             $res['UseSearch'] = $this->useSearch;
         }
@@ -117,54 +117,43 @@ class writingConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return writingConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = [];
-                $n1              = 0;
-                foreach ($map['Keywords'] as $item1) {
-                    $model->keywords[$n1++] = $item1;
-                }
+                $model->keywords = $map['Keywords'];
             }
         }
-
         if (isset($map['PromptTag'])) {
             $model->promptTag = promptTag::fromMap($map['PromptTag']);
         }
-
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
-
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }
-
         if (isset($map['SummaryReturnType'])) {
             $model->summaryReturnType = $map['SummaryReturnType'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['UseSearch'])) {
             $model->useSearch = $map['UseSearch'];
         }

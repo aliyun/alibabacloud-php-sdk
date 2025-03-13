@@ -1,12 +1,22 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload\output\articles;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunStepByStepWritingResponseBody\payload\output\extraOutput;
+use AlibabaCloud\Tea\Model;
 
 class output extends Model
 {
@@ -14,75 +24,63 @@ class output extends Model
      * @var articles[]
      */
     public $articles;
+
     /**
      * @var extraOutput
      */
     public $extraOutput;
+
     /**
+     * @example 文章精排之后的片段
+     *
      * @var string[]
      */
     public $miniDoc;
+
     /**
+     * @example 大模型改变世界
+     *
      * @var string
      */
     public $searchQuery;
+
     /**
+     * @example 文本生成结果
+     *
      * @var string
      */
     public $text;
     protected $_name = [
-        'articles'    => 'Articles',
+        'articles' => 'Articles',
         'extraOutput' => 'ExtraOutput',
-        'miniDoc'     => 'MiniDoc',
+        'miniDoc' => 'MiniDoc',
         'searchQuery' => 'SearchQuery',
-        'text'        => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->articles)) {
-            Model::validateArray($this->articles);
-        }
-        if (null !== $this->extraOutput) {
-            $this->extraOutput->validate();
-        }
-        if (\is_array($this->miniDoc)) {
-            Model::validateArray($this->miniDoc);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->articles) {
-            if (\is_array($this->articles)) {
-                $res['Articles'] = [];
-                $n1              = 0;
-                foreach ($this->articles as $item1) {
-                    $res['Articles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Articles'] = [];
+            if (null !== $this->articles && \is_array($this->articles)) {
+                $n = 0;
+                foreach ($this->articles as $item) {
+                    $res['Articles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->extraOutput) {
-            $res['ExtraOutput'] = null !== $this->extraOutput ? $this->extraOutput->toArray($noStream) : $this->extraOutput;
+            $res['ExtraOutput'] = null !== $this->extraOutput ? $this->extraOutput->toMap() : null;
         }
-
         if (null !== $this->miniDoc) {
-            if (\is_array($this->miniDoc)) {
-                $res['MiniDoc'] = [];
-                $n1             = 0;
-                foreach ($this->miniDoc as $item1) {
-                    $res['MiniDoc'][$n1++] = $item1;
-                }
-            }
+            $res['MiniDoc'] = $this->miniDoc;
         }
-
         if (null !== $this->searchQuery) {
             $res['SearchQuery'] = $this->searchQuery;
         }
-
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -90,42 +88,34 @@ class output extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return output
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Articles'])) {
             if (!empty($map['Articles'])) {
                 $model->articles = [];
-                $n1              = 0;
-                foreach ($map['Articles'] as $item1) {
-                    $model->articles[$n1++] = articles::fromMap($item1);
+                $n = 0;
+                foreach ($map['Articles'] as $item) {
+                    $model->articles[$n++] = null !== $item ? articles::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ExtraOutput'])) {
             $model->extraOutput = extraOutput::fromMap($map['ExtraOutput']);
         }
-
         if (isset($map['MiniDoc'])) {
             if (!empty($map['MiniDoc'])) {
-                $model->miniDoc = [];
-                $n1             = 0;
-                foreach ($map['MiniDoc'] as $item1) {
-                    $model->miniDoc[$n1++] = $item1;
-                }
+                $model->miniDoc = $map['MiniDoc'];
             }
         }
-
         if (isset($map['SearchQuery'])) {
             $model->searchQuery = $map['SearchQuery'];
         }
-
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

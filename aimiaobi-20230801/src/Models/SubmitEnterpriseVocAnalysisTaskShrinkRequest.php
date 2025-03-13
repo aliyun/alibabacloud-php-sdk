@@ -1,110 +1,135 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contentTagsShrink;
+
     /**
      * @var string
      */
     public $contentsShrink;
+
     /**
+     * @example oss://default/bucket-name/materialDocument/tenant_agent/fileName
+     *
      * @var string
      */
     public $fileKey;
+
     /**
      * @var string
      */
     public $filterTagsShrink;
+
     /**
+     * @example shortContent
+     *
      * @var string
      */
     public $materialType;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example qwen-max
+     *
      * @var string
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $positiveSample;
+
     /**
+     * @example oss://default/bucket-name/path/xxx.xlsx
+     *
      * @var string
      */
     public $positiveSampleFileKey;
+
     /**
+     * @example lightAppSass
+     *
      * @var string
      */
     public $taskType;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'contentTagsShrink'     => 'ContentTags',
-        'contentsShrink'        => 'Contents',
-        'fileKey'               => 'FileKey',
-        'filterTagsShrink'      => 'FilterTags',
-        'materialType'          => 'MaterialType',
-        'modelId'               => 'ModelId',
-        'positiveSample'        => 'PositiveSample',
+        'contentTagsShrink' => 'ContentTags',
+        'contentsShrink' => 'Contents',
+        'fileKey' => 'FileKey',
+        'filterTagsShrink' => 'FilterTags',
+        'materialType' => 'MaterialType',
+        'modelId' => 'ModelId',
+        'positiveSample' => 'PositiveSample',
         'positiveSampleFileKey' => 'PositiveSampleFileKey',
-        'taskType'              => 'TaskType',
-        'workspaceId'           => 'WorkspaceId',
+        'taskType' => 'TaskType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contentTagsShrink) {
             $res['ContentTags'] = $this->contentTagsShrink;
         }
-
         if (null !== $this->contentsShrink) {
             $res['Contents'] = $this->contentsShrink;
         }
-
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
-
         if (null !== $this->filterTagsShrink) {
             $res['FilterTags'] = $this->filterTagsShrink;
         }
-
         if (null !== $this->materialType) {
             $res['MaterialType'] = $this->materialType;
         }
-
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-
         if (null !== $this->positiveSample) {
             $res['PositiveSample'] = $this->positiveSample;
         }
-
         if (null !== $this->positiveSampleFileKey) {
             $res['PositiveSampleFileKey'] = $this->positiveSampleFileKey;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -112,50 +137,41 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContentTags'])) {
             $model->contentTagsShrink = $map['ContentTags'];
         }
-
         if (isset($map['Contents'])) {
             $model->contentsShrink = $map['Contents'];
         }
-
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
-
         if (isset($map['FilterTags'])) {
             $model->filterTagsShrink = $map['FilterTags'];
         }
-
         if (isset($map['MaterialType'])) {
             $model->materialType = $map['MaterialType'];
         }
-
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-
         if (isset($map['PositiveSample'])) {
             $model->positiveSample = $map['PositiveSample'];
         }
-
         if (isset($map['PositiveSampleFileKey'])) {
             $model->positiveSampleFileKey = $map['PositiveSampleFileKey'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

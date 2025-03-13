@@ -1,66 +1,65 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest\hotTopicBroadcastConfig\stepForNewsBroadcastContentConfig\customHotValueWeights;
+use AlibabaCloud\Tea\Model;
 
 class stepForNewsBroadcastContentConfig extends Model
 {
     /**
+     * @example ["科技","经济","时政","娱乐"]
+     *
      * @var string[]
      */
     public $categories;
+
     /**
      * @var customHotValueWeights[]
      */
     public $customHotValueWeights;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $topicCount;
     protected $_name = [
-        'categories'            => 'Categories',
+        'categories' => 'Categories',
         'customHotValueWeights' => 'CustomHotValueWeights',
-        'topicCount'            => 'TopicCount',
+        'topicCount' => 'TopicCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->categories)) {
-            Model::validateArray($this->categories);
-        }
-        if (\is_array($this->customHotValueWeights)) {
-            Model::validateArray($this->customHotValueWeights);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->categories) {
-            if (\is_array($this->categories)) {
-                $res['Categories'] = [];
-                $n1                = 0;
-                foreach ($this->categories as $item1) {
-                    $res['Categories'][$n1++] = $item1;
-                }
-            }
+            $res['Categories'] = $this->categories;
         }
-
         if (null !== $this->customHotValueWeights) {
-            if (\is_array($this->customHotValueWeights)) {
-                $res['CustomHotValueWeights'] = [];
-                $n1                           = 0;
-                foreach ($this->customHotValueWeights as $item1) {
-                    $res['CustomHotValueWeights'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CustomHotValueWeights'] = [];
+            if (null !== $this->customHotValueWeights && \is_array($this->customHotValueWeights)) {
+                $n = 0;
+                foreach ($this->customHotValueWeights as $item) {
+                    $res['CustomHotValueWeights'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->topicCount) {
             $res['TopicCount'] = $this->topicCount;
         }
@@ -68,34 +67,28 @@ class stepForNewsBroadcastContentConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stepForNewsBroadcastContentConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
-                $model->categories = [];
-                $n1                = 0;
-                foreach ($map['Categories'] as $item1) {
-                    $model->categories[$n1++] = $item1;
-                }
+                $model->categories = $map['Categories'];
             }
         }
-
         if (isset($map['CustomHotValueWeights'])) {
             if (!empty($map['CustomHotValueWeights'])) {
                 $model->customHotValueWeights = [];
-                $n1                           = 0;
-                foreach ($map['CustomHotValueWeights'] as $item1) {
-                    $model->customHotValueWeights[$n1++] = customHotValueWeights::fromMap($item1);
+                $n = 0;
+                foreach ($map['CustomHotValueWeights'] as $item) {
+                    $model->customHotValueWeights[$n++] = null !== $item ? customHotValueWeights::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TopicCount'])) {
             $model->topicCount = $map['TopicCount'];
         }

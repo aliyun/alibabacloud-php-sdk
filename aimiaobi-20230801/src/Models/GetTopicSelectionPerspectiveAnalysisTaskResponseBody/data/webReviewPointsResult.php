@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskResponseBody\data\webReviewPointsResult\attitudes;
+use AlibabaCloud\Tea\Model;
 
 class webReviewPointsResult extends Model
 {
@@ -17,23 +27,17 @@ class webReviewPointsResult extends Model
         'attitudes' => 'Attitudes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->attitudes)) {
-            Model::validateArray($this->attitudes);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attitudes) {
-            if (\is_array($this->attitudes)) {
-                $res['Attitudes'] = [];
-                $n1               = 0;
-                foreach ($this->attitudes as $item1) {
-                    $res['Attitudes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Attitudes'] = [];
+            if (null !== $this->attitudes && \is_array($this->attitudes)) {
+                $n = 0;
+                foreach ($this->attitudes as $item) {
+                    $res['Attitudes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class webReviewPointsResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return webReviewPointsResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attitudes'])) {
             if (!empty($map['Attitudes'])) {
                 $model->attitudes = [];
-                $n1               = 0;
-                foreach ($map['Attitudes'] as $item1) {
-                    $model->attitudes[$n1++] = attitudes::fromMap($item1);
+                $n = 0;
+                foreach ($map['Attitudes'] as $item) {
+                    $model->attitudes[$n++] = null !== $item ? attitudes::fromMap($item) : $item;
                 }
             }
         }

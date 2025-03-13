@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesRequest\chatConfig;
+use AlibabaCloud\Tea\Model;
 
 class RunSearchSimilarArticlesRequest extends Model
 {
@@ -13,57 +23,61 @@ class RunSearchSimilarArticlesRequest extends Model
      * @var chatConfig
      */
     public $chatConfig;
+
     /**
+     * @example html
+     *
      * @var string
      */
     public $docType;
+
     /**
      * @var string
      */
     public $title;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example https://xxx/xxx
+     *
      * @var string
      */
     public $url;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'chatConfig'  => 'ChatConfig',
-        'docType'     => 'DocType',
-        'title'       => 'Title',
-        'url'         => 'Url',
+        'chatConfig' => 'ChatConfig',
+        'docType' => 'DocType',
+        'title' => 'Title',
+        'url' => 'Url',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->chatConfig) {
-            $this->chatConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->chatConfig) {
-            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toArray($noStream) : $this->chatConfig;
+            $res['ChatConfig'] = null !== $this->chatConfig ? $this->chatConfig->toMap() : null;
         }
-
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -71,30 +85,26 @@ class RunSearchSimilarArticlesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunSearchSimilarArticlesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatConfig'])) {
             $model->chatConfig = chatConfig::fromMap($map['ChatConfig']);
         }
-
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

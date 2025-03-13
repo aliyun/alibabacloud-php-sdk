@@ -1,89 +1,90 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\totalTokenInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data[]
+     * @var data\data[]
      */
     public $data;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
+
     /**
      * @var totalTokenInfo
      */
     public $totalTokenInfo;
     protected $_name = [
-        'data'           => 'Data',
-        'totalCount'     => 'TotalCount',
+        'data' => 'Data',
+        'totalCount' => 'TotalCount',
         'totalTokenInfo' => 'TotalTokenInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        if (null !== $this->totalTokenInfo) {
-            $this->totalTokenInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1          = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->totalTokenInfo) {
-            $res['TotalTokenInfo'] = null !== $this->totalTokenInfo ? $this->totalTokenInfo->toArray($noStream) : $this->totalTokenInfo;
+            $res['TotalTokenInfo'] = null !== $this->totalTokenInfo ? $this->totalTokenInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = \AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastResponseBody\data\data::fromMap($item1);
+                $n = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data\data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['TotalTokenInfo'])) {
             $model->totalTokenInfo = totalTokenInfo::fromMap($map['TotalTokenInfo']);
         }

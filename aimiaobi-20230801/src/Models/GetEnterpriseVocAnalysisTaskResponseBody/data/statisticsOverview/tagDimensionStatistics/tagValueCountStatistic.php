@@ -1,47 +1,60 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponseBody\data\statisticsOverview\tagDimensionStatistics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagValueCountStatistic extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $tagName;
+
     /**
+     * @example multiTagValues
+     *
      * @var string
      */
     public $tagTaskType;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $valueCount;
     protected $_name = [
-        'tagName'     => 'TagName',
+        'tagName' => 'TagName',
         'tagTaskType' => 'TagTaskType',
-        'valueCount'  => 'ValueCount',
+        'valueCount' => 'ValueCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
-
         if (null !== $this->tagTaskType) {
             $res['TagTaskType'] = $this->tagTaskType;
         }
-
         if (null !== $this->valueCount) {
             $res['ValueCount'] = $this->valueCount;
         }
@@ -49,22 +62,20 @@ class tagValueCountStatistic extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagValueCountStatistic
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
-
         if (isset($map['TagTaskType'])) {
             $model->tagTaskType = $map['TagTaskType'];
         }
-
         if (isset($map['ValueCount'])) {
             $model->valueCount = $map['ValueCount'];
         }

@@ -1,55 +1,58 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
+     *
      * @var string
      */
     public $fileKey;
+
     /**
      * @var mixed[]
      */
     public $formDatas;
+
     /**
+     * @example https://bucket-name.oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $postUrl;
     protected $_name = [
-        'fileKey'   => 'FileKey',
+        'fileKey' => 'FileKey',
         'formDatas' => 'FormDatas',
-        'postUrl'   => 'PostUrl',
+        'postUrl' => 'PostUrl',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->formDatas)) {
-            Model::validateArray($this->formDatas);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
-
         if (null !== $this->formDatas) {
-            if (\is_array($this->formDatas)) {
-                $res['FormDatas'] = [];
-                foreach ($this->formDatas as $key1 => $value1) {
-                    $res['FormDatas'][$key1] = $value1;
-                }
-            }
+            $res['FormDatas'] = $this->formDatas;
         }
-
         if (null !== $this->postUrl) {
             $res['PostUrl'] = $this->postUrl;
         }
@@ -57,27 +60,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
-
         if (isset($map['FormDatas'])) {
-            if (!empty($map['FormDatas'])) {
-                $model->formDatas = [];
-                foreach ($map['FormDatas'] as $key1 => $value1) {
-                    $model->formDatas[$key1] = $value1;
-                }
-            }
+            $model->formDatas = $map['FormDatas'];
         }
-
         if (isset($map['PostUrl'])) {
             $model->postUrl = $map['PostUrl'];
         }

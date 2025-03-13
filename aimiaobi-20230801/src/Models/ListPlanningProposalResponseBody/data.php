@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponseBody\data\outlines;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,45 +23,39 @@ class data extends Model
      * @var outlines[]
      */
     public $outlines;
+
     /**
      * @var string
      */
     public $summary;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'outlines' => 'Outlines',
-        'summary'  => 'Summary',
-        'title'    => 'Title',
+        'summary' => 'Summary',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->outlines)) {
-            Model::validateArray($this->outlines);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->outlines) {
-            if (\is_array($this->outlines)) {
-                $res['Outlines'] = [];
-                $n1              = 0;
-                foreach ($this->outlines as $item1) {
-                    $res['Outlines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Outlines'] = [];
+            if (null !== $this->outlines && \is_array($this->outlines)) {
+                $n = 0;
+                foreach ($this->outlines as $item) {
+                    $res['Outlines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
-
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -59,28 +63,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Outlines'])) {
             if (!empty($map['Outlines'])) {
                 $model->outlines = [];
-                $n1              = 0;
-                foreach ($map['Outlines'] as $item1) {
-                    $model->outlines[$n1++] = outlines::fromMap($item1);
+                $n = 0;
+                foreach ($map['Outlines'] as $item) {
+                    $model->outlines[$n++] = null !== $item ? outlines::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
-
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

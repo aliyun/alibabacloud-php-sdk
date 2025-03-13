@@ -1,85 +1,92 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotViewPointsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotViewPointsResponseBody\data\news;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListHotViewPointsResponseBody\data\viewPoints;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 当前观点
+     *
      * @var string
      */
     public $attitude;
+
     /**
+     * @example 观点类型
+     *
      * @var string
      */
     public $attitudeType;
+
     /**
      * @var news[]
      */
     public $news;
+
     /**
+     * @example 当前观点占比
+     *
      * @var string
      */
     public $ratio;
+
     /**
      * @var viewPoints[]
      */
     public $viewPoints;
     protected $_name = [
-        'attitude'     => 'Attitude',
+        'attitude' => 'Attitude',
         'attitudeType' => 'AttitudeType',
-        'news'         => 'News',
-        'ratio'        => 'Ratio',
-        'viewPoints'   => 'ViewPoints',
+        'news' => 'News',
+        'ratio' => 'Ratio',
+        'viewPoints' => 'ViewPoints',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->news)) {
-            Model::validateArray($this->news);
-        }
-        if (\is_array($this->viewPoints)) {
-            Model::validateArray($this->viewPoints);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attitude) {
             $res['Attitude'] = $this->attitude;
         }
-
         if (null !== $this->attitudeType) {
             $res['AttitudeType'] = $this->attitudeType;
         }
-
         if (null !== $this->news) {
-            if (\is_array($this->news)) {
-                $res['News'] = [];
-                $n1          = 0;
-                foreach ($this->news as $item1) {
-                    $res['News'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['News'] = [];
+            if (null !== $this->news && \is_array($this->news)) {
+                $n = 0;
+                foreach ($this->news as $item) {
+                    $res['News'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ratio) {
             $res['Ratio'] = $this->ratio;
         }
-
         if (null !== $this->viewPoints) {
-            if (\is_array($this->viewPoints)) {
-                $res['ViewPoints'] = [];
-                $n1                = 0;
-                foreach ($this->viewPoints as $item1) {
-                    $res['ViewPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ViewPoints'] = [];
+            if (null !== $this->viewPoints && \is_array($this->viewPoints)) {
+                $n = 0;
+                foreach ($this->viewPoints as $item) {
+                    $res['ViewPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -87,42 +94,38 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attitude'])) {
             $model->attitude = $map['Attitude'];
         }
-
         if (isset($map['AttitudeType'])) {
             $model->attitudeType = $map['AttitudeType'];
         }
-
         if (isset($map['News'])) {
             if (!empty($map['News'])) {
                 $model->news = [];
-                $n1          = 0;
-                foreach ($map['News'] as $item1) {
-                    $model->news[$n1++] = news::fromMap($item1);
+                $n = 0;
+                foreach ($map['News'] as $item) {
+                    $model->news[$n++] = null !== $item ? news::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Ratio'])) {
             $model->ratio = $map['Ratio'];
         }
-
         if (isset($map['ViewPoints'])) {
             if (!empty($map['ViewPoints'])) {
                 $model->viewPoints = [];
-                $n1                = 0;
-                foreach ($map['ViewPoints'] as $item1) {
-                    $model->viewPoints[$n1++] = viewPoints::fromMap($item1);
+                $n = 0;
+                foreach ($map['ViewPoints'] as $item) {
+                    $model->viewPoints[$n++] = null !== $item ? viewPoints::fromMap($item) : $item;
                 }
             }
         }

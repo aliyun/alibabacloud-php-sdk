@@ -1,47 +1,60 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateFileUrlByKeyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example xxxxx_p_efm
+     *
      * @var string
      */
     public $agentKey;
+
     /**
+     * @example oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
+     *
      * @var string
      */
     public $fileKey;
+
     /**
      * @var string
      */
     public $fileName;
     protected $_name = [
         'agentKey' => 'AgentKey',
-        'fileKey'  => 'FileKey',
+        'fileKey' => 'FileKey',
         'fileName' => 'FileName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
         }
-
         if (null !== $this->fileKey) {
             $res['FileKey'] = $this->fileKey;
         }
-
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -49,22 +62,20 @@ class GenerateFileUrlByKeyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateFileUrlByKeyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
         }
-
         if (isset($map['FileKey'])) {
             $model->fileKey = $map['FileKey'];
         }
-
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }

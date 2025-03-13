@@ -1,11 +1,21 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponseBody\data\userConfigDataSourceList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +27,17 @@ class data extends Model
         'userConfigDataSourceList' => 'UserConfigDataSourceList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userConfigDataSourceList)) {
-            Model::validateArray($this->userConfigDataSourceList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userConfigDataSourceList) {
-            if (\is_array($this->userConfigDataSourceList)) {
-                $res['UserConfigDataSourceList'] = [];
-                $n1                              = 0;
-                foreach ($this->userConfigDataSourceList as $item1) {
-                    $res['UserConfigDataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UserConfigDataSourceList'] = [];
+            if (null !== $this->userConfigDataSourceList && \is_array($this->userConfigDataSourceList)) {
+                $n = 0;
+                foreach ($this->userConfigDataSourceList as $item) {
+                    $res['UserConfigDataSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +45,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserConfigDataSourceList'])) {
             if (!empty($map['UserConfigDataSourceList'])) {
                 $model->userConfigDataSourceList = [];
-                $n1                              = 0;
-                foreach ($map['UserConfigDataSourceList'] as $item1) {
-                    $model->userConfigDataSourceList[$n1++] = userConfigDataSourceList::fromMap($item1);
+                $n = 0;
+                foreach ($map['UserConfigDataSourceList'] as $item) {
+                    $model->userConfigDataSourceList[$n++] = null !== $item ? userConfigDataSourceList::fromMap($item) : $item;
                 }
             }
         }

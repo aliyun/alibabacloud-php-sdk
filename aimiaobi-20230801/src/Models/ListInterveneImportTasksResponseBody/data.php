@@ -1,66 +1,76 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListInterveneImportTasksResponseBody\data\statusList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var statusList[]
      */
     public $statusList;
+
     /**
+     * @example 0
+     *
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'pageIndex'  => 'PageIndex',
-        'pageSize'   => 'PageSize',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
         'statusList' => 'StatusList',
-        'totalSize'  => 'TotalSize',
+        'totalSize' => 'TotalSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->statusList)) {
-            Model::validateArray($this->statusList);
-        }
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->statusList) {
-            if (\is_array($this->statusList)) {
-                $res['StatusList'] = [];
-                $n1                = 0;
-                foreach ($this->statusList as $item1) {
-                    $res['StatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['StatusList'] = [];
+            if (null !== $this->statusList && \is_array($this->statusList)) {
+                $n = 0;
+                foreach ($this->statusList as $item) {
+                    $res['StatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -68,32 +78,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = [];
-                $n1                = 0;
-                foreach ($map['StatusList'] as $item1) {
-                    $model->statusList[$n1++] = statusList::fromMap($item1);
+                $n = 0;
+                foreach ($map['StatusList'] as $item) {
+                    $model->statusList[$n++] = null !== $item ? statusList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

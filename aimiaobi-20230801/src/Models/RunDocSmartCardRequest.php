@@ -1,47 +1,66 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunDocSmartCardRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
+     *
      * @var string
      */
     public $docId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 3f7045e099474ba28ceca1b4eb6d6e21
+     *
      * @var string
      */
     public $sessionId;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2setzb9x4ewsd
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'docId'       => 'DocId',
-        'sessionId'   => 'SessionId',
+        'docId' => 'DocId',
+        'sessionId' => 'SessionId',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate(): void {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
-
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -49,22 +68,20 @@ class RunDocSmartCardRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunDocSmartCardRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
-
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
