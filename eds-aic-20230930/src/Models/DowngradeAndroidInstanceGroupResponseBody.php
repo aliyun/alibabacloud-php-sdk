@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DowngradeAndroidInstanceGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 22326560487****
+     *
      * @var string
      */
     public $orderId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 3AF82CE1-2801-52CE-BF64-B491DD7C****
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class DowngradeAndroidInstanceGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class DowngradeAndroidInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DowngradeAndroidInstanceGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponseBody\instanceGroupInfos;
 use AlibabaCloud\Tea\Model;
 
-class CreateAndroidInstanceGroupResponseBody extends Model
+class ModifyInstanceChargeTypeResponseBody extends Model
 {
     /**
      * @description The IDs of the instance groups.
@@ -17,16 +16,9 @@ class CreateAndroidInstanceGroupResponseBody extends Model
     public $instanceGroupIds;
 
     /**
-     * @description The instance groups.
-     *
-     * @var instanceGroupInfos[]
-     */
-    public $instanceGroupInfos;
-
-    /**
      * @description The ID of the order.
      *
-     * @example 22365781890****
+     * @example 22326560487****
      *
      * @var string
      */
@@ -41,10 +33,9 @@ class CreateAndroidInstanceGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instanceGroupIds'   => 'InstanceGroupIds',
-        'instanceGroupInfos' => 'InstanceGroupInfos',
-        'orderId'            => 'OrderId',
-        'requestId'          => 'RequestId',
+        'instanceGroupIds' => 'InstanceGroupIds',
+        'orderId'          => 'OrderId',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -56,15 +47,6 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         $res = [];
         if (null !== $this->instanceGroupIds) {
             $res['InstanceGroupIds'] = $this->instanceGroupIds;
-        }
-        if (null !== $this->instanceGroupInfos) {
-            $res['InstanceGroupInfos'] = [];
-            if (null !== $this->instanceGroupInfos && \is_array($this->instanceGroupInfos)) {
-                $n = 0;
-                foreach ($this->instanceGroupInfos as $item) {
-                    $res['InstanceGroupInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -79,7 +61,7 @@ class CreateAndroidInstanceGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAndroidInstanceGroupResponseBody
+     * @return ModifyInstanceChargeTypeResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,15 +69,6 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
                 $model->instanceGroupIds = $map['InstanceGroupIds'];
-            }
-        }
-        if (isset($map['InstanceGroupInfos'])) {
-            if (!empty($map['InstanceGroupInfos'])) {
-                $model->instanceGroupInfos = [];
-                $n                         = 0;
-                foreach ($map['InstanceGroupInfos'] as $item) {
-                    $model->instanceGroupInfos[$n++] = null !== $item ? instanceGroupInfos::fromMap($item) : $item;
-                }
             }
         }
         if (isset($map['OrderId'])) {

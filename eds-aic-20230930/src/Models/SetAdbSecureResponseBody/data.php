@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The number of the cloud phone instances for which the ADB authentication feature failed to be enabled.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failCount;
+
     /**
+     * @description The IDs of the cloud phone instances for which the ADB authentication feature is enabled.
+     *
      * @var string[]
      */
     public $instanceIds;
+
     /**
+     * @description The total number of the cloud phone instances.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
@@ -28,29 +40,17 @@ class data extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceIds)) {
-            Model::validateArray($this->instanceIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
-
         if (null !== $this->instanceIds) {
-            if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
-                $n1                 = 0;
-                foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceIds'] = $this->instanceIds;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,28 +58,22 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
-
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = [];
-                $n1                 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
-                }
+                $model->instanceIds = $map['InstanceIds'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

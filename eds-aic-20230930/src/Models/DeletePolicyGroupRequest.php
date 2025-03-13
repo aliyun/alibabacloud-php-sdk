@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeletePolicyGroupRequest extends Model
 {
     /**
+     * @description The IDs of the policies.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $policyGroupIds;
@@ -18,43 +21,29 @@ class DeletePolicyGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->policyGroupIds)) {
-            Model::validateArray($this->policyGroupIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyGroupIds) {
-            if (\is_array($this->policyGroupIds)) {
-                $res['PolicyGroupIds'] = [];
-                $n1                    = 0;
-                foreach ($this->policyGroupIds as $item1) {
-                    $res['PolicyGroupIds'][$n1++] = $item1;
-                }
-            }
+            $res['PolicyGroupIds'] = $this->policyGroupIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeletePolicyGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyGroupIds'])) {
             if (!empty($map['PolicyGroupIds'])) {
-                $model->policyGroupIds = [];
-                $n1                    = 0;
-                foreach ($map['PolicyGroupIds'] as $item1) {
-                    $model->policyGroupIds[$n1++] = $item1;
-                }
+                $model->policyGroupIds = $map['PolicyGroupIds'];
             }
         }
 

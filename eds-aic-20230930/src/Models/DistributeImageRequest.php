@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DistributeImageRequest extends Model
 {
     /**
+     * @description The regions to which you want to distribute an image.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $distributeRegionList;
+
     /**
+     * @description The ID of the image that you want to distribute.
+     *
+     * This parameter is required.
+     * @example imgc-075cllfeuazh0****
+     *
      * @var string
      */
     public $imageId;
@@ -23,25 +32,14 @@ class DistributeImageRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->distributeRegionList)) {
-            Model::validateArray($this->distributeRegionList);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->distributeRegionList) {
-            if (\is_array($this->distributeRegionList)) {
-                $res['DistributeRegionList'] = [];
-                $n1                          = 0;
-                foreach ($this->distributeRegionList as $item1) {
-                    $res['DistributeRegionList'][$n1++] = $item1;
-                }
-            }
+            $res['DistributeRegionList'] = $this->distributeRegionList;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -49,24 +47,19 @@ class DistributeImageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DistributeImageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DistributeRegionList'])) {
             if (!empty($map['DistributeRegionList'])) {
-                $model->distributeRegionList = [];
-                $n1                          = 0;
-                foreach ($map['DistributeRegionList'] as $item1) {
-                    $model->distributeRegionList[$n1++] = $item1;
-                }
+                $model->distributeRegionList = $map['DistributeRegionList'];
             }
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }

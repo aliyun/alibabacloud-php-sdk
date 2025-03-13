@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotResponseBody\tasks;
+use AlibabaCloud\Tea\Model;
 
 class CreateScreenshotResponseBody extends Model
 {
     /**
+     * @description The ID of the request. If the request fails, share this ID with technical support to help diagnose the issue.
+     *
+     * @example 3AF82CE1-2801-52CE-BF64-B491DD7C****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The tasks.
+     *
      * @var tasks[]
      */
     public $tasks;
@@ -24,25 +31,20 @@ class CreateScreenshotResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->tasks)) {
-            Model::validateArray($this->tasks);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->tasks) {
-            if (\is_array($this->tasks)) {
-                $res['Tasks'] = [];
-                $n1           = 0;
-                foreach ($this->tasks as $item1) {
-                    $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tasks'] = [];
+            if (null !== $this->tasks && \is_array($this->tasks)) {
+                $n = 0;
+                foreach ($this->tasks as $item) {
+                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +52,23 @@ class CreateScreenshotResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateScreenshotResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
-                foreach ($map['Tasks'] as $item1) {
-                    $model->tasks[$n1++] = tasks::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Tasks'] as $item) {
+                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
         }

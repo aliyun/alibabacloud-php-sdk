@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreatePolicyGroupResponse extends Model
+class ModifyInstanceChargeTypeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreatePolicyGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreatePolicyGroupResponseBody
+     * @var ModifyInstanceChargeTypeResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreatePolicyGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreatePolicyGroupResponse
+     * @return ModifyInstanceChargeTypeResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreatePolicyGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreatePolicyGroupResponseBody::fromMap($map['body']);
+            $model->body = ModifyInstanceChargeTypeResponseBody::fromMap($map['body']);
         }
 
         return $model;

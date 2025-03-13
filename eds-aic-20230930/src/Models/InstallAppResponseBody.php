@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InstallAppResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E5138F7E-46B5-526A-8C99-82DEAE6B****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The ID of the task.
+     *
+     * @example t-14xwibw7yp73q****
+     *
      * @var string
      */
     public $taskId;
@@ -23,16 +32,14 @@ class InstallAppResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -40,18 +47,17 @@ class InstallAppResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstallAppResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

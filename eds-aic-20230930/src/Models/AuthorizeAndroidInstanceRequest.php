@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AuthorizeAndroidInstanceRequest extends Model
 {
     /**
+     * @description List of instance IDs.
+     *
      * @var string[]
      */
     public $androidInstanceIds;
+
     /**
+     * @description User ID to be assigned.
+     *
+     * @example test
+     *
      * @var string
      */
     public $authorizeUserId;
+
     /**
+     * @description User ID to be unassigned.
+     *
+     * @example test
+     *
      * @var string
      */
     public $unAuthorizeUserId;
@@ -28,29 +40,17 @@ class AuthorizeAndroidInstanceRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->androidInstanceIds)) {
-            Model::validateArray($this->androidInstanceIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            if (\is_array($this->androidInstanceIds)) {
-                $res['AndroidInstanceIds'] = [];
-                $n1                        = 0;
-                foreach ($this->androidInstanceIds as $item1) {
-                    $res['AndroidInstanceIds'][$n1++] = $item1;
-                }
-            }
+            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
         }
-
         if (null !== $this->authorizeUserId) {
             $res['AuthorizeUserId'] = $this->authorizeUserId;
         }
-
         if (null !== $this->unAuthorizeUserId) {
             $res['UnAuthorizeUserId'] = $this->unAuthorizeUserId;
         }
@@ -58,28 +58,22 @@ class AuthorizeAndroidInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AuthorizeAndroidInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = [];
-                $n1                        = 0;
-                foreach ($map['AndroidInstanceIds'] as $item1) {
-                    $model->androidInstanceIds[$n1++] = $item1;
-                }
+                $model->androidInstanceIds = $map['AndroidInstanceIds'];
             }
         }
-
         if (isset($map['AuthorizeUserId'])) {
             $model->authorizeUserId = $map['AuthorizeUserId'];
         }
-
         if (isset($map['UnAuthorizeUserId'])) {
             $model->unAuthorizeUserId = $map['UnAuthorizeUserId'];
         }

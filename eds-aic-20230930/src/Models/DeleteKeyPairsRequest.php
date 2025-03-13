@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteKeyPairsRequest extends Model
 {
     /**
+     * @description The IDs of the ADB key pairs.
+     *
      * @var string[]
      */
     public $keyPairIds;
@@ -18,43 +20,29 @@ class DeleteKeyPairsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->keyPairIds)) {
-            Model::validateArray($this->keyPairIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keyPairIds) {
-            if (\is_array($this->keyPairIds)) {
-                $res['KeyPairIds'] = [];
-                $n1                = 0;
-                foreach ($this->keyPairIds as $item1) {
-                    $res['KeyPairIds'][$n1++] = $item1;
-                }
-            }
+            $res['KeyPairIds'] = $this->keyPairIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteKeyPairsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPairIds'])) {
             if (!empty($map['KeyPairIds'])) {
-                $model->keyPairIds = [];
-                $n1                = 0;
-                foreach ($map['KeyPairIds'] as $item1) {
-                    $model->keyPairIds[$n1++] = $item1;
-                }
+                $model->keyPairIds = $map['KeyPairIds'];
             }
         }
 

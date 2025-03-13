@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AuthorizeAndroidInstanceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example 1A923337-44D9-5CAD-9A53-95084BD4****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class AuthorizeAndroidInstanceResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class AuthorizeAndroidInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AuthorizeAndroidInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

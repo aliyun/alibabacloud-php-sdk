@@ -4,24 +4,39 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketRequest\instanceTasks;
+use AlibabaCloud\Tea\Model;
 
 class BatchGetAcpConnectionTicketRequest extends Model
 {
     /**
+     * @description The ID of the user to whom the cloud phone instance is assigned.
+     *
+     * @example user
+     *
      * @var string
      */
     public $endUserId;
+
     /**
+     * @description The ID of the instance group.
+     *
+     * @example ag-25nt4kk9whjh****
+     *
      * @var string
      */
     public $instanceGroupId;
+
     /**
+     * @description The IDs of the cloud phone instances. You can specify 1 to 100 IDs of cloud phone instances.
+     *
      * @var string[]
      */
     public $instanceIds;
+
     /**
+     * @description The instance connection tasks.
+     *
      * @var instanceTasks[]
      */
     public $instanceTasks;
@@ -34,42 +49,26 @@ class BatchGetAcpConnectionTicketRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->instanceIds)) {
-            Model::validateArray($this->instanceIds);
-        }
-        if (\is_array($this->instanceTasks)) {
-            Model::validateArray($this->instanceTasks);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
         }
-
         if (null !== $this->instanceIds) {
-            if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
-                $n1                 = 0;
-                foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
-                }
-            }
+            $res['InstanceIds'] = $this->instanceIds;
         }
-
         if (null !== $this->instanceTasks) {
-            if (\is_array($this->instanceTasks)) {
-                $res['InstanceTasks'] = [];
-                $n1                   = 0;
-                foreach ($this->instanceTasks as $item1) {
-                    $res['InstanceTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InstanceTasks'] = [];
+            if (null !== $this->instanceTasks && \is_array($this->instanceTasks)) {
+                $n = 0;
+                foreach ($this->instanceTasks as $item) {
+                    $res['InstanceTasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -77,38 +76,31 @@ class BatchGetAcpConnectionTicketRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchGetAcpConnectionTicketRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
         }
-
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = [];
-                $n1                 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
-                }
+                $model->instanceIds = $map['InstanceIds'];
             }
         }
-
         if (isset($map['InstanceTasks'])) {
             if (!empty($map['InstanceTasks'])) {
                 $model->instanceTasks = [];
-                $n1                   = 0;
-                foreach ($map['InstanceTasks'] as $item1) {
-                    $model->instanceTasks[$n1++] = instanceTasks::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['InstanceTasks'] as $item) {
+                    $model->instanceTasks[$n++] = null !== $item ? instanceTasks::fromMap($item) : $item;
                 }
             }
         }
