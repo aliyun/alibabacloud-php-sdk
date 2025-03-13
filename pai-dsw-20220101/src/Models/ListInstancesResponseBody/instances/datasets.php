@@ -16,6 +16,16 @@ class datasets extends Model
     public $datasetId;
 
     /**
+     * @var string
+     */
+    public $datasetVersion;
+
+    /**
+     * @var string
+     */
+    public $mountAccess;
+
+    /**
      * @example /mnt/data
      *
      * @var string
@@ -37,11 +47,13 @@ class datasets extends Model
      */
     public $uri;
     protected $_name = [
-        'datasetId'  => 'DatasetId',
-        'mountPath'  => 'MountPath',
-        'optionType' => 'OptionType',
-        'options'    => 'Options',
-        'uri'        => 'Uri',
+        'datasetId'      => 'DatasetId',
+        'datasetVersion' => 'DatasetVersion',
+        'mountAccess'    => 'MountAccess',
+        'mountPath'      => 'MountPath',
+        'optionType'     => 'OptionType',
+        'options'        => 'Options',
+        'uri'            => 'Uri',
     ];
 
     public function validate()
@@ -53,6 +65,12 @@ class datasets extends Model
         $res = [];
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
+        }
+        if (null !== $this->datasetVersion) {
+            $res['DatasetVersion'] = $this->datasetVersion;
+        }
+        if (null !== $this->mountAccess) {
+            $res['MountAccess'] = $this->mountAccess;
         }
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
@@ -80,6 +98,12 @@ class datasets extends Model
         $model = new self();
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
+        }
+        if (isset($map['DatasetVersion'])) {
+            $model->datasetVersion = $map['DatasetVersion'];
+        }
+        if (isset($map['MountAccess'])) {
+            $model->mountAccess = $map['MountAccess'];
         }
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
