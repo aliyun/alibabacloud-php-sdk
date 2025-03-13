@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class adConnectors extends Model
 {
     /**
+     * @description The connection address.
+     *
+     * @example ``127.0.**.**``
+     *
      * @var string
      */
     public $address;
@@ -18,10 +22,9 @@ class adConnectors extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->address) {
@@ -31,11 +34,11 @@ class adConnectors extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return adConnectors
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

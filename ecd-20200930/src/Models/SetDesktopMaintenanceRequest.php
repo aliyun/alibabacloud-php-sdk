@@ -4,19 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDesktopMaintenanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $desktopIds;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example enter
+     *
      * @var string
      */
     public $mode;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,29 +40,17 @@ class SetDesktopMaintenanceRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->desktopIds)) {
-            Model::validateArray($this->desktopIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopIds) {
-            if (\is_array($this->desktopIds)) {
-                $res['DesktopIds'] = [];
-                $n1                = 0;
-                foreach ($this->desktopIds as $item1) {
-                    $res['DesktopIds'][$n1++] = $item1;
-                }
-            }
+            $res['DesktopIds'] = $this->desktopIds;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -58,28 +58,22 @@ class SetDesktopMaintenanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDesktopMaintenanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopIds'])) {
             if (!empty($map['DesktopIds'])) {
-                $model->desktopIds = [];
-                $n1                = 0;
-                foreach ($map['DesktopIds'] as $item1) {
-                    $model->desktopIds[$n1++] = $item1;
-                }
+                $model->desktopIds = $map['DesktopIds'];
             }
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

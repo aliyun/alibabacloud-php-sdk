@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEduRoomRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $eduRoomId;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -23,16 +28,14 @@ class DeleteEduRoomRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eduRoomId) {
             $res['EduRoomId'] = $this->eduRoomId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -40,18 +43,17 @@ class DeleteEduRoomRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEduRoomRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EduRoomId'])) {
             $model->eduRoomId = $map['EduRoomId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBundlesRequest extends Model
 {
     /**
+     * @description The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
+     *
+     * This parameter is required.
+     * @example b-cezrnfgecbich****
+     *
      * @var string[]
      */
     public $bundleId;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -23,25 +34,14 @@ class DeleteBundlesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->bundleId)) {
-            Model::validateArray($this->bundleId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bundleId) {
-            if (\is_array($this->bundleId)) {
-                $res['BundleId'] = [];
-                $n1              = 0;
-                foreach ($this->bundleId as $item1) {
-                    $res['BundleId'][$n1++] = $item1;
-                }
-            }
+            $res['BundleId'] = $this->bundleId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +49,19 @@ class DeleteBundlesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBundlesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BundleId'])) {
             if (!empty($map['BundleId'])) {
-                $model->bundleId = [];
-                $n1              = 0;
-                foreach ($map['BundleId'] as $item1) {
-                    $model->bundleId[$n1++] = $item1;
-                }
+                $model->bundleId = $map['BundleId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

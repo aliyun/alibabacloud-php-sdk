@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class revokeAccessPolicyRule extends Model
 {
     /**
+     * @description The client CIDR block that you want to delete. After it is deleted, end users cannot connect to cloud computers from the CIDR block. The value is an IPv4 CIDR block.
+     *
+     * @example 47.100.XX.XX/16
+     *
      * @var string
      */
     public $cidrIp;
+
     /**
+     * @description The description of the client IP addresses that you want to delete from the whitelist.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
@@ -23,16 +32,14 @@ class revokeAccessPolicyRule extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cidrIp) {
             $res['CidrIp'] = $this->cidrIp;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -40,18 +47,17 @@ class revokeAccessPolicyRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return revokeAccessPolicyRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrIp'])) {
             $model->cidrIp = $map['CidrIp'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

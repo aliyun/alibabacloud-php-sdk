@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopOversoldGroupSaleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -12,6 +12,7 @@ class data extends Model
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
@@ -23,16 +24,14 @@ class data extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->oversoldGroupId) {
             $res['OversoldGroupId'] = $this->oversoldGroupId;
         }
@@ -40,18 +39,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['OversoldGroupId'])) {
             $model->oversoldGroupId = $map['OversoldGroupId'];
         }

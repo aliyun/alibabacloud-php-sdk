@@ -4,32 +4,72 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinationForMonitoringRequest\resourceCandidates;
+use AlibabaCloud\Tea\Model;
 
 class ApplyCoordinationForMonitoringRequest extends Model
 {
     /**
+     * @description The coordination policy.
+     *
+     * Set the value to FULL_CONTROL.
+     *
+     *   The value FULL_CONTROL specifies that the cloud desktop is shared and remote access to the cloud desktop is allowed.
+     *
+     * This parameter is required.
+     * @example FULL_CONTROL
+     *
      * @var string
      */
     public $coordinatePolicyType;
+
     /**
+     * @description The ID of the end user who initiates the stream collaboration. If the initiator is the administrator, do not specify this parameter.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
+
     /**
+     * @description The type of the initiator.
+     *
+     * Set the value to ADMIN_INITIATE.
+     *
+     *   The value ADMIN_INITIATE specifies that the administrator initiates the coordination request.
+     *
+     * <!-- -->
+     * @example ADMIN_INITIATE
+     *
      * @var string
      */
     public $initiatorType;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://next.api.aliyun.com/document/ecd/2020-09-30/DescribeRegions) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The list of cloud desktops that run the collaboration task at the same time.
+     *
+     * This parameter is required.
      * @var resourceCandidates[]
      */
     public $resourceCandidates;
+
     /**
+     * @description The universally unique identifier (UUID) of the device.
+     *
+     * This parameter is required.
+     * @example 62f2f1f252f04e0e9d8bc****
+     *
      * @var string
      */
     public $uuid;
@@ -44,41 +84,32 @@ class ApplyCoordinationForMonitoringRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceCandidates)) {
-            Model::validateArray($this->resourceCandidates);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->coordinatePolicyType) {
             $res['CoordinatePolicyType'] = $this->coordinatePolicyType;
         }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-
         if (null !== $this->initiatorType) {
             $res['InitiatorType'] = $this->initiatorType;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceCandidates) {
-            if (\is_array($this->resourceCandidates)) {
-                $res['ResourceCandidates'] = [];
-                $n1                        = 0;
-                foreach ($this->resourceCandidates as $item1) {
-                    $res['ResourceCandidates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceCandidates'] = [];
+            if (null !== $this->resourceCandidates && \is_array($this->resourceCandidates)) {
+                $n = 0;
+                foreach ($this->resourceCandidates as $item) {
+                    $res['ResourceCandidates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -86,40 +117,35 @@ class ApplyCoordinationForMonitoringRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApplyCoordinationForMonitoringRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoordinatePolicyType'])) {
             $model->coordinatePolicyType = $map['CoordinatePolicyType'];
         }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-
         if (isset($map['InitiatorType'])) {
             $model->initiatorType = $map['InitiatorType'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceCandidates'])) {
             if (!empty($map['ResourceCandidates'])) {
                 $model->resourceCandidates = [];
-                $n1                        = 0;
-                foreach ($map['ResourceCandidates'] as $item1) {
-                    $model->resourceCandidates[$n1++] = resourceCandidates::fromMap($item1);
+                $n                         = 0;
+                foreach ($map['ResourceCandidates'] as $item) {
+                    $model->resourceCandidates[$n++] = null !== $item ? resourceCandidates::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

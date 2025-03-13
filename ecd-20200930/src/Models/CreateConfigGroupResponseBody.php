@@ -4,19 +4,33 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateConfigGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the configuration group.
+     *
+     * @example ccg-0ctwi5zbswtql****
+     *
      * @var string
      */
     public $groupId;
+
     /**
+     * @description The creation result of the configuration group.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example EE9472BC-0B5D-5458-85CD-C52BDD******
+     *
      * @var string
      */
     public $requestId;
@@ -28,20 +42,17 @@ class CreateConfigGroupResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +60,20 @@ class CreateConfigGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateConfigGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

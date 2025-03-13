@@ -4,15 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceAmounts extends Model
 {
     /**
+     * @description The amount of resources.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $amount;
+
     /**
+     * @description The resource type. Valid values:
+     *
+     * - desktopGroup: shared cloud computers
+     * @example desktop
+     *
      * @var string
      */
     public $resourceType;
@@ -23,16 +33,14 @@ class resourceAmounts extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -40,18 +48,17 @@ class resourceAmounts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceAmounts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

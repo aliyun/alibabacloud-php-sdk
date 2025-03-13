@@ -4,25 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponseBody\priceInfo\price;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponseBody\priceInfo\rules;
+use AlibabaCloud\Tea\Model;
 
 class priceInfo extends Model
 {
     /**
+     * @description Indicates whether a free enterprise drive is available.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $freeCdsQuota;
+
     /**
+     * @description The free capacity provided by the enterprise drive. Unit: GiB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $freeCdsSize;
+
     /**
+     * @description The price.
+     *
      * @var price
      */
     public $price;
+
     /**
+     * @description The details of the promotion rules.
+     *
      * @var rules[]
      */
     public $rules;
@@ -35,36 +50,26 @@ class priceInfo extends Model
 
     public function validate()
     {
-        if (null !== $this->price) {
-            $this->price->validate();
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->freeCdsQuota) {
             $res['FreeCdsQuota'] = $this->freeCdsQuota;
         }
-
         if (null !== $this->freeCdsSize) {
             $res['FreeCdsSize'] = $this->freeCdsSize;
         }
-
         if (null !== $this->price) {
-            $res['Price'] = null !== $this->price ? $this->price->toArray($noStream) : $this->price;
+            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1           = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,32 +77,29 @@ class priceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return priceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FreeCdsQuota'])) {
             $model->freeCdsQuota = $map['FreeCdsQuota'];
         }
-
         if (isset($map['FreeCdsSize'])) {
             $model->freeCdsSize = $map['FreeCdsSize'];
         }
-
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n            = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }

@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNASFileSystemsRequest extends Model
 {
     /**
+     * @description The IDs of the NAS file systems that you want to delete.
+     *
+     * This parameter is required.
+     * @example 04f314****
+     *
      * @var string[]
      */
     public $fileSystemId;
+
     /**
+     * @description The region ID of the NAS file system that you want to delete.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -23,25 +34,14 @@ class DeleteNASFileSystemsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->fileSystemId)) {
-            Model::validateArray($this->fileSystemId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
-            if (\is_array($this->fileSystemId)) {
-                $res['FileSystemId'] = [];
-                $n1                  = 0;
-                foreach ($this->fileSystemId as $item1) {
-                    $res['FileSystemId'][$n1++] = $item1;
-                }
-            }
+            $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +49,19 @@ class DeleteNASFileSystemsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNASFileSystemsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             if (!empty($map['FileSystemId'])) {
-                $model->fileSystemId = [];
-                $n1                  = 0;
-                foreach ($map['FileSystemId'] as $item1) {
-                    $model->fileSystemId[$n1++] = $item1;
-                }
+                $model->fileSystemId = $map['FileSystemId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

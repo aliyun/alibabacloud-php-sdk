@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MigrateImageProtocolResponseBody extends Model
 {
     /**
+     * @description The IDs of the images whose protocols failed to be updated.
+     *
      * @var string[]
      */
     public $failedIds;
+
     /**
+     * @description The request ID.
+     *
+     * @example 4D4E5AF5-DF28-5FE7-85C7-9F98315B****
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +30,14 @@ class MigrateImageProtocolResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->failedIds)) {
-            Model::validateArray($this->failedIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failedIds) {
-            if (\is_array($this->failedIds)) {
-                $res['FailedIds'] = [];
-                $n1               = 0;
-                foreach ($this->failedIds as $item1) {
-                    $res['FailedIds'][$n1++] = $item1;
-                }
-            }
+            $res['FailedIds'] = $this->failedIds;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +45,19 @@ class MigrateImageProtocolResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MigrateImageProtocolResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedIds'])) {
             if (!empty($map['FailedIds'])) {
-                $model->failedIds = [];
-                $n1               = 0;
-                foreach ($map['FailedIds'] as $item1) {
-                    $model->failedIds[$n1++] = $item1;
-                }
+                $model->failedIds = $map['FailedIds'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

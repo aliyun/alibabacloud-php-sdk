@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class appInstanceGroups extends Model
 {
     /**
+     * @description The ID of the delivery group.
+     *
+     * @example aig-0bz55ibznu9p7****
+     *
      * @var string
      */
     public $appInstanceGroupId;
+
     /**
+     * @description The name of the delivery group.
+     *
+     * @example DemoDeliveryGroup
+     *
      * @var string
      */
     public $appInstanceGroupName;
@@ -23,16 +32,14 @@ class appInstanceGroups extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
-
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
@@ -40,18 +47,17 @@ class appInstanceGroups extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return appInstanceGroups
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
-
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }

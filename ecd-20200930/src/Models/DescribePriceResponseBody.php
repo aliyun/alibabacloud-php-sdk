@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponseBody\priceInfo;
+use AlibabaCloud\Tea\Model;
 
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description The price details.
+     *
      * @var priceInfo
      */
     public $priceInfo;
+
     /**
+     * @description The request ID.
+     *
+     * @example B1175630-3C44-4389-A3C1-15639FFC8EBC
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class DescribePriceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->priceInfo) {
-            $this->priceInfo->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->priceInfo) {
-            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toArray($noStream) : $this->priceInfo;
+            $res['PriceInfo'] = null !== $this->priceInfo ? $this->priceInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class DescribePriceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePriceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PriceInfo'])) {
             $model->priceInfo = priceInfo::fromMap($map['PriceInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

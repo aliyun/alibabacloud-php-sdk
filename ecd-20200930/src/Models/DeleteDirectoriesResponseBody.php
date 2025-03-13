@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDirectoriesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 5CC5E450-FC43-4F5B-B540-9964BD313427
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class DeleteDirectoriesResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class DeleteDirectoriesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDirectoriesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

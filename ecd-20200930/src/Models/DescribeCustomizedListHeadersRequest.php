@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCustomizedListHeadersRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $langType;
+
     /**
+     * @example desktop
+     *
      * @var string
      */
     public $listType;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,20 +38,17 @@ class DescribeCustomizedListHeadersRequest extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->langType) {
             $res['LangType'] = $this->langType;
         }
-
         if (null !== $this->listType) {
             $res['ListType'] = $this->listType;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +56,20 @@ class DescribeCustomizedListHeadersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCustomizedListHeadersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LangType'])) {
             $model->langType = $map['LangType'];
         }
-
         if (isset($map['ListType'])) {
             $model->listType = $map['ListType'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

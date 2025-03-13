@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeGuestApplicationsResponseBody\applications;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGuestApplicationsResponseBody extends Model
 {
     /**
+     * @description The details of the applications.
+     *
      * @var applications[]
      */
     public $applications;
+
     /**
+     * @description The request ID.
+     *
+     * @example 272CF39E-B5DE-5BE3-A09B-B43F1026****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class DescribeGuestApplicationsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->applications)) {
-            Model::validateArray($this->applications);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applications) {
-            if (\is_array($this->applications)) {
-                $res['Applications'] = [];
-                $n1                  = 0;
-                foreach ($this->applications as $item1) {
-                    $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Applications'] = [];
+            if (null !== $this->applications && \is_array($this->applications)) {
+                $n = 0;
+                foreach ($this->applications as $item) {
+                    $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class DescribeGuestApplicationsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGuestApplicationsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n1                  = 0;
-                foreach ($map['Applications'] as $item1) {
-                    $model->applications[$n1++] = applications::fromMap($item1);
+                $n                   = 0;
+                foreach ($map['Applications'] as $item) {
+                    $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateBundleResponseBody extends Model
 {
     /**
+     * @description The ID of the cloud computer template.
+     *
+     * @example b-cezrnfgecbich****
+     *
      * @var string
      */
     public $bundleId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class CreateBundleResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class CreateBundleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateBundleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

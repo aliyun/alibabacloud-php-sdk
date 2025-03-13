@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetDesktopGroupTimerResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 388CF76E-FFB3-5174-9F91-CDD****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +22,9 @@ class SetDesktopGroupTimerResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class SetDesktopGroupTimerResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetDesktopGroupTimerResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

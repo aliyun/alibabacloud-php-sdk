@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @description The IDs of the automatic snapshot policies that you want to delete.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $policyId;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -23,25 +32,14 @@ class DeleteAutoSnapshotPolicyRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->policyId)) {
-            Model::validateArray($this->policyId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyId) {
-            if (\is_array($this->policyId)) {
-                $res['PolicyId'] = [];
-                $n1              = 0;
-                foreach ($this->policyId as $item1) {
-                    $res['PolicyId'][$n1++] = $item1;
-                }
-            }
+            $res['PolicyId'] = $this->policyId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +47,19 @@ class DeleteAutoSnapshotPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAutoSnapshotPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             if (!empty($map['PolicyId'])) {
-                $model->policyId = [];
-                $n1              = 0;
-                foreach ($map['PolicyId'] as $item1) {
-                    $model->policyId[$n1++] = $item1;
-                }
+                $model->policyId = $map['PolicyId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

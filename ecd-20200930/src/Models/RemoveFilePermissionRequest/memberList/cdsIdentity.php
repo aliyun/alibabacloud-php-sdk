@@ -4,15 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest\memberList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cdsIdentity extends Model
 {
     /**
+     * @description The user ID or group ID.
+     *
+     * This parameter is required.
+     * @example 249dsfseee643h33g3dv****
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The object type.
+     *
+     * Valid values:
+     *
+     *   IT_Group
+     *
+     * <!-- -->
+     *
+     *   IT_User
+     *
+     * This parameter is required.
+     * @example IT_User
+     *
      * @var string
      */
     public $type;
@@ -23,16 +42,14 @@ class cdsIdentity extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +57,17 @@ class cdsIdentity extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cdsIdentity
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

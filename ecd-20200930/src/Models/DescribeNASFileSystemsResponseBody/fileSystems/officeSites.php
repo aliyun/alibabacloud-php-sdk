@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class officeSites extends Model
 {
     /**
+     * @description The ID of the office network.
+     *
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string
      */
     public $officeSiteId;
+
     /**
+     * @description The name of the office network.
+     *
+     * @example DemoOfficeNetwork
+     *
      * @var string
      */
     public $officeSiteName;
@@ -23,16 +32,14 @@ class officeSites extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
-
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
@@ -40,18 +47,17 @@ class officeSites extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return officeSites
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
-
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }

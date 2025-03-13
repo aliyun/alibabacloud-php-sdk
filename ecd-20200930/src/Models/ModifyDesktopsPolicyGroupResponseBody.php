@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopsPolicyGroupResponseBody\modifyResults;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDesktopsPolicyGroupResponseBody extends Model
 {
     /**
+     * @description The request results.
+     *
      * @var modifyResults[]
      */
     public $modifyResults;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+     *
      * @var string
      */
     public $requestId;
@@ -24,25 +31,20 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->modifyResults)) {
-            Model::validateArray($this->modifyResults);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->modifyResults) {
-            if (\is_array($this->modifyResults)) {
-                $res['ModifyResults'] = [];
-                $n1                   = 0;
-                foreach ($this->modifyResults as $item1) {
-                    $res['ModifyResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ModifyResults'] = [];
+            if (null !== $this->modifyResults && \is_array($this->modifyResults)) {
+                $n = 0;
+                foreach ($this->modifyResults as $item) {
+                    $res['ModifyResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +52,23 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDesktopsPolicyGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModifyResults'])) {
             if (!empty($map['ModifyResults'])) {
                 $model->modifyResults = [];
-                $n1                   = 0;
-                foreach ($map['ModifyResults'] as $item1) {
-                    $model->modifyResults[$n1++] = modifyResults::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['ModifyResults'] as $item) {
+                    $model->modifyResults[$n++] = null !== $item ? modifyResults::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

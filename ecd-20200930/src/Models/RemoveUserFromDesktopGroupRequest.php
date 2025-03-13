@@ -4,23 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveUserFromDesktopGroupRequest extends Model
 {
     /**
+     * @description The ID of the cloud computer pool for which you want to remove the authorized users.
+     *
+     * @example dg-2i8qxpv6t1a03****
+     *
      * @var string
      */
     public $desktopGroupId;
+
     /**
+     * @description The IDs of cloud computer pools.
+     *
      * @var string[]
      */
     public $desktopGroupIds;
+
     /**
+     * @description The IDs of the authorized users that you want to remove.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $endUserIds;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -33,42 +50,20 @@ class RemoveUserFromDesktopGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->desktopGroupIds)) {
-            Model::validateArray($this->desktopGroupIds);
-        }
-        if (\is_array($this->endUserIds)) {
-            Model::validateArray($this->endUserIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
-
         if (null !== $this->desktopGroupIds) {
-            if (\is_array($this->desktopGroupIds)) {
-                $res['DesktopGroupIds'] = [];
-                $n1                     = 0;
-                foreach ($this->desktopGroupIds as $item1) {
-                    $res['DesktopGroupIds'][$n1++] = $item1;
-                }
-            }
+            $res['DesktopGroupIds'] = $this->desktopGroupIds;
         }
-
         if (null !== $this->endUserIds) {
-            if (\is_array($this->endUserIds)) {
-                $res['EndUserIds'] = [];
-                $n1                = 0;
-                foreach ($this->endUserIds as $item1) {
-                    $res['EndUserIds'][$n1++] = $item1;
-                }
-            }
+            $res['EndUserIds'] = $this->endUserIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -76,38 +71,27 @@ class RemoveUserFromDesktopGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveUserFromDesktopGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
-
         if (isset($map['DesktopGroupIds'])) {
             if (!empty($map['DesktopGroupIds'])) {
-                $model->desktopGroupIds = [];
-                $n1                     = 0;
-                foreach ($map['DesktopGroupIds'] as $item1) {
-                    $model->desktopGroupIds[$n1++] = $item1;
-                }
+                $model->desktopGroupIds = $map['DesktopGroupIds'];
             }
         }
-
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = [];
-                $n1                = 0;
-                foreach ($map['EndUserIds'] as $item1) {
-                    $model->endUserIds[$n1++] = $item1;
-                }
+                $model->endUserIds = $map['EndUserIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

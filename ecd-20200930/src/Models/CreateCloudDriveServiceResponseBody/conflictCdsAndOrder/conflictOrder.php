@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCloudDriveServiceResponseBody\conflictCdsAndOrder;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class conflictOrder extends Model
 {
@@ -12,10 +12,12 @@ class conflictOrder extends Model
      * @var string
      */
     public $cdsId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
@@ -28,20 +30,17 @@ class conflictOrder extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,22 +48,20 @@ class conflictOrder extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return conflictOrder
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

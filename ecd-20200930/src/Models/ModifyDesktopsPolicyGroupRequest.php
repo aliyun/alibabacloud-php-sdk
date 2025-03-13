@@ -4,23 +4,44 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDesktopsPolicyGroupRequest extends Model
 {
     /**
+     * @description The cloud computer IDs. You can specify one or more cloud computers IDs. The value is a JSON array.
+     *
+     * This parameter is required.
+     * @example ecd-ia2zw38bi6cm7****
+     *
      * @var string[]
      */
     public $desktopId;
+
     /**
+     * @description The ID of the cloud computer policy that you want to associate with cloud computers.
+     *
+     * >  If the `PolicyGroupIds` parameter is used, ignore the current parameter.
+     * @example pg-gx2x1dhsmthe9****
+     *
      * @var string
      */
     public $policyGroupId;
+
     /**
+     * @description The IDs of the cloud computer policies that you want to associate with cloud computers.
+     *
+     * >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If you specify more than one cloud computer policy that takes effect globally, only the policy first associate with the cloud computer can take effect.
      * @var string[]
      */
     public $policyGroupIds;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -33,42 +54,20 @@ class ModifyDesktopsPolicyGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->desktopId)) {
-            Model::validateArray($this->desktopId);
-        }
-        if (\is_array($this->policyGroupIds)) {
-            Model::validateArray($this->policyGroupIds);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopId) {
-            if (\is_array($this->desktopId)) {
-                $res['DesktopId'] = [];
-                $n1               = 0;
-                foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
-                }
-            }
+            $res['DesktopId'] = $this->desktopId;
         }
-
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
-
         if (null !== $this->policyGroupIds) {
-            if (\is_array($this->policyGroupIds)) {
-                $res['PolicyGroupIds'] = [];
-                $n1                    = 0;
-                foreach ($this->policyGroupIds as $item1) {
-                    $res['PolicyGroupIds'][$n1++] = $item1;
-                }
-            }
+            $res['PolicyGroupIds'] = $this->policyGroupIds;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -76,38 +75,27 @@ class ModifyDesktopsPolicyGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDesktopsPolicyGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = [];
-                $n1               = 0;
-                foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
-                }
+                $model->desktopId = $map['DesktopId'];
             }
         }
-
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
-
         if (isset($map['PolicyGroupIds'])) {
             if (!empty($map['PolicyGroupIds'])) {
-                $model->policyGroupIds = [];
-                $n1                    = 0;
-                foreach ($map['PolicyGroupIds'] as $item1) {
-                    $model->policyGroupIds[$n1++] = $item1;
-                }
+                $model->policyGroupIds = $map['PolicyGroupIds'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

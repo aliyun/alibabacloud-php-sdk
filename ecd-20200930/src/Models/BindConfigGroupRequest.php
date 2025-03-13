@@ -4,20 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\BindConfigGroupRequest\resourceInfos;
+use AlibabaCloud\Tea\Model;
 
 class BindConfigGroupRequest extends Model
 {
     /**
+     * @description The ID of the configuration group.
+     *
+     * This parameter is required.
+     * @example ccg-0chlk9b65lj8z****
+     *
      * @var string
      */
     public $groupId;
+
     /**
+     * @description The ID of the region. Set the value to `cn-shanghai`.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The resources to which you want to bind the configuration group.
+     *
+     * This parameter is required.
      * @var resourceInfos[]
      */
     public $resourceInfos;
@@ -29,29 +43,23 @@ class BindConfigGroupRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->resourceInfos)) {
-            Model::validateArray($this->resourceInfos);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceInfos) {
-            if (\is_array($this->resourceInfos)) {
-                $res['ResourceInfos'] = [];
-                $n1                   = 0;
-                foreach ($this->resourceInfos as $item1) {
-                    $res['ResourceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceInfos'] = [];
+            if (null !== $this->resourceInfos && \is_array($this->resourceInfos)) {
+                $n = 0;
+                foreach ($this->resourceInfos as $item) {
+                    $res['ResourceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +67,26 @@ class BindConfigGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BindConfigGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n1                   = 0;
-                foreach ($map['ResourceInfos'] as $item1) {
-                    $model->resourceInfos[$n1++] = resourceInfos::fromMap($item1);
+                $n                    = 0;
+                foreach ($map['ResourceInfos'] as $item) {
+                    $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
                 }
             }
         }

@@ -4,15 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clientType extends Model
 {
     /**
+     * @description The type of the Alibaba Cloud Workspace client.
+     *
+     * Valid values:
+     *
+     *   html5: web client
+     *   android: Android client
+     *   windows: Windows client
+     *   ios: iOS client
+     *   macos: macOS client
+     *
+     * @example windows
+     *
      * @var string
      */
     public $clientType;
+
     /**
+     * @description Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
+     *
+     * Valid values:
+     *
+     *   off
+     *   on
+     *
+     * @example ON
+     *
      * @var string
      */
     public $status;
@@ -23,16 +45,14 @@ class clientType extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -40,18 +60,17 @@ class clientType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clientType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

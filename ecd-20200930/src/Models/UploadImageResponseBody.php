@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadImageResponseBody extends Model
 {
     /**
+     * @description The ID of the custom image.
+     *
+     * @example m-d4dwr5tgrgvd****
+     *
      * @var string
      */
     public $imageId;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A****
+     *
      * @var string
      */
     public $requestId;
@@ -23,16 +32,14 @@ class UploadImageResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +47,17 @@ class UploadImageResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadImageResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

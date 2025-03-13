@@ -1,3 +1,7 @@
+2025-03-13 Version: 4.3.2
+- Update API DescribeDesktops: update response param.
+
+
 2025-03-04 Version: 4.3.1
 - Update API DescribePolicyGroups: add param PageNumber.
 - Update API DescribePolicyGroups: add param PageSize.

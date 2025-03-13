@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyOfficeSiteDnsInfoResponseBody extends Model
 {
     /**
+     * @example F7E4322D-D679-5ACB-A909-490D2F0E****
+     *
      * @var string
      */
     public $requestId;
@@ -18,10 +20,9 @@ class ModifyOfficeSiteDnsInfoResponseBody extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyOfficeSiteDnsInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyOfficeSiteDnsInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

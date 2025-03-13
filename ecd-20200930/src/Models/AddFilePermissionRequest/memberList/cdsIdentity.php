@@ -4,15 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\AddFilePermissionRequest\memberList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class cdsIdentity extends Model
 {
     /**
+     * @description The ID of the user.
+     *
+     * This parameter is required.
+     * @example user01
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The type of the user.
+     *
+     * Valid values:
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * This parameter is required.
+     * @example IT_User
+     *
      * @var string
      */
     public $type;
@@ -23,16 +42,14 @@ class cdsIdentity extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +57,17 @@ class cdsIdentity extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cdsIdentity
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

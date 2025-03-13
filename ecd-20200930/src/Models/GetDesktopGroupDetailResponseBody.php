@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailResponseBody\desktops;
+use AlibabaCloud\Tea\Model;
 
 class GetDesktopGroupDetailResponseBody extends Model
 {
     /**
+     * @description The information about the cloud computer pool.
+     *
      * @var desktops
      */
     public $desktops;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B5268CE-5EB3-545F-9F38-A8BCF710****
+     *
      * @var string
      */
     public $requestId;
@@ -24,19 +31,14 @@ class GetDesktopGroupDetailResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->desktops) {
-            $this->desktops->validate();
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktops) {
-            $res['Desktops'] = null !== $this->desktops ? $this->desktops->toArray($noStream) : $this->desktops;
+            $res['Desktops'] = null !== $this->desktops ? $this->desktops->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +46,17 @@ class GetDesktopGroupDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDesktopGroupDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desktops'])) {
             $model->desktops = desktops::fromMap($map['Desktops']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

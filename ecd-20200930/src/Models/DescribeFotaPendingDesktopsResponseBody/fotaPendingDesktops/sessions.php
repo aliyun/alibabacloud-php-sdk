@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFotaPendingDesktopsResponseBody\fotaPendingDesktops;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sessions extends Model
 {
     /**
+     * @description The ID of the end user that connects to the cloud computer.
+     *
+     * @example end user id
+     *
      * @var string
      */
     public $endUserId;
@@ -18,10 +22,9 @@ class sessions extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endUserId) {
@@ -31,11 +34,11 @@ class sessions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sessions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

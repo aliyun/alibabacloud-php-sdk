@@ -4,15 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deviceRedirects extends Model
 {
     /**
+     * @description The peripheral type.
+     *
+     * Valid values:
+     *
+     *   printer
+     *   scanner
+     *   camera
+     *   adb: the Android Debug Bridge (ADB) device
+     *
+     * @example camera
+     *
      * @var string
      */
     public $deviceType;
+
     /**
+     * @description The redirection type.
+     *
+     * Valid values:
+     *
+     *   deviceRedirect: device redirection
+     *   usbRedirect: USB redirection
+     *   off: redirection disabled
+     *
+     * @example usbRedirect
+     *
      * @var string
      */
     public $redirectType;
@@ -23,16 +45,14 @@ class deviceRedirects extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deviceType) {
             $res['DeviceType'] = $this->deviceType;
         }
-
         if (null !== $this->redirectType) {
             $res['RedirectType'] = $this->redirectType;
         }
@@ -40,18 +60,17 @@ class deviceRedirects extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deviceRedirects
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceType'])) {
             $model->deviceType = $map['DeviceType'];
         }
-
         if (isset($map['RedirectType'])) {
             $model->redirectType = $map['RedirectType'];
         }

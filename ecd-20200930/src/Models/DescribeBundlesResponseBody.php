@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponseBody\bundles;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBundlesResponseBody extends Model
 {
     /**
+     * @description The details of the cloud computer templates.
+     *
      * @var bundles[]
      */
     public $bundles;
+
     /**
+     * @description The token that is used for the next query. If this parameter is empty, all results have been returned.
+     *
+     * @example AAAAAV3MpHK1AP0pfERHZN5pu6lu3PTF6h3zE8egwlYuv8M8
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example BCC854D8-5D1E-46D3-96EF-797A5DD36789
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class DescribeBundlesResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->bundles)) {
-            Model::validateArray($this->bundles);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bundles) {
-            if (\is_array($this->bundles)) {
-                $res['Bundles'] = [];
-                $n1             = 0;
-                foreach ($this->bundles as $item1) {
-                    $res['Bundles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Bundles'] = [];
+            if (null !== $this->bundles && \is_array($this->bundles)) {
+                $n = 0;
+                foreach ($this->bundles as $item) {
+                    $res['Bundles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class DescribeBundlesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBundlesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bundles'])) {
             if (!empty($map['Bundles'])) {
                 $model->bundles = [];
-                $n1             = 0;
-                foreach ($map['Bundles'] as $item1) {
-                    $model->bundles[$n1++] = bundles::fromMap($item1);
+                $n              = 0;
+                foreach ($map['Bundles'] as $item) {
+                    $model->bundles[$n++] = null !== $item ? bundles::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

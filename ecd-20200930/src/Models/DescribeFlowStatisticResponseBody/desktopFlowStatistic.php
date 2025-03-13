@@ -4,23 +4,42 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class desktopFlowStatistic extends Model
 {
     /**
+     * @description The ID of the cloud computer.
+     *
+     * @example ecd-8bslxqq0csytn****
+     *
      * @var string
      */
     public $desktopId;
+
     /**
+     * @description The name of the cloud computer.
+     *
+     * @example desktop-1
+     *
      * @var string
      */
     public $desktopName;
+
     /**
+     * @description The traffic amount. Unit: KB.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $flowIn;
+
     /**
+     * @description The traffic ranking.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $flowRank;
@@ -33,24 +52,20 @@ class desktopFlowStatistic extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
-
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
         }
-
         if (null !== $this->flowIn) {
             $res['FlowIn'] = $this->flowIn;
         }
-
         if (null !== $this->flowRank) {
             $res['FlowRank'] = $this->flowRank;
         }
@@ -58,26 +73,23 @@ class desktopFlowStatistic extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return desktopFlowStatistic
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
-
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
         }
-
         if (isset($map['FlowIn'])) {
             $model->flowIn = $map['FlowIn'];
         }
-
         if (isset($map['FlowRank'])) {
             $model->flowRank = $map['FlowRank'];
         }

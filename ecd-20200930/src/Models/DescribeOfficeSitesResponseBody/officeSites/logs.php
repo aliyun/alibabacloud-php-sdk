@@ -4,23 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class logs extends Model
 {
     /**
+     * @description The log severity.
+     *
+     * Valid values:
+     *
+     *   ERROR
+     *   INFO
+     *   WARN
+     *
+     * @example INFO
+     *
      * @var string
      */
     public $level;
+
     /**
+     * @description Details of the log entry.
+     *
+     * @example code:success | message:Create Connector complete
+     *
      * @var string
      */
     public $message;
+
     /**
+     * @description The step in the log entry.
+     *
+     * @example CREATE_CONNECTOR
+     *
      * @var string
      */
     public $step;
+
     /**
+     * @description The time when the log entry was printed.
+     *
+     * @example 2021-05-12T09:42Z
+     *
      * @var string
      */
     public $timeStamp;
@@ -33,24 +58,20 @@ class logs extends Model
 
     public function validate()
     {
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
-
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -58,26 +79,23 @@ class logs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }
-
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

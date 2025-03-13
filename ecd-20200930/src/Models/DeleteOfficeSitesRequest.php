@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteOfficeSitesRequest extends Model
 {
     /**
+     * @description The IDs of the office networks. You can specify 1 to 100 office networks.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou+dir-363353****
+     *
      * @var string[]
      */
     public $officeSiteId;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -23,25 +34,14 @@ class DeleteOfficeSitesRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->officeSiteId)) {
-            Model::validateArray($this->officeSiteId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->officeSiteId) {
-            if (\is_array($this->officeSiteId)) {
-                $res['OfficeSiteId'] = [];
-                $n1                  = 0;
-                foreach ($this->officeSiteId as $item1) {
-                    $res['OfficeSiteId'][$n1++] = $item1;
-                }
-            }
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +49,19 @@ class DeleteOfficeSitesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteOfficeSitesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OfficeSiteId'])) {
             if (!empty($map['OfficeSiteId'])) {
-                $model->officeSiteId = [];
-                $n1                  = 0;
-                foreach ($map['OfficeSiteId'] as $item1) {
-                    $model->officeSiteId[$n1++] = $item1;
-                }
+                $model->officeSiteId = $map['OfficeSiteId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

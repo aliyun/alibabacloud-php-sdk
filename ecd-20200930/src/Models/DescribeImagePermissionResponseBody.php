@@ -4,15 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeImagePermissionResponseBody extends Model
 {
     /**
+     * @description The IDs of the Alibaba Cloud accounts with which the image is shared.
+     *
      * @var string[]
      */
     public $aliUids;
+
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
@@ -23,25 +30,14 @@ class DescribeImagePermissionResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->aliUids)) {
-            Model::validateArray($this->aliUids);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aliUids) {
-            if (\is_array($this->aliUids)) {
-                $res['AliUids'] = [];
-                $n1             = 0;
-                foreach ($this->aliUids as $item1) {
-                    $res['AliUids'][$n1++] = $item1;
-                }
-            }
+            $res['AliUids'] = $this->aliUids;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +45,19 @@ class DescribeImagePermissionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeImagePermissionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUids'])) {
             if (!empty($map['AliUids'])) {
-                $model->aliUids = [];
-                $n1             = 0;
-                foreach ($map['AliUids'] as $item1) {
-                    $model->aliUids[$n1++] = $item1;
-                }
+                $model->aliUids = $map['AliUids'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

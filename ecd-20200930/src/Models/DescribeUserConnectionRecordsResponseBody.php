@@ -4,20 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsResponseBody\connectionRecords;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserConnectionRecordsResponseBody extends Model
 {
     /**
+     * @description Details about connection records of the end user.
+     *
      * @var connectionRecords[]
      */
     public $connectionRecords;
+
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 2CC66B0A-BA3B-5D87-BFBE-11AAAD7A8E03
+     *
      * @var string
      */
     public $requestId;
@@ -29,29 +41,23 @@ class DescribeUserConnectionRecordsResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->connectionRecords)) {
-            Model::validateArray($this->connectionRecords);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->connectionRecords) {
-            if (\is_array($this->connectionRecords)) {
-                $res['ConnectionRecords'] = [];
-                $n1                       = 0;
-                foreach ($this->connectionRecords as $item1) {
-                    $res['ConnectionRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ConnectionRecords'] = [];
+            if (null !== $this->connectionRecords && \is_array($this->connectionRecords)) {
+                $n = 0;
+                foreach ($this->connectionRecords as $item) {
+                    $res['ConnectionRecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,28 +65,26 @@ class DescribeUserConnectionRecordsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserConnectionRecordsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionRecords'])) {
             if (!empty($map['ConnectionRecords'])) {
                 $model->connectionRecords = [];
-                $n1                       = 0;
-                foreach ($map['ConnectionRecords'] as $item1) {
-                    $model->connectionRecords[$n1++] = connectionRecords::fromMap($item1);
+                $n                        = 0;
+                foreach ($map['ConnectionRecords'] as $item) {
+                    $model->connectionRecords[$n++] = null !== $item ? connectionRecords::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

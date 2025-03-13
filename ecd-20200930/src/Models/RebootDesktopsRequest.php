@@ -4,15 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RebootDesktopsRequest extends Model
 {
     /**
+     * @description The IDs of the cloud computers. You can specify 1 to 100 IDs.
+     *
+     * This parameter is required.
+     * @example ecd-gx2x1dhsmucyy****
+     *
      * @var string[]
      */
     public $desktopId;
+
     /**
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -23,25 +34,14 @@ class RebootDesktopsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->desktopId)) {
-            Model::validateArray($this->desktopId);
-        }
-        parent::validate();
     }
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->desktopId) {
-            if (\is_array($this->desktopId)) {
-                $res['DesktopId'] = [];
-                $n1               = 0;
-                foreach ($this->desktopId as $item1) {
-                    $res['DesktopId'][$n1++] = $item1;
-                }
-            }
+            $res['DesktopId'] = $this->desktopId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,24 +49,19 @@ class RebootDesktopsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RebootDesktopsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = [];
-                $n1               = 0;
-                foreach ($map['DesktopId'] as $item1) {
-                    $model->desktopId[$n1++] = $item1;
-                }
+                $model->desktopId = $map['DesktopId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
