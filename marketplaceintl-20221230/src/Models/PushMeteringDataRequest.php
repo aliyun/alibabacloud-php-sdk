@@ -1,6 +1,16 @@
 <?php
 
-// This file is auto-generated, don't edit it. Thanks.
+declare(strict_types=1);
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models;
 
@@ -21,13 +31,11 @@ class PushMeteringDataRequest extends Model
      */
     public $meteringData;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
+        'gmtCreate' => 'GmtCreate',
         'meteringData' => 'MeteringData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate(): void {}
 
     public function toMap()
     {
@@ -62,7 +70,7 @@ class PushMeteringDataRequest extends Model
         if (isset($map['MeteringData'])) {
             if (!empty($map['MeteringData'])) {
                 $model->meteringData = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MeteringData'] as $item) {
                     $model->meteringData[$n++] = null !== $item ? meteringData::fromMap($item) : $item;
                 }
