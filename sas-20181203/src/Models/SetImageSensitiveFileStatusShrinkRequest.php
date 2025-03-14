@@ -166,16 +166,14 @@ class SetImageSensitiveFileStatusShrinkRequest extends Model
      */
     public $status;
     protected $_name = [
-        'idList'           => 'IdList',
-        'imageUuids'       => 'ImageUuids',
-        'scanRangeShrink'  => 'ScanRange',
+        'idList' => 'IdList',
+        'imageUuids' => 'ImageUuids',
+        'scanRangeShrink' => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

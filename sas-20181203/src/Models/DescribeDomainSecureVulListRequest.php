@@ -49,15 +49,13 @@ class DescribeDomainSecureVulListRequest extends Model
      */
     public $type;
     protected $_name = [
-        'from'     => 'From',
-        'lang'     => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

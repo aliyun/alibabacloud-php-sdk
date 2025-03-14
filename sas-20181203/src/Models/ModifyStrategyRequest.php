@@ -15,6 +15,7 @@ class ModifyStrategyRequest extends Model
      *   **common**: a standard baseline check policy
      *
      * This parameter is required.
+     *
      * @example common
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyStrategyRequest extends Model
      *   **30**: every 31 days
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -45,6 +47,7 @@ class ModifyStrategyRequest extends Model
      *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
      *
      * >  This parameter is deprecated.
+     *
      * @example 18
      *
      * @var string
@@ -55,6 +58,7 @@ class ModifyStrategyRequest extends Model
      * @description The time when the baseline check based on the baseline check policy ends. Specify the time in the hh:mm:ss format.
      *
      * This parameter is required.
+     *
      * @example 05:00:00
      *
      * @var string
@@ -74,6 +78,7 @@ class ModifyStrategyRequest extends Model
      * @description The new name of the baseline check policy.
      *
      * This parameter is required.
+     *
      * @example testStrategy
      *
      * @var string
@@ -108,6 +113,7 @@ class ModifyStrategyRequest extends Model
      * @description The subtype of the baselines. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
      *
      * This parameter is required.
+     *
      * @example hc_exploit_redis
      *
      * @var string
@@ -127,6 +133,7 @@ class ModifyStrategyRequest extends Model
      * @description The time when the baseline check based on the baseline check policy starts. Specify the time in the hh:mm:ss format.
      *
      * This parameter is required.
+     *
      * @example 00:01:00
      *
      * @var string
@@ -140,28 +147,27 @@ class ModifyStrategyRequest extends Model
      *   **uuid**: assets
      *
      * This parameter is required.
+     *
      * @example groupId
      *
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'customType'       => 'CustomType',
-        'cycleDays'        => 'CycleDays',
-        'cycleStartTime'   => 'CycleStartTime',
-        'endTime'          => 'EndTime',
-        'id'               => 'Id',
-        'name'             => 'Name',
+        'customType' => 'CustomType',
+        'cycleDays' => 'CycleDays',
+        'cycleStartTime' => 'CycleStartTime',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'name' => 'Name',
         'riskCustomParams' => 'RiskCustomParams',
-        'riskSubTypeName'  => 'RiskSubTypeName',
-        'sourceIp'         => 'SourceIp',
-        'startTime'        => 'StartTime',
-        'targetType'       => 'TargetType',
+        'riskSubTypeName' => 'RiskSubTypeName',
+        'sourceIp' => 'SourceIp',
+        'startTime' => 'StartTime',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

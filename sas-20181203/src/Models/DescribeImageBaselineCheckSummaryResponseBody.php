@@ -34,13 +34,11 @@ class DescribeImageBaselineCheckSummaryResponseBody extends Model
     public $requestId;
     protected $_name = [
         'baselineResultSummary' => 'BaselineResultSummary',
-        'pageInfo'              => 'PageInfo',
-        'requestId'             => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeImageBaselineCheckSummaryResponseBody extends Model
         if (isset($map['BaselineResultSummary'])) {
             if (!empty($map['BaselineResultSummary'])) {
                 $model->baselineResultSummary = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['BaselineResultSummary'] as $item) {
                     $model->baselineResultSummary[$n++] = null !== $item ? baselineResultSummary::fromMap($item) : $item;
                 }

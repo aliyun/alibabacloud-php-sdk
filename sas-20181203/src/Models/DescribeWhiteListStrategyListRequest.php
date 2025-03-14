@@ -38,14 +38,12 @@ class DescribeWhiteListStrategyListRequest extends Model
      */
     public $strategyIds;
     protected $_name = [
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'strategyIds' => 'StrategyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

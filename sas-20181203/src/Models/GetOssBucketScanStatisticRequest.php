@@ -28,12 +28,10 @@ class GetOssBucketScanStatisticRequest extends Model
     public $source;
     protected $_name = [
         'bucketNameList' => 'BucketNameList',
-        'source'         => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

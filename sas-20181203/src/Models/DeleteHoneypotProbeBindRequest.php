@@ -33,20 +33,19 @@ class DeleteHoneypotProbeBindRequest extends Model
      * @description The probe ID.
      *
      * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     *
      * @example aa234650-cfcf-4e25-b61f-c58f603f****
      *
      * @var string
      */
     public $probeId;
     protected $_name = [
-        'bindId'  => 'BindId',
-        'lang'    => 'Lang',
+        'bindId' => 'BindId',
+        'lang' => 'Lang',
         'probeId' => 'ProbeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

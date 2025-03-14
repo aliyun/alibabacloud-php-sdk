@@ -88,18 +88,16 @@ class necessity extends Model
      */
     public $totalScore;
     protected $_name = [
-        'assetsFactor'     => 'Assets_factor',
-        'cvssFactor'       => 'Cvss_factor',
+        'assetsFactor' => 'Assets_factor',
+        'cvssFactor' => 'Cvss_factor',
         'enviromentFactor' => 'Enviroment_factor',
-        'isCalc'           => 'Is_calc',
-        'status'           => 'Status',
-        'timeFactor'       => 'Time_factor',
-        'totalScore'       => 'Total_score',
+        'isCalc' => 'Is_calc',
+        'status' => 'Status',
+        'timeFactor' => 'Time_factor',
+        'totalScore' => 'Total_score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

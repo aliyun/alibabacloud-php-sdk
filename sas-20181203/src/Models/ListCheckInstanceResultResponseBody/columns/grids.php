@@ -38,14 +38,12 @@ class grids extends Model
      */
     public $type;
     protected $_name = [
-        'key'      => 'Key',
+        'key' => 'Key',
         'showName' => 'ShowName',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

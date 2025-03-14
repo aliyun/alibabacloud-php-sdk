@@ -19,9 +19,7 @@ class BatchCreateMaliciousNoteRequest extends Model
         'imageMaliciousFileList' => 'ImageMaliciousFileList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class BatchCreateMaliciousNoteRequest extends Model
         if (isset($map['ImageMaliciousFileList'])) {
             if (!empty($map['ImageMaliciousFileList'])) {
                 $model->imageMaliciousFileList = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['ImageMaliciousFileList'] as $item) {
                     $model->imageMaliciousFileList[$n++] = null !== $item ? imageMaliciousFileList::fromMap($item) : $item;
                 }

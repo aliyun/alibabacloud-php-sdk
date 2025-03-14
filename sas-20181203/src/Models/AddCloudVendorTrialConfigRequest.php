@@ -11,7 +11,11 @@ class AddCloudVendorTrialConfigRequest extends Model
     /**
      * @description Unique ID of the AK.
      *
+     * > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to get the AuthId.
+     * > -
+     *
      * This parameter is required.
+     *
      * @example 2363
      *
      * @var int
@@ -24,6 +28,7 @@ class AddCloudVendorTrialConfigRequest extends Model
      * - *Tencent*: Parameters include kafkaUserName, kafkaBootstrapServers, kafkaTopic
      *
      * This parameter is required.
+     *
      * @example {\\"sqsRegion\\":\\"us-west-2\\",\\"sqsQueueName\\":\\"****\\"}
      *
      * @var string
@@ -37,20 +42,19 @@ class AddCloudVendorTrialConfigRequest extends Model
      * - **AWS**: AWS (Note: The original text incorrectly states \\"Microsoft\\", which should be \\"AWS\\" based on context.)
      *
      * This parameter is required.
+     *
      * @example Tencent
      *
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'authId'   => 'AuthId',
+        'authId' => 'AuthId',
         'authInfo' => 'AuthInfo',
-        'vendor'   => 'Vendor',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

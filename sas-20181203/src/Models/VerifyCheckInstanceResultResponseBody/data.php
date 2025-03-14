@@ -37,13 +37,11 @@ class data extends Model
     public $taskId;
     protected $_name = [
         'failInstances' => 'FailInstances',
-        'operateCode'   => 'OperateCode',
-        'taskId'        => 'TaskId',
+        'operateCode' => 'OperateCode',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

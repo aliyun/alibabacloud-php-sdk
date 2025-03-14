@@ -26,13 +26,11 @@ class DescribeCountScannedImageResponseBody extends Model
      */
     public $scannedCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'scannedCount' => 'ScannedCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

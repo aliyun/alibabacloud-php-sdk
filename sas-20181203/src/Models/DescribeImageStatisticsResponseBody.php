@@ -35,14 +35,12 @@ class DescribeImageStatisticsResponseBody extends Model
      */
     public $riskInstanceCount;
     protected $_name = [
-        'instanceCount'     => 'InstanceCount',
-        'requestId'         => 'RequestId',
+        'instanceCount' => 'InstanceCount',
+        'requestId' => 'RequestId',
         'riskInstanceCount' => 'RiskInstanceCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

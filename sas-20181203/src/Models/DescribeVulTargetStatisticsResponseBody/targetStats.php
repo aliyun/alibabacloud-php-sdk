@@ -48,15 +48,13 @@ class targetStats extends Model
      */
     public $vulType;
     protected $_name = [
-        'targets'    => 'Targets',
+        'targets' => 'Targets',
         'totalCount' => 'TotalCount',
-        'uuidCount'  => 'UuidCount',
-        'vulType'    => 'VulType',
+        'uuidCount' => 'UuidCount',
+        'vulType' => 'VulType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +92,7 @@ class targetStats extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Targets'] as $item) {
                     $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
                 }

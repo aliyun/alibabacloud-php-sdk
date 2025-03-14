@@ -177,28 +177,26 @@ class edgeList extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliuid'     => 'Aliuid',
-        'endId'      => 'EndId',
-        'endType'    => 'EndType',
-        'name'       => 'Name',
-        'origin'     => 'Origin',
+        'aliuid' => 'Aliuid',
+        'endId' => 'EndId',
+        'endType' => 'EndType',
+        'name' => 'Name',
+        'origin' => 'Origin',
         'properties' => 'Properties',
-        'property'   => 'Property',
-        'ruleId'     => 'RuleId',
-        'showType'   => 'ShowType',
-        'startId'    => 'StartId',
-        'startType'  => 'StartType',
-        'time'       => 'Time',
-        'timestamp'  => 'Timestamp',
-        'type'       => 'Type',
-        'typeName'   => 'TypeName',
+        'property' => 'Property',
+        'ruleId' => 'RuleId',
+        'showType' => 'ShowType',
+        'startId' => 'StartId',
+        'startType' => 'StartType',
+        'time' => 'Time',
+        'timestamp' => 'Timestamp',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
         'updateTime' => 'UpdateTime',
-        'uuid'       => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

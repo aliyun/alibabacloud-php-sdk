@@ -280,39 +280,37 @@ class alarmList extends Model
      */
     public $uuid;
     protected $_name = [
-        'alarmEventName'         => 'AlarmEventName',
+        'alarmEventName' => 'AlarmEventName',
         'alarmEventNameOriginal' => 'AlarmEventNameOriginal',
-        'alarmEventType'         => 'AlarmEventType',
-        'alarmUniqueInfo'        => 'AlarmUniqueInfo',
-        'autoBreaking'           => 'AutoBreaking',
-        'canBeDealOnLine'        => 'CanBeDealOnLine',
-        'canCancelFault'         => 'CanCancelFault',
-        'containHwMode'          => 'ContainHwMode',
-        'dataSource'             => 'DataSource',
-        'dealed'                 => 'Dealed',
-        'description'            => 'Description',
-        'endTime'                => 'EndTime',
-        'gmtModified'            => 'GmtModified',
-        'hasTraceInfo'           => 'HasTraceInfo',
-        'instanceId'             => 'InstanceId',
-        'instanceName'           => 'InstanceName',
-        'internetIp'             => 'InternetIp',
-        'intranetIp'             => 'IntranetIp',
-        'level'                  => 'Level',
-        'operateErrorCode'       => 'OperateErrorCode',
-        'operateTime'            => 'OperateTime',
-        'saleVersion'            => 'SaleVersion',
-        'securityEventIds'       => 'SecurityEventIds',
-        'solution'               => 'Solution',
-        'stages'                 => 'Stages',
-        'startTime'              => 'StartTime',
-        'suspiciousEventCount'   => 'SuspiciousEventCount',
-        'uuid'                   => 'Uuid',
+        'alarmEventType' => 'AlarmEventType',
+        'alarmUniqueInfo' => 'AlarmUniqueInfo',
+        'autoBreaking' => 'AutoBreaking',
+        'canBeDealOnLine' => 'CanBeDealOnLine',
+        'canCancelFault' => 'CanCancelFault',
+        'containHwMode' => 'ContainHwMode',
+        'dataSource' => 'DataSource',
+        'dealed' => 'Dealed',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'gmtModified' => 'GmtModified',
+        'hasTraceInfo' => 'HasTraceInfo',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'level' => 'Level',
+        'operateErrorCode' => 'OperateErrorCode',
+        'operateTime' => 'OperateTime',
+        'saleVersion' => 'SaleVersion',
+        'securityEventIds' => 'SecurityEventIds',
+        'solution' => 'Solution',
+        'stages' => 'Stages',
+        'startTime' => 'StartTime',
+        'suspiciousEventCount' => 'SuspiciousEventCount',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

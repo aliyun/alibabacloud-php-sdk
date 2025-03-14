@@ -33,14 +33,12 @@ class AddCheckResultWhiteListResponseBody extends Model
      */
     public $ruleIds;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
-        'ruleIds'   => 'RuleIds',
+        'ruleIds' => 'RuleIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

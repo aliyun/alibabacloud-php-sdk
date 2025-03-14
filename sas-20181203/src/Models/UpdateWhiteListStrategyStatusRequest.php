@@ -47,6 +47,7 @@ class UpdateWhiteListStrategyStatusRequest extends Model
      *   You can change the status to **enabled** only if the policy status is **learning completed**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -56,22 +57,23 @@ class UpdateWhiteListStrategyStatusRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 8516
      *
      * @var string
      */
     public $strategyIds;
     protected $_name = [
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
-        'status'      => 'Status',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
         'strategyIds' => 'StrategyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

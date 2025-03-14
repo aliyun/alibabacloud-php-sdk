@@ -34,13 +34,11 @@ class ListBackupRecordResponseBody extends Model
     public $requestId;
     protected $_name = [
         'backupRecordList' => 'BackupRecordList',
-        'pageInfo'         => 'PageInfo',
-        'requestId'        => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListBackupRecordResponseBody extends Model
         if (isset($map['BackupRecordList'])) {
             if (!empty($map['BackupRecordList'])) {
                 $model->backupRecordList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['BackupRecordList'] as $item) {
                     $model->backupRecordList[$n++] = null !== $item ? backupRecordList::fromMap($item) : $item;
                 }

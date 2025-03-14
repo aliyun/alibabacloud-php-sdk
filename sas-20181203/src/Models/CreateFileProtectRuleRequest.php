@@ -26,6 +26,7 @@ class CreateFileProtectRuleRequest extends Model
      * @description The operations that you want to perform on the files.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $fileOps;
@@ -34,6 +35,7 @@ class CreateFileProtectRuleRequest extends Model
      * @description The paths to the files that you want to monitor. Wildcard characters are supported.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $filePaths;
@@ -54,6 +56,7 @@ class CreateFileProtectRuleRequest extends Model
      * @description The paths to the processes that you want to monitor. Wildcard characters are supported.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $procPaths;
@@ -65,6 +68,7 @@ class CreateFileProtectRuleRequest extends Model
      *   alert
      *
      * This parameter is required.
+     *
      * @example pass
      *
      * @var string
@@ -75,6 +79,7 @@ class CreateFileProtectRuleRequest extends Model
      * @description The name of the rule.
      *
      * This parameter is required.
+     *
      * @example tetsRule
      *
      * @var string
@@ -103,19 +108,17 @@ class CreateFileProtectRuleRequest extends Model
     public $switchId;
     protected $_name = [
         'alertLevel' => 'AlertLevel',
-        'fileOps'    => 'FileOps',
-        'filePaths'  => 'FilePaths',
-        'platform'   => 'Platform',
-        'procPaths'  => 'ProcPaths',
+        'fileOps' => 'FileOps',
+        'filePaths' => 'FilePaths',
+        'platform' => 'Platform',
+        'procPaths' => 'ProcPaths',
         'ruleAction' => 'RuleAction',
-        'ruleName'   => 'RuleName',
-        'status'     => 'Status',
-        'switchId'   => 'SwitchId',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

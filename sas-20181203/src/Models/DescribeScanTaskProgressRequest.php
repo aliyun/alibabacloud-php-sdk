@@ -11,7 +11,10 @@ class DescribeScanTaskProgressRequest extends Model
     /**
      * @description The ID of the virus scan task.
      *
+     * >  You can call the [StartVirusScanTask](~~StartVirusScanTask~~) operation to query the IDs of virus scan tasks.
+     *
      * This parameter is required.
+     *
      * @example 282832
      *
      * @var int
@@ -21,9 +24,7 @@ class DescribeScanTaskProgressRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

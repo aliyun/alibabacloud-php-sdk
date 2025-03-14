@@ -34,13 +34,11 @@ class DescribeUniBackupDatabaseResponseBody extends Model
     public $requestId;
     protected $_name = [
         'databaseList' => 'DatabaseList',
-        'pageInfo'     => 'PageInfo',
-        'requestId'    => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeUniBackupDatabaseResponseBody extends Model
         if (isset($map['DatabaseList'])) {
             if (!empty($map['DatabaseList'])) {
                 $model->databaseList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DatabaseList'] as $item) {
                     $model->databaseList[$n++] = null !== $item ? databaseList::fromMap($item) : $item;
                 }

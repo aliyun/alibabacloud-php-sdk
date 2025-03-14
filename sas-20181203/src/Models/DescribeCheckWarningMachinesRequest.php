@@ -12,6 +12,7 @@ class DescribeCheckWarningMachinesRequest extends Model
      * @description The ID of the check item.
      *
      * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of check items.
+     *
      * @example 58
      *
      * @var int
@@ -79,6 +80,7 @@ class DescribeCheckWarningMachinesRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -89,6 +91,7 @@ class DescribeCheckWarningMachinesRequest extends Model
      * @description The ID of the baseline.
      *
      * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of baselines.
+     *
      * @example 43
      *
      * @var int
@@ -107,21 +110,19 @@ class DescribeCheckWarningMachinesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'checkId'                    => 'CheckId',
-        'currentPage'                => 'CurrentPage',
-        'filterUuid'                 => 'FilterUuid',
-        'instanceId'                 => 'InstanceId',
-        'lang'                       => 'Lang',
-        'pageSize'                   => 'PageSize',
-        'remark'                     => 'Remark',
+        'checkId' => 'CheckId',
+        'currentPage' => 'CurrentPage',
+        'filterUuid' => 'FilterUuid',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'riskId'                     => 'RiskId',
-        'status'                     => 'Status',
+        'riskId' => 'RiskId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

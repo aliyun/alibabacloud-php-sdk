@@ -15,6 +15,7 @@ class reportRecipientList extends Model
      *   1: yes
      *
      * >  If no email is specified when you create a report, the value of this parameter is empty.
+     *
      * @example 1
      *
      * @var int
@@ -25,19 +26,18 @@ class reportRecipientList extends Model
      * @description The email address of the report recipient.
      *
      * >  If no email is specified when you create a report, the value of this parameter is empty.
+     *
      * @example username@example.com
      *
      * @var string
      */
     public $recipient;
     protected $_name = [
-        'isVerify'  => 'IsVerify',
+        'isVerify' => 'IsVerify',
         'recipient' => 'Recipient',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

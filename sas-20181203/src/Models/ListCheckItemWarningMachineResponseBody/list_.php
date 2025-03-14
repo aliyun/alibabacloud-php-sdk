@@ -215,36 +215,36 @@ class list_ extends Model
     /**
      * @description The information about the baselines on which the risk item is detected.
      *
+     * @deprecated
+     *
      * @var warningRiskList[]
      */
     public $warningRiskList;
     protected $_name = [
-        'authVersion'     => 'AuthVersion',
-        'bind'            => 'Bind',
-        'containerId'     => 'ContainerId',
-        'containerName'   => 'ContainerName',
-        'fixList'         => 'FixList',
-        'fixStatus'       => 'FixStatus',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'lastHandleTime'  => 'LastHandleTime',
-        'lastScanTime'    => 'LastScanTime',
-        'portOpen'        => 'PortOpen',
-        'prompt'          => 'Prompt',
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
-        'targetId'        => 'TargetId',
-        'targetName'      => 'TargetName',
-        'targetType'      => 'TargetType',
-        'uuid'            => 'Uuid',
+        'authVersion' => 'AuthVersion',
+        'bind' => 'Bind',
+        'containerId' => 'ContainerId',
+        'containerName' => 'ContainerName',
+        'fixList' => 'FixList',
+        'fixStatus' => 'FixStatus',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lastHandleTime' => 'LastHandleTime',
+        'lastScanTime' => 'LastScanTime',
+        'portOpen' => 'PortOpen',
+        'prompt' => 'Prompt',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'uuid' => 'Uuid',
         'warningRiskList' => 'WarningRiskList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -351,7 +351,7 @@ class list_ extends Model
         if (isset($map['FixList'])) {
             if (!empty($map['FixList'])) {
                 $model->fixList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['FixList'] as $item) {
                     $model->fixList[$n++] = null !== $item ? fixList::fromMap($item) : $item;
                 }
@@ -405,7 +405,7 @@ class list_ extends Model
         if (isset($map['WarningRiskList'])) {
             if (!empty($map['WarningRiskList'])) {
                 $model->warningRiskList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['WarningRiskList'] as $item) {
                     $model->warningRiskList[$n++] = null !== $item ? warningRiskList::fromMap($item) : $item;
                 }

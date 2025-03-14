@@ -139,7 +139,11 @@ class imageRiskList extends Model
      * @description The statistics on a security event.
      *
      * @example {
+     * "baselineNum": 0,
+     * "newSuspicious": 0,
+     * "vul": 0
      * }
+     *
      * @var string
      */
     public $statistics;
@@ -183,29 +187,27 @@ class imageRiskList extends Model
      */
     public $vpcURLs;
     protected $_name = [
-        'digest'          => 'Digest',
-        'endPointList'    => 'EndPointList',
-        'endpoints'       => 'Endpoints',
-        'image'           => 'Image',
+        'digest' => 'Digest',
+        'endPointList' => 'EndPointList',
+        'endpoints' => 'Endpoints',
+        'image' => 'Image',
         'imageAccessType' => 'ImageAccessType',
-        'imageId'         => 'ImageId',
-        'internetURLs'    => 'InternetURLs',
-        'regionId'        => 'RegionId',
-        'registryType'    => 'RegistryType',
-        'repoId'          => 'RepoId',
-        'repoName'        => 'RepoName',
-        'repoNamespace'   => 'RepoNamespace',
-        'repoType'        => 'RepoType',
-        'statistics'      => 'Statistics',
-        'tag'             => 'Tag',
-        'tagImmutable'    => 'TagImmutable',
-        'uuid'            => 'Uuid',
-        'vpcURLs'         => 'VpcURLs',
+        'imageId' => 'ImageId',
+        'internetURLs' => 'InternetURLs',
+        'regionId' => 'RegionId',
+        'registryType' => 'RegistryType',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoType' => 'RepoType',
+        'statistics' => 'Statistics',
+        'tag' => 'Tag',
+        'tagImmutable' => 'TagImmutable',
+        'uuid' => 'Uuid',
+        'vpcURLs' => 'VpcURLs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -288,7 +290,7 @@ class imageRiskList extends Model
         if (isset($map['EndPointList'])) {
             if (!empty($map['EndPointList'])) {
                 $model->endPointList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['EndPointList'] as $item) {
                     $model->endPointList[$n++] = null !== $item ? endPointList::fromMap($item) : $item;
                 }

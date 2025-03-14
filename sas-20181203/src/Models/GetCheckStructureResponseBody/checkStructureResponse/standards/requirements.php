@@ -43,15 +43,13 @@ class requirements extends Model
      */
     public $totalCheckCount;
     protected $_name = [
-        'id'              => 'Id',
-        'sections'        => 'Sections',
-        'showName'        => 'ShowName',
+        'id' => 'Id',
+        'sections' => 'Sections',
+        'showName' => 'ShowName',
         'totalCheckCount' => 'TotalCheckCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class requirements extends Model
         if (isset($map['Sections'])) {
             if (!empty($map['Sections'])) {
                 $model->sections = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sections'] as $item) {
                     $model->sections[$n++] = null !== $item ? sections::fromMap($item) : $item;
                 }

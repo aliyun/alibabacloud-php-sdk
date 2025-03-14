@@ -33,14 +33,12 @@ class DescribeVulFixStatisticsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fixStat'   => 'FixStat',
-        'fixTotal'  => 'FixTotal',
+        'fixStat' => 'FixStat',
+        'fixTotal' => 'FixTotal',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeVulFixStatisticsResponseBody extends Model
         if (isset($map['FixStat'])) {
             if (!empty($map['FixStat'])) {
                 $model->fixStat = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['FixStat'] as $item) {
                     $model->fixStat[$n++] = null !== $item ? fixStat::fromMap($item) : $item;
                 }

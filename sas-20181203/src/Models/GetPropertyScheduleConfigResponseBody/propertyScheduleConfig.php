@@ -53,13 +53,11 @@ class propertyScheduleConfig extends Model
     public $type;
     protected $_name = [
         'nextScheduleTime' => 'NextScheduleTime',
-        'scheduleTime'     => 'ScheduleTime',
-        'type'             => 'Type',
+        'scheduleTime' => 'ScheduleTime',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

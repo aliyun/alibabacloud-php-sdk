@@ -18,6 +18,7 @@ class GetAssetSelectionConfigRequest extends Model
      *   **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protectioion
      *
      * This parameter is required.
+     *
      * @example VIRUS_SCAN_CYCLE_CONFIG
      *
      * @var string
@@ -27,9 +28,7 @@ class GetAssetSelectionConfigRequest extends Model
         'businessType' => 'BusinessType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,7 +20,10 @@ class UpdateCustomizeReportStatusRequest extends Model
     /**
      * @description The ID of the report.
      *
+     * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -34,20 +37,19 @@ class UpdateCustomizeReportStatusRequest extends Model
      *   **1**: enabled.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $reportStatus;
     protected $_name = [
-        'pinnedTime'   => 'PinnedTime',
-        'reportId'     => 'ReportId',
+        'pinnedTime' => 'PinnedTime',
+        'reportId' => 'ReportId',
         'reportStatus' => 'ReportStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

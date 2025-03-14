@@ -12,6 +12,7 @@ class CreateCustomBlockRecordRequest extends Model
      * @description The IP address that you want to specify in the policy.
      *
      * This parameter is required.
+     *
      * @example 192.168.xx.xx
      *
      * @var string
@@ -25,6 +26,7 @@ class CreateCustomBlockRecordRequest extends Model
      *   **out**: outbound
      *
      * This parameter is required.
+     *
      * @example in
      *
      * @var string
@@ -35,6 +37,7 @@ class CreateCustomBlockRecordRequest extends Model
      * @description The expiration time of the policy.
      *
      * This parameter is required.
+     *
      * @example 1859094550000
      *
      * @var int
@@ -50,22 +53,21 @@ class CreateCustomBlockRecordRequest extends Model
      * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 71c846d6-5c84-4714-acfc-58265bc3****,5013b5e8-1613-43a8-b4de-651db318****,df53f0ad-b3ba-4fe0-9ec7-f42a2ae2****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
-        'expireTime'      => 'ExpireTime',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
+        'expireTime' => 'ExpireTime',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'uuids'           => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

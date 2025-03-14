@@ -32,7 +32,10 @@ class ModifyLoginBaseConfigRequest extends Model
      *
      *   **account**: the common logon account.
      *
+     * > You must specify this field if the Type parameter is set to login_common_account.
+     *
      * This parameter is required.
+     *
      * @example {"totalCount":174,"uuidCount":4,"location":"Montenegro","id":0}
      *
      * @var string
@@ -55,6 +58,7 @@ class ModifyLoginBaseConfigRequest extends Model
      *   **add**: adds the server to the configuration.
      *
      * This parameter is required.
+     *
      * @example [{"target":"inet-7c676676-06fa-442e-90fb-b802e5d6****","targetType":"uuid","flag":"add"}]
      *
      * @var string
@@ -70,6 +74,7 @@ class ModifyLoginBaseConfigRequest extends Model
      *   **login_common_account**: common logon account
      *
      * This parameter is required.
+     *
      * @example login_common_location
      *
      * @var string
@@ -78,12 +83,10 @@ class ModifyLoginBaseConfigRequest extends Model
     protected $_name = [
         'config' => 'Config',
         'target' => 'Target',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

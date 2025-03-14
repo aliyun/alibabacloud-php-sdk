@@ -117,22 +117,20 @@ class propertys extends Model
     public $version;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'installTime'     => 'InstallTime',
-        'installTimeDt'   => 'InstallTimeDt',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'name'            => 'Name',
-        'path'            => 'Path',
-        'uuid'            => 'Uuid',
-        'version'         => 'Version',
+        'installTime' => 'InstallTime',
+        'installTimeDt' => 'InstallTimeDt',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'name' => 'Name',
+        'path' => 'Path',
+        'uuid' => 'Uuid',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

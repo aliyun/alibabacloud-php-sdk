@@ -11,7 +11,10 @@ class DescribeWarningExportInfoRequest extends Model
     /**
      * @description The ID of the export task.
      *
+     * >  You can can call the [ExportWarning](~~ExportWarning~~) operation to query the IDs of export tasks.
+     *
      * This parameter is required.
+     *
      * @example 14356
      *
      * @var int
@@ -21,9 +24,7 @@ class DescribeWarningExportInfoRequest extends Model
         'exportId' => 'ExportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,6 +20,7 @@ class CreateHoneypotProbeBindRequest extends Model
      * @description The honeypot ID.
      *
      * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+     *
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string
@@ -42,6 +43,7 @@ class CreateHoneypotProbeBindRequest extends Model
      * @description The probe ID.
      *
      * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     *
      * @example 36bad711-d1ac-4419-ac68-c1aa280f****
      *
      * @var string
@@ -55,16 +57,14 @@ class CreateHoneypotProbeBindRequest extends Model
      */
     public $serviceIpList;
     protected $_name = [
-        'bindPortList'  => 'BindPortList',
-        'honeypotId'    => 'HoneypotId',
-        'lang'          => 'Lang',
-        'probeId'       => 'ProbeId',
+        'bindPortList' => 'BindPortList',
+        'honeypotId' => 'HoneypotId',
+        'lang' => 'Lang',
+        'probeId' => 'ProbeId',
         'serviceIpList' => 'ServiceIpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +105,7 @@ class CreateHoneypotProbeBindRequest extends Model
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['BindPortList'] as $item) {
                     $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
                 }

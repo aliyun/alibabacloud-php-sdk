@@ -26,12 +26,10 @@ class DescribeAllEntityResponseBody extends Model
     public $requestId;
     protected $_name = [
         'entityList' => 'EntityList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeAllEntityResponseBody extends Model
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['EntityList'] as $item) {
                     $model->entityList[$n++] = null !== $item ? entityList::fromMap($item) : $item;
                 }

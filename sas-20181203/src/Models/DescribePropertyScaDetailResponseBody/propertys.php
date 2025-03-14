@@ -250,6 +250,7 @@ class propertys extends Model
      * @description The version of the runtime environment.
      *
      * >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
+     *
      * @example 1.8.0_144
      *
      * @var string
@@ -292,40 +293,38 @@ class propertys extends Model
      */
     public $webPath;
     protected $_name = [
-        'bizType'           => 'BizType',
-        'bizTypeDispaly'    => 'BizTypeDispaly',
-        'cmdline'           => 'Cmdline',
-        'configPath'        => 'ConfigPath',
-        'containerName'     => 'ContainerName',
-        'createTimestamp'   => 'CreateTimestamp',
-        'imageName'         => 'ImageName',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'ip'                => 'Ip',
-        'listenIp'          => 'ListenIp',
-        'listenProtocol'    => 'ListenProtocol',
-        'listenStatus'      => 'ListenStatus',
-        'name'              => 'Name',
-        'path'              => 'Path',
-        'pid'               => 'Pid',
-        'podName'           => 'PodName',
-        'port'              => 'Port',
-        'ppid'              => 'Ppid',
-        'processStarted'    => 'ProcessStarted',
-        'processUser'       => 'ProcessUser',
-        'proof'             => 'Proof',
+        'bizType' => 'BizType',
+        'bizTypeDispaly' => 'BizTypeDispaly',
+        'cmdline' => 'Cmdline',
+        'configPath' => 'ConfigPath',
+        'containerName' => 'ContainerName',
+        'createTimestamp' => 'CreateTimestamp',
+        'imageName' => 'ImageName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'listenIp' => 'ListenIp',
+        'listenProtocol' => 'ListenProtocol',
+        'listenStatus' => 'ListenStatus',
+        'name' => 'Name',
+        'path' => 'Path',
+        'pid' => 'Pid',
+        'podName' => 'PodName',
+        'port' => 'Port',
+        'ppid' => 'Ppid',
+        'processStarted' => 'ProcessStarted',
+        'processUser' => 'ProcessUser',
+        'proof' => 'Proof',
         'runtimeEnvVersion' => 'RuntimeEnvVersion',
-        'type'              => 'Type',
-        'uuid'              => 'Uuid',
-        'version'           => 'Version',
-        'webPath'           => 'WebPath',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
+        'version' => 'Version',
+        'webPath' => 'WebPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

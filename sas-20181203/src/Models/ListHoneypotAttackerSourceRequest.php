@@ -72,18 +72,16 @@ class ListHoneypotAttackerSourceRequest extends Model
      */
     public $startTimeStamp;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'endTimeStamp'   => 'EndTimeStamp',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'riskLevelList'  => 'RiskLevelList',
-        'srcIp'          => 'SrcIp',
+        'currentPage' => 'CurrentPage',
+        'endTimeStamp' => 'EndTimeStamp',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevelList' => 'RiskLevelList',
+        'srcIp' => 'SrcIp',
         'startTimeStamp' => 'StartTimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

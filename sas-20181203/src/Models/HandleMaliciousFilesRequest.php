@@ -10,14 +10,18 @@ class HandleMaliciousFilesRequest extends Model
 {
     /**
      * @description List of file IDs to be processed.
+     * > You can call [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) to get the IDs.
      * > -
+     *
      * @var int[]
      */
     public $fileIdList;
 
     /**
      * @description Type of operation:
+     * - addWhitelist: Add to whitelist
      * - offWhitelist: Remove from whitelist
+     *
      * @example addWhitelist
      *
      * @var string
@@ -25,12 +29,10 @@ class HandleMaliciousFilesRequest extends Model
     public $operation;
     protected $_name = [
         'fileIdList' => 'FileIdList',
-        'operation'  => 'Operation',
+        'operation' => 'Operation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

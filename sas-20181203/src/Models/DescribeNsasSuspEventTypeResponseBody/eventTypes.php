@@ -35,14 +35,12 @@ class eventTypes extends Model
      */
     public $type;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'suspEventCount' => 'SuspEventCount',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

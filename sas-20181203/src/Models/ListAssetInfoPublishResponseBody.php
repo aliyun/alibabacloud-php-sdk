@@ -29,9 +29,7 @@ class ListAssetInfoPublishResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAssetInfoPublishResponseBody extends Model
         if (isset($map['AssetList'])) {
             if (!empty($map['AssetList'])) {
                 $model->assetList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AssetList'] as $item) {
                     $model->assetList[$n++] = null !== $item ? assetList::fromMap($item) : $item;
                 }

@@ -34,13 +34,11 @@ class DescribeImageRepoDetailListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'imageRepoResponses' => 'ImageRepoResponses',
-        'pageInfo'           => 'PageInfo',
-        'requestId'          => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeImageRepoDetailListResponseBody extends Model
         if (isset($map['ImageRepoResponses'])) {
             if (!empty($map['ImageRepoResponses'])) {
                 $model->imageRepoResponses = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ImageRepoResponses'] as $item) {
                     $model->imageRepoResponses[$n++] = null !== $item ? imageRepoResponses::fromMap($item) : $item;
                 }

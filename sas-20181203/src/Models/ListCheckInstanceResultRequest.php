@@ -12,6 +12,7 @@ class ListCheckInstanceResultRequest extends Model
      * @description The ID of the check item.
      *
      * This parameter is required.
+     *
      * @example 23
      *
      * @var int
@@ -96,21 +97,19 @@ class ListCheckInstanceResultRequest extends Model
      */
     public $statuses;
     protected $_name = [
-        'checkId'         => 'CheckId',
-        'currentPage'     => 'CurrentPage',
-        'instanceIdKey'   => 'InstanceIdKey',
-        'instanceIds'     => 'InstanceIds',
+        'checkId' => 'CheckId',
+        'currentPage' => 'CurrentPage',
+        'instanceIdKey' => 'InstanceIdKey',
+        'instanceIds' => 'InstanceIds',
         'instanceNameKey' => 'InstanceNameKey',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
-        'regionIdKey'     => 'RegionIdKey',
-        'sortTypes'       => 'SortTypes',
-        'statuses'        => 'Statuses',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'regionIdKey' => 'RegionIdKey',
+        'sortTypes' => 'SortTypes',
+        'statuses' => 'Statuses',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

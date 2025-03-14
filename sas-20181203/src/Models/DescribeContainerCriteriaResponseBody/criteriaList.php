@@ -53,20 +53,19 @@ class criteriaList extends Model
      * @description The values of the search condition. This parameter is returned only if the value of **Type** is set to **select**.
      *
      * > If the value of **Type** is set to **input**, the return value of this parameter is empty.
+     *
      * @example ManagedKubernetes,NotManagedKubernetes,PrivateKubernetes
      *
      * @var string
      */
     public $values;
     protected $_name = [
-        'name'   => 'Name',
-        'type'   => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -59,16 +59,14 @@ class ListGroupsRequest extends Model
      */
     public $useNextToken;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'lang'         => 'Lang',
-        'nextToken'    => 'NextToken',
-        'pageSize'     => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
         'useNextToken' => 'UseNextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,17 +61,15 @@ class DescribeBinarySecurityPoliciesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'status'          => 'Status',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

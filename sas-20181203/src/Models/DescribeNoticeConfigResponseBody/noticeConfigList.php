@@ -59,6 +59,7 @@ class noticeConfigList extends Model
      *   **yundun_sas_cloudsiem_log**: notifications of insufficient threat analysis log capacity
      *
      * > If the value is **yundun_security_Weekreport**, weekly reports are sent to notify you of unhandled vulnerabilities.
+     *
      * @example sas_suspicious
      *
      * @var string
@@ -94,16 +95,14 @@ class noticeConfigList extends Model
      */
     public $timeLimit;
     protected $_name = [
-        'aliUid'      => 'AliUid',
+        'aliUid' => 'AliUid',
         'currentPage' => 'CurrentPage',
-        'project'     => 'Project',
-        'route'       => 'Route',
-        'timeLimit'   => 'TimeLimit',
+        'project' => 'Project',
+        'route' => 'Route',
+        'timeLimit' => 'TimeLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

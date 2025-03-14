@@ -123,23 +123,21 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'installed'     => 'Installed',
-        'instanceId'    => 'InstanceId',
-        'internetIp'    => 'InternetIp',
-        'intranetIp'    => 'IntranetIp',
-        'invalidType'   => 'InvalidType',
-        'machineName'   => 'MachineName',
-        'machineType'   => 'MachineType',
-        'pluginName'    => 'PluginName',
+        'clusterId' => 'ClusterId',
+        'installed' => 'Installed',
+        'instanceId' => 'InstanceId',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'invalidType' => 'InvalidType',
+        'machineName' => 'MachineName',
+        'machineType' => 'MachineType',
+        'pluginName' => 'PluginName',
         'pluginVersion' => 'PluginVersion',
-        'status'        => 'Status',
-        'uuid'          => 'Uuid',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -103,20 +103,18 @@ class clusterInfo extends Model
      */
     public $targetResult;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'clusterType'    => 'ClusterType',
-        'createTime'     => 'CreateTime',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'createTime' => 'CreateTime',
         'currentVersion' => 'CurrentVersion',
-        'instanceCount'  => 'InstanceCount',
-        'regionId'       => 'RegionId',
-        'state'          => 'State',
-        'targetResult'   => 'TargetResult',
+        'instanceCount' => 'InstanceCount',
+        'regionId' => 'RegionId',
+        'state' => 'State',
+        'targetResult' => 'TargetResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class OperationSuspEventsRequest extends Model
      * @description The ID of the request source.
      *
      * Set the value to **sas**, which indicates that the request is sent from Security Center.
+     *
      * @example sas
      *
      * @var string
@@ -28,6 +29,7 @@ class OperationSuspEventsRequest extends Model
      *   **offline_handled**: marks the alerts as handled.
      *
      * This parameter is required.
+     *
      * @example deal
      *
      * @var string
@@ -59,7 +61,10 @@ class OperationSuspEventsRequest extends Model
     /**
      * @description The IDs of alert events.
      *
+     * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
+     *
      * This parameter is required.
+     *
      * @example 290852
      *
      * @var string
@@ -78,17 +83,15 @@ class OperationSuspEventsRequest extends Model
      */
     public $warnType;
     protected $_name = [
-        'from'               => 'From',
-        'operation'          => 'Operation',
-        'sourceIp'           => 'SourceIp',
-        'subOperation'       => 'SubOperation',
+        'from' => 'From',
+        'operation' => 'Operation',
+        'sourceIp' => 'SourceIp',
+        'subOperation' => 'SubOperation',
         'suspiciousEventIds' => 'SuspiciousEventIds',
-        'warnType'           => 'WarnType',
+        'warnType' => 'WarnType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

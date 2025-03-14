@@ -12,6 +12,7 @@ class DescribeImageCriteriaRequest extends Model
      * @description The keyword that you specify for fuzzy search when you query the image.
      *
      * > The value of this parameter can be an image ID, image tag, image instance ID, image repository name, image repository ID, image repository namespace, image region, image digest, or image repository type.
+     *
      * @example 525
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeImageCriteriaRequest extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -58,6 +58,7 @@ class GetHoneypotAttackStatisticsRequest extends Model
      * @description The source IP address of the attack.
      *
      * This parameter is required.
+     *
      * @example 47.92.139.**
      *
      * @var string
@@ -82,25 +83,24 @@ class GetHoneypotAttackStatisticsRequest extends Model
      *   **ATTACK_HONEYPOT_TYPE**: the type of the attacked honeypot
      *
      * This parameter is required.
+     *
      * @example TOP_ATTACKED_IP
      *
      * @var string
      */
     public $statisticsType;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'endTimeStamp'   => 'EndTimeStamp',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'riskLevelList'  => 'RiskLevelList',
-        'srcIp'          => 'SrcIp',
+        'currentPage' => 'CurrentPage',
+        'endTimeStamp' => 'EndTimeStamp',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevelList' => 'RiskLevelList',
+        'srcIp' => 'SrcIp',
         'startTimeStamp' => 'StartTimeStamp',
         'statisticsType' => 'StatisticsType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

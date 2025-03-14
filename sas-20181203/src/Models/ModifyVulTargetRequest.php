@@ -46,9 +46,7 @@ class ModifyVulTargetRequest extends Model
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

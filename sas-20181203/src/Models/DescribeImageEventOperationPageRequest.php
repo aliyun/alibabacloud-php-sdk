@@ -89,18 +89,16 @@ class DescribeImageEventOperationPageRequest extends Model
     public $source;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'eventKey'    => 'EventKey',
-        'eventName'   => 'EventName',
-        'eventType'   => 'EventType',
-        'id'          => 'Id',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'source'      => 'Source',
+        'eventKey' => 'EventKey',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

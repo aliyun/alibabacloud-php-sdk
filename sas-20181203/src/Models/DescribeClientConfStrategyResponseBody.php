@@ -34,14 +34,12 @@ class DescribeClientConfStrategyResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'targetList' => 'TargetList',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeClientConfStrategyResponseBody extends Model
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TargetList'] as $item) {
                     $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
                 }

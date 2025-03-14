@@ -21,6 +21,7 @@ class ListObjectScanEventRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -70,6 +71,7 @@ class ListObjectScanEventRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -128,23 +130,21 @@ class ListObjectScanEventRequest extends Model
      */
     public $timeStart;
     protected $_name = [
-        'bucketName'    => 'BucketName',
-        'currentPage'   => 'CurrentPage',
-        'eventName'     => 'EventName',
-        'lang'          => 'Lang',
-        'md5'           => 'Md5',
-        'ossKey'        => 'OssKey',
-        'pageSize'      => 'PageSize',
+        'bucketName' => 'BucketName',
+        'currentPage' => 'CurrentPage',
+        'eventName' => 'EventName',
+        'lang' => 'Lang',
+        'md5' => 'Md5',
+        'ossKey' => 'OssKey',
+        'pageSize' => 'PageSize',
         'parentEventId' => 'ParentEventId',
-        'riskLevel'     => 'RiskLevel',
-        'source'        => 'Source',
-        'timeEnd'       => 'TimeEnd',
-        'timeStart'     => 'TimeStart',
+        'riskLevel' => 'RiskLevel',
+        'source' => 'Source',
+        'timeEnd' => 'TimeEnd',
+        'timeStart' => 'TimeStart',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

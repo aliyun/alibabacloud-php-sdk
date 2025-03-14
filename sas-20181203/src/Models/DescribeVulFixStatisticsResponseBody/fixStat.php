@@ -61,14 +61,12 @@ class fixStat extends Model
     protected $_name = [
         'fixedTodayNum' => 'FixedTodayNum',
         'fixedTotalNum' => 'FixedTotalNum',
-        'fixingNum'     => 'FixingNum',
-        'needFixNum'    => 'NeedFixNum',
-        'type'          => 'Type',
+        'fixingNum' => 'FixingNum',
+        'needFixNum' => 'NeedFixNum',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

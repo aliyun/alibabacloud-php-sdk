@@ -73,17 +73,15 @@ class data extends Model
      */
     public $supportConfig;
     protected $_name = [
-        'bucketName'    => 'BucketName',
-        'message'       => 'Message',
-        'regionId'      => 'RegionId',
-        'storageClass'  => 'StorageClass',
-        'support'       => 'Support',
+        'bucketName' => 'BucketName',
+        'message' => 'Message',
+        'regionId' => 'RegionId',
+        'storageClass' => 'StorageClass',
+        'support' => 'Support',
         'supportConfig' => 'SupportConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeInstanceVulStatisticsResponseBody extends Model
     public $vulStat;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vulStat'   => 'VulStat',
+        'vulStat' => 'VulStat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

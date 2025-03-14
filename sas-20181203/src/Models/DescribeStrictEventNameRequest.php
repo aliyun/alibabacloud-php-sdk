@@ -13,6 +13,7 @@ class DescribeStrictEventNameRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -22,9 +23,7 @@ class DescribeStrictEventNameRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

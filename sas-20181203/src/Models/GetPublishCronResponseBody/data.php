@@ -26,6 +26,7 @@ class data extends Model
      * - **FRI**: Friday
      * - **SAT**: Saturday
      * - **SUN**: Sunday
+     *
      * @example MON
      *
      * @var string
@@ -45,6 +46,7 @@ class data extends Model
      * @description Upgrade start cycle type. The values are as follows:
      * - **day**: Daily
      * - **week**: Weekly
+     *
      * @example day
      *
      * @var string
@@ -60,16 +62,14 @@ class data extends Model
      */
     public $duration;
     protected $_name = [
-        'cron'     => 'Cron',
-        'cronDay'  => 'CronDay',
+        'cron' => 'Cron',
+        'cronDay' => 'CronDay',
         'cronTime' => 'CronTime',
         'cronType' => 'CronType',
         'duration' => 'Duration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

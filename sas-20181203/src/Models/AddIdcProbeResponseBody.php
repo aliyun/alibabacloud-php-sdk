@@ -35,13 +35,11 @@ class AddIdcProbeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'addIdcProbeFailedList' => 'AddIdcProbeFailedList',
-        'count'                 => 'Count',
-        'requestId'             => 'RequestId',
+        'count' => 'Count',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class AddIdcProbeResponseBody extends Model
         if (isset($map['AddIdcProbeFailedList'])) {
             if (!empty($map['AddIdcProbeFailedList'])) {
                 $model->addIdcProbeFailedList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['AddIdcProbeFailedList'] as $item) {
                     $model->addIdcProbeFailedList[$n++] = null !== $item ? addIdcProbeFailedList::fromMap($item) : $item;
                 }

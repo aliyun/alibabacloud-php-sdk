@@ -25,13 +25,11 @@ class GetAuthVersionStatisticResponseBody extends Model
      */
     public $statistics;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'statistics' => 'Statistics',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetAuthVersionStatisticResponseBody extends Model
         if (isset($map['Statistics'])) {
             if (!empty($map['Statistics'])) {
                 $model->statistics = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Statistics'] as $item) {
                     $model->statistics[$n++] = null !== $item ? statistics::fromMap($item) : $item;
                 }

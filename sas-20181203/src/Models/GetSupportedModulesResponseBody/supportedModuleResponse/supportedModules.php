@@ -31,13 +31,11 @@ class supportedModules extends Model
      */
     public $moduleDisp;
     protected $_name = [
-        'module'     => 'Module',
+        'module' => 'Module',
         'moduleDisp' => 'ModuleDisp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

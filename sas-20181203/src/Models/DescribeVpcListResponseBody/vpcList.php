@@ -53,16 +53,14 @@ class vpcList extends Model
      */
     public $regionId;
     protected $_name = [
-        'ecsCount'     => 'EcsCount',
+        'ecsCount' => 'EcsCount',
         'instanceDesc' => 'InstanceDesc',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

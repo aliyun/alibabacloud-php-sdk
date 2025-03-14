@@ -162,27 +162,25 @@ class onceTasks extends Model
      */
     public $totalCount;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'finish'        => 'Finish',
-        'finishCount'   => 'FinishCount',
-        'progress'      => 'Progress',
-        'realRunTime'   => 'RealRunTime',
-        'resultInfo'    => 'ResultInfo',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'statusText'    => 'StatusText',
-        'target'        => 'Target',
-        'targetType'    => 'TargetType',
-        'taskId'        => 'TaskId',
+        'endTime' => 'EndTime',
+        'finish' => 'Finish',
+        'finishCount' => 'FinishCount',
+        'progress' => 'Progress',
+        'realRunTime' => 'RealRunTime',
+        'resultInfo' => 'ResultInfo',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'statusText' => 'StatusText',
+        'target' => 'Target',
+        'targetType' => 'TargetType',
+        'taskId' => 'TaskId',
         'taskImageInfo' => 'TaskImageInfo',
-        'taskName'      => 'TaskName',
-        'taskType'      => 'TaskType',
-        'totalCount'    => 'TotalCount',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

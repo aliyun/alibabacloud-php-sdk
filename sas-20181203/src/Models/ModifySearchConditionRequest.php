@@ -32,7 +32,15 @@ class ModifySearchConditionRequest extends Model
      *   If **Type** is set to **cloud_product**, you can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported filter conditions.
      *
      * @example {
+     * "filterParams": [
+     * {
+     * "label": "UUID：xxx",
+     * "value": "{\\"name\\":\\"uuidList\\",\\"value\\":\\"xxx\\"}"
      * }
+     * ],
+     * "LogicalExp": "OR"
+     * }
+     *
      * @var string
      */
     public $filterConditions;
@@ -41,6 +49,7 @@ class ModifySearchConditionRequest extends Model
      * @description The name of the common filter condition.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -69,14 +78,12 @@ class ModifySearchConditionRequest extends Model
     public $type;
     protected $_name = [
         'filterConditions' => 'FilterConditions',
-        'name'             => 'Name',
-        'sourceIp'         => 'SourceIp',
-        'type'             => 'Type',
+        'name' => 'Name',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

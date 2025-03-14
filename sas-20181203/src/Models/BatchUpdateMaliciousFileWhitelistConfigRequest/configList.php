@@ -92,19 +92,17 @@ class configList extends Model
      */
     public $targetValue;
     protected $_name = [
-        'configId'    => 'ConfigId',
-        'eventName'   => 'EventName',
-        'field'       => 'Field',
-        'fieldValue'  => 'FieldValue',
-        'operator'    => 'Operator',
-        'source'      => 'Source',
-        'targetType'  => 'TargetType',
+        'configId' => 'ConfigId',
+        'eventName' => 'EventName',
+        'field' => 'Field',
+        'fieldValue' => 'FieldValue',
+        'operator' => 'Operator',
+        'source' => 'Source',
+        'targetType' => 'TargetType',
         'targetValue' => 'TargetValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

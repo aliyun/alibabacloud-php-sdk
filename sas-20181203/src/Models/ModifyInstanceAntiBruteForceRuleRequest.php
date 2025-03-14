@@ -12,6 +12,7 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
      * @description The ID of the defense rule.
      *
      * This parameter is required.
+     *
      * @example 65767
      *
      * @var int
@@ -36,21 +37,20 @@ class ModifyInstanceAntiBruteForceRuleRequest extends Model
      * @description The UUID of the server for which you want to modify the defense rule. You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
      *
      * This parameter is required.
+     *
      * @example 7cc91747-2845-40d4-bb69-c077597f****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'newRuleId'       => 'NewRuleId',
+        'newRuleId' => 'NewRuleId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'uuid'            => 'Uuid',
+        'sourceIp' => 'SourceIp',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

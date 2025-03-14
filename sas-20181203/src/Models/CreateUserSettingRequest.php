@@ -35,14 +35,12 @@ class CreateUserSettingRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'alertLevels'            => 'AlertLevels',
+        'alertLevels' => 'AlertLevels',
         'invalidWarningKeepDays' => 'InvalidWarningKeepDays',
-        'sourceIp'               => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

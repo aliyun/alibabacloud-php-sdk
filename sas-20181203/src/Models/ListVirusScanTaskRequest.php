@@ -87,6 +87,7 @@ class ListVirusScanTaskRequest extends Model
      * @description The ID of the root task.
      *
      * >  You can call the [GetVirusScanLatestTaskStatistic](~~GetVirusScanLatestTaskStatistic~~) operation to query the ID.
+     *
      * @example 89f5d7813bd59dd237580a8664b3xxxx
      *
      * @var string
@@ -139,6 +140,7 @@ class ListVirusScanTaskRequest extends Model
      * @description The ID of the virus scan task.
      *
      * >  You can call the [ListVirusScanTask](~~ListVirusScanTask~~) operation to query the ID.
+     *
      * @example 1471d8ebb96795b41ede090b9758****
      *
      * @var string
@@ -146,24 +148,22 @@ class ListVirusScanTaskRequest extends Model
     public $taskId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'internetIp'  => 'InternetIp',
-        'intranetIp'  => 'IntranetIp',
-        'lang'        => 'Lang',
+        'endTime' => 'EndTime',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lang' => 'Lang',
         'machineName' => 'MachineName',
-        'pageSize'    => 'PageSize',
-        'rootTask'    => 'RootTask',
-        'rootTaskId'  => 'RootTaskId',
-        'scanType'    => 'ScanType',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'statusList'  => 'StatusList',
-        'taskId'      => 'TaskId',
+        'pageSize' => 'PageSize',
+        'rootTask' => 'RootTask',
+        'rootTaskId' => 'RootTaskId',
+        'scanType' => 'ScanType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'statusList' => 'StatusList',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

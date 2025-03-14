@@ -67,18 +67,16 @@ class ModifyAttestorRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'keyId'           => 'KeyId',
-        'keyRegionId'     => 'KeyRegionId',
-        'keyVersionId'    => 'KeyVersionId',
-        'name'            => 'Name',
-        'remark'          => 'Remark',
+        'keyId' => 'KeyId',
+        'keyRegionId' => 'KeyRegionId',
+        'keyVersionId' => 'KeyVersionId',
+        'name' => 'Name',
+        'remark' => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdatePublishCronRequest extends Model
      * @description The cron expression that is used to specify the start time of the upgrade.
      *
      * This parameter is required.
+     *
      * @example 0 5 10 * * ?
      *
      * @var string
@@ -60,22 +61,21 @@ class UpdatePublishCronRequest extends Model
      * @description The duration of the upgrade. Unit: hours.
      *
      * This parameter is required.
+     *
      * @example 24
      *
      * @var int
      */
     public $duration;
     protected $_name = [
-        'cron'     => 'Cron',
-        'cronDay'  => 'CronDay',
+        'cron' => 'Cron',
+        'cronDay' => 'CronDay',
         'cronTime' => 'CronTime',
         'cronType' => 'CronType',
         'duration' => 'Duration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

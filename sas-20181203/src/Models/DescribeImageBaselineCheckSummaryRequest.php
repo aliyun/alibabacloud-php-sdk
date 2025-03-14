@@ -12,6 +12,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
      * @description The ID of the specified container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+     *
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string
@@ -89,19 +90,17 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
      */
     public $scanRange;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'criteria'     => 'Criteria',
+        'clusterId' => 'ClusterId',
+        'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
-        'currentPage'  => 'CurrentPage',
-        'lang'         => 'Lang',
-        'pageSize'     => 'PageSize',
-        'riskLevel'    => 'RiskLevel',
-        'scanRange'    => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -109,6 +109,7 @@ class vpcHoneyPotDTOList extends Model
      * @description The region ID of the VPC.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example ap-southeast-2
      *
      * @var string
@@ -134,23 +135,21 @@ class vpcHoneyPotDTOList extends Model
      */
     public $vpcSwitchIdList;
     protected $_name = [
-        'cidrBlock'                 => 'CidrBlock',
-        'createTime'                => 'CreateTime',
+        'cidrBlock' => 'CidrBlock',
+        'createTime' => 'CreateTime',
         'honeyPotEcsInstanceStatus' => 'HoneyPotEcsInstanceStatus',
-        'honeyPotEniInstanceId'     => 'HoneyPotEniInstanceId',
-        'honeyPotExistence'         => 'HoneyPotExistence',
-        'honeyPotInstanceStatus'    => 'HoneyPotInstanceStatus',
-        'honeyPotVpcSwitchId'       => 'HoneyPotVpcSwitchId',
-        'vpcId'                     => 'VpcId',
-        'vpcName'                   => 'VpcName',
-        'vpcRegionId'               => 'VpcRegionId',
-        'vpcStatus'                 => 'VpcStatus',
-        'vpcSwitchIdList'           => 'VpcSwitchIdList',
+        'honeyPotEniInstanceId' => 'HoneyPotEniInstanceId',
+        'honeyPotExistence' => 'HoneyPotExistence',
+        'honeyPotInstanceStatus' => 'HoneyPotInstanceStatus',
+        'honeyPotVpcSwitchId' => 'HoneyPotVpcSwitchId',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
+        'vpcRegionId' => 'VpcRegionId',
+        'vpcStatus' => 'VpcStatus',
+        'vpcSwitchIdList' => 'VpcSwitchIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -245,7 +244,7 @@ class vpcHoneyPotDTOList extends Model
         if (isset($map['VpcSwitchIdList'])) {
             if (!empty($map['VpcSwitchIdList'])) {
                 $model->vpcSwitchIdList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['VpcSwitchIdList'] as $item) {
                     $model->vpcSwitchIdList[$n++] = null !== $item ? vpcSwitchIdList::fromMap($item) : $item;
                 }

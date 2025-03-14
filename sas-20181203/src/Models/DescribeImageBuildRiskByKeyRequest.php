@@ -42,6 +42,7 @@ class DescribeImageBuildRiskByKeyRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +52,7 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     /**
      * @description The key of the risk rule.
      * > You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain the value of **RiskKey**.
+     *
      * @example no_user
      *
      * @var string
@@ -71,16 +73,14 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'imageUuid'   => 'ImageUuid',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'riskKey'     => 'RiskKey',
-        'status'      => 'Status',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskKey' => 'RiskKey',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

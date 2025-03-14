@@ -260,30 +260,28 @@ class checks extends Model
      */
     public $vendorShowName;
     protected $_name = [
-        'assetSubType'        => 'AssetSubType',
-        'assetType'           => 'AssetType',
-        'assetVendor'         => 'AssetVendor',
-        'checkId'             => 'CheckId',
-        'checkPolicies'       => 'CheckPolicies',
-        'checkSaleType'       => 'CheckSaleType',
-        'checkShowName'       => 'CheckShowName',
-        'instanceSubType'     => 'InstanceSubType',
-        'instanceType'        => 'InstanceType',
-        'lastCheckTime'       => 'LastCheckTime',
-        'operationType'       => 'OperationType',
-        'riskLevel'           => 'RiskLevel',
-        'status'              => 'Status',
-        'statusMessage'       => 'StatusMessage',
-        'taskId'              => 'TaskId',
-        'trialPermission'     => 'TrialPermission',
+        'assetSubType' => 'AssetSubType',
+        'assetType' => 'AssetType',
+        'assetVendor' => 'AssetVendor',
+        'checkId' => 'CheckId',
+        'checkPolicies' => 'CheckPolicies',
+        'checkSaleType' => 'CheckSaleType',
+        'checkShowName' => 'CheckShowName',
+        'instanceSubType' => 'InstanceSubType',
+        'instanceType' => 'InstanceType',
+        'lastCheckTime' => 'LastCheckTime',
+        'operationType' => 'OperationType',
+        'riskLevel' => 'RiskLevel',
+        'status' => 'Status',
+        'statusMessage' => 'StatusMessage',
+        'taskId' => 'TaskId',
+        'trialPermission' => 'TrialPermission',
         'trialPermissionType' => 'TrialPermissionType',
-        'vendor'              => 'Vendor',
-        'vendorShowName'      => 'VendorShowName',
+        'vendor' => 'Vendor',
+        'vendorShowName' => 'VendorShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -378,7 +376,7 @@ class checks extends Model
         if (isset($map['CheckPolicies'])) {
             if (!empty($map['CheckPolicies'])) {
                 $model->checkPolicies = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CheckPolicies'] as $item) {
                     $model->checkPolicies[$n++] = null !== $item ? checkPolicies::fromMap($item) : $item;
                 }

@@ -35,14 +35,12 @@ class data extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'count'     => 'Count',
-        'keyName'   => 'KeyName',
+        'count' => 'Count',
+        'keyName' => 'KeyName',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

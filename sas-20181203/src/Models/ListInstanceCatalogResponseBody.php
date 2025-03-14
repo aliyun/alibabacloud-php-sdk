@@ -26,12 +26,10 @@ class ListInstanceCatalogResponseBody extends Model
     public $vendors;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vendors'   => 'Vendors',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListInstanceCatalogResponseBody extends Model
         if (isset($map['Vendors'])) {
             if (!empty($map['Vendors'])) {
                 $model->vendors = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Vendors'] as $item) {
                     $model->vendors[$n++] = null !== $item ? vendors::fromMap($item) : $item;
                 }

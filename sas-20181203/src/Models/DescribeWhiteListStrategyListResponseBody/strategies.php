@@ -50,15 +50,13 @@ class strategies extends Model
      */
     public $studyTime;
     protected $_name = [
-        'status'       => 'Status',
-        'strategyId'   => 'StrategyId',
+        'status' => 'Status',
+        'strategyId' => 'StrategyId',
         'strategyName' => 'StrategyName',
-        'studyTime'    => 'StudyTime',
+        'studyTime' => 'StudyTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

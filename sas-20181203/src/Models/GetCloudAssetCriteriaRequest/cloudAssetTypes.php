@@ -155,12 +155,10 @@ class cloudAssetTypes extends Model
     public $assetType;
     protected $_name = [
         'assetSubType' => 'AssetSubType',
-        'assetType'    => 'AssetType',
+        'assetType' => 'AssetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

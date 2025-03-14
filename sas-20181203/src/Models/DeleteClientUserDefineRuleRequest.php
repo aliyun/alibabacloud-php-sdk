@@ -12,6 +12,7 @@ class DeleteClientUserDefineRuleRequest extends Model
      * @description The IDs of the custom defense rules.
      *
      * This parameter is required.
+     *
      * @var int[]
      */
     public $idList;
@@ -19,9 +20,7 @@ class DeleteClientUserDefineRuleRequest extends Model
         'idList' => 'IdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

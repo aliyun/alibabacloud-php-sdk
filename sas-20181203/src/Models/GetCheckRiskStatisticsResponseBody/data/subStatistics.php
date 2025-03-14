@@ -71,18 +71,16 @@ class subStatistics extends Model
      */
     public $typeName;
     protected $_name = [
-        'alias'              => 'Alias',
-        'highWarningCount'   => 'HighWarningCount',
-        'lowWarningCount'    => 'LowWarningCount',
+        'alias' => 'Alias',
+        'highWarningCount' => 'HighWarningCount',
+        'lowWarningCount' => 'LowWarningCount',
         'mediumWarningCount' => 'MediumWarningCount',
-        'passCount'          => 'PassCount',
-        'totalCount'         => 'TotalCount',
-        'typeName'           => 'TypeName',
+        'passCount' => 'PassCount',
+        'totalCount' => 'TotalCount',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

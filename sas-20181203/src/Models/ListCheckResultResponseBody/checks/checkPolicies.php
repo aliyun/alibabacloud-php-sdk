@@ -62,17 +62,15 @@ class checkPolicies extends Model
      */
     public $standardShowName;
     protected $_name = [
-        'requirementId'       => 'RequirementId',
+        'requirementId' => 'RequirementId',
         'requirementShowName' => 'RequirementShowName',
-        'sectionId'           => 'SectionId',
-        'sectionShowName'     => 'SectionShowName',
-        'standardId'          => 'StandardId',
-        'standardShowName'    => 'StandardShowName',
+        'sectionId' => 'SectionId',
+        'sectionShowName' => 'SectionShowName',
+        'standardId' => 'StandardId',
+        'standardShowName' => 'StandardShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

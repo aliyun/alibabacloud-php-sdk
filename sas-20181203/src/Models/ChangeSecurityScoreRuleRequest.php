@@ -29,12 +29,10 @@ class ChangeSecurityScoreRuleRequest extends Model
     public $securityScoreRuleList;
     protected $_name = [
         'resetSecurityScoreRule' => 'ResetSecurityScoreRule',
-        'securityScoreRuleList'  => 'SecurityScoreRuleList',
+        'securityScoreRuleList' => 'SecurityScoreRuleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -69,7 +67,7 @@ class ChangeSecurityScoreRuleRequest extends Model
         if (isset($map['SecurityScoreRuleList'])) {
             if (!empty($map['SecurityScoreRuleList'])) {
                 $model->securityScoreRuleList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['SecurityScoreRuleList'] as $item) {
                     $model->securityScoreRuleList[$n++] = null !== $item ? securityScoreRuleList::fromMap($item) : $item;
                 }

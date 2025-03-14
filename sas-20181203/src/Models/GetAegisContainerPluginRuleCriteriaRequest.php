@@ -29,13 +29,11 @@ class GetAegisContainerPluginRuleCriteriaRequest extends Model
      */
     public $value;
     protected $_name = [
-        'lang'  => 'Lang',
+        'lang' => 'Lang',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

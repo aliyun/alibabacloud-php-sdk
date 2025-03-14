@@ -28,9 +28,7 @@ class ListSystemClientRuleTypesResponseBody extends Model
         'ruleTypes' => 'RuleTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

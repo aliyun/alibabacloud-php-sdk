@@ -34,13 +34,11 @@ class DescribeWebLockExclusiveFileTypeResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'exclusiveFileType' => 'ExclusiveFileType',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class GenerateDynamicDictRequest extends Model
     public $sourceIp;
     protected $_name = [
         'argKeywords' => 'ArgKeywords',
-        'domains'     => 'Domains',
-        'names'       => 'Names',
-        'sourceIp'    => 'SourceIp',
+        'domains' => 'Domains',
+        'names' => 'Names',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

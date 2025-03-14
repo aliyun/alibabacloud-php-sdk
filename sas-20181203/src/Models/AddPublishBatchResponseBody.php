@@ -26,13 +26,11 @@ class AddPublishBatchResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'batchId'   => 'BatchId',
+        'batchId' => 'BatchId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

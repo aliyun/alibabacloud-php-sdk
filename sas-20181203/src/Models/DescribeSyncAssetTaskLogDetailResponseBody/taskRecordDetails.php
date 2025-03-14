@@ -78,18 +78,16 @@ class taskRecordDetails extends Model
      */
     public $unprotectedAssetCount;
     protected $_name = [
-        'assetCount'            => 'AssetCount',
-        'idcRegion'             => 'IdcRegion',
-        'leafTaskId'            => 'LeafTaskId',
-        'leafTaskStatus'        => 'LeafTaskStatus',
-        'taskMsg'               => 'TaskMsg',
-        'taskReportTime'        => 'TaskReportTime',
+        'assetCount' => 'AssetCount',
+        'idcRegion' => 'IdcRegion',
+        'leafTaskId' => 'LeafTaskId',
+        'leafTaskStatus' => 'LeafTaskStatus',
+        'taskMsg' => 'TaskMsg',
+        'taskReportTime' => 'TaskReportTime',
         'unprotectedAssetCount' => 'UnprotectedAssetCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

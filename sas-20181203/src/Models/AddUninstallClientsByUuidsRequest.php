@@ -47,7 +47,10 @@ class AddUninstallClientsByUuidsRequest extends Model
     /**
      * @description The UUID of the server that you want to unbind. Separate multiple UUIDs with commas (,).
      *
+     * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example inet-183707ae-3bdf-4db0-b771-3e9962bf****,inet-49dceccc-4f01-469b-8411-2416ea12****
      *
      * @var string
@@ -55,15 +58,13 @@ class AddUninstallClientsByUuidsRequest extends Model
     public $uuids;
     protected $_name = [
         'callMethod' => 'CallMethod',
-        'feedback'   => 'Feedback',
-        'region'     => 'Region',
-        'sourceIp'   => 'SourceIp',
-        'uuids'      => 'Uuids',
+        'feedback' => 'Feedback',
+        'region' => 'Region',
+        'sourceIp' => 'SourceIp',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

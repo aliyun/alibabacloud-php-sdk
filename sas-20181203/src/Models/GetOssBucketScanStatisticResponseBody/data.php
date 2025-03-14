@@ -98,21 +98,19 @@ class data extends Model
      */
     public $totalObject;
     protected $_name = [
-        'expireTime'   => 'ExpireTime',
-        'highRisk'     => 'HighRisk',
-        'lowRisk'      => 'LowRisk',
-        'mediumRisk'   => 'MediumRisk',
+        'expireTime' => 'ExpireTime',
+        'highRisk' => 'HighRisk',
+        'lowRisk' => 'LowRisk',
+        'mediumRisk' => 'MediumRisk',
         'noScanBucket' => 'NoScanBucket',
-        'remainAuth'   => 'RemainAuth',
-        'riskBucket'   => 'RiskBucket',
-        'scanObject'   => 'ScanObject',
-        'totalBucket'  => 'TotalBucket',
-        'totalObject'  => 'TotalObject',
+        'remainAuth' => 'RemainAuth',
+        'riskBucket' => 'RiskBucket',
+        'scanObject' => 'ScanObject',
+        'totalBucket' => 'TotalBucket',
+        'totalObject' => 'TotalObject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

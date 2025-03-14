@@ -12,6 +12,7 @@ class GetAegisContainerPluginRuleRequest extends Model
      * @description The ID of the defense rule against container escapes.
      *
      * >  You can call the [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) operation to obtain the ID.
+     *
      * @example 1141****
      *
      * @var string
@@ -42,14 +43,12 @@ class GetAegisContainerPluginRuleRequest extends Model
      */
     public $ruleType;
     protected $_name = [
-        'id'       => 'Id',
-        'lang'     => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

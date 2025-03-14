@@ -68,17 +68,15 @@ class trialRecordList extends Model
      */
     public $status;
     protected $_name = [
-        'authLimit'     => 'AuthLimit',
+        'authLimit' => 'AuthLimit',
         'authLimitList' => 'AuthLimitList',
-        'gmtEnd'        => 'GmtEnd',
-        'gmtStart'      => 'GmtStart',
-        'moduleCode'    => 'ModuleCode',
-        'status'        => 'Status',
+        'gmtEnd' => 'GmtEnd',
+        'gmtStart' => 'GmtStart',
+        'moduleCode' => 'ModuleCode',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

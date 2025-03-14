@@ -29,13 +29,11 @@ class ListQueryRaspAppInfoRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'lang'  => 'Lang',
+        'lang' => 'Lang',
         'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

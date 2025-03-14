@@ -74,18 +74,16 @@ class entityList extends Model
      */
     public $uuid;
     protected $_name = [
-        'groupId'      => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'ip'           => 'Ip',
-        'os'           => 'Os',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'os' => 'Os',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

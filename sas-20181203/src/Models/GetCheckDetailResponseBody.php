@@ -79,19 +79,17 @@ class GetCheckDetailResponseBody extends Model
      */
     public $solution;
     protected $_name = [
-        'assistInfo'        => 'AssistInfo',
-        'customConfigs'     => 'CustomConfigs',
-        'description'       => 'Description',
-        'repairReset'       => 'RepairReset',
-        'repairSetting'     => 'RepairSetting',
+        'assistInfo' => 'AssistInfo',
+        'customConfigs' => 'CustomConfigs',
+        'description' => 'Description',
+        'repairReset' => 'RepairReset',
+        'repairSetting' => 'RepairSetting',
         'repairSupportType' => 'RepairSupportType',
-        'requestId'         => 'RequestId',
-        'solution'          => 'Solution',
+        'requestId' => 'RequestId',
+        'solution' => 'Solution',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -144,7 +142,7 @@ class GetCheckDetailResponseBody extends Model
         if (isset($map['CustomConfigs'])) {
             if (!empty($map['CustomConfigs'])) {
                 $model->customConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CustomConfigs'] as $item) {
                     $model->customConfigs[$n++] = null !== $item ? customConfigs::fromMap($item) : $item;
                 }

@@ -76,19 +76,17 @@ class srcTarget extends Model
      */
     public $targetType;
     protected $_name = [
-        'appName'    => 'AppName',
-        'imageList'  => 'ImageList',
-        'namespace'  => 'Namespace',
-        'ruleType'   => 'RuleType',
-        'tagList'    => 'TagList',
-        'targetId'   => 'TargetId',
+        'appName' => 'AppName',
+        'imageList' => 'ImageList',
+        'namespace' => 'Namespace',
+        'ruleType' => 'RuleType',
+        'tagList' => 'TagList',
+        'targetId' => 'TargetId',
         'targetName' => 'TargetName',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

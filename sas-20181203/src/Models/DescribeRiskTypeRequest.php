@@ -41,14 +41,12 @@ class DescribeRiskTypeRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
-        'source'   => 'Source',
+        'lang' => 'Lang',
+        'source' => 'Source',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class GetDockerhubImageRiskRankInfoRequest extends Model
         'types' => 'Types',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

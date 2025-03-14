@@ -25,13 +25,11 @@ class DescribeVulDetailsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cves'      => 'Cves',
+        'cves' => 'Cves',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeVulDetailsResponseBody extends Model
         if (isset($map['Cves'])) {
             if (!empty($map['Cves'])) {
                 $model->cves = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Cves'] as $item) {
                     $model->cves[$n++] = null !== $item ? cves::fromMap($item) : $item;
                 }

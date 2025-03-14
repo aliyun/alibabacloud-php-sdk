@@ -20,6 +20,7 @@ class ModifySasContainerWebDefenseRuleRequest extends Model
      * @description The ID of the rule.
      *
      * This parameter is required.
+     *
      * @example 200634
      *
      * @var int
@@ -36,13 +37,11 @@ class ModifySasContainerWebDefenseRuleRequest extends Model
     public $ruleName;
     protected $_name = [
         'pathConfDTOList' => 'PathConfDTOList',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -77,7 +76,7 @@ class ModifySasContainerWebDefenseRuleRequest extends Model
         if (isset($map['PathConfDTOList'])) {
             if (!empty($map['PathConfDTOList'])) {
                 $model->pathConfDTOList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PathConfDTOList'] as $item) {
                     $model->pathConfDTOList[$n++] = null !== $item ? pathConfDTOList::fromMap($item) : $item;
                 }

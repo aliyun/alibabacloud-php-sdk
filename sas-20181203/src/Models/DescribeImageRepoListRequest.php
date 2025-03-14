@@ -24,6 +24,7 @@ class DescribeImageRepoListRequest extends Model
      *   **repoNamespace**: the namespace to which the image repository belongs
      *
      * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+     *
      * @example repoName
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeImageRepoListRequest extends Model
      * @description The value of the field that is used for the query.
      *
      * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
+     *
      * @example zeus
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribeImageRepoListRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -86,6 +89,7 @@ class DescribeImageRepoListRequest extends Model
      *   **image_repo**: the ID of the image repository
      *
      * This parameter is required.
+     *
      * @example image_repo
      *
      * @var string
@@ -98,26 +102,25 @@ class DescribeImageRepoListRequest extends Model
      *   **image_repo**: image repository protection
      *
      * This parameter is required.
+     *
      * @example image_repo
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'fieldName'     => 'FieldName',
-        'fieldValue'    => 'FieldValue',
-        'operateType'   => 'OperateType',
-        'pageSize'      => 'PageSize',
-        'repoName'      => 'RepoName',
+        'currentPage' => 'CurrentPage',
+        'fieldName' => 'FieldName',
+        'fieldValue' => 'FieldValue',
+        'operateType' => 'OperateType',
+        'pageSize' => 'PageSize',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
-        'targetType'    => 'TargetType',
-        'type'          => 'Type',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

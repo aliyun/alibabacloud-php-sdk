@@ -80,19 +80,17 @@ class machineInfoStatistics extends Model
      */
     public $uuid;
     protected $_name = [
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'machineInstanceId' => 'MachineInstanceId',
-        'machineIp'         => 'MachineIp',
-        'machineName'       => 'MachineName',
-        'os'                => 'Os',
-        'regionId'          => 'RegionId',
-        'uuid'              => 'Uuid',
+        'machineIp' => 'MachineIp',
+        'machineName' => 'MachineName',
+        'os' => 'Os',
+        'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class allChartSubTypeList extends Model
      */
     public $subTypeName;
     protected $_name = [
-        'subType'     => 'SubType',
+        'subType' => 'SubType',
         'subTypeName' => 'SubTypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

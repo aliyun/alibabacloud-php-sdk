@@ -11,7 +11,10 @@ class DeleteInterceptionRuleRequest extends Model
     /**
      * @description The ID of the cluster that you want to query.
      *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * This parameter is required.
+     *
      * @example cdf629147cc3747d292a3f587xxxxxxxx
      *
      * @var string
@@ -26,12 +29,10 @@ class DeleteInterceptionRuleRequest extends Model
     public $ruleIds;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'ruleIds'   => 'RuleIds',
+        'ruleIds' => 'RuleIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

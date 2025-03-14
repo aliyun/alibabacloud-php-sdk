@@ -34,14 +34,12 @@ class DescribeHybridProxyPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'policyList' => 'PolicyList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeHybridProxyPolicyResponseBody extends Model
         if (isset($map['PolicyList'])) {
             if (!empty($map['PolicyList'])) {
                 $model->policyList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['PolicyList'] as $item) {
                     $model->policyList[$n++] = null !== $item ? policyList::fromMap($item) : $item;
                 }

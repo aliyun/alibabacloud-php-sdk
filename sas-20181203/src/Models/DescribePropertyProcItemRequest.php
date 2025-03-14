@@ -45,14 +45,12 @@ class DescribePropertyProcItemRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
+        'forceFlush' => 'ForceFlush',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

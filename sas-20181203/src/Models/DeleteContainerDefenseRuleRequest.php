@@ -12,6 +12,7 @@ class DeleteContainerDefenseRuleRequest extends Model
      * @description The IDs of the rules that you want to delete.
      *
      * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the rule IDs.
+     *
      * @var int[]
      */
     public $ruleIds;
@@ -19,9 +20,7 @@ class DeleteContainerDefenseRuleRequest extends Model
         'ruleIds' => 'RuleIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

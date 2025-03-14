@@ -12,6 +12,7 @@ class DeleteMaliciousNoteRequest extends Model
      * @description The ID of the remarks.
      *
      * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID from the NoteId parameter.
+     *
      * @example 1
      *
      * @var int
@@ -21,9 +22,7 @@ class DeleteMaliciousNoteRequest extends Model
         'noteId' => 'NoteId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

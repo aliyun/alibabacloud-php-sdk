@@ -12,6 +12,7 @@ class GetAccountLabelRequest extends Model
      * @description The tags.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $labelList;
@@ -29,12 +30,10 @@ class GetAccountLabelRequest extends Model
     public $lang;
     protected $_name = [
         'labelList' => 'LabelList',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

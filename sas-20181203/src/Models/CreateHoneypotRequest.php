@@ -14,6 +14,7 @@ class CreateHoneypotRequest extends Model
      * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the IDs of images from the **HoneypotImageId** response parameter.
      *
      * This parameter is required.
+     *
      * @example sha256:ebc4c102ac407d53733c2373e8888a733ddce86f163ccbe7492ae1cbf26****
      *
      * @var string
@@ -26,6 +27,7 @@ class CreateHoneypotRequest extends Model
      * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the names of images from the **HoneypotImageName** response parameter.
      *
      * This parameter is required.
+     *
      * @example HoneyPotImageName
      *
      * @var string
@@ -36,6 +38,7 @@ class CreateHoneypotRequest extends Model
      * @description The custom name of the honeypot.
      *
      * This parameter is required.
+     *
      * @example ruoyi
      *
      * @var string
@@ -74,23 +77,24 @@ class CreateHoneypotRequest extends Model
     /**
      * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     *
      * This parameter is required.
+     *
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
      */
     public $nodeId;
     protected $_name = [
-        'honeypotImageId'   => 'HoneypotImageId',
+        'honeypotImageId' => 'HoneypotImageId',
         'honeypotImageName' => 'HoneypotImageName',
-        'honeypotName'      => 'HoneypotName',
-        'meta'              => 'Meta',
-        'nodeId'            => 'NodeId',
+        'honeypotName' => 'HoneypotName',
+        'meta' => 'Meta',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

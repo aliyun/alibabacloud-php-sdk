@@ -34,13 +34,11 @@ class DescribeCloudVendorAccountAKListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'cloudVendorAccountAKs' => 'CloudVendorAccountAKs',
-        'pageInfo'              => 'PageInfo',
-        'requestId'             => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeCloudVendorAccountAKListResponseBody extends Model
         if (isset($map['CloudVendorAccountAKs'])) {
             if (!empty($map['CloudVendorAccountAKs'])) {
                 $model->cloudVendorAccountAKs = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['CloudVendorAccountAKs'] as $item) {
                     $model->cloudVendorAccountAKs[$n++] = null !== $item ? cloudVendorAccountAKs::fromMap($item) : $item;
                 }

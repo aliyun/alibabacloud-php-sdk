@@ -99,26 +99,25 @@ class data extends Model
      * @description The name of the AccessKey pair.
      *
      * >  The account information of the third-party cloud servers.
+     *
      * @example test
      *
      * @var string
      */
     public $vendorAuthAlias;
     protected $_name = [
-        'akType'          => 'AkType',
-        'authId'          => 'AuthId',
-        'authModules'     => 'AuthModules',
-        'message'         => 'Message',
-        'secretId'        => 'SecretId',
-        'serviceStatus'   => 'ServiceStatus',
-        'status'          => 'Status',
-        'vendor'          => 'Vendor',
+        'akType' => 'AkType',
+        'authId' => 'AuthId',
+        'authModules' => 'AuthModules',
+        'message' => 'Message',
+        'secretId' => 'SecretId',
+        'serviceStatus' => 'ServiceStatus',
+        'status' => 'Status',
+        'vendor' => 'Vendor',
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -177,7 +176,7 @@ class data extends Model
         if (isset($map['AuthModules'])) {
             if (!empty($map['AuthModules'])) {
                 $model->authModules = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AuthModules'] as $item) {
                     $model->authModules[$n++] = null !== $item ? authModules::fromMap($item) : $item;
                 }

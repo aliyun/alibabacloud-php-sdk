@@ -12,6 +12,7 @@ class item extends Model
      * @description The ID of the vulnerability.
      *
      * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the ID.
+     *
      * @example CVE-2023-36034
      *
      * @var string
@@ -22,19 +23,18 @@ class item extends Model
      * @description The name of the vulnerability.
      *
      * >  You can call the [DescribeVulListPage](https://help.aliyun.com/document_detail/471928.html) operation to query the name.
+     *
      * @example oval:com.redhat.rhsa:def:20227002
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

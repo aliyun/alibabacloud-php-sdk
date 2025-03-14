@@ -24,6 +24,7 @@ class UpdateCommonSwitchConfigRequest extends Model
      * @description The type of the switch.
      *
      * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the type from the response parameter SwitchId.
+     *
      * @example USER-DEFINE-RULE-SWITCH-TYPE_190****
      *
      * @var string
@@ -31,12 +32,10 @@ class UpdateCommonSwitchConfigRequest extends Model
     public $type;
     protected $_name = [
         'targetDefault' => 'TargetDefault',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

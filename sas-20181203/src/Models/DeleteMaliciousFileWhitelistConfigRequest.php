@@ -20,9 +20,7 @@ class DeleteMaliciousFileWhitelistConfigRequest extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

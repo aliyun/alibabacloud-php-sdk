@@ -24,6 +24,7 @@ class GetHoneypotNodeMetricListRequest extends Model
      * @description The expression that is used to compute the query results in real time.
      *
      * >  Only the groupby expression is supported. This expression is similar to the GROUP BY statement that applies to databases.
+     *
      * @example {"groupby":["userId","instanceId"]}
      *
      * @var string
@@ -34,6 +35,7 @@ class GetHoneypotNodeMetricListRequest extends Model
      * @description The number of entries per page.
      *
      * >  The maximum value of the Length parameter in a request is 1440.
+     *
      * @example 100
      *
      * @var string
@@ -89,19 +91,17 @@ class GetHoneypotNodeMetricListRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'express'    => 'Express',
-        'length'     => 'Length',
+        'endTime' => 'EndTime',
+        'express' => 'Express',
+        'length' => 'Length',
         'metricName' => 'MetricName',
-        'namespace'  => 'Namespace',
-        'nodeId'     => 'NodeId',
-        'period'     => 'Period',
-        'startTime'  => 'StartTime',
+        'namespace' => 'Namespace',
+        'nodeId' => 'NodeId',
+        'period' => 'Period',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

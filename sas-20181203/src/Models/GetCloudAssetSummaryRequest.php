@@ -18,9 +18,7 @@ class GetCloudAssetSummaryRequest extends Model
         'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

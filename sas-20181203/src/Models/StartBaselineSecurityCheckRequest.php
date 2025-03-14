@@ -12,6 +12,7 @@ class StartBaselineSecurityCheckRequest extends Model
      * @description The IDs of the check items.
      *
      * > To perform a check task on cloud service configurations, you must specify the ID of the check item. You can call the [DescribeRiskItemType](~~DescribeRiskItemType~~) operation to query the IDs of check items.
+     *
      * @var int[]
      */
     public $itemIds;
@@ -49,22 +50,21 @@ class StartBaselineSecurityCheckRequest extends Model
      *   **verify**
      *
      * This parameter is required.
+     *
      * @example verify
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'itemIds'         => 'ItemIds',
-        'lang'            => 'Lang',
+        'itemIds' => 'ItemIds',
+        'lang' => 'Lang',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'type'            => 'Type',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

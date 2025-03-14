@@ -150,26 +150,24 @@ class quaraFiles extends Model
      */
     public $uuid;
     protected $_name = [
-        'eventName'    => 'EventName',
-        'eventType'    => 'EventType',
-        'id'           => 'Id',
-        'instanceId'   => 'InstanceId',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'ip'           => 'Ip',
-        'link'         => 'Link',
-        'md5'          => 'Md5',
-        'modifyTime'   => 'ModifyTime',
-        'path'         => 'Path',
-        'status'       => 'Status',
-        'tag'          => 'Tag',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'link' => 'Link',
+        'md5' => 'Md5',
+        'modifyTime' => 'ModifyTime',
+        'path' => 'Path',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

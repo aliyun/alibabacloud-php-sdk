@@ -27,12 +27,10 @@ class backupRestoreCount extends Model
     public $total;
     protected $_name = [
         'recovering' => 'Recovering',
-        'total'      => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

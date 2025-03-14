@@ -33,6 +33,7 @@ class targetConfig extends Model
      * @description An array that consists of the IDs of the server groups or the UUIDs of the servers.
      *
      * >  If **uuid** is returned for the **TargetType** parameter, **UUIDs** of the servers are returned. If **groupId** is returned for the **TargetType** parameter, IDs of the server groups are returned.
+     *
      * @var string[]
      */
     public $targetList;
@@ -72,17 +73,15 @@ class targetConfig extends Model
      */
     public $type;
     protected $_name = [
-        'flag'          => 'Flag',
+        'flag' => 'Flag',
         'targetDefault' => 'TargetDefault',
-        'targetList'    => 'TargetList',
-        'targetType'    => 'TargetType',
-        'totalCount'    => 'TotalCount',
-        'type'          => 'Type',
+        'targetList' => 'TargetList',
+        'targetType' => 'TargetType',
+        'totalCount' => 'TotalCount',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,15 +43,13 @@ class DescribeRiskCheckSummaryRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'                       => 'Lang',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'sourceIp'                   => 'SourceIp',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class vulGlobalConfigList extends Model
      */
     public $configValue;
     protected $_name = [
-        'configKey'   => 'ConfigKey',
+        'configKey' => 'ConfigKey',
         'configValue' => 'ConfigValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

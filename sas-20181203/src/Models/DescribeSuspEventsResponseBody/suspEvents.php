@@ -535,66 +535,64 @@ class suspEvents extends Model
      */
     public $clusterId;
     protected $_name = [
-        'advanced'              => 'Advanced',
-        'alarmEventName'        => 'AlarmEventName',
+        'advanced' => 'Advanced',
+        'alarmEventName' => 'AlarmEventName',
         'alarmEventNameDisplay' => 'AlarmEventNameDisplay',
-        'alarmEventType'        => 'AlarmEventType',
+        'alarmEventType' => 'AlarmEventType',
         'alarmEventTypeDisplay' => 'AlarmEventTypeDisplay',
-        'alarmUniqueInfo'       => 'AlarmUniqueInfo',
-        'appName'               => 'AppName',
-        'autoBreaking'          => 'AutoBreaking',
-        'canBeDealOnLine'       => 'CanBeDealOnLine',
-        'canCancelFault'        => 'CanCancelFault',
-        'containHwMode'         => 'ContainHwMode',
-        'containerId'           => 'ContainerId',
-        'containerImageId'      => 'ContainerImageId',
-        'containerImageName'    => 'ContainerImageName',
-        'dataSource'            => 'DataSource',
-        'desc'                  => 'Desc',
-        'details'               => 'Details',
-        'displaySandboxResult'  => 'DisplaySandboxResult',
-        'eventNotes'            => 'EventNotes',
-        'eventStatus'           => 'EventStatus',
-        'eventSubType'          => 'EventSubType',
-        'hasTraceInfo'          => 'HasTraceInfo',
-        'id'                    => 'Id',
-        'imageUuid'             => 'ImageUuid',
-        'instanceId'            => 'InstanceId',
-        'instanceName'          => 'InstanceName',
-        'internetIp'            => 'InternetIp',
-        'intranetIp'            => 'IntranetIp',
-        'k8sClusterId'          => 'K8sClusterId',
-        'k8sClusterName'        => 'K8sClusterName',
-        'k8sNamespace'          => 'K8sNamespace',
-        'k8sNodeId'             => 'K8sNodeId',
-        'k8sNodeName'           => 'K8sNodeName',
-        'k8sPodName'            => 'K8sPodName',
-        'largeModel'            => 'LargeModel',
-        'lastTime'              => 'LastTime',
-        'lastTimeStamp'         => 'LastTimeStamp',
-        'level'                 => 'Level',
-        'maliciousRuleStatus'   => 'MaliciousRuleStatus',
-        'markList'              => 'MarkList',
-        'markMisRules'          => 'MarkMisRules',
-        'name'                  => 'Name',
-        'occurrenceTime'        => 'OccurrenceTime',
-        'occurrenceTimeStamp'   => 'OccurrenceTimeStamp',
-        'operateErrorCode'      => 'OperateErrorCode',
-        'operateMsg'            => 'OperateMsg',
-        'operateTime'           => 'OperateTime',
-        'saleVersion'           => 'SaleVersion',
-        'securityEventIds'      => 'SecurityEventIds',
-        'sourceAliUid'          => 'SourceAliUid',
-        'stages'                => 'Stages',
-        'tacticItems'           => 'TacticItems',
-        'uniqueInfo'            => 'UniqueInfo',
-        'uuid'                  => 'Uuid',
-        'clusterId'             => 'clusterId',
+        'alarmUniqueInfo' => 'AlarmUniqueInfo',
+        'appName' => 'AppName',
+        'autoBreaking' => 'AutoBreaking',
+        'canBeDealOnLine' => 'CanBeDealOnLine',
+        'canCancelFault' => 'CanCancelFault',
+        'containHwMode' => 'ContainHwMode',
+        'containerId' => 'ContainerId',
+        'containerImageId' => 'ContainerImageId',
+        'containerImageName' => 'ContainerImageName',
+        'dataSource' => 'DataSource',
+        'desc' => 'Desc',
+        'details' => 'Details',
+        'displaySandboxResult' => 'DisplaySandboxResult',
+        'eventNotes' => 'EventNotes',
+        'eventStatus' => 'EventStatus',
+        'eventSubType' => 'EventSubType',
+        'hasTraceInfo' => 'HasTraceInfo',
+        'id' => 'Id',
+        'imageUuid' => 'ImageUuid',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'k8sClusterId' => 'K8sClusterId',
+        'k8sClusterName' => 'K8sClusterName',
+        'k8sNamespace' => 'K8sNamespace',
+        'k8sNodeId' => 'K8sNodeId',
+        'k8sNodeName' => 'K8sNodeName',
+        'k8sPodName' => 'K8sPodName',
+        'largeModel' => 'LargeModel',
+        'lastTime' => 'LastTime',
+        'lastTimeStamp' => 'LastTimeStamp',
+        'level' => 'Level',
+        'maliciousRuleStatus' => 'MaliciousRuleStatus',
+        'markList' => 'MarkList',
+        'markMisRules' => 'MarkMisRules',
+        'name' => 'Name',
+        'occurrenceTime' => 'OccurrenceTime',
+        'occurrenceTimeStamp' => 'OccurrenceTimeStamp',
+        'operateErrorCode' => 'OperateErrorCode',
+        'operateMsg' => 'OperateMsg',
+        'operateTime' => 'OperateTime',
+        'saleVersion' => 'SaleVersion',
+        'securityEventIds' => 'SecurityEventIds',
+        'sourceAliUid' => 'SourceAliUid',
+        'stages' => 'Stages',
+        'tacticItems' => 'TacticItems',
+        'uniqueInfo' => 'UniqueInfo',
+        'uuid' => 'Uuid',
+        'clusterId' => 'clusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -845,7 +843,7 @@ class suspEvents extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
@@ -857,7 +855,7 @@ class suspEvents extends Model
         if (isset($map['EventNotes'])) {
             if (!empty($map['EventNotes'])) {
                 $model->eventNotes = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['EventNotes'] as $item) {
                     $model->eventNotes[$n++] = null !== $item ? eventNotes::fromMap($item) : $item;
                 }
@@ -964,7 +962,7 @@ class suspEvents extends Model
         if (isset($map['TacticItems'])) {
             if (!empty($map['TacticItems'])) {
                 $model->tacticItems = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['TacticItems'] as $item) {
                     $model->tacticItems[$n++] = null !== $item ? tacticItems::fromMap($item) : $item;
                 }

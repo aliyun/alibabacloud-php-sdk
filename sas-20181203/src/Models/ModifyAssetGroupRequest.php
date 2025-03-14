@@ -11,7 +11,10 @@ class ModifyAssetGroupRequest extends Model
     /**
      * @description The ID of the new server group to which the servers belong.
      *
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * This parameter is required.
+     *
      * @example 9586199
      *
      * @var int
@@ -30,21 +33,22 @@ class ModifyAssetGroupRequest extends Model
     /**
      * @description The UUIDs of the servers for which you want to change the server group. Separate multiple UUIDs with commas (,).
      *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'groupId'  => 'GroupId',
+        'groupId' => 'GroupId',
         'sourceIp' => 'SourceIp',
-        'uuids'    => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

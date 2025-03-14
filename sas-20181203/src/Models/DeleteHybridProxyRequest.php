@@ -12,6 +12,7 @@ class DeleteHybridProxyRequest extends Model
      * @description The name of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteHybridProxyRequest extends Model
      * @description The UUID of the proxy node that you want to remove. The value starts with inet-proxy.
      *
      * This parameter is required.
+     *
      * @example inet-proxy-d2d94e8b-bb25-4744-8004-1e08a53c****
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteHybridProxyRequest extends Model
     public $uuid;
     protected $_name = [
         'clusterName' => 'ClusterName',
-        'uuid'        => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

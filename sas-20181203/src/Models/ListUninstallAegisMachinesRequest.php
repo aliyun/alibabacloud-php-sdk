@@ -21,6 +21,7 @@ class ListUninstallAegisMachinesRequest extends Model
      * @description The operating system of the server.
      *
      * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **osType**, the value of the **Values** parameter indicates an operating system.
+     *
      * @example linux
      *
      * @var string
@@ -40,6 +41,7 @@ class ListUninstallAegisMachinesRequest extends Model
      * @description The region in which the server resides.
      *
      * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +52,7 @@ class ListUninstallAegisMachinesRequest extends Model
      * @description The region in which the server resides.
      *
      * >  The value of this parameter is the value of the Values parameter that is returned by calling the [DescribeCriteria](~~DescribeCriteria~~) operation. If the value of the **Name** parameter in the response is **regionId**, the value of the **Values** parameter indicates a region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,18 +93,16 @@ class ListUninstallAegisMachinesRequest extends Model
     public $vendor;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'os'          => 'Os',
-        'pageSize'    => 'PageSize',
+        'os' => 'Os',
+        'pageSize' => 'PageSize',
         'regionIdStr' => 'RegionIdStr',
-        'regionNo'    => 'RegionNo',
-        'remark'      => 'Remark',
-        'sourceIp'    => 'SourceIp',
-        'vendor'      => 'Vendor',
+        'regionNo' => 'RegionNo',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

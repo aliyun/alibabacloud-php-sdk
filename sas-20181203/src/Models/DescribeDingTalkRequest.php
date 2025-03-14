@@ -35,14 +35,12 @@ class DescribeDingTalkRequest extends Model
      */
     public $ruleActionName;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'ruleActionName' => 'RuleActionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

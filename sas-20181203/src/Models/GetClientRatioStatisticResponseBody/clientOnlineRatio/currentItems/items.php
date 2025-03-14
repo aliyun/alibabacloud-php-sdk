@@ -45,14 +45,12 @@ class items extends Model
     public $onlineRatio;
     protected $_name = [
         'assetInstallCount' => 'AssetInstallCount',
-        'calculateTime'     => 'CalculateTime',
-        'onlineAssetCount'  => 'OnlineAssetCount',
-        'onlineRatio'       => 'OnlineRatio',
+        'calculateTime' => 'CalculateTime',
+        'onlineAssetCount' => 'OnlineAssetCount',
+        'onlineRatio' => 'OnlineRatio',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

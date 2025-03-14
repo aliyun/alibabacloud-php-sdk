@@ -12,6 +12,7 @@ class data extends Model
      * @description The ID of the task configuration.
      *
      * > You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+     *
      * @example 97a1fed216908e417407344e1505xxxx
      *
      * @var string
@@ -73,6 +74,7 @@ class data extends Model
      * @description The key that stores the asset information.
      *
      * > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain the key value.
+     *
      * @example 345ddbea-a57f-437e-832f-fb7a1202xxxx
      *
      * @var string
@@ -108,21 +110,19 @@ class data extends Model
      */
     public $taskType;
     protected $_name = [
-        'configId'        => 'ConfigId',
-        'enable'          => 'Enable',
-        'intervalPeriod'  => 'IntervalPeriod',
-        'periodUnit'      => 'PeriodUnit',
-        'scanPath'        => 'ScanPath',
-        'scanType'        => 'ScanType',
-        'selectionKey'    => 'SelectionKey',
-        'targetEndTime'   => 'TargetEndTime',
+        'configId' => 'ConfigId',
+        'enable' => 'Enable',
+        'intervalPeriod' => 'IntervalPeriod',
+        'periodUnit' => 'PeriodUnit',
+        'scanPath' => 'ScanPath',
+        'scanType' => 'ScanType',
+        'selectionKey' => 'SelectionKey',
+        'targetEndTime' => 'TargetEndTime',
         'targetStartTime' => 'TargetStartTime',
-        'taskType'        => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

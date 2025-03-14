@@ -12,6 +12,7 @@ class AddPrivateRegistryRequest extends Model
      * @description The domain name of the image repository.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -37,6 +38,7 @@ class AddPrivateRegistryRequest extends Model
      *   **2**: virtual private cloud (VPC)
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -47,6 +49,7 @@ class AddPrivateRegistryRequest extends Model
      * @description The password that is used to log on to the image repository.
      *
      * This parameter is required.
+     *
      * @example ******
      *
      * @var string
@@ -69,6 +72,7 @@ class AddPrivateRegistryRequest extends Model
      *   **2**: HTTPS
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -79,6 +83,7 @@ class AddPrivateRegistryRequest extends Model
      * @description The IP address of the image repository.
      *
      * This parameter is required.
+     *
      * @example ``114.55.**.**``
      *
      * @var string
@@ -88,7 +93,10 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The region ID.
      *
+     * >  You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -102,6 +110,7 @@ class AddPrivateRegistryRequest extends Model
      *   **quay**
      *
      * This parameter is required.
+     *
      * @example harbor
      *
      * @var string
@@ -115,6 +124,7 @@ class AddPrivateRegistryRequest extends Model
      *   **V2**
      *
      * This parameter is required.
+     *
      * @example V2
      *
      * @var string
@@ -134,6 +144,7 @@ class AddPrivateRegistryRequest extends Model
      * @description The username that is used to log on to the image repository.
      *
      * This parameter is required.
+     *
      * @example xxxxx
      *
      * @var string
@@ -149,24 +160,22 @@ class AddPrivateRegistryRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'domainName'       => 'DomainName',
-        'extraParam'       => 'ExtraParam',
-        'netType'          => 'NetType',
-        'password'         => 'Password',
-        'port'             => 'Port',
-        'protocolType'     => 'ProtocolType',
-        'registryHostIp'   => 'RegistryHostIp',
+        'domainName' => 'DomainName',
+        'extraParam' => 'ExtraParam',
+        'netType' => 'NetType',
+        'password' => 'Password',
+        'port' => 'Port',
+        'protocolType' => 'ProtocolType',
+        'registryHostIp' => 'RegistryHostIp',
         'registryRegionId' => 'RegistryRegionId',
-        'registryType'     => 'RegistryType',
-        'registryVersion'  => 'RegistryVersion',
-        'transPerHour'     => 'TransPerHour',
-        'userName'         => 'UserName',
-        'vpcId'            => 'VpcId',
+        'registryType' => 'RegistryType',
+        'registryVersion' => 'RegistryVersion',
+        'transPerHour' => 'TransPerHour',
+        'userName' => 'UserName',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

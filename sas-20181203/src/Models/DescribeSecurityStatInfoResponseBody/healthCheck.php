@@ -93,22 +93,20 @@ class healthCheck extends Model
      */
     public $valueArray;
     protected $_name = [
-        'dateArray'   => 'DateArray',
-        'highCount'   => 'HighCount',
-        'highList'    => 'HighList',
-        'levelsOn'    => 'LevelsOn',
-        'lowCount'    => 'LowCount',
-        'lowList'     => 'LowList',
+        'dateArray' => 'DateArray',
+        'highCount' => 'HighCount',
+        'highList' => 'HighList',
+        'levelsOn' => 'LevelsOn',
+        'lowCount' => 'LowCount',
+        'lowList' => 'LowList',
         'mediumCount' => 'MediumCount',
-        'mediumList'  => 'MediumList',
-        'timeArray'   => 'TimeArray',
-        'totalCount'  => 'TotalCount',
-        'valueArray'  => 'ValueArray',
+        'mediumList' => 'MediumList',
+        'timeArray' => 'TimeArray',
+        'totalCount' => 'TotalCount',
+        'valueArray' => 'ValueArray',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class ChangeAssetRefreshTaskConfigRequest extends Model
     public $regionId;
     protected $_name = [
         'assetRefreshConfigs' => 'AssetRefreshConfigs',
-        'regionId'            => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ChangeAssetRefreshTaskConfigRequest extends Model
         if (isset($map['AssetRefreshConfigs'])) {
             if (!empty($map['AssetRefreshConfigs'])) {
                 $model->assetRefreshConfigs = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AssetRefreshConfigs'] as $item) {
                     $model->assetRefreshConfigs[$n++] = null !== $item ? assetRefreshConfigs::fromMap($item) : $item;
                 }

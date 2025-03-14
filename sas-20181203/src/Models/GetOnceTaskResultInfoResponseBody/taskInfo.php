@@ -25,9 +25,7 @@ class taskInfo extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

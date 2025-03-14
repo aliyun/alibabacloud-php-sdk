@@ -34,13 +34,11 @@ class DescribeDomainListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'domainListResponseList' => 'DomainListResponseList',
-        'pageInfo'               => 'PageInfo',
-        'requestId'              => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeDomainListResponseBody extends Model
         if (isset($map['DomainListResponseList'])) {
             if (!empty($map['DomainListResponseList'])) {
                 $model->domainListResponseList = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['DomainListResponseList'] as $item) {
                     $model->domainListResponseList[$n++] = null !== $item ? domainListResponseList::fromMap($item) : $item;
                 }

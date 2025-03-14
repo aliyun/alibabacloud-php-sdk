@@ -26,13 +26,11 @@ class DescribeWebLockTotalFileChangeCountResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

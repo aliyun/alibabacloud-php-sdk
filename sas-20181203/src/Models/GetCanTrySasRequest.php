@@ -33,12 +33,10 @@ class GetCanTrySasRequest extends Model
     public $lang;
     protected $_name = [
         'fromEcs' => 'FromEcs',
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

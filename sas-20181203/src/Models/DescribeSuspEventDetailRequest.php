@@ -12,6 +12,7 @@ class DescribeSuspEventDetailRequest extends Model
      * @description The data source of the exception. Set the value to sas.
      *
      * This parameter is required.
+     *
      * @example sas
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeSuspEventDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     *
      * @example 16670360956*****
      *
      * @var int
@@ -53,22 +55,21 @@ class DescribeSuspEventDetailRequest extends Model
      * @description The ID of the exception.
      *
      * This parameter is required.
+     *
      * @example 32750999
      *
      * @var int
      */
     public $suspiciousEventId;
     protected $_name = [
-        'from'                       => 'From',
-        'lang'                       => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sourceIp'                   => 'SourceIp',
-        'suspiciousEventId'          => 'SuspiciousEventId',
+        'sourceIp' => 'SourceIp',
+        'suspiciousEventId' => 'SuspiciousEventId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

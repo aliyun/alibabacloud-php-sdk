@@ -74,6 +74,7 @@ class DescribeExposedInstanceListRequest extends Model
      * @description The ID of the server group.
      *
      * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * @example 9535356
      *
      * @var int
@@ -114,6 +115,7 @@ class DescribeExposedInstanceListRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -124,6 +126,7 @@ class DescribeExposedInstanceListRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+     *
      * @example 16670360956*****
      *
      * @var int
@@ -142,24 +145,22 @@ class DescribeExposedInstanceListRequest extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'assetType'                  => 'AssetType',
-        'cspmStatus'                 => 'CspmStatus',
-        'currentPage'                => 'CurrentPage',
-        'exposureComponent'          => 'ExposureComponent',
-        'exposureIp'                 => 'ExposureIp',
-        'exposurePort'               => 'ExposurePort',
-        'groupId'                    => 'GroupId',
-        'healthStatus'               => 'HealthStatus',
-        'instanceId'                 => 'InstanceId',
-        'instanceName'               => 'InstanceName',
-        'pageSize'                   => 'PageSize',
+        'assetType' => 'AssetType',
+        'cspmStatus' => 'CspmStatus',
+        'currentPage' => 'CurrentPage',
+        'exposureComponent' => 'ExposureComponent',
+        'exposureIp' => 'ExposureIp',
+        'exposurePort' => 'ExposurePort',
+        'groupId' => 'GroupId',
+        'healthStatus' => 'HealthStatus',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'pageSize' => 'PageSize',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'vulStatus'                  => 'VulStatus',
+        'vulStatus' => 'VulStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,6 +24,7 @@ class DescribeAssetDetailByUuidsRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -33,21 +34,22 @@ class DescribeAssetDetailByUuidsRequest extends Model
     /**
      * @description The UUIDs of the instances. Separate multiple UUIDs with commas (,).
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of instances.
+     *
      * This parameter is required.
+     *
      * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'lang'                       => 'Lang',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'uuids'                      => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

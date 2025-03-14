@@ -62,16 +62,14 @@ class assetList extends Model
      */
     public $uuid;
     protected $_name = [
-        'curVersion'      => 'CurVersion',
+        'curVersion' => 'CurVersion',
         'lastUpgradeTime' => 'LastUpgradeTime',
-        'status'          => 'Status',
-        'upgradeEnable'   => 'UpgradeEnable',
-        'uuid'            => 'Uuid',
+        'status' => 'Status',
+        'upgradeEnable' => 'UpgradeEnable',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

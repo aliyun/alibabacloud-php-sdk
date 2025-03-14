@@ -23,9 +23,7 @@ class data extends Model
         'switchOn' => 'SwitchOn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

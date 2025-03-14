@@ -12,6 +12,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
      * @description The ID of the pay-as-you-go instance. This parameter is required.
      *
      * >  You can call the [DescribeVersionConfig](https://help.aliyun.com/document_detail/421770.html) operation to obtain the ID.
+     *
      * @example postpay-sas-**
      *
      * @var string
@@ -31,19 +32,18 @@ class ModifyPostPayModuleSwitchRequest extends Model
      *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
      *
      * >  If you do not specify a value for a module, the original value of the module is retained.
+     *
      * @example {"VUL":1,"CSPM":0}
      *
      * @var string
      */
     public $postPayModuleSwitch;
     protected $_name = [
-        'postPayInstanceId'   => 'PostPayInstanceId',
+        'postPayInstanceId' => 'PostPayInstanceId',
         'postPayModuleSwitch' => 'PostPayModuleSwitch',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

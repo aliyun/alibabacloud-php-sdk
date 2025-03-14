@@ -16,6 +16,7 @@ class ModifyLoginSwitchConfigRequest extends Model
      *   **login_common_account**: unapproved logon accounts
      *
      * This parameter is required.
+     *
      * @example login_common_account
      *
      * @var string
@@ -29,19 +30,18 @@ class ModifyLoginSwitchConfigRequest extends Model
      *   **1**: yes
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
      */
     public $status;
     protected $_name = [
-        'item'   => 'Item',
+        'item' => 'Item',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

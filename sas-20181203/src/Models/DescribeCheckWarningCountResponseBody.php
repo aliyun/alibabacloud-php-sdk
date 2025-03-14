@@ -26,13 +26,11 @@ class DescribeCheckWarningCountResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

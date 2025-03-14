@@ -33,6 +33,7 @@ class DescribeWhiteListStrategyStatisticsRequest extends Model
      * @description The number of entries per page. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 data entries are returned per page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -52,6 +53,7 @@ class DescribeWhiteListStrategyStatisticsRequest extends Model
      * @description The ID of the policy.
      *
      * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * @example 3645
      *
      * @var string
@@ -59,15 +61,13 @@ class DescribeWhiteListStrategyStatisticsRequest extends Model
     public $strategyIds;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'sourceIp'    => 'SourceIp',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'sourceIp' => 'SourceIp',
         'strategyIds' => 'StrategyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class ModifyPushAllTaskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'pushTaskRsp' => 'PushTaskRsp',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

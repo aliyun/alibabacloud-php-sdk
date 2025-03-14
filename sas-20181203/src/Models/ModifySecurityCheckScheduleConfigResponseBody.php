@@ -20,9 +20,7 @@ class ModifySecurityCheckScheduleConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

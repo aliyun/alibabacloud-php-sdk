@@ -12,6 +12,7 @@ class DescribeExposedInstanceCriteriaRequest extends Model
      * @description The ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     *
      * @example 1232428423234****
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeExposedInstanceCriteriaRequest extends Model
      * @description The value of the search condition. Fuzzy match is supported.
      *
      * >  You can specify the name, ID, public IP address, private IP address, component, port, or IP address of an exposed asset.
+     *
      * @example id
      *
      * @var string
@@ -29,12 +31,10 @@ class DescribeExposedInstanceCriteriaRequest extends Model
     public $value;
     protected $_name = [
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'value'                      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

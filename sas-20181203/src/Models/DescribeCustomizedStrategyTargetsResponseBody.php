@@ -25,13 +25,11 @@ class DescribeCustomizedStrategyTargetsResponseBody extends Model
      */
     public $startegyTargets;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'startegyTargets' => 'StartegyTargets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeCustomizedStrategyTargetsResponseBody extends Model
         if (isset($map['StartegyTargets'])) {
             if (!empty($map['StartegyTargets'])) {
                 $model->startegyTargets = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StartegyTargets'] as $item) {
                     $model->startegyTargets[$n++] = null !== $item ? startegyTargets::fromMap($item) : $item;
                 }

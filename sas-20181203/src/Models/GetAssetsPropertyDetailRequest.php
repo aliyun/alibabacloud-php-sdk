@@ -17,6 +17,7 @@ class GetAssetsPropertyDetailRequest extends Model
      *   **web_server**: website
      *
      * This parameter is required.
+     *
      * @example lkm
      *
      * @var string
@@ -36,6 +37,7 @@ class GetAssetsPropertyDetailRequest extends Model
      * @description The name of the aggregation item for the asset fingerprint that you want to query.
      *
      * > You can call the [GetAssetsPropertyItem](~~GetAssetsPropertyItem~~) operation to query the names of aggregation items.
+     *
      * @example virtio
      *
      * @var string
@@ -58,6 +60,7 @@ class GetAssetsPropertyDetailRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -84,25 +87,24 @@ class GetAssetsPropertyDetailRequest extends Model
      * @description The UUID of the server.
      *
      * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 38f72ea4-4c9f-4df1-bc6c-0f267614****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'biz'                => 'Biz',
-        'currentPage'        => 'CurrentPage',
-        'itemName'           => 'ItemName',
-        'lang'               => 'Lang',
-        'pageSize'           => 'PageSize',
-        'remark'             => 'Remark',
+        'biz' => 'Biz',
+        'currentPage' => 'CurrentPage',
+        'itemName' => 'ItemName',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'searchCriteriaList' => 'SearchCriteriaList',
-        'uuid'               => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -170,7 +172,7 @@ class GetAssetsPropertyDetailRequest extends Model
         if (isset($map['SearchCriteriaList'])) {
             if (!empty($map['SearchCriteriaList'])) {
                 $model->searchCriteriaList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['SearchCriteriaList'] as $item) {
                     $model->searchCriteriaList[$n++] = null !== $item ? searchCriteriaList::fromMap($item) : $item;
                 }

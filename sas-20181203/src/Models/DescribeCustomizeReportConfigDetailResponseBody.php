@@ -232,33 +232,31 @@ class DescribeCustomizeReportConfigDetailResponseBody extends Model
      */
     public $title;
     protected $_name = [
-        'chartIds'        => 'ChartIds',
-        'groupType'       => 'GroupType',
-        'isDefault'       => 'IsDefault',
-        'pinnedTime'      => 'PinnedTime',
-        'recipients'      => 'Recipients',
-        'reportDays'      => 'ReportDays',
-        'reportEndDate'   => 'ReportEndDate',
-        'reportId'        => 'ReportId',
-        'reportLang'      => 'ReportLang',
-        'reportSendType'  => 'ReportSendType',
+        'chartIds' => 'ChartIds',
+        'groupType' => 'GroupType',
+        'isDefault' => 'IsDefault',
+        'pinnedTime' => 'PinnedTime',
+        'recipients' => 'Recipients',
+        'reportDays' => 'ReportDays',
+        'reportEndDate' => 'ReportEndDate',
+        'reportId' => 'ReportId',
+        'reportLang' => 'ReportLang',
+        'reportSendType' => 'ReportSendType',
         'reportStartDate' => 'ReportStartDate',
-        'reportStatus'    => 'ReportStatus',
-        'reportType'      => 'ReportType',
-        'requestId'       => 'RequestId',
-        'sendEndTime'     => 'SendEndTime',
-        'sendPeriodDays'  => 'SendPeriodDays',
-        'sendPeriodType'  => 'SendPeriodType',
-        'sendStartTime'   => 'SendStartTime',
-        'sendTime'        => 'SendTime',
-        'targetGroups'    => 'TargetGroups',
-        'targetUids'      => 'TargetUids',
-        'title'           => 'Title',
+        'reportStatus' => 'ReportStatus',
+        'reportType' => 'ReportType',
+        'requestId' => 'RequestId',
+        'sendEndTime' => 'SendEndTime',
+        'sendPeriodDays' => 'SendPeriodDays',
+        'sendPeriodType' => 'SendPeriodType',
+        'sendStartTime' => 'SendStartTime',
+        'sendTime' => 'SendTime',
+        'targetGroups' => 'TargetGroups',
+        'targetUids' => 'TargetUids',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

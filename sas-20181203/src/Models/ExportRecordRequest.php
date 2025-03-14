@@ -44,6 +44,7 @@ class ExportRecordRequest extends Model
      *   **exportObjectScanEvents**: the list of alerts generated for malicious files
      *
      * This parameter is required.
+     *
      * @example database
      *
      * @var string
@@ -66,6 +67,7 @@ class ExportRecordRequest extends Model
      * @description The conditions that are used to filter check results.
      *
      * > This operation is a common export operation for multiple features of Security Center. The available configuration fields of this parameter vary based on the features. We recommend that you do not specify this parameter when you call the operation. You can export an information list without specifying this parameter, and then filter data in the exported Excel file.
+     *
      * @example {"extend":"1","currentPage":1,"pageSize":10}
      *
      * @var string
@@ -73,14 +75,12 @@ class ExportRecordRequest extends Model
     public $params;
     protected $_name = [
         'exportFileType' => 'ExportFileType',
-        'exportType'     => 'ExportType',
-        'lang'           => 'Lang',
-        'params'         => 'Params',
+        'exportType' => 'ExportType',
+        'lang' => 'Lang',
+        'params' => 'Params',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,14 +36,12 @@ class operations extends Model
      */
     public $operationName;
     protected $_name = [
-        'conditions'    => 'Conditions',
+        'conditions' => 'Conditions',
         'operationCode' => 'OperationCode',
         'operationName' => 'OperationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class operations extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Conditions'] as $item) {
                     $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class data extends Model
      * @description The number of Java processes.
      *
      * >  If no processes exist on the asset, no statistical result is returned.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +23,7 @@ class data extends Model
      * @description The UUID of the asset.
      *
      * >  If no processes exist on the asset, no statistical result is returned.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string
@@ -29,12 +31,10 @@ class data extends Model
     public $uuid;
     protected $_name = [
         'count' => 'Count',
-        'uuid'  => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteHybridProxyClusterRequest extends Model
      * @description The name of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example proxy
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteHybridProxyClusterRequest extends Model
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -54,15 +54,13 @@ class entityTypeList extends Model
     public $name;
     protected $_name = [
         'displayColor' => 'DisplayColor',
-        'displayIcon'  => 'DisplayIcon',
+        'displayIcon' => 'DisplayIcon',
         'displayOrder' => 'DisplayOrder',
-        'id'           => 'Id',
-        'name'         => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

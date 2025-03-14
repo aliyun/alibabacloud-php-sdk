@@ -89,18 +89,16 @@ class node extends Model
      */
     public $type;
     protected $_name = [
-        'cnnfSwitch'       => 'CnnfSwitch',
-        'id'               => 'Id',
+        'cnnfSwitch' => 'CnnfSwitch',
+        'id' => 'Id',
         'interceptionType' => 'InterceptionType',
-        'name'             => 'Name',
-        'netTopoSwitch'    => 'NetTopoSwitch',
-        'riskLevel'        => 'RiskLevel',
-        'type'             => 'Type',
+        'name' => 'Name',
+        'netTopoSwitch' => 'NetTopoSwitch',
+        'riskLevel' => 'RiskLevel',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

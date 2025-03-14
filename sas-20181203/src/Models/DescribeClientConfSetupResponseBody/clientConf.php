@@ -39,14 +39,12 @@ class clientConf extends Model
      */
     public $strategyTagValue;
     protected $_name = [
-        'config'           => 'Config',
-        'strategyTag'      => 'StrategyTag',
+        'config' => 'Config',
+        'strategyTag' => 'StrategyTag',
         'strategyTagValue' => 'StrategyTagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,17 +38,15 @@ class ListHoneypotAlarmEventsRequest extends Model
      */
     public $srcIp;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
-        'dealed'        => 'Dealed',
-        'dstIp'         => 'DstIp',
-        'pageSize'      => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'dstIp' => 'DstIp',
+        'pageSize' => 'PageSize',
         'riskLevelList' => 'RiskLevelList',
-        'srcIp'         => 'SrcIp',
+        'srcIp' => 'SrcIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class instanceItem extends Model
     public $uuid;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'uuid'       => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

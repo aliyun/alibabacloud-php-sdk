@@ -12,6 +12,7 @@ class GetOpaClusterImageListRequest extends Model
      * @description The ID of the cluster to which the container belongs.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c4af4fdf38a98496a9b63c2be5dae****
      *
      * @var string
@@ -45,15 +46,13 @@ class GetOpaClusterImageListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'imageName'   => 'ImageName',
-        'pageSize'    => 'PageSize',
+        'imageName' => 'ImageName',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

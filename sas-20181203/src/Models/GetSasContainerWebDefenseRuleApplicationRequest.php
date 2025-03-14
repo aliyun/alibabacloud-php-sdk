@@ -12,6 +12,7 @@ class GetSasContainerWebDefenseRuleApplicationRequest extends Model
      * @description The ID of the rule.
      *
      * >  You can call the ListSasContainerWebDefenseRule operation to query the IDs of rules.
+     *
      * @example 400599
      *
      * @var int
@@ -21,9 +22,7 @@ class GetSasContainerWebDefenseRuleApplicationRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

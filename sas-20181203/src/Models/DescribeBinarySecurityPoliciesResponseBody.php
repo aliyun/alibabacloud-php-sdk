@@ -34,13 +34,11 @@ class DescribeBinarySecurityPoliciesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'binarySecurityPolicies' => 'BinarySecurityPolicies',
-        'pageInfo'               => 'PageInfo',
-        'requestId'              => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeBinarySecurityPoliciesResponseBody extends Model
         if (isset($map['BinarySecurityPolicies'])) {
             if (!empty($map['BinarySecurityPolicies'])) {
                 $model->binarySecurityPolicies = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['BinarySecurityPolicies'] as $item) {
                     $model->binarySecurityPolicies[$n++] = null !== $item ? binarySecurityPolicies::fromMap($item) : $item;
                 }

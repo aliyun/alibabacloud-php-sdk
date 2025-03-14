@@ -188,29 +188,27 @@ class DescribeSuspEventDetailResponseBody extends Model
      */
     public $uuid;
     protected $_name = [
-        'canBeDealOnLine'  => 'CanBeDealOnLine',
-        'dataSource'       => 'DataSource',
-        'details'          => 'Details',
-        'eventDesc'        => 'EventDesc',
-        'eventName'        => 'EventName',
-        'eventStatus'      => 'EventStatus',
-        'eventTypeDesc'    => 'EventTypeDesc',
-        'id'               => 'Id',
-        'instanceName'     => 'InstanceName',
-        'internetIp'       => 'InternetIp',
-        'intranetIp'       => 'IntranetIp',
-        'lastTime'         => 'LastTime',
-        'level'            => 'Level',
+        'canBeDealOnLine' => 'CanBeDealOnLine',
+        'dataSource' => 'DataSource',
+        'details' => 'Details',
+        'eventDesc' => 'EventDesc',
+        'eventName' => 'EventName',
+        'eventStatus' => 'EventStatus',
+        'eventTypeDesc' => 'EventTypeDesc',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lastTime' => 'LastTime',
+        'level' => 'Level',
         'operateErrorCode' => 'OperateErrorCode',
-        'operateMsg'       => 'OperateMsg',
-        'requestId'        => 'RequestId',
-        'saleVersion'      => 'SaleVersion',
-        'uuid'             => 'Uuid',
+        'operateMsg' => 'OperateMsg',
+        'requestId' => 'RequestId',
+        'saleVersion' => 'SaleVersion',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -296,7 +294,7 @@ class DescribeSuspEventDetailResponseBody extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

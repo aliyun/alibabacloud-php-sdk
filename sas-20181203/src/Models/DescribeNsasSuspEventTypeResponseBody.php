@@ -26,12 +26,10 @@ class DescribeNsasSuspEventTypeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'eventTypes' => 'EventTypes',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeNsasSuspEventTypeResponseBody extends Model
         if (isset($map['EventTypes'])) {
             if (!empty($map['EventTypes'])) {
                 $model->eventTypes = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['EventTypes'] as $item) {
                     $model->eventTypes[$n++] = null !== $item ? eventTypes::fromMap($item) : $item;
                 }

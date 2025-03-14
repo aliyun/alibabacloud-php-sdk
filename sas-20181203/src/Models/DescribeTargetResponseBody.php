@@ -34,14 +34,12 @@ class DescribeTargetResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'targets'    => 'Targets',
+        'requestId' => 'RequestId',
+        'targets' => 'Targets',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeTargetResponseBody extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Targets'] as $item) {
                     $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
                 }

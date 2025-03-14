@@ -41,14 +41,12 @@ class DescribeSearchConditionRequest extends Model
      */
     public $type;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

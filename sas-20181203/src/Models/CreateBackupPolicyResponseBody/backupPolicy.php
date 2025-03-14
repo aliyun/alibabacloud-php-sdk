@@ -24,19 +24,18 @@ class backupPolicy extends Model
      *   **disabled**
      *
      * >  After you create an anti-ransomware policy, the policy is enabled by default.
+     *
      * @example enabled
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

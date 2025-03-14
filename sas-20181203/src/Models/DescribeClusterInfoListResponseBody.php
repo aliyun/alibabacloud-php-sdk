@@ -26,12 +26,10 @@ class DescribeClusterInfoListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterList' => 'ClusterList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeClusterInfoListResponseBody extends Model
         if (isset($map['ClusterList'])) {
             if (!empty($map['ClusterList'])) {
                 $model->clusterList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ClusterList'] as $item) {
                     $model->clusterList[$n++] = null !== $item ? clusterList::fromMap($item) : $item;
                 }

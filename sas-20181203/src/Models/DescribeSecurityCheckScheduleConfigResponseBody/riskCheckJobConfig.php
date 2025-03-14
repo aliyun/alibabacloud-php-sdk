@@ -54,13 +54,11 @@ class riskCheckJobConfig extends Model
     public $startTime;
     protected $_name = [
         'daysOfWeek' => 'DaysOfWeek',
-        'endTime'    => 'EndTime',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

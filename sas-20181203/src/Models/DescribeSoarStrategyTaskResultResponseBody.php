@@ -32,14 +32,12 @@ class DescribeSoarStrategyTaskResultResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
-        'records'   => 'Records',
+        'pageInfo' => 'PageInfo',
+        'records' => 'Records',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class data extends Model
      */
     public $switchId;
     protected $_name = [
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
         'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

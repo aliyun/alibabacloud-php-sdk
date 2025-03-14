@@ -63,17 +63,15 @@ class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'list'      => 'List',
-        'message'   => 'Message',
-        'pageInfo'  => 'PageInfo',
+        'code' => 'Code',
+        'list' => 'List',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -120,7 +118,7 @@ class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

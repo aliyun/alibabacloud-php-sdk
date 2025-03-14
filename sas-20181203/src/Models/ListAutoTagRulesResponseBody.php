@@ -34,13 +34,11 @@ class ListAutoTagRulesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'autoTagRuleList' => 'AutoTagRuleList',
-        'pageInfo'        => 'PageInfo',
-        'requestId'       => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListAutoTagRulesResponseBody extends Model
         if (isset($map['AutoTagRuleList'])) {
             if (!empty($map['AutoTagRuleList'])) {
                 $model->autoTagRuleList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AutoTagRuleList'] as $item) {
                     $model->autoTagRuleList[$n++] = null !== $item ? autoTagRuleList::fromMap($item) : $item;
                 }

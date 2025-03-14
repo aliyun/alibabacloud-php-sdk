@@ -44,14 +44,12 @@ class neighborList extends Model
      */
     public $type;
     protected $_name = [
-        'count'   => 'Count',
+        'count' => 'Count',
         'hasMore' => 'HasMore',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

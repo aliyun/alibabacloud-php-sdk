@@ -35,14 +35,12 @@ class fileInfoList extends Model
      */
     public $ossUrl;
     protected $_name = [
-        'fileId'   => 'FileId',
+        'fileId' => 'FileId',
         'fileName' => 'FileName',
-        'ossUrl'   => 'OssUrl',
+        'ossUrl' => 'OssUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

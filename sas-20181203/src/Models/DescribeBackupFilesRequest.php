@@ -12,6 +12,7 @@ class DescribeBackupFilesRequest extends Model
      * @description The number of the page to return. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeBackupFilesRequest extends Model
      * @description The number of entries to return on each page. Default value: **10**.
      *
      * This parameter is required.
+     *
      * @example 10
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeBackupFilesRequest extends Model
      * @description The hash value of the backup file.
      *
      * This parameter is required.
+     *
      * @example a7f26223ef3974c6fac324cd37713ab65ab618859d20b4039192a5da44d77b63
      *
      * @var string
@@ -51,22 +54,21 @@ class DescribeBackupFilesRequest extends Model
      * @description The UUID of the server to which an anti-ransomware policy is applied.
      *
      * This parameter is required.
+     *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1a****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'pageSize'     => 'PageSize',
-        'path'         => 'Path',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'path' => 'Path',
         'snapshotHash' => 'SnapshotHash',
-        'uuid'         => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

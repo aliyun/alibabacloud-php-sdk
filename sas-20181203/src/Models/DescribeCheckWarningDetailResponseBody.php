@@ -105,21 +105,19 @@ class DescribeCheckWarningDetailResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'advice'               => 'Advice',
+        'advice' => 'Advice',
         'checkDetailAssetInfo' => 'CheckDetailAssetInfo',
-        'checkDetailColumns'   => 'CheckDetailColumns',
-        'checkId'              => 'CheckId',
-        'description'          => 'Description',
-        'item'                 => 'Item',
-        'level'                => 'Level',
-        'prompt'               => 'Prompt',
-        'requestId'            => 'RequestId',
-        'type'                 => 'Type',
+        'checkDetailColumns' => 'CheckDetailColumns',
+        'checkId' => 'CheckId',
+        'description' => 'Description',
+        'item' => 'Item',
+        'level' => 'Level',
+        'prompt' => 'Prompt',
+        'requestId' => 'RequestId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -183,7 +181,7 @@ class DescribeCheckWarningDetailResponseBody extends Model
         if (isset($map['CheckDetailColumns'])) {
             if (!empty($map['CheckDetailColumns'])) {
                 $model->checkDetailColumns = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['CheckDetailColumns'] as $item) {
                     $model->checkDetailColumns[$n++] = null !== $item ? checkDetailColumns::fromMap($item) : $item;
                 }

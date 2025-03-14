@@ -20,9 +20,7 @@ class result extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -32,13 +32,11 @@ class data extends Model
      */
     public $targetSyncStatus;
     protected $_name = [
-        'targetDefault'    => 'TargetDefault',
+        'targetDefault' => 'TargetDefault',
         'targetSyncStatus' => 'TargetSyncStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

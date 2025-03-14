@@ -35,14 +35,12 @@ class DescribeSuspEventUserSettingRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'from'     => 'From',
-        'id'       => 'Id',
+        'from' => 'From',
+        'id' => 'Id',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

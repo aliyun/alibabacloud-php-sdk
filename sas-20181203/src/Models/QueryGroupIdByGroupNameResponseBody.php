@@ -26,13 +26,11 @@ class QueryGroupIdByGroupNameResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

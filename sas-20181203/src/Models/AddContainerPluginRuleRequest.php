@@ -27,6 +27,7 @@ class AddContainerPluginRuleRequest extends Model
      *   **2**: blocks escapes.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +38,7 @@ class AddContainerPluginRuleRequest extends Model
      * @description The name of the rule. The name must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_). The names of rules that are created for the same user must be unique.
      *
      * This parameter is required.
+     *
      * @example tyest111
      *
      * @var string
@@ -47,6 +49,7 @@ class AddContainerPluginRuleRequest extends Model
      * @description The ID of the rule template. You can call the ListSystemClientRules operation to query the ID of the rule template.
      *
      * This parameter is required.
+     *
      * @example 86863
      *
      * @var int
@@ -69,6 +72,7 @@ class AddContainerPluginRuleRequest extends Model
      * @description The check items that are enabled for the rule.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $selectedPolicy;
@@ -80,18 +84,16 @@ class AddContainerPluginRuleRequest extends Model
      */
     public $whiteImages;
     protected $_name = [
-        'lang'           => 'Lang',
-        'mode'           => 'Mode',
-        'ruleName'       => 'RuleName',
+        'lang' => 'Lang',
+        'mode' => 'Mode',
+        'ruleName' => 'RuleName',
         'ruleTemplateId' => 'RuleTemplateId',
-        'ruleType'       => 'RuleType',
+        'ruleType' => 'RuleType',
         'selectedPolicy' => 'SelectedPolicy',
-        'whiteImages'    => 'WhiteImages',
+        'whiteImages' => 'WhiteImages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

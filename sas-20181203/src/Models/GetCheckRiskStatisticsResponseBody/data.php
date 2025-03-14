@@ -70,18 +70,16 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'highWarningCount'   => 'HighWarningCount',
-        'lowWarningCount'    => 'LowWarningCount',
+        'highWarningCount' => 'HighWarningCount',
+        'lowWarningCount' => 'LowWarningCount',
         'mediumWarningCount' => 'MediumWarningCount',
-        'passCount'          => 'PassCount',
-        'sceneName'          => 'SceneName',
-        'subStatistics'      => 'SubStatistics',
-        'totalCount'         => 'TotalCount',
+        'passCount' => 'PassCount',
+        'sceneName' => 'SceneName',
+        'subStatistics' => 'SubStatistics',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -143,7 +141,7 @@ class data extends Model
         if (isset($map['SubStatistics'])) {
             if (!empty($map['SubStatistics'])) {
                 $model->subStatistics = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SubStatistics'] as $item) {
                     $model->subStatistics[$n++] = null !== $item ? subStatistics::fromMap($item) : $item;
                 }

@@ -44,15 +44,13 @@ class items extends Model
      */
     public $installedAssetCount;
     protected $_name = [
-        'assetTotalCount'     => 'AssetTotalCount',
-        'calculateTime'       => 'CalculateTime',
-        'installRatio'        => 'InstallRatio',
+        'assetTotalCount' => 'AssetTotalCount',
+        'calculateTime' => 'CalculateTime',
+        'installRatio' => 'InstallRatio',
         'installedAssetCount' => 'InstalledAssetCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

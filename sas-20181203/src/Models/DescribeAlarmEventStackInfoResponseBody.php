@@ -30,9 +30,7 @@ class DescribeAlarmEventStackInfoResponseBody extends Model
         'stackInfo' => 'StackInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

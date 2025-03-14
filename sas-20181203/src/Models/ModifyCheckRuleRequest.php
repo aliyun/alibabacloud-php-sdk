@@ -35,7 +35,10 @@ class ModifyCheckRuleRequest extends Model
 
     /**
      * @description Rule ID.
+     * > You can obtain this parameter by calling the [ListCheckRule](https://help.aliyun.com/document_detail/2590599.html) API.
+     *
      * This parameter is required.
+     *
      * @example 9000**
      *
      * @var int
@@ -45,6 +48,7 @@ class ModifyCheckRuleRequest extends Model
     /**
      * @description Rule type. Default is **WHITE**. Values:
      * - **WHITE**: Add to whitelist
+     *
      * @example WHITE
      *
      * @var string
@@ -55,23 +59,22 @@ class ModifyCheckRuleRequest extends Model
      * @description The scope of effect for modifying the rule:
      * - **INSTANCE**: Instance
      * - **ITEM**: Check item
+     *
      * @example INSTANCE
      *
      * @var string
      */
     public $scopeType;
     protected $_name = [
-        'addInstanceList'    => 'AddInstanceList',
+        'addInstanceList' => 'AddInstanceList',
         'deleteInstanceList' => 'DeleteInstanceList',
-        'remark'             => 'Remark',
-        'ruleId'             => 'RuleId',
-        'ruleType'           => 'RuleType',
-        'scopeType'          => 'ScopeType',
+        'remark' => 'Remark',
+        'ruleId' => 'RuleId',
+        'ruleType' => 'RuleType',
+        'scopeType' => 'ScopeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +124,7 @@ class ModifyCheckRuleRequest extends Model
         if (isset($map['AddInstanceList'])) {
             if (!empty($map['AddInstanceList'])) {
                 $model->addInstanceList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AddInstanceList'] as $item) {
                     $model->addInstanceList[$n++] = null !== $item ? addInstanceList::fromMap($item) : $item;
                 }
@@ -130,7 +133,7 @@ class ModifyCheckRuleRequest extends Model
         if (isset($map['DeleteInstanceList'])) {
             if (!empty($map['DeleteInstanceList'])) {
                 $model->deleteInstanceList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['DeleteInstanceList'] as $item) {
                     $model->deleteInstanceList[$n++] = null !== $item ? deleteInstanceList::fromMap($item) : $item;
                 }

@@ -124,20 +124,18 @@ class cspmRiskList extends Model
      */
     public $vendor;
     protected $_name = [
-        'assetSubType'     => 'AssetSubType',
+        'assetSubType' => 'AssetSubType',
         'assetSubTypeName' => 'AssetSubTypeName',
-        'assetType'        => 'AssetType',
-        'assetTypeName'    => 'AssetTypeName',
-        'checkName'        => 'CheckName',
-        'instanceId'       => 'InstanceId',
-        'regionId'         => 'RegionId',
-        'riskLevel'        => 'RiskLevel',
-        'vendor'           => 'Vendor',
+        'assetType' => 'AssetType',
+        'assetTypeName' => 'AssetTypeName',
+        'checkName' => 'CheckName',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'riskLevel' => 'RiskLevel',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

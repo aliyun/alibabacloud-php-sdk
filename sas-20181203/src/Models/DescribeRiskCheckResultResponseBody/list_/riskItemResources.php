@@ -30,12 +30,10 @@ class riskItemResources extends Model
     public $resourceName;
     protected $_name = [
         'contentResource' => 'ContentResource',
-        'resourceName'    => 'ResourceName',
+        'resourceName' => 'ResourceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

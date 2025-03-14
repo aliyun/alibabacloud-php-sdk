@@ -12,6 +12,7 @@ class DescribeScreenScoreThreadRequest extends Model
      * @description The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1668064495000
      *
      * @var int
@@ -22,19 +23,18 @@ class DescribeScreenScoreThreadRequest extends Model
      * @description The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1651290987000
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

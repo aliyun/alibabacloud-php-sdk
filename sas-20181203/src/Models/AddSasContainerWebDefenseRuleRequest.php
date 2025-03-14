@@ -26,12 +26,10 @@ class AddSasContainerWebDefenseRuleRequest extends Model
     public $ruleName;
     protected $_name = [
         'pathConfDTOList' => 'PathConfDTOList',
-        'ruleName'        => 'RuleName',
+        'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class AddSasContainerWebDefenseRuleRequest extends Model
         if (isset($map['PathConfDTOList'])) {
             if (!empty($map['PathConfDTOList'])) {
                 $model->pathConfDTOList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PathConfDTOList'] as $item) {
                     $model->pathConfDTOList[$n++] = null !== $item ? pathConfDTOList::fromMap($item) : $item;
                 }

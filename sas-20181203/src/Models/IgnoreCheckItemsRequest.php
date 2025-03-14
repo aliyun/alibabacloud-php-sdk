@@ -62,6 +62,7 @@ class IgnoreCheckItemsRequest extends Model
      *  **2**: removes the risk item from the whitelist
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -72,22 +73,21 @@ class IgnoreCheckItemsRequest extends Model
      * @description The UUIDs of the servers.
      *
      * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
         'checkAndRiskTypeList' => 'CheckAndRiskTypeList',
-        'checkIds'             => 'CheckIds',
-        'lang'                 => 'Lang',
-        'reason'               => 'Reason',
-        'source'               => 'Source',
-        'type'                 => 'Type',
-        'uuidList'             => 'UuidList',
+        'checkIds' => 'CheckIds',
+        'lang' => 'Lang',
+        'reason' => 'Reason',
+        'source' => 'Source',
+        'type' => 'Type',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +134,7 @@ class IgnoreCheckItemsRequest extends Model
         if (isset($map['CheckAndRiskTypeList'])) {
             if (!empty($map['CheckAndRiskTypeList'])) {
                 $model->checkAndRiskTypeList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['CheckAndRiskTypeList'] as $item) {
                     $model->checkAndRiskTypeList[$n++] = null !== $item ? checkAndRiskTypeList::fromMap($item) : $item;
                 }

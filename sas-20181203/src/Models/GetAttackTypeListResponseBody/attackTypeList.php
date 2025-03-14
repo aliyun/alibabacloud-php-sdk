@@ -39,14 +39,12 @@ class attackTypeList extends Model
      */
     public $value;
     protected $_name = [
-        'label'      => 'Label',
+        'label' => 'Label',
         'statusType' => 'Status_Type',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

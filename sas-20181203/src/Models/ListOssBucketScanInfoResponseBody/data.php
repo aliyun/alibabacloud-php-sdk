@@ -23,6 +23,7 @@ class data extends Model
      * - **0**: No Configuration.
      * - **1**: Not Open.
      * - **2**: Open.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +34,7 @@ class data extends Model
      * @description Bucket decompression configuration status, valid values:
      * - **0**: Decompression not configured.
      * - **1**: Decompression configured.
+     *
      * @example 0
      *
      * @var int
@@ -172,27 +174,25 @@ class data extends Model
      */
     public $totalObject;
     protected $_name = [
-        'bucketName'       => 'BucketName',
-        'configStatus'     => 'ConfigStatus',
+        'bucketName' => 'BucketName',
+        'configStatus' => 'ConfigStatus',
         'decompressStatus' => 'DecompressStatus',
-        'highRisk'         => 'HighRisk',
-        'lastScanEndTime'  => 'LastScanEndTime',
-        'lastScanTime'     => 'LastScanTime',
-        'lowRisk'          => 'LowRisk',
-        'mediumRisk'       => 'MediumRisk',
-        'message'          => 'Message',
-        'regionId'         => 'RegionId',
-        'scanObject'       => 'ScanObject',
-        'scanned'          => 'Scanned',
-        'status'           => 'Status',
-        'storageClass'     => 'StorageClass',
-        'support'          => 'Support',
-        'totalObject'      => 'TotalObject',
+        'highRisk' => 'HighRisk',
+        'lastScanEndTime' => 'LastScanEndTime',
+        'lastScanTime' => 'LastScanTime',
+        'lowRisk' => 'LowRisk',
+        'mediumRisk' => 'MediumRisk',
+        'message' => 'Message',
+        'regionId' => 'RegionId',
+        'scanObject' => 'ScanObject',
+        'scanned' => 'Scanned',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'support' => 'Support',
+        'totalObject' => 'TotalObject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

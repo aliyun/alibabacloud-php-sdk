@@ -26,12 +26,10 @@ class ListPrivateRegistryListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'imageRegistryInfos' => 'ImageRegistryInfos',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListPrivateRegistryListResponseBody extends Model
         if (isset($map['ImageRegistryInfos'])) {
             if (!empty($map['ImageRegistryInfos'])) {
                 $model->imageRegistryInfos = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ImageRegistryInfos'] as $item) {
                     $model->imageRegistryInfos[$n++] = null !== $item ? imageRegistryInfos::fromMap($item) : $item;
                 }

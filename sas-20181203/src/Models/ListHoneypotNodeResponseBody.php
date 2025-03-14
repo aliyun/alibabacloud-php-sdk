@@ -72,18 +72,16 @@ class ListHoneypotNodeResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'honeypotNodeList' => 'HoneypotNodeList',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'message'          => 'Message',
-        'pageInfo'         => 'PageInfo',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -133,7 +131,7 @@ class ListHoneypotNodeResponseBody extends Model
         if (isset($map['HoneypotNodeList'])) {
             if (!empty($map['HoneypotNodeList'])) {
                 $model->honeypotNodeList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['HoneypotNodeList'] as $item) {
                     $model->honeypotNodeList[$n++] = null !== $item ? honeypotNodeList::fromMap($item) : $item;
                 }

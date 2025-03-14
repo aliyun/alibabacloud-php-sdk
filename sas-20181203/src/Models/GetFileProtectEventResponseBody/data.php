@@ -191,30 +191,28 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'alertLevel'     => 'AlertLevel',
-        'cmdLine'        => 'CmdLine',
-        'filePath'       => 'FilePath',
+        'alertLevel' => 'AlertLevel',
+        'cmdLine' => 'CmdLine',
+        'filePath' => 'FilePath',
         'filePermission' => 'FilePermission',
-        'firstTime'      => 'FirstTime',
-        'handleTime'     => 'HandleTime',
-        'id'             => 'Id',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'latestTime'     => 'LatestTime',
-        'operation'      => 'Operation',
-        'platform'       => 'Platform',
-        'procPath'       => 'ProcPath',
-        'processId'      => 'ProcessId',
-        'remark'         => 'Remark',
-        'ruleName'       => 'RuleName',
-        'status'         => 'Status',
-        'uuid'           => 'Uuid',
+        'firstTime' => 'FirstTime',
+        'handleTime' => 'HandleTime',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'latestTime' => 'LatestTime',
+        'operation' => 'Operation',
+        'platform' => 'Platform',
+        'procPath' => 'ProcPath',
+        'processId' => 'ProcessId',
+        'remark' => 'Remark',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

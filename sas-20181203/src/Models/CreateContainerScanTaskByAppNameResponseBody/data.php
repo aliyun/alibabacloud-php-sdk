@@ -63,6 +63,7 @@ class data extends Model
      *   **TASK_NOT_SUPPORT_REGION**: The task is not supported in the region where the image is deployed.
      *
      * >
+     *
      * @example SUCCESS
      *
      * @var string
@@ -101,20 +102,18 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'canCreate'   => 'CanCreate',
+        'canCreate' => 'CanCreate',
         'collectTime' => 'CollectTime',
-        'execTime'    => 'ExecTime',
+        'execTime' => 'ExecTime',
         'finishCount' => 'FinishCount',
-        'progress'    => 'Progress',
-        'result'      => 'Result',
-        'status'      => 'Status',
-        'taskId'      => 'TaskId',
-        'totalCount'  => 'TotalCount',
+        'progress' => 'Progress',
+        'result' => 'Result',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

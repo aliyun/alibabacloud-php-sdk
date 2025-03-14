@@ -46,14 +46,12 @@ class targetConfigs extends Model
      */
     public $type;
     protected $_name = [
-        'config'        => 'Config',
+        'config' => 'Config',
         'overAllConfig' => 'OverAllConfig',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

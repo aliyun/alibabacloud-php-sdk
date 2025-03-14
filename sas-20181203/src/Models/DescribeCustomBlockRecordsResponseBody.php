@@ -33,14 +33,12 @@ class DescribeCustomBlockRecordsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'   => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'recordList' => 'RecordList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribeCustomBlockRecordsResponseBody extends Model
         if (isset($map['RecordList'])) {
             if (!empty($map['RecordList'])) {
                 $model->recordList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['RecordList'] as $item) {
                     $model->recordList[$n++] = null !== $item ? recordList::fromMap($item) : $item;
                 }

@@ -75,6 +75,7 @@ class DescribePropertyPortDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -90,20 +91,18 @@ class DescribePropertyPortDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'bindIp'                     => 'BindIp',
-        'currentPage'                => 'CurrentPage',
-        'extend'                     => 'Extend',
-        'pageSize'                   => 'PageSize',
-        'port'                       => 'Port',
-        'procName'                   => 'ProcName',
-        'remark'                     => 'Remark',
+        'bindIp' => 'BindIp',
+        'currentPage' => 'CurrentPage',
+        'extend' => 'Extend',
+        'pageSize' => 'PageSize',
+        'port' => 'Port',
+        'procName' => 'ProcName',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'uuid'                       => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

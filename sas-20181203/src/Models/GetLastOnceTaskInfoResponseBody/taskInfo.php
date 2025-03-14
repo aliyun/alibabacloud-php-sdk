@@ -45,13 +45,11 @@ class taskInfo extends Model
     public $status;
     protected $_name = [
         'progress' => 'Progress',
-        'result'   => 'Result',
-        'status'   => 'Status',
+        'result' => 'Result',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

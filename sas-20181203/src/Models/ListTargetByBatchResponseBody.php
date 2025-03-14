@@ -32,14 +32,12 @@ class ListTargetByBatchResponseBody extends Model
      */
     public $targetList;
     protected $_name = [
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'targetList' => 'TargetList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeCanFixVulListResponseBody extends Model
      */
     public $vulRecords;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'vulRecords' => 'VulRecords',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeCanFixVulListResponseBody extends Model
         if (isset($map['VulRecords'])) {
             if (!empty($map['VulRecords'])) {
                 $model->vulRecords = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['VulRecords'] as $item) {
                     $model->vulRecords[$n++] = null !== $item ? vulRecords::fromMap($item) : $item;
                 }

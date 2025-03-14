@@ -117,14 +117,12 @@ class overallList extends Model
     public $type;
     protected $_name = [
         'authVersionList' => 'AuthVersionList',
-        'config'          => 'Config',
-        'totalCount'      => 'TotalCount',
-        'type'            => 'Type',
+        'config' => 'Config',
+        'totalCount' => 'TotalCount',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

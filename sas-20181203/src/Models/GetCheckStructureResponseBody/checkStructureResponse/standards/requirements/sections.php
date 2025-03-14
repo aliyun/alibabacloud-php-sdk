@@ -26,13 +26,11 @@ class sections extends Model
      */
     public $showName;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'showName' => 'ShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -69,16 +69,14 @@ class imageVulWhitelist extends Model
     public $type;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'id'        => 'Id',
-        'name'      => 'Name',
-        'reason'    => 'Reason',
-        'target'    => 'Target',
-        'type'      => 'Type',
+        'id' => 'Id',
+        'name' => 'Name',
+        'reason' => 'Reason',
+        'target' => 'Target',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

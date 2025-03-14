@@ -107,20 +107,18 @@ class accounts extends Model
      */
     public $sasVersion;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'displayName'          => 'DisplayName',
-        'folderId'             => 'FolderId',
-        'isMaAccount'          => 'IsMaAccount',
-        'isMarked'             => 'IsMarked',
-        'isSasDaAccount'       => 'IsSasDaAccount',
+        'accountId' => 'AccountId',
+        'displayName' => 'DisplayName',
+        'folderId' => 'FolderId',
+        'isMaAccount' => 'IsMaAccount',
+        'isMarked' => 'IsMarked',
+        'isSasDaAccount' => 'IsSasDaAccount',
         'isSiemControlAccount' => 'IsSiemControlAccount',
-        'isSiemDaAccount'      => 'IsSiemDaAccount',
-        'sasVersion'           => 'SasVersion',
+        'isSiemDaAccount' => 'IsSiemDaAccount',
+        'sasVersion' => 'SasVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

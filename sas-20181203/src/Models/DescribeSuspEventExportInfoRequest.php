@@ -12,6 +12,7 @@ class DescribeSuspEventExportInfoRequest extends Model
      * @description The ID of the export task.
      *
      * > You can call the [ExportSuspEvents](~~ExportSuspEvents~~) operation to query the ID.
+     *
      * @example 123
      *
      * @var int
@@ -21,9 +22,7 @@ class DescribeSuspEventExportInfoRequest extends Model
         'exportId' => 'ExportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

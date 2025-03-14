@@ -31,6 +31,7 @@ class data extends Model
      * @description The unique identifier of the alert event.
      *
      * > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the identifier.
+     *
      * @example 9f62555666f177aa84ee1eaf465a****
      *
      * @var string
@@ -286,37 +287,35 @@ class data extends Model
     public $uuid;
     protected $_name = [
         'alarmEventAliasName' => 'AlarmEventAliasName',
-        'alarmEventDesc'      => 'AlarmEventDesc',
-        'alarmUniqueInfo'     => 'AlarmUniqueInfo',
-        'appName'             => 'AppName',
-        'canBeDealOnLine'     => 'CanBeDealOnLine',
-        'canCancelFault'      => 'CanCancelFault',
-        'causeDetails'        => 'CauseDetails',
-        'containHwMode'       => 'ContainHwMode',
-        'containerId'         => 'ContainerId',
-        'containerImageId'    => 'ContainerImageId',
-        'containerImageName'  => 'ContainerImageName',
-        'dataSource'          => 'DataSource',
-        'endTime'             => 'EndTime',
-        'instanceName'        => 'InstanceName',
-        'internetIp'          => 'InternetIp',
-        'intranetIp'          => 'IntranetIp',
-        'k8sClusterId'        => 'K8sClusterId',
-        'k8sClusterName'      => 'K8sClusterName',
-        'k8sNamespace'        => 'K8sNamespace',
-        'k8sNodeId'           => 'K8sNodeId',
-        'k8sNodeName'         => 'K8sNodeName',
-        'k8sPodName'          => 'K8sPodName',
-        'level'               => 'Level',
-        'solution'            => 'Solution',
-        'startTime'           => 'StartTime',
-        'type'                => 'Type',
-        'uuid'                => 'Uuid',
+        'alarmEventDesc' => 'AlarmEventDesc',
+        'alarmUniqueInfo' => 'AlarmUniqueInfo',
+        'appName' => 'AppName',
+        'canBeDealOnLine' => 'CanBeDealOnLine',
+        'canCancelFault' => 'CanCancelFault',
+        'causeDetails' => 'CauseDetails',
+        'containHwMode' => 'ContainHwMode',
+        'containerId' => 'ContainerId',
+        'containerImageId' => 'ContainerImageId',
+        'containerImageName' => 'ContainerImageName',
+        'dataSource' => 'DataSource',
+        'endTime' => 'EndTime',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'k8sClusterId' => 'K8sClusterId',
+        'k8sClusterName' => 'K8sClusterName',
+        'k8sNamespace' => 'K8sNamespace',
+        'k8sNodeId' => 'K8sNodeId',
+        'k8sNodeName' => 'K8sNodeName',
+        'k8sPodName' => 'K8sPodName',
+        'level' => 'Level',
+        'solution' => 'Solution',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -441,7 +440,7 @@ class data extends Model
         if (isset($map['CauseDetails'])) {
             if (!empty($map['CauseDetails'])) {
                 $model->causeDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CauseDetails'] as $item) {
                     $model->causeDetails[$n++] = null !== $item ? causeDetails::fromMap($item) : $item;
                 }

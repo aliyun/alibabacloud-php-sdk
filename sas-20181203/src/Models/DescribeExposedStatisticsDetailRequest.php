@@ -21,6 +21,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the ID.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -46,6 +48,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
      *   **exposureIp**: IP addresses
      *
      * This parameter is required.
+     *
      * @example exposureType
      *
      * @var string
@@ -73,17 +76,15 @@ class DescribeExposedStatisticsDetailRequest extends Model
      */
     public $statisticsTypeInstanceValue;
     protected $_name = [
-        'currentPage'                 => 'CurrentPage',
-        'pageSize'                    => 'PageSize',
-        'resourceDirectoryAccountId'  => 'ResourceDirectoryAccountId',
-        'statisticsType'              => 'StatisticsType',
-        'statisticsTypeGatewayType'   => 'StatisticsTypeGatewayType',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'statisticsType' => 'StatisticsType',
+        'statisticsTypeGatewayType' => 'StatisticsTypeGatewayType',
         'statisticsTypeInstanceValue' => 'StatisticsTypeInstanceValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,6 +23,7 @@ class subTypes extends Model
      *
      * - **true**: Have access
      * - **false**: No permissions
+     *
      * @example true
      *
      * @var bool
@@ -41,6 +42,7 @@ class subTypes extends Model
      *
      * - **windows**
      * - **linux**
+     *
      * @example linux
      *
      * @var string
@@ -56,16 +58,14 @@ class subTypes extends Model
      */
     public $typeName;
     protected $_name = [
-        'alias'        => 'Alias',
-        'authFlag'     => 'AuthFlag',
+        'alias' => 'Alias',
+        'authFlag' => 'AuthFlag',
         'checkDetails' => 'CheckDetails',
-        'supportedOs'  => 'SupportedOs',
-        'typeName'     => 'TypeName',
+        'supportedOs' => 'SupportedOs',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +112,7 @@ class subTypes extends Model
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CheckDetails'] as $item) {
                     $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
                 }

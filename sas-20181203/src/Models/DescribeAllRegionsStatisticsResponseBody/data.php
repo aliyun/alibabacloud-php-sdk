@@ -68,17 +68,15 @@ class data extends Model
      */
     public $vul;
     protected $_name = [
-        'account'       => 'Account',
-        'health'        => 'Health',
+        'account' => 'Account',
+        'health' => 'Health',
         'newSuspicious' => 'NewSuspicious',
-        'suspicious'    => 'Suspicious',
-        'trojan'        => 'Trojan',
-        'vul'           => 'Vul',
+        'suspicious' => 'Suspicious',
+        'trojan' => 'Trojan',
+        'vul' => 'Vul',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class DescribeRisksResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'risks'      => 'Risks',
+        'requestId' => 'RequestId',
+        'risks' => 'Risks',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeRisksResponseBody extends Model
         if (isset($map['Risks'])) {
             if (!empty($map['Risks'])) {
                 $model->risks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Risks'] as $item) {
                     $model->risks[$n++] = null !== $item ? risks::fromMap($item) : $item;
                 }

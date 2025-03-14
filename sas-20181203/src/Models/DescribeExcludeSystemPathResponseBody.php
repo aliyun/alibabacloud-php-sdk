@@ -34,13 +34,11 @@ class DescribeExcludeSystemPathResponseBody extends Model
     public $requestId;
     protected $_name = [
         'excludePaths' => 'ExcludePaths',
-        'pageInfo'     => 'PageInfo',
-        'requestId'    => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeExcludeSystemPathResponseBody extends Model
         if (isset($map['ExcludePaths'])) {
             if (!empty($map['ExcludePaths'])) {
                 $model->excludePaths = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ExcludePaths'] as $item) {
                     $model->excludePaths[$n++] = null !== $item ? excludePaths::fromMap($item) : $item;
                 }

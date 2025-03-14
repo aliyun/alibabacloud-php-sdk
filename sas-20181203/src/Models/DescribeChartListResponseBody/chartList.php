@@ -80,14 +80,12 @@ class chartList extends Model
     protected $_name = [
         'businessName' => 'BusinessName',
         'businessType' => 'BusinessType',
-        'chartId'      => 'ChartId',
-        'chartName'    => 'ChartName',
-        'chartType'    => 'ChartType',
+        'chartId' => 'ChartId',
+        'chartName' => 'ChartName',
+        'chartType' => 'ChartType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

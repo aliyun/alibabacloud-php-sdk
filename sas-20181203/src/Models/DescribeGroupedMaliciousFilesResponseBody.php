@@ -34,13 +34,11 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'groupedMaliciousFileResponse' => 'GroupedMaliciousFileResponse',
-        'pageInfo'                     => 'PageInfo',
-        'requestId'                    => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
         if (isset($map['GroupedMaliciousFileResponse'])) {
             if (!empty($map['GroupedMaliciousFileResponse'])) {
                 $model->groupedMaliciousFileResponse = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['GroupedMaliciousFileResponse'] as $item) {
                     $model->groupedMaliciousFileResponse[$n++] = null !== $item ? groupedMaliciousFileResponse::fromMap($item) : $item;
                 }

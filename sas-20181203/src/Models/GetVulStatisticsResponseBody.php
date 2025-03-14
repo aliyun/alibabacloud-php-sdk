@@ -44,15 +44,13 @@ class GetVulStatisticsResponseBody extends Model
      */
     public $vulNntfSum;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'vulAsapSum'  => 'VulAsapSum',
+        'requestId' => 'RequestId',
+        'vulAsapSum' => 'VulAsapSum',
         'vulLaterSum' => 'VulLaterSum',
-        'vulNntfSum'  => 'VulNntfSum',
+        'vulNntfSum' => 'VulNntfSum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

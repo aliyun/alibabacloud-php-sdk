@@ -34,14 +34,12 @@ class DescribeVpcListResponseBody extends Model
      */
     public $vpcList;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'requestId' => 'RequestId',
-        'vpcList'   => 'VpcList',
+        'vpcList' => 'VpcList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeVpcListResponseBody extends Model
         if (isset($map['VpcList'])) {
             if (!empty($map['VpcList'])) {
                 $model->vpcList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['VpcList'] as $item) {
                     $model->vpcList[$n++] = null !== $item ? vpcList::fromMap($item) : $item;
                 }

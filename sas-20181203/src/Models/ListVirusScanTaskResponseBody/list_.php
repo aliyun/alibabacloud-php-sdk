@@ -124,23 +124,21 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'progress'     => 'Progress',
-        'scanPath'     => 'ScanPath',
-        'scanType'     => 'ScanType',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'progress' => 'Progress',
+        'scanPath' => 'ScanPath',
+        'scanType' => 'ScanType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

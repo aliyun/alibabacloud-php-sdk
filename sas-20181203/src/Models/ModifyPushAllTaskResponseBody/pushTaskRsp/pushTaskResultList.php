@@ -60,6 +60,7 @@ class pushTaskResultList extends Model
      *   **false**: no
      *
      * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
+     *
      * @example false
      *
      * @var bool
@@ -105,21 +106,19 @@ class pushTaskResultList extends Model
      */
     public $uuid;
     protected $_name = [
-        'groupId'      => 'GroupId',
-        'instanceId'   => 'InstanceId',
+        'groupId' => 'GroupId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'ip'           => 'Ip',
-        'message'      => 'Message',
-        'online'       => 'Online',
-        'osVersion'    => 'OsVersion',
-        'region'       => 'Region',
-        'success'      => 'Success',
-        'uuid'         => 'Uuid',
+        'ip' => 'Ip',
+        'message' => 'Message',
+        'online' => 'Online',
+        'osVersion' => 'OsVersion',
+        'region' => 'Region',
+        'success' => 'Success',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

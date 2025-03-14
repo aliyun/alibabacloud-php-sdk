@@ -34,17 +34,16 @@ class DescribePropertyCountRequest extends Model
      *
      * @example 9658314a-7609-4426-afc4-2c924072****,
      * 9658314a-7609-4426-afc4-2c924072****
+     *
      * @var string
      */
     public $uuidList;
     protected $_name = [
-        'type'     => 'Type',
+        'type' => 'Type',
         'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

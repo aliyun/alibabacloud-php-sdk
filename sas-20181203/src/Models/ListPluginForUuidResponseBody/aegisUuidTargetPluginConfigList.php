@@ -72,16 +72,14 @@ class aegisUuidTargetPluginConfigList extends Model
     public $pluginVersion;
     protected $_name = [
         'aegisSuspiciousConfigList' => 'AegisSuspiciousConfigList',
-        'pluginInstallCode'         => 'PluginInstallCode',
-        'pluginName'                => 'PluginName',
-        'pluginOnlineInstalled'     => 'PluginOnlineInstalled',
-        'pluginOnlineStatus'        => 'PluginOnlineStatus',
-        'pluginVersion'             => 'PluginVersion',
+        'pluginInstallCode' => 'PluginInstallCode',
+        'pluginName' => 'PluginName',
+        'pluginOnlineInstalled' => 'PluginOnlineInstalled',
+        'pluginOnlineStatus' => 'PluginOnlineStatus',
+        'pluginVersion' => 'PluginVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -125,7 +123,7 @@ class aegisUuidTargetPluginConfigList extends Model
         if (isset($map['AegisSuspiciousConfigList'])) {
             if (!empty($map['AegisSuspiciousConfigList'])) {
                 $model->aegisSuspiciousConfigList = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['AegisSuspiciousConfigList'] as $item) {
                     $model->aegisSuspiciousConfigList[$n++] = null !== $item ? aegisSuspiciousConfigList::fromMap($item) : $item;
                 }

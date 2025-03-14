@@ -51,21 +51,25 @@ class recoverableInfoList extends Model
      *   **files**: the path to the database files
      *
      * @example {
+     * "files": {
+     * "qtc": "F:\\\\database\\\\qtc.mdf",
+     * "qtc_log": "F:\\\\database\\\\qtc_0.ldf"
+     * },
+     * "name": "qtc"
      * }
+     *
      * @var string
      */
     public $restoreInfo;
     protected $_name = [
-        'firstTime'   => 'FirstTime',
-        'lastTime'    => 'LastTime',
-        'resetScn'    => 'ResetScn',
-        'resetTime'   => 'ResetTime',
+        'firstTime' => 'FirstTime',
+        'lastTime' => 'LastTime',
+        'resetScn' => 'ResetScn',
+        'resetTime' => 'ResetTime',
         'restoreInfo' => 'RestoreInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

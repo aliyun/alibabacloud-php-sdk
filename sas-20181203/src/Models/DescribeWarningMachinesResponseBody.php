@@ -61,17 +61,15 @@ class DescribeWarningMachinesResponseBody extends Model
      */
     public $warningMachines;
     protected $_name = [
-        'count'           => 'Count',
-        'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'warningMachines' => 'WarningMachines',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,7 +128,7 @@ class DescribeWarningMachinesResponseBody extends Model
         if (isset($map['WarningMachines'])) {
             if (!empty($map['WarningMachines'])) {
                 $model->warningMachines = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['WarningMachines'] as $item) {
                     $model->warningMachines[$n++] = null !== $item ? warningMachines::fromMap($item) : $item;
                 }

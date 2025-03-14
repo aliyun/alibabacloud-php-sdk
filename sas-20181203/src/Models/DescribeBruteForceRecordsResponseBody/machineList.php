@@ -147,25 +147,23 @@ class machineList extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliNetOnline'    => 'AliNetOnline',
+        'aliNetOnline' => 'AliNetOnline',
         'blockExpireDate' => 'BlockExpireDate',
-        'blockIp'         => 'BlockIp',
-        'blockType'       => 'BlockType',
-        'errorCode'       => 'ErrorCode',
-        'id'              => 'Id',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'port'            => 'Port',
-        'ruleName'        => 'RuleName',
-        'source'          => 'Source',
-        'status'          => 'Status',
-        'uuid'            => 'Uuid',
+        'blockIp' => 'BlockIp',
+        'blockType' => 'BlockType',
+        'errorCode' => 'ErrorCode',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'port' => 'Port',
+        'ruleName' => 'RuleName',
+        'source' => 'Source',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

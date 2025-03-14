@@ -23,9 +23,7 @@ class ChangeUserLangRequest extends Model
         'userLang' => 'UserLang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

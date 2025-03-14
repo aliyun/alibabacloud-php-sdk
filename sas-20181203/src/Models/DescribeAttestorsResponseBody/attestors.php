@@ -53,16 +53,14 @@ class attestors extends Model
      */
     public $remark;
     protected $_name = [
-        'keyId'        => 'KeyId',
-        'keyRegionId'  => 'KeyRegionId',
+        'keyId' => 'KeyId',
+        'keyRegionId' => 'KeyRegionId',
         'keyVersionId' => 'KeyVersionId',
-        'name'         => 'Name',
-        'remark'       => 'Remark',
+        'name' => 'Name',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

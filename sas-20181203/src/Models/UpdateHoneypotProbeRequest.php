@@ -50,7 +50,10 @@ class UpdateHoneypotProbeRequest extends Model
     /**
      * @description The ID of the probe.
      *
+     * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     *
      * This parameter is required.
+     *
      * @example bbe7e382-956f-473e-beed-bc73a258****
      *
      * @var string
@@ -64,17 +67,15 @@ class UpdateHoneypotProbeRequest extends Model
      */
     public $serviceIpList;
     protected $_name = [
-        'arp'           => 'Arp',
-        'displayName'   => 'DisplayName',
-        'lang'          => 'Lang',
-        'ping'          => 'Ping',
-        'probeId'       => 'ProbeId',
+        'arp' => 'Arp',
+        'displayName' => 'DisplayName',
+        'lang' => 'Lang',
+        'ping' => 'Ping',
+        'probeId' => 'ProbeId',
         'serviceIpList' => 'ServiceIpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

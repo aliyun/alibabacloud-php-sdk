@@ -44,15 +44,13 @@ class pageInfo extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'        => 'Count',
+        'count' => 'Count',
         'currrentPage' => 'CurrrentPage',
-        'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

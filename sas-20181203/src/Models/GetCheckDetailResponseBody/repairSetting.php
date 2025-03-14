@@ -61,16 +61,14 @@ class repairSetting extends Model
      */
     public $repairSupportType;
     protected $_name = [
-        'flowStep'          => 'FlowStep',
-        'repairConfigs'     => 'RepairConfigs',
-        'repairReset'       => 'RepairReset',
-        'repairSupport'     => 'RepairSupport',
+        'flowStep' => 'FlowStep',
+        'repairConfigs' => 'RepairConfigs',
+        'repairReset' => 'RepairReset',
+        'repairSupport' => 'RepairSupport',
         'repairSupportType' => 'RepairSupportType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +115,7 @@ class repairSetting extends Model
         if (isset($map['FlowStep'])) {
             if (!empty($map['FlowStep'])) {
                 $model->flowStep = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['FlowStep'] as $item) {
                     $model->flowStep[$n++] = null !== $item ? flowStep::fromMap($item) : $item;
                 }
@@ -126,7 +124,7 @@ class repairSetting extends Model
         if (isset($map['RepairConfigs'])) {
             if (!empty($map['RepairConfigs'])) {
                 $model->repairConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RepairConfigs'] as $item) {
                     $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
                 }

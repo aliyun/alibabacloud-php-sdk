@@ -12,6 +12,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      * @description The ID of the alert event.
      *
      * > To query the details of an alert event, you must specify the ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the IDs of alert events.
+     *
      * @example 8df914418f4211fb****
      *
      * @var string
@@ -239,6 +240,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      * @description The name of the alert or the information about the asset.
      *
      * >  Fuzzy search is supported. The asset information includes the name, public IP address, and private IP address of an asset.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -249,6 +251,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     *
      * @example 16670360956*****
      *
      * @var int
@@ -262,6 +265,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      *   **operateTime**: the handling time.
      *
      * >  This parameter takes effect if you set the **Dealed** parameter to Y.
+     *
      * @example operateTime
      *
      * @var string
@@ -275,6 +279,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      *   **desc**: the descending order
      *
      * >  This parameter takes effect if you set the **Dealed** parameter to Y.
+     *
      * @example desc
      *
      * @var string
@@ -397,46 +402,44 @@ class DescribeSuspEventsShrinkRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'alarmUniqueInfo'            => 'AlarmUniqueInfo',
-        'assetsTypeList'             => 'AssetsTypeList',
-        'clusterId'                  => 'ClusterId',
-        'containerFieldName'         => 'ContainerFieldName',
-        'containerFieldValue'        => 'ContainerFieldValue',
-        'currentPage'                => 'CurrentPage',
-        'dealed'                     => 'Dealed',
-        'eventNames'                 => 'EventNames',
-        'from'                       => 'From',
-        'groupId'                    => 'GroupId',
-        'id'                         => 'Id',
-        'lang'                       => 'Lang',
-        'levels'                     => 'Levels',
-        'multiAccountActionType'     => 'MultiAccountActionType',
-        'name'                       => 'Name',
-        'operateErrorCodeList'       => 'OperateErrorCodeList',
-        'operateTimeEnd'             => 'OperateTimeEnd',
-        'operateTimeStart'           => 'OperateTimeStart',
-        'pageSize'                   => 'PageSize',
-        'parentEventTypes'           => 'ParentEventTypes',
-        'remark'                     => 'Remark',
+        'alarmUniqueInfo' => 'AlarmUniqueInfo',
+        'assetsTypeList' => 'AssetsTypeList',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'eventNames' => 'EventNames',
+        'from' => 'From',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'levels' => 'Levels',
+        'multiAccountActionType' => 'MultiAccountActionType',
+        'name' => 'Name',
+        'operateErrorCodeList' => 'OperateErrorCodeList',
+        'operateTimeEnd' => 'OperateTimeEnd',
+        'operateTimeStart' => 'OperateTimeStart',
+        'pageSize' => 'PageSize',
+        'parentEventTypes' => 'ParentEventTypes',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sortColumn'                 => 'SortColumn',
-        'sortType'                   => 'SortType',
-        'source'                     => 'Source',
-        'sourceAliUidsShrink'        => 'SourceAliUids',
-        'sourceIp'                   => 'SourceIp',
-        'status'                     => 'Status',
-        'strictMode'                 => 'StrictMode',
-        'tacticId'                   => 'TacticId',
-        'targetType'                 => 'TargetType',
-        'timeEnd'                    => 'TimeEnd',
-        'timeStart'                  => 'TimeStart',
-        'uniqueInfo'                 => 'UniqueInfo',
-        'uuids'                      => 'Uuids',
+        'sortColumn' => 'SortColumn',
+        'sortType' => 'SortType',
+        'source' => 'Source',
+        'sourceAliUidsShrink' => 'SourceAliUids',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
+        'strictMode' => 'StrictMode',
+        'tacticId' => 'TacticId',
+        'targetType' => 'TargetType',
+        'timeEnd' => 'TimeEnd',
+        'timeStart' => 'TimeStart',
+        'uniqueInfo' => 'UniqueInfo',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

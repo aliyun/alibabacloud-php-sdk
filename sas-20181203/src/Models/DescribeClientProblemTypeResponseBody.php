@@ -61,17 +61,15 @@ class DescribeClientProblemTypeResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'        => 'Count',
-        'currentPage'  => 'CurrentPage',
-        'pageSize'     => 'PageSize',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'problemTypes' => 'ProblemTypes',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class DescribeClientProblemTypeResponseBody extends Model
         if (isset($map['ProblemTypes'])) {
             if (!empty($map['ProblemTypes'])) {
                 $model->problemTypes = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ProblemTypes'] as $item) {
                     $model->problemTypes[$n++] = null !== $item ? problemTypes::fromMap($item) : $item;
                 }

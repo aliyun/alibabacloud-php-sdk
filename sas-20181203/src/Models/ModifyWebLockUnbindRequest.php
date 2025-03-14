@@ -12,6 +12,7 @@ class ModifyWebLockUnbindRequest extends Model
      * @description The UUID of the server for which you want to disable web tamper proofing.
      *
      * > You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the UUIDs of servers.
+     *
      * @example 8d217d3f-6999-43a6-a435-c7a6854180e9
      *
      * @var string
@@ -21,9 +22,7 @@ class ModifyWebLockUnbindRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -47,15 +47,13 @@ class backupFiles extends Model
      */
     public $type;
     protected $_name = [
-        'name'    => 'Name',
-        'size'    => 'Size',
+        'name' => 'Name',
+        'size' => 'Size',
         'subtree' => 'Subtree',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

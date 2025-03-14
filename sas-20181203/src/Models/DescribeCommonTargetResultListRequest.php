@@ -25,7 +25,10 @@ class DescribeCommonTargetResultListRequest extends Model
      *   **alidetect**: installation scope of local file detection
      *   **alidetect-scan-enable**: detection scope of local file detection
      *
+     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) and [ListSystemClientRules](~~ListSystemClientRules~~) operations to obtain more types of custom and system configuration items.
+     *
      * This parameter is required.
+     *
      * @example webshell_timescan
      *
      * @var string
@@ -33,12 +36,10 @@ class DescribeCommonTargetResultListRequest extends Model
     public $type;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

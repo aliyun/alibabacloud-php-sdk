@@ -19,6 +19,7 @@ class ExportSuspEventsRequest extends Model
      * @description The ID of the cluster that you want to query.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c4af4fdf38a98496a9b63c2be5dae****
      *
      * @var string
@@ -273,34 +274,32 @@ class ExportSuspEventsRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'assetsTypeList'       => 'AssetsTypeList',
-        'clusterId'            => 'ClusterId',
-        'containerFieldName'   => 'ContainerFieldName',
-        'containerFieldValue'  => 'ContainerFieldValue',
-        'currentPage'          => 'CurrentPage',
-        'dealed'               => 'Dealed',
-        'from'                 => 'From',
-        'groupId'              => 'GroupId',
-        'id'                   => 'Id',
-        'lang'                 => 'Lang',
-        'levels'               => 'Levels',
-        'name'                 => 'Name',
+        'assetsTypeList' => 'AssetsTypeList',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'from' => 'From',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'levels' => 'Levels',
+        'name' => 'Name',
         'operateErrorCodeList' => 'OperateErrorCodeList',
-        'pageSize'             => 'PageSize',
-        'parentEventTypes'     => 'ParentEventTypes',
-        'remark'               => 'Remark',
-        'sourceIp'             => 'SourceIp',
-        'status'               => 'Status',
-        'targetType'           => 'TargetType',
-        'timeEnd'              => 'TimeEnd',
-        'timeStart'            => 'TimeStart',
-        'uniqueInfo'           => 'UniqueInfo',
-        'uuid'                 => 'Uuid',
+        'pageSize' => 'PageSize',
+        'parentEventTypes' => 'ParentEventTypes',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
+        'targetType' => 'TargetType',
+        'timeEnd' => 'TimeEnd',
+        'timeStart' => 'TimeStart',
+        'uniqueInfo' => 'UniqueInfo',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

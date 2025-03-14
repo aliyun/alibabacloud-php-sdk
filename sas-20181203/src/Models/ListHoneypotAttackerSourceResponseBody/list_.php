@@ -66,17 +66,15 @@ class list_ extends Model
      */
     public $srcIp;
     protected $_name = [
-        'eventCount'         => 'EventCount',
+        'eventCount' => 'EventCount',
         'lastTargetHoneypot' => 'LastTargetHoneypot',
-        'lastTargetIp'       => 'LastTargetIp',
-        'lastTime'           => 'LastTime',
-        'riskLevel'          => 'RiskLevel',
-        'srcIp'              => 'SrcIp',
+        'lastTargetIp' => 'LastTargetIp',
+        'lastTime' => 'LastTime',
+        'riskLevel' => 'RiskLevel',
+        'srcIp' => 'SrcIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -32,13 +32,11 @@ class AddSasModuleTrialRequest extends Model
      */
     public $moduleCode;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'moduleCode' => 'ModuleCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

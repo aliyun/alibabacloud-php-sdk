@@ -46,14 +46,12 @@ class scopes extends Model
     public $namespaceList;
     protected $_name = [
         'ackPolicyInstanceId' => 'AckPolicyInstanceId',
-        'allNamespace'        => 'AllNamespace',
-        'clusterId'           => 'ClusterId',
-        'namespaceList'       => 'NamespaceList',
+        'allNamespace' => 'AllNamespace',
+        'clusterId' => 'ClusterId',
+        'namespaceList' => 'NamespaceList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

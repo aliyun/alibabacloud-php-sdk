@@ -18,9 +18,7 @@ class ListClusterCnnfStatusDetailRequest extends Model
         'clusterIds' => 'ClusterIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,9 +30,7 @@ class honeypotAttackStatistics extends Model
         'statisticsValue' => 'StatisticsValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

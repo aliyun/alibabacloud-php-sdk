@@ -25,9 +25,7 @@ class ListPrivateRegistryListRequest extends Model
         'registryType' => 'RegistryType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

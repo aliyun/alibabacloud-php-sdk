@@ -27,12 +27,10 @@ class patchList extends Model
     public $name;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

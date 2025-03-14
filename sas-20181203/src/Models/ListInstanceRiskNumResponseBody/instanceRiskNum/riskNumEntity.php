@@ -71,18 +71,16 @@ class riskNumEntity extends Model
      */
     public $weakPassWordCount;
     protected $_name = [
-        'suspiciousHighCount'   => 'SuspiciousHighCount',
-        'suspiciousLowCount'    => 'SuspiciousLowCount',
+        'suspiciousHighCount' => 'SuspiciousHighCount',
+        'suspiciousLowCount' => 'SuspiciousLowCount',
         'suspiciousMediumCount' => 'SuspiciousMediumCount',
-        'vulHighCount'          => 'VulHighCount',
-        'vulLowCount'           => 'VulLowCount',
-        'vulMediumCount'        => 'VulMediumCount',
-        'weakPassWordCount'     => 'WeakPassWordCount',
+        'vulHighCount' => 'VulHighCount',
+        'vulLowCount' => 'VulLowCount',
+        'vulMediumCount' => 'VulMediumCount',
+        'weakPassWordCount' => 'WeakPassWordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

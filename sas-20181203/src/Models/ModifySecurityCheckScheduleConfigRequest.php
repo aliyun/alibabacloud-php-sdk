@@ -20,6 +20,7 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **7**: Sunday
      *
      * This parameter is required.
+     *
      * @example 4,5,6
      *
      * @var string
@@ -35,6 +36,7 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **18**: 18:00 to 24:00
      *
      * This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -76,23 +78,22 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
      *   **18**: 18:00 to 24:00
      *
      * This parameter is required.
+     *
      * @example 6
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'daysOfWeek'      => 'DaysOfWeek',
-        'endTime'         => 'EndTime',
-        'lang'            => 'Lang',
+        'daysOfWeek' => 'DaysOfWeek',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'startTime'       => 'StartTime',
+        'sourceIp' => 'SourceIp',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

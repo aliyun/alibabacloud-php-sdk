@@ -25,13 +25,11 @@ class timeDimensionStatisticItems extends Model
      */
     public $statisticDatas;
     protected $_name = [
-        'dataTime'       => 'DataTime',
+        'dataTime' => 'DataTime',
         'statisticDatas' => 'StatisticDatas',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class timeDimensionStatisticItems extends Model
         if (isset($map['StatisticDatas'])) {
             if (!empty($map['StatisticDatas'])) {
                 $model->statisticDatas = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['StatisticDatas'] as $item) {
                     $model->statisticDatas[$n++] = null !== $item ? statisticDatas::fromMap($item) : $item;
                 }

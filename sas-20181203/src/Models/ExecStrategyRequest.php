@@ -24,19 +24,18 @@ class ExecStrategyRequest extends Model
      * @description The ID of the baseline check policy.
      *
      * >  You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to query the IDs of baseline check policies.
+     *
      * @example 215421
      *
      * @var int
      */
     public $strategyId;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

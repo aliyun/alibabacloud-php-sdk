@@ -39,14 +39,12 @@ class data extends Model
      */
     public $statisticsType;
     protected $_name = [
-        'count'                    => 'Count',
+        'count' => 'Count',
         'honeypotAttackStatistics' => 'HoneypotAttackStatistics',
-        'statisticsType'           => 'StatisticsType',
+        'statisticsType' => 'StatisticsType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +82,7 @@ class data extends Model
         if (isset($map['HoneypotAttackStatistics'])) {
             if (!empty($map['HoneypotAttackStatistics'])) {
                 $model->honeypotAttackStatistics = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['HoneypotAttackStatistics'] as $item) {
                     $model->honeypotAttackStatistics[$n++] = null !== $item ? honeypotAttackStatistics::fromMap($item) : $item;
                 }

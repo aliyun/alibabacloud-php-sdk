@@ -26,13 +26,11 @@ class selectedChecks extends Model
      */
     public $sectionId;
     protected $_name = [
-        'checkId'   => 'CheckId',
+        'checkId' => 'CheckId',
         'sectionId' => 'SectionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

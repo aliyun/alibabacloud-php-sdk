@@ -44,15 +44,13 @@ class DescribeFixUsedCountResponseBody extends Model
      */
     public $usedCountSg;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'usedCount'   => 'UsedCount',
+        'requestId' => 'RequestId',
+        'usedCount' => 'UsedCount',
         'usedCountCn' => 'UsedCountCn',
         'usedCountSg' => 'UsedCountSg',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

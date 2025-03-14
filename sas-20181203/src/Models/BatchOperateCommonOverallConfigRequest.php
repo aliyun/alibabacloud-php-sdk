@@ -15,6 +15,7 @@ class BatchOperateCommonOverallConfigRequest extends Model
      *   **off**: disabled
      *
      * This parameter is required.
+     *
      * @example on
      *
      * @var string
@@ -96,17 +97,16 @@ class BatchOperateCommonOverallConfigRequest extends Model
      *   **USER-ENABLE-SWITCH-TYPE_52829**: delete system backup behavior (Windows)
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $typeList;
     protected $_name = [
-        'config'   => 'Config',
+        'config' => 'Config',
         'typeList' => 'TypeList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class QueryDiscoverDatabaseResponseBody extends Model
      */
     public $taskProgress;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'taskProgress' => 'TaskProgress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class machines extends Model
      */
     public $uuid;
     protected $_name = [
-        'id'         => 'Id',
+        'id' => 'Id',
         'policyName' => 'PolicyName',
-        'uuid'       => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

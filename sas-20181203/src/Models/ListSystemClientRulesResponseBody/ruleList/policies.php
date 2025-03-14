@@ -26,13 +26,11 @@ class policies extends Model
      */
     public $policyName;
     protected $_name = [
-        'policyKey'  => 'PolicyKey',
+        'policyKey' => 'PolicyKey',
         'policyName' => 'PolicyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

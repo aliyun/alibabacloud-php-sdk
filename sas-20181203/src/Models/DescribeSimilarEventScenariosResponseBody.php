@@ -29,9 +29,7 @@ class DescribeSimilarEventScenariosResponseBody extends Model
         'scenarios' => 'Scenarios',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeSimilarEventScenariosResponseBody extends Model
         if (isset($map['Scenarios'])) {
             if (!empty($map['Scenarios'])) {
                 $model->scenarios = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Scenarios'] as $item) {
                     $model->scenarios[$n++] = null !== $item ? scenarios::fromMap($item) : $item;
                 }

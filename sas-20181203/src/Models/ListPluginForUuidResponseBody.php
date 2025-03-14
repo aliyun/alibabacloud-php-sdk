@@ -44,14 +44,12 @@ class ListPluginForUuidResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aegisUuidTargetPluginConfigList' => 'AegisUuidTargetPluginConfigList',
-        'code'                            => 'Code',
-        'message'                         => 'Message',
-        'requestId'                       => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class ListPluginForUuidResponseBody extends Model
         if (isset($map['AegisUuidTargetPluginConfigList'])) {
             if (!empty($map['AegisUuidTargetPluginConfigList'])) {
                 $model->aegisUuidTargetPluginConfigList = [];
-                $n                                      = 0;
+                $n = 0;
                 foreach ($map['AegisUuidTargetPluginConfigList'] as $item) {
                     $model->aegisUuidTargetPluginConfigList[$n++] = null !== $item ? aegisUuidTargetPluginConfigList::fromMap($item) : $item;
                 }

@@ -104,20 +104,18 @@ class processDetails extends Model
     public $taskId;
     protected $_name = [
         'assetSubType' => 'AssetSubType',
-        'assetType'    => 'AssetType',
-        'assetVendor'  => 'AssetVendor',
-        'checks'       => 'Checks',
-        'createTime'   => 'CreateTime',
+        'assetType' => 'AssetType',
+        'assetVendor' => 'AssetVendor',
+        'checks' => 'Checks',
+        'createTime' => 'CreateTime',
         'detailTaskId' => 'DetailTaskId',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'statusCode'   => 'StatusCode',
-        'taskId'       => 'TaskId',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'statusCode' => 'StatusCode',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -182,7 +180,7 @@ class processDetails extends Model
         if (isset($map['Checks'])) {
             if (!empty($map['Checks'])) {
                 $model->checks = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Checks'] as $item) {
                     $model->checks[$n++] = null !== $item ? checks::fromMap($item) : $item;
                 }

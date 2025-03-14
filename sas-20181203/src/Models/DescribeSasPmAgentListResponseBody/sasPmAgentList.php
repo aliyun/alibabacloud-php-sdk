@@ -88,18 +88,16 @@ class sasPmAgentList extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliyunAssistId'       => 'AliyunAssistId',
-        'aliyunMonitorId'      => 'AliyunMonitorId',
-        'assistInstallResult'  => 'AssistInstallResult',
-        'assistInstallStatus'  => 'AssistInstallStatus',
+        'aliyunAssistId' => 'AliyunAssistId',
+        'aliyunMonitorId' => 'AliyunMonitorId',
+        'assistInstallResult' => 'AssistInstallResult',
+        'assistInstallStatus' => 'AssistInstallStatus',
         'monitorInstallResult' => 'MonitorInstallResult',
         'monitorInstallStatus' => 'MonitorInstallStatus',
-        'uuid'                 => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

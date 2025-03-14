@@ -20,9 +20,7 @@ class GetFileProtectRuleRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

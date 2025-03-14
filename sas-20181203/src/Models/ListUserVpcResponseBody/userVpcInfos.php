@@ -29,6 +29,7 @@ class userVpcInfos extends Model
     /**
      * @description Indicates whether it is the default VPC in the region. Values:
      * - **true**: Yes - **false**: No
+     *
      * @example true
      *
      * @var bool
@@ -67,6 +68,7 @@ class userVpcInfos extends Model
      *
      * - **Pending**: Configuring
      * - **Available**: Available
+     *
      * @example Available
      *
      * @var string
@@ -100,21 +102,19 @@ class userVpcInfos extends Model
      */
     public $vpcName;
     protected $_name = [
-        'cidrBlock'    => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'creationTime' => 'CreationTime',
-        'default'      => 'Default',
-        'description'  => 'Description',
-        'modifyTime'   => 'ModifyTime',
-        'regionId'     => 'RegionId',
-        'status'       => 'Status',
-        'VRouterId'    => 'VRouterId',
-        'vpcId'        => 'VpcId',
-        'vpcName'      => 'VpcName',
+        'default' => 'Default',
+        'description' => 'Description',
+        'modifyTime' => 'ModifyTime',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'VRouterId' => 'VRouterId',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

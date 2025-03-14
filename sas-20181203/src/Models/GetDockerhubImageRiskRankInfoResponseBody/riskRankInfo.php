@@ -25,12 +25,10 @@ class riskRankInfo extends Model
     public $vulAsap;
     protected $_name = [
         'baseline' => 'Baseline',
-        'vulAsap'  => 'VulAsap',
+        'vulAsap' => 'VulAsap',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class riskRankInfo extends Model
         if (isset($map['Baseline'])) {
             if (!empty($map['Baseline'])) {
                 $model->baseline = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Baseline'] as $item) {
                     $model->baseline[$n++] = null !== $item ? baseline::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class riskRankInfo extends Model
         if (isset($map['VulAsap'])) {
             if (!empty($map['VulAsap'])) {
                 $model->vulAsap = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['VulAsap'] as $item) {
                     $model->vulAsap[$n++] = null !== $item ? vulAsap::fromMap($item) : $item;
                 }

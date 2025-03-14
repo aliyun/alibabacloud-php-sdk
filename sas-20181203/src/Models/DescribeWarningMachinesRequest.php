@@ -12,6 +12,7 @@ class DescribeWarningMachinesRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c7e3c5b420a7947c2933303144688****
      *
      * @var string
@@ -57,6 +58,7 @@ class DescribeWarningMachinesRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
+     *
      * @example 123
      *
      * @var int
@@ -108,7 +110,10 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @description The ID of the risk item.
      *
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     *
      * This parameter is required.
+     *
      * @example 196
      *
      * @var int
@@ -154,25 +159,23 @@ class DescribeWarningMachinesRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'currentPage'         => 'CurrentPage',
-        'groupId'             => 'GroupId',
-        'haveRisk'            => 'HaveRisk',
-        'lang'                => 'Lang',
-        'machineName'         => 'MachineName',
-        'pageSize'            => 'PageSize',
-        'riskId'              => 'RiskId',
-        'sourceIp'            => 'SourceIp',
-        'strategyId'          => 'StrategyId',
-        'targetType'          => 'TargetType',
-        'uuids'               => 'Uuids',
+        'currentPage' => 'CurrentPage',
+        'groupId' => 'GroupId',
+        'haveRisk' => 'HaveRisk',
+        'lang' => 'Lang',
+        'machineName' => 'MachineName',
+        'pageSize' => 'PageSize',
+        'riskId' => 'RiskId',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
+        'targetType' => 'TargetType',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

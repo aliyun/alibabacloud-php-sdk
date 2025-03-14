@@ -85,16 +85,14 @@ class cloudAssetSummaryMetas extends Model
      */
     public $vendor;
     protected $_name = [
-        'assetSubType'      => 'AssetSubType',
-        'assetType'         => 'AssetType',
-        'instanceCount'     => 'InstanceCount',
+        'assetSubType' => 'AssetSubType',
+        'assetType' => 'AssetType',
+        'instanceCount' => 'InstanceCount',
         'instanceRiskCount' => 'InstanceRiskCount',
-        'vendor'            => 'Vendor',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

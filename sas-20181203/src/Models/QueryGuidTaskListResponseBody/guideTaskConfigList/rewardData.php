@@ -54,13 +54,11 @@ class rewardData extends Model
     public $rewardConfig;
     protected $_name = [
         'isRewardTaked' => 'IsRewardTaked',
-        'reward'        => 'Reward',
-        'rewardConfig'  => 'RewardConfig',
+        'reward' => 'Reward',
+        'rewardConfig' => 'RewardConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

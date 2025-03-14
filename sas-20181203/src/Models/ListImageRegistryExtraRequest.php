@@ -10,7 +10,10 @@ class ListImageRegistryExtraRequest extends Model
 {
     /**
      * @description Image registry ID.
+     * > You can obtain this parameter by calling the [PageImageRegistry](~~PageImageRegistry~~) interface.
+     *
      * This parameter is required.
+     *
      * @example 25363
      *
      * @var int
@@ -20,9 +23,7 @@ class ListImageRegistryExtraRequest extends Model
         'registryId' => 'RegistryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

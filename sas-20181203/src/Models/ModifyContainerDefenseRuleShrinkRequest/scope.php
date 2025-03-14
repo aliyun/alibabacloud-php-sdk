@@ -24,6 +24,7 @@ class scope extends Model
      * @description The ID of the cluster on which the rule takes effect.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c54b***1501
      *
      * @var string
@@ -38,13 +39,11 @@ class scope extends Model
     public $namespaces;
     protected $_name = [
         'allNamespace' => 'AllNamespace',
-        'clusterId'    => 'ClusterId',
-        'namespaces'   => 'Namespaces',
+        'clusterId' => 'ClusterId',
+        'namespaces' => 'Namespaces',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

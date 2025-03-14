@@ -31,6 +31,7 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -41,6 +42,7 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
      * @description The namespace of the graph, which is fixed as: hundun_dc_online.
      *
      * This parameter is required.
+     *
      * @example hundun_dc_online
      *
      * @var string
@@ -56,16 +58,14 @@ class DescribeGraph4InvestigationOnlineRequest extends Model
      */
     public $vertexId;
     protected $_name = [
-        'anomalyId'   => 'AnomalyId',
+        'anomalyId' => 'AnomalyId',
         'anomalyUuid' => 'AnomalyUuid',
-        'lang'        => 'Lang',
-        'namespace'   => 'Namespace',
-        'vertexId'    => 'VertexId',
+        'lang' => 'Lang',
+        'namespace' => 'Namespace',
+        'vertexId' => 'VertexId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

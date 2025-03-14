@@ -12,6 +12,7 @@ class DescribeImageListWithBaselineNameRequest extends Model
      * @description The name of the image baseline.
      *
      * This parameter is required.
+     *
      * @example ak_leak
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeImageListWithBaselineNameRequest extends Model
      * @description The ID of the container cluster.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example cc20a1024011c44b6a8710d6f8b****
      *
      * @var string
@@ -168,27 +170,25 @@ class DescribeImageListWithBaselineNameRequest extends Model
     public $scanRange;
     protected $_name = [
         'baselineNameKey' => 'BaselineNameKey',
-        'clusterId'       => 'ClusterId',
-        'clusterName'     => 'ClusterName',
-        'containerId'     => 'ContainerId',
-        'criteria'        => 'Criteria',
-        'criteriaType'    => 'CriteriaType',
-        'currentPage'     => 'CurrentPage',
-        'image'           => 'Image',
-        'imageDigest'     => 'ImageDigest',
-        'lang'            => 'Lang',
-        'namespace'       => 'Namespace',
-        'pageSize'        => 'PageSize',
-        'pod'             => 'Pod',
-        'repoInstanceId'  => 'RepoInstanceId',
-        'repoName'        => 'RepoName',
-        'repoNamespace'   => 'RepoNamespace',
-        'scanRange'       => 'ScanRange',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'containerId' => 'ContainerId',
+        'criteria' => 'Criteria',
+        'criteriaType' => 'CriteriaType',
+        'currentPage' => 'CurrentPage',
+        'image' => 'Image',
+        'imageDigest' => 'ImageDigest',
+        'lang' => 'Lang',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
+        'pod' => 'Pod',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

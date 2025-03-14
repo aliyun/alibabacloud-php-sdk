@@ -21,6 +21,7 @@ class DescribeStrategyExecDetailRequest extends Model
      * @description The number of entries to return on each page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var int
@@ -39,7 +40,10 @@ class DescribeStrategyExecDetailRequest extends Model
     /**
      * @description The ID of the baseline check policy.
      *
+     * >  You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to query the IDs of baseline check policies.
+     *
      * This parameter is required.
+     *
      * @example 8437592
      *
      * @var int
@@ -47,14 +51,12 @@ class DescribeStrategyExecDetailRequest extends Model
     public $strategyId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'sourceIp'    => 'SourceIp',
-        'strategyId'  => 'StrategyId',
+        'pageSize' => 'PageSize',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

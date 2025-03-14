@@ -27,12 +27,10 @@ class regionCountList extends Model
     public $regionId;
     protected $_name = [
         'automaticCount' => 'AutomaticCount',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

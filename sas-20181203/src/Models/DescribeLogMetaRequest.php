@@ -15,6 +15,7 @@ class DescribeLogMetaRequest extends Model
      *   **sas**: Security Center
      *
      * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+     *
      * @example sas
      *
      * @var string
@@ -37,6 +38,7 @@ class DescribeLogMetaRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -52,15 +54,13 @@ class DescribeLogMetaRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'from'                       => 'From',
-        'lang'                       => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sourceIp'                   => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

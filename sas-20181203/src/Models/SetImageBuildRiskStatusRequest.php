@@ -12,6 +12,7 @@ class SetImageBuildRiskStatusRequest extends Model
      * @description The UUIDs of images. Separate multiple UUIDs with commas (,).
      *
      * >  You can call the [DescribeImageInstances](~~DescribeImageInstances~~) operation to query the UUIDs of images.
+     *
      * @example f382fccd88b94c5c8c864def681*****,ac32fccd88b94c5c8c864def681*****
      *
      * @var string
@@ -41,13 +42,11 @@ class SetImageBuildRiskStatusRequest extends Model
     public $status;
     protected $_name = [
         'imageUuids' => 'ImageUuids',
-        'riskKey'    => 'RiskKey',
-        'status'     => 'Status',
+        'riskKey' => 'RiskKey',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -107,21 +107,19 @@ class list_ extends Model
      */
     public $targetType;
     protected $_name = [
-        'checkId'          => 'CheckId',
-        'checkItem'        => 'CheckItem',
-        'checkType'        => 'CheckType',
+        'checkId' => 'CheckId',
+        'checkItem' => 'CheckItem',
+        'checkType' => 'CheckType',
         'checkTypeDisName' => 'CheckTypeDisName',
-        'lang'             => 'Lang',
-        'reason'           => 'Reason',
-        'recordId'         => 'RecordId',
-        'source'           => 'Source',
-        'target'           => 'Target',
-        'targetType'       => 'TargetType',
+        'lang' => 'Lang',
+        'reason' => 'Reason',
+        'recordId' => 'RecordId',
+        'source' => 'Source',
+        'target' => 'Target',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

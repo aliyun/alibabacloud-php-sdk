@@ -116,23 +116,21 @@ class standardStatistic extends Model
      */
     public $passMediumCount;
     protected $_name = [
-        'notCheckCount'       => 'NotCheckCount',
-        'notCheckHighCount'   => 'NotCheckHighCount',
-        'notCheckLowCount'    => 'NotCheckLowCount',
+        'notCheckCount' => 'NotCheckCount',
+        'notCheckHighCount' => 'NotCheckHighCount',
+        'notCheckLowCount' => 'NotCheckLowCount',
         'notCheckMediumCount' => 'NotCheckMediumCount',
-        'notPassCount'        => 'NotPassCount',
-        'notPassHighCount'    => 'NotPassHighCount',
-        'notPassLowCount'     => 'NotPassLowCount',
-        'notPassMediumCount'  => 'NotPassMediumCount',
-        'passCount'           => 'PassCount',
-        'passHighCount'       => 'PassHighCount',
-        'passLowCount'        => 'PassLowCount',
-        'passMediumCount'     => 'PassMediumCount',
+        'notPassCount' => 'NotPassCount',
+        'notPassHighCount' => 'NotPassHighCount',
+        'notPassLowCount' => 'NotPassLowCount',
+        'notPassMediumCount' => 'NotPassMediumCount',
+        'passCount' => 'PassCount',
+        'passHighCount' => 'PassHighCount',
+        'passLowCount' => 'PassLowCount',
+        'passMediumCount' => 'PassMediumCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

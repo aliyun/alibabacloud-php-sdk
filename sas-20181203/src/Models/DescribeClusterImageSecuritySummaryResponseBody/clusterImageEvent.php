@@ -40,15 +40,13 @@ class clusterImageEvent extends Model
      */
     public $imageScaVul;
     protected $_name = [
-        'imageBaseline'      => 'ImageBaseline',
-        'imageCveVul'        => 'ImageCveVul',
+        'imageBaseline' => 'ImageBaseline',
+        'imageCveVul' => 'ImageCveVul',
         'imageMaliciousFile' => 'ImageMaliciousFile',
-        'imageScaVul'        => 'ImageScaVul',
+        'imageScaVul' => 'ImageScaVul',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -104,7 +102,7 @@ class clusterImageEvent extends Model
         if (isset($map['ImageBaseline'])) {
             if (!empty($map['ImageBaseline'])) {
                 $model->imageBaseline = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ImageBaseline'] as $item) {
                     $model->imageBaseline[$n++] = null !== $item ? imageBaseline::fromMap($item) : $item;
                 }
@@ -113,7 +111,7 @@ class clusterImageEvent extends Model
         if (isset($map['ImageCveVul'])) {
             if (!empty($map['ImageCveVul'])) {
                 $model->imageCveVul = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ImageCveVul'] as $item) {
                     $model->imageCveVul[$n++] = null !== $item ? imageCveVul::fromMap($item) : $item;
                 }
@@ -122,7 +120,7 @@ class clusterImageEvent extends Model
         if (isset($map['ImageMaliciousFile'])) {
             if (!empty($map['ImageMaliciousFile'])) {
                 $model->imageMaliciousFile = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ImageMaliciousFile'] as $item) {
                     $model->imageMaliciousFile[$n++] = null !== $item ? imageMaliciousFile::fromMap($item) : $item;
                 }
@@ -131,7 +129,7 @@ class clusterImageEvent extends Model
         if (isset($map['ImageScaVul'])) {
             if (!empty($map['ImageScaVul'])) {
                 $model->imageScaVul = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ImageScaVul'] as $item) {
                     $model->imageScaVul[$n++] = null !== $item ? imageScaVul::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class GetServerlessAppAuthDetailRequest extends Model
      * @description SAE application ID.
      *
      * > Obtain through the [ListMachineApps](~~ListMachineApps~~) interface.
+     *
      * @example 3de9f2ac-f***769226df
      *
      * @var string
@@ -31,6 +32,7 @@ class GetServerlessAppAuthDetailRequest extends Model
      * @description Server type:
      * - **RunD**
      * - **ECI**
+     *
      * @example RunD
      *
      * @var string
@@ -42,21 +44,20 @@ class GetServerlessAppAuthDetailRequest extends Model
      * - **ASK**
      * - **SAE**
      * - **ACS**
+     *
      * @example SAE
      *
      * @var string
      */
     public $vendorType;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'appRegionId' => 'AppRegionId',
         'machineType' => 'MachineType',
-        'vendorType'  => 'VendorType',
+        'vendorType' => 'VendorType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

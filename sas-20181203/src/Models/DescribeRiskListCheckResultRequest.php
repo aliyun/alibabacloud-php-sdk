@@ -21,6 +21,7 @@ class DescribeRiskListCheckResultRequest extends Model
      * @description The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
      *
      * > If you do not specify this parameter, an empty list is returned.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -60,17 +61,15 @@ class DescribeRiskListCheckResultRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'instanceIds'     => 'InstanceIds',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'instanceIds' => 'InstanceIds',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

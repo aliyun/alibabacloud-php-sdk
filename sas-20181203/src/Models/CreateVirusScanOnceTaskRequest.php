@@ -31,20 +31,19 @@ class CreateVirusScanOnceTaskRequest extends Model
      * @description The key that stores the asset information.
      *
      * > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain the key value.
+     *
      * @example 845de1ec-4b08-42e1-b564-31321e48xxxx
      *
      * @var string
      */
     public $selectionKey;
     protected $_name = [
-        'scanPath'     => 'ScanPath',
-        'scanType'     => 'ScanType',
+        'scanPath' => 'ScanPath',
+        'scanType' => 'ScanType',
         'selectionKey' => 'SelectionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

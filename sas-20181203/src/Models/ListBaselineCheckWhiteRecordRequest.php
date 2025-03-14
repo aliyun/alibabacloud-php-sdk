@@ -73,18 +73,16 @@ class ListBaselineCheckWhiteRecordRequest extends Model
      */
     public $source;
     protected $_name = [
-        'checkIds'       => 'CheckIds',
+        'checkIds' => 'CheckIds',
         'checkItemFuzzy' => 'CheckItemFuzzy',
-        'currentPage'    => 'CurrentPage',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'recordIds'      => 'RecordIds',
-        'source'         => 'Source',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'recordIds' => 'RecordIds',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

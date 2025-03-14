@@ -71,17 +71,15 @@ class DescribeAccesskeyLeakListResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'accessKeyLeakList' => 'AccessKeyLeakList',
-        'akLeakCount'       => 'AkLeakCount',
-        'currentPage'       => 'CurrentPage',
-        'gmtLast'           => 'GmtLast',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'akLeakCount' => 'AkLeakCount',
+        'currentPage' => 'CurrentPage',
+        'gmtLast' => 'GmtLast',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -128,7 +126,7 @@ class DescribeAccesskeyLeakListResponseBody extends Model
         if (isset($map['AccessKeyLeakList'])) {
             if (!empty($map['AccessKeyLeakList'])) {
                 $model->accessKeyLeakList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AccessKeyLeakList'] as $item) {
                     $model->accessKeyLeakList[$n++] = null !== $item ? accessKeyLeakList::fromMap($item) : $item;
                 }

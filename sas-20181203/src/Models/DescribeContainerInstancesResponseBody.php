@@ -34,13 +34,11 @@ class DescribeContainerInstancesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'containerInstanceList' => 'ContainerInstanceList',
-        'pageInfo'              => 'PageInfo',
-        'requestId'             => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeContainerInstancesResponseBody extends Model
         if (isset($map['ContainerInstanceList'])) {
             if (!empty($map['ContainerInstanceList'])) {
                 $model->containerInstanceList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['ContainerInstanceList'] as $item) {
                     $model->containerInstanceList[$n++] = null !== $item ? containerInstanceList::fromMap($item) : $item;
                 }

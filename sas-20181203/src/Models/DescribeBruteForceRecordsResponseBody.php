@@ -34,13 +34,11 @@ class DescribeBruteForceRecordsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'machineList' => 'MachineList',
-        'pageInfo'    => 'PageInfo',
-        'requestId'   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeBruteForceRecordsResponseBody extends Model
         if (isset($map['MachineList'])) {
             if (!empty($map['MachineList'])) {
                 $model->machineList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MachineList'] as $item) {
                     $model->machineList[$n++] = null !== $item ? machineList::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class DeleteUniBackupPolicyRequest extends Model
      * @description The ID of the anti-ransomware policy.
      *
      * >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies. You must specify at least one of the PolicyId parameter and the **PolicyIds** parameter.
+     *
      * @example 123
      *
      * @var int
@@ -22,19 +23,18 @@ class DeleteUniBackupPolicyRequest extends Model
      * @description The IDs of anti-ransomware policies.
      *
      * >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies. You must specify at least one of the **PolicyId** parameter and the PolicyIds parameter.
+     *
      * @example 123,124
      *
      * @var string
      */
     public $policyIds;
     protected $_name = [
-        'policyId'  => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyIds' => 'PolicyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

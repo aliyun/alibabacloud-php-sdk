@@ -33,14 +33,12 @@ class DescribeSyncAssetTaskListResponseBody extends Model
      */
     public $taskRecords;
     protected $_name = [
-        'pageInfo'    => 'PageInfo',
-        'requestId'   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'taskRecords' => 'TaskRecords',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeSyncAssetTaskListResponseBody extends Model
         if (isset($map['TaskRecords'])) {
             if (!empty($map['TaskRecords'])) {
                 $model->taskRecords = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['TaskRecords'] as $item) {
                     $model->taskRecords[$n++] = null !== $item ? taskRecords::fromMap($item) : $item;
                 }

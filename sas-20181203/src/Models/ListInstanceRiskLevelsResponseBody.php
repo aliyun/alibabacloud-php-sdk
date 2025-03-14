@@ -26,12 +26,10 @@ class ListInstanceRiskLevelsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceRiskLevels' => 'InstanceRiskLevels',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListInstanceRiskLevelsResponseBody extends Model
         if (isset($map['InstanceRiskLevels'])) {
             if (!empty($map['InstanceRiskLevels'])) {
                 $model->instanceRiskLevels = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['InstanceRiskLevels'] as $item) {
                     $model->instanceRiskLevels[$n++] = null !== $item ? instanceRiskLevels::fromMap($item) : $item;
                 }

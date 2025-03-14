@@ -34,13 +34,11 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'affectedMaliciousFileImagesResponse' => 'AffectedMaliciousFileImagesResponse',
-        'pageInfo'                            => 'PageInfo',
-        'requestId'                           => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
         if (isset($map['AffectedMaliciousFileImagesResponse'])) {
             if (!empty($map['AffectedMaliciousFileImagesResponse'])) {
                 $model->affectedMaliciousFileImagesResponse = [];
-                $n                                          = 0;
+                $n = 0;
                 foreach ($map['AffectedMaliciousFileImagesResponse'] as $item) {
                     $model->affectedMaliciousFileImagesResponse[$n++] = null !== $item ? affectedMaliciousFileImagesResponse::fromMap($item) : $item;
                 }

@@ -22,6 +22,7 @@ class CheckTrialFixCountRequest extends Model
      *   **cms**: Web-CMS vulnerability.
      *
      * >  You must specify a value for Info or values for VulNames and Uuids to identify a vulnerability.
+     *
      * @example [{\\"name\\":\\"oval:com.redhat.rhsa:def:20192143\\",\\"uuid\\":\\"80ee3226-1f96-4da0-a3ed-55c104e2****\\",\\"tag\\":\\"oval\\"}]
      *
      * @var string
@@ -36,6 +37,7 @@ class CheckTrialFixCountRequest extends Model
      *   **cms**: Web-CMS vulnerability.
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -56,15 +58,13 @@ class CheckTrialFixCountRequest extends Model
      */
     public $vulNames;
     protected $_name = [
-        'info'     => 'Info',
-        'type'     => 'Type',
-        'uuids'    => 'Uuids',
+        'info' => 'Info',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
         'vulNames' => 'VulNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

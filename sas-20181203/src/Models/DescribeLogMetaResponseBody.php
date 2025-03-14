@@ -35,13 +35,11 @@ class DescribeLogMetaResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'logMetaList' => 'LogMetaList',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeLogMetaResponseBody extends Model
         if (isset($map['LogMetaList'])) {
             if (!empty($map['LogMetaList'])) {
                 $model->logMetaList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['LogMetaList'] as $item) {
                     $model->logMetaList[$n++] = null !== $item ? logMetaList::fromMap($item) : $item;
                 }

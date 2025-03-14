@@ -12,6 +12,7 @@ class CreateMonitorAccountRequest extends Model
      * @description The account IDs of members in the resource directory.
      *
      * >  You can call the [ListAccountsInResourceDirectory](~~ListAccountsInResourceDirectory~~) operation to obtain the account IDs. Separate multiple account IDs with commas (,). If you specify a value for this parameter, the existing list of members is replaced by the new list that you specify. Otherwise, the existing list is cleared.
+     *
      * @example 1026780160******,1457515594******
      *
      * @var string
@@ -21,9 +22,7 @@ class CreateMonitorAccountRequest extends Model
         'accountIds' => 'AccountIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

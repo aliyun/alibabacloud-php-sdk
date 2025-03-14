@@ -70,18 +70,16 @@ class DescribeUniRecoverableListResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'               => 'Count',
-        'currentPage'         => 'CurrentPage',
-        'database'            => 'Database',
-        'pageSize'            => 'PageSize',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'database' => 'Database',
+        'pageSize' => 'PageSize',
         'recoverableInfoList' => 'RecoverableInfoList',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -140,7 +138,7 @@ class DescribeUniRecoverableListResponseBody extends Model
         if (isset($map['RecoverableInfoList'])) {
             if (!empty($map['RecoverableInfoList'])) {
                 $model->recoverableInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['RecoverableInfoList'] as $item) {
                     $model->recoverableInfoList[$n++] = null !== $item ? recoverableInfoList::fromMap($item) : $item;
                 }

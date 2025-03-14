@@ -12,6 +12,7 @@ class ModifyInterceptionRuleSwitchRequest extends Model
      * @description The ID of the cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example ce5c29aba99694ade9ba85dc620b4****
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyInterceptionRuleSwitchRequest extends Model
      * @description The IDs of the rules whose status you want to change. Separate multiple IDs with commas (,).
      *
      * > You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of rules.
+     *
      * @example 403287
      *
      * @var string
@@ -40,14 +42,12 @@ class ModifyInterceptionRuleSwitchRequest extends Model
      */
     public $ruleSwitch;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'ruleIds'    => 'RuleIds',
+        'clusterId' => 'ClusterId',
+        'ruleIds' => 'RuleIds',
         'ruleSwitch' => 'RuleSwitch',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

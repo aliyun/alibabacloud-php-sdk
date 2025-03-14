@@ -23,9 +23,7 @@ class data extends Model
         'canConfigAuto' => 'CanConfigAuto',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

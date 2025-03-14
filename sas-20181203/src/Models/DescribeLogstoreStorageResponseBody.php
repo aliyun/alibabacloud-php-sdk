@@ -39,6 +39,7 @@ class DescribeLogstoreStorageResponseBody extends Model
      * @description The number of days during which logs can be retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
      *
      * >  You are not allowed to change the value of this parameter.
+     *
      * @example 180
      *
      * @var int
@@ -63,17 +64,15 @@ class DescribeLogstoreStorageResponseBody extends Model
      */
     public $userProject;
     protected $_name = [
-        'logstore'    => 'Logstore',
-        'preserve'    => 'Preserve',
-        'requestId'   => 'RequestId',
-        'ttl'         => 'Ttl',
-        'used'        => 'Used',
+        'logstore' => 'Logstore',
+        'preserve' => 'Preserve',
+        'requestId' => 'RequestId',
+        'ttl' => 'Ttl',
+        'used' => 'Used',
         'userProject' => 'UserProject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

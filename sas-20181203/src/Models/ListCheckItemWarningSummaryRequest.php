@@ -89,6 +89,7 @@ class ListCheckItemWarningSummaryRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+     *
      * @example 1161****
      *
      * @var int
@@ -111,6 +112,7 @@ class ListCheckItemWarningSummaryRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -151,30 +153,29 @@ class ListCheckItemWarningSummaryRequest extends Model
      * @description The UUIDs of the servers.
      *
      * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of the servers.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'checkItemFuzzy'         => 'CheckItemFuzzy',
-        'checkLevel'             => 'CheckLevel',
-        'checkType'              => 'CheckType',
-        'checkWarningStatus'     => 'CheckWarningStatus',
+        'checkItemFuzzy' => 'CheckItemFuzzy',
+        'checkLevel' => 'CheckLevel',
+        'checkType' => 'CheckType',
+        'checkWarningStatus' => 'CheckWarningStatus',
         'checkWarningStatusList' => 'CheckWarningStatusList',
-        'containerFieldName'     => 'ContainerFieldName',
-        'containerFieldValue'    => 'ContainerFieldValue',
-        'currentPage'            => 'CurrentPage',
-        'groupId'                => 'GroupId',
-        'lang'                   => 'Lang',
-        'pageSize'               => 'PageSize',
-        'riskType'               => 'RiskType',
-        'source'                 => 'Source',
-        'startTime'              => 'StartTime',
-        'uuidList'               => 'UuidList',
+        'containerFieldName' => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'currentPage' => 'CurrentPage',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskType' => 'RiskType',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

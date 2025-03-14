@@ -21,6 +21,7 @@ class DescribeContainerTagsRequest extends Model
      * @description The ID of the cluster to which the container belongs.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeContainerTagsRequest extends Model
      * @description The number of the page to return. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +48,7 @@ class DescribeContainerTagsRequest extends Model
      *   **tag**: the tag
      *
      * This parameter is required.
+     *
      * @example namespace
      *
      * @var string
@@ -74,24 +77,23 @@ class DescribeContainerTagsRequest extends Model
      * @description The number of entries to return on each page. Default value: 200.
      *
      * This parameter is required.
+     *
      * @example 200
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'fieldName'   => 'FieldName',
-        'fieldValue'  => 'FieldValue',
-        'namespace'   => 'Namespace',
-        'pageSize'    => 'PageSize',
+        'fieldName' => 'FieldName',
+        'fieldValue' => 'FieldValue',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

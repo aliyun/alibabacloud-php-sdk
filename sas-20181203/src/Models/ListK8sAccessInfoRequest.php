@@ -47,15 +47,13 @@ class ListK8sAccessInfoRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'aliyunYundunGatewayApiName'     => 'AliyunYundunGatewayApiName',
-        'aliyunYundunGatewayPopName'     => 'AliyunYundunGatewayPopName',
+        'aliyunYundunGatewayApiName' => 'AliyunYundunGatewayApiName',
+        'aliyunYundunGatewayPopName' => 'AliyunYundunGatewayPopName',
         'aliyunYundunGatewayProjectName' => 'AliyunYundunGatewayProjectName',
-        'lang'                           => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

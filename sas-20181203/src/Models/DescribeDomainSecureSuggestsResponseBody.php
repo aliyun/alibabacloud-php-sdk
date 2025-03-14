@@ -53,16 +53,14 @@ class DescribeDomainSecureSuggestsResponseBody extends Model
      */
     public $webLockSuggest;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'riskSuggest'    => 'RiskSuggest',
-        'totalCount'     => 'TotalCount',
-        'vulSuggest'     => 'VulSuggest',
+        'requestId' => 'RequestId',
+        'riskSuggest' => 'RiskSuggest',
+        'totalCount' => 'TotalCount',
+        'vulSuggest' => 'VulSuggest',
         'webLockSuggest' => 'WebLockSuggest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

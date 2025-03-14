@@ -42,21 +42,20 @@ class QueryAttackCountRequest extends Model
      * @description The UUID of the asset.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     *
      * @example 0c1714dc-f7a3-4265-8364-7aa3fce8****,1cc45e7d-7698-4b2c-89d8-e8cba407****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'from'     => 'From',
-        'lang'     => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'uuids'    => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class DeleteOpaStrategyNewRequest extends Model
         'strategyIds' => 'StrategyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

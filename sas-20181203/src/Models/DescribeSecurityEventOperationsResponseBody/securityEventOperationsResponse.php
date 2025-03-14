@@ -60,6 +60,7 @@ class securityEventOperationsResponse extends Model
      * @description The configuration of the operation that is performed to handle the alert.
      *
      * >  If the value of the **OperationCode** parameter is **kill_and_quara** or **block_ip**, the OperationParams parameter is required. If the value of the **OperationCode** parameter is a different value, the OperationParams parameter can be left empty.
+     *
      * @example {"expireTime":1641566807783}
      *
      * @var string
@@ -79,16 +80,14 @@ class securityEventOperationsResponse extends Model
     public $userCanOperate;
     protected $_name = [
         'mappingMarkFields' => 'MappingMarkFields',
-        'markField'         => 'MarkField',
-        'markFieldsSource'  => 'MarkFieldsSource',
-        'operationCode'     => 'OperationCode',
-        'operationParams'   => 'OperationParams',
-        'userCanOperate'    => 'UserCanOperate',
+        'markField' => 'MarkField',
+        'markFieldsSource' => 'MarkFieldsSource',
+        'operationCode' => 'OperationCode',
+        'operationParams' => 'OperationParams',
+        'userCanOperate' => 'UserCanOperate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -144,7 +143,7 @@ class securityEventOperationsResponse extends Model
         if (isset($map['MappingMarkFields'])) {
             if (!empty($map['MappingMarkFields'])) {
                 $model->mappingMarkFields = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['MappingMarkFields'] as $item) {
                     $model->mappingMarkFields[$n++] = null !== $item ? mappingMarkFields::fromMap($item) : $item;
                 }
@@ -153,7 +152,7 @@ class securityEventOperationsResponse extends Model
         if (isset($map['MarkField'])) {
             if (!empty($map['MarkField'])) {
                 $model->markField = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MarkField'] as $item) {
                     $model->markField[$n++] = null !== $item ? markField::fromMap($item) : $item;
                 }
@@ -162,7 +161,7 @@ class securityEventOperationsResponse extends Model
         if (isset($map['MarkFieldsSource'])) {
             if (!empty($map['MarkFieldsSource'])) {
                 $model->markFieldsSource = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['MarkFieldsSource'] as $item) {
                     $model->markFieldsSource[$n++] = null !== $item ? markFieldsSource::fromMap($item) : $item;
                 }

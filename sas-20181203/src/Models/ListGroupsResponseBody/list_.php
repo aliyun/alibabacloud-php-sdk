@@ -39,13 +39,11 @@ class list_ extends Model
     public $groupName;
     protected $_name = [
         'groupFlag' => 'GroupFlag',
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -62,16 +62,14 @@ class DescribeCheckWarningsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'checkWarnings' => 'CheckWarnings',
-        'count'         => 'Count',
-        'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeCheckWarningsResponseBody extends Model
         if (isset($map['CheckWarnings'])) {
             if (!empty($map['CheckWarnings'])) {
                 $model->checkWarnings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CheckWarnings'] as $item) {
                     $model->checkWarnings[$n++] = null !== $item ? checkWarnings::fromMap($item) : $item;
                 }

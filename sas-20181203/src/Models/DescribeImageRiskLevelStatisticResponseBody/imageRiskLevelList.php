@@ -23,19 +23,18 @@ class imageRiskLevelList extends Model
      * - **2**：Medium
      * - **1**：Low
      * - **0**：None
+     *
      * @example 0
      *
      * @var string
      */
     public $imageRiskLevel;
     protected $_name = [
-        'cnt'            => 'Cnt',
+        'cnt' => 'Cnt',
         'imageRiskLevel' => 'ImageRiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

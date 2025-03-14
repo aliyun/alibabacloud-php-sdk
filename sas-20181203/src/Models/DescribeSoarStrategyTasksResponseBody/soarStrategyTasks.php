@@ -116,22 +116,20 @@ class soarStrategyTasks extends Model
      */
     public $totalNum;
     protected $_name = [
-        'failedNum'   => 'FailedNum',
-        'gmtCreate'   => 'GmtCreate',
-        'gmtFinish'   => 'GmtFinish',
+        'failedNum' => 'FailedNum',
+        'gmtCreate' => 'GmtCreate',
+        'gmtFinish' => 'GmtFinish',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'runMode'     => 'RunMode',
-        'status'      => 'Status',
-        'strategyId'  => 'StrategyId',
-        'successNum'  => 'SuccessNum',
-        'totalNum'    => 'TotalNum',
+        'id' => 'Id',
+        'name' => 'Name',
+        'runMode' => 'RunMode',
+        'status' => 'Status',
+        'strategyId' => 'StrategyId',
+        'successNum' => 'SuccessNum',
+        'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

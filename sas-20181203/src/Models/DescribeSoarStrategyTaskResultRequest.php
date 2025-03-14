@@ -38,21 +38,20 @@ class DescribeSoarStrategyTaskResultRequest extends Model
     /**
      * @description Strategy task ID.
      * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+     *
      * @example 100
      *
      * @var int
      */
     public $strategyTaskId;
     protected $_name = [
-        'condition'      => 'Condition',
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
+        'condition' => 'Condition',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

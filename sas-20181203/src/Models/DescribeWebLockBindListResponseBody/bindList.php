@@ -140,24 +140,22 @@ class bindList extends Model
      */
     public $uuid;
     protected $_name = [
-        'auditCount'    => 'AuditCount',
-        'blockCount'    => 'BlockCount',
-        'dirCount'      => 'DirCount',
-        'instanceName'  => 'InstanceName',
-        'internetIp'    => 'InternetIp',
-        'intranetIp'    => 'IntranetIp',
-        'os'            => 'Os',
-        'percent'       => 'Percent',
-        'serviceCode'   => 'ServiceCode',
+        'auditCount' => 'AuditCount',
+        'blockCount' => 'BlockCount',
+        'dirCount' => 'DirCount',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'os' => 'Os',
+        'percent' => 'Percent',
+        'serviceCode' => 'ServiceCode',
         'serviceDetail' => 'ServiceDetail',
         'serviceStatus' => 'ServiceStatus',
-        'status'        => 'Status',
-        'uuid'          => 'Uuid',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

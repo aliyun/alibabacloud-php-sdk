@@ -26,13 +26,11 @@ class data extends Model
      */
     public $scanImageCount;
     protected $_name = [
-        'needAuthCount'  => 'NeedAuthCount',
+        'needAuthCount' => 'NeedAuthCount',
         'scanImageCount' => 'ScanImageCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

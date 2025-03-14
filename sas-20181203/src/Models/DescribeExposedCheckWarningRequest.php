@@ -24,6 +24,7 @@ class DescribeExposedCheckWarningRequest extends Model
      * @description The type of the baseline.
      *
      * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the types of baselines from the response parameter **TypeName**.
+     *
      * @example weak_password
      *
      * @var string
@@ -34,20 +35,19 @@ class DescribeExposedCheckWarningRequest extends Model
      * @description The UUID of the server. Separate multiple UUIDs with commas (,).
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 6541631a-7d47-41fd-9fef-9518113f****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'typeName' => 'TypeName',
-        'uuids'    => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

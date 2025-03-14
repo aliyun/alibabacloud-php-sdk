@@ -29,9 +29,7 @@ class ListUnfinishedOnceTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListUnfinishedOnceTaskResponseBody extends Model
         if (isset($map['OnceTasks'])) {
             if (!empty($map['OnceTasks'])) {
                 $model->onceTasks = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['OnceTasks'] as $item) {
                     $model->onceTasks[$n++] = null !== $item ? onceTasks::fromMap($item) : $item;
                 }

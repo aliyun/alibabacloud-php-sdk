@@ -23,6 +23,7 @@ class DescribeClusterInfoListRequest extends Model
      *   **Cluster**: the ID of the cluster
      *
      * This parameter is required.
+     *
      * @example Cluster
      *
      * @var string
@@ -36,20 +37,19 @@ class DescribeClusterInfoListRequest extends Model
      *   **interceptionSwitch**: cluster microsegmentation
      *
      * This parameter is required.
+     *
      * @example containerNetwork
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'target'     => 'Target',
+        'target' => 'Target',
         'targetType' => 'TargetType',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

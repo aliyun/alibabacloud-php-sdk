@@ -26,12 +26,10 @@ class GetAssetDetailByUuidResponseBody extends Model
     public $requestId;
     protected $_name = [
         'assetDetail' => 'AssetDetail',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

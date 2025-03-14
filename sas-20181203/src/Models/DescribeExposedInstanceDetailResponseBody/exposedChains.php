@@ -138,6 +138,7 @@ class exposedChains extends Model
      * @description The region ID.
      *
      * >  For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -153,26 +154,24 @@ class exposedChains extends Model
      */
     public $uuid;
     protected $_name = [
-        'allVulList'        => 'AllVulList',
-        'cspmRiskList'      => 'CspmRiskList',
+        'allVulList' => 'AllVulList',
+        'cspmRiskList' => 'CspmRiskList',
         'exposureComponent' => 'ExposureComponent',
-        'exposureIp'        => 'ExposureIp',
-        'exposurePort'      => 'ExposurePort',
-        'exposureType'      => 'ExposureType',
-        'exposureTypeId'    => 'ExposureTypeId',
-        'groupNo'           => 'GroupNo',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'realVulList'       => 'RealVulList',
-        'regionId'          => 'RegionId',
-        'uuid'              => 'Uuid',
+        'exposureIp' => 'ExposureIp',
+        'exposurePort' => 'ExposurePort',
+        'exposureType' => 'ExposureType',
+        'exposureTypeId' => 'ExposureTypeId',
+        'groupNo' => 'GroupNo',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'realVulList' => 'RealVulList',
+        'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -255,7 +254,7 @@ class exposedChains extends Model
         if (isset($map['AllVulList'])) {
             if (!empty($map['AllVulList'])) {
                 $model->allVulList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AllVulList'] as $item) {
                     $model->allVulList[$n++] = null !== $item ? allVulList::fromMap($item) : $item;
                 }
@@ -264,7 +263,7 @@ class exposedChains extends Model
         if (isset($map['CspmRiskList'])) {
             if (!empty($map['CspmRiskList'])) {
                 $model->cspmRiskList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CspmRiskList'] as $item) {
                     $model->cspmRiskList[$n++] = null !== $item ? cspmRiskList::fromMap($item) : $item;
                 }
@@ -303,7 +302,7 @@ class exposedChains extends Model
         if (isset($map['RealVulList'])) {
             if (!empty($map['RealVulList'])) {
                 $model->realVulList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['RealVulList'] as $item) {
                     $model->realVulList[$n++] = null !== $item ? realVulList::fromMap($item) : $item;
                 }

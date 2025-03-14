@@ -16,6 +16,7 @@ class searchCriteriaList extends Model
      * > *   If **Biz** is set to **web_server**, **remarkItemName** specifies a domain name.
      * > *   If **Biz** is set to **lkm**, **remarkItemName** specifies a module name.
      * > *   If **Biz** is set to **autorun**, **remarkItemName** specifies the path to a startup item.
+     *
      * @example remarkItemName
      *
      * @var string
@@ -31,13 +32,11 @@ class searchCriteriaList extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

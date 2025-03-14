@@ -26,12 +26,10 @@ class DescribeStrategyDetailResponseBody extends Model
     public $strategy;
     protected $_name = [
         'requestId' => 'RequestId',
-        'strategy'  => 'Strategy',
+        'strategy' => 'Strategy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

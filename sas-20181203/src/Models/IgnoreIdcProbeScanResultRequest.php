@@ -15,6 +15,7 @@ class IgnoreIdcProbeScanResultRequest extends Model
      *   **2**: ignores the scan result.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -24,20 +25,21 @@ class IgnoreIdcProbeScanResultRequest extends Model
     /**
      * @description The ID of the scan result. Separate multiple IDs with commas (,).
      *
+     * >  You can call the [DescribeIdcProbeScanResultList](~~DescribeIdcProbeScanResultList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 332098932,332098964,332098963
      *
      * @var string
      */
     public $scanResultIds;
     protected $_name = [
-        'ignoreAction'  => 'IgnoreAction',
+        'ignoreAction' => 'IgnoreAction',
         'scanResultIds' => 'ScanResultIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

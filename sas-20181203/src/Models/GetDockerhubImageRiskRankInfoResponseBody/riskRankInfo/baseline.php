@@ -98,21 +98,19 @@ class baseline extends Model
      */
     public $vulCount;
     protected $_name = [
-        'digest'          => 'Digest',
-        'hcCount'         => 'HcCount',
-        'imageId'         => 'ImageId',
-        'imageSize'       => 'ImageSize',
-        'repoName'        => 'RepoName',
-        'repoNamespace'   => 'RepoNamespace',
+        'digest' => 'Digest',
+        'hcCount' => 'HcCount',
+        'imageId' => 'ImageId',
+        'imageSize' => 'ImageSize',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
         'riskLevelDetail' => 'RiskLevelDetail',
-        'tag'             => 'Tag',
-        'uuid'            => 'Uuid',
-        'vulCount'        => 'VulCount',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

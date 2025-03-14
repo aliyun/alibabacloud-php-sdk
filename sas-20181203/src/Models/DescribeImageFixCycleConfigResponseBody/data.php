@@ -50,15 +50,13 @@ class data extends Model
      */
     public $imageTimeRange;
     protected $_name = [
-        'imageFixCycle'  => 'ImageFixCycle',
+        'imageFixCycle' => 'ImageFixCycle',
         'imageFixSwitch' => 'ImageFixSwitch',
         'imageFixTarget' => 'ImageFixTarget',
         'imageTimeRange' => 'ImageTimeRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

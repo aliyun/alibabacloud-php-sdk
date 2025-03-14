@@ -21,6 +21,7 @@ class suspHoneyPotStatisticsResponse extends Model
      * @description The ID of the server.
      *
      * > This parameter is returned only when **StatisticsKeyType** is set to **uuid**.
+     *
      * @example i-p0whhoba24wd28p8****
      *
      * @var string
@@ -31,6 +32,7 @@ class suspHoneyPotStatisticsResponse extends Model
      * @description The name of the server.
      *
      * > This parameter is returned only when **StatisticsKeyType** is set to **uuid**.
+     *
      * @example abc-launch-advisor
      *
      * @var string
@@ -53,6 +55,7 @@ class suspHoneyPotStatisticsResponse extends Model
      * @description The ID of the VPC.
      *
      * > This parameter is returned only when **StatisticsKeyType** is set to **vpcInstanceId**.
+     *
      * @example vpc-p0wwdsuutdyu1ygkt****
      *
      * @var string
@@ -63,23 +66,22 @@ class suspHoneyPotStatisticsResponse extends Model
      * @description The name of the VPC.
      *
      * > This parameter is returned only when **StatisticsKeyType** is set to **vpcInstanceId**.
+     *
      * @example abc01
      *
      * @var string
      */
     public $vpcName;
     protected $_name = [
-        'count'        => 'Count',
-        'instanceId'   => 'InstanceId',
+        'count' => 'Count',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'type'         => 'Type',
-        'vpcId'        => 'VpcId',
-        'vpcName'      => 'VpcName',
+        'type' => 'Type',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

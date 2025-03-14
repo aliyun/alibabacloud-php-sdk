@@ -94,6 +94,7 @@ class GetAuthSummaryResponseBody extends Model
      *   **10**: Value-added Plan edition
      *
      * >  If you purchase Security Center Multi-edition, the value indicates the most advanced edition that is used. Otherwise, the value indicates the specific edition that is purchased.
+     *
      * @example 1
      *
      * @var int
@@ -169,26 +170,24 @@ class GetAuthSummaryResponseBody extends Model
      */
     public $versionSummary;
     protected $_name = [
-        'allowPartialBuy'             => 'AllowPartialBuy',
-        'allowUpgradePartialBuy'      => 'AllowUpgradePartialBuy',
-        'allowUserUnbind'             => 'AllowUserUnbind',
-        'autoBind'                    => 'AutoBind',
-        'defaultAuthToAll'            => 'DefaultAuthToAll',
-        'hasPreBindSetting'           => 'HasPreBindSetting',
-        'highestVersion'              => 'HighestVersion',
-        'isMultiVersion'              => 'IsMultiVersion',
-        'machine'                     => 'Machine',
-        'postPaidHighestVersion'      => 'PostPaidHighestVersion',
-        'postPaidHostAutoBind'        => 'PostPaidHostAutoBind',
+        'allowPartialBuy' => 'AllowPartialBuy',
+        'allowUpgradePartialBuy' => 'AllowUpgradePartialBuy',
+        'allowUserUnbind' => 'AllowUserUnbind',
+        'autoBind' => 'AutoBind',
+        'defaultAuthToAll' => 'DefaultAuthToAll',
+        'hasPreBindSetting' => 'HasPreBindSetting',
+        'highestVersion' => 'HighestVersion',
+        'isMultiVersion' => 'IsMultiVersion',
+        'machine' => 'Machine',
+        'postPaidHighestVersion' => 'PostPaidHighestVersion',
+        'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
-        'postPaidVersionSummary'      => 'PostPaidVersionSummary',
-        'requestId'                   => 'RequestId',
-        'versionSummary'              => 'VersionSummary',
+        'postPaidVersionSummary' => 'PostPaidVersionSummary',
+        'requestId' => 'RequestId',
+        'versionSummary' => 'VersionSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -301,7 +300,7 @@ class GetAuthSummaryResponseBody extends Model
         if (isset($map['PostPaidVersionSummary'])) {
             if (!empty($map['PostPaidVersionSummary'])) {
                 $model->postPaidVersionSummary = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['PostPaidVersionSummary'] as $item) {
                     $model->postPaidVersionSummary[$n++] = null !== $item ? postPaidVersionSummary::fromMap($item) : $item;
                 }
@@ -313,7 +312,7 @@ class GetAuthSummaryResponseBody extends Model
         if (isset($map['VersionSummary'])) {
             if (!empty($map['VersionSummary'])) {
                 $model->versionSummary = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['VersionSummary'] as $item) {
                     $model->versionSummary[$n++] = null !== $item ? versionSummary::fromMap($item) : $item;
                 }

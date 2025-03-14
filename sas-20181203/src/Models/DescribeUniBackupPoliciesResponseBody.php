@@ -33,14 +33,12 @@ class DescribeUniBackupPoliciesResponseBody extends Model
      */
     public $uniBackupPolicies;
     protected $_name = [
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'uniBackupPolicies' => 'UniBackupPolicies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeUniBackupPoliciesResponseBody extends Model
         if (isset($map['UniBackupPolicies'])) {
             if (!empty($map['UniBackupPolicies'])) {
                 $model->uniBackupPolicies = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['UniBackupPolicies'] as $item) {
                     $model->uniBackupPolicies[$n++] = null !== $item ? uniBackupPolicies::fromMap($item) : $item;
                 }

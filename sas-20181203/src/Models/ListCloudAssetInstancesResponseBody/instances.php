@@ -265,24 +265,22 @@ class instances extends Model
      */
     public $vendor;
     protected $_name = [
-        'alarmStatus'      => 'AlarmStatus',
-        'assetSubType'     => 'AssetSubType',
+        'alarmStatus' => 'AlarmStatus',
+        'assetSubType' => 'AssetSubType',
         'assetSubTypeName' => 'AssetSubTypeName',
-        'assetType'        => 'AssetType',
-        'assetTypeName'    => 'AssetTypeName',
-        'createdTime'      => 'CreatedTime',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
-        'internetIp'       => 'InternetIp',
-        'regionId'         => 'RegionId',
-        'riskStatus'       => 'RiskStatus',
-        'securityInfo'     => 'SecurityInfo',
-        'vendor'           => 'Vendor',
+        'assetType' => 'AssetType',
+        'assetTypeName' => 'AssetTypeName',
+        'createdTime' => 'CreatedTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'regionId' => 'RegionId',
+        'riskStatus' => 'RiskStatus',
+        'securityInfo' => 'SecurityInfo',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

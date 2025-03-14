@@ -12,6 +12,7 @@ class DescribeAccesskeyLeakListRequest extends Model
      * @description The number of the page to return. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -20,7 +21,12 @@ class DescribeAccesskeyLeakListRequest extends Model
 
     /**
      * @description The number of entries to return on each page.\\
+     * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
+     *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -40,6 +46,7 @@ class DescribeAccesskeyLeakListRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -67,17 +74,15 @@ class DescribeAccesskeyLeakListRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'                => 'CurrentPage',
-        'pageSize'                   => 'PageSize',
-        'query'                      => 'Query',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'startTs'                    => 'StartTs',
-        'status'                     => 'Status',
+        'startTs' => 'StartTs',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

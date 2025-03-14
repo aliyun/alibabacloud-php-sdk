@@ -26,12 +26,10 @@ class DescribeCheckResultResponseBody extends Model
     public $requestId;
     protected $_name = [
         'checkResultList' => 'CheckResultList',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeCheckResultResponseBody extends Model
         if (isset($map['CheckResultList'])) {
             if (!empty($map['CheckResultList'])) {
                 $model->checkResultList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['CheckResultList'] as $item) {
                     $model->checkResultList[$n++] = null !== $item ? checkResultList::fromMap($item) : $item;
                 }

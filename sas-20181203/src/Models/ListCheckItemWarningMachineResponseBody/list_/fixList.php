@@ -26,13 +26,11 @@ class fixList extends Model
      */
     public $riskName;
     protected $_name = [
-        'riskId'   => 'RiskId',
+        'riskId' => 'RiskId',
         'riskName' => 'RiskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

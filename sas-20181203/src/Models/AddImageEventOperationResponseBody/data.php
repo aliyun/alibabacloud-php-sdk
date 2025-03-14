@@ -82,18 +82,16 @@ class data extends Model
      */
     public $scenarios;
     protected $_name = [
-        'conditions'    => 'Conditions',
-        'eventKey'      => 'EventKey',
-        'eventName'     => 'EventName',
-        'eventType'     => 'EventType',
-        'id'            => 'Id',
+        'conditions' => 'Conditions',
+        'eventKey' => 'EventKey',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'id' => 'Id',
         'operationCode' => 'OperationCode',
-        'scenarios'     => 'Scenarios',
+        'scenarios' => 'Scenarios',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

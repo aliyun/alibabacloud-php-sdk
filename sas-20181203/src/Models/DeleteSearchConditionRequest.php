@@ -11,7 +11,10 @@ class DeleteSearchConditionRequest extends Model
     /**
      * @description The name of the frequently used search condition.
      *
+     * >  You can call the [DescribeSearchCondition](~~DescribeSearchCondition~~) operation to query frequently used search conditions.
+     *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -39,14 +42,12 @@ class DeleteSearchConditionRequest extends Model
      */
     public $type;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

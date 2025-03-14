@@ -51,15 +51,13 @@ class standards extends Model
      */
     public $type;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'showName' => 'ShowName',
-        'status'   => 'Status',
-        'type'     => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -122,23 +122,21 @@ class instances extends Model
      */
     public $validPort;
     protected $_name = [
-        'clientStatus'     => 'ClientStatus',
-        'idcName'          => 'IdcName',
-        'ipSegment'        => 'IpSegment',
-        'lastScanTime'     => 'LastScanTime',
-        'os'               => 'Os',
-        'probeInternetIp'  => 'ProbeInternetIp',
-        'probeIntranetIp'  => 'ProbeIntranetIp',
+        'clientStatus' => 'ClientStatus',
+        'idcName' => 'IdcName',
+        'ipSegment' => 'IpSegment',
+        'lastScanTime' => 'LastScanTime',
+        'os' => 'Os',
+        'probeInternetIp' => 'ProbeInternetIp',
+        'probeIntranetIp' => 'ProbeIntranetIp',
         'probeMachineName' => 'ProbeMachineName',
-        'probeUuid'        => 'ProbeUuid',
-        'scanResultId'     => 'ScanResultId',
-        'scannedIp'        => 'ScannedIp',
-        'validPort'        => 'ValidPort',
+        'probeUuid' => 'ProbeUuid',
+        'scanResultId' => 'ScanResultId',
+        'scannedIp' => 'ScannedIp',
+        'validPort' => 'ValidPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

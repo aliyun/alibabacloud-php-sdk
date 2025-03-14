@@ -27,12 +27,10 @@ class tacticItems extends Model
     public $tacticId;
     protected $_name = [
         'tacticDisplayName' => 'TacticDisplayName',
-        'tacticId'          => 'TacticId',
+        'tacticId' => 'TacticId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

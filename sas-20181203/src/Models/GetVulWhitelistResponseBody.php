@@ -25,13 +25,11 @@ class GetVulWhitelistResponseBody extends Model
      */
     public $vulWhitelist;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'vulWhitelist' => 'VulWhitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

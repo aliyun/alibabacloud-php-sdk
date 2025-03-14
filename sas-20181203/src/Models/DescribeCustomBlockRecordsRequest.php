@@ -53,16 +53,14 @@ class DescribeCustomBlockRecordsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
+        'blockIp' => 'BlockIp',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

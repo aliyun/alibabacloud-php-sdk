@@ -68,17 +68,15 @@ class edge extends Model
      */
     public $srcNodeType;
     protected $_name = [
-        'dstNodeId'   => 'DstNodeId',
+        'dstNodeId' => 'DstNodeId',
         'dstNodeType' => 'DstNodeType',
-        'id'          => 'Id',
-        'port'        => 'Port',
-        'srcNodeId'   => 'SrcNodeId',
+        'id' => 'Id',
+        'port' => 'Port',
+        'srcNodeId' => 'SrcNodeId',
         'srcNodeType' => 'SrcNodeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

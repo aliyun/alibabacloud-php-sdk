@@ -22,6 +22,7 @@ class DescribeImageSecurityScanCountRequest extends Model
      * - **Y**: Processed
      * - **N**: Not processed
      * - **A**: All
+     *
      * @example N
      *
      * @var string
@@ -68,6 +69,7 @@ class DescribeImageSecurityScanCountRequest extends Model
      * @description Specifies the container image instance ID.
      *
      * > Call the [DescribeImageInstances](~~DescribeImageInstances~~) API to obtain this parameter.
+     *
      * @example cri-p2jahwuuwuk7****
      *
      * @var string
@@ -97,21 +99,19 @@ class DescribeImageSecurityScanCountRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'dealed'         => 'Dealed',
-        'imageDigest'    => 'ImageDigest',
-        'imageTag'       => 'ImageTag',
-        'imageUuid'      => 'ImageUuid',
-        'repoId'         => 'RepoId',
+        'clusterId' => 'ClusterId',
+        'dealed' => 'Dealed',
+        'imageDigest' => 'ImageDigest',
+        'imageTag' => 'ImageTag',
+        'imageUuid' => 'ImageUuid',
+        'repoId' => 'RepoId',
         'repoInstanceId' => 'RepoInstanceId',
-        'repoRegionId'   => 'RepoRegionId',
-        'scanRange'      => 'ScanRange',
-        'uuids'          => 'Uuids',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

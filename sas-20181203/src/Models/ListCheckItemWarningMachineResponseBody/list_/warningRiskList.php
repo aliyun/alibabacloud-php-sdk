@@ -13,6 +13,8 @@ class warningRiskList extends Model
      *
      * @example 72
      *
+     * @deprecated
+     *
      * @var int
      */
     public $riskId;
@@ -22,17 +24,17 @@ class warningRiskList extends Model
      *
      * @example Alibaba Cloud Linux/Aliyun Linux 2 Baseline for China classified protection of cybersecurity-Level II
      *
+     * @deprecated
+     *
      * @var string
      */
     public $riskName;
     protected $_name = [
-        'riskId'   => 'RiskId',
+        'riskId' => 'RiskId',
         'riskName' => 'RiskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

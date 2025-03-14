@@ -135,25 +135,23 @@ class data extends Model
      */
     public $whiteList;
     protected $_name = [
-        'alarmDetail'        => 'AlarmDetail',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'description'        => 'Description',
-        'imageName'          => 'ImageName',
-        'label'              => 'Label',
-        'maliciousImage'     => 'MaliciousImage',
-        'namespace'          => 'Namespace',
-        'ruleAction'         => 'RuleAction',
-        'strategyId'         => 'StrategyId',
-        'strategyName'       => 'StrategyName',
+        'alarmDetail' => 'AlarmDetail',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'description' => 'Description',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
+        'maliciousImage' => 'MaliciousImage',
+        'namespace' => 'Namespace',
+        'ruleAction' => 'RuleAction',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
         'strategyTemplateId' => 'StrategyTemplateId',
-        'unScanedImage'      => 'UnScanedImage',
-        'whiteList'          => 'WhiteList',
+        'unScanedImage' => 'UnScanedImage',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

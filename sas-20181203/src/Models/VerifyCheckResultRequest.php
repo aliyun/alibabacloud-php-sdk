@@ -18,9 +18,7 @@ class VerifyCheckResultRequest extends Model
         'checkIds' => 'CheckIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

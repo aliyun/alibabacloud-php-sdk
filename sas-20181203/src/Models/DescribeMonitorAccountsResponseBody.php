@@ -25,12 +25,10 @@ class DescribeMonitorAccountsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accountIds' => 'AccountIds',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

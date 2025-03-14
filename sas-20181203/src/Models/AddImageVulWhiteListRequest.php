@@ -33,6 +33,7 @@ class AddImageVulWhiteListRequest extends Model
      * @description The source of the whitelist. Valid values:
      * - **image**
      * - **agentless**
+     *
      * @example image
      *
      * @var string
@@ -76,17 +77,15 @@ class AddImageVulWhiteListRequest extends Model
      */
     public $whitelist;
     protected $_name = [
-        'lang'      => 'Lang',
-        'reason'    => 'Reason',
-        'source'    => 'Source',
-        'target'    => 'Target',
-        'type'      => 'Type',
+        'lang' => 'Lang',
+        'reason' => 'Reason',
+        'source' => 'Source',
+        'target' => 'Target',
+        'type' => 'Type',
         'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

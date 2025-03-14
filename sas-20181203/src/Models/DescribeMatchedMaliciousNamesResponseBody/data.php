@@ -27,12 +27,10 @@ class data extends Model
     public $key;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'key'         => 'Key',
+        'key' => 'Key',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

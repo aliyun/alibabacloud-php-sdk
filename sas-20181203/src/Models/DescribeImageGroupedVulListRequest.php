@@ -21,6 +21,7 @@ class DescribeImageGroupedVulListRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+     *
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string
@@ -218,33 +219,31 @@ class DescribeImageGroupedVulListRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliasName'      => 'AliasName',
-        'clusterId'      => 'ClusterId',
-        'currentPage'    => 'CurrentPage',
-        'cveId'          => 'CveId',
-        'groupId'        => 'GroupId',
-        'imageDigest'    => 'ImageDigest',
-        'imageLayer'     => 'ImageLayer',
-        'imageTag'       => 'ImageTag',
-        'isLatest'       => 'IsLatest',
-        'lang'           => 'Lang',
-        'name'           => 'Name',
-        'necessity'      => 'Necessity',
-        'pageSize'       => 'PageSize',
-        'patchId'        => 'PatchId',
-        'repoId'         => 'RepoId',
+        'aliasName' => 'AliasName',
+        'clusterId' => 'ClusterId',
+        'currentPage' => 'CurrentPage',
+        'cveId' => 'CveId',
+        'groupId' => 'GroupId',
+        'imageDigest' => 'ImageDigest',
+        'imageLayer' => 'ImageLayer',
+        'imageTag' => 'ImageTag',
+        'isLatest' => 'IsLatest',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'necessity' => 'Necessity',
+        'pageSize' => 'PageSize',
+        'patchId' => 'PatchId',
+        'repoId' => 'RepoId',
         'repoInstanceId' => 'RepoInstanceId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'repoRegionId'   => 'RepoRegionId',
-        'scanRange'      => 'ScanRange',
-        'type'           => 'Type',
-        'uuids'          => 'Uuids',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -108,22 +108,20 @@ class ListHoneypotEventsRequest extends Model
      */
     public $srcIp;
     protected $_name = [
-        'agentIdList'    => 'AgentIdList',
-        'alarmEventId'   => 'AlarmEventId',
-        'currentPage'    => 'CurrentPage',
-        'dealed'         => 'Dealed',
+        'agentIdList' => 'AgentIdList',
+        'alarmEventId' => 'AlarmEventId',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
         'honeypotIdList' => 'HoneypotIdList',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'portraitId'     => 'PortraitId',
-        'requestId'      => 'RequestId',
-        'riskLevelList'  => 'RiskLevelList',
-        'srcIp'          => 'SrcIp',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'portraitId' => 'PortraitId',
+        'requestId' => 'RequestId',
+        'riskLevelList' => 'RiskLevelList',
+        'srcIp' => 'SrcIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

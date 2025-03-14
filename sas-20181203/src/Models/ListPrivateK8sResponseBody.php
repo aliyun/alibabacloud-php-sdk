@@ -26,12 +26,10 @@ class ListPrivateK8sResponseBody extends Model
     public $requestId;
     protected $_name = [
         'privateK8sInfos' => 'PrivateK8sInfos',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListPrivateK8sResponseBody extends Model
         if (isset($map['PrivateK8sInfos'])) {
             if (!empty($map['PrivateK8sInfos'])) {
                 $model->privateK8sInfos = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PrivateK8sInfos'] as $item) {
                     $model->privateK8sInfos[$n++] = null !== $item ? privateK8sInfos::fromMap($item) : $item;
                 }

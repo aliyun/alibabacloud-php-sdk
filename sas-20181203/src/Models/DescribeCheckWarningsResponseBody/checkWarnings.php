@@ -138,24 +138,22 @@ class checkWarnings extends Model
      */
     public $uuid;
     protected $_name = [
-        'checkId'          => 'CheckId',
-        'checkWarningId'   => 'CheckWarningId',
-        'containerId'      => 'ContainerId',
-        'containerName'    => 'ContainerName',
+        'checkId' => 'CheckId',
+        'checkWarningId' => 'CheckWarningId',
+        'containerId' => 'ContainerId',
+        'containerName' => 'ContainerName',
         'execErrorMessage' => 'ExecErrorMessage',
-        'fixStatus'        => 'FixStatus',
-        'item'             => 'Item',
-        'lastHandleTime'   => 'LastHandleTime',
-        'level'            => 'Level',
-        'reason'           => 'Reason',
-        'status'           => 'Status',
-        'type'             => 'Type',
-        'uuid'             => 'Uuid',
+        'fixStatus' => 'FixStatus',
+        'item' => 'Item',
+        'lastHandleTime' => 'LastHandleTime',
+        'level' => 'Level',
+        'reason' => 'Reason',
+        'status' => 'Status',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

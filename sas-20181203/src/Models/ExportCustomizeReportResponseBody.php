@@ -84,19 +84,17 @@ class ExportCustomizeReportResponseBody extends Model
      */
     public $urlExpiredTime;
     protected $_name = [
-        'downloadUrl'    => 'DownloadUrl',
-        'exportDate'     => 'ExportDate',
-        'exportId'       => 'ExportId',
-        'exportStatus'   => 'ExportStatus',
-        'fileName'       => 'FileName',
-        'reportId'       => 'ReportId',
-        'requestId'      => 'RequestId',
+        'downloadUrl' => 'DownloadUrl',
+        'exportDate' => 'ExportDate',
+        'exportId' => 'ExportId',
+        'exportStatus' => 'ExportStatus',
+        'fileName' => 'FileName',
+        'reportId' => 'ReportId',
+        'requestId' => 'RequestId',
         'urlExpiredTime' => 'UrlExpiredTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

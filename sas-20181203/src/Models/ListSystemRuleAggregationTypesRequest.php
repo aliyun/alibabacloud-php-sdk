@@ -23,9 +23,7 @@ class ListSystemRuleAggregationTypesRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

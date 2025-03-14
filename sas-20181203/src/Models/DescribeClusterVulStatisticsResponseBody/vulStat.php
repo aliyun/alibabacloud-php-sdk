@@ -35,14 +35,12 @@ class vulStat extends Model
      */
     public $nntfCount;
     protected $_name = [
-        'asapCount'  => 'AsapCount',
+        'asapCount' => 'AsapCount',
         'laterCount' => 'LaterCount',
-        'nntfCount'  => 'NntfCount',
+        'nntfCount' => 'NntfCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class DescribeUserSettingResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'alertLevels'            => 'AlertLevels',
+        'alertLevels' => 'AlertLevels',
         'invalidWarningKeepDays' => 'InvalidWarningKeepDays',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -93,20 +93,18 @@ class list_ extends Model
      */
     public $unprocessedNum;
     protected $_name = [
-        'count'          => 'Count',
-        'firstScanTime'  => 'FirstScanTime',
-        'lastScanTime'   => 'LastScanTime',
-        'riskClass'      => 'RiskClass',
-        'riskClassName'  => 'RiskClassName',
-        'riskKey'        => 'RiskKey',
-        'riskKeyName'    => 'RiskKeyName',
-        'riskLevel'      => 'RiskLevel',
+        'count' => 'Count',
+        'firstScanTime' => 'FirstScanTime',
+        'lastScanTime' => 'LastScanTime',
+        'riskClass' => 'RiskClass',
+        'riskClassName' => 'RiskClassName',
+        'riskKey' => 'RiskKey',
+        'riskKeyName' => 'RiskKeyName',
+        'riskLevel' => 'RiskLevel',
         'unprocessedNum' => 'UnprocessedNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

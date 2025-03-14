@@ -33,14 +33,12 @@ class DescribeOnceTaskResponseBody extends Model
      */
     public $taskManageResponseList;
     protected $_name = [
-        'pageInfo'               => 'PageInfo',
-        'requestId'              => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'taskManageResponseList' => 'TaskManageResponseList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeOnceTaskResponseBody extends Model
         if (isset($map['TaskManageResponseList'])) {
             if (!empty($map['TaskManageResponseList'])) {
                 $model->taskManageResponseList = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['TaskManageResponseList'] as $item) {
                     $model->taskManageResponseList[$n++] = null !== $item ? taskManageResponseList::fromMap($item) : $item;
                 }

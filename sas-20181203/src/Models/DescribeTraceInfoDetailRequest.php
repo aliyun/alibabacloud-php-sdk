@@ -12,6 +12,7 @@ class DescribeTraceInfoDetailRequest extends Model
      * @description The ID of the request source. Set the value to **sas**.
      *
      * This parameter is required.
+     *
      * @example sas
      *
      * @var string
@@ -52,6 +53,7 @@ class DescribeTraceInfoDetailRequest extends Model
      * @description The type of the vertex. Set the value to **SAS_INCIDENT**.
      *
      * This parameter is required.
+     *
      * @example SAS_INCIDENT
      *
      * @var string
@@ -62,6 +64,7 @@ class DescribeTraceInfoDetailRequest extends Model
      * @description The UUID of the server.
      *
      * This parameter is required.
+     *
      * @example 1627f2d7-aaa2-4ed1-b07a-xxxxxxxxxxxxxx
      *
      * @var string
@@ -72,24 +75,23 @@ class DescribeTraceInfoDetailRequest extends Model
      * @description The ID of the vertex. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID.
      *
      * This parameter is required.
+     *
      * @example cce1d28dxxxxxxxxxxxxxxxx
      *
      * @var string
      */
     public $vertexId;
     protected $_name = [
-        'from'         => 'From',
+        'from' => 'From',
         'incidentTime' => 'IncidentTime',
-        'lang'         => 'Lang',
-        'sourceIp'     => 'SourceIp',
-        'type'         => 'Type',
-        'uuid'         => 'Uuid',
-        'vertexId'     => 'VertexId',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
+        'vertexId' => 'VertexId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,13 +46,11 @@ class fixTotal extends Model
     protected $_name = [
         'fixedTodayNum' => 'FixedTodayNum',
         'fixedTotalNum' => 'FixedTotalNum',
-        'fixingNum'     => 'FixingNum',
-        'needFixNum'    => 'NeedFixNum',
+        'fixingNum' => 'FixingNum',
+        'needFixNum' => 'NeedFixNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

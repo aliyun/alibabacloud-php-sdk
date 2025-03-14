@@ -12,6 +12,7 @@ class DeleteCloudVendorAccountAKRequest extends Model
      * @description The unique ID of the AccessKey pair.
      *
      * This parameter is required.
+     *
      * @example 2363
      *
      * @var int
@@ -25,13 +26,11 @@ class DeleteCloudVendorAccountAKRequest extends Model
      */
     public $authModules;
     protected $_name = [
-        'authId'      => 'AuthId',
+        'authId' => 'AuthId',
         'authModules' => 'AuthModules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

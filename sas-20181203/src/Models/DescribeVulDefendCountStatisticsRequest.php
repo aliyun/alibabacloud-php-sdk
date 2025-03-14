@@ -23,9 +23,7 @@ class DescribeVulDefendCountStatisticsRequest extends Model
         'vulType' => 'VulType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

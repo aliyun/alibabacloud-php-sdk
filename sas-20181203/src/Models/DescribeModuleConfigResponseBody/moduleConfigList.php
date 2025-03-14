@@ -35,13 +35,11 @@ class moduleConfigList extends Model
     public $moduleName;
     protected $_name = [
         'configName' => 'ConfigName',
-        'items'      => 'Items',
+        'items' => 'Items',
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class moduleConfigList extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

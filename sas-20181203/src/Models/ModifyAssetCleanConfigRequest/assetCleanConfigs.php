@@ -33,6 +33,7 @@ class assetCleanConfigs extends Model
      * @description The type of hosts that you want to clean.
      *
      * Set the value to **1**, which indicates hosts whose provider cannot be identified.
+     *
      * @example 1
      *
      * @var int
@@ -40,13 +41,11 @@ class assetCleanConfigs extends Model
     public $type;
     protected $_name = [
         'cleanDays' => 'CleanDays',
-        'status'    => 'Status',
-        'type'      => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

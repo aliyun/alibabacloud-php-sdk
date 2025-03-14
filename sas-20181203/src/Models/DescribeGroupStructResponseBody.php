@@ -91,19 +91,17 @@ class DescribeGroupStructResponseBody extends Model
     public $requestId;
     protected $_name = [
         'groupFather' => 'GroupFather',
-        'groupFlag'   => 'GroupFlag',
-        'groupId'     => 'GroupId',
-        'groupIndex'  => 'GroupIndex',
-        'groupLevel'  => 'GroupLevel',
-        'groupName'   => 'GroupName',
-        'groups'      => 'Groups',
-        'machineNum'  => 'MachineNum',
-        'requestId'   => 'RequestId',
+        'groupFlag' => 'GroupFlag',
+        'groupId' => 'GroupId',
+        'groupIndex' => 'GroupIndex',
+        'groupLevel' => 'GroupLevel',
+        'groupName' => 'GroupName',
+        'groups' => 'Groups',
+        'machineNum' => 'MachineNum',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

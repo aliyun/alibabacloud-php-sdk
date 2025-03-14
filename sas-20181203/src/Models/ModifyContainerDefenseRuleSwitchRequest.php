@@ -27,13 +27,11 @@ class ModifyContainerDefenseRuleSwitchRequest extends Model
      */
     public $ruleSwitch;
     protected $_name = [
-        'ruleIds'    => 'RuleIds',
+        'ruleIds' => 'RuleIds',
         'ruleSwitch' => 'RuleSwitch',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeSasPmAgentListResponseBody extends Model
      */
     public $sasPmAgentList;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'sasPmAgentList' => 'SasPmAgentList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeSasPmAgentListResponseBody extends Model
         if (isset($map['SasPmAgentList'])) {
             if (!empty($map['SasPmAgentList'])) {
                 $model->sasPmAgentList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SasPmAgentList'] as $item) {
                     $model->sasPmAgentList[$n++] = null !== $item ? sasPmAgentList::fromMap($item) : $item;
                 }

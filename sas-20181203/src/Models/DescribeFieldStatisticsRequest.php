@@ -32,20 +32,19 @@ class DescribeFieldStatisticsRequest extends Model
     /**
      * @description The ID of the primary account of the Resource Directory member account.
      * > call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) interface to obtain this parameter.
+     *
      * @example 1232428423234****
      *
      * @var int
      */
     public $resourceDirectoryAccountId;
     protected $_name = [
-        'machineTypes'               => 'MachineTypes',
-        'regionId'                   => 'RegionId',
+        'machineTypes' => 'MachineTypes',
+        'regionId' => 'RegionId',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

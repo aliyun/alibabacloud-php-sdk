@@ -53,16 +53,14 @@ class GetSuspiciousStatisticsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'remindCount'     => 'RemindCount',
-        'requestId'       => 'RequestId',
-        'seriousCount'    => 'SeriousCount',
+        'remindCount' => 'RemindCount',
+        'requestId' => 'RequestId',
+        'seriousCount' => 'SeriousCount',
         'suspiciousCount' => 'SuspiciousCount',
-        'totalCount'      => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,13 +33,11 @@ class DescribeMatchedMaliciousNamesRequest extends Model
      */
     public $levels;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'levels' => 'Levels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class newestStatisticItems extends Model
     public $name;
     protected $_name = [
         'create' => 'Create',
-        'name'   => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

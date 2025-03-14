@@ -29,9 +29,7 @@ class ListCheckStandardResponseBody extends Model
         'standards' => 'Standards',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListCheckStandardResponseBody extends Model
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {
                 $model->standards = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Standards'] as $item) {
                     $model->standards[$n++] = null !== $item ? standards::fromMap($item) : $item;
                 }

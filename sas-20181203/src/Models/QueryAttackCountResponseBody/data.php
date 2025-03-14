@@ -36,13 +36,11 @@ class data extends Model
     public $tacticType;
     protected $_name = [
         'eventCount' => 'EventCount',
-        'tacticId'   => 'TacticId',
+        'tacticId' => 'TacticId',
         'tacticType' => 'TacticType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

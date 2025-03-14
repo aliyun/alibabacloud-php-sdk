@@ -12,6 +12,7 @@ class ModifyClientConfStrategyRequest extends Model
      * @description The key of the tag that is added to the agent configuration policy.
      *
      * This parameter is required.
+     *
      * @example machineResource
      *
      * @var string
@@ -35,6 +36,7 @@ class ModifyClientConfStrategyRequest extends Model
      *   basic
      *
      * This parameter is required.
+     *
      * @example advanced
      *
      * @var string
@@ -57,16 +59,14 @@ class ModifyClientConfStrategyRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'tag'      => 'Tag',
-        'tagExt'   => 'TagExt',
+        'tag' => 'Tag',
+        'tagExt' => 'TagExt',
         'tagValue' => 'TagValue',
-        'uuid'     => 'Uuid',
-        'uuids'    => 'Uuids',
+        'uuid' => 'Uuid',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

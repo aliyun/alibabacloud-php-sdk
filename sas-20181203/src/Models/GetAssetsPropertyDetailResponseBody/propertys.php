@@ -30,6 +30,7 @@ class propertys extends Model
      * @description The domain name of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example localhost
      *
      * @var string
@@ -40,6 +41,7 @@ class propertys extends Model
      * @description The path to the kernel module file.
      *
      * > This parameter is returned only when **Biz** is set to **lkm**.
+     *
      * @example /lib/modules/4****
      *
      * @var string
@@ -104,6 +106,7 @@ class propertys extends Model
      * @description The listening protocol that the website uses.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example tcp
      *
      * @var string
@@ -114,6 +117,7 @@ class propertys extends Model
      * @description The name of the module.
      *
      * > This parameter is returned only when **Biz** is set to **lkm**.
+     *
      * @example alihids
      *
      * @var string
@@ -136,6 +140,7 @@ class propertys extends Model
      * @description The permissions on the root directory of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example 755
      *
      * @var string
@@ -146,6 +151,7 @@ class propertys extends Model
      * @description The process ID (PID) of the process that runs the website service.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example 813
      *
      * @var string
@@ -156,6 +162,7 @@ class propertys extends Model
      * @description The port of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example 80
      *
      * @var string
@@ -166,6 +173,7 @@ class propertys extends Model
      * @description The timestamp generated when the process was started. Unit: milliseconds.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example 1671186801000
      *
      * @var int
@@ -185,6 +193,7 @@ class propertys extends Model
      * @description The type of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example nginx
      *
      * @var string
@@ -195,6 +204,7 @@ class propertys extends Model
      * @description The size of the kernel module.
      *
      * > This parameter is returned only when **Biz** is set to **lkm**.
+     *
      * @example 10
      *
      * @var int
@@ -205,6 +215,7 @@ class propertys extends Model
      * @description The number of times that the kernel module is referenced.
      *
      * > This parameter is returned only when **Biz** is set to **lkm**.
+     *
      * @example 0
      *
      * @var int
@@ -215,6 +226,7 @@ class propertys extends Model
      * @description The user who started the process of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example root
      *
      * @var string
@@ -234,41 +246,40 @@ class propertys extends Model
      * @description The path to the root directory of the website.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example /usr/share/nginx/html
      *
      * @var string
      */
     public $webPath;
     protected $_name = [
-        'containerName'   => 'ContainerName',
+        'containerName' => 'ContainerName',
         'createTimestamp' => 'CreateTimestamp',
-        'domain'          => 'Domain',
-        'filepath'        => 'Filepath',
-        'imageName'       => 'ImageName',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'listenProtocol'  => 'ListenProtocol',
-        'moduleName'      => 'ModuleName',
-        'path'            => 'Path',
-        'pathMode'        => 'PathMode',
-        'pid'             => 'Pid',
-        'port'            => 'Port',
-        'processStarted'  => 'ProcessStarted',
-        'regionId'        => 'RegionId',
-        'serverType'      => 'ServerType',
-        'size'            => 'Size',
-        'usedByCount'     => 'UsedByCount',
-        'user'            => 'User',
-        'uuid'            => 'Uuid',
-        'webPath'         => 'WebPath',
+        'domain' => 'Domain',
+        'filepath' => 'Filepath',
+        'imageName' => 'ImageName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'listenProtocol' => 'ListenProtocol',
+        'moduleName' => 'ModuleName',
+        'path' => 'Path',
+        'pathMode' => 'PathMode',
+        'pid' => 'Pid',
+        'port' => 'Port',
+        'processStarted' => 'ProcessStarted',
+        'regionId' => 'RegionId',
+        'serverType' => 'ServerType',
+        'size' => 'Size',
+        'usedByCount' => 'UsedByCount',
+        'user' => 'User',
+        'uuid' => 'Uuid',
+        'webPath' => 'WebPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

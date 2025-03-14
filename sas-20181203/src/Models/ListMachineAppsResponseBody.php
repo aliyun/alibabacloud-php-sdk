@@ -33,14 +33,12 @@ class ListMachineAppsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'appList'   => 'AppList',
-        'pageInfo'  => 'PageInfo',
+        'appList' => 'AppList',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListMachineAppsResponseBody extends Model
         if (isset($map['AppList'])) {
             if (!empty($map['AppList'])) {
                 $model->appList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['AppList'] as $item) {
                     $model->appList[$n++] = null !== $item ? appList::fromMap($item) : $item;
                 }

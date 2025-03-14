@@ -24,13 +24,11 @@ class RemoveCheckInstanceResultWhiteListRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
-        'checkId'     => 'CheckId',
+        'checkId' => 'CheckId',
         'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

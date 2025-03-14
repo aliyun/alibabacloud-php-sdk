@@ -34,14 +34,12 @@ class DescribeWebLockFileTypeSummaryResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'list'       => 'List',
-        'requestId'  => 'RequestId',
+        'list' => 'List',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeWebLockFileTypeSummaryResponseBody extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

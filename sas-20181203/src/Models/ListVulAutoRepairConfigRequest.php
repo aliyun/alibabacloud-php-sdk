@@ -59,16 +59,14 @@ class ListVulAutoRepairConfigRequest extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'   => 'AliasName',
+        'aliasName' => 'AliasName',
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'type'        => 'Type',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

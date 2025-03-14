@@ -33,14 +33,12 @@ class data extends Model
      */
     public $folderName;
     protected $_name = [
-        'children'   => 'Children',
-        'folderId'   => 'FolderId',
+        'children' => 'Children',
+        'folderId' => 'FolderId',
         'folderName' => 'FolderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

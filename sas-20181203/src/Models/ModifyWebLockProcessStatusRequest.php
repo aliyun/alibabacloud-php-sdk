@@ -57,16 +57,14 @@ class ModifyWebLockProcessStatusRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'dealAll'     => 'DealAll',
+        'dealAll' => 'DealAll',
         'operateInfo' => 'OperateInfo',
         'processPath' => 'ProcessPath',
-        'status'      => 'Status',
-        'uuid'        => 'Uuid',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

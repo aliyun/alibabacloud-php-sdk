@@ -26,13 +26,11 @@ class CreateSoarStrategyTaskResponseBody extends Model
      */
     public $strategyTaskId;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

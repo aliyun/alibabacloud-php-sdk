@@ -43,15 +43,13 @@ class CreateJenkinsImageRegistryResponseBody extends Model
      */
     public $timeCost;
     protected $_name = [
-        'data'           => 'Data',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'timeCost'       => 'TimeCost',
+        'requestId' => 'RequestId',
+        'timeCost' => 'TimeCost',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

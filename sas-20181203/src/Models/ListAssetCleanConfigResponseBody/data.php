@@ -41,13 +41,11 @@ class data extends Model
     public $type;
     protected $_name = [
         'cleanDays' => 'CleanDays',
-        'status'    => 'Status',
-        'type'      => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

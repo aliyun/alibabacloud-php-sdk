@@ -26,12 +26,10 @@ class GetAttackTypeListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'attackTypeList' => 'AttackTypeList',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetAttackTypeListResponseBody extends Model
         if (isset($map['AttackTypeList'])) {
             if (!empty($map['AttackTypeList'])) {
                 $model->attackTypeList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['AttackTypeList'] as $item) {
                     $model->attackTypeList[$n++] = null !== $item ? attackTypeList::fromMap($item) : $item;
                 }

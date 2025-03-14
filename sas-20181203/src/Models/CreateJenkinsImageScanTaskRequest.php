@@ -116,23 +116,21 @@ class CreateJenkinsImageScanTaskRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'digest'      => 'Digest',
+        'digest' => 'Digest',
         'imageCreate' => 'ImageCreate',
-        'imageId'     => 'ImageId',
-        'imageSize'   => 'ImageSize',
+        'imageId' => 'ImageId',
+        'imageSize' => 'ImageSize',
         'imageUpdate' => 'ImageUpdate',
-        'jenkinsEnv'  => 'JenkinsEnv',
-        'namespace'   => 'Namespace',
-        'repoName'    => 'RepoName',
-        'sourceIp'    => 'SourceIp',
-        'tag'         => 'Tag',
-        'token'       => 'Token',
-        'uuid'        => 'Uuid',
+        'jenkinsEnv' => 'JenkinsEnv',
+        'namespace' => 'Namespace',
+        'repoName' => 'RepoName',
+        'sourceIp' => 'SourceIp',
+        'tag' => 'Tag',
+        'token' => 'Token',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DeleteBackupPolicyMachineRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
+     * > You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var int
@@ -24,7 +27,10 @@ class DeleteBackupPolicyMachineRequest extends Model
      *   **1.0.0**
      *   **2.0.0**
      *
+     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the versions of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -35,6 +41,7 @@ class DeleteBackupPolicyMachineRequest extends Model
      * @description The UUID of the server to which the anti-ransomware policy is applied.
      *
      * > You must specify at least one of the `UuidList` and `Uuid` parameters.
+     *
      * @example 083036e9-8411-4a9d-83af-9acbd****
      *
      * @var string
@@ -45,19 +52,18 @@ class DeleteBackupPolicyMachineRequest extends Model
      * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
      *
      * > You must specify at least one of the `UuidList` and `Uuid` parameters.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'policyId'      => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyVersion' => 'PolicyVersion',
-        'uuid'          => 'Uuid',
-        'uuidList'      => 'UuidList',
+        'uuid' => 'Uuid',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

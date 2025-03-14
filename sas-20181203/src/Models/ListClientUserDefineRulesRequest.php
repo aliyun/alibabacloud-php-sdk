@@ -12,6 +12,7 @@ class ListClientUserDefineRulesRequest extends Model
      * @description The number of the page to return.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class ListClientUserDefineRulesRequest extends Model
      * @description The number of entries to return on each page.
      *
      * This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -45,14 +47,12 @@ class ListClientUserDefineRulesRequest extends Model
     public $type;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'type'        => 'Type',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

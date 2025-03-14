@@ -203,31 +203,29 @@ class userDefineRuleDetail extends Model
      */
     public $type;
     protected $_name = [
-        'actionType'      => 'ActionType',
-        'cmdline'         => 'Cmdline',
-        'domain'          => 'Domain',
-        'filePath'        => 'FilePath',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'IP'              => 'IP',
-        'id'              => 'Id',
-        'md5List'         => 'Md5List',
-        'name'            => 'Name',
-        'newFilePath'     => 'NewFilePath',
-        'parentCmdline'   => 'ParentCmdline',
-        'parentProcPath'  => 'ParentProcPath',
-        'platform'        => 'Platform',
-        'port'            => 'Port',
-        'portStr'         => 'PortStr',
-        'procPath'        => 'ProcPath',
+        'actionType' => 'ActionType',
+        'cmdline' => 'Cmdline',
+        'domain' => 'Domain',
+        'filePath' => 'FilePath',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'IP' => 'IP',
+        'id' => 'Id',
+        'md5List' => 'Md5List',
+        'name' => 'Name',
+        'newFilePath' => 'NewFilePath',
+        'parentCmdline' => 'ParentCmdline',
+        'parentProcPath' => 'ParentProcPath',
+        'platform' => 'Platform',
+        'port' => 'Port',
+        'portStr' => 'PortStr',
+        'procPath' => 'ProcPath',
         'registryContent' => 'RegistryContent',
-        'registryKey'     => 'RegistryKey',
-        'type'            => 'Type',
+        'registryKey' => 'RegistryKey',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

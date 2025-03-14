@@ -42,14 +42,12 @@ class suggestions extends Model
      */
     public $suggestType;
     protected $_name = [
-        'detail'      => 'Detail',
-        'points'      => 'Points',
+        'detail' => 'Detail',
+        'points' => 'Points',
         'suggestType' => 'SuggestType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +82,7 @@ class suggestions extends Model
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Detail'] as $item) {
                     $model->detail[$n++] = null !== $item ? detail::fromMap($item) : $item;
                 }

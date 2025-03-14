@@ -111,20 +111,18 @@ class ruleList extends Model
     public $switchId;
     protected $_name = [
         'aggregationName' => 'AggregationName',
-        'description'     => 'Description',
-        'platform'        => 'Platform',
-        'policies'        => 'Policies',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'ruleType'        => 'RuleType',
-        'status'          => 'Status',
-        'switchEnable'    => 'SwitchEnable',
-        'switchId'        => 'SwitchId',
+        'description' => 'Description',
+        'platform' => 'Platform',
+        'policies' => 'Policies',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'status' => 'Status',
+        'switchEnable' => 'SwitchEnable',
+        'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -189,7 +187,7 @@ class ruleList extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Policies'] as $item) {
                     $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }

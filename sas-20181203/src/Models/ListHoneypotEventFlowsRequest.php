@@ -38,17 +38,15 @@ class ListHoneypotEventFlowsRequest extends Model
      */
     public $securityEventId;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'dealed'          => 'Dealed',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'securityEventId' => 'SecurityEventId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

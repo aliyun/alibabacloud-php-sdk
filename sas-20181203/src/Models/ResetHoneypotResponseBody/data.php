@@ -78,19 +78,17 @@ class data extends Model
      */
     public $state;
     protected $_name = [
-        'controlNodeName'          => 'ControlNodeName',
-        'honeypotId'               => 'HoneypotId',
+        'controlNodeName' => 'ControlNodeName',
+        'honeypotId' => 'HoneypotId',
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
-        'honeypotImageName'        => 'HoneypotImageName',
-        'honeypotName'             => 'HoneypotName',
-        'nodeId'                   => 'NodeId',
-        'presetId'                 => 'PresetId',
-        'state'                    => 'State',
+        'honeypotImageName' => 'HoneypotImageName',
+        'honeypotName' => 'HoneypotName',
+        'nodeId' => 'NodeId',
+        'presetId' => 'PresetId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,6 +33,7 @@ class ListCheckTypesRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -43,6 +44,7 @@ class ListCheckTypesRequest extends Model
      * @description The ID of the baseline.
      *
      * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of baselines.
+     *
      * @example 34
      *
      * @var int
@@ -54,6 +56,7 @@ class ListCheckTypesRequest extends Model
      *
      * - **false**: Not Query
      * - **true**: Query
+     *
      * @example false
      *
      * @var bool
@@ -76,6 +79,7 @@ class ListCheckTypesRequest extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 293b07cb-db2d-4f39-941f-b2e4abb8****
      *
      * @var string
@@ -83,17 +87,15 @@ class ListCheckTypesRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'riskId'      => 'RiskId',
-        'showChecks'  => 'ShowChecks',
-        'source'      => 'Source',
-        'uuid'        => 'Uuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskId' => 'RiskId',
+        'showChecks' => 'ShowChecks',
+        'source' => 'Source',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

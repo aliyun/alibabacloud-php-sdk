@@ -35,13 +35,11 @@ class DescribeWebLockConfigListResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'configList' => 'ConfigList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeWebLockConfigListResponseBody extends Model
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ConfigList'] as $item) {
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }

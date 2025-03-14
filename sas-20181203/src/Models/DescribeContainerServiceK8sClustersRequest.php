@@ -23,12 +23,10 @@ class DescribeContainerServiceK8sClustersRequest extends Model
     public $sourceIp;
     protected $_name = [
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

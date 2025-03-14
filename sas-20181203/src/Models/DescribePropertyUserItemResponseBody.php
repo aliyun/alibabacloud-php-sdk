@@ -33,14 +33,12 @@ class DescribePropertyUserItemResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'      => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'propertyItems' => 'PropertyItems',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribePropertyUserItemResponseBody extends Model
         if (isset($map['PropertyItems'])) {
             if (!empty($map['PropertyItems'])) {
                 $model->propertyItems = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['PropertyItems'] as $item) {
                     $model->propertyItems[$n++] = null !== $item ? propertyItems::fromMap($item) : $item;
                 }

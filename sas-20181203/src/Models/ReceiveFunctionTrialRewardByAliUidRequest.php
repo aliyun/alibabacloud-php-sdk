@@ -33,12 +33,10 @@ class ReceiveFunctionTrialRewardByAliUidRequest extends Model
     public $lang;
     protected $_name = [
         'functionName' => 'FunctionName',
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

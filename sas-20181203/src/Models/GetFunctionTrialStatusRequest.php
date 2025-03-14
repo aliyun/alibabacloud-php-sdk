@@ -20,9 +20,7 @@ class GetFunctionTrialStatusRequest extends Model
         'functionName' => 'FunctionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -111,6 +111,7 @@ class vulRecords extends Model
      * @description The ID of the cluster.
      *
      * >  The value of this parameter is returned only if you use the Ultimate edition of Security Center that can protect container assets.
+     *
      * @example c863dc93bed3843de9934d4346dc4****
      *
      * @var string
@@ -121,6 +122,7 @@ class vulRecords extends Model
      * @description The namespace.
      *
      * >  If you use the Ultimate edition of Security Center, the value of this parameter is queried from container assets. If you do not use the Ultimate edition, the value of this parameter is queried from the Security Center agent.
+     *
      * @example default
      *
      * @var string
@@ -131,6 +133,7 @@ class vulRecords extends Model
      * @description The ID of the node.
      *
      * >  The value of this parameter is returned only if you use the Ultimate edition of Security Center that can protect container assets.
+     *
      * @example i-bp1ifm6suw9mnbsr****
      *
      * @var string
@@ -141,6 +144,7 @@ class vulRecords extends Model
      * @description The name of the node.
      *
      * >  The value of this parameter is returned only if you use the Ultimate edition of Security Center that can protect container assets.
+     *
      * @example deployment-riskai-7b67d68975-m****
      *
      * @var string
@@ -151,6 +155,7 @@ class vulRecords extends Model
      * @description The name of the pod.
      *
      * >  The value of this parameter is returned only if you use the Ultimate edition of Security Center that can protect container assets.
+     *
      * @example deployment-riskai-7b67d68975-m****
      *
      * @var string
@@ -192,6 +197,7 @@ class vulRecords extends Model
      *   **nntf**: low.
      *
      * >  We recommend that you fix **high-risk** vulnerabilities at the earliest opportunity.
+     *
      * @example asap
      *
      * @var string
@@ -253,6 +259,7 @@ class vulRecords extends Model
      *   **1**: yes.
      *
      * >  If this parameter is not returned, the application protection feature is not supported.
+     *
      * @example 1
      *
      * @var int
@@ -387,47 +394,45 @@ class vulRecords extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliasName'         => 'AliasName',
-        'authVersion'       => 'AuthVersion',
-        'bind'              => 'Bind',
+        'aliasName' => 'AliasName',
+        'authVersion' => 'AuthVersion',
+        'bind' => 'Bind',
         'extendContentJson' => 'ExtendContentJson',
-        'firstTs'           => 'FirstTs',
-        'groupId'           => 'GroupId',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'k8sClusterId'      => 'K8sClusterId',
-        'k8sNamespace'      => 'K8sNamespace',
-        'k8sNodeId'         => 'K8sNodeId',
-        'k8sNodeName'       => 'K8sNodeName',
-        'k8sPodName'        => 'K8sPodName',
-        'lastTs'            => 'LastTs',
-        'modifyTs'          => 'ModifyTs',
-        'name'              => 'Name',
-        'necessity'         => 'Necessity',
-        'online'            => 'Online',
-        'osName'            => 'OsName',
-        'osVersion'         => 'OsVersion',
-        'primaryId'         => 'PrimaryId',
-        'progress'          => 'Progress',
-        'raspDefend'        => 'RaspDefend',
-        'raspStatus'        => 'RaspStatus',
-        'realRisk'          => 'RealRisk',
-        'regionId'          => 'RegionId',
-        'related'           => 'Related',
-        'repairTs'          => 'RepairTs',
-        'resultCode'        => 'ResultCode',
-        'resultMessage'     => 'ResultMessage',
-        'status'            => 'Status',
-        'tag'               => 'Tag',
-        'type'              => 'Type',
-        'uuid'              => 'Uuid',
+        'firstTs' => 'FirstTs',
+        'groupId' => 'GroupId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'k8sClusterId' => 'K8sClusterId',
+        'k8sNamespace' => 'K8sNamespace',
+        'k8sNodeId' => 'K8sNodeId',
+        'k8sNodeName' => 'K8sNodeName',
+        'k8sPodName' => 'K8sPodName',
+        'lastTs' => 'LastTs',
+        'modifyTs' => 'ModifyTs',
+        'name' => 'Name',
+        'necessity' => 'Necessity',
+        'online' => 'Online',
+        'osName' => 'OsName',
+        'osVersion' => 'OsVersion',
+        'primaryId' => 'PrimaryId',
+        'progress' => 'Progress',
+        'raspDefend' => 'RaspDefend',
+        'raspStatus' => 'RaspStatus',
+        'realRisk' => 'RealRisk',
+        'regionId' => 'RegionId',
+        'related' => 'Related',
+        'repairTs' => 'RepairTs',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

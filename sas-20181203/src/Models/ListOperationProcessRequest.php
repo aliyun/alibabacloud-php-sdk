@@ -72,17 +72,15 @@ class ListOperationProcessRequest extends Model
     public $taskTypes;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
         'statusCodes' => 'StatusCodes',
-        'taskIds'     => 'TaskIds',
-        'taskTypes'   => 'TaskTypes',
+        'taskIds' => 'TaskIds',
+        'taskTypes' => 'TaskTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

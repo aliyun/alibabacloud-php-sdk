@@ -79,17 +79,15 @@ class DescribeCustomizeReportListRequest extends Model
      */
     public $title;
     protected $_name = [
-        'lang'          => 'Lang',
-        'pinned'        => 'Pinned',
-        'reportStatus'  => 'ReportStatus',
-        'reportType'    => 'ReportType',
+        'lang' => 'Lang',
+        'pinned' => 'Pinned',
+        'reportStatus' => 'ReportStatus',
+        'reportType' => 'ReportType',
         'reportVersion' => 'ReportVersion',
-        'title'         => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

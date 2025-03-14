@@ -51,14 +51,12 @@ class GetCheckStructureRequest extends Model
     public $regionId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

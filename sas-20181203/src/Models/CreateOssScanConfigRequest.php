@@ -118,24 +118,22 @@ class CreateOssScanConfigRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'allKeyPrefix'           => 'AllKeyPrefix',
-        'bucketNameList'         => 'BucketNameList',
+        'allKeyPrefix' => 'AllKeyPrefix',
+        'bucketNameList' => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
-        'decompressMaxLayer'     => 'DecompressMaxLayer',
-        'decryptionList'         => 'DecryptionList',
-        'enable'                 => 'Enable',
-        'endTime'                => 'EndTime',
-        'keyPrefixList'          => 'KeyPrefixList',
-        'keySuffixList'          => 'KeySuffixList',
-        'lastModifiedStartTime'  => 'LastModifiedStartTime',
-        'name'                   => 'Name',
-        'scanDayList'            => 'ScanDayList',
-        'startTime'              => 'StartTime',
+        'decompressMaxLayer' => 'DecompressMaxLayer',
+        'decryptionList' => 'DecryptionList',
+        'enable' => 'Enable',
+        'endTime' => 'EndTime',
+        'keyPrefixList' => 'KeyPrefixList',
+        'keySuffixList' => 'KeySuffixList',
+        'lastModifiedStartTime' => 'LastModifiedStartTime',
+        'name' => 'Name',
+        'scanDayList' => 'ScanDayList',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

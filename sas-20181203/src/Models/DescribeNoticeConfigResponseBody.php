@@ -26,12 +26,10 @@ class DescribeNoticeConfigResponseBody extends Model
     public $requestId;
     protected $_name = [
         'noticeConfigList' => 'NoticeConfigList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeNoticeConfigResponseBody extends Model
         if (isset($map['NoticeConfigList'])) {
             if (!empty($map['NoticeConfigList'])) {
                 $model->noticeConfigList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['NoticeConfigList'] as $item) {
                     $model->noticeConfigList[$n++] = null !== $item ? noticeConfigList::fromMap($item) : $item;
                 }

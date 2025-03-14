@@ -41,6 +41,7 @@ class ModifyNoticeConfigRequest extends Model
      *   **yundun_sas_cloudsiem_log**: notifications of insufficient threat analysis log capacity
      *
      * > If the value is **yundun_security_Weekreport**, weekly reports are sent to notify you of unhandled vulnerabilities.
+     *
      * @example yundun_webguard_event
      *
      * @var string
@@ -85,15 +86,13 @@ class ModifyNoticeConfigRequest extends Model
      */
     public $timeLimit;
     protected $_name = [
-        'project'   => 'Project',
-        'route'     => 'Route',
-        'sourceIp'  => 'SourceIp',
+        'project' => 'Project',
+        'route' => 'Route',
+        'sourceIp' => 'SourceIp',
         'timeLimit' => 'TimeLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

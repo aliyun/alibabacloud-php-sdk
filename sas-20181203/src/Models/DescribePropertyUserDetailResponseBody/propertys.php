@@ -223,32 +223,30 @@ class propertys extends Model
     public $uuid;
     protected $_name = [
         'accountsExpirationDate' => 'AccountsExpirationDate',
-        'createTimestamp'        => 'CreateTimestamp',
-        'groupNames'             => 'GroupNames',
-        'instanceId'             => 'InstanceId',
-        'instanceName'           => 'InstanceName',
-        'internetIp'             => 'InternetIp',
-        'intranetIp'             => 'IntranetIp',
-        'ip'                     => 'Ip',
-        'isCouldLogin'           => 'IsCouldLogin',
-        'isPasswdExpired'        => 'IsPasswdExpired',
-        'isPasswdLocked'         => 'IsPasswdLocked',
-        'isRoot'                 => 'IsRoot',
-        'isSudoer'               => 'IsSudoer',
-        'isUserExpired'          => 'IsUserExpired',
-        'lastLoginIp'            => 'LastLoginIp',
-        'lastLoginTime'          => 'LastLoginTime',
-        'lastLoginTimeDt'        => 'LastLoginTimeDt',
-        'lastLoginTimestamp'     => 'LastLoginTimestamp',
+        'createTimestamp' => 'CreateTimestamp',
+        'groupNames' => 'GroupNames',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'isCouldLogin' => 'IsCouldLogin',
+        'isPasswdExpired' => 'IsPasswdExpired',
+        'isPasswdLocked' => 'IsPasswdLocked',
+        'isRoot' => 'IsRoot',
+        'isSudoer' => 'IsSudoer',
+        'isUserExpired' => 'IsUserExpired',
+        'lastLoginIp' => 'LastLoginIp',
+        'lastLoginTime' => 'LastLoginTime',
+        'lastLoginTimeDt' => 'LastLoginTimeDt',
+        'lastLoginTimestamp' => 'LastLoginTimestamp',
         'passwordExpirationDate' => 'PasswordExpirationDate',
-        'status'                 => 'Status',
-        'user'                   => 'User',
-        'uuid'                   => 'Uuid',
+        'status' => 'Status',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

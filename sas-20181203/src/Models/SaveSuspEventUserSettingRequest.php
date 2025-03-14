@@ -30,13 +30,11 @@ class SaveSuspEventUserSettingRequest extends Model
      */
     public $levelsOn;
     protected $_name = [
-        'from'     => 'From',
+        'from' => 'From',
         'levelsOn' => 'LevelsOn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

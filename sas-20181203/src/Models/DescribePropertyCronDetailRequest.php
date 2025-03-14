@@ -72,17 +72,15 @@ class DescribePropertyCronDetailRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'extend'      => 'Extend',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'source'      => 'Source',
-        'user'        => 'User',
-        'uuid'        => 'Uuid',
+        'extend' => 'Extend',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'source' => 'Source',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

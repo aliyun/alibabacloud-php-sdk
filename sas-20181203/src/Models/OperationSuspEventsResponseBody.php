@@ -42,13 +42,11 @@ class OperationSuspEventsResponseBody extends Model
     public $success;
     protected $_name = [
         'accessCode' => 'AccessCode',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

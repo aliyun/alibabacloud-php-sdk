@@ -21,6 +21,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The cluster ID.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c80f79959fd724a888e1187779b13****
      *
      * @var string
@@ -87,6 +88,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The ID of the container image.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+     *
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -106,6 +108,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The namespace of the cluster.
      *
      * >  You can call the [GetOpaClusterNamespaceList](~~GetOpaClusterNamespaceList~~) operation to query the namespaces of clusters.
+     *
      * @example default
      *
      * @var string
@@ -169,6 +172,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The ID of the image repository.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the ID of the image repository from **RepoId** in the response.
+     *
      * @example crr-avo7qp02simz2njo
      *
      * @var string
@@ -179,6 +183,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The ID of the container image.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the ID of the container image from **InstanceId** in the response.
+     *
      * @example cri-rv4nvbv8iju4****
      *
      * @var string
@@ -189,6 +194,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The name of the image repository.
      *
      * >  Fuzzy match is supported.
+     *
      * @example digital-account
      *
      * @var string
@@ -199,6 +205,7 @@ class DescribeCanFixVulListRequest extends Model
      * @description The namespace to which the image repository belongs.
      *
      * >  Fuzzy match is supported.
+     *
      * @example ns-digital-dev
      *
      * @var string
@@ -266,6 +273,7 @@ class DescribeCanFixVulListRequest extends Model
      *   **sca**: application vulnerability
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -281,36 +289,34 @@ class DescribeCanFixVulListRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliasName'      => 'AliasName',
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'containerId'    => 'ContainerId',
-        'currentPage'    => 'CurrentPage',
-        'dealed'         => 'Dealed',
-        'digest'         => 'Digest',
-        'image'          => 'Image',
-        'instanceId'     => 'InstanceId',
-        'name'           => 'Name',
-        'namespace'      => 'Namespace',
-        'necessity'      => 'Necessity',
-        'pageSize'       => 'PageSize',
-        'pod'            => 'Pod',
-        'regionId'       => 'RegionId',
-        'repoId'         => 'RepoId',
+        'aliasName' => 'AliasName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'containerId' => 'ContainerId',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'digest' => 'Digest',
+        'image' => 'Image',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'necessity' => 'Necessity',
+        'pageSize' => 'PageSize',
+        'pod' => 'Pod',
+        'regionId' => 'RegionId',
+        'repoId' => 'RepoId',
         'repoInstanceId' => 'RepoInstanceId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'repoRegionId'   => 'RepoRegionId',
-        'scanRange'      => 'ScanRange',
-        'statusList'     => 'StatusList',
-        'tag'            => 'Tag',
-        'type'           => 'Type',
-        'uuids'          => 'Uuids',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
+        'statusList' => 'StatusList',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -118,21 +118,19 @@ class DescribeChartDataResponseBody extends Model
     public $singleData;
     protected $_name = [
         'allChartSubTypeList' => 'AllChartSubTypeList',
-        'chartDataType'       => 'ChartDataType',
-        'chartSubTypeList'    => 'ChartSubTypeList',
-        'chartType'           => 'ChartType',
-        'coordinateData'      => 'CoordinateData',
-        'multipleData'        => 'MultipleData',
-        'propertyArrayValue'  => 'PropertyArrayValue',
-        'propertyValue'       => 'PropertyValue',
-        'properyArrayValue'   => 'ProperyArrayValue',
-        'requestId'           => 'RequestId',
-        'singleData'          => 'SingleData',
+        'chartDataType' => 'ChartDataType',
+        'chartSubTypeList' => 'ChartSubTypeList',
+        'chartType' => 'ChartType',
+        'coordinateData' => 'CoordinateData',
+        'multipleData' => 'MultipleData',
+        'propertyArrayValue' => 'PropertyArrayValue',
+        'propertyValue' => 'PropertyValue',
+        'properyArrayValue' => 'ProperyArrayValue',
+        'requestId' => 'RequestId',
+        'singleData' => 'SingleData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -197,7 +195,7 @@ class DescribeChartDataResponseBody extends Model
         if (isset($map['AllChartSubTypeList'])) {
             if (!empty($map['AllChartSubTypeList'])) {
                 $model->allChartSubTypeList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AllChartSubTypeList'] as $item) {
                     $model->allChartSubTypeList[$n++] = null !== $item ? allChartSubTypeList::fromMap($item) : $item;
                 }
@@ -220,7 +218,7 @@ class DescribeChartDataResponseBody extends Model
         if (isset($map['MultipleData'])) {
             if (!empty($map['MultipleData'])) {
                 $model->multipleData = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MultipleData'] as $item) {
                     $model->multipleData[$n++] = null !== $item ? multipleData::fromMap($item) : $item;
                 }

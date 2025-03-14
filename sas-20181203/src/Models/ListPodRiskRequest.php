@@ -21,6 +21,7 @@ class ListPodRiskRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+     *
      * @example c314aa5b2f208461dad821cdfed82****
      *
      * @var string
@@ -63,17 +64,15 @@ class ListPodRiskRequest extends Model
      */
     public $podName;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'namespace'   => 'Namespace',
-        'pageSize'    => 'PageSize',
-        'podName'     => 'PodName',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
+        'podName' => 'PodName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

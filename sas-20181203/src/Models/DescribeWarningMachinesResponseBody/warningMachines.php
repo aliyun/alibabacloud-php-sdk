@@ -168,27 +168,25 @@ class warningMachines extends Model
      */
     public $uuid;
     protected $_name = [
-        'authVersion'        => 'AuthVersion',
-        'bind'               => 'Bind',
-        'containerId'        => 'ContainerId',
-        'containerName'      => 'ContainerName',
-        'highWarningCount'   => 'HighWarningCount',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'internetIp'         => 'InternetIp',
-        'intranetIp'         => 'IntranetIp',
-        'lowWarningCount'    => 'LowWarningCount',
+        'authVersion' => 'AuthVersion',
+        'bind' => 'Bind',
+        'containerId' => 'ContainerId',
+        'containerName' => 'ContainerName',
+        'highWarningCount' => 'HighWarningCount',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lowWarningCount' => 'LowWarningCount',
         'mediumWarningCount' => 'MediumWarningCount',
-        'passCount'          => 'PassCount',
-        'portOpen'           => 'PortOpen',
-        'regionId'           => 'RegionId',
-        'status'             => 'Status',
-        'uuid'               => 'Uuid',
+        'passCount' => 'PassCount',
+        'portOpen' => 'PortOpen',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class SasInstallCodeResponseBody extends Model
     public $data;
     protected $_name = [
         'requestId' => 'RequestId',
-        'data'      => 'data',
+        'data' => 'data',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

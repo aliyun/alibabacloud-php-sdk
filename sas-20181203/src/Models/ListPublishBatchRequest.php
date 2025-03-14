@@ -21,6 +21,7 @@ class ListPublishBatchRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class ListPublishBatchRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -41,21 +43,20 @@ class ListPublishBatchRequest extends Model
      * @description The destination version of the Security Center agent.
      *
      * This parameter is required.
+     *
      * @example 0.0.9
      *
      * @var string
      */
     public $upgradeVersion;
     protected $_name = [
-        'batchName'      => 'BatchName',
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
+        'batchName' => 'BatchName',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'upgradeVersion' => 'UpgradeVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

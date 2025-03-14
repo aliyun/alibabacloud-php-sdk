@@ -24,13 +24,11 @@ class infoList extends Model
      */
     public $relationTypeList;
     protected $_name = [
-        'entityTypeList'   => 'EntityTypeList',
+        'entityTypeList' => 'EntityTypeList',
         'relationTypeList' => 'RelationTypeList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class infoList extends Model
         if (isset($map['EntityTypeList'])) {
             if (!empty($map['EntityTypeList'])) {
                 $model->entityTypeList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['EntityTypeList'] as $item) {
                     $model->entityTypeList[$n++] = null !== $item ? entityTypeList::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class infoList extends Model
         if (isset($map['RelationTypeList'])) {
             if (!empty($map['RelationTypeList'])) {
                 $model->relationTypeList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RelationTypeList'] as $item) {
                     $model->relationTypeList[$n++] = null !== $item ? relationTypeList::fromMap($item) : $item;
                 }

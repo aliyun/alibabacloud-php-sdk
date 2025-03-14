@@ -33,14 +33,12 @@ class VerifyCheckCustomConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'errorCheckConfigs'  => 'ErrorCheckConfigs',
+        'errorCheckConfigs' => 'ErrorCheckConfigs',
         'errorRepairConfigs' => 'ErrorRepairConfigs',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class VerifyCheckCustomConfigResponseBody extends Model
         if (isset($map['ErrorCheckConfigs'])) {
             if (!empty($map['ErrorCheckConfigs'])) {
                 $model->errorCheckConfigs = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ErrorCheckConfigs'] as $item) {
                     $model->errorCheckConfigs[$n++] = null !== $item ? errorCheckConfigs::fromMap($item) : $item;
                 }
@@ -90,7 +88,7 @@ class VerifyCheckCustomConfigResponseBody extends Model
         if (isset($map['ErrorRepairConfigs'])) {
             if (!empty($map['ErrorRepairConfigs'])) {
                 $model->errorRepairConfigs = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ErrorRepairConfigs'] as $item) {
                     $model->errorRepairConfigs[$n++] = null !== $item ? errorRepairConfigs::fromMap($item) : $item;
                 }

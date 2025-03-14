@@ -40,14 +40,12 @@ class data extends Model
      */
     public $tryType;
     protected $_name = [
-        'canTry'         => 'CanTry',
+        'canTry' => 'CanTry',
         'canTryVersions' => 'CanTryVersions',
-        'tryType'        => 'TryType',
+        'tryType' => 'TryType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

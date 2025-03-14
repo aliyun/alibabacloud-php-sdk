@@ -110,22 +110,20 @@ class entityTypeList extends Model
      */
     public $traceSuccessFlag;
     protected $_name = [
-        'displayColor'     => 'DisplayColor',
-        'displayIcon'      => 'DisplayIcon',
-        'displayOrder'     => 'DisplayOrder',
-        'displayTemplate'  => 'DisplayTemplate',
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'id'               => 'Id',
-        'isVirtualNode'    => 'IsVirtualNode',
-        'name'             => 'Name',
-        'namespace'        => 'Namespace',
+        'displayColor' => 'DisplayColor',
+        'displayIcon' => 'DisplayIcon',
+        'displayOrder' => 'DisplayOrder',
+        'displayTemplate' => 'DisplayTemplate',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'isVirtualNode' => 'IsVirtualNode',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
         'traceSuccessFlag' => 'TraceSuccessFlag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

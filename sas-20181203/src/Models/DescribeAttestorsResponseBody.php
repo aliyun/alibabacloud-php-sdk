@@ -34,13 +34,11 @@ class DescribeAttestorsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'attestors' => 'Attestors',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeAttestorsResponseBody extends Model
         if (isset($map['Attestors'])) {
             if (!empty($map['Attestors'])) {
                 $model->attestors = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Attestors'] as $item) {
                     $model->attestors[$n++] = null !== $item ? attestors::fromMap($item) : $item;
                 }

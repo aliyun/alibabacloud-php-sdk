@@ -25,13 +25,11 @@ class GetClientUserDefineRuleResponseBody extends Model
      */
     public $userDefineRuleDetail;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'userDefineRuleDetail' => 'UserDefineRuleDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

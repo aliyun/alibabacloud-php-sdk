@@ -25,13 +25,11 @@ class ListAccountsInResourceDirectoryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'accounts'  => 'Accounts',
+        'accounts' => 'Accounts',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAccountsInResourceDirectoryResponseBody extends Model
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Accounts'] as $item) {
                     $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
                 }

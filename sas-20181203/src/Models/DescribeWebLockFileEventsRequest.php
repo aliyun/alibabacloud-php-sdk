@@ -51,6 +51,7 @@ class DescribeWebLockFileEventsRequest extends Model
      * @description The name of the asset.
      *
      * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the names of assets.
+     *
      * @example test-ecs
      *
      * @var string
@@ -76,17 +77,15 @@ class DescribeWebLockFileEventsRequest extends Model
     public $tsEnd;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'dealed'      => 'Dealed',
-        'pageSize'    => 'PageSize',
+        'dealed' => 'Dealed',
+        'pageSize' => 'PageSize',
         'processName' => 'ProcessName',
-        'remark'      => 'Remark',
-        'tsBegin'     => 'TsBegin',
-        'tsEnd'       => 'TsEnd',
+        'remark' => 'Remark',
+        'tsBegin' => 'TsBegin',
+        'tsEnd' => 'TsEnd',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

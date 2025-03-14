@@ -42,6 +42,7 @@ class securityEventsResponse extends Model
      *   Trusted exception
      *
      * For more information about alert types, see [Overview](https://help.aliyun.com/document_detail/68388.html).
+     *
      * @example Malicious Software
      *
      * @var string
@@ -84,17 +85,15 @@ class securityEventsResponse extends Model
      */
     public $uuid;
     protected $_name = [
-        'eventName'       => 'EventName',
-        'eventType'       => 'EventType',
-        'lastTime'        => 'LastTime',
-        'occurrenceTime'  => 'OccurrenceTime',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'lastTime' => 'LastTime',
+        'occurrenceTime' => 'OccurrenceTime',
         'securityEventId' => 'SecurityEventId',
-        'uuid'            => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

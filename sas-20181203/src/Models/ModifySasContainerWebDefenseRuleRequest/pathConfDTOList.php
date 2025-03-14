@@ -24,6 +24,7 @@ class pathConfDTOList extends Model
      *   **audit**
      *
      * This parameter is required.
+     *
      * @example audit
      *
      * @var string
@@ -34,6 +35,7 @@ class pathConfDTOList extends Model
      * @description The path that is protected.
      *
      * This parameter is required.
+     *
      * @example /test/home/
      *
      * @var string
@@ -74,6 +76,7 @@ class pathConfDTOList extends Model
      *   **1**: complex mode (blacklist)
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -114,22 +117,20 @@ class pathConfDTOList extends Model
      */
     public $processPathList;
     protected $_name = [
-        'backupPath'      => 'BackupPath',
-        'defenseMode'     => 'DefenseMode',
-        'defensePath'     => 'DefensePath',
-        'excludeFile'     => 'ExcludeFile',
+        'backupPath' => 'BackupPath',
+        'defenseMode' => 'DefenseMode',
+        'defensePath' => 'DefensePath',
+        'excludeFile' => 'ExcludeFile',
         'excludeFilePath' => 'ExcludeFilePath',
         'excludeFileType' => 'ExcludeFileType',
-        'guardType'       => 'GuardType',
-        'includeFile'     => 'IncludeFile',
+        'guardType' => 'GuardType',
+        'includeFile' => 'IncludeFile',
         'includeFileType' => 'IncludeFileType',
-        'pathConfId'      => 'PathConfId',
+        'pathConfId' => 'PathConfId',
         'processPathList' => 'ProcessPathList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

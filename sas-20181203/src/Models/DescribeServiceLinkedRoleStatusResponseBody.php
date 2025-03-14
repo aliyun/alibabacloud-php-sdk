@@ -25,13 +25,11 @@ class DescribeServiceLinkedRoleStatusResponseBody extends Model
      */
     public $roleStatus;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'roleStatus' => 'RoleStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

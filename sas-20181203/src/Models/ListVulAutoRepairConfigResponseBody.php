@@ -72,18 +72,16 @@ class ListVulAutoRepairConfigResponseBody extends Model
      */
     public $vulAutoRepairConfigList;
     protected $_name = [
-        'code'                    => 'Code',
-        'httpStatusCode'          => 'HttpStatusCode',
-        'message'                 => 'Message',
-        'pageInfo'                => 'PageInfo',
-        'requestId'               => 'RequestId',
-        'success'                 => 'Success',
+        'code' => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'vulAutoRepairConfigList' => 'VulAutoRepairConfigList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -148,7 +146,7 @@ class ListVulAutoRepairConfigResponseBody extends Model
         if (isset($map['VulAutoRepairConfigList'])) {
             if (!empty($map['VulAutoRepairConfigList'])) {
                 $model->vulAutoRepairConfigList = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['VulAutoRepairConfigList'] as $item) {
                     $model->vulAutoRepairConfigList[$n++] = null !== $item ? vulAutoRepairConfigList::fromMap($item) : $item;
                 }

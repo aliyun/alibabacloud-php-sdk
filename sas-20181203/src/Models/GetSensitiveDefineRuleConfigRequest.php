@@ -32,13 +32,11 @@ class GetSensitiveDefineRuleConfigRequest extends Model
      */
     public $source;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

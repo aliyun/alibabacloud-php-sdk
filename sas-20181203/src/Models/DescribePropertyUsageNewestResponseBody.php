@@ -33,15 +33,13 @@ class DescribePropertyUsageNewestResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'itemCount'            => 'ItemCount',
+        'itemCount' => 'ItemCount',
         'newestStatisticItems' => 'NewestStatisticItems',
-        'requestId'            => 'RequestId',
-        'type'                 => 'Type',
+        'requestId' => 'RequestId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribePropertyUsageNewestResponseBody extends Model
         if (isset($map['NewestStatisticItems'])) {
             if (!empty($map['NewestStatisticItems'])) {
                 $model->newestStatisticItems = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['NewestStatisticItems'] as $item) {
                     $model->newestStatisticItems[$n++] = null !== $item ? newestStatisticItems::fromMap($item) : $item;
                 }

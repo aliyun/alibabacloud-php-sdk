@@ -42,6 +42,7 @@ class ListMachineAppsRequest extends Model
      * - **3**: Enterprise edition
      * - **7**: Ultimate edition
      * - **10**: Value-added Service Edition
+     *
      * @example 7
      *
      * @var string
@@ -61,6 +62,7 @@ class ListMachineAppsRequest extends Model
      * @description The language type for request and response, default value is **zh**. Values:
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -85,19 +87,17 @@ class ListMachineAppsRequest extends Model
      */
     public $resourceDirectoryUid;
     protected $_name = [
-        'appId'                => 'AppId',
-        'appName'              => 'AppName',
-        'appRegionId'          => 'AppRegionId',
-        'authVersion'          => 'AuthVersion',
-        'currentPage'          => 'CurrentPage',
-        'lang'                 => 'Lang',
-        'pageSize'             => 'PageSize',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appRegionId' => 'AppRegionId',
+        'authVersion' => 'AuthVersion',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceDirectoryUid' => 'ResourceDirectoryUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

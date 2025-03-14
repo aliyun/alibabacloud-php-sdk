@@ -30,12 +30,10 @@ class targetOperationList extends Model
     public $target;
     protected $_name = [
         'operation' => 'Operation',
-        'target'    => 'Target',
+        'target' => 'Target',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -80,7 +80,10 @@ class ModifyIdcProbeRequest extends Model
     /**
      * @description The UUID of the server. Separate multiple UUIDs with commas (,).
      *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     *
      * This parameter is required.
+     *
      * @example 5b6d4072118f487094199cedf90c****,f6310b7976144639867beea2f346****
      *
      * @var string
@@ -96,20 +99,18 @@ class ModifyIdcProbeRequest extends Model
      */
     public $winPort;
     protected $_name = [
-        'idcName'        => 'IdcName',
-        'idcRegion'      => 'IdcRegion',
+        'idcName' => 'IdcName',
+        'idcRegion' => 'IdcRegion',
         'intervalPeriod' => 'IntervalPeriod',
-        'ipSegments'     => 'IpSegments',
-        'linuxPort'      => 'LinuxPort',
-        'periodUnit'     => 'PeriodUnit',
-        'status'         => 'Status',
-        'uuids'          => 'Uuids',
-        'winPort'        => 'WinPort',
+        'ipSegments' => 'IpSegments',
+        'linuxPort' => 'LinuxPort',
+        'periodUnit' => 'PeriodUnit',
+        'status' => 'Status',
+        'uuids' => 'Uuids',
+        'winPort' => 'WinPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

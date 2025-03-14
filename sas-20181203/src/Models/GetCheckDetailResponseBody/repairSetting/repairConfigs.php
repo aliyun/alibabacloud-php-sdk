@@ -133,23 +133,21 @@ class repairConfigs extends Model
      */
     public $value;
     protected $_name = [
-        'consoleParamType'  => 'ConsoleParamType',
-        'customFlag'        => 'CustomFlag',
+        'consoleParamType' => 'ConsoleParamType',
+        'customFlag' => 'CustomFlag',
         'dataTransformType' => 'DataTransformType',
-        'defaultValue'      => 'DefaultValue',
-        'emptyParamSwitch'  => 'EmptyParamSwitch',
-        'exclusiveName'     => 'ExclusiveName',
-        'flowId'            => 'FlowId',
-        'name'              => 'Name',
-        'showName'          => 'ShowName',
-        'typeDefine'        => 'TypeDefine',
-        'usageType'         => 'UsageType',
-        'value'             => 'Value',
+        'defaultValue' => 'DefaultValue',
+        'emptyParamSwitch' => 'EmptyParamSwitch',
+        'exclusiveName' => 'ExclusiveName',
+        'flowId' => 'FlowId',
+        'name' => 'Name',
+        'showName' => 'ShowName',
+        'typeDefine' => 'TypeDefine',
+        'usageType' => 'UsageType',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

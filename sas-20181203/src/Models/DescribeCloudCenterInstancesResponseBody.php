@@ -46,14 +46,12 @@ class DescribeCloudCenterInstancesResponseBody extends Model
     public $success;
     protected $_name = [
         'instances' => 'Instances',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -91,7 +89,7 @@ class DescribeCloudCenterInstancesResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }

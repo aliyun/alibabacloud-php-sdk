@@ -44,15 +44,13 @@ class requirements extends Model
      */
     public $showPriorityLevel;
     protected $_name = [
-        'id'                => 'Id',
-        'riskCheckCount'    => 'RiskCheckCount',
-        'showName'          => 'ShowName',
+        'id' => 'Id',
+        'riskCheckCount' => 'RiskCheckCount',
+        'showName' => 'ShowName',
         'showPriorityLevel' => 'ShowPriorityLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

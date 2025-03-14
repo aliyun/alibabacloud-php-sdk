@@ -236,23 +236,21 @@ class sensitiveFileList extends Model
      */
     public $unprocessedNum;
     protected $_name = [
-        'advice'            => 'Advice',
-        'classKey'          => 'ClassKey',
-        'className'         => 'ClassName',
-        'count'             => 'Count',
-        'description'       => 'Description',
-        'firstScanTime'     => 'FirstScanTime',
-        'lastScanTime'      => 'LastScanTime',
-        'riskLevel'         => 'RiskLevel',
-        'sensitiveFileKey'  => 'SensitiveFileKey',
+        'advice' => 'Advice',
+        'classKey' => 'ClassKey',
+        'className' => 'ClassName',
+        'count' => 'Count',
+        'description' => 'Description',
+        'firstScanTime' => 'FirstScanTime',
+        'lastScanTime' => 'LastScanTime',
+        'riskLevel' => 'RiskLevel',
+        'sensitiveFileKey' => 'SensitiveFileKey',
         'sensitiveFileName' => 'SensitiveFileName',
-        'status'            => 'Status',
-        'unprocessedNum'    => 'UnprocessedNum',
+        'status' => 'Status',
+        'unprocessedNum' => 'UnprocessedNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

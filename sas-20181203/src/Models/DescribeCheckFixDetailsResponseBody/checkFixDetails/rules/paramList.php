@@ -92,20 +92,18 @@ class paramList extends Model
      */
     public $value;
     protected $_name = [
-        'enumValue'         => 'EnumValue',
-        'maxValue'          => 'MaxValue',
-        'minValue'          => 'MinValue',
+        'enumValue' => 'EnumValue',
+        'maxValue' => 'MaxValue',
+        'minValue' => 'MinValue',
         'paramDefaultValue' => 'ParamDefaultValue',
-        'paramDesc'         => 'ParamDesc',
-        'paramName'         => 'ParamName',
-        'paramType'         => 'ParamType',
-        'ruleId'            => 'RuleId',
-        'value'             => 'Value',
+        'paramDesc' => 'ParamDesc',
+        'paramName' => 'ParamName',
+        'paramType' => 'ParamType',
+        'ruleId' => 'RuleId',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

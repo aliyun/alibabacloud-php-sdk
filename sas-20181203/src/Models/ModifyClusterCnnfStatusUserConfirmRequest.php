@@ -27,13 +27,11 @@ class ModifyClusterCnnfStatusUserConfirmRequest extends Model
      */
     public $userConfirm;
     protected $_name = [
-        'clusterIds'  => 'ClusterIds',
+        'clusterIds' => 'ClusterIds',
         'userConfirm' => 'UserConfirm',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

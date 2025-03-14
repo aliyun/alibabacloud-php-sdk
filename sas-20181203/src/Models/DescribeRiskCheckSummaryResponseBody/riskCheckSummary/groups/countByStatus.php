@@ -29,13 +29,11 @@ class countByStatus extends Model
      */
     public $status;
     protected $_name = [
-        'count'  => 'Count',
+        'count' => 'Count',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

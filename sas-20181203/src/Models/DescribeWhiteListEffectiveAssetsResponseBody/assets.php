@@ -84,19 +84,17 @@ class assets extends Model
      */
     public $uuid;
     protected $_name = [
-        'internetIp'           => 'InternetIp',
-        'intranetIp'           => 'IntranetIp',
-        'machineName'          => 'MachineName',
-        'processMethod'        => 'ProcessMethod',
-        'strategyId'           => 'StrategyId',
-        'strategyName'         => 'StrategyName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'machineName' => 'MachineName',
+        'processMethod' => 'ProcessMethod',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
         'suspiciousEventCount' => 'SuspiciousEventCount',
-        'uuid'                 => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

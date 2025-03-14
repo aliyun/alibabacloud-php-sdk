@@ -15,6 +15,7 @@ class ModifyClientUserDefineRuleRequest extends Model
      *   **1**: block
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -60,7 +61,10 @@ class ModifyClientUserDefineRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to query the IDs of rules.
+     *
      * This parameter is required.
+     *
      * @example 210****
      *
      * @var int
@@ -187,29 +191,27 @@ class ModifyClientUserDefineRuleRequest extends Model
      */
     public $type;
     protected $_name = [
-        'actionType'      => 'ActionType',
-        'cmdline'         => 'Cmdline',
-        'domain'          => 'Domain',
-        'filePath'        => 'FilePath',
-        'IP'              => 'IP',
-        'id'              => 'Id',
-        'md5List'         => 'Md5List',
-        'name'            => 'Name',
-        'newFilePath'     => 'NewFilePath',
-        'parentCmdline'   => 'ParentCmdline',
-        'parentProcPath'  => 'ParentProcPath',
-        'platform'        => 'Platform',
-        'port'            => 'Port',
-        'portStr'         => 'PortStr',
-        'procPath'        => 'ProcPath',
+        'actionType' => 'ActionType',
+        'cmdline' => 'Cmdline',
+        'domain' => 'Domain',
+        'filePath' => 'FilePath',
+        'IP' => 'IP',
+        'id' => 'Id',
+        'md5List' => 'Md5List',
+        'name' => 'Name',
+        'newFilePath' => 'NewFilePath',
+        'parentCmdline' => 'ParentCmdline',
+        'parentProcPath' => 'ParentProcPath',
+        'platform' => 'Platform',
+        'port' => 'Port',
+        'portStr' => 'PortStr',
+        'procPath' => 'ProcPath',
         'registryContent' => 'RegistryContent',
-        'registryKey'     => 'RegistryKey',
-        'type'            => 'Type',
+        'registryKey' => 'RegistryKey',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

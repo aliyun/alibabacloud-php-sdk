@@ -106,21 +106,19 @@ class ListAgentlessRiskUuidRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'instanceId'   => 'InstanceId',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'machineName'  => 'MachineName',
-        'pageSize'     => 'PageSize',
-        'risk'         => 'Risk',
-        'targetName'   => 'TargetName',
-        'targetType'   => 'TargetType',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'machineName' => 'MachineName',
+        'pageSize' => 'PageSize',
+        'risk' => 'Risk',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

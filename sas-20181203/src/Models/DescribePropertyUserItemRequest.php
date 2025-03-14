@@ -48,14 +48,12 @@ class DescribePropertyUserItemRequest extends Model
     public $user;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'pageSize'    => 'PageSize',
-        'user'        => 'User',
+        'forceFlush' => 'ForceFlush',
+        'pageSize' => 'PageSize',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -68,17 +68,15 @@ class CheckTrialFixCountResponseBody extends Model
      */
     public $isTrial;
     protected $_name = [
-        'canFix'        => 'CanFix',
-        'expendCount'   => 'ExpendCount',
-        'remainCount'   => 'RemainCount',
+        'canFix' => 'CanFix',
+        'expendCount' => 'ExpendCount',
+        'remainCount' => 'RemainCount',
         'repairedCount' => 'RepairedCount',
-        'requestId'     => 'RequestId',
-        'isTrial'       => 'isTrial',
+        'requestId' => 'RequestId',
+        'isTrial' => 'isTrial',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -84,26 +84,25 @@ class addIdcProbeFailedList extends Model
      * @description The UUID of the server. Multiple UUIDs are separated by commas (,).
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     *
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'errorMsg'     => 'ErrorMsg',
-        'idcName'      => 'IdcName',
-        'idcRegion'    => 'IdcRegion',
-        'instanceId'   => 'InstanceId',
+        'errorMsg' => 'ErrorMsg',
+        'idcName' => 'IdcName',
+        'idcRegion' => 'IdcRegion',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'ipSegments'   => 'IpSegments',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ipSegments' => 'IpSegments',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

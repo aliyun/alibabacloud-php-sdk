@@ -12,6 +12,7 @@ class relationTypeList extends Model
      * @description Direction of the edge. Possible values:
      * - **1** ： Forward
      * - **0**： Reverse
+     *
      * @example 1
      *
      * @var int
@@ -45,15 +46,13 @@ class relationTypeList extends Model
      */
     public $name;
     protected $_name = [
-        'directed'     => 'Directed',
+        'directed' => 'Directed',
         'displayColor' => 'DisplayColor',
-        'displayIcon'  => 'DisplayIcon',
-        'name'         => 'Name',
+        'displayIcon' => 'DisplayIcon',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

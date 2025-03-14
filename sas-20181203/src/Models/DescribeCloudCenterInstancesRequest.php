@@ -12,6 +12,7 @@ class DescribeCloudCenterInstancesRequest extends Model
      * @description The search conditions. The value of this parameter is in the JSON format and is case-sensitive.
      *
      * >  You can search for an asset by using the search conditions, such as the instance ID, instance name, VPC ID, region, or public IP address. You can call the [DescribeCriteria](https://help.aliyun.com/document_detail/149773.html) operation to query the supported search conditions.
+     *
      * @example [{"name":"riskStatus","value":"YES"},{"name":"internetIp","value":"1.2.XX.XX"}]
      *
      * @var string
@@ -138,6 +139,7 @@ class DescribeCloudCenterInstancesRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -149,30 +151,29 @@ class DescribeCloudCenterInstancesRequest extends Model
      *
      * - **true**: The NextToken method is used.
      * - **false**: The NextToken method is not used.
+     *
      * @example false
      *
      * @var bool
      */
     public $useNextToken;
     protected $_name = [
-        'criteria'                   => 'Criteria',
-        'currentPage'                => 'CurrentPage',
-        'flags'                      => 'Flags',
-        'importance'                 => 'Importance',
-        'lang'                       => 'Lang',
-        'logicalExp'                 => 'LogicalExp',
-        'machineTypes'               => 'MachineTypes',
-        'nextToken'                  => 'NextToken',
-        'noGroupTrace'               => 'NoGroupTrace',
-        'pageSize'                   => 'PageSize',
-        'regionId'                   => 'RegionId',
+        'criteria' => 'Criteria',
+        'currentPage' => 'CurrentPage',
+        'flags' => 'Flags',
+        'importance' => 'Importance',
+        'lang' => 'Lang',
+        'logicalExp' => 'LogicalExp',
+        'machineTypes' => 'MachineTypes',
+        'nextToken' => 'NextToken',
+        'noGroupTrace' => 'NoGroupTrace',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'useNextToken'               => 'UseNextToken',
+        'useNextToken' => 'UseNextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,13 +31,11 @@ class registryTypeInfos extends Model
      */
     public $registryType;
     protected $_name = [
-        'count'        => 'Count',
+        'count' => 'Count',
         'registryType' => 'RegistryType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,12 +31,10 @@ class DescribeClusterVulStatisticsRequest extends Model
     public $types;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'types'     => 'Types',
+        'types' => 'Types',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

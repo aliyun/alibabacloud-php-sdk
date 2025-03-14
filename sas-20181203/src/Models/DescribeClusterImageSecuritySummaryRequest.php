@@ -105,20 +105,18 @@ class DescribeClusterImageSecuritySummaryRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'imageDigest'         => 'ImageDigest',
-        'imageRepoName'       => 'ImageRepoName',
-        'imageRepoNamespace'  => 'ImageRepoNamespace',
-        'imageTag'            => 'ImageTag',
-        'resourceOwnerId'     => 'ResourceOwnerId',
-        'sourceIp'            => 'SourceIp',
+        'imageDigest' => 'ImageDigest',
+        'imageRepoName' => 'ImageRepoName',
+        'imageRepoNamespace' => 'ImageRepoNamespace',
+        'imageTag' => 'ImageTag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

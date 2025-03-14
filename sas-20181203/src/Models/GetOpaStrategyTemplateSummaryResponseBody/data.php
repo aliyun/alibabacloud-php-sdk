@@ -44,15 +44,13 @@ class data extends Model
      */
     public $templateName;
     protected $_name = [
-        'count'        => 'Count',
-        'description'  => 'Description',
-        'templateId'   => 'TemplateId',
+        'count' => 'Count',
+        'description' => 'Description',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

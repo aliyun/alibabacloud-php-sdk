@@ -34,13 +34,11 @@ class ListHoneypotAlarmEventsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'honeypotAlarmEvents' => 'HoneypotAlarmEvents',
-        'pageInfo'            => 'PageInfo',
-        'requestId'           => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListHoneypotAlarmEventsResponseBody extends Model
         if (isset($map['HoneypotAlarmEvents'])) {
             if (!empty($map['HoneypotAlarmEvents'])) {
                 $model->honeypotAlarmEvents = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['HoneypotAlarmEvents'] as $item) {
                     $model->honeypotAlarmEvents[$n++] = null !== $item ? honeypotAlarmEvents::fromMap($item) : $item;
                 }

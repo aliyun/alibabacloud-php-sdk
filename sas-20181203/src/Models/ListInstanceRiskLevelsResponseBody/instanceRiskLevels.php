@@ -41,13 +41,11 @@ class instanceRiskLevels extends Model
     public $uuid;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'level'      => 'Level',
-        'uuid'       => 'Uuid',
+        'level' => 'Level',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

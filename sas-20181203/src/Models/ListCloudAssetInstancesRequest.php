@@ -29,6 +29,7 @@ class ListCloudAssetInstancesRequest extends Model
      *   **AND**: The search conditions use a logical **AND**.
      *
      * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
+     *
      * @example [{\\"name\\":\\"internetIp\\",\\"value\\":\\"192.168\\",\\"logicalExp\\":\\"OR\\"}]
      *
      * @var string
@@ -75,16 +76,14 @@ class ListCloudAssetInstancesRequest extends Model
     public $regionId;
     protected $_name = [
         'cloudAssetTypes' => 'CloudAssetTypes',
-        'criteria'        => 'Criteria',
-        'currentPage'     => 'CurrentPage',
-        'logicalExp'      => 'LogicalExp',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'criteria' => 'Criteria',
+        'currentPage' => 'CurrentPage',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -128,7 +127,7 @@ class ListCloudAssetInstancesRequest extends Model
         if (isset($map['CloudAssetTypes'])) {
             if (!empty($map['CloudAssetTypes'])) {
                 $model->cloudAssetTypes = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['CloudAssetTypes'] as $item) {
                     $model->cloudAssetTypes[$n++] = null !== $item ? cloudAssetTypes::fromMap($item) : $item;
                 }

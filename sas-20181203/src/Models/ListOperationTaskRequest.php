@@ -13,6 +13,7 @@ class ListOperationTaskRequest extends Model
      * @description The ID of the check item.
      *
      * > You can call the [ListCheckResult](~~ListCheckResult~~) API to obtain the check item ID.
+     *
      * @example 76
      *
      * @var int
@@ -33,6 +34,7 @@ class ListOperationTaskRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -78,6 +80,7 @@ class ListOperationTaskRequest extends Model
      * - **ROLL_BACK_VERIFYING**: Verifying rollback success
      * - **ROLL_BACK_UNVERIFIED**: Rollback success verification failed
      * - **ROLL_BACK_VERIFIED**: Rollback success verified
+     *
      * @var string[]
      */
     public $statuses;
@@ -93,26 +96,26 @@ class ListOperationTaskRequest extends Model
 
     /**
      * @description The type of operation task to be queried:
+     * - REPAIR: Repair
      * - ROLLBACK: Rollback
+     *
      * @example REPAIR
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'checkId'                => 'CheckId',
-        'currentPage'            => 'CurrentPage',
-        'lang'                   => 'Lang',
+        'checkId' => 'CheckId',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
         'operationTaskInstances' => 'OperationTaskInstances',
-        'pageSize'               => 'PageSize',
-        'statuses'               => 'Statuses',
-        'taskId'                 => 'TaskId',
-        'type'                   => 'Type',
+        'pageSize' => 'PageSize',
+        'statuses' => 'Statuses',
+        'taskId' => 'TaskId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -171,7 +174,7 @@ class ListOperationTaskRequest extends Model
         if (isset($map['OperationTaskInstances'])) {
             if (!empty($map['OperationTaskInstances'])) {
                 $model->operationTaskInstances = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['OperationTaskInstances'] as $item) {
                     $model->operationTaskInstances[$n++] = null !== $item ? operationTaskInstances::fromMap($item) : $item;
                 }

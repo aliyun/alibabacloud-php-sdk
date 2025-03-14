@@ -89,20 +89,18 @@ class propertys extends Model
      */
     public $uuid;
     protected $_name = [
-        'cmdline'         => 'Cmdline',
+        'cmdline' => 'Cmdline',
         'createTimestamp' => 'CreateTimestamp',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'name'            => 'Name',
-        'pid'             => 'Pid',
-        'uuid'            => 'Uuid',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'name' => 'Name',
+        'pid' => 'Pid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -95,20 +95,18 @@ class strategies extends Model
      */
     public $virusProcCount;
     protected $_name = [
-        'assetCount'          => 'AssetCount',
-        'progress'            => 'Progress',
-        'status'              => 'Status',
-        'strategyId'          => 'StrategyId',
-        'strategyName'        => 'StrategyName',
-        'studyTime'           => 'StudyTime',
+        'assetCount' => 'AssetCount',
+        'progress' => 'Progress',
+        'status' => 'Status',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
+        'studyTime' => 'StudyTime',
         'suspiciousProcCount' => 'SuspiciousProcCount',
-        'trustProcCount'      => 'TrustProcCount',
-        'virusProcCount'      => 'VirusProcCount',
+        'trustProcCount' => 'TrustProcCount',
+        'virusProcCount' => 'VirusProcCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

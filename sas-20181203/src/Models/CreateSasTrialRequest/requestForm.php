@@ -20,9 +20,7 @@ class requestForm extends Model
         'tryReason' => 'TryReason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

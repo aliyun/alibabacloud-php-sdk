@@ -29,13 +29,11 @@ class excludePaths extends Model
      */
     public $path;
     protected $_name = [
-        'os'   => 'Os',
+        'os' => 'Os',
         'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

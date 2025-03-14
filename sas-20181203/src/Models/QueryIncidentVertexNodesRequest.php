@@ -36,7 +36,10 @@ class QueryIncidentVertexNodesRequest extends Model
     /**
      * @description The ID of the node that you want to query.
      *
+     * >  You can call the [QueryIncidentTracingDetail](~~QueryIncidentTracingDetail~~) operation to query the node ID.
+     *
      * This parameter is required.
+     *
      * @example d6d7738a34cc252219866d223c0093f8
      *
      * @var string
@@ -53,6 +56,7 @@ class QueryIncidentVertexNodesRequest extends Model
      *   **domain**
      *
      * This parameter is required.
+     *
      * @example process
      *
      * @var string
@@ -60,15 +64,13 @@ class QueryIncidentVertexNodesRequest extends Model
     public $vertexLabel;
     protected $_name = [
         'edgeLabelList' => 'EdgeLabelList',
-        'offset'        => 'Offset',
-        'size'          => 'Size',
-        'vertexId'      => 'VertexId',
-        'vertexLabel'   => 'VertexLabel',
+        'offset' => 'Offset',
+        'size' => 'Size',
+        'vertexId' => 'VertexId',
+        'vertexLabel' => 'VertexLabel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

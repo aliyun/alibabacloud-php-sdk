@@ -26,12 +26,10 @@ class DescribeClusterNetworkResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterNetwork' => 'ClusterNetwork',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

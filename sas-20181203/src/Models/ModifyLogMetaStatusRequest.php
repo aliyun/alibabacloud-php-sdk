@@ -20,7 +20,10 @@ class ModifyLogMetaStatusRequest extends Model
     /**
      * @description The name of the dedicated Logstore in which logs are stored.
      *
+     * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the names of Logstores.
+     *
      * This parameter is required.
+     *
      * @example aegis-log-login
      *
      * @var string
@@ -31,6 +34,7 @@ class ModifyLogMetaStatusRequest extends Model
      * @description The name of the project.
      *
      * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the names of projects.
+     *
      * @example aegis-log
      *
      * @var string
@@ -41,6 +45,7 @@ class ModifyLogMetaStatusRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -54,22 +59,21 @@ class ModifyLogMetaStatusRequest extends Model
      *   **disabled**
      *
      * This parameter is required.
+     *
      * @example disabled
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'from'                       => 'From',
-        'logStore'                   => 'LogStore',
-        'project'                    => 'Project',
+        'from' => 'From',
+        'logStore' => 'LogStore',
+        'project' => 'Project',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'status'                     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

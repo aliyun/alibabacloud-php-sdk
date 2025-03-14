@@ -25,13 +25,11 @@ class DescribeEventOnStageResponseBody extends Model
      */
     public $securityEventStageResponse;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'securityEventStageResponse' => 'SecurityEventStageResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,6 +46,7 @@ class ListInterceptionTargetPageRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -79,19 +80,17 @@ class ListInterceptionTargetPageRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'appName'     => 'AppName',
+        'appName' => 'AppName',
         'currentPage' => 'CurrentPage',
-        'imageList'   => 'ImageList',
-        'namespace'   => 'Namespace',
-        'pageSize'    => 'PageSize',
-        'tagList'     => 'TagList',
-        'targetName'  => 'TargetName',
-        'targetType'  => 'TargetType',
+        'imageList' => 'ImageList',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
+        'tagList' => 'TagList',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -52,16 +52,14 @@ class DescribeWebLockBindListResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'bindList'    => 'BindList',
+        'bindList' => 'BindList',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeWebLockBindListResponseBody extends Model
         if (isset($map['BindList'])) {
             if (!empty($map['BindList'])) {
                 $model->bindList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['BindList'] as $item) {
                     $model->bindList[$n++] = null !== $item ? bindList::fromMap($item) : $item;
                 }

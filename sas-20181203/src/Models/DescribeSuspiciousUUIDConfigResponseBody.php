@@ -33,14 +33,12 @@ class DescribeSuspiciousUUIDConfigResponseBody extends Model
      */
     public $UUIDList;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'requestId' => 'RequestId',
-        'UUIDList'  => 'UUIDList',
+        'UUIDList' => 'UUIDList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

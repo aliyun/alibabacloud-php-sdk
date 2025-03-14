@@ -71,18 +71,16 @@ class risks extends Model
      */
     public $typeAlias;
     protected $_name = [
-        'riskDetail'   => 'RiskDetail',
-        'riskId'       => 'RiskId',
-        'riskName'     => 'RiskName',
-        'riskType'     => 'RiskType',
-        'subRiskType'  => 'SubRiskType',
+        'riskDetail' => 'RiskDetail',
+        'riskId' => 'RiskId',
+        'riskName' => 'RiskName',
+        'riskType' => 'RiskType',
+        'subRiskType' => 'SubRiskType',
         'subTypeAlias' => 'SubTypeAlias',
-        'typeAlias'    => 'TypeAlias',
+        'typeAlias' => 'TypeAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -79,18 +79,16 @@ class rpmEntityList extends Model
     public $version;
     protected $_name = [
         'fullVersion' => 'FullVersion',
-        'layer'       => 'Layer',
+        'layer' => 'Layer',
         'matchDetail' => 'MatchDetail',
-        'matchList'   => 'MatchList',
-        'name'        => 'Name',
-        'path'        => 'Path',
-        'updateCmd'   => 'UpdateCmd',
-        'version'     => 'Version',
+        'matchList' => 'MatchList',
+        'name' => 'Name',
+        'path' => 'Path',
+        'updateCmd' => 'UpdateCmd',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
      * @description The source of the request. Set the value to **honeypot**.
      *
      * This parameter is required.
+     *
      * @example honeypot
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
      * @description The time range of the data to query. Unit: days.
      *
      * This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -47,21 +49,20 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
      *   **uuid**: server
      *
      * This parameter is required.
+     *
      * @example vpcInstanceId
      *
      * @var string
      */
     public $statisticsKeyType;
     protected $_name = [
-        'from'              => 'From',
-        'lang'              => 'Lang',
-        'statisticsDays'    => 'StatisticsDays',
+        'from' => 'From',
+        'lang' => 'Lang',
+        'statisticsDays' => 'StatisticsDays',
         'statisticsKeyType' => 'StatisticsKeyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

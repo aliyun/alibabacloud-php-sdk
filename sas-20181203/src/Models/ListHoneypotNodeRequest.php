@@ -45,14 +45,12 @@ class ListHoneypotNodeRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'nodeId'      => 'NodeId',
-        'nodeName'    => 'NodeName',
-        'pageSize'    => 'PageSize',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class GetCheckDetailRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -34,20 +37,19 @@ class GetCheckDetailRequest extends Model
      * @description The region ID of the instance.
      *
      * >  You can call the [ListCloudAssetInstances](~~ListCloudAssetInstances~~) operation to query the region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'checkId'  => 'CheckId',
-        'lang'     => 'Lang',
+        'checkId' => 'CheckId',
+        'lang' => 'Lang',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,14 +37,12 @@ class DescribeTraceInfoDetailResponseBody extends Model
      */
     public $traceInfoDetail;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'traceInfoDetail' => 'TraceInfoDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

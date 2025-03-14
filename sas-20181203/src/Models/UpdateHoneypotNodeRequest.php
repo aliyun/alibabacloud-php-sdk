@@ -12,6 +12,7 @@ class UpdateHoneypotNodeRequest extends Model
      * @description The number of available probes.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -21,7 +22,10 @@ class UpdateHoneypotNodeRequest extends Model
     /**
      * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     *
      * This parameter is required.
+     *
      * @example 67ab3f4c-3db5-4fc3-b51f-00f8bfabfa08
      *
      * @var string
@@ -32,6 +36,7 @@ class UpdateHoneypotNodeRequest extends Model
      * @description The name of the management node.
      *
      * This parameter is required.
+     *
      * @example HoneypotNodeTest
      *
      * @var string
@@ -45,15 +50,13 @@ class UpdateHoneypotNodeRequest extends Model
      */
     public $securityGroupProbeIpList;
     protected $_name = [
-        'availableProbeNum'        => 'AvailableProbeNum',
-        'nodeId'                   => 'NodeId',
-        'nodeName'                 => 'NodeName',
+        'availableProbeNum' => 'AvailableProbeNum',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
         'securityGroupProbeIpList' => 'SecurityGroupProbeIpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

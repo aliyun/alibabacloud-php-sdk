@@ -34,13 +34,11 @@ class ListOperationTaskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'operationTasks' => 'OperationTasks',
-        'pageInfo'       => 'PageInfo',
-        'requestId'      => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListOperationTaskResponseBody extends Model
         if (isset($map['OperationTasks'])) {
             if (!empty($map['OperationTasks'])) {
                 $model->operationTasks = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['OperationTasks'] as $item) {
                     $model->operationTasks[$n++] = null !== $item ? operationTasks::fromMap($item) : $item;
                 }

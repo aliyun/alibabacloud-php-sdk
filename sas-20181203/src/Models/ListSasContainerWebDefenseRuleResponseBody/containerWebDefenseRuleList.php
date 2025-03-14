@@ -82,19 +82,17 @@ class containerWebDefenseRuleList extends Model
      */
     public $ruleStatus;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'apptotalCount'   => 'ApptotalCount',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
+        'aliUid' => 'AliUid',
+        'apptotalCount' => 'ApptotalCount',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
         'pathConfDTOList' => 'PathConfDTOList',
-        'ruleName'        => 'RuleName',
-        'ruleStatus'      => 'RuleStatus',
+        'ruleName' => 'RuleName',
+        'ruleStatus' => 'RuleStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -159,7 +157,7 @@ class containerWebDefenseRuleList extends Model
         if (isset($map['PathConfDTOList'])) {
             if (!empty($map['PathConfDTOList'])) {
                 $model->pathConfDTOList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PathConfDTOList'] as $item) {
                     $model->pathConfDTOList[$n++] = null !== $item ? pathConfDTOList::fromMap($item) : $item;
                 }

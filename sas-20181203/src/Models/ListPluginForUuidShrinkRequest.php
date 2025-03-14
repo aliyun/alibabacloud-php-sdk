@@ -18,7 +18,10 @@ class ListPluginForUuidShrinkRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example bdb7071f-129d-4ceb-af80-4cf70c4571c6
      *
      * @var string
@@ -26,12 +29,10 @@ class ListPluginForUuidShrinkRequest extends Model
     public $uuid;
     protected $_name = [
         'typesShrink' => 'Types',
-        'uuid'        => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

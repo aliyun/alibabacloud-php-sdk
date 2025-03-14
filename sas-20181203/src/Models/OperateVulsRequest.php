@@ -12,6 +12,7 @@ class OperateVulsRequest extends Model
      * @description The operation on the vulnerabilities. Set the value to **vul_fix**, which indicates vulnerability fixing.
      *
      * This parameter is required.
+     *
      * @example vul_fix
      *
      * @var string
@@ -22,6 +23,7 @@ class OperateVulsRequest extends Model
      * @description The type of the vulnerabilities that you want to fix. Set the value to **cve**, which indicates Linux software vulnerabilities.
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -32,6 +34,7 @@ class OperateVulsRequest extends Model
      * @description The UUIDs of servers for which you want to fix vulnerabilities.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $uuids;
@@ -40,19 +43,18 @@ class OperateVulsRequest extends Model
      * @description The names of the vulnerabilities that you want to fix.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $vulNames;
     protected $_name = [
         'operateType' => 'OperateType',
-        'type'        => 'Type',
-        'uuids'       => 'Uuids',
-        'vulNames'    => 'VulNames',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
+        'vulNames' => 'VulNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

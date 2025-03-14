@@ -21,6 +21,7 @@ class DescribeImageInstancesRequest extends Model
      *   **AND**: The search conditions use a logical **AND**.
      *
      * > You can call the [DescribeImageCriteria](https://help.aliyun.com/document_detail/471822.html) operation to query the supported search conditions.
+     *
      * @example [{"name":"instanceId","value":"390100182","logicalExp":"AND"}]
      *
      * @var string
@@ -52,6 +53,7 @@ class DescribeImageInstancesRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > : We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -70,16 +72,14 @@ class DescribeImageInstancesRequest extends Model
      */
     public $scanned;
     protected $_name = [
-        'criteria'    => 'Criteria',
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
-        'logicalExp'  => 'LogicalExp',
-        'pageSize'    => 'PageSize',
-        'scanned'     => 'Scanned',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
+        'scanned' => 'Scanned',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

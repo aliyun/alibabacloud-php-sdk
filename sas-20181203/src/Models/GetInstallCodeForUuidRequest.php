@@ -10,8 +10,6 @@ class GetInstallCodeForUuidRequest extends Model
 {
     /**
      * @description The UUID of the server for which the client installation code is to be queried.
-     *
-     *
      * This parameter is required.
      * @example eae0b46e-2155-422e-9565-ecc52c69****
      *
@@ -22,9 +20,7 @@ class GetInstallCodeForUuidRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,7 +23,10 @@ class ModifyProcessWhiteListRequest extends Model
     /**
      * @description The MD5 hash value of the process startup file.
      *
+     * >  You can call the [DescribeWhiteListProcess](~~DescribeWhiteListProcess~~) operation to obtain the MD5 hash value.
+     *
      * This parameter is required.
+     *
      * @example 001d7f68c3b44147988f0dc81192****
      *
      * @var string
@@ -46,6 +49,7 @@ class ModifyProcessWhiteListRequest extends Model
      *   **2**: adds a process to the whitelist.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -55,23 +59,24 @@ class ModifyProcessWhiteListRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $strategyId;
     protected $_name = [
-        'lang'       => 'Lang',
-        'md5s'       => 'Md5s',
-        'sourceIp'   => 'SourceIp',
-        'status'     => 'Status',
+        'lang' => 'Lang',
+        'md5s' => 'Md5s',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

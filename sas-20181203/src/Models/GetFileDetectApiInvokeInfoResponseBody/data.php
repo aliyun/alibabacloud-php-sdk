@@ -68,17 +68,15 @@ class data extends Model
      */
     public $timeUnit;
     protected $_name = [
-        'authCount'       => 'AuthCount',
-        'expire'          => 'Expire',
-        'flowRate'        => 'FlowRate',
+        'authCount' => 'AuthCount',
+        'expire' => 'Expire',
+        'flowRate' => 'FlowRate',
         'remainAuthCount' => 'RemainAuthCount',
-        'saleVersion'     => 'SaleVersion',
-        'timeUnit'        => 'TimeUnit',
+        'saleVersion' => 'SaleVersion',
+        'timeUnit' => 'TimeUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

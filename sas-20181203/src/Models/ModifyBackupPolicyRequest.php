@@ -12,6 +12,7 @@ class ModifyBackupPolicyRequest extends Model
      * @description The ID of the anti-ransomware policy that you want to modify.
      *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var int
@@ -22,6 +23,7 @@ class ModifyBackupPolicyRequest extends Model
      * @description The name of the anti-ransomware policy that you want to modify.
      *
      * This parameter is required.
+     *
      * @example policy_name_A
      *
      * @var string
@@ -46,7 +48,10 @@ class ModifyBackupPolicyRequest extends Model
      *
      *   **SpeedLimiter**: the limit on the network bandwidth for data backup tasks. If you set this field to 12:15:15360|6:12:5120, the maximum bandwidth for a data backup task is 15 Mbit/s from 12:00 to 15:00 and 5 Mbit/s from 06:00 to 12:00.
      *
+     * If you back up data on an Elastic Compute Service (ECS) instance that is connected over an internal network, we recommend that you leave this field empty. If this field is left empty, the bandwidth for data backup tasks is unlimited.
+     *
      * This parameter is required.
+     *
      * @example {"Source":["home","admin"]}
      *
      * @var mixed[]
@@ -57,6 +62,7 @@ class ModifyBackupPolicyRequest extends Model
      * @description The region ID of the server to which the anti-ransomware policy is applied.
      *
      * You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the regions in which the anti-ransomware feature is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,23 +85,22 @@ class ModifyBackupPolicyRequest extends Model
      * @description The UUIDs of the servers to which the anti-ransomware policy is applied.
      *
      * This parameter is required.
+     *
      * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
      *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'id'             => 'Id',
-        'name'           => 'Name',
-        'policy'         => 'Policy',
+        'id' => 'Id',
+        'name' => 'Name',
+        'policy' => 'Policy',
         'policyRegionId' => 'PolicyRegionId',
-        'policyVersion'  => 'PolicyVersion',
-        'uuidList'       => 'UuidList',
+        'policyVersion' => 'PolicyVersion',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

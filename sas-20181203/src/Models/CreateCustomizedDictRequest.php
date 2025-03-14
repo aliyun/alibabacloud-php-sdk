@@ -29,13 +29,11 @@ class CreateCustomizedDictRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

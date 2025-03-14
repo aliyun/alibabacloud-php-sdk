@@ -129,6 +129,7 @@ class instances extends Model
      * @description The region in which the cloud asset resides.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hanghzou
      *
      * @var string
@@ -171,25 +172,23 @@ class instances extends Model
      */
     public $vendor;
     protected $_name = [
-        'alarmStatus'      => 'AlarmStatus',
-        'assetSubType'     => 'AssetSubType',
+        'alarmStatus' => 'AlarmStatus',
+        'assetSubType' => 'AssetSubType',
         'assetSubTypeName' => 'AssetSubTypeName',
-        'assetType'        => 'AssetType',
-        'assetTypeName'    => 'AssetTypeName',
-        'createdTime'      => 'CreatedTime',
-        'detailLink'       => 'DetailLink',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
-        'internetIp'       => 'InternetIp',
-        'regionId'         => 'RegionId',
-        'riskStatus'       => 'RiskStatus',
-        'securityInfo'     => 'SecurityInfo',
-        'vendor'           => 'Vendor',
+        'assetType' => 'AssetType',
+        'assetTypeName' => 'AssetTypeName',
+        'createdTime' => 'CreatedTime',
+        'detailLink' => 'DetailLink',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'regionId' => 'RegionId',
+        'riskStatus' => 'RiskStatus',
+        'securityInfo' => 'SecurityInfo',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

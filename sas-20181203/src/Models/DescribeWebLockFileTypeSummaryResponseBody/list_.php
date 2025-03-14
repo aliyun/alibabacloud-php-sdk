@@ -42,12 +42,10 @@ class list_ extends Model
     public $type;
     protected $_name = [
         'count' => 'Count',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

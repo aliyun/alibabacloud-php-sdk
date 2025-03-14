@@ -19,9 +19,7 @@ class ModifyAssetCleanConfigRequest extends Model
         'assetCleanConfigs' => 'AssetCleanConfigs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class ModifyAssetCleanConfigRequest extends Model
         if (isset($map['AssetCleanConfigs'])) {
             if (!empty($map['AssetCleanConfigs'])) {
                 $model->assetCleanConfigs = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AssetCleanConfigs'] as $item) {
                     $model->assetCleanConfigs[$n++] = null !== $item ? assetCleanConfigs::fromMap($item) : $item;
                 }

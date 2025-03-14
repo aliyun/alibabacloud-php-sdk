@@ -118,22 +118,20 @@ class data extends Model
      */
     public $whitelist;
     protected $_name = [
-        'aliUid'      => 'AliUid',
+        'aliUid' => 'AliUid',
         'description' => 'Description',
-        'eventName'   => 'EventName',
-        'eventType'   => 'EventType',
-        'id'          => 'Id',
-        'ruleAction'  => 'RuleAction',
-        'ruleName'    => 'RuleName',
-        'ruleSwitch'  => 'RuleSwitch',
-        'ruleType'    => 'RuleType',
-        'scope'       => 'Scope',
-        'whitelist'   => 'Whitelist',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'id' => 'Id',
+        'ruleAction' => 'RuleAction',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
+        'ruleType' => 'RuleType',
+        'scope' => 'Scope',
+        'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -219,7 +217,7 @@ class data extends Model
         if (isset($map['Scope'])) {
             if (!empty($map['Scope'])) {
                 $model->scope = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Scope'] as $item) {
                     $model->scope[$n++] = null !== $item ? scope::fromMap($item) : $item;
                 }

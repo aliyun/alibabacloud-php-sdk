@@ -11,7 +11,10 @@ class ListRuleTargetAllRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
+     * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+     *
      * This parameter is required.
+     *
      * @example cfa7e2fb8c221483ba59e098c34c6****
      *
      * @var string
@@ -21,9 +24,7 @@ class ListRuleTargetAllRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

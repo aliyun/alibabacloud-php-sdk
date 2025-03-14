@@ -12,6 +12,7 @@ class ListClusterPluginInfoRequest extends Model
      * @description The IDs of the clusters.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $clusterIds;
@@ -38,13 +39,11 @@ class ListClusterPluginInfoRequest extends Model
     public $pluginName;
     protected $_name = [
         'clusterIds' => 'ClusterIds',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'pluginName' => 'PluginName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

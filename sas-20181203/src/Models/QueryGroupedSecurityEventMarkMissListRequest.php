@@ -93,17 +93,15 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'disposalWay' => 'DisposalWay',
-        'eventName'   => 'EventName',
-        'from'        => 'From',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'sourceIp'    => 'SourceIp',
+        'eventName' => 'EventName',
+        'from' => 'From',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

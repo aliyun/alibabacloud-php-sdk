@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest\protocolType;
 use AlibabaCloud\Tea\Model;
 
 class ModifyAntiBruteForceRuleRequest extends Model
@@ -62,6 +63,7 @@ class ModifyAntiBruteForceRuleRequest extends Model
      * @description The ID of the defense rule.
      *
      * This parameter is required.
+     *
      * @example 65778
      *
      * @var int
@@ -76,6 +78,11 @@ class ModifyAntiBruteForceRuleRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var protocolType
+     */
+    public $protocolType;
 
     /**
      * @var int
@@ -115,20 +122,19 @@ class ModifyAntiBruteForceRuleRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'defaultRule'     => 'DefaultRule',
-        'failCount'       => 'FailCount',
-        'forbiddenTime'   => 'ForbiddenTime',
-        'id'              => 'Id',
-        'name'            => 'Name',
+        'defaultRule' => 'DefaultRule',
+        'failCount' => 'FailCount',
+        'forbiddenTime' => 'ForbiddenTime',
+        'id' => 'Id',
+        'name' => 'Name',
+        'protocolType' => 'ProtocolType',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'span'            => 'Span',
-        'uuidList'        => 'UuidList',
+        'sourceIp' => 'SourceIp',
+        'span' => 'Span',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -147,6 +153,9 @@ class ModifyAntiBruteForceRuleRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = null !== $this->protocolType ? $this->protocolType->toMap() : null;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -186,6 +195,9 @@ class ModifyAntiBruteForceRuleRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = protocolType::fromMap($map['ProtocolType']);
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

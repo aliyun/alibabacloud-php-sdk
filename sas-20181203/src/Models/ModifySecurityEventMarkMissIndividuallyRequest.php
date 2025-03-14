@@ -57,15 +57,13 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     public $sourceIp;
     protected $_name = [
         'deleteMarkMissParam' => 'DeleteMarkMissParam',
-        'from'                => 'From',
+        'from' => 'From',
         'insertMarkMissParam' => 'InsertMarkMissParam',
-        'lang'                => 'Lang',
-        'sourceIp'            => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

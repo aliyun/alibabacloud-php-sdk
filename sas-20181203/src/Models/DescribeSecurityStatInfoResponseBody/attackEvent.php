@@ -31,14 +31,12 @@ class attackEvent extends Model
      */
     public $valueArray;
     protected $_name = [
-        'dateArray'  => 'DateArray',
+        'dateArray' => 'DateArray',
         'totalCount' => 'TotalCount',
         'valueArray' => 'ValueArray',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

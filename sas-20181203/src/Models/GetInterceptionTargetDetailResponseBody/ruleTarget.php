@@ -87,20 +87,18 @@ class ruleTarget extends Model
      */
     public $targetType;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'imageList'   => 'ImageList',
-        'namespace'   => 'Namespace',
-        'tagList'     => 'TagList',
-        'targetId'    => 'TargetId',
-        'targetName'  => 'TargetName',
-        'targetType'  => 'TargetType',
+        'imageList' => 'ImageList',
+        'namespace' => 'Namespace',
+        'tagList' => 'TagList',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class groupedFileds extends Model
     public $tagId;
     protected $_name = [
         'count' => 'Count',
-        'name'  => 'Name',
+        'name' => 'Name',
         'tagId' => 'TagId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,13 +29,11 @@ class DescribeCanTrySasResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'canTry'    => 'CanTry',
+        'canTry' => 'CanTry',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

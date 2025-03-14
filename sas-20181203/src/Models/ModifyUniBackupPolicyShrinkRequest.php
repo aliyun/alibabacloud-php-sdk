@@ -57,7 +57,10 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
+     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -103,20 +106,18 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
      */
     public $speedLimiter;
     protected $_name = [
-        'accountName'     => 'AccountName',
+        'accountName' => 'AccountName',
         'accountPassword' => 'AccountPassword',
-        'fullPlanShrink'  => 'FullPlan',
-        'incPlanShrink'   => 'IncPlan',
-        'policyId'        => 'PolicyId',
-        'policyName'      => 'PolicyName',
-        'policyStatus'    => 'PolicyStatus',
-        'retention'       => 'Retention',
-        'speedLimiter'    => 'SpeedLimiter',
+        'fullPlanShrink' => 'FullPlan',
+        'incPlanShrink' => 'IncPlan',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'policyStatus' => 'PolicyStatus',
+        'retention' => 'Retention',
+        'speedLimiter' => 'SpeedLimiter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

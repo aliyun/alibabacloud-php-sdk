@@ -26,13 +26,11 @@ class list_ extends Model
      */
     public $title;
     protected $_name = [
-        'id'    => 'Id',
+        'id' => 'Id',
         'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

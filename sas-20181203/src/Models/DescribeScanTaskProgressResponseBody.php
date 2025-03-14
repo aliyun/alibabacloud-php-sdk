@@ -52,14 +52,12 @@ class DescribeScanTaskProgressResponseBody extends Model
      */
     public $targetInfo;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'scanTaskProgress' => 'ScanTaskProgress',
-        'targetInfo'       => 'TargetInfo',
+        'targetInfo' => 'TargetInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

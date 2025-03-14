@@ -34,14 +34,12 @@ class DescribeAllGroupsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'Count',
-        'groups'    => 'Groups',
+        'count' => 'Count',
+        'groups' => 'Groups',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeAllGroupsResponseBody extends Model
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Groups'] as $item) {
                     $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
                 }

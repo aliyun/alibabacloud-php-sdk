@@ -25,13 +25,11 @@ class DescribeTraceInfoNodeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'node'      => 'Node',
+        'node' => 'Node',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

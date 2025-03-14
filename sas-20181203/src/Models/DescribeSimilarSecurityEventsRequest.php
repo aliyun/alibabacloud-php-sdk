@@ -56,23 +56,22 @@ class DescribeSimilarSecurityEventsRequest extends Model
      * @description The task ID. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to obtain the task ID.
      *
      * This parameter is required.
+     *
      * @example 1689135
      *
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'taskId'          => 'TaskId',
+        'sourceIp' => 'SourceIp',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

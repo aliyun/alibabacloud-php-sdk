@@ -203,32 +203,30 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'details'             => 'Details',
-        'downloadUrl'         => 'DownloadUrl',
-        'filePath'            => 'FilePath',
-        'firstScanTimestamp'  => 'FirstScanTimestamp',
-        'highLight'           => 'HighLight',
-        'id'                  => 'Id',
-        'instanceName'        => 'InstanceName',
-        'internetIp'          => 'InternetIp',
-        'intranetIp'          => 'IntranetIp',
+        'details' => 'Details',
+        'downloadUrl' => 'DownloadUrl',
+        'filePath' => 'FilePath',
+        'firstScanTimestamp' => 'FirstScanTimestamp',
+        'highLight' => 'HighLight',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'latestScanTimestamp' => 'LatestScanTimestamp',
-        'level'               => 'Level',
-        'maliciousMd5'        => 'MaliciousMd5',
-        'maliciousName'       => 'MaliciousName',
-        'maliciousType'       => 'MaliciousType',
-        'operateResult'       => 'OperateResult',
-        'operateTimestamp'    => 'OperateTimestamp',
-        'partition'           => 'Partition',
-        'targetId'            => 'TargetId',
-        'targetName'          => 'TargetName',
-        'targetType'          => 'TargetType',
-        'uuid'                => 'Uuid',
+        'level' => 'Level',
+        'maliciousMd5' => 'MaliciousMd5',
+        'maliciousName' => 'MaliciousName',
+        'maliciousType' => 'MaliciousType',
+        'operateResult' => 'OperateResult',
+        'operateTimestamp' => 'OperateTimestamp',
+        'partition' => 'Partition',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -317,7 +315,7 @@ class list_ extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

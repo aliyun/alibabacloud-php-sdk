@@ -167,27 +167,25 @@ class CreateJenkinsImageRegistryRequest extends Model
      */
     public $whiteList;
     protected $_name = [
-        'domainName'      => 'DomainName',
-        'extraParam'      => 'ExtraParam',
-        'netType'         => 'NetType',
-        'password'        => 'Password',
-        'persistenceDay'  => 'PersistenceDay',
-        'protocolType'    => 'ProtocolType',
-        'regionId'        => 'RegionId',
-        'registryHostIp'  => 'RegistryHostIp',
-        'registryName'    => 'RegistryName',
-        'registryType'    => 'RegistryType',
+        'domainName' => 'DomainName',
+        'extraParam' => 'ExtraParam',
+        'netType' => 'NetType',
+        'password' => 'Password',
+        'persistenceDay' => 'PersistenceDay',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'registryHostIp' => 'RegistryHostIp',
+        'registryName' => 'RegistryName',
+        'registryType' => 'RegistryType',
         'registryVersion' => 'RegistryVersion',
-        'sourceIp'        => 'SourceIp',
-        'transPerHour'    => 'TransPerHour',
-        'userName'        => 'UserName',
-        'vpcId'           => 'VpcId',
-        'whiteList'       => 'WhiteList',
+        'sourceIp' => 'SourceIp',
+        'transPerHour' => 'TransPerHour',
+        'userName' => 'UserName',
+        'vpcId' => 'VpcId',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

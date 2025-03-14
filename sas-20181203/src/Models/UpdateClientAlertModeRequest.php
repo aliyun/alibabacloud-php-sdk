@@ -27,13 +27,11 @@ class UpdateClientAlertModeRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'mode'  => 'Mode',
+        'mode' => 'Mode',
         'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

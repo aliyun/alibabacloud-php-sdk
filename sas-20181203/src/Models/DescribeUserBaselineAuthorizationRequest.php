@@ -38,14 +38,12 @@ class DescribeUserBaselineAuthorizationRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'            => 'Lang',
+        'lang' => 'Lang',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

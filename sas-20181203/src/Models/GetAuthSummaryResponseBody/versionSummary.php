@@ -34,6 +34,7 @@ class versionSummary extends Model
      * @description The total quota of server cores.
      *
      * >  This parameter takes effect only if AuthBindType is set to CORE or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +45,7 @@ class versionSummary extends Model
      * @description The total quota of servers in the current edition.
      *
      * >  This parameter takes effect only if AuthBindType is set to ASSET or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -54,6 +56,7 @@ class versionSummary extends Model
      * @description The total quota of servers.
      *
      * >  This parameter takes effect only if AuthBindType is set to ASSET or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -64,6 +67,7 @@ class versionSummary extends Model
      * @description The remaining quota of servers.
      *
      * >  This parameter takes effect only if AuthBindType is set to ASSET or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -74,6 +78,7 @@ class versionSummary extends Model
      * @description The remaining quota of server cores.
      *
      * >  This parameter takes effect only if AuthBindType is set to CORE or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -84,6 +89,7 @@ class versionSummary extends Model
      * @description The remaining quota of servers.
      *
      * >  This parameter takes effect only if AuthBindType is set to ASSET or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -94,6 +100,7 @@ class versionSummary extends Model
      * @description The consumed quota of server cores.
      *
      * >  This parameter takes effect only if AuthBindType is set to CORE or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -104,6 +111,7 @@ class versionSummary extends Model
      * @description The used quota of servers.
      *
      * >  This parameter takes effect only if AuthBindType is set to ASSET or ASSET_AND_CORE.
+     *
      * @example 10
      *
      * @var int
@@ -127,22 +135,20 @@ class versionSummary extends Model
      */
     public $version;
     protected $_name = [
-        'authBindType'        => 'AuthBindType',
-        'index'               => 'Index',
-        'totalCoreAuthCount'  => 'TotalCoreAuthCount',
-        'totalCount'          => 'TotalCount',
-        'totalEcsAuthCount'   => 'TotalEcsAuthCount',
-        'unUsedCount'         => 'UnUsedCount',
+        'authBindType' => 'AuthBindType',
+        'index' => 'Index',
+        'totalCoreAuthCount' => 'TotalCoreAuthCount',
+        'totalCount' => 'TotalCount',
+        'totalEcsAuthCount' => 'TotalEcsAuthCount',
+        'unUsedCount' => 'UnUsedCount',
         'unusedCoreAuthCount' => 'UnusedCoreAuthCount',
-        'unusedEcsAuthCount'  => 'UnusedEcsAuthCount',
-        'usedCoreCount'       => 'UsedCoreCount',
-        'usedEcsCount'        => 'UsedEcsCount',
-        'version'             => 'Version',
+        'unusedEcsAuthCount' => 'UnusedEcsAuthCount',
+        'usedCoreCount' => 'UsedCoreCount',
+        'usedEcsCount' => 'UsedEcsCount',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

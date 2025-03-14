@@ -26,13 +26,11 @@ class CreateFileDetectResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'hashKey'   => 'HashKey',
+        'hashKey' => 'HashKey',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

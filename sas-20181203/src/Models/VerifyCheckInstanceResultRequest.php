@@ -12,6 +12,7 @@ class VerifyCheckInstanceResultRequest extends Model
      * @description The ID of the check item.
      *
      * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+     *
      * @example 16
      *
      * @var int
@@ -25,13 +26,11 @@ class VerifyCheckInstanceResultRequest extends Model
      */
     public $instanceIds;
     protected $_name = [
-        'checkId'     => 'CheckId',
+        'checkId' => 'CheckId',
         'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

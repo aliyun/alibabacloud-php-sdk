@@ -65,17 +65,15 @@ class OperationCancelIgnoreSuspEventResponseBody extends Model
      */
     public $timeCost;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'timeCost'       => 'TimeCost',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'timeCost' => 'TimeCost',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

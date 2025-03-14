@@ -116,23 +116,21 @@ class DescribePropertyCountResponseBody extends Model
      */
     public $webserver;
     protected $_name = [
-        'autorun'   => 'Autorun',
-        'cron'      => 'Cron',
-        'database'  => 'Database',
-        'lkm'       => 'Lkm',
-        'port'      => 'Port',
-        'process'   => 'Process',
+        'autorun' => 'Autorun',
+        'cron' => 'Cron',
+        'database' => 'Database',
+        'lkm' => 'Lkm',
+        'port' => 'Port',
+        'process' => 'Process',
         'requestId' => 'RequestId',
-        'sca'       => 'Sca',
-        'software'  => 'Software',
-        'user'      => 'User',
-        'web'       => 'Web',
+        'sca' => 'Sca',
+        'software' => 'Software',
+        'user' => 'User',
+        'web' => 'Web',
         'webserver' => 'Webserver',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class ListCheckItemResponseBody extends Model
     public $requestId;
     protected $_name = [
         'checkItems' => 'CheckItems',
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListCheckItemResponseBody extends Model
         if (isset($map['CheckItems'])) {
             if (!empty($map['CheckItems'])) {
                 $model->checkItems = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['CheckItems'] as $item) {
                     $model->checkItems[$n++] = null !== $item ? checkItems::fromMap($item) : $item;
                 }

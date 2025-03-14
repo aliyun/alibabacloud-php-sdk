@@ -36,13 +36,11 @@ class aegisCelintInstallResposeList extends Model
     public $uuid;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'recordId'   => 'RecordId',
-        'uuid'       => 'Uuid',
+        'recordId' => 'RecordId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,9 +23,7 @@ class GetCheckSaleRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

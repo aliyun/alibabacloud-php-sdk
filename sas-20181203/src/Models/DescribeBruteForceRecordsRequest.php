@@ -71,18 +71,16 @@ class DescribeBruteForceRecordsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'currentPage'     => 'CurrentPage',
-        'instanceId'      => 'InstanceId',
-        'pageSize'        => 'PageSize',
-        'remark'          => 'Remark',
+        'blockIp' => 'BlockIp',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,16 +53,14 @@ class DescribeVulMetaCountStatisticsResponseBody extends Model
      */
     public $sysCount;
     protected $_name = [
-        'appCount'        => 'AppCount',
-        'cveCount'        => 'CveCount',
+        'appCount' => 'AppCount',
+        'cveCount' => 'CveCount',
         'raspDefendCount' => 'RaspDefendCount',
-        'requestId'       => 'RequestId',
-        'sysCount'        => 'SysCount',
+        'requestId' => 'RequestId',
+        'sysCount' => 'SysCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

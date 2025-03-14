@@ -51,22 +51,21 @@ class DescribeImageVulWhiteListRequest extends Model
      * @description The source of the whitelist. Valid values:
      * - **image**
      * - **agentless**
+     *
      * @example image
      *
      * @var string
      */
     public $source;
     protected $_name = [
-        'aliasName'   => 'AliasName',
+        'aliasName' => 'AliasName',
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'source'      => 'Source',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

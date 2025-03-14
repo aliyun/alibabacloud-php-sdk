@@ -92,20 +92,18 @@ class DescribePropertyUserDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'currentPage'        => 'CurrentPage',
-        'extend'             => 'Extend',
-        'isRoot'             => 'IsRoot',
-        'lastLoginTimeEnd'   => 'LastLoginTimeEnd',
+        'currentPage' => 'CurrentPage',
+        'extend' => 'Extend',
+        'isRoot' => 'IsRoot',
+        'lastLoginTimeEnd' => 'LastLoginTimeEnd',
         'lastLoginTimeStart' => 'LastLoginTimeStart',
-        'pageSize'           => 'PageSize',
-        'remark'             => 'Remark',
-        'user'               => 'User',
-        'uuid'               => 'Uuid',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

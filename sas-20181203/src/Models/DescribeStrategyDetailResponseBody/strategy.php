@@ -75,6 +75,7 @@ class strategy extends Model
      * @description The subtype of the baselines.
      *
      * > You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the subtypes of baselines.
+     *
      * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
      *
      * @var string
@@ -121,22 +122,20 @@ class strategy extends Model
      */
     public $type;
     protected $_name = [
-        'customType'                       => 'CustomType',
-        'cycleDays'                        => 'CycleDays',
-        'cycleStartTime'                   => 'CycleStartTime',
-        'endTime'                          => 'EndTime',
-        'id'                               => 'Id',
-        'name'                             => 'Name',
-        'riskSubTypeName'                  => 'RiskSubTypeName',
+        'customType' => 'CustomType',
+        'cycleDays' => 'CycleDays',
+        'cycleStartTime' => 'CycleStartTime',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'name' => 'Name',
+        'riskSubTypeName' => 'RiskSubTypeName',
         'riskTypeWhiteListQueryResultList' => 'RiskTypeWhiteListQueryResultList',
-        'startTime'                        => 'StartTime',
-        'targetType'                       => 'TargetType',
-        'type'                             => 'Type',
+        'startTime' => 'StartTime',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -216,7 +215,7 @@ class strategy extends Model
         if (isset($map['RiskTypeWhiteListQueryResultList'])) {
             if (!empty($map['RiskTypeWhiteListQueryResultList'])) {
                 $model->riskTypeWhiteListQueryResultList = [];
-                $n                                       = 0;
+                $n = 0;
                 foreach ($map['RiskTypeWhiteListQueryResultList'] as $item) {
                     $model->riskTypeWhiteListQueryResultList[$n++] = null !== $item ? riskTypeWhiteListQueryResultList::fromMap($item) : $item;
                 }

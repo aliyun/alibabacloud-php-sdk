@@ -23,6 +23,7 @@ class DescribeBackUpExportInfoRequest extends Model
      *   **suspiciousExport**: alert event
      *
      * This parameter is required.
+     *
      * @example suspiciousExport
      *
      * @var string
@@ -51,14 +52,12 @@ class DescribeBackUpExportInfoRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'exportType'  => 'ExportType',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
+        'exportType' => 'ExportType',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

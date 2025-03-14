@@ -34,14 +34,12 @@ class DescribeVulConfigResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'targetConfigs' => 'TargetConfigs',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeVulConfigResponseBody extends Model
         if (isset($map['TargetConfigs'])) {
             if (!empty($map['TargetConfigs'])) {
                 $model->targetConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['TargetConfigs'] as $item) {
                     $model->targetConfigs[$n++] = null !== $item ? targetConfigs::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class DescribeDomainSecureSuggestsRequest extends Model
      * @description Sets the language type for requests and received messages, default is **zh**. Values:
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -27,13 +28,11 @@ class DescribeDomainSecureSuggestsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

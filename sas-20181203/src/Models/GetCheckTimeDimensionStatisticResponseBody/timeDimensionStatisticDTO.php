@@ -20,6 +20,7 @@ class timeDimensionStatisticDTO extends Model
      * @description Type of statistical data. Values:
      * - **CheckPassRate**: Check item pass rate.
      * - **AssetPassRate**: Asset pass rate.
+     *
      * @example CheckPassRate
      *
      * @var string
@@ -33,14 +34,12 @@ class timeDimensionStatisticDTO extends Model
      */
     public $timeDimensionStatisticItems;
     protected $_name = [
-        'dates'                       => 'Dates',
-        'statisticType'               => 'StatisticType',
+        'dates' => 'Dates',
+        'statisticType' => 'StatisticType',
         'timeDimensionStatisticItems' => 'TimeDimensionStatisticItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -83,7 +82,7 @@ class timeDimensionStatisticDTO extends Model
         if (isset($map['TimeDimensionStatisticItems'])) {
             if (!empty($map['TimeDimensionStatisticItems'])) {
                 $model->timeDimensionStatisticItems = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['TimeDimensionStatisticItems'] as $item) {
                     $model->timeDimensionStatisticItems[$n++] = null !== $item ? timeDimensionStatisticItems::fromMap($item) : $item;
                 }

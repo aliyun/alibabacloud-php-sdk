@@ -281,39 +281,37 @@ class interceptionHistoryList extends Model
      */
     public $tryCount;
     protected $_name = [
-        'clusterId'            => 'ClusterId',
-        'clusterName'          => 'ClusterName',
-        'dstAppName'           => 'DstAppName',
-        'dstNamespace'         => 'DstNamespace',
-        'dstPort'              => 'DstPort',
-        'dstRuleTargetName'    => 'DstRuleTargetName',
-        'firstTime'            => 'FirstTime',
-        'id'                   => 'Id',
-        'interceptionName'     => 'InterceptionName',
-        'interceptionType'     => 'InterceptionType',
-        'lastTime'             => 'LastTime',
-        'realDstAppName'       => 'RealDstAppName',
-        'realDstImageName'     => 'RealDstImageName',
-        'realDstNamespace'     => 'RealDstNamespace',
-        'realDstPodName'       => 'RealDstPodName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'dstAppName' => 'DstAppName',
+        'dstNamespace' => 'DstNamespace',
+        'dstPort' => 'DstPort',
+        'dstRuleTargetName' => 'DstRuleTargetName',
+        'firstTime' => 'FirstTime',
+        'id' => 'Id',
+        'interceptionName' => 'InterceptionName',
+        'interceptionType' => 'InterceptionType',
+        'lastTime' => 'LastTime',
+        'realDstAppName' => 'RealDstAppName',
+        'realDstImageName' => 'RealDstImageName',
+        'realDstNamespace' => 'RealDstNamespace',
+        'realDstPodName' => 'RealDstPodName',
         'realInterceptionType' => 'RealInterceptionType',
-        'realSrcAppName'       => 'RealSrcAppName',
-        'realSrcImageName'     => 'RealSrcImageName',
-        'realSrcNamespace'     => 'RealSrcNamespace',
-        'realSrcPodName'       => 'RealSrcPodName',
-        'riskLevel'            => 'RiskLevel',
-        'ruleId'               => 'RuleId',
-        'ruleName'             => 'RuleName',
-        'srcAppName'           => 'SrcAppName',
-        'srcNamespace'         => 'SrcNamespace',
-        'srcRuleTargetName'    => 'SrcRuleTargetName',
-        'status'               => 'Status',
-        'tryCount'             => 'TryCount',
+        'realSrcAppName' => 'RealSrcAppName',
+        'realSrcImageName' => 'RealSrcImageName',
+        'realSrcNamespace' => 'RealSrcNamespace',
+        'realSrcPodName' => 'RealSrcPodName',
+        'riskLevel' => 'RiskLevel',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'srcAppName' => 'SrcAppName',
+        'srcNamespace' => 'SrcNamespace',
+        'srcRuleTargetName' => 'SrcRuleTargetName',
+        'status' => 'Status',
+        'tryCount' => 'TryCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

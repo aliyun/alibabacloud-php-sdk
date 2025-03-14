@@ -81,19 +81,17 @@ class ListInterceptionHistoryRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'currentPage'       => 'CurrentPage',
-        'endTime'           => 'EndTime',
-        'historyName'       => 'HistoryName',
+        'clusterId' => 'ClusterId',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'historyName' => 'HistoryName',
         'interceptionTypes' => 'InterceptionTypes',
-        'lang'              => 'Lang',
-        'pageSize'          => 'PageSize',
-        'startTime'         => 'StartTime',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

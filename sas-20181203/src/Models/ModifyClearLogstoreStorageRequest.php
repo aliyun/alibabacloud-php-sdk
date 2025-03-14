@@ -47,15 +47,13 @@ class ModifyClearLogstoreStorageRequest extends Model
      */
     public $userProject;
     protected $_name = [
-        'from'         => 'From',
-        'lang'         => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'userLogStore' => 'UserLogStore',
-        'userProject'  => 'UserProject',
+        'userProject' => 'UserProject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,9 +23,7 @@ class CreateServiceLinkedRoleRequest extends Model
         'serviceLinkedRole' => 'ServiceLinkedRole',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

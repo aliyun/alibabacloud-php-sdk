@@ -179,17 +179,15 @@ class DescribeImageSensitiveFileByKeyShrinkRequest extends Model
      */
     public $sensitiveFileKey;
     protected $_name = [
-        'currentPage'      => 'CurrentPage',
-        'imageUuid'        => 'ImageUuid',
-        'lang'             => 'Lang',
-        'pageSize'         => 'PageSize',
-        'scanRangeShrink'  => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'scanRangeShrink' => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

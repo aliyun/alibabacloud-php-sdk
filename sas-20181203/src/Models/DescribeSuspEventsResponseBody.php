@@ -61,17 +61,15 @@ class DescribeSuspEventsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'suspEvents'  => 'SuspEvents',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'suspEvents' => 'SuspEvents',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class DescribeSuspEventsResponseBody extends Model
         if (isset($map['SuspEvents'])) {
             if (!empty($map['SuspEvents'])) {
                 $model->suspEvents = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['SuspEvents'] as $item) {
                     $model->suspEvents[$n++] = null !== $item ? suspEvents::fromMap($item) : $item;
                 }

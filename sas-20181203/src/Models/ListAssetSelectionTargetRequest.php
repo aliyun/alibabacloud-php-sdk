@@ -12,6 +12,7 @@ class ListAssetSelectionTargetRequest extends Model
      * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ListAssetSelectionTargetRequest extends Model
      * @description The number of entries to return on each page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -32,20 +34,19 @@ class ListAssetSelectionTargetRequest extends Model
      * @description The globally unique identifier (GUID) of the asset.
      *
      * This parameter is required.
+     *
      * @example 8ccf9b01-2c64-4cba-8122-10115f29****
      *
      * @var string
      */
     public $selectionKey;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'pageSize'     => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'selectionKey' => 'SelectionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class EnableCustomBlockRecordRequest extends Model
      * @description The IP address that is specified in the policy.
      *
      * This parameter is required.
+     *
      * @example 43.248.XX.XX
      *
      * @var string
@@ -25,6 +26,7 @@ class EnableCustomBlockRecordRequest extends Model
      *   **out**: outbound
      *
      * This parameter is required.
+     *
      * @example in
      *
      * @var string
@@ -36,14 +38,12 @@ class EnableCustomBlockRecordRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

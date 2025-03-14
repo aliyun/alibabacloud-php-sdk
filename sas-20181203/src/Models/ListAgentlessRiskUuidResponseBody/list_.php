@@ -107,22 +107,20 @@ class list_ extends Model
      */
     public $vulCount;
     protected $_name = [
-        'baselineCount'  => 'BaselineCount',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
+        'baselineCount' => 'BaselineCount',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'maliciousCount' => 'MaliciousCount',
-        'scanTime'       => 'ScanTime',
-        'targetId'       => 'TargetId',
-        'targetName'     => 'TargetName',
-        'uuid'           => 'Uuid',
-        'vulCount'       => 'VulCount',
+        'scanTime' => 'ScanTime',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'uuid' => 'Uuid',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

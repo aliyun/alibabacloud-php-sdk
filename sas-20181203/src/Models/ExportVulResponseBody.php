@@ -35,14 +35,12 @@ class ExportVulResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fileName'  => 'FileName',
-        'id'        => 'Id',
+        'fileName' => 'FileName',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

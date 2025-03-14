@@ -33,6 +33,7 @@ class CreateHoneypotNodeRequest extends Model
      * @description The name of the management node.
      *
      * This parameter is required.
+     *
      * @example manageNode
      *
      * @var string
@@ -47,14 +48,12 @@ class CreateHoneypotNodeRequest extends Model
     public $securityGroupProbeIpList;
     protected $_name = [
         'allowHoneypotAccessInternet' => 'AllowHoneypotAccessInternet',
-        'availableProbeNum'           => 'AvailableProbeNum',
-        'nodeName'                    => 'NodeName',
-        'securityGroupProbeIpList'    => 'SecurityGroupProbeIpList',
+        'availableProbeNum' => 'AvailableProbeNum',
+        'nodeName' => 'NodeName',
+        'securityGroupProbeIpList' => 'SecurityGroupProbeIpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

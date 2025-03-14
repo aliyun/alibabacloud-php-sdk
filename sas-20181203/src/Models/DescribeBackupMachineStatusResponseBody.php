@@ -26,12 +26,10 @@ class DescribeBackupMachineStatusResponseBody extends Model
     public $requestId;
     protected $_name = [
         'backupMachineStatus' => 'BackupMachineStatus',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

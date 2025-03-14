@@ -30,6 +30,7 @@ class DescribeUniRecoverableListRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -39,7 +40,10 @@ class DescribeUniRecoverableListRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
+     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -47,14 +51,12 @@ class DescribeUniRecoverableListRequest extends Model
     public $policyId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'database'    => 'Database',
-        'pageSize'    => 'PageSize',
-        'policyId'    => 'PolicyId',
+        'database' => 'Database',
+        'pageSize' => 'PageSize',
+        'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

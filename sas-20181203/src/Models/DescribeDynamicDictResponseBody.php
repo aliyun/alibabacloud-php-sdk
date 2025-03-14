@@ -71,18 +71,16 @@ class DescribeDynamicDictResponseBody extends Model
      */
     public $uploadTime;
     protected $_name = [
-        'count'      => 'Count',
-        'fileName'   => 'FileName',
-        'fileSize'   => 'FileSize',
-        'limit'      => 'Limit',
-        'ossUrl'     => 'OssUrl',
-        'requestId'  => 'RequestId',
+        'count' => 'Count',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
+        'limit' => 'Limit',
+        'ossUrl' => 'OssUrl',
+        'requestId' => 'RequestId',
         'uploadTime' => 'UploadTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

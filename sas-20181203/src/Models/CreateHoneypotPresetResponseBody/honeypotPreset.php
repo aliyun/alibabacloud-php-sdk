@@ -20,9 +20,7 @@ class honeypotPreset extends Model
         'honeypotPresetId' => 'HoneypotPresetId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

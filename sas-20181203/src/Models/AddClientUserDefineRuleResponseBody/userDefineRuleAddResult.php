@@ -39,14 +39,12 @@ class userDefineRuleAddResult extends Model
      */
     public $switchId;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'platform' => 'Platform',
         'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

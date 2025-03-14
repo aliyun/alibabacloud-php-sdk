@@ -36,13 +36,11 @@ class controlNode extends Model
     public $nodeName;
     protected $_name = [
         'ecsInstanceId' => 'EcsInstanceId',
-        'nodeId'        => 'NodeId',
-        'nodeName'      => 'NodeName',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

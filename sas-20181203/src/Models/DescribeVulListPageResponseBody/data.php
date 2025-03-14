@@ -86,19 +86,17 @@ class data extends Model
      */
     public $title;
     protected $_name = [
-        'cveId'       => 'CveId',
-        'extAegis'    => 'ExtAegis',
-        'id'          => 'Id',
-        'isAegis'     => 'IsAegis',
-        'isSas'       => 'IsSas',
-        'otherId'     => 'OtherId',
+        'cveId' => 'CveId',
+        'extAegis' => 'ExtAegis',
+        'id' => 'Id',
+        'isAegis' => 'IsAegis',
+        'isSas' => 'IsSas',
+        'otherId' => 'OtherId',
         'releaseTime' => 'ReleaseTime',
-        'title'       => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

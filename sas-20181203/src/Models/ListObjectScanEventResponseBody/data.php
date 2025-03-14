@@ -155,26 +155,24 @@ class data extends Model
      */
     public $source;
     protected $_name = [
-        'bucketName'           => 'BucketName',
-        'details'              => 'Details',
+        'bucketName' => 'BucketName',
+        'details' => 'Details',
         'displaySandboxResult' => 'DisplaySandboxResult',
-        'eventId'              => 'EventId',
-        'eventName'            => 'EventName',
-        'filePath'             => 'FilePath',
-        'firstTime'            => 'FirstTime',
-        'hasSubEvent'          => 'HasSubEvent',
-        'lastTime'             => 'LastTime',
-        'md5'                  => 'Md5',
-        'ossKey'               => 'OssKey',
-        'riskLevel'            => 'RiskLevel',
-        'sha1'                 => 'Sha1',
-        'sha256'               => 'Sha256',
-        'source'               => 'Source',
+        'eventId' => 'EventId',
+        'eventName' => 'EventName',
+        'filePath' => 'FilePath',
+        'firstTime' => 'FirstTime',
+        'hasSubEvent' => 'HasSubEvent',
+        'lastTime' => 'LastTime',
+        'md5' => 'Md5',
+        'ossKey' => 'OssKey',
+        'riskLevel' => 'RiskLevel',
+        'sha1' => 'Sha1',
+        'sha256' => 'Sha256',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -248,7 +246,7 @@ class data extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

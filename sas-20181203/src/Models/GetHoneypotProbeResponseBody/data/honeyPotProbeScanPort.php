@@ -21,7 +21,10 @@ class honeyPotProbeScanPort extends Model
      * @description The ports that are monitored.
      *
      * @example {
+     * "tcp": "1-65535",
+     * "udp": "1-65535"
      * }
+     *
      * @var string
      */
     public $ports;
@@ -54,16 +57,14 @@ class honeyPotProbeScanPort extends Model
      */
     public $status;
     protected $_name = [
-        'id'            => 'Id',
-        'ports'         => 'Ports',
-        'probeId'       => 'ProbeId',
+        'id' => 'Id',
+        'ports' => 'Ports',
+        'probeId' => 'ProbeId',
         'serviceIpList' => 'ServiceIpList',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

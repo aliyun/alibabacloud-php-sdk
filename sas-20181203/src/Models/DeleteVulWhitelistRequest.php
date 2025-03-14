@@ -12,6 +12,7 @@ class DeleteVulWhitelistRequest extends Model
      * @description The ID of the whitelist.
      *
      * >  To delete a vulnerability whitelist, you must provide the ID of the whitelist. You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
+     *
      * @example 131231
      *
      * @var string
@@ -34,18 +35,22 @@ class DeleteVulWhitelistRequest extends Model
      *   **AliasName**: the alias of the vulnerability.
      *
      * @example [
+     * {
+     * "Name": "oval:com.redhat.rhsa:def:20173263",
+     * "Type": "cve",
+     * "AliasName": "RHSA-2017:3263: curl security update"
+     * }
      * ]
+     *
      * @var string
      */
     public $whitelist;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeContainerFieldStatisticsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'containerGroupedFields' => 'ContainerGroupedFields',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

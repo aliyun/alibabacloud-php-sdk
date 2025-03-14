@@ -98,21 +98,19 @@ class clusterList extends Model
      */
     public $status;
     protected $_name = [
-        'authKey'        => 'AuthKey',
-        'authKeySecret'  => 'AuthKeySecret',
-        'clientCount'    => 'ClientCount',
-        'clusterName'    => 'ClusterName',
+        'authKey' => 'AuthKey',
+        'authKeySecret' => 'AuthKeySecret',
+        'clientCount' => 'ClientCount',
+        'clusterName' => 'ClusterName',
         'installCommand' => 'InstallCommand',
-        'ip'             => 'Ip',
-        'lastHeartTime'  => 'LastHeartTime',
-        'proxyCount'     => 'ProxyCount',
-        'remark'         => 'Remark',
-        'status'         => 'Status',
+        'ip' => 'Ip',
+        'lastHeartTime' => 'LastHeartTime',
+        'proxyCount' => 'ProxyCount',
+        'remark' => 'Remark',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

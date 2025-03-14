@@ -88,20 +88,18 @@ class baseConfigs extends Model
      */
     public $uuidCount;
     protected $_name = [
-        'account'    => 'Account',
-        'endTime'    => 'EndTime',
-        'ip'         => 'Ip',
-        'location'   => 'Location',
-        'remark'     => 'Remark',
-        'startTime'  => 'StartTime',
+        'account' => 'Account',
+        'endTime' => 'EndTime',
+        'ip' => 'Ip',
+        'location' => 'Location',
+        'remark' => 'Remark',
+        'startTime' => 'StartTime',
         'targetList' => 'TargetList',
         'totalCount' => 'TotalCount',
-        'uuidCount'  => 'UuidCount',
+        'uuidCount' => 'UuidCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -172,7 +170,7 @@ class baseConfigs extends Model
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TargetList'] as $item) {
                     $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
                 }

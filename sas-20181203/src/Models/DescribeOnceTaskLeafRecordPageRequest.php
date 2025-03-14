@@ -12,6 +12,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
      * @description The number of the page to return.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
      * @description The number of entries to return on each page. Default value: 20
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -41,6 +43,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
      * @description Specifies whether extension information is associated.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -88,6 +91,7 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
      *   **IMAGE_REGISTRY_PULL**: image asset synchronization task
      *
      * This parameter is required.
+     *
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string
@@ -95,19 +99,17 @@ class DescribeOnceTaskLeafRecordPageRequest extends Model
     public $taskType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'pageSize'    => 'PageSize',
-        'relateInfo'  => 'RelateInfo',
-        'source'      => 'Source',
-        'startTime'   => 'StartTime',
-        'statusList'  => 'StatusList',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
+        'endTime' => 'EndTime',
+        'pageSize' => 'PageSize',
+        'relateInfo' => 'RelateInfo',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'statusList' => 'StatusList',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

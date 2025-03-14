@@ -21,6 +21,7 @@ class ExportVulRequest extends Model
      * @description The additional type of the vulnerabilities. You need to specify this parameter when you query application vulnerabilities. If you set the Type parameter to app, you must specify this parameter. Set the value to **sca**.
      *
      * > If this parameter is set to **sca**, **application vulnerabilities** and the **vulnerabilities that are detected based on software component analysis** are queried. If you do not specify this parameter, only application vulnerabilities are queried.
+     *
      * @example sca
      *
      * @var string
@@ -40,6 +41,7 @@ class ExportVulRequest extends Model
      * @description The end time of the first scan.
      *
      * >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1696186800000
      *
      * @var int
@@ -50,6 +52,7 @@ class ExportVulRequest extends Model
      * @description The start time of the first scan.
      *
      * >  This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1696128144000
      *
      * @var int
@@ -81,6 +84,7 @@ class ExportVulRequest extends Model
      * @description The server group ID of the server on which the vulnerabilities are detected.
      *
      * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * @example 8834224
      *
      * @var string
@@ -156,6 +160,7 @@ class ExportVulRequest extends Model
      *   **emg**: urgent vulnerability
      *
      * This parameter is required.
+     *
      * @example app
      *
      * @var string
@@ -175,33 +180,32 @@ class ExportVulRequest extends Model
      * @description The ID of the virtual private cloud (VPC) in which the vulnerabilities are detected. Separate multiple IDs with commas (,).
      *
      * > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
+     *
      * @example ins-133****,ins-5414****
      *
      * @var string
      */
     public $vpcInstanceIds;
     protected $_name = [
-        'aliasName'      => 'AliasName',
-        'attachTypes'    => 'AttachTypes',
-        'containerName'  => 'ContainerName',
-        'createTsEnd'    => 'CreateTsEnd',
-        'createTsStart'  => 'CreateTsStart',
-        'cveId'          => 'CveId',
-        'dealed'         => 'Dealed',
-        'groupId'        => 'GroupId',
-        'imageName'      => 'ImageName',
-        'lang'           => 'Lang',
-        'necessity'      => 'Necessity',
-        'path'           => 'Path',
-        'searchTags'     => 'SearchTags',
-        'type'           => 'Type',
-        'uuids'          => 'Uuids',
+        'aliasName' => 'AliasName',
+        'attachTypes' => 'AttachTypes',
+        'containerName' => 'ContainerName',
+        'createTsEnd' => 'CreateTsEnd',
+        'createTsStart' => 'CreateTsStart',
+        'cveId' => 'CveId',
+        'dealed' => 'Dealed',
+        'groupId' => 'GroupId',
+        'imageName' => 'ImageName',
+        'lang' => 'Lang',
+        'necessity' => 'Necessity',
+        'path' => 'Path',
+        'searchTags' => 'SearchTags',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
         'vpcInstanceIds' => 'VpcInstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

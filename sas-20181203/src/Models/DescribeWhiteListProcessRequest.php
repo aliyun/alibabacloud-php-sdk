@@ -57,6 +57,7 @@ class DescribeWhiteListProcessRequest extends Model
      * @description The number of entries per page. Maximum value: 1000. Default value: 20. If you leave this parameter empty, 20 data entries are returned per page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -97,7 +98,10 @@ class DescribeWhiteListProcessRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 8562
      *
      * @var int
@@ -105,19 +109,17 @@ class DescribeWhiteListProcessRequest extends Model
     public $strategyId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'desc'        => 'Desc',
-        'lang'        => 'Lang',
-        'orderBy'     => 'OrderBy',
-        'pageSize'    => 'PageSize',
+        'desc' => 'Desc',
+        'lang' => 'Lang',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
         'processName' => 'ProcessName',
         'processType' => 'ProcessType',
-        'sourceIp'    => 'SourceIp',
-        'strategyId'  => 'StrategyId',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

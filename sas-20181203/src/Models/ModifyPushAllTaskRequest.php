@@ -33,6 +33,7 @@ class ModifyPushAllTaskRequest extends Model
      *   **SCA_SNAPSHOT**: middleware
      *
      * This parameter is required.
+     *
      * @example HEALTH_CHECK,OVAL_ENTITY
      *
      * @var string
@@ -43,6 +44,7 @@ class ModifyPushAllTaskRequest extends Model
      * @description The UUIDs of servers on which you want to perform security check tasks. Separate multiple UUIDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example inet-923b4538-0e88-409d-80ba-cb2e7487****,dc1691eb-656f-472f-b2aa-04f621f4****,70452f92-9fc1-45c5-ab35-e7bf8552****
      *
      * @var string
@@ -50,13 +52,11 @@ class ModifyPushAllTaskRequest extends Model
     public $uuids;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'tasks'    => 'Tasks',
-        'uuids'    => 'Uuids',
+        'tasks' => 'Tasks',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

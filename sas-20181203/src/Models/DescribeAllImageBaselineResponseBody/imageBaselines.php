@@ -19,9 +19,7 @@ class imageBaselines extends Model
         'baselineClassList' => 'BaselineClassList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class imageBaselines extends Model
         if (isset($map['BaselineClassList'])) {
             if (!empty($map['BaselineClassList'])) {
                 $model->baselineClassList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['BaselineClassList'] as $item) {
                     $model->baselineClassList[$n++] = null !== $item ? baselineClassList::fromMap($item) : $item;
                 }

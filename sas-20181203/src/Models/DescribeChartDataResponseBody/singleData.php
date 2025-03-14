@@ -35,14 +35,12 @@ class singleData extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'type'  => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

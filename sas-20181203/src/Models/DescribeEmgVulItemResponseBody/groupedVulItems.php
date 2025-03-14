@@ -66,6 +66,7 @@ class groupedVulItems extends Model
      * @description The progress of the urgent vulnerability detection task. Valid values: 0 to 100.
      *
      * >  This parameter takes effect only when an urgent vulnerability is being detected.
+     *
      * @example 50
      *
      * @var int
@@ -79,6 +80,7 @@ class groupedVulItems extends Model
      *   **1**: yes
      *
      * >  If this parameter is not returned, the application protection is not supported.
+     *
      * @example 1
      *
      * @var int
@@ -110,21 +112,19 @@ class groupedVulItems extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'    => 'AliasName',
-        'checkType'    => 'CheckType',
+        'aliasName' => 'AliasName',
+        'checkType' => 'CheckType',
         'gmtLastCheck' => 'GmtLastCheck',
-        'gmtPublish'   => 'GmtPublish',
-        'name'         => 'Name',
+        'gmtPublish' => 'GmtPublish',
+        'name' => 'Name',
         'pendingCount' => 'PendingCount',
-        'progress'     => 'Progress',
-        'raspDefend'   => 'RaspDefend',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'progress' => 'Progress',
+        'raspDefend' => 'RaspDefend',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

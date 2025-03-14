@@ -15,6 +15,7 @@ class DescribeInstanceVulStatisticsRequest extends Model
      *   **app**: application vulnerabilities detected by using a scanner
      *
      * >  Serverless instances allow you to detect only application vulnerabilities by using a scanner.
+     *
      * @example sca,app
      *
      * @var string
@@ -24,7 +25,10 @@ class DescribeInstanceVulStatisticsRequest extends Model
     /**
      * @description The UUID of the instance to query.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the instance.
+     *
      * This parameter is required.
+     *
      * @example 5b268326-273e-44fc-a0e3-9482435c****
      *
      * @var string
@@ -32,12 +36,10 @@ class DescribeInstanceVulStatisticsRequest extends Model
     public $uuid;
     protected $_name = [
         'types' => 'Types',
-        'uuid'  => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

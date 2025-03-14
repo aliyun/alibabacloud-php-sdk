@@ -102,20 +102,18 @@ class vulList extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'    => 'AliasName',
-        'asapCount'    => 'AsapCount',
-        'gmtLast'      => 'GmtLast',
+        'aliasName' => 'AliasName',
+        'asapCount' => 'AsapCount',
+        'gmtLast' => 'GmtLast',
         'handledCount' => 'HandledCount',
-        'laterCount'   => 'LaterCount',
-        'name'         => 'Name',
-        'nntfCount'    => 'NntfCount',
-        'tags'         => 'Tags',
-        'type'         => 'Type',
+        'laterCount' => 'LaterCount',
+        'name' => 'Name',
+        'nntfCount' => 'NntfCount',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,6 +20,7 @@ class ModifyStartVulScanRequest extends Model
      *   **sca**: vulnerabilities that are detected based on software component analysis
      *
      * > If you leave this parameter empty, all types of vulnerabilities can be detected.
+     *
      * @example "cve,sys,cms,app,emg"
      *
      * @var string
@@ -39,9 +40,7 @@ class ModifyStartVulScanRequest extends Model
         'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

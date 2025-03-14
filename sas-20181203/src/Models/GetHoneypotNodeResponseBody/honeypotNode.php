@@ -136,23 +136,21 @@ class honeypotNode extends Model
     public $upgradeAvailable;
     protected $_name = [
         'allowHoneypotAccessInternet' => 'AllowHoneypotAccessInternet',
-        'createTime'                  => 'CreateTime',
-        'ecsInstanceId'               => 'EcsInstanceId',
-        'honeypotTotalCount'          => 'HoneypotTotalCount',
-        'honeypotUsedCount'           => 'HoneypotUsedCount',
-        'nodeId'                      => 'NodeId',
-        'nodeIp'                      => 'NodeIp',
-        'nodeName'                    => 'NodeName',
-        'probeTotalCount'             => 'ProbeTotalCount',
-        'probeUsedCount'              => 'ProbeUsedCount',
-        'securityGroupProbeIpList'    => 'SecurityGroupProbeIpList',
-        'totalStatus'                 => 'TotalStatus',
-        'upgradeAvailable'            => 'UpgradeAvailable',
+        'createTime' => 'CreateTime',
+        'ecsInstanceId' => 'EcsInstanceId',
+        'honeypotTotalCount' => 'HoneypotTotalCount',
+        'honeypotUsedCount' => 'HoneypotUsedCount',
+        'nodeId' => 'NodeId',
+        'nodeIp' => 'NodeIp',
+        'nodeName' => 'NodeName',
+        'probeTotalCount' => 'ProbeTotalCount',
+        'probeUsedCount' => 'ProbeUsedCount',
+        'securityGroupProbeIpList' => 'SecurityGroupProbeIpList',
+        'totalStatus' => 'TotalStatus',
+        'upgradeAvailable' => 'UpgradeAvailable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

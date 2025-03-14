@@ -12,6 +12,7 @@ class assetList extends Model
      * @description The type of the asset.
      *
      * The value is fixed as **0**, which indicates ECS instances.
+     *
      * @example 0
      *
      * @var string
@@ -182,6 +183,7 @@ class assetList extends Model
      * @description The IP address of the ECS instance.
      *
      * >  If the ECS instance has a public IP address, the value of this parameter is the public IP address of the ECS instance. If the ECS instance does not have a public IP address, the value of this parameter is the private IP address of the ECS instance.
+     *
      * @example 10.10.XX.XX
      *
      * @var string
@@ -269,6 +271,7 @@ class assetList extends Model
      * @description The region in which the ECS instance resides.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -320,44 +323,42 @@ class assetList extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'assetType'      => 'AssetType',
+        'assetType' => 'AssetType',
         'authModifyTime' => 'AuthModifyTime',
-        'authVersion'    => 'AuthVersion',
-        'bind'           => 'Bind',
-        'clientStatus'   => 'ClientStatus',
-        'clientVersion'  => 'ClientVersion',
-        'cpu'            => 'Cpu',
-        'cpuInfo'        => 'CpuInfo',
-        'createTime'     => 'CreateTime',
-        'diskInfoList'   => 'DiskInfoList',
-        'flag'           => 'Flag',
-        'groupTrace'     => 'GroupTrace',
-        'hostName'       => 'HostName',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'ip'             => 'Ip',
-        'ipList'         => 'IpList',
-        'kernel'         => 'Kernel',
-        'macList'        => 'MacList',
-        'mem'            => 'Mem',
-        'memory'         => 'Memory',
-        'os'             => 'Os',
-        'osDetail'       => 'OsDetail',
-        'osName'         => 'OsName',
-        'region'         => 'Region',
-        'regionId'       => 'RegionId',
-        'regionName'     => 'RegionName',
-        'sysInfo'        => 'SysInfo',
-        'tag'            => 'Tag',
-        'uuid'           => 'Uuid',
-        'vpcInstanceId'  => 'VpcInstanceId',
+        'authVersion' => 'AuthVersion',
+        'bind' => 'Bind',
+        'clientStatus' => 'ClientStatus',
+        'clientVersion' => 'ClientVersion',
+        'cpu' => 'Cpu',
+        'cpuInfo' => 'CpuInfo',
+        'createTime' => 'CreateTime',
+        'diskInfoList' => 'DiskInfoList',
+        'flag' => 'Flag',
+        'groupTrace' => 'GroupTrace',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'ipList' => 'IpList',
+        'kernel' => 'Kernel',
+        'macList' => 'MacList',
+        'mem' => 'Mem',
+        'memory' => 'Memory',
+        'os' => 'Os',
+        'osDetail' => 'OsDetail',
+        'osName' => 'OsName',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'sysInfo' => 'SysInfo',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

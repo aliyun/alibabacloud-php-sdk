@@ -16,6 +16,7 @@ class DescribeFrontVulPatchListRequest extends Model
      *   **tag**: the tag that is added to the vulnerability. Set this field to **system**, which indicates Windows system vulnerabilities.
      *
      * This parameter is required.
+     *
      * @example [{"name":"5000803","uuid":"026c9296-1234-5678-b937-a7d81f05****","tag":"system"}]
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeFrontVulPatchListRequest extends Model
      * @description The operation that you want to perform on the vulnerability. Set the value to **vul_fix**, which indicates vulnerability fixing.
      *
      * This parameter is required.
+     *
      * @example vul_fix
      *
      * @var string
@@ -48,21 +50,20 @@ class DescribeFrontVulPatchListRequest extends Model
      * @description The type of the vulnerability. Set the value to **sys**, which indicates Windows system vulnerabilities.
      *
      * This parameter is required.
+     *
      * @example sys
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'info'        => 'Info',
-        'lang'        => 'Lang',
+        'info' => 'Info',
+        'lang' => 'Lang',
         'operateType' => 'OperateType',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

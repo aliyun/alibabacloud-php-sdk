@@ -21,6 +21,7 @@ class DescribeAntiBruteForceRulesRequest extends Model
      * @description The ID of the defense rule.
      *
      * > You can call the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to query the IDs of defense rules.
+     *
      * @example 1141****
      *
      * @var int
@@ -59,17 +60,15 @@ class DescribeAntiBruteForceRulesRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'id'              => 'Id',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'id' => 'Id',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

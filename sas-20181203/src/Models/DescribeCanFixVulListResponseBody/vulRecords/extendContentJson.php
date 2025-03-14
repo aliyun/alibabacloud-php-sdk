@@ -34,14 +34,12 @@ class extendContentJson extends Model
      */
     public $rpmEntityList;
     protected $_name = [
-        'os'            => 'Os',
-        'osRelease'     => 'OsRelease',
+        'os' => 'Os',
+        'osRelease' => 'OsRelease',
         'rpmEntityList' => 'RpmEntityList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class extendContentJson extends Model
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {
                 $model->rpmEntityList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RpmEntityList'] as $item) {
                     $model->rpmEntityList[$n++] = null !== $item ? rpmEntityList::fromMap($item) : $item;
                 }

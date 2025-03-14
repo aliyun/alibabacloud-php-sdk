@@ -11,7 +11,10 @@ class DeleteDingTalkRequest extends Model
     /**
      * @description The ID of the notification from the DingTalk chatbot. Separate multiple IDs with commas (,).
      *
+     * >  You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 2170,256
      *
      * @var string
@@ -21,9 +24,7 @@ class DeleteDingTalkRequest extends Model
         'ids' => 'Ids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

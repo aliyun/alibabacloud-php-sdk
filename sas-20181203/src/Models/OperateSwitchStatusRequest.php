@@ -11,7 +11,10 @@ class OperateSwitchStatusRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * >  You can call the ListContainerWebDefenseRule operation to query the IDs of rules.
+     *
      * This parameter is required.
+     *
      * @example 900001
      *
      * @var int
@@ -22,6 +25,7 @@ class OperateSwitchStatusRequest extends Model
      * @description The status of the rule. Valid values: on and off.
      *
      * This parameter is required.
+     *
      * @example on
      *
      * @var string
@@ -32,9 +36,7 @@ class OperateSwitchStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

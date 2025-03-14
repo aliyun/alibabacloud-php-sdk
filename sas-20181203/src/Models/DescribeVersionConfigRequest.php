@@ -12,6 +12,7 @@ class DescribeVersionConfigRequest extends Model
      * @description The ID of the Alibaba Cloud account that uses Security Center.
      *
      * >  You can call the [GetUser](https://help.aliyun.com/document_detail/28681.html) operation to query the IDs of Alibaba Cloud accounts.
+     *
      * @example 127608589417****
      *
      * @var string
@@ -28,12 +29,10 @@ class DescribeVersionConfigRequest extends Model
     public $sourceIp;
     protected $_name = [
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sourceIp'                   => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -67,24 +67,23 @@ class ListCheckRuleInstanceResponseBody extends Model
      * - **TENCENT**: Tencent Cloud
      * - **MICROSOFT**: Microsoft
      * - **AWS**: Amazon Web Services (AWS)
+     *
      * @example Aliyun
      *
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'aliUid'             => 'AliUid',
-        'assetSubType'       => 'AssetSubType',
-        'assetType'          => 'AssetType',
-        'checkId'            => 'CheckId',
+        'aliUid' => 'AliUid',
+        'assetSubType' => 'AssetSubType',
+        'assetType' => 'AssetType',
+        'checkId' => 'CheckId',
         'checkRuleInstances' => 'CheckRuleInstances',
-        'requestId'          => 'RequestId',
-        'vendor'             => 'Vendor',
+        'requestId' => 'RequestId',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -143,7 +142,7 @@ class ListCheckRuleInstanceResponseBody extends Model
         if (isset($map['CheckRuleInstances'])) {
             if (!empty($map['CheckRuleInstances'])) {
                 $model->checkRuleInstances = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['CheckRuleInstances'] as $item) {
                     $model->checkRuleInstances[$n++] = null !== $item ? checkRuleInstances::fromMap($item) : $item;
                 }

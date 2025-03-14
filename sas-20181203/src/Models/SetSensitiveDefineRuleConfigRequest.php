@@ -44,14 +44,12 @@ class SetSensitiveDefineRuleConfigRequest extends Model
      */
     public $source;
     protected $_name = [
-        'config'        => 'Config',
+        'config' => 'Config',
         'enableNewRule' => 'EnableNewRule',
-        'source'        => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

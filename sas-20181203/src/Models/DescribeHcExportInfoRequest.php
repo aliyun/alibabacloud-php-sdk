@@ -12,6 +12,7 @@ class DescribeHcExportInfoRequest extends Model
      * @description The ID of the export task.
      *
      * >  You can call the [ExportWarning](~~ExportWarning~~) operation to query the IDs of export tasks.
+     *
      * @example 443285
      *
      * @var int
@@ -21,9 +22,7 @@ class DescribeHcExportInfoRequest extends Model
         'exportId' => 'ExportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

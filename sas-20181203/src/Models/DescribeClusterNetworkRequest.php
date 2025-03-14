@@ -14,6 +14,7 @@ class DescribeClusterNetworkRequest extends Model
      * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
      *
      * This parameter is required.
+     *
      * @example 1656038940435
      *
      * @var int
@@ -26,19 +27,18 @@ class DescribeClusterNetworkRequest extends Model
      * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
      *
      * This parameter is required.
+     *
      * @example 1656038740435
      *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

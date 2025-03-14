@@ -142,25 +142,23 @@ class sensitiveFileList extends Model
      */
     public $uuid;
     protected $_name = [
-        'filePath'         => 'FilePath',
-        'firstScanTime'    => 'FirstScanTime',
-        'id'               => 'Id',
-        'instanceName'     => 'InstanceName',
-        'internetIp'       => 'InternetIp',
-        'intranetIp'       => 'IntranetIp',
-        'lastScanTime'     => 'LastScanTime',
-        'md5'              => 'Md5',
-        'prompt'           => 'Prompt',
-        'riskLevel'        => 'RiskLevel',
+        'filePath' => 'FilePath',
+        'firstScanTime' => 'FirstScanTime',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lastScanTime' => 'LastScanTime',
+        'md5' => 'Md5',
+        'prompt' => 'Prompt',
+        'riskLevel' => 'RiskLevel',
         'sensitiveFileKey' => 'SensitiveFileKey',
-        'status'           => 'Status',
-        'targetName'       => 'TargetName',
-        'uuid'             => 'Uuid',
+        'status' => 'Status',
+        'targetName' => 'TargetName',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

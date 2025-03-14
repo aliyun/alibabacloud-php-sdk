@@ -40,6 +40,7 @@ class data extends Model
      *
      * - **true**: Yes
      * - **false**: No
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +52,7 @@ class data extends Model
      *
      * - **true**: Yes
      * - **false**: No
+     *
      * @example true
      *
      * @var bool
@@ -61,6 +63,7 @@ class data extends Model
      * @description Serverless post-paid status. Values:
      * - **true**: Active
      * - **false**: Expired
+     *
      * @example true
      *
      * @var bool
@@ -75,6 +78,7 @@ class data extends Model
      * - **AGENTLESS**: Agentless detection module
      * - **SERVERLESS**: Serverless security module
      * - **CTDR**: Threat Detection and Response module
+     *
      * @example SERVERLESS
      *
      * @var string
@@ -94,6 +98,7 @@ class data extends Model
      * @description Post-paid instance status. Values:
      * - **1**: Active
      * - **2**: Suspended due to unpaid bills
+     *
      * @example 1
      *
      * @var int
@@ -109,21 +114,19 @@ class data extends Model
      */
     public $postpaidInstanceId;
     protected $_name = [
-        'appId'                     => 'AppId',
-        'coreCount'                 => 'CoreCount',
-        'instanceCount'             => 'InstanceCount',
-        'isBind'                    => 'IsBind',
-        'isPostPaid'                => 'IsPostPaid',
+        'appId' => 'AppId',
+        'coreCount' => 'CoreCount',
+        'instanceCount' => 'InstanceCount',
+        'isBind' => 'IsBind',
+        'isPostPaid' => 'IsPostPaid',
         'isServerlessPostPaidValid' => 'IsServerlessPostPaidValid',
-        'postPaidModuleSwitch'      => 'PostPaidModuleSwitch',
-        'postPaidOpenTime'          => 'PostPaidOpenTime',
-        'postPaidStatus'            => 'PostPaidStatus',
-        'postpaidInstanceId'        => 'PostpaidInstanceId',
+        'postPaidModuleSwitch' => 'PostPaidModuleSwitch',
+        'postPaidOpenTime' => 'PostPaidOpenTime',
+        'postPaidStatus' => 'PostPaidStatus',
+        'postpaidInstanceId' => 'PostpaidInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

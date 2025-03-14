@@ -12,6 +12,7 @@ class DescribeBackupPoliciesRequest extends Model
      * @description The number of the page to return. Default value: 1.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +41,7 @@ class DescribeBackupPoliciesRequest extends Model
      * @description The number of entries to return on each page. Default value: 10.
      *
      * This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -59,16 +61,14 @@ class DescribeBackupPoliciesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'machineRemark' => 'MachineRemark',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'status'        => 'Status',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,7 +37,10 @@ class ModifyOperateVulRequest extends Model
      *   **0**: no
      *   **1**: yes
      *
+     * >  You can fix multiple vulnerabilities at a time. Separate the details of multiple vulnerabilities with commas (,). You can call the [DescribeVulLIst](~~DescribeVulList~~) operation to query the details of vulnerabilities.
+     *
      * This parameter is required.
+     *
      * @example [{"name":"alilinux2:2.1903:ALINUX2-SA-2022:0007","uuid":"a3bb82a8-a3bd-4546-acce-45ac34af****","tag":"oval","isFront":0},{"name":"alilinux2:2.1903:ALINUX2-SA-2022:0007","uuid":"98a6fecc-88cd-46f2-8e35-f808a388****","tag":"oval","isFront":0}]
      *
      * @var string
@@ -54,6 +57,7 @@ class ModifyOperateVulRequest extends Model
      *   **vul_delete**: deletes the vulnerability.
      *
      * This parameter is required.
+     *
      * @example vul_fix
      *
      * @var string
@@ -64,6 +68,7 @@ class ModifyOperateVulRequest extends Model
      * @description The reason why the vulnerability is **ignored**.
      *
      * >  This parameter is required only when you set **OperateType** to **vul_ignore**.
+     *
      * @example not operate
      *
      * @var string
@@ -80,23 +85,24 @@ class ModifyOperateVulRequest extends Model
      *   **app**: application vulnerability
      *   **sca**: vulnerability that is detected based on software component analysis
      *
+     * >  You cannot fix the urgent vulnerabilities, application vulnerabilities, or vulnerabilities that are detected based on software component analysis.
+     *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'from'        => 'From',
-        'info'        => 'Info',
+        'from' => 'From',
+        'info' => 'Info',
         'operateType' => 'OperateType',
-        'reason'      => 'Reason',
-        'type'        => 'Type',
+        'reason' => 'Reason',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

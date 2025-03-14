@@ -102,21 +102,19 @@ class pathConfDTOList extends Model
      */
     public $processPathList;
     protected $_name = [
-        'backupPath'      => 'BackupPath',
-        'defenseMode'     => 'DefenseMode',
-        'defensePath'     => 'DefensePath',
-        'excludeFile'     => 'ExcludeFile',
+        'backupPath' => 'BackupPath',
+        'defenseMode' => 'DefenseMode',
+        'defensePath' => 'DefensePath',
+        'excludeFile' => 'ExcludeFile',
         'excludeFilePath' => 'ExcludeFilePath',
         'excludeFileType' => 'ExcludeFileType',
-        'guardType'       => 'GuardType',
-        'includeFile'     => 'IncludeFile',
+        'guardType' => 'GuardType',
+        'includeFile' => 'IncludeFile',
         'includeFileType' => 'IncludeFileType',
         'processPathList' => 'ProcessPathList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

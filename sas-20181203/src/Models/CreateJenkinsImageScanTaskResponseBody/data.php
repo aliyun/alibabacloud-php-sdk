@@ -63,16 +63,14 @@ class data extends Model
     public $uuid;
     protected $_name = [
         'imageScanCapacity' => 'ImageScanCapacity',
-        'repoId'            => 'RepoId',
-        'repoInstanceId'    => 'RepoInstanceId',
-        'repoRegionId'      => 'RepoRegionId',
-        'taskId'            => 'TaskId',
-        'uuid'              => 'Uuid',
+        'repoId' => 'RepoId',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoRegionId' => 'RepoRegionId',
+        'taskId' => 'TaskId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

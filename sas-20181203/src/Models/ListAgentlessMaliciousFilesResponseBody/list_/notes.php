@@ -35,14 +35,12 @@ class notes extends Model
      */
     public $noteTime;
     protected $_name = [
-        'note'     => 'Note',
-        'noteId'   => 'NoteId',
+        'note' => 'Note',
+        'noteId' => 'NoteId',
         'noteTime' => 'NoteTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

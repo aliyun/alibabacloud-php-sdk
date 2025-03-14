@@ -25,13 +25,11 @@ class GetFileDetectResultResponseBody extends Model
      */
     public $resultList;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'resultList' => 'ResultList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetFileDetectResultResponseBody extends Model
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
                 $model->resultList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ResultList'] as $item) {
                     $model->resultList[$n++] = null !== $item ? resultList::fromMap($item) : $item;
                 }

@@ -28,13 +28,11 @@ class UpdateFileProtectEventStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

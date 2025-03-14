@@ -22,6 +22,7 @@ class AddCheckInstanceResultWhiteListRequest extends Model
      * @description The ID of the check item.
      *
      * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+     *
      * @example 132
      *
      * @var int
@@ -63,16 +64,14 @@ class AddCheckInstanceResultWhiteListRequest extends Model
     public $ruleType;
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
-        'checkId'      => 'CheckId',
-        'instanceIds'  => 'InstanceIds',
+        'checkId' => 'CheckId',
+        'instanceIds' => 'InstanceIds',
         'instanceList' => 'InstanceList',
-        'remark'       => 'Remark',
-        'ruleType'     => 'RuleType',
+        'remark' => 'Remark',
+        'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +126,7 @@ class AddCheckInstanceResultWhiteListRequest extends Model
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceList'] as $item) {
                     $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
                 }

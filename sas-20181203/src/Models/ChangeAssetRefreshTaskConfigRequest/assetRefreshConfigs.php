@@ -72,15 +72,13 @@ class assetRefreshConfigs extends Model
     public $vendor;
     protected $_name = [
         'refreshConfigType' => 'RefreshConfigType',
-        'schedulePeriod'    => 'SchedulePeriod',
-        'status'            => 'Status',
-        'targetId'          => 'TargetId',
-        'vendor'            => 'Vendor',
+        'schedulePeriod' => 'SchedulePeriod',
+        'status' => 'Status',
+        'targetId' => 'TargetId',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

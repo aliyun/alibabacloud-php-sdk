@@ -26,12 +26,10 @@ class CreateOpaClusterPluginResponseBody extends Model
     public $requestId;
     protected $_name = [
         'installStatus' => 'InstallStatus',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class CreateOpaClusterPluginResponseBody extends Model
         if (isset($map['InstallStatus'])) {
             if (!empty($map['InstallStatus'])) {
                 $model->installStatus = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InstallStatus'] as $item) {
                     $model->installStatus[$n++] = null !== $item ? installStatus::fromMap($item) : $item;
                 }

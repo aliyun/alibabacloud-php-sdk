@@ -51,6 +51,7 @@ class instances extends Model
      * @description The number of cores of assets in the specified asset type.
      *
      * >  If the **MachineTypes** request parameter is not specified, the value of the InstanceCoreCount parameter indicates the total number of cores of assets within your account.
+     *
      * @example 610
      *
      * @var int
@@ -61,6 +62,7 @@ class instances extends Model
      * @description The total number of assets that belong to the specified type.
      *
      * >  If the **MachineTypes** request parameter is not specified, the value of the InstanceCount parameter is the total number of your assets.
+     *
      * @example 205
      *
      * @var string
@@ -74,6 +76,7 @@ class instances extends Model
      * **linux**
      *
      * > This parameter is returned only when Lang is set to zh.
+     *
      * @example windows
      *
      * @var string
@@ -98,20 +101,18 @@ class instances extends Model
      */
     public $unProtectedInstanceCount;
     protected $_name = [
-        'asapVulInstanceCount'     => 'AsapVulInstanceCount',
-        'authVersionCheckCount'    => 'AuthVersionCheckCount',
-        'fieldAliasName'           => 'FieldAliasName',
-        'groupFlag'                => 'GroupFlag',
-        'instanceCoreCount'        => 'InstanceCoreCount',
-        'instanceCount'            => 'InstanceCount',
-        'os'                       => 'Os',
-        'riskInstanceCount'        => 'RiskInstanceCount',
+        'asapVulInstanceCount' => 'AsapVulInstanceCount',
+        'authVersionCheckCount' => 'AuthVersionCheckCount',
+        'fieldAliasName' => 'FieldAliasName',
+        'groupFlag' => 'GroupFlag',
+        'instanceCoreCount' => 'InstanceCoreCount',
+        'instanceCount' => 'InstanceCount',
+        'os' => 'Os',
+        'riskInstanceCount' => 'RiskInstanceCount',
         'unProtectedInstanceCount' => 'UnProtectedInstanceCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

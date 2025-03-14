@@ -11,7 +11,10 @@ class DeleteBackupPolicyRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy that you want to delete.
      *
+     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -30,13 +33,11 @@ class DeleteBackupPolicyRequest extends Model
      */
     public $policyVersion;
     protected $_name = [
-        'id'            => 'Id',
+        'id' => 'Id',
         'policyVersion' => 'PolicyVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

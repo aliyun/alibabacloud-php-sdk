@@ -84,6 +84,7 @@ class nodePluginInfoList extends Model
      *   **false**
      *
      * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
+     *
      * @example true
      *
      * @var bool
@@ -126,23 +127,21 @@ class nodePluginInfoList extends Model
      */
     public $instanceId;
     protected $_name = [
-        'errorCode'         => 'ErrorCode',
-        'errorMsg'          => 'ErrorMsg',
-        'installed'         => 'Installed',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'installed' => 'Installed',
         'machineInternetIp' => 'MachineInternetIp',
         'machineIntranetIp' => 'MachineIntranetIp',
-        'machineName'       => 'MachineName',
-        'machineType'       => 'MachineType',
-        'online'            => 'Online',
-        'pluginName'        => 'PluginName',
-        'pluginVersion'     => 'PluginVersion',
-        'uuid'              => 'Uuid',
-        'instanceId'        => 'instanceId',
+        'machineName' => 'MachineName',
+        'machineType' => 'MachineType',
+        'online' => 'Online',
+        'pluginName' => 'PluginName',
+        'pluginVersion' => 'PluginVersion',
+        'uuid' => 'Uuid',
+        'instanceId' => 'instanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

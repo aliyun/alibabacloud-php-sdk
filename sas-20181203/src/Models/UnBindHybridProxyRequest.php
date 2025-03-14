@@ -11,7 +11,10 @@ class UnBindHybridProxyRequest extends Model
     /**
      * @description The cluster name.
      *
+     * > This parameter is deprecated.
+     *
      * This parameter is required.
+     *
      * @example proxy-test
      *
      * @var string
@@ -22,6 +25,7 @@ class UnBindHybridProxyRequest extends Model
      * @description The UUIDs of servers that you want to add to Security Center over the proxy server.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $yundunUuids;
@@ -30,9 +34,7 @@ class UnBindHybridProxyRequest extends Model
         'yundunUuids' => 'YundunUuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,8 +15,17 @@ class SetBuildRiskDefineRuleConfigRequest extends Model
      *   **ruleList**: Set the value to a valid value of the RuleKey parameter in RuleList.
      *
      * >  You can call the [GetBuildRiskDefineRuleConfig](~~GetBuildRiskDefineRuleConfig~~) operation to query the valid values.
+     *
      * @example [
+     * {
+     * "classKey": "other",
+     * "ruleList": [
+     * "add",
+     * "apk"
      * ]
+     * }
+     * ]
+     *
      * @var string
      */
     public $config;
@@ -24,9 +33,7 @@ class SetBuildRiskDefineRuleConfigRequest extends Model
         'config' => 'Config',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

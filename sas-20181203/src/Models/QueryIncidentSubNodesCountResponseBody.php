@@ -33,14 +33,12 @@ class QueryIncidentSubNodesCountResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'subNodesCount' => 'SubNodesCount',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

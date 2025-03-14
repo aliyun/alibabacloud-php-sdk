@@ -59,15 +59,13 @@ class aegisSuspiciousConfigList extends Model
      */
     public $type;
     protected $_name = [
-        'config'        => 'Config',
-        'msg'           => 'Msg',
+        'config' => 'Config',
+        'msg' => 'Msg',
         'overallConfig' => 'OverallConfig',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

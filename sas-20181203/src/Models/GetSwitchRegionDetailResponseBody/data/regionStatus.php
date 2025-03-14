@@ -47,15 +47,13 @@ class regionStatus extends Model
      */
     public $status;
     protected $_name = [
-        'ecsCount'          => 'EcsCount',
+        'ecsCount' => 'EcsCount',
         'gmtPlanSwitchTime' => 'GmtPlanSwitchTime',
-        'regionId'          => 'RegionId',
-        'status'            => 'Status',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

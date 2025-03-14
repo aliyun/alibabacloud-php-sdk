@@ -20,9 +20,7 @@ class logs extends Model
         'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

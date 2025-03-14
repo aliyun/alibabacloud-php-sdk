@@ -33,14 +33,12 @@ class VerifyCheckCustomConfigRequest extends Model
      */
     public $repairConfigs;
     protected $_name = [
-        'checkId'       => 'CheckId',
+        'checkId' => 'CheckId',
         'customConfigs' => 'CustomConfigs',
         'repairConfigs' => 'RepairConfigs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +82,7 @@ class VerifyCheckCustomConfigRequest extends Model
         if (isset($map['CustomConfigs'])) {
             if (!empty($map['CustomConfigs'])) {
                 $model->customConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CustomConfigs'] as $item) {
                     $model->customConfigs[$n++] = null !== $item ? customConfigs::fromMap($item) : $item;
                 }
@@ -93,7 +91,7 @@ class VerifyCheckCustomConfigRequest extends Model
         if (isset($map['RepairConfigs'])) {
             if (!empty($map['RepairConfigs'])) {
                 $model->repairConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RepairConfigs'] as $item) {
                     $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
                 }

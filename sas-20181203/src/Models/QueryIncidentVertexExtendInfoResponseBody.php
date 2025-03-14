@@ -46,15 +46,13 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
      */
     public $vertexExtendInfo;
     protected $_name = [
-        'count'            => 'Count',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'count' => 'Count',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'vertexExtendInfo' => 'VertexExtendInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +99,7 @@ class QueryIncidentVertexExtendInfoResponseBody extends Model
         if (isset($map['VertexExtendInfo'])) {
             if (!empty($map['VertexExtendInfo'])) {
                 $model->vertexExtendInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['VertexExtendInfo'] as $item) {
                     $model->vertexExtendInfo[$n++] = null !== $item ? vertexExtendInfo::fromMap($item) : $item;
                 }

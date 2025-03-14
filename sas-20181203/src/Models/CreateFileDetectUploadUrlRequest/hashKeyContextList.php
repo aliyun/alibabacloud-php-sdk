@@ -27,12 +27,10 @@ class hashKeyContextList extends Model
     public $hashKey;
     protected $_name = [
         'fileSize' => 'FileSize',
-        'hashKey'  => 'HashKey',
+        'hashKey' => 'HashKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

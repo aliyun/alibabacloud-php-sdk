@@ -34,13 +34,11 @@ class DescribeCustomBlockInstancesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceList' => 'InstanceList',
-        'pageInfo'     => 'PageInfo',
-        'requestId'    => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeCustomBlockInstancesResponseBody extends Model
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceList'] as $item) {
                     $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
                 }

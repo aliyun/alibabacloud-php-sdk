@@ -44,20 +44,19 @@ class DescribeInstanceAntiBruteForceRulesRequest extends Model
      * @description The UUIDs of the servers.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'uuidList'        => 'UuidList',
+        'sourceIp' => 'SourceIp',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

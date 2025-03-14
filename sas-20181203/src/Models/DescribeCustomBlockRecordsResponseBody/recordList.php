@@ -96,19 +96,17 @@ class recordList extends Model
     public $targetList;
     protected $_name = [
         'blockExpireDate' => 'BlockExpireDate',
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
-        'enableCount'     => 'EnableCount',
-        'id'              => 'Id',
-        'serverCount'     => 'ServerCount',
-        'source'          => 'Source',
-        'status'          => 'Status',
-        'targetList'      => 'TargetList',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
+        'enableCount' => 'EnableCount',
+        'id' => 'Id',
+        'serverCount' => 'ServerCount',
+        'source' => 'Source',
+        'status' => 'Status',
+        'targetList' => 'TargetList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -185,7 +183,7 @@ class recordList extends Model
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TargetList'] as $item) {
                     $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
                 }

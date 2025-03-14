@@ -20,9 +20,7 @@ class checkPolicies extends Model
         'sectionShowName' => 'sectionShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,6 +24,7 @@ class DescribeExposedInstanceDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -33,21 +34,22 @@ class DescribeExposedInstanceDetailRequest extends Model
     /**
      * @description The UUID of the server or the instance ID of the database that is exposed on the Internet.
      *
+     * >  You can call the [DescribeExposedInstanceList](~~DescribeExposedInstanceList~~) operation to query the UUIDs of servers or instance IDs of databases.
+     *
      * This parameter is required.
+     *
      * @example fc82b966-4d70-4e01-bf4f-aa4076a5****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'lang'                       => 'Lang',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'uuid'                       => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

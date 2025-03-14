@@ -21,6 +21,7 @@ class GetServerlessAuthSummaryRequest extends Model
      * @description Server type:
      * - **RunD**
      * - **ECI**
+     *
      * @example RunD
      *
      * @var string
@@ -32,6 +33,7 @@ class GetServerlessAuthSummaryRequest extends Model
      * - **ASK**
      * - **SAE**
      * - **ACS**
+     *
      * @example SAE
      *
      * @var string
@@ -40,12 +42,10 @@ class GetServerlessAuthSummaryRequest extends Model
     protected $_name = [
         'appRegionId' => 'AppRegionId',
         'machineType' => 'MachineType',
-        'vendorType'  => 'VendorType',
+        'vendorType' => 'VendorType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -72,18 +72,16 @@ class ListHoneypotProbeUuidResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'count'          => 'Count',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'count' => 'Count',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

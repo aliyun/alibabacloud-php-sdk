@@ -11,7 +11,10 @@ class ResetHoneypotRequest extends Model
     /**
      * @description The ID of the honeypot.
      *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+     *
      * This parameter is required.
+     *
      * @example 945607c2ae2a1a737c04599d6608065688bfc6048d9b9d306ce8dc8191c*****
      *
      * @var string
@@ -31,12 +34,10 @@ class ResetHoneypotRequest extends Model
     public $lang;
     protected $_name = [
         'honeypotId' => 'HoneypotId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

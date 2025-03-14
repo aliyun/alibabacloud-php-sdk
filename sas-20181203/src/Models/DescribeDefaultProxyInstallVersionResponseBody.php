@@ -27,12 +27,10 @@ class DescribeDefaultProxyInstallVersionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'installVersion' => 'InstallVersion',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

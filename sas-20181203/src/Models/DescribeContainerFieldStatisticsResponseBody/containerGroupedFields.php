@@ -125,24 +125,22 @@ class containerGroupedFields extends Model
      */
     public $riskPodCount;
     protected $_name = [
-        'appCount'           => 'AppCount',
-        'clusterCount'       => 'ClusterCount',
-        'containerCount'     => 'ContainerCount',
-        'imageCount'         => 'ImageCount',
-        'instanceCount'      => 'InstanceCount',
-        'namespaceCount'     => 'NamespaceCount',
-        'podCount'           => 'PodCount',
-        'riskAppCount'       => 'RiskAppCount',
-        'riskClusterCount'   => 'RiskClusterCount',
+        'appCount' => 'AppCount',
+        'clusterCount' => 'ClusterCount',
+        'containerCount' => 'ContainerCount',
+        'imageCount' => 'ImageCount',
+        'instanceCount' => 'InstanceCount',
+        'namespaceCount' => 'NamespaceCount',
+        'podCount' => 'PodCount',
+        'riskAppCount' => 'RiskAppCount',
+        'riskClusterCount' => 'RiskClusterCount',
         'riskContainerCount' => 'RiskContainerCount',
-        'riskImageCount'     => 'RiskImageCount',
-        'riskInstanceCount'  => 'RiskInstanceCount',
-        'riskPodCount'       => 'RiskPodCount',
+        'riskImageCount' => 'RiskImageCount',
+        'riskInstanceCount' => 'RiskInstanceCount',
+        'riskPodCount' => 'RiskPodCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

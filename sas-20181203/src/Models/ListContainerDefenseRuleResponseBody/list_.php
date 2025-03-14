@@ -89,19 +89,17 @@ class list_ extends Model
      */
     public $ruleType;
     protected $_name = [
-        'clusterCount'  => 'ClusterCount',
+        'clusterCount' => 'ClusterCount',
         'clusterIdList' => 'ClusterIdList',
-        'description'   => 'Description',
-        'ruleAction'    => 'RuleAction',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
-        'ruleSwitch'    => 'RuleSwitch',
-        'ruleType'      => 'RuleType',
+        'description' => 'Description',
+        'ruleAction' => 'RuleAction',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
+        'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

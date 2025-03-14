@@ -25,13 +25,11 @@ class DescribeSoarStrategyTaskParamsResponseBody extends Model
      */
     public $taskDetail;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'taskDetail' => 'TaskDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

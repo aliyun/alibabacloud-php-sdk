@@ -12,6 +12,7 @@ class GetImageScanNumInPeriodRequest extends Model
      * @description The number of days.
      *
      * This parameter is required.
+     *
      * @example 7
      *
      * @var string
@@ -21,9 +22,7 @@ class GetImageScanNumInPeriodRequest extends Model
         'pastDay' => 'PastDay',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

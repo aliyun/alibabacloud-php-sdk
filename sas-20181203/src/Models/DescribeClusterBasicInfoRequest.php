@@ -11,7 +11,10 @@ class DescribeClusterBasicInfoRequest extends Model
     /**
      * @description The ID of the cluster that you want to query.
      *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * This parameter is required.
+     *
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -24,6 +27,7 @@ class DescribeClusterBasicInfoRequest extends Model
      *   **Cluster**: the ID of the cluster
      *
      * This parameter is required.
+     *
      * @example Cluster
      *
      * @var string
@@ -37,20 +41,19 @@ class DescribeClusterBasicInfoRequest extends Model
      *   **interceptionSwitch**: cluster microsegmentation
      *
      * This parameter is required.
+     *
      * @example containerNetwork
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'targetType' => 'TargetType',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

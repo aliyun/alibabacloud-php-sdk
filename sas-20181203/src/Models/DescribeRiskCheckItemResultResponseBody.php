@@ -26,12 +26,10 @@ class DescribeRiskCheckItemResultResponseBody extends Model
     public $requestId;
     protected $_name = [
         'pageContentResource' => 'PageContentResource',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

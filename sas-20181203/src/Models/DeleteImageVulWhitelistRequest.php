@@ -29,13 +29,11 @@ class DeleteImageVulWhitelistRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'ids'  => 'Ids',
+        'ids' => 'Ids',
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class context extends Model
      */
     public $signature;
     protected $_name = [
-        'accessId'  => 'AccessId',
-        'ossKey'    => 'OssKey',
-        'policy'    => 'Policy',
+        'accessId' => 'AccessId',
+        'ossKey' => 'OssKey',
+        'policy' => 'Policy',
         'signature' => 'Signature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

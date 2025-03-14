@@ -38,14 +38,12 @@ class imageRepoList extends Model
      */
     public $repoNamespace;
     protected $_name = [
-        'flag'          => 'Flag',
-        'repoName'      => 'RepoName',
+        'flag' => 'Flag',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

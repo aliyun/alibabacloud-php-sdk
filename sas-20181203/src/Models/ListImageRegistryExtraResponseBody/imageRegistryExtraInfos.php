@@ -60,23 +60,22 @@ class imageRegistryExtraInfos extends Model
      * - **harbor**: Harbor
      * - **quay**: Quay
      * - **CI/CD**: Jenkins
+     *
      * @example harbor
      *
      * @var string
      */
     public $registryType;
     protected $_name = [
-        'aliUid'       => 'AliUid',
-        'authToken'    => 'AuthToken',
-        'id'           => 'Id',
-        'namespace'    => 'Namespace',
-        'registryId'   => 'RegistryId',
+        'aliUid' => 'AliUid',
+        'authToken' => 'AuthToken',
+        'id' => 'Id',
+        'namespace' => 'Namespace',
+        'registryId' => 'RegistryId',
         'registryType' => 'RegistryType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

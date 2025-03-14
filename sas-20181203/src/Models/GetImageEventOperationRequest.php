@@ -29,13 +29,11 @@ class GetImageEventOperationRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class ListClusterInterceptionConfigResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterConfigList' => 'ClusterConfigList',
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListClusterInterceptionConfigResponseBody extends Model
         if (isset($map['ClusterConfigList'])) {
             if (!empty($map['ClusterConfigList'])) {
                 $model->clusterConfigList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ClusterConfigList'] as $item) {
                     $model->clusterConfigList[$n++] = null !== $item ? clusterConfigList::fromMap($item) : $item;
                 }

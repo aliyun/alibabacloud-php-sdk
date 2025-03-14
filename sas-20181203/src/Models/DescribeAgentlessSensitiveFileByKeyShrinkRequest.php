@@ -39,6 +39,7 @@ class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 50
      *
      * @var int
@@ -82,19 +83,17 @@ class DescribeAgentlessSensitiveFileByKeyShrinkRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'      => 'CurrentPage',
-        'imageUuid'        => 'ImageUuid',
-        'instanceId'       => 'InstanceId',
-        'pageSize'         => 'PageSize',
-        'remark'           => 'Remark',
-        'scanRangeShrink'  => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'imageUuid' => 'ImageUuid',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'scanRangeShrink' => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

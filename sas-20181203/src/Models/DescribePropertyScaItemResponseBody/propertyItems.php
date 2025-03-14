@@ -52,15 +52,13 @@ class propertyItems extends Model
      */
     public $typeDisplay;
     protected $_name = [
-        'bizType'     => 'BizType',
-        'count'       => 'Count',
-        'name'        => 'Name',
+        'bizType' => 'BizType',
+        'count' => 'Count',
+        'name' => 'Name',
         'typeDisplay' => 'TypeDisplay',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

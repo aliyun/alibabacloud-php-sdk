@@ -95,20 +95,18 @@ class installCodes extends Model
      */
     public $vendorName;
     protected $_name = [
-        'captchaCode'           => 'CaptchaCode',
-        'expiredDate'           => 'ExpiredDate',
-        'groupId'               => 'GroupId',
-        'groupName'             => 'GroupName',
-        'onlyImage'             => 'OnlyImage',
-        'os'                    => 'Os',
+        'captchaCode' => 'CaptchaCode',
+        'expiredDate' => 'ExpiredDate',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'onlyImage' => 'OnlyImage',
+        'os' => 'Os',
         'privateLinkEndpointId' => 'PrivateLinkEndpointId',
-        'proxyCluster'          => 'ProxyCluster',
-        'vendorName'            => 'VendorName',
+        'proxyCluster' => 'ProxyCluster',
+        'vendorName' => 'VendorName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

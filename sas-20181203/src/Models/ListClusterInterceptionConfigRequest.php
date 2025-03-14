@@ -26,6 +26,7 @@ class ListClusterInterceptionConfigRequest extends Model
      * @description The ID of the cluster.
      *
      * > You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string
@@ -60,15 +61,13 @@ class ListClusterInterceptionConfigRequest extends Model
     public $pageSize;
     protected $_name = [
         'clusterCNNFStatus' => 'ClusterCNNFStatus',
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'currentPage'       => 'CurrentPage',
-        'pageSize'          => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

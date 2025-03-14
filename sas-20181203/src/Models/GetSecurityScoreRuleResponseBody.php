@@ -37,14 +37,12 @@ class GetSecurityScoreRuleResponseBody extends Model
      */
     public $securityScoreRuleList;
     protected $_name = [
-        'enableStatus'          => 'EnableStatus',
-        'requestId'             => 'RequestId',
+        'enableStatus' => 'EnableStatus',
+        'requestId' => 'RequestId',
         'securityScoreRuleList' => 'SecurityScoreRuleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +83,7 @@ class GetSecurityScoreRuleResponseBody extends Model
         if (isset($map['SecurityScoreRuleList'])) {
             if (!empty($map['SecurityScoreRuleList'])) {
                 $model->securityScoreRuleList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['SecurityScoreRuleList'] as $item) {
                     $model->securityScoreRuleList[$n++] = null !== $item ? securityScoreRuleList::fromMap($item) : $item;
                 }

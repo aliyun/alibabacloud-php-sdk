@@ -147,25 +147,23 @@ class warningSummarys extends Model
      */
     public $warningMachineCount;
     protected $_name = [
-        'checkCount'          => 'CheckCount',
-        'checkExploit'        => 'CheckExploit',
-        'containerRisk'       => 'ContainerRisk',
-        'databaseRisk'        => 'DatabaseRisk',
-        'highWarningCount'    => 'HighWarningCount',
-        'lastFoundTime'       => 'LastFoundTime',
-        'level'               => 'Level',
-        'lowWarningCount'     => 'LowWarningCount',
-        'mediumWarningCount'  => 'MediumWarningCount',
-        'riskId'              => 'RiskId',
-        'riskName'            => 'RiskName',
-        'subTypeAlias'        => 'SubTypeAlias',
-        'typeAlias'           => 'TypeAlias',
+        'checkCount' => 'CheckCount',
+        'checkExploit' => 'CheckExploit',
+        'containerRisk' => 'ContainerRisk',
+        'databaseRisk' => 'DatabaseRisk',
+        'highWarningCount' => 'HighWarningCount',
+        'lastFoundTime' => 'LastFoundTime',
+        'level' => 'Level',
+        'lowWarningCount' => 'LowWarningCount',
+        'mediumWarningCount' => 'MediumWarningCount',
+        'riskId' => 'RiskId',
+        'riskName' => 'RiskName',
+        'subTypeAlias' => 'SubTypeAlias',
+        'typeAlias' => 'TypeAlias',
         'warningMachineCount' => 'WarningMachineCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

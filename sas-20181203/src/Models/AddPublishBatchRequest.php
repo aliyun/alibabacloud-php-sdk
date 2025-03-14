@@ -12,6 +12,7 @@ class AddPublishBatchRequest extends Model
      * @description The name of the release batch.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +23,7 @@ class AddPublishBatchRequest extends Model
      * @description The interval between two release batches.
      *
      * This parameter is required.
+     *
      * @example 60
      *
      * @var int
@@ -45,21 +47,20 @@ class AddPublishBatchRequest extends Model
      * @description The version to which you want to upgrade the agent.
      *
      * This parameter is required.
+     *
      * @example 0.0.9
      *
      * @var string
      */
     public $upgradeVersion;
     protected $_name = [
-        'batchName'      => 'BatchName',
-        'interval'       => 'Interval',
-        'operationBase'  => 'OperationBase',
+        'batchName' => 'BatchName',
+        'interval' => 'Interval',
+        'operationBase' => 'OperationBase',
         'upgradeVersion' => 'UpgradeVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

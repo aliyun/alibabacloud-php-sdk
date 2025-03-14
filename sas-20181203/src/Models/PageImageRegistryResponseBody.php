@@ -33,14 +33,12 @@ class PageImageRegistryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'list'      => 'List',
-        'pageInfo'  => 'PageInfo',
+        'list' => 'List',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class PageImageRegistryResponseBody extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

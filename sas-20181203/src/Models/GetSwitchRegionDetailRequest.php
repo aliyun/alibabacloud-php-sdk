@@ -36,9 +36,7 @@ class GetSwitchRegionDetailRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

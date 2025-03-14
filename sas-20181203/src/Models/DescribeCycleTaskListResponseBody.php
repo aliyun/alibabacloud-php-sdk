@@ -34,13 +34,11 @@ class DescribeCycleTaskListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'cycleScheduleResponseList' => 'CycleScheduleResponseList',
-        'pageInfo'                  => 'PageInfo',
-        'requestId'                 => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeCycleTaskListResponseBody extends Model
         if (isset($map['CycleScheduleResponseList'])) {
             if (!empty($map['CycleScheduleResponseList'])) {
                 $model->cycleScheduleResponseList = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['CycleScheduleResponseList'] as $item) {
                     $model->cycleScheduleResponseList[$n++] = null !== $item ? cycleScheduleResponseList::fromMap($item) : $item;
                 }

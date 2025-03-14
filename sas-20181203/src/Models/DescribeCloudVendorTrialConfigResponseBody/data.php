@@ -12,6 +12,7 @@ class data extends Model
      * @description Multi-cloud configuration information:
      * - *AWS*: Output parameters sqsQueueName, sqsRegion
      * - *Tencent*: Output parameters kafkaUserName, kafkaBootstrapServers, kafkaTopic
+     *
      * @example {\\"sqsRegion\\":\\"us-west-2\\",\\"sqsQueueName\\":\\"****\\"}
      *
      * @var string
@@ -35,6 +36,7 @@ class data extends Model
      * - **disable**: Configuration disabled
      * - **error**: Configuration access error
      * - **timeout**: Configuration access timeout
+     *
      * @example init
      *
      * @var string
@@ -42,13 +44,11 @@ class data extends Model
     public $status;
     protected $_name = [
         'authInfo' => 'AuthInfo',
-        'message'  => 'Message',
-        'status'   => 'Status',
+        'message' => 'Message',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

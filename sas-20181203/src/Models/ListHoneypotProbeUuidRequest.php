@@ -12,6 +12,7 @@ class ListHoneypotProbeUuidRequest extends Model
      * @description The ID of the management node.
      *
      * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+     *
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -43,13 +44,11 @@ class ListHoneypotProbeUuidRequest extends Model
     public $probeType;
     protected $_name = [
         'controlNodeId' => 'ControlNodeId',
-        'lang'          => 'Lang',
-        'probeType'     => 'ProbeType',
+        'lang' => 'Lang',
+        'probeType' => 'ProbeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

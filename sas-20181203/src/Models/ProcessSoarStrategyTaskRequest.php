@@ -10,7 +10,10 @@ class ProcessSoarStrategyTaskRequest extends Model
 {
     /**
      * @description ID of the strategy task.
+     * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+     *
      * This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -19,7 +22,11 @@ class ProcessSoarStrategyTaskRequest extends Model
 
     /**
      * @description Task action status. Values:
+     * - SCHEDULE: Schedule
+     * - PAUSE: Pause
+     *
      * This parameter is required.
+     *
      * @example SCHEDULE
      *
      * @var string
@@ -27,12 +34,10 @@ class ProcessSoarStrategyTaskRequest extends Model
     public $taskAction;
     protected $_name = [
         'strategyTaskId' => 'StrategyTaskId',
-        'taskAction'     => 'TaskAction',
+        'taskAction' => 'TaskAction',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

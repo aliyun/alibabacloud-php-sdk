@@ -25,13 +25,11 @@ class DescribeUniBackupPolicyDetailResponseBody extends Model
      */
     public $uniBackupPolicyDTO;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'uniBackupPolicyDTO' => 'UniBackupPolicyDTO',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -152,25 +152,23 @@ class data extends Model
      */
     public $unCompleteMachine;
     protected $_name = [
-        'completeMachine'   => 'CompleteMachine',
-        'machineName'       => 'MachineName',
-        'progress'          => 'Progress',
-        'riskLevel'         => 'RiskLevel',
-        'safeMachine'       => 'SafeMachine',
-        'scanMachine'       => 'ScanMachine',
-        'scanPath'          => 'ScanPath',
-        'scanTime'          => 'ScanTime',
-        'scanType'          => 'ScanType',
-        'status'            => 'Status',
-        'suspiciousCount'   => 'SuspiciousCount',
+        'completeMachine' => 'CompleteMachine',
+        'machineName' => 'MachineName',
+        'progress' => 'Progress',
+        'riskLevel' => 'RiskLevel',
+        'safeMachine' => 'SafeMachine',
+        'scanMachine' => 'ScanMachine',
+        'scanPath' => 'ScanPath',
+        'scanTime' => 'ScanTime',
+        'scanType' => 'ScanType',
+        'status' => 'Status',
+        'suspiciousCount' => 'SuspiciousCount',
         'suspiciousMachine' => 'SuspiciousMachine',
-        'taskId'            => 'TaskId',
+        'taskId' => 'TaskId',
         'unCompleteMachine' => 'UnCompleteMachine',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAntiBruteForceRulesResponseBody\rules\protocolType;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
@@ -24,6 +25,7 @@ class rules extends Model
      *   **false**: The defense rule is not the default rule.
      *
      * > The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
+     *
      * @example true
      *
      * @var bool
@@ -85,6 +87,11 @@ class rules extends Model
     public $name;
 
     /**
+     * @var protocolType
+     */
+    public $protocolType;
+
+    /**
      * @description The period of time during which logon failures from an account are measured. Unit: minutes. If **Span** is set to 10, the defense rule takes effect when the logon failures measured within 10 minutes reaches the specified threshold. The IP address of attackers cannot be used to log on to the server in the specified period of time.
      *
      * @example 10
@@ -101,20 +108,19 @@ class rules extends Model
     public $uuidList;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'defaultRule'     => 'DefaultRule',
+        'defaultRule' => 'DefaultRule',
         'enableSmartRule' => 'EnableSmartRule',
-        'failCount'       => 'FailCount',
-        'forbiddenTime'   => 'ForbiddenTime',
-        'id'              => 'Id',
-        'machineCount'    => 'MachineCount',
-        'name'            => 'Name',
-        'span'            => 'Span',
-        'uuidList'        => 'UuidList',
+        'failCount' => 'FailCount',
+        'forbiddenTime' => 'ForbiddenTime',
+        'id' => 'Id',
+        'machineCount' => 'MachineCount',
+        'name' => 'Name',
+        'protocolType' => 'ProtocolType',
+        'span' => 'Span',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,6 +148,9 @@ class rules extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = null !== $this->protocolType ? $this->protocolType->toMap() : null;
         }
         if (null !== $this->span) {
             $res['Span'] = $this->span;
@@ -184,6 +193,9 @@ class rules extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = protocolType::fromMap($map['ProtocolType']);
         }
         if (isset($map['Span'])) {
             $model->span = $map['Span'];

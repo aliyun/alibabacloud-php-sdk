@@ -12,6 +12,7 @@ class DescribeCheckWarningSummaryRequest extends Model
      * @description The ID of the container cluster.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c80dae73bd1be442699766b14ffd0****
      *
      * @var string
@@ -54,6 +55,7 @@ class DescribeCheckWarningSummaryRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+     *
      * @example 123
      *
      * @var int
@@ -150,6 +152,7 @@ class DescribeCheckWarningSummaryRequest extends Model
      * @description The level-1 type of check items.
      *
      * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+     *
      * @example database
      *
      * @var string
@@ -160,32 +163,31 @@ class DescribeCheckWarningSummaryRequest extends Model
      * @description The UUID of the asset.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     *
      * @example f03259d8-1e81-4fae-bcbb-275fb5****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'currentPage'         => 'CurrentPage',
-        'groupId'             => 'GroupId',
-        'lang'                => 'Lang',
-        'pageSize'            => 'PageSize',
-        'riskName'            => 'RiskName',
-        'riskStatus'          => 'RiskStatus',
-        'sourceIp'            => 'SourceIp',
-        'status'              => 'Status',
-        'strategyId'          => 'StrategyId',
-        'targetType'          => 'TargetType',
-        'typeName'            => 'TypeName',
-        'uuids'               => 'Uuids',
+        'currentPage' => 'CurrentPage',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskName' => 'RiskName',
+        'riskStatus' => 'RiskStatus',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
+        'strategyId' => 'StrategyId',
+        'targetType' => 'TargetType',
+        'typeName' => 'TypeName',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

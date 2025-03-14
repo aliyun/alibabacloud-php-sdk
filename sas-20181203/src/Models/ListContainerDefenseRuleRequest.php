@@ -29,6 +29,7 @@ class ListContainerDefenseRuleRequest extends Model
      * @description Specifies whether to query system rules.
      *
      * >  This parameter is deprecated.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +52,7 @@ class ListContainerDefenseRuleRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -69,17 +71,15 @@ class ListContainerDefenseRuleRequest extends Model
      */
     public $ruleType;
     protected $_name = [
-        'conditions'    => 'Conditions',
-        'currentPage'   => 'CurrentPage',
+        'conditions' => 'Conditions',
+        'currentPage' => 'CurrentPage',
         'isDefaultRule' => 'IsDefaultRule',
-        'lang'          => 'Lang',
-        'pageSize'      => 'PageSize',
-        'ruleType'      => 'RuleType',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +123,7 @@ class ListContainerDefenseRuleRequest extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Conditions'] as $item) {
                     $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
                 }

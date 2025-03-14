@@ -34,14 +34,12 @@ class ruleTree extends Model
      */
     public $ruleList;
     protected $_name = [
-        'classKey'  => 'ClassKey',
+        'classKey' => 'ClassKey',
         'className' => 'ClassName',
-        'ruleList'  => 'RuleList',
+        'ruleList' => 'RuleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class ruleTree extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['RuleList'] as $item) {
                     $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
                 }

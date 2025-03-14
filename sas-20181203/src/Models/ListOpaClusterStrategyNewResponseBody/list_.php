@@ -102,21 +102,19 @@ class list_ extends Model
      */
     public $unScanedImage;
     protected $_name = [
-        'action'         => 'Action',
-        'clusterCount'   => 'ClusterCount',
-        'clusterIdList'  => 'ClusterIdList',
-        'description'    => 'Description',
-        'imageName'      => 'ImageName',
-        'label'          => 'Label',
+        'action' => 'Action',
+        'clusterCount' => 'ClusterCount',
+        'clusterIdList' => 'ClusterIdList',
+        'description' => 'Description',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
         'maliciousImage' => 'MaliciousImage',
-        'strategyId'     => 'StrategyId',
-        'strategyName'   => 'StrategyName',
-        'unScanedImage'  => 'UnScanedImage',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
+        'unScanedImage' => 'UnScanedImage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -85,6 +85,7 @@ class DescribeCommonTargetConfigRequest extends Model
      *   **USER-ENABLE-SWITCH-TYPE_52829**: Deletes system backup behavior (Windows).
      *
      * This parameter is required.
+     *
      * @example kdump_switch
      *
      * @var string
@@ -94,9 +95,7 @@ class DescribeCommonTargetConfigRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

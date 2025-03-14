@@ -74,18 +74,16 @@ class machines extends Model
      */
     public $uuid;
     protected $_name = [
-        'bind'         => 'Bind',
-        'instanceId'   => 'InstanceId',
+        'bind' => 'Bind',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'regionId'     => 'RegionId',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

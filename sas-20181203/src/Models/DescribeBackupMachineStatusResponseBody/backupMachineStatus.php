@@ -129,23 +129,21 @@ class backupMachineStatus extends Model
      */
     public $vaultId;
     protected $_name = [
-        'clientId'         => 'ClientId',
-        'clientStatus'     => 'ClientStatus',
-        'clientVersion'    => 'ClientVersion',
-        'errorCode'        => 'ErrorCode',
-        'errorList'        => 'ErrorList',
-        'instanceId'       => 'InstanceId',
-        'regionId'         => 'RegionId',
+        'clientId' => 'ClientId',
+        'clientStatus' => 'ClientStatus',
+        'clientVersion' => 'ClientVersion',
+        'errorCode' => 'ErrorCode',
+        'errorList' => 'ErrorList',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'savedBackupCount' => 'SavedBackupCount',
-        'serviceStatus'    => 'ServiceStatus',
-        'status'           => 'Status',
-        'uuid'             => 'Uuid',
-        'vaultId'          => 'VaultId',
+        'serviceStatus' => 'ServiceStatus',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -219,7 +217,7 @@ class backupMachineStatus extends Model
         if (isset($map['ErrorList'])) {
             if (!empty($map['ErrorList'])) {
                 $model->errorList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ErrorList'] as $item) {
                     $model->errorList[$n++] = null !== $item ? errorList::fromMap($item) : $item;
                 }

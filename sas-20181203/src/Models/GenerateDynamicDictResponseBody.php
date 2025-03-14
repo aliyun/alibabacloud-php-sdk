@@ -25,12 +25,10 @@ class GenerateDynamicDictResponseBody extends Model
     public $requestId;
     protected $_name = [
         'keywordList' => 'KeywordList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

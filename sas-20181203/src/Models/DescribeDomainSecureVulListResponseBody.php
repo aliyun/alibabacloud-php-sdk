@@ -34,14 +34,12 @@ class DescribeDomainSecureVulListResponseBody extends Model
      */
     public $vulList;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'vulList'    => 'VulList',
+        'vulList' => 'VulList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeDomainSecureVulListResponseBody extends Model
         if (isset($map['VulList'])) {
             if (!empty($map['VulList'])) {
                 $model->vulList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['VulList'] as $item) {
                     $model->vulList[$n++] = null !== $item ? vulList::fromMap($item) : $item;
                 }

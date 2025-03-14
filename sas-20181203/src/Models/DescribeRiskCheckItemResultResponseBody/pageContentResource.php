@@ -61,16 +61,14 @@ class pageContentResource extends Model
     public $totalCount;
     protected $_name = [
         'contentResource' => 'ContentResource',
-        'count'           => 'Count',
-        'currentPage'     => 'CurrentPage',
-        'pageCount'       => 'PageCount',
-        'pageSize'        => 'PageSize',
-        'totalCount'      => 'TotalCount',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageCount' => 'PageCount',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

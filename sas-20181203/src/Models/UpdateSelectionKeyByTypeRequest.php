@@ -36,9 +36,7 @@ class UpdateSelectionKeyByTypeRequest extends Model
         'selectionKey' => 'SelectionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -52,15 +52,13 @@ class rebootStatuses extends Model
      */
     public $uuid;
     protected $_name = [
-        'code'         => 'Code',
-        'msg'          => 'Msg',
+        'code' => 'Code',
+        'msg' => 'Msg',
         'rebootStatus' => 'RebootStatus',
-        'uuid'         => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

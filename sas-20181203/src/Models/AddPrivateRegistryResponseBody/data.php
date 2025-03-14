@@ -147,25 +147,23 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'domainName'      => 'DomainName',
-        'id'              => 'Id',
-        'netType'         => 'NetType',
-        'password'        => 'Password',
-        'protocolType'    => 'ProtocolType',
-        'regionId'        => 'RegionId',
-        'registryHostIp'  => 'RegistryHostIp',
-        'registryType'    => 'RegistryType',
+        'aliUid' => 'AliUid',
+        'domainName' => 'DomainName',
+        'id' => 'Id',
+        'netType' => 'NetType',
+        'password' => 'Password',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'registryHostIp' => 'RegistryHostIp',
+        'registryType' => 'RegistryType',
         'registryVersion' => 'RegistryVersion',
-        'token'           => 'Token',
-        'transPerHour'    => 'TransPerHour',
-        'userName'        => 'UserName',
-        'vpcId'           => 'VpcId',
+        'token' => 'Token',
+        'transPerHour' => 'TransPerHour',
+        'userName' => 'UserName',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

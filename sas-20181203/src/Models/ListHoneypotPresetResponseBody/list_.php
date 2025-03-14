@@ -75,18 +75,16 @@ class list_ extends Model
      */
     public $presetType;
     protected $_name = [
-        'controlNodeName'          => 'ControlNodeName',
+        'controlNodeName' => 'ControlNodeName',
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
-        'honeypotImageName'        => 'HoneypotImageName',
-        'honeypotPresetId'         => 'HoneypotPresetId',
-        'nodeId'                   => 'NodeId',
-        'presetName'               => 'PresetName',
-        'presetType'               => 'PresetType',
+        'honeypotImageName' => 'HoneypotImageName',
+        'honeypotPresetId' => 'HoneypotPresetId',
+        'nodeId' => 'NodeId',
+        'presetName' => 'PresetName',
+        'presetType' => 'PresetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

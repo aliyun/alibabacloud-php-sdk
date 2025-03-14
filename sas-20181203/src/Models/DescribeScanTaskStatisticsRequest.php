@@ -24,9 +24,7 @@ class DescribeScanTaskStatisticsRequest extends Model
         'levels' => 'Levels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

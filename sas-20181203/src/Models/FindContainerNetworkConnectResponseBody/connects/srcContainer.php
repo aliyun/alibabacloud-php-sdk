@@ -20,9 +20,7 @@ class srcContainer extends Model
         'containerId' => 'ContainerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

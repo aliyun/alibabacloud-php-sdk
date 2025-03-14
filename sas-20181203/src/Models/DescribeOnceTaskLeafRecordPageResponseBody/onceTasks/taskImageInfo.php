@@ -177,28 +177,26 @@ class taskImageInfo extends Model
      */
     public $tag;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'costTimeInfo'   => 'CostTimeInfo',
-        'digest'         => 'Digest',
-        'image'          => 'Image',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'costTimeInfo' => 'CostTimeInfo',
+        'digest' => 'Digest',
+        'image' => 'Image',
         'nodeInstanceId' => 'NodeInstanceId',
-        'nodeIp'         => 'NodeIp',
-        'nodeName'       => 'NodeName',
-        'pod'            => 'Pod',
-        'regionId'       => 'RegionId',
-        'registryType'   => 'RegistryType',
-        'repoId'         => 'RepoId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'repoRegionId'   => 'RepoRegionId',
-        'tag'            => 'Tag',
+        'nodeIp' => 'NodeIp',
+        'nodeName' => 'NodeName',
+        'pod' => 'Pod',
+        'regionId' => 'RegionId',
+        'registryType' => 'RegistryType',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

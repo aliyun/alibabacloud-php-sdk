@@ -24,13 +24,11 @@ class DescribeVendorListResponseBody extends Model
      */
     public $vendorNameList;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'vendorNameList' => 'VendorNameList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

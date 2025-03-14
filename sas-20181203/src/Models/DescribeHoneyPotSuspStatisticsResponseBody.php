@@ -25,13 +25,11 @@ class DescribeHoneyPotSuspStatisticsResponseBody extends Model
      */
     public $suspHoneyPotStatisticsResponse;
     protected $_name = [
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
         'suspHoneyPotStatisticsResponse' => 'SuspHoneyPotStatisticsResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeHoneyPotSuspStatisticsResponseBody extends Model
         if (isset($map['SuspHoneyPotStatisticsResponse'])) {
             if (!empty($map['SuspHoneyPotStatisticsResponse'])) {
                 $model->suspHoneyPotStatisticsResponse = [];
-                $n                                     = 0;
+                $n = 0;
                 foreach ($map['SuspHoneyPotStatisticsResponse'] as $item) {
                     $model->suspHoneyPotStatisticsResponse[$n++] = null !== $item ? suspHoneyPotStatisticsResponse::fromMap($item) : $item;
                 }

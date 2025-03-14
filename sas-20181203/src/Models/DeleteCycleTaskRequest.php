@@ -11,7 +11,10 @@ class DeleteCycleTaskRequest extends Model
     /**
      * @description The ID of the task configuration.
      *
+     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+     *
      * This parameter is required.
+     *
      * @example 435f626256ebf564cf5ba966a539****
      *
      * @var string
@@ -21,9 +24,7 @@ class DeleteCycleTaskRequest extends Model
         'configId' => 'ConfigId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

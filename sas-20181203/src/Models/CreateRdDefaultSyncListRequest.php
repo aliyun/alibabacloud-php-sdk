@@ -12,6 +12,7 @@ class CreateRdDefaultSyncListRequest extends Model
      * @description The IDs of the folders in the resource directory.
      *
      * >  You can call the [GetRdTree](~~GetRdTree~~) operation to obtain the IDs of the folders. Separate multiple folder IDs with commas (,). If you do not specify a value for this parameter, the existing member list is cleared.
+     *
      * @example fd-BwoXuf****,fd-CFamY7****
      *
      * @var string
@@ -21,9 +22,7 @@ class CreateRdDefaultSyncListRequest extends Model
         'folderIds' => 'FolderIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

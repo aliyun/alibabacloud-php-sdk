@@ -35,14 +35,12 @@ class vpcSwitchIdList extends Model
      */
     public $zoneId;
     protected $_name = [
-        'vpcSwitchId'   => 'VpcSwitchId',
+        'vpcSwitchId' => 'VpcSwitchId',
         'vpcSwitchName' => 'VpcSwitchName',
-        'zoneId'        => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

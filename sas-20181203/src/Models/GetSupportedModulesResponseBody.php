@@ -25,13 +25,11 @@ class GetSupportedModulesResponseBody extends Model
      */
     public $supportedModuleResponse;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'supportedModuleResponse' => 'SupportedModuleResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetSupportedModulesResponseBody extends Model
         if (isset($map['SupportedModuleResponse'])) {
             if (!empty($map['SupportedModuleResponse'])) {
                 $model->supportedModuleResponse = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['SupportedModuleResponse'] as $item) {
                     $model->supportedModuleResponse[$n++] = null !== $item ? supportedModuleResponse::fromMap($item) : $item;
                 }

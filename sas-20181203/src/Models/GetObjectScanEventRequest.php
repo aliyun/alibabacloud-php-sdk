@@ -30,12 +30,10 @@ class GetObjectScanEventRequest extends Model
     public $lang;
     protected $_name = [
         'eventId' => 'EventId',
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -125,24 +125,22 @@ class DescribeVulNumStatisticsResponseBody extends Model
      */
     public $vulNntfSum;
     protected $_name = [
-        'appCnt'            => 'AppCnt',
-        'appNum'            => 'AppNum',
+        'appCnt' => 'AppCnt',
+        'appNum' => 'AppNum',
         'cmsDealedTotalNum' => 'CmsDealedTotalNum',
-        'cmsNum'            => 'CmsNum',
-        'cveNum'            => 'CveNum',
-        'emgNum'            => 'EmgNum',
-        'requestId'         => 'RequestId',
-        'scaNum'            => 'ScaNum',
-        'sysNum'            => 'SysNum',
-        'vulAsapSum'        => 'VulAsapSum',
+        'cmsNum' => 'CmsNum',
+        'cveNum' => 'CveNum',
+        'emgNum' => 'EmgNum',
+        'requestId' => 'RequestId',
+        'scaNum' => 'ScaNum',
+        'sysNum' => 'SysNum',
+        'vulAsapSum' => 'VulAsapSum',
         'vulDealedTotalNum' => 'VulDealedTotalNum',
-        'vulLaterSum'       => 'VulLaterSum',
-        'vulNntfSum'        => 'VulNntfSum',
+        'vulLaterSum' => 'VulLaterSum',
+        'vulNntfSum' => 'VulNntfSum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

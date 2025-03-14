@@ -46,6 +46,7 @@ class errorCheckConfigs extends Model
     /**
      * @description Type of the erroneous parameter:
      * - custom: Custom configuration parameter
+     *
      * @example custom
      *
      * @var string
@@ -61,17 +62,15 @@ class errorCheckConfigs extends Model
      */
     public $value;
     protected $_name = [
-        'errorCode'        => 'ErrorCode',
-        'errorMsg'         => 'ErrorMsg',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
         'linkErrorConfigs' => 'LinkErrorConfigs',
-        'name'             => 'Name',
-        'type'             => 'Type',
-        'value'            => 'Value',
+        'name' => 'Name',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +120,7 @@ class errorCheckConfigs extends Model
         if (isset($map['LinkErrorConfigs'])) {
             if (!empty($map['LinkErrorConfigs'])) {
                 $model->linkErrorConfigs = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['LinkErrorConfigs'] as $item) {
                     $model->linkErrorConfigs[$n++] = null !== $item ? linkErrorConfigs::fromMap($item) : $item;
                 }

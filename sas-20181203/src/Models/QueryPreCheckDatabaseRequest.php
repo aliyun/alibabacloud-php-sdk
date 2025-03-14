@@ -12,6 +12,7 @@ class QueryPreCheckDatabaseRequest extends Model
      * @description The UUID of the agent that is used to back up the data of the database.
      *
      * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
+     *
      * @example ebc895506c6911ed800000163e0e****
      *
      * @var string
@@ -22,6 +23,7 @@ class QueryPreCheckDatabaseRequest extends Model
      * @description The ID of the database precheck task.
      *
      * > You can call the [StartPreCheckDatabase](~~StartPreCheckDatabase~~) operation to query the ID of the database precheck task.
+     *
      * @example t-000bc9nqwxsbyvod****
      *
      * @var string
@@ -32,6 +34,7 @@ class QueryPreCheckDatabaseRequest extends Model
      * @description The region ID of the server that hosts the database.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +42,11 @@ class QueryPreCheckDatabaseRequest extends Model
     public $uniRegionId;
     protected $_name = [
         'instanceUuid' => 'InstanceUuid',
-        'taskId'       => 'TaskId',
-        'uniRegionId'  => 'UniRegionId',
+        'taskId' => 'TaskId',
+        'uniRegionId' => 'UniRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

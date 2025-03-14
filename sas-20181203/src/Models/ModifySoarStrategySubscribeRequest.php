@@ -11,7 +11,10 @@ class ModifySoarStrategySubscribeRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 8000
      *
      * @var int
@@ -25,19 +28,18 @@ class ModifySoarStrategySubscribeRequest extends Model
      *   false: deletes the policy template
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
      */
     public $subscribeStatus;
     protected $_name = [
-        'strategyId'      => 'StrategyId',
+        'strategyId' => 'StrategyId',
         'subscribeStatus' => 'SubscribeStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

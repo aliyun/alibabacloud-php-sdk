@@ -23,6 +23,7 @@ class ListAgentlessAssetRequest extends Model
      * - **system**: System disk
      *
      * - **data**: Data disk
+     *
      * @example data
      *
      * @var string
@@ -80,25 +81,24 @@ class ListAgentlessAssetRequest extends Model
      * - **3**: User snapshot
      *
      * - **4**: User-defined image
+     *
      * @example 1
      *
      * @var int
      */
     public $targetType;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'diskType'     => 'DiskType',
-        'instanceId'   => 'InstanceId',
+        'currentPage' => 'CurrentPage',
+        'diskType' => 'DiskType',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'pageSize'     => 'PageSize',
-        'platform'     => 'Platform',
+        'pageSize' => 'PageSize',
+        'platform' => 'Platform',
         'scanRegionId' => 'ScanRegionId',
-        'targetType'   => 'TargetType',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -64,17 +64,15 @@ class CreateHoneypotProbeResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'honeypotProbe'  => 'HoneypotProbe',
+        'code' => 'Code',
+        'honeypotProbe' => 'HoneypotProbe',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

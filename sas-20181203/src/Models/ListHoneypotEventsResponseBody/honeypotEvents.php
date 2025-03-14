@@ -131,24 +131,22 @@ class honeypotEvents extends Model
      */
     public $srcIp;
     protected $_name = [
-        'agentId'         => 'AgentId',
-        'agentName'       => 'AgentName',
-        'alarmEventId'    => 'AlarmEventId',
-        'dstIp'           => 'DstIp',
-        'firstTime'       => 'FirstTime',
-        'honeypotName'    => 'HoneypotName',
-        'lastTime'        => 'LastTime',
-        'location'        => 'Location',
-        'mergeFieldList'  => 'MergeFieldList',
-        'protocol'        => 'Protocol',
-        'riskLevel'       => 'RiskLevel',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'alarmEventId' => 'AlarmEventId',
+        'dstIp' => 'DstIp',
+        'firstTime' => 'FirstTime',
+        'honeypotName' => 'HoneypotName',
+        'lastTime' => 'LastTime',
+        'location' => 'Location',
+        'mergeFieldList' => 'MergeFieldList',
+        'protocol' => 'Protocol',
+        'riskLevel' => 'RiskLevel',
         'securityEventId' => 'SecurityEventId',
-        'srcIp'           => 'SrcIp',
+        'srcIp' => 'SrcIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -237,7 +235,7 @@ class honeypotEvents extends Model
         if (isset($map['MergeFieldList'])) {
             if (!empty($map['MergeFieldList'])) {
                 $model->mergeFieldList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['MergeFieldList'] as $item) {
                     $model->mergeFieldList[$n++] = null !== $item ? mergeFieldList::fromMap($item) : $item;
                 }

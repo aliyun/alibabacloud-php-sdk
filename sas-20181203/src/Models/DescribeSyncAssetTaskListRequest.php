@@ -30,6 +30,7 @@ class DescribeSyncAssetTaskListRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -55,15 +56,13 @@ class DescribeSyncAssetTaskListRequest extends Model
     public $taskName;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
-        'taskName'    => 'TaskName',
+        'endTime' => 'EndTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

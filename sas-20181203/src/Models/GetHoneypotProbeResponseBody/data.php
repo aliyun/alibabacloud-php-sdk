@@ -205,32 +205,30 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
-        'arp'                   => 'Arp',
-        'canListenIpList'       => 'CanListenIpList',
-        'cidrList'              => 'CidrList',
-        'controlNode'           => 'ControlNode',
-        'cpuLoad'               => 'CpuLoad',
-        'deployTime'            => 'DeployTime',
-        'displayName'           => 'DisplayName',
+        'arp' => 'Arp',
+        'canListenIpList' => 'CanListenIpList',
+        'cidrList' => 'CidrList',
+        'controlNode' => 'ControlNode',
+        'cpuLoad' => 'CpuLoad',
+        'deployTime' => 'DeployTime',
+        'displayName' => 'DisplayName',
         'honeyPotProbeScanPort' => 'HoneyPotProbeScanPort',
         'honeypotProbeBindList' => 'HoneypotProbeBindList',
-        'hostIp'                => 'HostIp',
-        'listenIpList'          => 'ListenIpList',
-        'memoryLoad'            => 'MemoryLoad',
-        'osType'                => 'OsType',
-        'ping'                  => 'Ping',
-        'probeId'               => 'ProbeId',
-        'probeType'             => 'ProbeType',
-        'probeVersion'          => 'ProbeVersion',
-        'proxyIp'               => 'ProxyIp',
-        'status'                => 'Status',
-        'uuid'                  => 'Uuid',
-        'vpcId'                 => 'VpcId',
+        'hostIp' => 'HostIp',
+        'listenIpList' => 'ListenIpList',
+        'memoryLoad' => 'MemoryLoad',
+        'osType' => 'OsType',
+        'ping' => 'Ping',
+        'probeId' => 'ProbeId',
+        'probeType' => 'ProbeType',
+        'probeVersion' => 'ProbeVersion',
+        'proxyIp' => 'ProxyIp',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -347,7 +345,7 @@ class data extends Model
         if (isset($map['HoneypotProbeBindList'])) {
             if (!empty($map['HoneypotProbeBindList'])) {
                 $model->honeypotProbeBindList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['HoneypotProbeBindList'] as $item) {
                     $model->honeypotProbeBindList[$n++] = null !== $item ? honeypotProbeBindList::fromMap($item) : $item;
                 }

@@ -33,6 +33,7 @@ class SaveWhiteListStrategyAssetsRequest extends Model
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the value of **target** from the response parameter Uuid.
      *
      * This parameter is required.
+     *
      * @example [{"status":0,"target":"c98dcd24-fa57-4759-b5ec-f8a4ffeed****"}]
      *
      * @var string
@@ -46,6 +47,7 @@ class SaveWhiteListStrategyAssetsRequest extends Model
      *   **2**: application policy.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -64,23 +66,24 @@ class SaveWhiteListStrategyAssetsRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 2730
      *
      * @var int
      */
     public $strategyId;
     protected $_name = [
-        'lang'         => 'Lang',
-        'operations'   => 'Operations',
+        'lang' => 'Lang',
+        'operations' => 'Operations',
         'relationType' => 'RelationType',
-        'sourceIp'     => 'SourceIp',
-        'strategyId'   => 'StrategyId',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

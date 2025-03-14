@@ -52,16 +52,14 @@ class DescribeCheckWarningMachinesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'machines'    => 'Machines',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'machines' => 'Machines',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class DescribeCheckWarningMachinesResponseBody extends Model
         if (isset($map['Machines'])) {
             if (!empty($map['Machines'])) {
                 $model->machines = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Machines'] as $item) {
                     $model->machines[$n++] = null !== $item ? machines::fromMap($item) : $item;
                 }

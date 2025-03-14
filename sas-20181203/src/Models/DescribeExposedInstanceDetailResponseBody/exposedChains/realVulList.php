@@ -34,6 +34,7 @@ class realVulList extends Model
      *   **nntf**: low
      *
      * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     *
      * @example asap
      *
      * @var string
@@ -66,15 +67,13 @@ class realVulList extends Model
     public $uuid;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'name'      => 'Name',
+        'name' => 'Name',
         'necessity' => 'Necessity',
-        'type'      => 'Type',
-        'uuid'      => 'Uuid',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

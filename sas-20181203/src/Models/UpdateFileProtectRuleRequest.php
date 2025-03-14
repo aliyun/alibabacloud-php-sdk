@@ -26,6 +26,7 @@ class UpdateFileProtectRuleRequest extends Model
      * @description The operations that you want to perform on the files.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $fileOps;
@@ -34,6 +35,7 @@ class UpdateFileProtectRuleRequest extends Model
      * @description The paths to the monitored files. Wildcard characters are supported.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $filePaths;
@@ -51,6 +53,7 @@ class UpdateFileProtectRuleRequest extends Model
      * @description The paths to the monitored processes.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $procPaths;
@@ -71,6 +74,7 @@ class UpdateFileProtectRuleRequest extends Model
      * @description The name of the rule.
      *
      * This parameter is required.
+     *
      * @example test-rule-1
      *
      * @var string
@@ -90,18 +94,16 @@ class UpdateFileProtectRuleRequest extends Model
     public $status;
     protected $_name = [
         'alertLevel' => 'AlertLevel',
-        'fileOps'    => 'FileOps',
-        'filePaths'  => 'FilePaths',
-        'id'         => 'Id',
-        'procPaths'  => 'ProcPaths',
+        'fileOps' => 'FileOps',
+        'filePaths' => 'FilePaths',
+        'id' => 'Id',
+        'procPaths' => 'ProcPaths',
         'ruleAction' => 'RuleAction',
-        'ruleName'   => 'RuleName',
-        'status'     => 'Status',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

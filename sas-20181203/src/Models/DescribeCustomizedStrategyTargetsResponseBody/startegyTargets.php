@@ -12,6 +12,7 @@ class startegyTargets extends Model
      * @description The ID of the server group.
      *
      * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * @example 14590457
      *
      * @var int
@@ -40,21 +41,20 @@ class startegyTargets extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 2701ad2e-0e8f-428c-8812-ebb2686e****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'groupId'      => 'GroupId',
-        'strategyId'   => 'StrategyId',
+        'groupId' => 'GroupId',
+        'strategyId' => 'StrategyId',
         'strategyName' => 'StrategyName',
-        'uuid'         => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

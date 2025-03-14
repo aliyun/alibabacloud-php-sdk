@@ -70,18 +70,16 @@ class DescribeRiskCheckResultResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'list'        => 'List',
-        'pageCount'   => 'PageCount',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'list' => 'List',
+        'pageCount' => 'PageCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +132,7 @@ class DescribeRiskCheckResultResponseBody extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

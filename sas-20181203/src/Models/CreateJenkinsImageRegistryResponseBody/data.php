@@ -178,29 +178,27 @@ class data extends Model
      */
     public $whiteList;
     protected $_name = [
-        'blackList'      => 'BlackList',
-        'domainName'     => 'DomainName',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'id'             => 'Id',
-        'netType'        => 'NetType',
-        'password'       => 'Password',
+        'blackList' => 'BlackList',
+        'domainName' => 'DomainName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'netType' => 'NetType',
+        'password' => 'Password',
         'persistenceDay' => 'PersistenceDay',
-        'protocolType'   => 'ProtocolType',
-        'regionId'       => 'RegionId',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
         'registryHostIp' => 'RegistryHostIp',
-        'registryName'   => 'RegistryName',
-        'registryType'   => 'RegistryType',
-        'token'          => 'Token',
-        'transPerHour'   => 'TransPerHour',
-        'userName'       => 'UserName',
-        'vpcId'          => 'VpcId',
-        'whiteList'      => 'WhiteList',
+        'registryName' => 'RegistryName',
+        'registryType' => 'RegistryType',
+        'token' => 'Token',
+        'transPerHour' => 'TransPerHour',
+        'userName' => 'UserName',
+        'vpcId' => 'VpcId',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

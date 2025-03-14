@@ -22,13 +22,11 @@ class configStandardIds extends Model
      */
     public $removeIds;
     protected $_name = [
-        'addIds'    => 'AddIds',
+        'addIds' => 'AddIds',
         'removeIds' => 'RemoveIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

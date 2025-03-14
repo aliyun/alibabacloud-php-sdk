@@ -36,13 +36,11 @@ class ListFileProtectPluginStatusRequest extends Model
     public $switchId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'switchId'    => 'SwitchId',
+        'pageSize' => 'PageSize',
+        'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

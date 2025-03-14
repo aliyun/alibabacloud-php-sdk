@@ -19,6 +19,7 @@ class GetDataTrendRequest extends Model
      *   **SUSP_OPERATE**: the number of handled alerts.
      *
      * This parameter is required.
+     *
      * @example HC_NEW,HC_OPERATE
      *
      * @var string
@@ -29,6 +30,7 @@ class GetDataTrendRequest extends Model
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1721923200000
      *
      * @var int
@@ -38,7 +40,10 @@ class GetDataTrendRequest extends Model
     /**
      * @description The interval of the data that you want to query. Unit: milliseconds.
      *
+     * >  The minimum value is 1000.
+     *
      * This parameter is required.
+     *
      * @example 86400000
      *
      * @var int
@@ -49,21 +54,20 @@ class GetDataTrendRequest extends Model
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1687334501000
      *
      * @var int
      */
     public $startTimestamp;
     protected $_name = [
-        'bizTypes'       => 'BizTypes',
-        'endTimestamp'   => 'EndTimestamp',
-        'interval'       => 'Interval',
+        'bizTypes' => 'BizTypes',
+        'endTimestamp' => 'EndTimestamp',
+        'interval' => 'Interval',
         'startTimestamp' => 'StartTimestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

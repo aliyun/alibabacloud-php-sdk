@@ -13,6 +13,7 @@ class AddAssetSelectionCriteriaRequest extends Model
      * @description The search conditions that are used to query assets. The value of this parameter is in the JSON format and is case-sensitive.
      *
      * > A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+     *
      * @example {"LogicalExp":"AND","Criteria":"[{\\"name\\":\\"osType\\",\\"value\\":\\"linux\\",\\"logicalExp\\":\\"AND\\"},{\\"name\\":\\"alarmStatus\\",\\"value\\":\\"YES\\",\\"logicalExp\\":\\"AND\\"}]"}
      *
      * @var string
@@ -35,6 +36,7 @@ class AddAssetSelectionCriteriaRequest extends Model
      * @description The unique ID of the asset.
      *
      * This parameter is required.
+     *
      * @example 5196d280-5bfa-496a-ba70-8a3935e3****
      *
      * @var string
@@ -48,15 +50,13 @@ class AddAssetSelectionCriteriaRequest extends Model
      */
     public $targetOperationList;
     protected $_name = [
-        'criteria'            => 'Criteria',
-        'criteriaOperation'   => 'CriteriaOperation',
-        'selectionKey'        => 'SelectionKey',
+        'criteria' => 'Criteria',
+        'criteriaOperation' => 'CriteriaOperation',
+        'selectionKey' => 'SelectionKey',
         'targetOperationList' => 'TargetOperationList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +103,7 @@ class AddAssetSelectionCriteriaRequest extends Model
         if (isset($map['TargetOperationList'])) {
             if (!empty($map['TargetOperationList'])) {
                 $model->targetOperationList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['TargetOperationList'] as $item) {
                     $model->targetOperationList[$n++] = null !== $item ? targetOperationList::fromMap($item) : $item;
                 }

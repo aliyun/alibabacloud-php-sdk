@@ -61,17 +61,15 @@ class vertexList extends Model
      */
     public $type;
     protected $_name = [
-        'count'        => 'Count',
-        'id'           => 'Id',
-        'name'         => 'Name',
+        'count' => 'Count',
+        'id' => 'Id',
+        'name' => 'Name',
         'neighborList' => 'NeighborList',
-        'time'         => 'Time',
-        'type'         => 'Type',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class vertexList extends Model
         if (isset($map['NeighborList'])) {
             if (!empty($map['NeighborList'])) {
                 $model->neighborList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['NeighborList'] as $item) {
                     $model->neighborList[$n++] = null !== $item ? neighborList::fromMap($item) : $item;
                 }

@@ -76,17 +76,15 @@ class clusterList extends Model
      */
     public $targetResult;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterName'  => 'ClusterName',
-        'clusterType'  => 'ClusterType',
-        'regionId'     => 'RegionId',
-        'state'        => 'State',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'regionId' => 'RegionId',
+        'state' => 'State',
         'targetResult' => 'TargetResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

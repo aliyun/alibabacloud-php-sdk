@@ -21,17 +21,16 @@ class ListAssetInfoPublishRequest extends Model
      * @description The UUIDs of the servers that you want to query.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

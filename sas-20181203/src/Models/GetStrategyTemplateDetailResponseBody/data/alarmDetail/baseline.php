@@ -27,13 +27,11 @@ class baseline extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'item'      => 'Item',
+        'item' => 'Item',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -65,7 +63,7 @@ class baseline extends Model
         if (isset($map['Item'])) {
             if (!empty($map['Item'])) {
                 $model->item = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Item'] as $item) {
                     $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
                 }

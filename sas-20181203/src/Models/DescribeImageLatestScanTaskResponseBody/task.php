@@ -140,24 +140,22 @@ class task extends Model
      */
     public $taskType;
     protected $_name = [
-        'create'     => 'Create',
-        'finish'     => 'Finish',
+        'create' => 'Create',
+        'finish' => 'Finish',
         'finishTime' => 'FinishTime',
-        'id'         => 'Id',
-        'modified'   => 'Modified',
-        'name'       => 'Name',
-        'source'     => 'Source',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'target'     => 'Target',
+        'id' => 'Id',
+        'modified' => 'Modified',
+        'name' => 'Name',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'target' => 'Target',
         'targetType' => 'TargetType',
-        'taskId'     => 'TaskId',
-        'taskType'   => 'TaskType',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateBackupPolicyShrinkRequest extends Model
      * @description The name of the anti-ransomware policy.
      *
      * This parameter is required.
+     *
      * @example ServerBackUpPolicy01
      *
      * @var string
@@ -46,7 +47,10 @@ class CreateBackupPolicyShrinkRequest extends Model
      *   **true**: yes
      *   **false**: no
      *
+     * >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
+     *
      * This parameter is required.
+     *
      * @example "{"IsDefault":1,"Include":[],"Source":[],"Schedule":"I|1648061040|PT24H","Retention":7,"SpeedLimiter":"","ExcludeSystemPath":true,"Exclude":["/bin/","/usr/bin/","/sbin/","/boot/","/proc/","/sys/","/srv/","/lib/","/selinux/","/usr/sbin/","/run/","/lib32/","/lib64/","/lost+found/","/var/lib/kubelet/","/var/lib/ntp/proc","/var/lib/container","Windows","Python27","Program Files (x86)","Program Files","Boot","$RECYCLE.BIN","System Volume Information","Users\\Administrator\\NTUSER.DAT*","ProgramData","pagefile.sys","Users\\Default\\NTUSER.DAT*","Users\\Administrator\\ntuser.*"],"UseVss":true}"
      *
      * @var string
@@ -57,6 +61,7 @@ class CreateBackupPolicyShrinkRequest extends Model
      * @description The region ID of the server that is not deployed on Alibaba Cloud.
      *
      * >  We recommend that you specify the ID of the supported region that is the nearest to the location of the server. You can call the [DescribeSupportRegion](~~DescribeSupportRegion~~) operation to query the supported regions of the anti-ransomware feature.
+     *
      * @example ch-hangzhou
      *
      * @var string
@@ -67,6 +72,7 @@ class CreateBackupPolicyShrinkRequest extends Model
      * @description The version of the anti-ransomware policy. Set the value to **2.0.0**.
      *
      * This parameter is required.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -77,22 +83,21 @@ class CreateBackupPolicyShrinkRequest extends Model
      * @description The UUIDs of the servers that you want to protect.
      *
      * This parameter is required.
+     *
      * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
      *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'name'           => 'Name',
-        'policyShrink'   => 'Policy',
+        'name' => 'Name',
+        'policyShrink' => 'Policy',
         'policyRegionId' => 'PolicyRegionId',
-        'policyVersion'  => 'PolicyVersion',
-        'uuidList'       => 'UuidList',
+        'policyVersion' => 'PolicyVersion',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

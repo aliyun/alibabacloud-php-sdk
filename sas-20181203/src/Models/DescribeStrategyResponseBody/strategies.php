@@ -170,27 +170,25 @@ class strategies extends Model
      */
     public $userModifyTime;
     protected $_name = [
-        'configTargets'  => 'ConfigTargets',
-        'customType'     => 'CustomType',
-        'cycleDays'      => 'CycleDays',
+        'configTargets' => 'ConfigTargets',
+        'customType' => 'CustomType',
+        'cycleDays' => 'CycleDays',
         'cycleStartTime' => 'CycleStartTime',
-        'ecsCount'       => 'EcsCount',
-        'endTime'        => 'EndTime',
-        'execStatus'     => 'ExecStatus',
-        'id'             => 'Id',
-        'name'           => 'Name',
-        'passRate'       => 'PassRate',
-        'percent'        => 'Percent',
-        'processRate'    => 'ProcessRate',
-        'riskCount'      => 'RiskCount',
-        'startTime'      => 'StartTime',
-        'type'           => 'Type',
+        'ecsCount' => 'EcsCount',
+        'endTime' => 'EndTime',
+        'execStatus' => 'ExecStatus',
+        'id' => 'Id',
+        'name' => 'Name',
+        'passRate' => 'PassRate',
+        'percent' => 'Percent',
+        'processRate' => 'ProcessRate',
+        'riskCount' => 'RiskCount',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
         'userModifyTime' => 'UserModifyTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -264,7 +262,7 @@ class strategies extends Model
         if (isset($map['ConfigTargets'])) {
             if (!empty($map['ConfigTargets'])) {
                 $model->configTargets = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ConfigTargets'] as $item) {
                     $model->configTargets[$n++] = null !== $item ? configTargets::fromMap($item) : $item;
                 }

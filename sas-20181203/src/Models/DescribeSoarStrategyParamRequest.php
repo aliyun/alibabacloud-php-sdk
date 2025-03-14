@@ -11,7 +11,10 @@ class DescribeSoarStrategyParamRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeSoarStrategies](~~DescribeSoarStrategies~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 15553
      *
      * @var int
@@ -21,9 +24,7 @@ class DescribeSoarStrategyParamRequest extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

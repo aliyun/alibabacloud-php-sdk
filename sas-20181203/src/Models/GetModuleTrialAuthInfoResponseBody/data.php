@@ -40,14 +40,12 @@ class data extends Model
      */
     public $trialRecordList;
     protected $_name = [
-        'canTry'          => 'CanTry',
-        'moduleCode'      => 'ModuleCode',
+        'canTry' => 'CanTry',
+        'moduleCode' => 'ModuleCode',
         'trialRecordList' => 'TrialRecordList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +86,7 @@ class data extends Model
         if (isset($map['TrialRecordList'])) {
             if (!empty($map['TrialRecordList'])) {
                 $model->trialRecordList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['TrialRecordList'] as $item) {
                     $model->trialRecordList[$n++] = null !== $item ? trialRecordList::fromMap($item) : $item;
                 }

@@ -11,7 +11,10 @@ class GetInterceptionTargetDetailRequest extends Model
     /**
      * @description The ID of the network object.
      *
+     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of network objects.
+     *
      * This parameter is required.
+     *
      * @example 402008
      *
      * @var int
@@ -21,9 +24,7 @@ class GetInterceptionTargetDetailRequest extends Model
         'targetId' => 'TargetId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -95,18 +95,16 @@ class DescribeVulExportInfoResponseBody extends Model
     protected $_name = [
         'currentCount' => 'CurrentCount',
         'exportStatus' => 'ExportStatus',
-        'fileName'     => 'FileName',
-        'id'           => 'Id',
-        'link'         => 'Link',
-        'message'      => 'Message',
-        'progress'     => 'Progress',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'fileName' => 'FileName',
+        'id' => 'Id',
+        'link' => 'Link',
+        'message' => 'Message',
+        'progress' => 'Progress',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class FinishGuidTaskRequest extends Model
      * @description The name of the task type.
      *
      * This parameter is required.
+     *
      * @example guide_sub_task_config_add_collection
      *
      * @var string
@@ -21,9 +22,7 @@ class FinishGuidTaskRequest extends Model
         'taskTypeName' => 'TaskTypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

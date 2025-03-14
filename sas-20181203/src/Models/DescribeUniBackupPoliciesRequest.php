@@ -21,6 +21,7 @@ class DescribeUniBackupPoliciesRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -37,13 +38,11 @@ class DescribeUniBackupPoliciesRequest extends Model
     public $policyName;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'policyName'  => 'PolicyName',
+        'pageSize' => 'PageSize',
+        'policyName' => 'PolicyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class GetOssScanConfigRequest extends Model
     public $id;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'id'         => 'Id',
+        'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

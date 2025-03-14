@@ -11,7 +11,10 @@ class DescribeAccessKeyLeakDetailRequest extends Model
     /**
      * @description The ID of the AccessKey pair leak event.
      *
+     * > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain the event ID.
+     *
      * This parameter is required.
+     *
      * @example 389357
      *
      * @var int
@@ -22,19 +25,18 @@ class DescribeAccessKeyLeakDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
+     *
      * @example 127608589417****
      *
      * @var int
      */
     public $resourceDirectoryAccountId;
     protected $_name = [
-        'id'                         => 'Id',
+        'id' => 'Id',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,17 +61,15 @@ class DescribeCheckWarningSummaryResponseBody extends Model
      */
     public $warningSummarys;
     protected $_name = [
-        'count'           => 'Count',
-        'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'warningSummarys' => 'WarningSummarys',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,7 +128,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
         if (isset($map['WarningSummarys'])) {
             if (!empty($map['WarningSummarys'])) {
                 $model->warningSummarys = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['WarningSummarys'] as $item) {
                     $model->warningSummarys[$n++] = null !== $item ? warningSummarys::fromMap($item) : $item;
                 }

@@ -38,14 +38,12 @@ class data extends Model
      */
     public $throttlingTimeSecond;
     protected $_name = [
-        'operateCode'          => 'OperateCode',
-        'taskId'               => 'TaskId',
+        'operateCode' => 'OperateCode',
+        'taskId' => 'TaskId',
         'throttlingTimeSecond' => 'ThrottlingTimeSecond',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

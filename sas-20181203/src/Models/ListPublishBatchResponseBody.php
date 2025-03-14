@@ -34,13 +34,11 @@ class ListPublishBatchResponseBody extends Model
     public $requestId;
     protected $_name = [
         'batchList' => 'BatchList',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListPublishBatchResponseBody extends Model
         if (isset($map['BatchList'])) {
             if (!empty($map['BatchList'])) {
                 $model->batchList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['BatchList'] as $item) {
                     $model->batchList[$n++] = null !== $item ? batchList::fromMap($item) : $item;
                 }

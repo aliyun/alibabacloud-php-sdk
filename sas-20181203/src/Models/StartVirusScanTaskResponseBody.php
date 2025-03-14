@@ -26,13 +26,11 @@ class StartVirusScanTaskResponseBody extends Model
      */
     public $scanTaskId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'scanTaskId' => 'ScanTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

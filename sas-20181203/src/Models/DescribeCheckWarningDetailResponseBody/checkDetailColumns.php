@@ -38,21 +38,20 @@ class checkDetailColumns extends Model
      * @description Display type. Value:
      * - **grid**: Detection grid
      * - **text**: text
+     *
      * @example text
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'grids'    => 'Grids',
-        'key'      => 'Key',
+        'grids' => 'Grids',
+        'key' => 'Key',
         'showName' => 'ShowName',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +89,7 @@ class checkDetailColumns extends Model
         if (isset($map['Grids'])) {
             if (!empty($map['Grids'])) {
                 $model->grids = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Grids'] as $item) {
                     $model->grids[$n++] = null !== $item ? grids::fromMap($item) : $item;
                 }

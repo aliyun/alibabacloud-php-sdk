@@ -37,6 +37,7 @@ class OperateSuspiciousTargetConfigRequest extends Model
      *   **flag**: specifies whether to enable or disable proactive defense for your server. Valid values are **add** and **del**. The value add indicates that proactive defense will be enabled for your server. The value del indicates that proactive defense will be disabled for your server.
      *
      * This parameter is required.
+     *
      * @example "[{"targetType":"uuid","target":"0585f81a-dd84-4ddf-9971-f59d12345678","flag":"add"},{"targetType":"uuid","target":"01acfd9d-e6a4-4e61-b9eb-aae012345678","flag":"add"},{"targetType":"uuid","target":"04a0e735-ad32-4835-b635-045812345678","flag":"add"}]"
      *
      * @var string
@@ -49,6 +50,7 @@ class OperateSuspiciousTargetConfigRequest extends Model
      * Set the value to **uuid**.
      *
      * This parameter is required.
+     *
      * @example uuid
      *
      * @var string
@@ -65,22 +67,21 @@ class OperateSuspiciousTargetConfigRequest extends Model
      *   **alisecguard**: client protection
      *
      * This parameter is required.
+     *
      * @example auto_breaking
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'lang'             => 'Lang',
-        'sourceIp'         => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'targetOperations' => 'TargetOperations',
-        'targetType'       => 'TargetType',
-        'type'             => 'Type',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

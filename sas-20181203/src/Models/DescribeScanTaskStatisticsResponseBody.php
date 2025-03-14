@@ -53,16 +53,14 @@ class DescribeScanTaskStatisticsResponseBody extends Model
      */
     public $userNum;
     protected $_name = [
-        'dealedRiskNum'   => 'DealedRiskNum',
+        'dealedRiskNum' => 'DealedRiskNum',
         'personalTaskNum' => 'PersonalTaskNum',
-        'requestId'       => 'RequestId',
-        'totalTaskNum'    => 'TotalTaskNum',
-        'userNum'         => 'UserNum',
+        'requestId' => 'RequestId',
+        'totalTaskNum' => 'TotalTaskNum',
+        'userNum' => 'UserNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

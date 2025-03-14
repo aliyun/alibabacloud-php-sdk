@@ -47,6 +47,7 @@ class DescribeCycleTaskListRequest extends Model
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
      * This parameter is required.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -54,14 +55,12 @@ class DescribeCycleTaskListRequest extends Model
     public $taskType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'taskName'    => 'TaskName',
-        'taskType'    => 'TaskType',
+        'pageSize' => 'PageSize',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

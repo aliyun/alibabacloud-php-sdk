@@ -61,17 +61,15 @@ class DescribeWhiteListProcessResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'processes'   => 'Processes',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'processes' => 'Processes',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class DescribeWhiteListProcessResponseBody extends Model
         if (isset($map['Processes'])) {
             if (!empty($map['Processes'])) {
                 $model->processes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Processes'] as $item) {
                     $model->processes[$n++] = null !== $item ? processes::fromMap($item) : $item;
                 }

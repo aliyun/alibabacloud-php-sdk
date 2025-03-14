@@ -62,17 +62,15 @@ class items extends Model
      */
     public $uuid;
     protected $_name = [
-        'groupId'      => 'GroupId',
-        'instanceId'   => 'InstanceId',
+        'groupId' => 'GroupId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'ip'           => 'Ip',
-        'region'       => 'Region',
-        'uuid'         => 'Uuid',
+        'ip' => 'Ip',
+        'region' => 'Region',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

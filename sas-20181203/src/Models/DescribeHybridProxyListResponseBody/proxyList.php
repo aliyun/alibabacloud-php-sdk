@@ -92,20 +92,18 @@ class proxyList extends Model
      */
     public $uuid;
     protected $_name = [
-        'clientCount'    => 'ClientCount',
+        'clientCount' => 'ClientCount',
         'currentVersion' => 'CurrentVersion',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'proxyUuid'      => 'ProxyUuid',
-        'status'         => 'Status',
-        'uuid'           => 'Uuid',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'proxyUuid' => 'ProxyUuid',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

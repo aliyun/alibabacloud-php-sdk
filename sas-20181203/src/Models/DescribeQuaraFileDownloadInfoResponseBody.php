@@ -72,17 +72,15 @@ class DescribeQuaraFileDownloadInfoResponseBody extends Model
     public $uuid;
     protected $_name = [
         'downloadUrl' => 'DownloadUrl',
-        'md5'         => 'Md5',
-        'path'        => 'Path',
+        'md5' => 'Md5',
+        'path' => 'Path',
         'quaraFileId' => 'QuaraFileId',
-        'requestId'   => 'RequestId',
-        'tag'         => 'Tag',
-        'uuid'        => 'Uuid',
+        'requestId' => 'RequestId',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

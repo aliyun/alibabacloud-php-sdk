@@ -91,19 +91,17 @@ class processes extends Model
      */
     public $totalCount;
     protected $_name = [
-        'createTime'  => 'CreateTime',
-        'endTime'     => 'EndTime',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
         'finishCount' => 'FinishCount',
-        'startTime'   => 'StartTime',
-        'statusCode'  => 'StatusCode',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
-        'totalCount'  => 'TotalCount',
+        'startTime' => 'StartTime',
+        'statusCode' => 'StatusCode',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

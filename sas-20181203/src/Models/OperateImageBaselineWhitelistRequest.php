@@ -12,6 +12,7 @@ class OperateImageBaselineWhitelistRequest extends Model
      * @description The keys of baseline check items.
      *
      * This parameter is required.
+     *
      * @example hc.image.checklist.identify.hc_exploit_es_linux.item
      *
      * @var string
@@ -46,6 +47,7 @@ class OperateImageBaselineWhitelistRequest extends Model
      *   **del**: removes the check items from the whitelist
      *
      * This parameter is required.
+     *
      * @example add
      *
      * @var string
@@ -60,15 +62,13 @@ class OperateImageBaselineWhitelistRequest extends Model
     public $scanRange;
     protected $_name = [
         'baselineItemKeyList' => 'BaselineItemKeyList',
-        'imageUuid'           => 'ImageUuid',
-        'lang'                => 'Lang',
-        'operation'           => 'Operation',
-        'scanRange'           => 'ScanRange',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'operation' => 'Operation',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

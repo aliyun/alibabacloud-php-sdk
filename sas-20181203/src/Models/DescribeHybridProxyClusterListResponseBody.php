@@ -34,13 +34,11 @@ class DescribeHybridProxyClusterListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterList' => 'ClusterList',
-        'pageInfo'    => 'PageInfo',
-        'requestId'   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeHybridProxyClusterListResponseBody extends Model
         if (isset($map['ClusterList'])) {
             if (!empty($map['ClusterList'])) {
                 $model->clusterList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ClusterList'] as $item) {
                     $model->clusterList[$n++] = null !== $item ? clusterList::fromMap($item) : $item;
                 }

@@ -33,14 +33,12 @@ class ListUuidsByAppIdResponseBody extends Model
      */
     public $uuids;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'requestId' => 'RequestId',
-        'uuids'     => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

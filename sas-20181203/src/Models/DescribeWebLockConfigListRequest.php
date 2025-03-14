@@ -41,22 +41,23 @@ class DescribeWebLockConfigListRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     *
      * This parameter is required.
+     *
      * @example inet-1234567****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'id'       => 'Id',
-        'lang'     => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'uuid'     => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

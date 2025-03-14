@@ -43,14 +43,12 @@ class assets extends Model
      */
     public $totalCount;
     protected $_name = [
-        'assetType'  => 'AssetType',
-        'riskCount'  => 'RiskCount',
+        'assetType' => 'AssetType',
+        'riskCount' => 'RiskCount',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

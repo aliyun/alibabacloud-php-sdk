@@ -39,13 +39,11 @@ class SubmitOperationTaskResponseBody extends Model
     public $rootTaskId;
     protected $_name = [
         'operateCode' => 'OperateCode',
-        'requestId'   => 'RequestId',
-        'rootTaskId'  => 'RootTaskId',
+        'requestId' => 'RequestId',
+        'rootTaskId' => 'RootTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

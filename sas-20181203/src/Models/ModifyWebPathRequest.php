@@ -18,6 +18,7 @@ class ModifyWebPathRequest extends Model
      * "webPathType": "customize",
      * "webPath": "/root/www****"
      * }
+     *
      * @var string
      */
     public $config;
@@ -46,12 +47,10 @@ class ModifyWebPathRequest extends Model
     protected $_name = [
         'config' => 'Config',
         'target' => 'Target',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class ListSystemClientRulesResponseBody extends Model
      */
     public $ruleList;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
-        'ruleList'  => 'RuleList',
+        'ruleList' => 'RuleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class ListSystemClientRulesResponseBody extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['RuleList'] as $item) {
                     $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
                 }

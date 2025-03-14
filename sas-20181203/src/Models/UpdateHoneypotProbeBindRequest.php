@@ -50,6 +50,7 @@ class UpdateHoneypotProbeBindRequest extends Model
      * @description The honeypot ID.
      *
      * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain the IDs of honeypots.
+     *
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string
@@ -81,6 +82,7 @@ class UpdateHoneypotProbeBindRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -100,6 +102,7 @@ class UpdateHoneypotProbeBindRequest extends Model
      * @description The probe ID.
      *
      * >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+     *
      * @example 36bad711-d1ac-4419-ac68-c1aa280f****
      *
      * @var string
@@ -122,23 +125,21 @@ class UpdateHoneypotProbeBindRequest extends Model
      */
     public $setStatus;
     protected $_name = [
-        'bindId'        => 'BindId',
-        'bindPortList'  => 'BindPortList',
-        'bindType'      => 'BindType',
-        'currentPage'   => 'CurrentPage',
-        'honeypotId'    => 'HoneypotId',
-        'id'            => 'Id',
-        'lang'          => 'Lang',
-        'pageSize'      => 'PageSize',
-        'ports'         => 'Ports',
-        'probeId'       => 'ProbeId',
+        'bindId' => 'BindId',
+        'bindPortList' => 'BindPortList',
+        'bindType' => 'BindType',
+        'currentPage' => 'CurrentPage',
+        'honeypotId' => 'HoneypotId',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'ports' => 'Ports',
+        'probeId' => 'ProbeId',
         'serviceIpList' => 'ServiceIpList',
-        'setStatus'     => 'SetStatus',
+        'setStatus' => 'SetStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -203,7 +204,7 @@ class UpdateHoneypotProbeBindRequest extends Model
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['BindPortList'] as $item) {
                     $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
                 }

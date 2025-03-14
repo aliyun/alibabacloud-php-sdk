@@ -53,16 +53,14 @@ class riskRankInfo extends Model
      */
     public $vulAsap;
     protected $_name = [
-        'baseline'          => 'Baseline',
-        'scanTime'          => 'ScanTime',
+        'baseline' => 'Baseline',
+        'scanTime' => 'ScanTime',
         'scanTimeTimestamp' => 'ScanTimeTimestamp',
-        'totalScanned'      => 'TotalScanned',
-        'vulAsap'           => 'VulAsap',
+        'totalScanned' => 'TotalScanned',
+        'vulAsap' => 'VulAsap',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

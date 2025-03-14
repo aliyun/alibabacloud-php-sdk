@@ -79,19 +79,17 @@ class standards extends Model
      */
     public $standardStatistic;
     protected $_name = [
-        'failCount'            => 'FailCount',
-        'id'                   => 'Id',
-        'passCount'            => 'PassCount',
-        'riskLevelHighCount'   => 'RiskLevelHighCount',
-        'riskLevelLowCount'    => 'RiskLevelLowCount',
+        'failCount' => 'FailCount',
+        'id' => 'Id',
+        'passCount' => 'PassCount',
+        'riskLevelHighCount' => 'RiskLevelHighCount',
+        'riskLevelLowCount' => 'RiskLevelLowCount',
         'riskLevelMediumCount' => 'RiskLevelMediumCount',
-        'showName'             => 'ShowName',
-        'standardStatistic'    => 'StandardStatistic',
+        'showName' => 'ShowName',
+        'standardStatistic' => 'StandardStatistic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

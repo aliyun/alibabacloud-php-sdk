@@ -89,20 +89,18 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'canCreate'   => 'CanCreate',
+        'canCreate' => 'CanCreate',
         'collectTime' => 'CollectTime',
-        'execTime'    => 'ExecTime',
+        'execTime' => 'ExecTime',
         'finishCount' => 'FinishCount',
-        'progress'    => 'Progress',
-        'result'      => 'Result',
-        'status'      => 'Status',
-        'taskId'      => 'TaskId',
-        'totalCount'  => 'TotalCount',
+        'progress' => 'Progress',
+        'result' => 'Result',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

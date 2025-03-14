@@ -20,9 +20,7 @@ class data extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

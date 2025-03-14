@@ -107,22 +107,20 @@ class entityTypeList extends Model
      */
     public $offset;
     protected $_name = [
-        'dbId'            => 'DbId',
-        'displayColor'    => 'DisplayColor',
-        'displayIcon'     => 'DisplayIcon',
+        'dbId' => 'DbId',
+        'displayColor' => 'DisplayColor',
+        'displayIcon' => 'DisplayIcon',
         'displayTemplate' => 'DisplayTemplate',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'limit'           => 'Limit',
-        'name'            => 'Name',
-        'namespace'       => 'Namespace',
-        'offset'          => 'Offset',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'limit' => 'Limit',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'offset' => 'Offset',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

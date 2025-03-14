@@ -42,6 +42,7 @@ class CreateOrUpdateAutoTagRuleRequest extends Model
      * @description The ID of the rule.
      *
      * >  You can call the [ListAutoTagRules](~~ListAutoTagRules~~) operation to query the ID.
+     *
      * @example 300566
      *
      * @var int
@@ -52,6 +53,7 @@ class CreateOrUpdateAutoTagRuleRequest extends Model
      * @description The name of the rule.
      *
      * This parameter is required.
+     *
      * @example text-001
      *
      * @var string
@@ -77,24 +79,23 @@ class CreateOrUpdateAutoTagRuleRequest extends Model
      *   **tag**
      *
      * This parameter is required.
+     *
      * @example tag
      *
      * @var string
      */
     public $tagType;
     protected $_name = [
-        'checkAll'   => 'CheckAll',
+        'checkAll' => 'CheckAll',
         'expression' => 'Expression',
-        'ruleDesc'   => 'RuleDesc',
-        'ruleId'     => 'RuleId',
-        'ruleName'   => 'RuleName',
+        'ruleDesc' => 'RuleDesc',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
         'tagContext' => 'TagContext',
-        'tagType'    => 'TagType',
+        'tagType' => 'TagType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

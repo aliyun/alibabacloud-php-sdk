@@ -11,7 +11,10 @@ class QueryIncidentTracingDetailRequest extends Model
     /**
      * @description The ID of the event.
      *
+     * >  You can call the [DescribeCloudSiemEvents](https://help.aliyun.com/document_detail/2621307.html) operation to query the IDs of events.
+     *
      * This parameter is required.
+     *
      * @example 184892fc5245b3ce8c3316434c94261f
      *
      * @var string
@@ -21,9 +24,7 @@ class QueryIncidentTracingDetailRequest extends Model
         'incidentId' => 'IncidentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

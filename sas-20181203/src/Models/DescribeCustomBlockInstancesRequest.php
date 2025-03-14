@@ -12,6 +12,7 @@ class DescribeCustomBlockInstancesRequest extends Model
      * @description The IP address that you want to specify in the rule.
      *
      * >  You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to obtain the IP address.
+     *
      * @example 47.92.33.1xx
      *
      * @var string
@@ -66,17 +67,15 @@ class DescribeCustomBlockInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
-        'currentPage'     => 'CurrentPage',
-        'pageSize'        => 'PageSize',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

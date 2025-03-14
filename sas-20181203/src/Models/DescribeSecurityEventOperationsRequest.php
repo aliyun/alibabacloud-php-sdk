@@ -29,6 +29,7 @@ class DescribeSecurityEventOperationsRequest extends Model
      * @description The ID of the alert event that you want to handle.
      *
      * This parameter is required.
+     *
      * @example 61352054
      *
      * @var int
@@ -44,15 +45,13 @@ class DescribeSecurityEventOperationsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'            => 'Lang',
+        'lang' => 'Lang',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityEventId' => 'SecurityEventId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

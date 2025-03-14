@@ -15,6 +15,7 @@ class UpdatePublishGraySwitchRequest extends Model
      *   **0**: disabled.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -24,9 +25,7 @@ class UpdatePublishGraySwitchRequest extends Model
         'graySwitchStatus' => 'GraySwitchStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class data extends Model
      */
     public $imageScaVulCount;
     protected $_name = [
-        'imageBaselineCount'      => 'ImageBaselineCount',
-        'imageCveVulCount'        => 'ImageCveVulCount',
+        'imageBaselineCount' => 'ImageBaselineCount',
+        'imageCveVulCount' => 'ImageCveVulCount',
         'imageMaliciousFileCount' => 'ImageMaliciousFileCount',
-        'imageScaVulCount'        => 'ImageScaVulCount',
+        'imageScaVulCount' => 'ImageScaVulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

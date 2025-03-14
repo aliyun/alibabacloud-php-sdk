@@ -52,16 +52,14 @@ class DescribeGroupedVulResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'groupedVulItems' => 'GroupedVulItems',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class DescribeGroupedVulResponseBody extends Model
         if (isset($map['GroupedVulItems'])) {
             if (!empty($map['GroupedVulItems'])) {
                 $model->groupedVulItems = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['GroupedVulItems'] as $item) {
                     $model->groupedVulItems[$n++] = null !== $item ? groupedVulItems::fromMap($item) : $item;
                 }

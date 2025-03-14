@@ -62,16 +62,14 @@ class UpdateImageVulWhitelistTargetRequest extends Model
      */
     public $target;
     protected $_name = [
-        'id'     => 'Id',
-        'lang'   => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'reason' => 'Reason',
         'source' => 'Source',
         'target' => 'Target',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

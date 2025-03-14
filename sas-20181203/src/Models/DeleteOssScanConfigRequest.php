@@ -12,6 +12,7 @@ class DeleteOssScanConfigRequest extends Model
      * @description The configuration ID.
      *
      * >  You can call the [ListOssScanConfig](~~ListOssScanConfig~~) operation to query configuration IDs.
+     *
      * @example 1589
      *
      * @var int
@@ -21,9 +22,7 @@ class DeleteOssScanConfigRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

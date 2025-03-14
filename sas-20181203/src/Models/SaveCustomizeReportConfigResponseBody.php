@@ -26,13 +26,11 @@ class SaveCustomizeReportConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'reportId'  => 'ReportId',
+        'reportId' => 'ReportId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

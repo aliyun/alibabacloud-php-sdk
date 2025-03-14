@@ -21,19 +21,18 @@ class DescribeQuaraFileDownloadInfoRequest extends Model
      * @description The ID of the quarantined file.
      *
      * > If you do not specify this parameter, you cannot call the RollbackSuspEventQuaraFile operation to restore a quarantined file. You can call the [DescribeSuspEventQuaraFiles](~~DescribeSuspEventQuaraFiles~~) operation to query the IDs of quarantined files.
+     *
      * @example 123
      *
      * @var int
      */
     public $quaraFileId;
     protected $_name = [
-        'from'        => 'From',
+        'from' => 'From',
         'quaraFileId' => 'QuaraFileId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

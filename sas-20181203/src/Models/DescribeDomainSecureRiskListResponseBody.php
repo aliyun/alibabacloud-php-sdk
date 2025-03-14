@@ -44,14 +44,12 @@ class DescribeDomainSecureRiskListResponseBody extends Model
     public $riskList;
     protected $_name = [
         'noSslCount' => 'NoSslCount',
-        'requestId'  => 'RequestId',
-        'riskCount'  => 'RiskCount',
-        'riskList'   => 'RiskList',
+        'requestId' => 'RequestId',
+        'riskCount' => 'RiskCount',
+        'riskList' => 'RiskList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class DescribeDomainSecureRiskListResponseBody extends Model
         if (isset($map['RiskList'])) {
             if (!empty($map['RiskList'])) {
                 $model->riskList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['RiskList'] as $item) {
                     $model->riskList[$n++] = null !== $item ? riskList::fromMap($item) : $item;
                 }

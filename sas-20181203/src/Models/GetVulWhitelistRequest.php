@@ -20,9 +20,7 @@ class GetVulWhitelistRequest extends Model
         'vulWhitelistId' => 'VulWhitelistId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

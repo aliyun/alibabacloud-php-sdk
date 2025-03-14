@@ -66,17 +66,15 @@ class markField extends Model
      */
     public $uuid;
     protected $_name = [
-        'filedAliasName'   => 'FiledAliasName',
-        'filedName'        => 'FiledName',
-        'markMisType'      => 'MarkMisType',
-        'markMisValue'     => 'MarkMisValue',
+        'filedAliasName' => 'FiledAliasName',
+        'filedName' => 'FiledName',
+        'markMisType' => 'MarkMisType',
+        'markMisValue' => 'MarkMisValue',
         'supportedMisType' => 'SupportedMisType',
-        'uuid'             => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

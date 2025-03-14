@@ -25,6 +25,7 @@ class RefreshAssetsRequest extends Model
      * @description The subtype of the cloud service.
      *
      * >  The following list describes the subtypes of cloud services.
+     *
      * @example 0
      *
      * @var int
@@ -78,15 +79,13 @@ class RefreshAssetsRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'assetType'         => 'AssetType',
+        'assetType' => 'AssetType',
         'cloudAssetSubType' => 'CloudAssetSubType',
-        'cloudAssetType'    => 'CloudAssetType',
-        'vendor'            => 'Vendor',
+        'cloudAssetType' => 'CloudAssetType',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

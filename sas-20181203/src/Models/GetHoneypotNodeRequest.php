@@ -23,20 +23,21 @@ class GetHoneypotNodeRequest extends Model
     /**
      * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     *
      * This parameter is required.
+     *
      * @example d3dd3864-4e02-4abd-8b6a-8f5f6fec4715
      *
      * @var string
      */
     public $nodeId;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

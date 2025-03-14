@@ -107,22 +107,20 @@ class podRiskList extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'  => 'AlarmCount',
-        'clusterId'   => 'ClusterId',
+        'alarmCount' => 'AlarmCount',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'createTime'  => 'CreateTime',
-        'hcCount'     => 'HcCount',
-        'instanceId'  => 'InstanceId',
-        'namespace'   => 'Namespace',
-        'nodeName'    => 'NodeName',
-        'pod'         => 'Pod',
-        'podIp'       => 'PodIp',
-        'vulCount'    => 'VulCount',
+        'createTime' => 'CreateTime',
+        'hcCount' => 'HcCount',
+        'instanceId' => 'InstanceId',
+        'namespace' => 'Namespace',
+        'nodeName' => 'NodeName',
+        'pod' => 'Pod',
+        'podIp' => 'PodIp',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

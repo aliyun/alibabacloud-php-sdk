@@ -304,39 +304,37 @@ class imageInstanceList extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'alarmCount'    => 'AlarmCount',
-        'alarmStatus'   => 'AlarmStatus',
-        'deployed'      => 'Deployed',
-        'digest'        => 'Digest',
-        'endpoints'     => 'Endpoints',
-        'hcCount'       => 'HcCount',
-        'hcStatus'      => 'HcStatus',
-        'imageCreate'   => 'ImageCreate',
-        'imageId'       => 'ImageId',
-        'imageSize'     => 'ImageSize',
-        'imageUpdate'   => 'ImageUpdate',
-        'instanceId'    => 'InstanceId',
-        'lastScanTime'  => 'LastScanTime',
-        'regionId'      => 'RegionId',
-        'registryType'  => 'RegistryType',
-        'repoId'        => 'RepoId',
-        'repoName'      => 'RepoName',
+        'alarmCount' => 'AlarmCount',
+        'alarmStatus' => 'AlarmStatus',
+        'deployed' => 'Deployed',
+        'digest' => 'Digest',
+        'endpoints' => 'Endpoints',
+        'hcCount' => 'HcCount',
+        'hcStatus' => 'HcStatus',
+        'imageCreate' => 'ImageCreate',
+        'imageId' => 'ImageId',
+        'imageSize' => 'ImageSize',
+        'imageUpdate' => 'ImageUpdate',
+        'instanceId' => 'InstanceId',
+        'lastScanTime' => 'LastScanTime',
+        'regionId' => 'RegionId',
+        'registryType' => 'RegistryType',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
-        'repoType'      => 'RepoType',
-        'riskStatus'    => 'RiskStatus',
-        'scaProgress'   => 'ScaProgress',
-        'scaResult'     => 'ScaResult',
-        'scaStatus'     => 'ScaStatus',
-        'status'        => 'Status',
-        'tag'           => 'Tag',
-        'uuid'          => 'Uuid',
-        'vulCount'      => 'VulCount',
-        'vulStatus'     => 'VulStatus',
+        'repoType' => 'RepoType',
+        'riskStatus' => 'RiskStatus',
+        'scaProgress' => 'ScaProgress',
+        'scaResult' => 'ScaResult',
+        'scaStatus' => 'ScaStatus',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
+        'vulCount' => 'VulCount',
+        'vulStatus' => 'VulStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class propertyItems extends Model
     public $proto;
     protected $_name = [
         'count' => 'Count',
-        'port'  => 'Port',
+        'port' => 'Port',
         'proto' => 'Proto',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

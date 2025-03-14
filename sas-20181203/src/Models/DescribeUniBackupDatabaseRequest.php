@@ -43,6 +43,7 @@ class DescribeUniBackupDatabaseRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -70,17 +71,15 @@ class DescribeUniBackupDatabaseRequest extends Model
      */
     public $uniRegionId;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'databaseType' => 'DatabaseType',
         'instanceName' => 'InstanceName',
-        'pageSize'     => 'PageSize',
-        'queryType'    => 'QueryType',
-        'uniRegionId'  => 'UniRegionId',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'uniRegionId' => 'UniRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

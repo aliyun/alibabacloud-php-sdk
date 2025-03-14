@@ -21,6 +21,7 @@ class DeleteVulAutoRepairConfigRequest extends Model
      * @description The IDs of the configurations.
      *
      * >  You can call the [ListVulAutoRepairConfig](~~ListVulAutoRepairConfig~~) operation to query the IDs.
+     *
      * @var int[]
      */
     public $configIdList;
@@ -37,14 +38,12 @@ class DeleteVulAutoRepairConfigRequest extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'    => 'AliasName',
+        'aliasName' => 'AliasName',
         'configIdList' => 'ConfigIdList',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

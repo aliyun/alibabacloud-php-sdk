@@ -29,12 +29,10 @@ class DescribeConcernNecessityResponseBody extends Model
     public $requestId;
     protected $_name = [
         'concernNecessity' => 'ConcernNecessity',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

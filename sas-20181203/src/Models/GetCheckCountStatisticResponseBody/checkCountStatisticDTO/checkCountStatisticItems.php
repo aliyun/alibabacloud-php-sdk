@@ -54,6 +54,7 @@ class checkCountStatisticItems extends Model
      * - **DOMAIN**
      * - For other **InstanceType** values, this parameter takes the value:
      * - **INSTANCE**
+     *
      * @example INSTANCE
      *
      * @var string
@@ -70,6 +71,7 @@ class checkCountStatisticItems extends Model
      * - **5**: Redis Database
      * - **6**: Container Image
      * - **7**: Container
+     *
      * @example 0
      *
      * @var int
@@ -100,6 +102,7 @@ class checkCountStatisticItems extends Model
      * - **NAS**: Network Attached Storage
      * - **SDDP**: Sensitive Data Discovery and Protection
      * - **EIP**: Elastic IP
+     *
      * @example ECS
      *
      * @var string
@@ -130,26 +133,25 @@ class checkCountStatisticItems extends Model
      * - **TENCENT**: Tencent Cloud
      * - **MICROSOFT**: Azure
      * - **AWS**: Amazon Web Services (AWS)
+     *
      * @example ALIYUN
      *
      * @var int
      */
     public $vendor;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
-        'instanceName'        => 'InstanceName',
-        'instanceSubType'     => 'InstanceSubType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceSubType' => 'InstanceSubType',
         'instanceSubTypeName' => 'InstanceSubTypeName',
-        'instanceType'        => 'InstanceType',
-        'instanceTypeName'    => 'InstanceTypeName',
-        'regionId'            => 'RegionId',
-        'riskCount'           => 'RiskCount',
-        'vendor'              => 'Vendor',
+        'instanceType' => 'InstanceType',
+        'instanceTypeName' => 'InstanceTypeName',
+        'regionId' => 'RegionId',
+        'riskCount' => 'RiskCount',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

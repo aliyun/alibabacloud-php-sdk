@@ -33,14 +33,12 @@ class DescribeVpcHoneyPotListResponseBody extends Model
      */
     public $vpcHoneyPotDTOList;
     protected $_name = [
-        'pageInfo'           => 'PageInfo',
-        'requestId'          => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'vpcHoneyPotDTOList' => 'VpcHoneyPotDTOList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeVpcHoneyPotListResponseBody extends Model
         if (isset($map['VpcHoneyPotDTOList'])) {
             if (!empty($map['VpcHoneyPotDTOList'])) {
                 $model->vpcHoneyPotDTOList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['VpcHoneyPotDTOList'] as $item) {
                     $model->vpcHoneyPotDTOList[$n++] = null !== $item ? vpcHoneyPotDTOList::fromMap($item) : $item;
                 }

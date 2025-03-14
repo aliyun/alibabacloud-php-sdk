@@ -24,6 +24,7 @@ class DescribePropertyScaProcessDetailRequest extends Model
      * @description The startup parameter.
      *
      * >  This parameter supports only prefix queries. Fuzzy match is not supported.
+     *
      * @example java -jar
      *
      * @var string
@@ -43,6 +44,7 @@ class DescribePropertyScaProcessDetailRequest extends Model
      * @description The number of entries per page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var int
@@ -53,6 +55,7 @@ class DescribePropertyScaProcessDetailRequest extends Model
      * @description The process ID.
      *
      * >  Only exact match is supported.
+     *
      * @example 756
      *
      * @var string
@@ -83,18 +86,16 @@ class DescribePropertyScaProcessDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'bizType'     => 'BizType',
-        'cmdline'     => 'Cmdline',
+        'bizType' => 'BizType',
+        'cmdline' => 'Cmdline',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'pid'         => 'Pid',
-        'remark'      => 'Remark',
-        'uuid'        => 'Uuid',
+        'pageSize' => 'PageSize',
+        'pid' => 'Pid',
+        'remark' => 'Remark',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

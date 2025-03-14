@@ -37,14 +37,12 @@ class ruleTargetList extends Model
      */
     public $targetType;
     protected $_name = [
-        'targetId'   => 'TargetId',
+        'targetId' => 'TargetId',
         'targetName' => 'TargetName',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

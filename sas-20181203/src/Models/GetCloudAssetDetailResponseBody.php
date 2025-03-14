@@ -34,14 +34,12 @@ class GetCloudAssetDetailResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'instances' => 'Instances',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class GetCloudAssetDetailResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }

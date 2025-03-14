@@ -34,13 +34,11 @@ class DescribeWebLockInclusiveFileTypeResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'inclusiveFileType' => 'InclusiveFileType',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

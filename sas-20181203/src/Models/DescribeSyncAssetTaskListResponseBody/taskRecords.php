@@ -96,20 +96,18 @@ class taskRecords extends Model
      */
     public $taskType;
     protected $_name = [
-        'assetCount'    => 'AssetCount',
-        'ipSegments'    => 'IpSegments',
-        'processRate'   => 'ProcessRate',
-        'rootTaskId'    => 'RootTaskId',
-        'taskEndTime'   => 'TaskEndTime',
-        'taskName'      => 'TaskName',
+        'assetCount' => 'AssetCount',
+        'ipSegments' => 'IpSegments',
+        'processRate' => 'ProcessRate',
+        'rootTaskId' => 'RootTaskId',
+        'taskEndTime' => 'TaskEndTime',
+        'taskName' => 'TaskName',
         'taskStartTime' => 'TaskStartTime',
-        'taskStatus'    => 'TaskStatus',
-        'taskType'      => 'TaskType',
+        'taskStatus' => 'TaskStatus',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

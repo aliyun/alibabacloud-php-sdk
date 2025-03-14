@@ -139,25 +139,23 @@ class list_ extends Model
      */
     public $warningMachineCount;
     protected $_name = [
-        'advice'              => 'Advice',
+        'advice' => 'Advice',
         'affiliatedRiskTypes' => 'AffiliatedRiskTypes',
-        'affiliatedRisks'     => 'AffiliatedRisks',
-        'alias'               => 'Alias',
-        'checkId'             => 'CheckId',
-        'checkItem'           => 'CheckItem',
-        'checkLevel'          => 'CheckLevel',
-        'checkType'           => 'CheckType',
-        'containerCheckItem'  => 'ContainerCheckItem',
-        'description'         => 'Description',
-        'enableRisks'         => 'EnableRisks',
-        'riskType'            => 'RiskType',
-        'status'              => 'Status',
+        'affiliatedRisks' => 'AffiliatedRisks',
+        'alias' => 'Alias',
+        'checkId' => 'CheckId',
+        'checkItem' => 'CheckItem',
+        'checkLevel' => 'CheckLevel',
+        'checkType' => 'CheckType',
+        'containerCheckItem' => 'ContainerCheckItem',
+        'description' => 'Description',
+        'enableRisks' => 'EnableRisks',
+        'riskType' => 'RiskType',
+        'status' => 'Status',
         'warningMachineCount' => 'WarningMachineCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

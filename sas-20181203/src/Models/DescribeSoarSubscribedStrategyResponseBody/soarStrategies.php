@@ -93,20 +93,18 @@ class soarStrategies extends Model
      */
     public $type;
     protected $_name = [
-        'creator'     => 'Creator',
+        'creator' => 'Creator',
         'description' => 'Description',
-        'executeNum'  => 'ExecuteNum',
-        'gmtCreate'   => 'GmtCreate',
+        'executeNum' => 'ExecuteNum',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'runMode'     => 'RunMode',
-        'type'        => 'Type',
+        'id' => 'Id',
+        'name' => 'Name',
+        'runMode' => 'RunMode',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

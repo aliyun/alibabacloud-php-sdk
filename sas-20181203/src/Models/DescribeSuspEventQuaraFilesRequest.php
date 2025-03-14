@@ -90,18 +90,16 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'from'        => 'From',
-        'groupId'     => 'GroupId',
-        'groupingId'  => 'GroupingId',
-        'pageSize'    => 'PageSize',
-        'quaraTag'    => 'QuaraTag',
-        'sourceIp'    => 'SourceIp',
-        'status'      => 'Status',
+        'from' => 'From',
+        'groupId' => 'GroupId',
+        'groupingId' => 'GroupingId',
+        'pageSize' => 'PageSize',
+        'quaraTag' => 'QuaraTag',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

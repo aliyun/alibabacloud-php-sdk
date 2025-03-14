@@ -70,18 +70,16 @@ class DescribeUniBackupStatisticsResponseBody extends Model
      */
     public $unprotectedDatabaseCount;
     protected $_name = [
-        'protectedDatabaseCount'   => 'ProtectedDatabaseCount',
-        'regionCountList'          => 'RegionCountList',
-        'requestId'                => 'RequestId',
-        'restoringTaskCount'       => 'RestoringTaskCount',
-        'totalRecoverableCount'    => 'TotalRecoverableCount',
-        'totalRestoreTaskCount'    => 'TotalRestoreTaskCount',
+        'protectedDatabaseCount' => 'ProtectedDatabaseCount',
+        'regionCountList' => 'RegionCountList',
+        'requestId' => 'RequestId',
+        'restoringTaskCount' => 'RestoringTaskCount',
+        'totalRecoverableCount' => 'TotalRecoverableCount',
+        'totalRestoreTaskCount' => 'TotalRestoreTaskCount',
         'unprotectedDatabaseCount' => 'UnprotectedDatabaseCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +129,7 @@ class DescribeUniBackupStatisticsResponseBody extends Model
         if (isset($map['RegionCountList'])) {
             if (!empty($map['RegionCountList'])) {
                 $model->regionCountList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['RegionCountList'] as $item) {
                     $model->regionCountList[$n++] = null !== $item ? regionCountList::fromMap($item) : $item;
                 }

@@ -40,6 +40,7 @@ class clusterList extends Model
      * @description The ID of the rule.
      *
      * >  You can call the [ListInterceptionRulePage](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
+     *
      * @example 403178
      *
      * @var int
@@ -47,14 +48,12 @@ class clusterList extends Model
     public $ruleId;
     protected $_name = [
         'allNamespace' => 'AllNamespace',
-        'clusterId'    => 'ClusterId',
-        'namespaces'   => 'Namespaces',
-        'ruleId'       => 'RuleId',
+        'clusterId' => 'ClusterId',
+        'namespaces' => 'Namespaces',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

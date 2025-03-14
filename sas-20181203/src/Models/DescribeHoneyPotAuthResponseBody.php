@@ -36,13 +36,11 @@ class DescribeHoneyPotAuthResponseBody extends Model
     public $requestId;
     protected $_name = [
         'honeyPotAuthCount' => 'HoneyPotAuthCount',
-        'honeyPotCount'     => 'HoneyPotCount',
-        'requestId'         => 'RequestId',
+        'honeyPotCount' => 'HoneyPotCount',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

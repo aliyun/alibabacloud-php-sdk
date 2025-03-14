@@ -131,6 +131,7 @@ class DescribeGroupedVulRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -189,26 +190,24 @@ class DescribeGroupedVulRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliasName'                  => 'AliasName',
-        'assetType'                  => 'AssetType',
-        'attachTypes'                => 'AttachTypes',
-        'containerFieldName'         => 'ContainerFieldName',
-        'currentPage'                => 'CurrentPage',
-        'dealed'                     => 'Dealed',
-        'groupId'                    => 'GroupId',
-        'lang'                       => 'Lang',
-        'necessity'                  => 'Necessity',
-        'pageSize'                   => 'PageSize',
+        'aliasName' => 'AliasName',
+        'assetType' => 'AssetType',
+        'attachTypes' => 'AttachTypes',
+        'containerFieldName' => 'ContainerFieldName',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
+        'necessity' => 'Necessity',
+        'pageSize' => 'PageSize',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'searchTags'                 => 'SearchTags',
-        'targetType'                 => 'TargetType',
-        'type'                       => 'Type',
-        'uuids'                      => 'Uuids',
+        'searchTags' => 'SearchTags',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

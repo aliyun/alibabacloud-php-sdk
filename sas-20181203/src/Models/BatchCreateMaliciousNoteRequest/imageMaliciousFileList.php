@@ -12,6 +12,7 @@ class imageMaliciousFileList extends Model
      * @description The ID of the alert.
      *
      * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the alert IDs.
+     *
      * @example 1
      *
      * @var int
@@ -28,12 +29,10 @@ class imageMaliciousFileList extends Model
     public $note;
     protected $_name = [
         'eventId' => 'EventId',
-        'note'    => 'Note',
+        'note' => 'Note',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

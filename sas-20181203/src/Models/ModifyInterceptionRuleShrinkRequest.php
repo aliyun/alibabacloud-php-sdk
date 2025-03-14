@@ -12,6 +12,7 @@ class ModifyInterceptionRuleShrinkRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of container clusters.
+     *
      * @example c17ef568f81884cdab402decd5fcd****
      *
      * @var string
@@ -56,6 +57,7 @@ class ModifyInterceptionRuleShrinkRequest extends Model
      * @description The ID of the rule.
      *
      * This parameter is required.
+     *
      * @example 500018
      *
      * @var int
@@ -94,19 +96,17 @@ class ModifyInterceptionRuleShrinkRequest extends Model
      */
     public $srcTargetShrink;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dstTargetShrink' => 'DstTarget',
-        'interceptType'   => 'InterceptType',
-        'orderIndex'      => 'OrderIndex',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'ruleSwitch'      => 'RuleSwitch',
+        'interceptType' => 'InterceptType',
+        'orderIndex' => 'OrderIndex',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
         'srcTargetShrink' => 'SrcTarget',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

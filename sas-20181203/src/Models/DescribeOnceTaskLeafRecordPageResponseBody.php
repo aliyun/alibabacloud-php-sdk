@@ -34,13 +34,11 @@ class DescribeOnceTaskLeafRecordPageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'onceTasks' => 'OnceTasks',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeOnceTaskLeafRecordPageResponseBody extends Model
         if (isset($map['OnceTasks'])) {
             if (!empty($map['OnceTasks'])) {
                 $model->onceTasks = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['OnceTasks'] as $item) {
                     $model->onceTasks[$n++] = null !== $item ? onceTasks::fromMap($item) : $item;
                 }

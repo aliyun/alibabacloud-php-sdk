@@ -20,9 +20,7 @@ class handleSecurityEventsResponse extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

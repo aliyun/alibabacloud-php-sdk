@@ -57,6 +57,7 @@ class vulWhitelists extends Model
      *   **uuids**: the UUID of the server
      *
      * > If this field is empty, the rule is applied to all assets.
+     *
      * @example {"type":"GroupId","groupIds":[916****],"uuids":[]}
      *
      * @var string
@@ -80,23 +81,25 @@ class vulWhitelists extends Model
      *   **aliasName**: the alias of the vulnerability
      *
      * @example [{
+     * "name":"oval:com.redhat.rhsa:def:20173263",
+     * "type":"cve",
+     * "aliasName":"RHSA-2017:3263: curl security update"
      * }]
+     *
      * @var string
      */
     public $whitelist;
     protected $_name = [
-        'aliasName'  => 'AliasName',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'reason'     => 'Reason',
+        'aliasName' => 'AliasName',
+        'id' => 'Id',
+        'name' => 'Name',
+        'reason' => 'Reason',
         'targetInfo' => 'TargetInfo',
-        'type'       => 'Type',
-        'whitelist'  => 'Whitelist',
+        'type' => 'Type',
+        'whitelist' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

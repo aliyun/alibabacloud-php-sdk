@@ -36,13 +36,11 @@ class baselineItemList extends Model
     public $nameKey;
     protected $_name = [
         'classKey' => 'ClassKey',
-        'itemKey'  => 'ItemKey',
-        'nameKey'  => 'NameKey',
+        'itemKey' => 'ItemKey',
+        'nameKey' => 'NameKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,12 +36,10 @@ class DescribeVulConfigRequest extends Model
     public $type;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

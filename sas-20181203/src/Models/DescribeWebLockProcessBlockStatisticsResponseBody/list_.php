@@ -26,13 +26,11 @@ class list_ extends Model
      */
     public $process;
     protected $_name = [
-        'count'   => 'Count',
+        'count' => 'Count',
         'process' => 'Process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

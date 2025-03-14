@@ -78,6 +78,7 @@ class DescribeCheckWarningsRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  To obtain the Alibaba Cloud account ID, call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -88,6 +89,7 @@ class DescribeCheckWarningsRequest extends Model
      * @description The ID of the risk item. This parameter is required.
      *
      * >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     *
      * @example 10354
      *
      * @var int
@@ -121,29 +123,30 @@ class DescribeCheckWarningsRequest extends Model
     /**
      * @description The UUID of the server on which the baseline check is performed.
      *
+     * > To query specified risk items and the check items of a specified server, you must provide the ID of the server on which the baseline check is performed. You can call the [DescribeWarningMachines](~~DescribeWarningMachines~~) operation to query the IDs of servers.
+     *
      * This parameter is required.
+     *
      * @example d42f938c-d962-48a0-90f9-05****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'checkId'                    => 'CheckId',
-        'checkType'                  => 'CheckType',
-        'containerName'              => 'ContainerName',
-        'currentPage'                => 'CurrentPage',
-        'lang'                       => 'Lang',
-        'pageSize'                   => 'PageSize',
+        'checkId' => 'CheckId',
+        'checkType' => 'CheckType',
+        'containerName' => 'ContainerName',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'riskId'                     => 'RiskId',
-        'riskStatus'                 => 'RiskStatus',
-        'sourceIp'                   => 'SourceIp',
-        'uuid'                       => 'Uuid',
+        'riskId' => 'RiskId',
+        'riskStatus' => 'RiskStatus',
+        'sourceIp' => 'SourceIp',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

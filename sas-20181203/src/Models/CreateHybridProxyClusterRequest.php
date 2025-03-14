@@ -12,6 +12,7 @@ class CreateHybridProxyClusterRequest extends Model
      * @description The name of the cluster.
      *
      * This parameter is required.
+     *
      * @example Chester-Test
      *
      * @var string
@@ -21,6 +22,7 @@ class CreateHybridProxyClusterRequest extends Model
     /**
      * @description The endpoint of the cluster.
      * >  You can specify an IP address or a domain name
+     *
      * @example 192.168.xx.xx
      *
      * @var string
@@ -37,13 +39,11 @@ class CreateHybridProxyClusterRequest extends Model
     public $remark;
     protected $_name = [
         'clusterName' => 'ClusterName',
-        'ip'          => 'Ip',
-        'remark'      => 'Remark',
+        'ip' => 'Ip',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

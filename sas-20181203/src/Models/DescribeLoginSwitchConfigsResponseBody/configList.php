@@ -33,13 +33,11 @@ class configList extends Model
      */
     public $status;
     protected $_name = [
-        'item'   => 'Item',
+        'item' => 'Item',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

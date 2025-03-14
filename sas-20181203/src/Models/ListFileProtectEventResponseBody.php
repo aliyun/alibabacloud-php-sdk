@@ -34,13 +34,11 @@ class ListFileProtectEventResponseBody extends Model
     public $requestId;
     protected $_name = [
         'eventList' => 'EventList',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListFileProtectEventResponseBody extends Model
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['EventList'] as $item) {
                     $model->eventList[$n++] = null !== $item ? eventList::fromMap($item) : $item;
                 }

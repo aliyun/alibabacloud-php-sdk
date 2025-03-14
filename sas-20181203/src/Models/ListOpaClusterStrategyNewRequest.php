@@ -47,16 +47,14 @@ class ListOpaClusterStrategyNewRequest extends Model
      */
     public $strategyName;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'imageName'    => 'ImageName',
-        'label'        => 'Label',
-        'pageSize'     => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
+        'pageSize' => 'PageSize',
         'strategyName' => 'StrategyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -42,14 +42,12 @@ class GetCheckSummaryResponseBody extends Model
     public $summarys;
     protected $_name = [
         'overallItemStatistic' => 'OverallItemStatistic',
-        'overallStatistic'     => 'OverallStatistic',
-        'requestId'            => 'RequestId',
-        'summarys'             => 'Summarys',
+        'overallStatistic' => 'OverallStatistic',
+        'requestId' => 'RequestId',
+        'summarys' => 'Summarys',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class GetCheckSummaryResponseBody extends Model
         if (isset($map['Summarys'])) {
             if (!empty($map['Summarys'])) {
                 $model->summarys = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Summarys'] as $item) {
                     $model->summarys[$n++] = null !== $item ? summarys::fromMap($item) : $item;
                 }

@@ -41,6 +41,7 @@ class DescribeVulListPageRequest extends Model
      * - **0**: no.
      *
      * - **1**: yes.
+     *
      * @example 0
      *
      * @var int
@@ -70,16 +71,14 @@ class DescribeVulListPageRequest extends Model
     public $vulType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'cveId'       => 'CveId',
-        'pageSize'    => 'PageSize',
-        'raspDefend'  => 'RaspDefend',
+        'cveId' => 'CveId',
+        'pageSize' => 'PageSize',
+        'raspDefend' => 'RaspDefend',
         'vulNameLike' => 'VulNameLike',
-        'vulType'     => 'VulType',
+        'vulType' => 'VulType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

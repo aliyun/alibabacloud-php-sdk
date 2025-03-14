@@ -57,15 +57,13 @@ class DescribeDomainListRequest extends Model
     public $sourceIp;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'domainType'  => 'DomainType',
+        'domainType' => 'DomainType',
         'fuzzyDomain' => 'FuzzyDomain',
-        'pageSize'    => 'PageSize',
-        'sourceIp'    => 'SourceIp',
+        'pageSize' => 'PageSize',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

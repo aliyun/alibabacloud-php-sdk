@@ -124,22 +124,20 @@ class relationTypeList extends Model
     public $syncId;
     protected $_name = [
         'currentVersionId' => 'CurrentVersionId',
-        'directed'         => 'Directed',
-        'displayColor'     => 'DisplayColor',
-        'displayIcon'      => 'DisplayIcon',
-        'displayTemplate'  => 'DisplayTemplate',
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'id'               => 'Id',
-        'name'             => 'Name',
-        'namespace'        => 'Namespace',
-        'showType'         => 'ShowType',
-        'syncId'           => 'SyncId',
+        'directed' => 'Directed',
+        'displayColor' => 'DisplayColor',
+        'displayIcon' => 'DisplayIcon',
+        'displayTemplate' => 'DisplayTemplate',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'showType' => 'ShowType',
+        'syncId' => 'SyncId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

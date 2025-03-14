@@ -32,12 +32,10 @@ class DescribeImageEventOperationConditionRequest extends Model
     public $lang;
     protected $_name = [
         'eventType' => 'EventType',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

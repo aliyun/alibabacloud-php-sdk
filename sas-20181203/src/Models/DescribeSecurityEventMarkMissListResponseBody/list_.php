@@ -133,6 +133,7 @@ class list_ extends Model
      * - **strEqual**: equals
      * - **strNotEqual**: does not equal
      * - **regex**: regular expression
+     *
      * @example contains
      *
      * @var string
@@ -148,26 +149,24 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliUid'            => 'AliUid',
-        'eventName'         => 'EventName',
+        'aliUid' => 'AliUid',
+        'eventName' => 'EventName',
         'eventNameOriginal' => 'EventNameOriginal',
-        'eventType'         => 'EventType',
+        'eventType' => 'EventType',
         'eventTypeOriginal' => 'EventTypeOriginal',
-        'field'             => 'Field',
-        'fieldValue'        => 'FieldValue',
-        'filedAliasName'    => 'FiledAliasName',
-        'id'                => 'Id',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'operate'           => 'Operate',
-        'uuid'              => 'Uuid',
+        'field' => 'Field',
+        'fieldValue' => 'FieldValue',
+        'filedAliasName' => 'FiledAliasName',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'operate' => 'Operate',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

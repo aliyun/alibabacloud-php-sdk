@@ -99,20 +99,18 @@ class batchList extends Model
      */
     public $version;
     protected $_name = [
-        'batchId'       => 'BatchId',
+        'batchId' => 'BatchId',
         'batchInterval' => 'BatchInterval',
-        'batchName'     => 'BatchName',
-        'batchNo'       => 'BatchNo',
-        'batchProcess'  => 'BatchProcess',
-        'batchTotal'    => 'BatchTotal',
+        'batchName' => 'BatchName',
+        'batchNo' => 'BatchNo',
+        'batchProcess' => 'BatchProcess',
+        'batchTotal' => 'BatchTotal',
         'operationBase' => 'OperationBase',
-        'status'        => 'Status',
-        'version'       => 'Version',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

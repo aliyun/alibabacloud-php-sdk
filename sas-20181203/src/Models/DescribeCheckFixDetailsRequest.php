@@ -12,6 +12,7 @@ class DescribeCheckFixDetailsRequest extends Model
      * @description The ID of the risk item.
      *
      * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the IDs of risk items.
+     *
      * @example 58
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeCheckFixDetailsRequest extends Model
      * @description The ID of the baseline.
      *
      * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of baselines.
+     *
      * @example 51
      *
      * @var int
@@ -41,13 +43,11 @@ class DescribeCheckFixDetailsRequest extends Model
     public $riskId;
     protected $_name = [
         'checkIds' => 'CheckIds',
-        'lang'     => 'Lang',
-        'riskId'   => 'RiskId',
+        'lang' => 'Lang',
+        'riskId' => 'RiskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeAssetsSecurityEventSummaryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'assets'    => 'Assets',
+        'assets' => 'Assets',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeAssetsSecurityEventSummaryResponseBody extends Model
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Assets'] as $item) {
                     $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class k8sClusters extends Model
     public $name;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateSuspEventNoteRequest extends Model
      * @description The ID of the alert event to which you want to add remarks. You can call the [DescribeSuspEvents](https://help.aliyun.com/document_detail/251497.html) operation to query the IDs of alert events.
      *
      * This parameter is required.
+     *
      * @example 668931
      *
      * @var int
@@ -22,6 +23,7 @@ class CreateSuspEventNoteRequest extends Model
      * @description The remarks that you want to add.
      *
      * This parameter is required.
+     *
      * @example Ignore
      *
      * @var string
@@ -29,12 +31,10 @@ class CreateSuspEventNoteRequest extends Model
     public $note;
     protected $_name = [
         'eventId' => 'EventId',
-        'note'    => 'Note',
+        'note' => 'Note',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

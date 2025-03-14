@@ -70,16 +70,14 @@ class guideTaskConfigList extends Model
      */
     public $taskTypeName;
     protected $_name = [
-        'rewardData'    => 'RewardData',
+        'rewardData' => 'RewardData',
         'securityScore' => 'SecurityScore',
-        'status'        => 'Status',
-        'taskId'        => 'TaskId',
-        'taskTypeName'  => 'TaskTypeName',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskTypeName' => 'TaskTypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

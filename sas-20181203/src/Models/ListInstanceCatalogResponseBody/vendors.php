@@ -26,12 +26,10 @@ class vendors extends Model
     public $name;
     protected $_name = [
         'instanceTypes' => 'InstanceTypes',
-        'name'          => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class vendors extends Model
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InstanceTypes'] as $item) {
                     $model->instanceTypes[$n++] = null !== $item ? instanceTypes::fromMap($item) : $item;
                 }

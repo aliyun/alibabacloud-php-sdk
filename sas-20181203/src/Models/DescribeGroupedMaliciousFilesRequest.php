@@ -21,6 +21,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The name of the malicious image sample that you want to query.
      *
      * >  Fuzzy match is supported.
+     *
      * @example Mining
      *
      * @var string
@@ -102,6 +104,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The number of entries to return on each page. Default value: **20**.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var string
@@ -112,6 +115,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The ID of the image repository.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+     *
      * @example crr-vridcl4****
      *
      * @var string
@@ -122,6 +126,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The ID of the container image.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+     *
      * @example cri-datvailb****
      *
      * @var string
@@ -132,6 +137,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The name of the image repository.
      *
      * >  Fuzzy match is supported.
+     *
      * @example centos
      *
      * @var string
@@ -142,6 +148,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @description The namespace to which the image repository belongs.
      *
      * >  Fuzzy match is supported.
+     *
      * @example hanghai-namespace
      *
      * @var string
@@ -177,27 +184,25 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      */
     public $scanRange;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'currentPage'        => 'CurrentPage',
+        'clusterId' => 'ClusterId',
+        'currentPage' => 'CurrentPage',
         'fuzzyMaliciousName' => 'FuzzyMaliciousName',
-        'imageDigest'        => 'ImageDigest',
-        'imageLayer'         => 'ImageLayer',
-        'imageTag'           => 'ImageTag',
-        'lang'               => 'Lang',
-        'levels'             => 'Levels',
-        'maliciousMd5'       => 'MaliciousMd5',
-        'pageSize'           => 'PageSize',
-        'repoId'             => 'RepoId',
-        'repoInstanceId'     => 'RepoInstanceId',
-        'repoName'           => 'RepoName',
-        'repoNamespace'      => 'RepoNamespace',
-        'repoRegionId'       => 'RepoRegionId',
-        'scanRange'          => 'ScanRange',
+        'imageDigest' => 'ImageDigest',
+        'imageLayer' => 'ImageLayer',
+        'imageTag' => 'ImageTag',
+        'lang' => 'Lang',
+        'levels' => 'Levels',
+        'maliciousMd5' => 'MaliciousMd5',
+        'pageSize' => 'PageSize',
+        'repoId' => 'RepoId',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

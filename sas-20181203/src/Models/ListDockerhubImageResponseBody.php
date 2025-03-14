@@ -29,9 +29,7 @@ class ListDockerhubImageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListDockerhubImageResponseBody extends Model
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
                 $model->imageList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ImageList'] as $item) {
                     $model->imageList[$n++] = null !== $item ? imageList::fromMap($item) : $item;
                 }

@@ -133,24 +133,22 @@ class fileProtectList extends Model
      */
     public $switchId;
     protected $_name = [
-        'action'              => 'Action',
-        'alertLevel'          => 'AlertLevel',
+        'action' => 'Action',
+        'alertLevel' => 'AlertLevel',
         'effectInstanceCount' => 'EffectInstanceCount',
-        'fileOps'             => 'FileOps',
-        'filePaths'           => 'FilePaths',
-        'gmtCreate'           => 'GmtCreate',
-        'gmtModified'         => 'GmtModified',
-        'id'                  => 'Id',
-        'platform'            => 'Platform',
-        'procPaths'           => 'ProcPaths',
-        'ruleName'            => 'RuleName',
-        'status'              => 'Status',
-        'switchId'            => 'SwitchId',
+        'fileOps' => 'FileOps',
+        'filePaths' => 'FilePaths',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'platform' => 'Platform',
+        'procPaths' => 'ProcPaths',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

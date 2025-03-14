@@ -31,12 +31,10 @@ class data extends Model
     public $status;
     protected $_name = [
         'nextScanTime' => 'NextScanTime',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

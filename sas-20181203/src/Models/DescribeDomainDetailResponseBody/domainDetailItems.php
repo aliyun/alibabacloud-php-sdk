@@ -68,17 +68,15 @@ class domainDetailItems extends Model
      */
     public $uuid;
     protected $_name = [
-        'assetType'    => 'AssetType',
-        'instanceId'   => 'InstanceId',
+        'assetType' => 'AssetType',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

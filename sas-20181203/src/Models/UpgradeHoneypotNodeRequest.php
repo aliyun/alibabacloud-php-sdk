@@ -36,6 +36,7 @@ class UpgradeHoneypotNodeRequest extends Model
      * @description The ID of the management node that you want to upgrade.
      *
      * >  You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the ID.
+     *
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -43,13 +44,11 @@ class UpgradeHoneypotNodeRequest extends Model
     public $nodeId;
     protected $_name = [
         'allowHoneypotAccessInternet' => 'AllowHoneypotAccessInternet',
-        'lang'                        => 'Lang',
-        'nodeId'                      => 'NodeId',
+        'lang' => 'Lang',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

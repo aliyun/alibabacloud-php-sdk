@@ -20,13 +20,11 @@ class DeleteSecurityEventMarkMissListRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ids'             => 'Ids',
+        'ids' => 'Ids',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

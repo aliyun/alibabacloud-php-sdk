@@ -34,13 +34,11 @@ class ListSasContainerWebDefenseRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'containerWebDefenseRuleList' => 'ContainerWebDefenseRuleList',
-        'pageInfo'                    => 'PageInfo',
-        'requestId'                   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListSasContainerWebDefenseRuleResponseBody extends Model
         if (isset($map['ContainerWebDefenseRuleList'])) {
             if (!empty($map['ContainerWebDefenseRuleList'])) {
                 $model->containerWebDefenseRuleList = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['ContainerWebDefenseRuleList'] as $item) {
                     $model->containerWebDefenseRuleList[$n++] = null !== $item ? containerWebDefenseRuleList::fromMap($item) : $item;
                 }

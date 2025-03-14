@@ -12,6 +12,7 @@ class DescribeEventLevelCountRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c7e3c5b420a7947c2933303144688****
      *
      * @var string
@@ -91,18 +92,16 @@ class DescribeEventLevelCountRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'clusterId'              => 'ClusterId',
-        'containerFieldName'     => 'ContainerFieldName',
-        'containerFieldValue'    => 'ContainerFieldValue',
-        'containerIds'           => 'ContainerIds',
-        'from'                   => 'From',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'containerIds' => 'ContainerIds',
+        'from' => 'From',
         'multiAccountActionType' => 'MultiAccountActionType',
-        'targetType'             => 'TargetType',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListOperationCheckRequest extends Model
     /**
      * @description Check item ID.
      * > Obtain this parameter by calling the [ListCheckResult](~~ListCheckResult~~) interface.
+     *
      * @example 23
      *
      * @var int
@@ -31,6 +32,7 @@ class ListOperationCheckRequest extends Model
      * @description Language type for request and response messages, default value is zh. Values:
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -41,6 +43,7 @@ class ListOperationCheckRequest extends Model
      * @description Information about the operated instances.
      *
      * This parameter is required.
+     *
      * @var operationTaskInstances[]
      */
     public $operationTaskInstances;
@@ -60,23 +63,22 @@ class ListOperationCheckRequest extends Model
      * - **ROLLBACK**: Rollback task
      *
      * This parameter is required.
+     *
      * @example REPAIR
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'checkId'                => 'CheckId',
-        'endTime'                => 'EndTime',
-        'lang'                   => 'Lang',
+        'checkId' => 'CheckId',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
         'operationTaskInstances' => 'OperationTaskInstances',
-        'startTime'              => 'StartTime',
-        'type'                   => 'Type',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -129,7 +131,7 @@ class ListOperationCheckRequest extends Model
         if (isset($map['OperationTaskInstances'])) {
             if (!empty($map['OperationTaskInstances'])) {
                 $model->operationTaskInstances = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['OperationTaskInstances'] as $item) {
                     $model->operationTaskInstances[$n++] = null !== $item ? operationTaskInstances::fromMap($item) : $item;
                 }

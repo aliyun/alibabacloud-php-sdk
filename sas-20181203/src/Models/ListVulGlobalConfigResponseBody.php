@@ -25,13 +25,11 @@ class ListVulGlobalConfigResponseBody extends Model
      */
     public $vulGlobalConfigList;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'vulGlobalConfigList' => 'VulGlobalConfigList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListVulGlobalConfigResponseBody extends Model
         if (isset($map['VulGlobalConfigList'])) {
             if (!empty($map['VulGlobalConfigList'])) {
                 $model->vulGlobalConfigList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['VulGlobalConfigList'] as $item) {
                     $model->vulGlobalConfigList[$n++] = null !== $item ? vulGlobalConfigList::fromMap($item) : $item;
                 }

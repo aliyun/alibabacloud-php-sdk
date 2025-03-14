@@ -24,13 +24,11 @@ class UpdateFileProtectRemarkRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

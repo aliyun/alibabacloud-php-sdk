@@ -22,6 +22,7 @@ class DescribePropertyScheduleConfigRequest extends Model
      *   **scheduler_sca_proxy_period**: website
      *
      * This parameter is required.
+     *
      * @example scheduler_autorun_period
      *
      * @var string
@@ -31,9 +32,7 @@ class DescribePropertyScheduleConfigRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

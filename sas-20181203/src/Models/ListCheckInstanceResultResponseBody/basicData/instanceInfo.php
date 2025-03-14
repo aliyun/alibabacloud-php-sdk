@@ -34,14 +34,12 @@ class instanceInfo extends Model
      */
     public $lastUpdateTime;
     protected $_name = [
-        'config'          => 'Config',
+        'config' => 'Config',
         'firstUpdateTime' => 'FirstUpdateTime',
-        'lastUpdateTime'  => 'LastUpdateTime',
+        'lastUpdateTime' => 'LastUpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class instanceInfo extends Model
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
                 $model->config = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Config'] as $item) {
                     $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
                 }

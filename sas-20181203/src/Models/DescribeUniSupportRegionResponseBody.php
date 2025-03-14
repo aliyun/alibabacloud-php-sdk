@@ -24,13 +24,11 @@ class DescribeUniSupportRegionResponseBody extends Model
      */
     public $uniSupportRegion;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'uniSupportRegion' => 'UniSupportRegion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

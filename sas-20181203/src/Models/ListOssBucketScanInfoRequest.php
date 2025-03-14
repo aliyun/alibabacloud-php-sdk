@@ -21,6 +21,7 @@ class ListOssBucketScanInfoRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -64,6 +65,7 @@ class ListOssBucketScanInfoRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -84,18 +86,16 @@ class ListOssBucketScanInfoRequest extends Model
      */
     public $status;
     protected $_name = [
-        'bucketName'     => 'BucketName',
-        'currentPage'    => 'CurrentPage',
+        'bucketName' => 'BucketName',
+        'currentPage' => 'CurrentPage',
         'fuzzBucketName' => 'FuzzBucketName',
-        'hasRisk'        => 'HasRisk',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'status'         => 'Status',
+        'hasRisk' => 'HasRisk',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

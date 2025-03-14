@@ -34,12 +34,10 @@ class statistics extends Model
     public $count;
     protected $_name = [
         'authVersion' => 'AuthVersion',
-        'count'       => 'Count',
+        'count' => 'Count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

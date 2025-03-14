@@ -56,16 +56,14 @@ class relationTypeList extends Model
      */
     public $showType;
     protected $_name = [
-        'directed'       => 'Directed',
-        'displayColor'   => 'DisplayColor',
-        'name'           => 'Name',
+        'directed' => 'Directed',
+        'displayColor' => 'DisplayColor',
+        'name' => 'Name',
         'relationTypeId' => 'RelationTypeId',
-        'showType'       => 'ShowType',
+        'showType' => 'ShowType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

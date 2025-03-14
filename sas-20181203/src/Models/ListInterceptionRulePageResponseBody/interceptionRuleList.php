@@ -86,19 +86,17 @@ class interceptionRuleList extends Model
      */
     public $srcTarget;
     protected $_name = [
-        'dstTarget'     => 'DstTarget',
+        'dstTarget' => 'DstTarget',
         'interceptType' => 'InterceptType',
-        'orderIndex'    => 'OrderIndex',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
-        'ruleSwitch'    => 'RuleSwitch',
-        'ruleType'      => 'RuleType',
-        'srcTarget'     => 'SrcTarget',
+        'orderIndex' => 'OrderIndex',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
+        'ruleType' => 'RuleType',
+        'srcTarget' => 'SrcTarget',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

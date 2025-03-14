@@ -14,6 +14,7 @@ class ChangeCheckCustomConfigRequest extends Model
      * @description The ID of the check item.
      *
      * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+     *
      * @example 76
      *
      * @var int
@@ -46,15 +47,13 @@ class ChangeCheckCustomConfigRequest extends Model
      */
     public $repairConfigs;
     protected $_name = [
-        'checkId'       => 'CheckId',
+        'checkId' => 'CheckId',
         'customConfigs' => 'CustomConfigs',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
         'repairConfigs' => 'RepairConfigs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +100,7 @@ class ChangeCheckCustomConfigRequest extends Model
         if (isset($map['CustomConfigs'])) {
             if (!empty($map['CustomConfigs'])) {
                 $model->customConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CustomConfigs'] as $item) {
                     $model->customConfigs[$n++] = null !== $item ? customConfigs::fromMap($item) : $item;
                 }
@@ -113,7 +112,7 @@ class ChangeCheckCustomConfigRequest extends Model
         if (isset($map['RepairConfigs'])) {
             if (!empty($map['RepairConfigs'])) {
                 $model->repairConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RepairConfigs'] as $item) {
                     $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
                 }

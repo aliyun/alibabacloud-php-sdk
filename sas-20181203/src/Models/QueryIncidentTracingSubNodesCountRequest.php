@@ -16,9 +16,7 @@ class QueryIncidentTracingSubNodesCountRequest extends Model
         'vertexIdAndTypeList' => 'VertexIdAndTypeList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

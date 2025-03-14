@@ -25,13 +25,11 @@ class GetUserLangResponseBody extends Model
      */
     public $sasUserLang;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'sasUserLang' => 'SasUserLang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

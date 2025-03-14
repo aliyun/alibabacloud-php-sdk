@@ -24,6 +24,7 @@ class scope extends Model
      * @description The ID of the cluster.
      *
      * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+     *
      * @example 8e2***75b
      *
      * @var string
@@ -38,13 +39,11 @@ class scope extends Model
     public $namespaces;
     protected $_name = [
         'allNamespace' => 'AllNamespace',
-        'clusterId'    => 'ClusterId',
-        'namespaces'   => 'Namespaces',
+        'clusterId' => 'ClusterId',
+        'namespaces' => 'Namespaces',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

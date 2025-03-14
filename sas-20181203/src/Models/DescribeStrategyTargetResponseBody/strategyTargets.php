@@ -51,14 +51,12 @@ class strategyTargets extends Model
     public $targetType;
     protected $_name = [
         'bindUuidCount' => 'BindUuidCount',
-        'flag'          => 'Flag',
-        'target'        => 'Target',
-        'targetType'    => 'TargetType',
+        'flag' => 'Flag',
+        'target' => 'Target',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

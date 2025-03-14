@@ -53,15 +53,13 @@ class DescribeImageVulListResponseBody extends Model
     public $vulRecords;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
-        'vulRecords'  => 'VulRecords',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'vulRecords' => 'VulRecords',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class DescribeImageVulListResponseBody extends Model
         if (isset($map['VulRecords'])) {
             if (!empty($map['VulRecords'])) {
                 $model->vulRecords = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['VulRecords'] as $item) {
                     $model->vulRecords[$n++] = null !== $item ? vulRecords::fromMap($item) : $item;
                 }

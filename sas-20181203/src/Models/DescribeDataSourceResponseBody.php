@@ -29,9 +29,7 @@ class DescribeDataSourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeDataSourceResponseBody extends Model
         if (isset($map['MetaDatas'])) {
             if (!empty($map['MetaDatas'])) {
                 $model->metaDatas = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MetaDatas'] as $item) {
                     $model->metaDatas[$n++] = null !== $item ? metaDatas::fromMap($item) : $item;
                 }

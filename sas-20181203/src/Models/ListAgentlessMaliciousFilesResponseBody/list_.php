@@ -210,33 +210,31 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'details'             => 'Details',
-        'downloadUrl'         => 'DownloadUrl',
-        'filePath'            => 'FilePath',
-        'firstScanTimestamp'  => 'FirstScanTimestamp',
-        'highLight'           => 'HighLight',
-        'id'                  => 'Id',
-        'instanceName'        => 'InstanceName',
-        'internetIp'          => 'InternetIp',
-        'intranetIp'          => 'IntranetIp',
+        'details' => 'Details',
+        'downloadUrl' => 'DownloadUrl',
+        'filePath' => 'FilePath',
+        'firstScanTimestamp' => 'FirstScanTimestamp',
+        'highLight' => 'HighLight',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'latestScanTimestamp' => 'LatestScanTimestamp',
-        'level'               => 'Level',
-        'maliciousMd5'        => 'MaliciousMd5',
-        'maliciousName'       => 'MaliciousName',
-        'maliciousType'       => 'MaliciousType',
-        'notes'               => 'Notes',
-        'operateResult'       => 'OperateResult',
-        'operateTimestamp'    => 'OperateTimestamp',
-        'partition'           => 'Partition',
-        'targetId'            => 'TargetId',
-        'targetName'          => 'TargetName',
-        'targetType'          => 'TargetType',
-        'uuid'                => 'Uuid',
+        'level' => 'Level',
+        'maliciousMd5' => 'MaliciousMd5',
+        'maliciousName' => 'MaliciousName',
+        'maliciousType' => 'MaliciousType',
+        'notes' => 'Notes',
+        'operateResult' => 'OperateResult',
+        'operateTimestamp' => 'OperateTimestamp',
+        'partition' => 'Partition',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -334,7 +332,7 @@ class list_ extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
@@ -382,7 +380,7 @@ class list_ extends Model
         if (isset($map['Notes'])) {
             if (!empty($map['Notes'])) {
                 $model->notes = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Notes'] as $item) {
                     $model->notes[$n++] = null !== $item ? notes::fromMap($item) : $item;
                 }

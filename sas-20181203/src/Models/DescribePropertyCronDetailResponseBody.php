@@ -33,14 +33,12 @@ class DescribePropertyCronDetailResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'propertys' => 'Propertys',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribePropertyCronDetailResponseBody extends Model
         if (isset($map['Propertys'])) {
             if (!empty($map['Propertys'])) {
                 $model->propertys = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Propertys'] as $item) {
                     $model->propertys[$n++] = null !== $item ? propertys::fromMap($item) : $item;
                 }

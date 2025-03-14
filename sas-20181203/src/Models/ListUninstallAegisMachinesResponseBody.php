@@ -54,14 +54,12 @@ class ListUninstallAegisMachinesResponseBody extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'machineList' => 'MachineList',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class ListUninstallAegisMachinesResponseBody extends Model
         if (isset($map['MachineList'])) {
             if (!empty($map['MachineList'])) {
                 $model->machineList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MachineList'] as $item) {
                     $model->machineList[$n++] = null !== $item ? machineList::fromMap($item) : $item;
                 }

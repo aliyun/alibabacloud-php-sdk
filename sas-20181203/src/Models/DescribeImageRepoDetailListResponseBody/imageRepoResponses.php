@@ -33,13 +33,26 @@ class imageRepoResponses extends Model
      * @description The address of the image repository.
      *
      * @example [
+     * {
      * "domains": [
      * "****.cn-shenzhen.cr.aliyuncs.com"
+     * ],
+     * "type": "internet"
+     * },
+     * {
      * "domains": [
      * "****.cn-shenzhen.cr.aliyuncs.com"
+     * ],
+     * "type": "intranet"
+     * },
+     * {
      * "domains": [
      * "****.cn-shenzhen.cr.aliyuncs.com"
+     * ],
+     * "type": "vpc"
+     * }
      * ]
+     *
      * @var string
      */
     public $endpoints;
@@ -175,27 +188,25 @@ class imageRepoResponses extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'alarmCount'        => 'AlarmCount',
-        'alarmStatus'       => 'AlarmStatus',
-        'endpoints'         => 'Endpoints',
+        'alarmCount' => 'AlarmCount',
+        'alarmStatus' => 'AlarmStatus',
+        'endpoints' => 'Endpoints',
         'hasRiskImageCount' => 'HasRiskImageCount',
-        'hcCount'           => 'HcCount',
-        'hcStatus'          => 'HcStatus',
-        'imageCount'        => 'ImageCount',
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
-        'registryType'      => 'RegistryType',
-        'repoId'            => 'RepoId',
-        'repoName'          => 'RepoName',
-        'repoNamespace'     => 'RepoNamespace',
-        'riskStatus'        => 'RiskStatus',
-        'vulCount'          => 'VulCount',
-        'vulStatus'         => 'VulStatus',
+        'hcCount' => 'HcCount',
+        'hcStatus' => 'HcStatus',
+        'imageCount' => 'ImageCount',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'registryType' => 'RegistryType',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'riskStatus' => 'RiskStatus',
+        'vulCount' => 'VulCount',
+        'vulStatus' => 'VulStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class data extends Model
      * @description Result code. Values:
      * - **0**: Success
      * - **1**: Parameter error
+     *
      * @example 0
      *
      * @var int
@@ -21,9 +22,7 @@ class data extends Model
         'resultCode' => 'ResultCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

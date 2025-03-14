@@ -33,6 +33,7 @@ class configList extends Model
      * @description The directory that has web tamper proofing disabled.
      *
      * > If the value of **Mode** is **blacklist**, this parameter is returned.
+     *
      * @example /home/admin/tomcat
      *
      * @var string
@@ -43,6 +44,7 @@ class configList extends Model
      * @description The file that has web tamper proofing disabled.
      *
      * > If the value of **Mode** is **blacklist**, this parameter is returned.
+     *
      * @example /home/admin/tomcat/localhost.log
      *
      * @var string
@@ -53,6 +55,7 @@ class configList extends Model
      * @description The type of the file that has web tamper proofing disabled.
      *
      * > If the value of **Mode** is **blacklist**, this parameter is returned.
+     *
      * @example *.jpg
      *
      * @var string
@@ -72,6 +75,7 @@ class configList extends Model
      * @description The file that has web tamper proofing enabled.
      *
      * > If the value of **Mode** is **whitelist**, this parameter is returned.
+     *
      * @example /home/admin/tomcat/aaa.log
      *
      * @var string
@@ -82,6 +86,7 @@ class configList extends Model
      * @description The type of the file that has web tamper proofing enabled.
      *
      * > If the value of **Mode** is **whitelist**, this parameter is returned.
+     *
      * @example jpg
      *
      * @var string
@@ -118,22 +123,20 @@ class configList extends Model
      */
     public $uuid;
     protected $_name = [
-        'defenceMode'       => 'DefenceMode',
-        'dir'               => 'Dir',
-        'exclusiveDir'      => 'ExclusiveDir',
-        'exclusiveFile'     => 'ExclusiveFile',
+        'defenceMode' => 'DefenceMode',
+        'dir' => 'Dir',
+        'exclusiveDir' => 'ExclusiveDir',
+        'exclusiveFile' => 'ExclusiveFile',
         'exclusiveFileType' => 'ExclusiveFileType',
-        'id'                => 'Id',
-        'inclusiveFile'     => 'InclusiveFile',
+        'id' => 'Id',
+        'inclusiveFile' => 'InclusiveFile',
         'inclusiveFileType' => 'InclusiveFileType',
-        'localBackupDir'    => 'LocalBackupDir',
-        'mode'              => 'Mode',
-        'uuid'              => 'Uuid',
+        'localBackupDir' => 'LocalBackupDir',
+        'mode' => 'Mode',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

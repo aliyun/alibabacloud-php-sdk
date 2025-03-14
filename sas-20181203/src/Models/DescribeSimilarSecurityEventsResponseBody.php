@@ -33,14 +33,12 @@ class DescribeSimilarSecurityEventsResponseBody extends Model
      */
     public $securityEventsResponse;
     protected $_name = [
-        'pageInfo'               => 'PageInfo',
-        'requestId'              => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'securityEventsResponse' => 'SecurityEventsResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeSimilarSecurityEventsResponseBody extends Model
         if (isset($map['SecurityEventsResponse'])) {
             if (!empty($map['SecurityEventsResponse'])) {
                 $model->securityEventsResponse = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['SecurityEventsResponse'] as $item) {
                     $model->securityEventsResponse[$n++] = null !== $item ? securityEventsResponse::fromMap($item) : $item;
                 }

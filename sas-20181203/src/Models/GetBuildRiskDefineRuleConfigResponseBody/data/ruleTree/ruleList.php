@@ -38,14 +38,12 @@ class ruleList extends Model
      */
     public $selected;
     protected $_name = [
-        'ruleKey'  => 'RuleKey',
+        'ruleKey' => 'RuleKey',
         'ruleName' => 'RuleName',
         'selected' => 'Selected',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

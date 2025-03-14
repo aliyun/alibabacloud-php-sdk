@@ -28,9 +28,7 @@ class clientOnlineRatio extends Model
         'historyItems' => 'HistoryItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class clientOnlineRatio extends Model
         if (isset($map['CurrentItems'])) {
             if (!empty($map['CurrentItems'])) {
                 $model->currentItems = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CurrentItems'] as $item) {
                     $model->currentItems[$n++] = null !== $item ? currentItems::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class clientOnlineRatio extends Model
         if (isset($map['HistoryItems'])) {
             if (!empty($map['HistoryItems'])) {
                 $model->historyItems = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['HistoryItems'] as $item) {
                     $model->historyItems[$n++] = null !== $item ? historyItems::fromMap($item) : $item;
                 }

@@ -33,6 +33,7 @@ class pathConfDTOList extends Model
      * @description The path that you want to protect.
      *
      * This parameter is required.
+     *
      * @example /usr/test/
      *
      * @var string
@@ -73,6 +74,7 @@ class pathConfDTOList extends Model
      *   **1**: complex mode (blacklist)
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -101,25 +103,24 @@ class pathConfDTOList extends Model
      * @description The processes that you want to add to the whitelist.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $processPathList;
     protected $_name = [
-        'backupPath'      => 'BackupPath',
-        'defenseMode'     => 'DefenseMode',
-        'defensePath'     => 'DefensePath',
-        'excludeFile'     => 'ExcludeFile',
+        'backupPath' => 'BackupPath',
+        'defenseMode' => 'DefenseMode',
+        'defensePath' => 'DefensePath',
+        'excludeFile' => 'ExcludeFile',
         'excludeFilePath' => 'ExcludeFilePath',
         'excludeFileType' => 'ExcludeFileType',
-        'guardType'       => 'GuardType',
-        'includeFile'     => 'IncludeFile',
+        'guardType' => 'GuardType',
+        'includeFile' => 'IncludeFile',
         'includeFileType' => 'IncludeFileType',
         'processPathList' => 'ProcessPathList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

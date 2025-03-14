@@ -12,6 +12,7 @@ class DescribeCheckWarningDetailRequest extends Model
      * @description The ID of the check item.
      *
      * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of the check items.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeCheckWarningDetailRequest extends Model
      * @description The ID of the alert that is triggered by the check item.
      *
      * >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
+     *
      * @example 98675301
      *
      * @var int
@@ -44,6 +46,7 @@ class DescribeCheckWarningDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -63,23 +66,22 @@ class DescribeCheckWarningDetailRequest extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 01aec2da-5b57-4f38-b221-da5a0b2f****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'checkId'                    => 'CheckId',
-        'checkWarningId'             => 'CheckWarningId',
-        'lang'                       => 'Lang',
+        'checkId' => 'CheckId',
+        'checkWarningId' => 'CheckWarningId',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sourceIp'                   => 'SourceIp',
-        'uuid'                       => 'Uuid',
+        'sourceIp' => 'SourceIp',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

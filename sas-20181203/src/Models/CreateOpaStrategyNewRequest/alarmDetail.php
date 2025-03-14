@@ -48,16 +48,14 @@ class alarmDetail extends Model
      */
     public $vul;
     protected $_name = [
-        'baseline'      => 'Baseline',
-        'buildRisk'     => 'BuildRisk',
+        'baseline' => 'Baseline',
+        'buildRisk' => 'BuildRisk',
         'maliciousFile' => 'MaliciousFile',
         'sensitiveFile' => 'SensitiveFile',
-        'vul'           => 'Vul',
+        'vul' => 'Vul',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

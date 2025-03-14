@@ -53,16 +53,14 @@ class pageInfo extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'lastRowKey'  => 'LastRowKey',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'lastRowKey' => 'LastRowKey',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

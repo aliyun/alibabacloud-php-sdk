@@ -122,23 +122,21 @@ class cycleScheduleResponseList extends Model
      */
     public $taskType;
     protected $_name = [
-        'configId'         => 'ConfigId',
-        'enable'           => 'Enable',
-        'firstDateStr'     => 'FirstDateStr',
-        'intervalPeriod'   => 'IntervalPeriod',
-        'lastTaskId'       => 'LastTaskId',
+        'configId' => 'ConfigId',
+        'enable' => 'Enable',
+        'firstDateStr' => 'FirstDateStr',
+        'intervalPeriod' => 'IntervalPeriod',
+        'lastTaskId' => 'LastTaskId',
         'nextStartTimeStr' => 'NextStartTimeStr',
-        'param'            => 'Param',
-        'periodUnit'       => 'PeriodUnit',
-        'targetEndTime'    => 'TargetEndTime',
-        'targetStartTime'  => 'TargetStartTime',
-        'taskName'         => 'TaskName',
-        'taskType'         => 'TaskType',
+        'param' => 'Param',
+        'periodUnit' => 'PeriodUnit',
+        'targetEndTime' => 'TargetEndTime',
+        'targetStartTime' => 'TargetStartTime',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

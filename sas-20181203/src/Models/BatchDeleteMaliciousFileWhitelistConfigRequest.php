@@ -18,9 +18,7 @@ class BatchDeleteMaliciousFileWhitelistConfigRequest extends Model
         'configIdList' => 'ConfigIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

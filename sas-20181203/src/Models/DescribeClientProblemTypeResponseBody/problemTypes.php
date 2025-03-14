@@ -36,13 +36,11 @@ class problemTypes extends Model
     public $problemType;
     protected $_name = [
         'problemDetail' => 'problemDetail',
-        'problemId'     => 'problemId',
-        'problemType'   => 'problemType',
+        'problemId' => 'problemId',
+        'problemType' => 'problemType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

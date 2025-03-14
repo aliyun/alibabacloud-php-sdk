@@ -52,16 +52,14 @@ class DescribeSoarSubscribedStrategyResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'soarStrategies' => 'SoarStrategies',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeSoarSubscribedStrategyResponseBody extends Model
         if (isset($map['SoarStrategies'])) {
             if (!empty($map['SoarStrategies'])) {
                 $model->soarStrategies = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SoarStrategies'] as $item) {
                     $model->soarStrategies[$n++] = null !== $item ? soarStrategies::fromMap($item) : $item;
                 }

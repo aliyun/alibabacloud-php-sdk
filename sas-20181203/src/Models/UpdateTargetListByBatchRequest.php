@@ -13,6 +13,7 @@ class UpdateTargetListByBatchRequest extends Model
      * @description The ID of the release batch.
      *
      * This parameter is required.
+     *
      * @example 52370
      *
      * @var int
@@ -23,17 +24,16 @@ class UpdateTargetListByBatchRequest extends Model
      * @description The operations on assets.
      *
      * This parameter is required.
+     *
      * @var operationList[]
      */
     public $operationList;
     protected $_name = [
-        'batchId'       => 'BatchId',
+        'batchId' => 'BatchId',
         'operationList' => 'OperationList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +68,7 @@ class UpdateTargetListByBatchRequest extends Model
         if (isset($map['OperationList'])) {
             if (!empty($map['OperationList'])) {
                 $model->operationList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['OperationList'] as $item) {
                     $model->operationList[$n++] = null !== $item ? operationList::fromMap($item) : $item;
                 }

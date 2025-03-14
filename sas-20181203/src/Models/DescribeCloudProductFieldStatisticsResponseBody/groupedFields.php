@@ -42,14 +42,12 @@ class groupedFields extends Model
      */
     public $riskInstanceCount;
     protected $_name = [
-        'categoryCount'     => 'CategoryCount',
-        'instanceCount'     => 'InstanceCount',
+        'categoryCount' => 'CategoryCount',
+        'instanceCount' => 'InstanceCount',
         'riskInstanceCount' => 'RiskInstanceCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

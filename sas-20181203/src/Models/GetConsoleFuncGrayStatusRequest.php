@@ -22,6 +22,7 @@ class GetConsoleFuncGrayStatusRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -29,12 +30,10 @@ class GetConsoleFuncGrayStatusRequest extends Model
     public $lang;
     protected $_name = [
         'condition' => 'Condition',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

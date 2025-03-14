@@ -11,7 +11,10 @@ class DeleteCustomBlockRecordRequest extends Model
     /**
      * @description The ID of the IP address blocking policy.
      *
+     * > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 381**
      *
      * @var int
@@ -23,13 +26,11 @@ class DeleteCustomBlockRecordRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'id'              => 'Id',
+        'id' => 'Id',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

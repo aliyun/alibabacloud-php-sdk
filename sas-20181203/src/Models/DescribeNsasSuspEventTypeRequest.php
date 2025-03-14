@@ -92,26 +92,25 @@ class DescribeNsasSuspEventTypeRequest extends Model
      * @description The UUIDs of servers. Separate multiple UUIDs with commas (,).
      *
      * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+     *
      * @example f56406cb-916d-42db-b6f7-2ff79e34****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'containerFieldName'     => 'ContainerFieldName',
-        'containerFieldValue'    => 'ContainerFieldValue',
-        'from'                   => 'From',
-        'lang'                   => 'Lang',
+        'containerFieldName' => 'ContainerFieldName',
+        'containerFieldValue' => 'ContainerFieldValue',
+        'from' => 'From',
+        'lang' => 'Lang',
         'multiAccountActionType' => 'MultiAccountActionType',
-        'name'                   => 'Name',
-        'remark'                 => 'Remark',
-        'sourceIp'               => 'SourceIp',
-        'uuids'                  => 'Uuids',
+        'name' => 'Name',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

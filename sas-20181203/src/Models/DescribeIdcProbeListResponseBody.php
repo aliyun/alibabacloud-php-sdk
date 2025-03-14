@@ -34,13 +34,11 @@ class DescribeIdcProbeListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'idcProbes' => 'IdcProbes',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeIdcProbeListResponseBody extends Model
         if (isset($map['IdcProbes'])) {
             if (!empty($map['IdcProbes'])) {
                 $model->idcProbes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['IdcProbes'] as $item) {
                     $model->idcProbes[$n++] = null !== $item ? idcProbes::fromMap($item) : $item;
                 }

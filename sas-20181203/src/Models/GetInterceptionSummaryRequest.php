@@ -12,6 +12,7 @@ class GetInterceptionSummaryRequest extends Model
      * @description The ID of the cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the IDs of clusters.
+     *
      * @example c2999***bb61b
      *
      * @var string
@@ -21,9 +22,7 @@ class GetInterceptionSummaryRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,6 +57,7 @@ class DescribeImageBuildRiskListRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -76,17 +77,15 @@ class DescribeImageBuildRiskListRequest extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'criteria'     => 'Criteria',
+        'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
-        'currentPage'  => 'CurrentPage',
-        'lang'         => 'Lang',
-        'pageSize'     => 'PageSize',
-        'riskLevel'    => 'RiskLevel',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

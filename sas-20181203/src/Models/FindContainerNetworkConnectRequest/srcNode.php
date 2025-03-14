@@ -21,6 +21,7 @@ class srcNode extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c56xxx1775dea0
      *
      * @var string
@@ -63,17 +64,15 @@ class srcNode extends Model
      */
     public $podName;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'namespace' => 'Namespace',
-        'nodeIds'   => 'NodeIds',
-        'nodeType'  => 'NodeType',
-        'podName'   => 'PodName',
+        'nodeIds' => 'NodeIds',
+        'nodeType' => 'NodeType',
+        'podName' => 'PodName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

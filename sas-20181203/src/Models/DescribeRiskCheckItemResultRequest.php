@@ -20,7 +20,10 @@ class DescribeRiskCheckItemResultRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * > For more information about the IDs and details of the check items that can be used in configuration assessment, see [DescribeRiskCheckResult](~~DescribeRiskCheckResult~~).
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -43,6 +46,7 @@ class DescribeRiskCheckItemResultRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -63,17 +67,15 @@ class DescribeRiskCheckItemResultRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'itemId'          => 'ItemId',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'itemId' => 'ItemId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -98,21 +98,19 @@ class interceptionSummary extends Model
      */
     public $ruleCount;
     protected $_name = [
-        'closeClusterCount'       => 'CloseClusterCount',
-        'closeRuleCount'          => 'CloseRuleCount',
-        'clusterCount'            => 'ClusterCount',
+        'closeClusterCount' => 'CloseClusterCount',
+        'closeRuleCount' => 'CloseRuleCount',
+        'clusterCount' => 'ClusterCount',
         'interceptionCountInDays' => 'InterceptionCountInDays',
-        'openClusterCount'        => 'OpenClusterCount',
-        'openRuleCount'           => 'OpenRuleCount',
-        'riskCount180Day'         => 'RiskCount180Day',
-        'riskCount30Day'          => 'RiskCount30Day',
-        'riskCountToday'          => 'RiskCountToday',
-        'ruleCount'               => 'RuleCount',
+        'openClusterCount' => 'OpenClusterCount',
+        'openRuleCount' => 'OpenRuleCount',
+        'riskCount180Day' => 'RiskCount180Day',
+        'riskCount30Day' => 'RiskCount30Day',
+        'riskCountToday' => 'RiskCountToday',
+        'ruleCount' => 'RuleCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

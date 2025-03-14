@@ -43,15 +43,13 @@ class data extends Model
      */
     public $md5;
     protected $_name = [
-        'details'   => 'Details',
+        'details' => 'Details',
         'eventName' => 'EventName',
-        'fileName'  => 'FileName',
-        'md5'       => 'Md5',
+        'fileName' => 'FileName',
+        'md5' => 'Md5',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class data extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

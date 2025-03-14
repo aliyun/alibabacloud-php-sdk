@@ -23,7 +23,10 @@ class CopyCustomizeReportConfigRequest extends Model
     /**
      * @description The ID of the report.
      *
+     * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 492742
      *
      * @var int
@@ -39,14 +42,12 @@ class CopyCustomizeReportConfigRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'reportId' => 'ReportId',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

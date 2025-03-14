@@ -174,28 +174,26 @@ class data extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'            => 'AlarmCount',
-        'appName'               => 'AppName',
+        'alarmCount' => 'AlarmCount',
+        'appName' => 'AppName',
         'clusterCurrentVersion' => 'ClusterCurrentVersion',
-        'clusterId'             => 'ClusterId',
-        'clusterName'           => 'ClusterName',
-        'clusterState'          => 'ClusterState',
-        'clusterType'           => 'ClusterType',
-        'containerCount'        => 'ContainerCount',
-        'createTime'            => 'CreateTime',
-        'instanceCount'         => 'InstanceCount',
-        'namespace'             => 'Namespace',
-        'nodeName'              => 'NodeName',
-        'pod'                   => 'Pod',
-        'podCount'              => 'PodCount',
-        'podIp'                 => 'PodIp',
-        'regionId'              => 'RegionId',
-        'vulCount'              => 'VulCount',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterState' => 'ClusterState',
+        'clusterType' => 'ClusterType',
+        'containerCount' => 'ContainerCount',
+        'createTime' => 'CreateTime',
+        'instanceCount' => 'InstanceCount',
+        'namespace' => 'Namespace',
+        'nodeName' => 'NodeName',
+        'pod' => 'Pod',
+        'podCount' => 'PodCount',
+        'podIp' => 'PodIp',
+        'regionId' => 'RegionId',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

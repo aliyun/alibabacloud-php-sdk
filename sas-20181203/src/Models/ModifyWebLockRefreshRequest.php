@@ -12,6 +12,7 @@ class ModifyWebLockRefreshRequest extends Model
      * @description The UUID of the server for which you want to refresh the status of the web tamper proofing feature.
      *
      * >  You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the servers for which the web tamper proofing feature is enabled.
+     *
      * @example 55c0f41b-3093-47a7-8eae-02d3a584****
      *
      * @var string
@@ -21,9 +22,7 @@ class ModifyWebLockRefreshRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

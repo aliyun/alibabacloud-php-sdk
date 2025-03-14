@@ -25,12 +25,10 @@ class JoinWebLockProcessWhiteListRequest extends Model
     public $uuids;
     protected $_name = [
         'processPaths' => 'ProcessPaths',
-        'uuids'        => 'Uuids',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

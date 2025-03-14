@@ -26,12 +26,10 @@ class DescribeCustomizeReportListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'reportList' => 'ReportList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeCustomizeReportListResponseBody extends Model
         if (isset($map['ReportList'])) {
             if (!empty($map['ReportList'])) {
                 $model->reportList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ReportList'] as $item) {
                     $model->reportList[$n++] = null !== $item ? reportList::fromMap($item) : $item;
                 }

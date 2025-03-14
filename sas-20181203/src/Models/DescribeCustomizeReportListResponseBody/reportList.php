@@ -109,21 +109,19 @@ class reportList extends Model
      */
     public $title;
     protected $_name = [
-        'isDefault'       => 'IsDefault',
-        'pinnedTime'      => 'PinnedTime',
-        'reportDays'      => 'ReportDays',
-        'reportEndDate'   => 'ReportEndDate',
-        'reportId'        => 'ReportId',
+        'isDefault' => 'IsDefault',
+        'pinnedTime' => 'PinnedTime',
+        'reportDays' => 'ReportDays',
+        'reportEndDate' => 'ReportEndDate',
+        'reportId' => 'ReportId',
         'reportStartDate' => 'ReportStartDate',
-        'reportStatus'    => 'ReportStatus',
-        'reportType'      => 'ReportType',
-        'reportVersion'   => 'ReportVersion',
-        'title'           => 'Title',
+        'reportStatus' => 'ReportStatus',
+        'reportType' => 'ReportType',
+        'reportVersion' => 'ReportVersion',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,15 +61,13 @@ class GetCheckProcessResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'finishCount' => 'FinishCount',
-        'requestId'   => 'RequestId',
-        'statusCode'  => 'StatusCode',
-        'taskId'      => 'TaskId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'statusCode' => 'StatusCode',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

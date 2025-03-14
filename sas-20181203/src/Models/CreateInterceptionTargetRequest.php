@@ -46,6 +46,7 @@ class CreateInterceptionTargetRequest extends Model
      * @description The namespace to which the network object belongs.
      *
      * This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -63,6 +64,7 @@ class CreateInterceptionTargetRequest extends Model
      * @description The name of the object to be blocked.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -75,25 +77,24 @@ class CreateInterceptionTargetRequest extends Model
      *   **IMAGE**
      *
      * This parameter is required.
+     *
      * @example IMAGE
      *
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'imageList'   => 'ImageList',
-        'namespace'   => 'Namespace',
-        'tagList'     => 'TagList',
-        'targetName'  => 'TargetName',
-        'targetType'  => 'TargetType',
+        'imageList' => 'ImageList',
+        'namespace' => 'Namespace',
+        'tagList' => 'TagList',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

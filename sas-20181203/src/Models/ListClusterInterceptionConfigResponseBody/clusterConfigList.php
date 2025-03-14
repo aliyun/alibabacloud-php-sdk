@@ -94,19 +94,17 @@ class clusterConfigList extends Model
      */
     public $totalRuleCount;
     protected $_name = [
-        'clusterCNNFStatus'  => 'ClusterCNNFStatus',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterType'        => 'ClusterType',
+        'clusterCNNFStatus' => 'ClusterCNNFStatus',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
         'interceptionSwitch' => 'InterceptionSwitch',
-        'openRuleCount'      => 'OpenRuleCount',
-        'supportCNNF'        => 'SupportCNNF',
-        'totalRuleCount'     => 'TotalRuleCount',
+        'openRuleCount' => 'OpenRuleCount',
+        'supportCNNF' => 'SupportCNNF',
+        'totalRuleCount' => 'TotalRuleCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

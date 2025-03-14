@@ -53,16 +53,14 @@ class postPaidVersionSummary extends Model
      */
     public $version;
     protected $_name = [
-        'authBindType'  => 'AuthBindType',
-        'index'         => 'Index',
+        'authBindType' => 'AuthBindType',
+        'index' => 'Index',
         'usedCoreCount' => 'UsedCoreCount',
-        'usedEcsCount'  => 'UsedEcsCount',
-        'version'       => 'Version',
+        'usedEcsCount' => 'UsedEcsCount',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

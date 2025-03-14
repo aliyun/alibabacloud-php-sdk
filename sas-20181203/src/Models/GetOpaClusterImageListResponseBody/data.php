@@ -20,9 +20,7 @@ class data extends Model
         'imageName' => 'ImageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

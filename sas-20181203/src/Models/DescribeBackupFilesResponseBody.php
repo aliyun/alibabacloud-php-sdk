@@ -34,13 +34,11 @@ class DescribeBackupFilesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'backupFiles' => 'BackupFiles',
-        'pageInfo'    => 'PageInfo',
-        'requestId'   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeBackupFilesResponseBody extends Model
         if (isset($map['BackupFiles'])) {
             if (!empty($map['BackupFiles'])) {
                 $model->backupFiles = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['BackupFiles'] as $item) {
                     $model->backupFiles[$n++] = null !== $item ? backupFiles::fromMap($item) : $item;
                 }

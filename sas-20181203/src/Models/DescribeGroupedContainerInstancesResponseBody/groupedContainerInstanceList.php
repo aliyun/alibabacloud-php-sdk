@@ -274,38 +274,36 @@ class groupedContainerInstanceList extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'         => 'AlarmCount',
-        'appName'            => 'AppName',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterType'        => 'ClusterType',
-        'createTime'         => 'CreateTime',
-        'custerState'        => 'CusterState',
-        'hcCount'            => 'HcCount',
-        'hostIp'             => 'HostIp',
-        'image'              => 'Image',
-        'imageDigest'        => 'ImageDigest',
-        'imageRepoName'      => 'ImageRepoName',
+        'alarmCount' => 'AlarmCount',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'createTime' => 'CreateTime',
+        'custerState' => 'CusterState',
+        'hcCount' => 'HcCount',
+        'hostIp' => 'HostIp',
+        'image' => 'Image',
+        'imageDigest' => 'ImageDigest',
+        'imageRepoName' => 'ImageRepoName',
         'imageRepoNamespace' => 'ImageRepoNamespace',
-        'imageRepoTag'       => 'ImageRepoTag',
-        'imageUuid'          => 'ImageUuid',
-        'instanceCount'      => 'InstanceCount',
-        'instanceId'         => 'InstanceId',
-        'namespace'          => 'Namespace',
-        'pod'                => 'Pod',
-        'podIp'              => 'PodIp',
-        'regionId'           => 'RegionId',
-        'riskInstanceCount'  => 'RiskInstanceCount',
-        'riskLevel'          => 'RiskLevel',
-        'riskStatus'         => 'RiskStatus',
-        'syncOpen'           => 'SyncOpen',
-        'syncStatus'         => 'SyncStatus',
-        'vulCount'           => 'VulCount',
+        'imageRepoTag' => 'ImageRepoTag',
+        'imageUuid' => 'ImageUuid',
+        'instanceCount' => 'InstanceCount',
+        'instanceId' => 'InstanceId',
+        'namespace' => 'Namespace',
+        'pod' => 'Pod',
+        'podIp' => 'PodIp',
+        'regionId' => 'RegionId',
+        'riskInstanceCount' => 'RiskInstanceCount',
+        'riskLevel' => 'RiskLevel',
+        'riskStatus' => 'RiskStatus',
+        'syncOpen' => 'SyncOpen',
+        'syncStatus' => 'SyncStatus',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

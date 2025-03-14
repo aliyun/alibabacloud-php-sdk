@@ -24,6 +24,7 @@ class DescribeTotalStatisticsRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the IDs of asset groups.
+     *
      * @example 8076980
      *
      * @var int
@@ -39,14 +40,12 @@ class DescribeTotalStatisticsRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'from'    => 'From',
+        'from' => 'From',
         'groupId' => 'GroupId',
-        'remark'  => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

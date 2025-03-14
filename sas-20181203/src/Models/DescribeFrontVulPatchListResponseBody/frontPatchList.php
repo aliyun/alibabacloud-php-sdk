@@ -26,12 +26,10 @@ class frontPatchList extends Model
     public $uuid;
     protected $_name = [
         'patchList' => 'PatchList',
-        'uuid'      => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class frontPatchList extends Model
         if (isset($map['PatchList'])) {
             if (!empty($map['PatchList'])) {
                 $model->patchList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['PatchList'] as $item) {
                     $model->patchList[$n++] = null !== $item ? patchList::fromMap($item) : $item;
                 }

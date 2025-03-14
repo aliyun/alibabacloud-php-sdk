@@ -25,9 +25,7 @@ class GetLocalDefaultRegionRequest extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

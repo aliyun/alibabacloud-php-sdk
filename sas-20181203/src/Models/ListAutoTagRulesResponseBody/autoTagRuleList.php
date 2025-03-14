@@ -92,20 +92,18 @@ class autoTagRuleList extends Model
      */
     public $tagType;
     protected $_name = [
-        'aliUid'            => 'AliUid',
-        'createTimestamp'   => 'CreateTimestamp',
-        'expression'        => 'Expression',
-        'id'                => 'Id',
+        'aliUid' => 'AliUid',
+        'createTimestamp' => 'CreateTimestamp',
+        'expression' => 'Expression',
+        'id' => 'Id',
         'modifiedTimestamp' => 'ModifiedTimestamp',
-        'ruleDesc'          => 'RuleDesc',
-        'ruleName'          => 'RuleName',
-        'tagContext'        => 'TagContext',
-        'tagType'           => 'TagType',
+        'ruleDesc' => 'RuleDesc',
+        'ruleName' => 'RuleName',
+        'tagContext' => 'TagContext',
+        'tagType' => 'TagType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

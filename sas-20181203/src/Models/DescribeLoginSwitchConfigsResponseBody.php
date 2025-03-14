@@ -35,13 +35,11 @@ class DescribeLoginSwitchConfigsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'configList' => 'ConfigList',
-        'count'      => 'Count',
-        'requestId'  => 'RequestId',
+        'count' => 'Count',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeLoginSwitchConfigsResponseBody extends Model
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ConfigList'] as $item) {
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }

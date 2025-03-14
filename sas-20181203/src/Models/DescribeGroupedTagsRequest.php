@@ -23,9 +23,7 @@ class DescribeGroupedTagsRequest extends Model
         'machineTypes' => 'MachineTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,20 +30,19 @@ class grids extends Model
      * @description Display type. Value:
      * - **grid**: Detection grid
      * - **text**: text
+     *
      * @example text
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'key'      => 'Key',
+        'key' => 'Key',
         'showName' => 'ShowName',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

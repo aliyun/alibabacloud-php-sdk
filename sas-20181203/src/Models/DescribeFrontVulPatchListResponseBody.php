@@ -26,12 +26,10 @@ class DescribeFrontVulPatchListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'frontPatchList' => 'FrontPatchList',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeFrontVulPatchListResponseBody extends Model
         if (isset($map['FrontPatchList'])) {
             if (!empty($map['FrontPatchList'])) {
                 $model->frontPatchList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['FrontPatchList'] as $item) {
                     $model->frontPatchList[$n++] = null !== $item ? frontPatchList::fromMap($item) : $item;
                 }

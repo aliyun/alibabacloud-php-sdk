@@ -26,12 +26,10 @@ class DescribeImageRiskLevelStatisticResponseBody extends Model
     public $requestId;
     protected $_name = [
         'imageRiskLevelList' => 'ImageRiskLevelList',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeImageRiskLevelStatisticResponseBody extends Model
         if (isset($map['ImageRiskLevelList'])) {
             if (!empty($map['ImageRiskLevelList'])) {
                 $model->imageRiskLevelList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ImageRiskLevelList'] as $item) {
                     $model->imageRiskLevelList[$n++] = null !== $item ? imageRiskLevelList::fromMap($item) : $item;
                 }

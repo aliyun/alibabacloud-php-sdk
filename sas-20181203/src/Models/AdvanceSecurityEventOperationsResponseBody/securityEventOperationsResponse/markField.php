@@ -63,16 +63,14 @@ class markField extends Model
      */
     public $supportedMisType;
     protected $_name = [
-        'filedAliasName'   => 'FiledAliasName',
-        'filedName'        => 'FiledName',
-        'markMisType'      => 'MarkMisType',
-        'markMisValue'     => 'MarkMisValue',
+        'filedAliasName' => 'FiledAliasName',
+        'filedName' => 'FiledName',
+        'markMisType' => 'MarkMisType',
+        'markMisValue' => 'MarkMisValue',
         'supportedMisType' => 'SupportedMisType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

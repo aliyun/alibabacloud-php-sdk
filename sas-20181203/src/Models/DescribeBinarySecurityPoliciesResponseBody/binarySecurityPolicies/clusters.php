@@ -24,13 +24,11 @@ class clusters extends Model
      */
     public $namespaces;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'namespaces' => 'Namespaces',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

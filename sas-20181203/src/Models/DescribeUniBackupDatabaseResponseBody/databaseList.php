@@ -113,21 +113,19 @@ class databaseList extends Model
      */
     public $status;
     protected $_name = [
-        'agentStatus'      => 'AgentStatus',
+        'agentStatus' => 'AgentStatus',
         'createdByProduct' => 'CreatedByProduct',
-        'databaseName'     => 'DatabaseName',
-        'databaseType'     => 'DatabaseType',
-        'databaseVersion'  => 'DatabaseVersion',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
-        'instanceUuid'     => 'InstanceUuid',
-        'policyId'         => 'PolicyId',
-        'status'           => 'Status',
+        'databaseName' => 'DatabaseName',
+        'databaseType' => 'DatabaseType',
+        'databaseVersion' => 'DatabaseVersion',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceUuid' => 'InstanceUuid',
+        'policyId' => 'PolicyId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

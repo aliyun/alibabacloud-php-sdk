@@ -183,29 +183,27 @@ class eventList extends Model
      */
     public $uuid;
     protected $_name = [
-        'alertLevel'     => 'AlertLevel',
-        'cmdLine'        => 'CmdLine',
-        'filePath'       => 'FilePath',
-        'handleTime'     => 'HandleTime',
-        'id'             => 'Id',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'latestTime'     => 'LatestTime',
-        'operation'      => 'Operation',
-        'platform'       => 'Platform',
-        'procPath'       => 'ProcPath',
+        'alertLevel' => 'AlertLevel',
+        'cmdLine' => 'CmdLine',
+        'filePath' => 'FilePath',
+        'handleTime' => 'HandleTime',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'latestTime' => 'LatestTime',
+        'operation' => 'Operation',
+        'platform' => 'Platform',
+        'procPath' => 'ProcPath',
         'procPermission' => 'ProcPermission',
-        'processId'      => 'ProcessId',
-        'remark'         => 'Remark',
-        'ruleName'       => 'RuleName',
-        'status'         => 'Status',
-        'uuid'           => 'Uuid',
+        'processId' => 'ProcessId',
+        'remark' => 'Remark',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class SaveImageBaselineStrategyRequest extends Model
     /**
      * @description The baseline check items.
      *
+     * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query baseline check items.
+     *
      * This parameter is required.
+     *
      * @example ak_leak
      *
      * @var string
@@ -46,6 +49,7 @@ class SaveImageBaselineStrategyRequest extends Model
      * @description The ID of the baseline check policy.
      *
      * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query the IDs of baseline check policies.
+     *
      * @example 8639
      *
      * @var int
@@ -62,15 +66,13 @@ class SaveImageBaselineStrategyRequest extends Model
     public $strategyName;
     protected $_name = [
         'baselineItemList' => 'BaselineItemList',
-        'lang'             => 'Lang',
-        'source'           => 'Source',
-        'strategyId'       => 'StrategyId',
-        'strategyName'     => 'StrategyName',
+        'lang' => 'Lang',
+        'source' => 'Source',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

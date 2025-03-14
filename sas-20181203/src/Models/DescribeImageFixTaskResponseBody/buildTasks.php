@@ -129,24 +129,22 @@ class buildTasks extends Model
      */
     public $vulAlias;
     protected $_name = [
-        'buildTaskId'   => 'BuildTaskId',
-        'finishTime'    => 'FinishTime',
-        'fixTime'       => 'FixTime',
-        'newTag'        => 'NewTag',
-        'newUuid'       => 'NewUuid',
-        'oldTag'        => 'OldTag',
-        'oldUuid'       => 'OldUuid',
-        'regionId'      => 'RegionId',
-        'repoName'      => 'RepoName',
+        'buildTaskId' => 'BuildTaskId',
+        'finishTime' => 'FinishTime',
+        'fixTime' => 'FixTime',
+        'newTag' => 'NewTag',
+        'newUuid' => 'NewUuid',
+        'oldTag' => 'OldTag',
+        'oldUuid' => 'OldUuid',
+        'regionId' => 'RegionId',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
-        'status'        => 'Status',
-        'taskType'      => 'TaskType',
-        'vulAlias'      => 'VulAlias',
+        'status' => 'Status',
+        'taskType' => 'TaskType',
+        'vulAlias' => 'VulAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

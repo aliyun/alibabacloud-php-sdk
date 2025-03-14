@@ -48,15 +48,13 @@ class UpdatePublishBatchRequest extends Model
      */
     public $operationBase;
     protected $_name = [
-        'batchId'       => 'BatchId',
-        'batchName'     => 'BatchName',
-        'interval'      => 'Interval',
+        'batchId' => 'BatchId',
+        'batchName' => 'BatchName',
+        'interval' => 'Interval',
         'operationBase' => 'OperationBase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

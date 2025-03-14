@@ -63,14 +63,12 @@ class DescribeImageRepoListResponseBody extends Model
         'addTargetCount' => 'AddTargetCount',
         'allTargetCount' => 'AllTargetCount',
         'delTargetCount' => 'DelTargetCount',
-        'imageRepoList'  => 'ImageRepoList',
-        'pageInfo'       => 'PageInfo',
-        'requestId'      => 'RequestId',
+        'imageRepoList' => 'ImageRepoList',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +121,7 @@ class DescribeImageRepoListResponseBody extends Model
         if (isset($map['ImageRepoList'])) {
             if (!empty($map['ImageRepoList'])) {
                 $model->imageRepoList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ImageRepoList'] as $item) {
                     $model->imageRepoList[$n++] = null !== $item ? imageRepoList::fromMap($item) : $item;
                 }

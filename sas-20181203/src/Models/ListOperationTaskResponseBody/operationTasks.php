@@ -55,7 +55,9 @@ class operationTasks extends Model
 
     /**
      * @description Whether the instance is released:
+     * - true: Released
      * - false: Not released
+     *
      * @example true
      *
      * @var bool
@@ -95,6 +97,7 @@ class operationTasks extends Model
      * - **1**：Supports repair and rollback operations
      * - **2**：Supports repair but not rollback
      * - **3**：Redirect to a third-party platform for operation
+     *
      * @example 1
      *
      * @var int
@@ -107,6 +110,7 @@ class operationTasks extends Model
      * - **high**：高危。
      * - **medium**：中危。
      * - **low**：低危。
+     *
      * @example high
      *
      * @var string
@@ -145,6 +149,7 @@ class operationTasks extends Model
      * - **ROLL_BACK_VERIFYING**：Verifying rollback success
      * - **ROLL_BACK_UNVERIFIED**：Verification of rollback success failed
      * - **ROLL_BACK_VERIFIED**：Verification of rollback success succeeded
+     *
      * @example REPAIRING
      *
      * @var string
@@ -162,7 +167,9 @@ class operationTasks extends Model
 
     /**
      * @description Whether rollback is supported:
+     * - true: Supported
      * - false: Not supported
+     *
      * @example true
      *
      * @var bool
@@ -180,35 +187,35 @@ class operationTasks extends Model
 
     /**
      * @description The type of the operation task being queried:
+     * - REPAIR: Repair
      * - ROLLBACK: Rollback
+     *
      * @example REPAIR
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'checkId'           => 'CheckId',
-        'checkShowName'     => 'CheckShowName',
-        'dealTime'          => 'DealTime',
-        'errorCode'         => 'ErrorCode',
-        'errorMsg'          => 'ErrorMsg',
-        'instanceFreed'     => 'InstanceFreed',
-        'instanceId'        => 'InstanceId',
-        'lastCheckTime'     => 'LastCheckTime',
-        'regionId'          => 'RegionId',
+        'checkId' => 'CheckId',
+        'checkShowName' => 'CheckShowName',
+        'dealTime' => 'DealTime',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'instanceFreed' => 'InstanceFreed',
+        'instanceId' => 'InstanceId',
+        'lastCheckTime' => 'LastCheckTime',
+        'regionId' => 'RegionId',
         'repairSupportType' => 'RepairSupportType',
-        'riskLevel'         => 'RiskLevel',
-        'rootTaskId'        => 'RootTaskId',
-        'status'            => 'Status',
-        'statusShowName'    => 'StatusShowName',
-        'supportRollBack'   => 'SupportRollBack',
-        'taskId'            => 'TaskId',
-        'type'              => 'Type',
+        'riskLevel' => 'RiskLevel',
+        'rootTaskId' => 'RootTaskId',
+        'status' => 'Status',
+        'statusShowName' => 'StatusShowName',
+        'supportRollBack' => 'SupportRollBack',
+        'taskId' => 'TaskId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

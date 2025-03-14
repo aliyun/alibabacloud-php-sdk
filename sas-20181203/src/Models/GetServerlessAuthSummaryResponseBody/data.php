@@ -13,6 +13,7 @@ class data extends Model
      *
      * - **0**: Disabled
      * - **1**: Enabled
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +34,7 @@ class data extends Model
      *
      * - **true**: Yes
      * - **false**: No
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +45,7 @@ class data extends Model
      * @description Serverless post-paid status. Values:
      * - **true**: Active
      * - **false**: Expired
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +60,7 @@ class data extends Model
      * - **AGENTLESS**: Agentless Detection Module
      * - **SERVERLESS**: Serverless Security Module
      * - **CTDR**: Threat Analysis and Response Module
+     *
      * @example SERVERLESS
      *
      * @var string
@@ -76,6 +80,7 @@ class data extends Model
      * @description Post-paid instance status. Values:
      * - **1**: Active
      * - **2**: Suspended due to unpaid bills
+     *
      * @example 1
      *
      * @var int
@@ -154,26 +159,24 @@ class data extends Model
      */
     public $totalUnBindInstanceCount;
     protected $_name = [
-        'autoBind'                  => 'AutoBind',
-        'hasPreBindSetting'         => 'HasPreBindSetting',
-        'isPostPaid'                => 'IsPostPaid',
+        'autoBind' => 'AutoBind',
+        'hasPreBindSetting' => 'HasPreBindSetting',
+        'isPostPaid' => 'IsPostPaid',
         'isServerlessPostPaidValid' => 'IsServerlessPostPaidValid',
-        'postPaidModuleSwitch'      => 'PostPaidModuleSwitch',
-        'postPaidOpenTime'          => 'PostPaidOpenTime',
-        'postPaidStatus'            => 'PostPaidStatus',
-        'postpaidInstanceId'        => 'PostpaidInstanceId',
-        'regionId'                  => 'RegionId',
-        'totalBindAppCount'         => 'TotalBindAppCount',
-        'totalBindCoreCount'        => 'TotalBindCoreCount',
-        'totalBindInstanceCount'    => 'TotalBindInstanceCount',
-        'totalUnBindAppCount'       => 'TotalUnBindAppCount',
-        'totalUnBindCoreCount'      => 'TotalUnBindCoreCount',
-        'totalUnBindInstanceCount'  => 'TotalUnBindInstanceCount',
+        'postPaidModuleSwitch' => 'PostPaidModuleSwitch',
+        'postPaidOpenTime' => 'PostPaidOpenTime',
+        'postPaidStatus' => 'PostPaidStatus',
+        'postpaidInstanceId' => 'PostpaidInstanceId',
+        'regionId' => 'RegionId',
+        'totalBindAppCount' => 'TotalBindAppCount',
+        'totalBindCoreCount' => 'TotalBindCoreCount',
+        'totalBindInstanceCount' => 'TotalBindInstanceCount',
+        'totalUnBindAppCount' => 'TotalUnBindAppCount',
+        'totalUnBindCoreCount' => 'TotalUnBindCoreCount',
+        'totalUnBindInstanceCount' => 'TotalUnBindInstanceCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

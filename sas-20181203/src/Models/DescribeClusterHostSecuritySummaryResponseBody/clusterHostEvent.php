@@ -32,14 +32,12 @@ class clusterHostEvent extends Model
      */
     public $vulEvent;
     protected $_name = [
-        'alarmEvent'    => 'AlarmEvent',
+        'alarmEvent' => 'AlarmEvent',
         'baselineEvent' => 'BaselineEvent',
-        'vulEvent'      => 'VulEvent',
+        'vulEvent' => 'VulEvent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +84,7 @@ class clusterHostEvent extends Model
         if (isset($map['AlarmEvent'])) {
             if (!empty($map['AlarmEvent'])) {
                 $model->alarmEvent = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AlarmEvent'] as $item) {
                     $model->alarmEvent[$n++] = null !== $item ? alarmEvent::fromMap($item) : $item;
                 }
@@ -95,7 +93,7 @@ class clusterHostEvent extends Model
         if (isset($map['BaselineEvent'])) {
             if (!empty($map['BaselineEvent'])) {
                 $model->baselineEvent = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['BaselineEvent'] as $item) {
                     $model->baselineEvent[$n++] = null !== $item ? baselineEvent::fromMap($item) : $item;
                 }
@@ -104,7 +102,7 @@ class clusterHostEvent extends Model
         if (isset($map['VulEvent'])) {
             if (!empty($map['VulEvent'])) {
                 $model->vulEvent = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['VulEvent'] as $item) {
                     $model->vulEvent[$n++] = null !== $item ? vulEvent::fromMap($item) : $item;
                 }

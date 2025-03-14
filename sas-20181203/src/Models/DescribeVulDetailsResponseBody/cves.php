@@ -52,6 +52,7 @@ class cves extends Model
      *
      * @example Apache Shiro is a user authentication and authorization framework for a wide range of rights management applications.↵Recently, Apache Shiro released version 1.7.0, which fixes the Apache Shiro authentication bypass vulnerability (CVE-2020-17510).↵Attackers can bypass Shiro\\"s authentication using malicious requests containing payloads.↵↵Related bugs:↵CVE-2020-17510 Shiro < 1.7.0 Validation Bypass Vulnerability↵CVE-2020-13933 Shiro < 1.6.0 Validation Bypass Vulnerability↵CVE-2020-11989 Shiro < 1.5.3 Validation Bypass Vulnerability↵CVE-2020-1957 Shiro < 1.5.2 Validation Bypass Vulnerability↵CVE-2016-6802 Shiro < 1.3.2 Validation Bypass Vulnerability
      * Check whether the fastjson version currently running on the system is in the affected version and whether safeMode is configured to disable autoType. If it is in the affected version and safeMode is not configured to disable autoType, the vulnerability is considered to exist.
+     *
      * @var string
      */
     public $content;
@@ -96,6 +97,7 @@ class cves extends Model
      * @description The name of the instance.
      *
      * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+     *
      * @example sql-test-001
      *
      * @var string
@@ -106,6 +108,7 @@ class cves extends Model
      * @description The public IP address of the server.
      *
      * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+     *
      * @example 47.114.XX.XX
      *
      * @var string
@@ -116,6 +119,7 @@ class cves extends Model
      * @description The private IP address of the server.
      *
      * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+     *
      * @example 172.19.XX.XX
      *
      * @var string
@@ -205,6 +209,7 @@ class cves extends Model
      * @description The ID of the asset that is scanned.
      *
      * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+     *
      * @example m-bp17m0pc0xprzbwo****
      *
      * @var string
@@ -215,6 +220,7 @@ class cves extends Model
      * @description The name of the asset that is scanned.
      *
      * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instance that is affected by the vulnerability.
+     *
      * @example frontend
      *
      * @var string
@@ -253,37 +259,35 @@ class cves extends Model
      */
     public $vulLevel;
     protected $_name = [
-        'classify'          => 'Classify',
-        'classifys'         => 'Classifys',
-        'cnvdId'            => 'CnvdId',
-        'complexity'        => 'Complexity',
-        'content'           => 'Content',
-        'cveId'             => 'CveId',
-        'cveLink'           => 'CveLink',
-        'cvssScore'         => 'CvssScore',
-        'cvssVector'        => 'CvssVector',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'otherId'           => 'OtherId',
-        'poc'               => 'Poc',
-        'pocCreateTime'     => 'PocCreateTime',
+        'classify' => 'Classify',
+        'classifys' => 'Classifys',
+        'cnvdId' => 'CnvdId',
+        'complexity' => 'Complexity',
+        'content' => 'Content',
+        'cveId' => 'CveId',
+        'cveLink' => 'CveLink',
+        'cvssScore' => 'CvssScore',
+        'cvssVector' => 'CvssVector',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'otherId' => 'OtherId',
+        'poc' => 'Poc',
+        'pocCreateTime' => 'PocCreateTime',
         'pocDisclosureTime' => 'PocDisclosureTime',
-        'product'           => 'Product',
-        'reference'         => 'Reference',
-        'releaseTime'       => 'ReleaseTime',
-        'solution'          => 'Solution',
-        'summary'           => 'Summary',
-        'targetId'          => 'TargetId',
-        'targetName'        => 'TargetName',
-        'title'             => 'Title',
-        'vendor'            => 'Vendor',
-        'vulLevel'          => 'VulLevel',
+        'product' => 'Product',
+        'reference' => 'Reference',
+        'releaseTime' => 'ReleaseTime',
+        'solution' => 'Solution',
+        'summary' => 'Summary',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'title' => 'Title',
+        'vendor' => 'Vendor',
+        'vulLevel' => 'VulLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -390,7 +394,7 @@ class cves extends Model
         if (isset($map['Classifys'])) {
             if (!empty($map['Classifys'])) {
                 $model->classifys = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Classifys'] as $item) {
                     $model->classifys[$n++] = null !== $item ? classifys::fromMap($item) : $item;
                 }

@@ -101,21 +101,19 @@ class bindPortList extends Model
      */
     public $targetPort;
     protected $_name = [
-        'bindPort'   => 'BindPort',
-        'endPort'    => 'EndPort',
-        'err'        => 'Err',
-        'fixed'      => 'Fixed',
-        'id'         => 'Id',
-        'msg'        => 'Msg',
-        'proto'      => 'Proto',
-        'startPort'  => 'StartPort',
-        'status'     => 'Status',
+        'bindPort' => 'BindPort',
+        'endPort' => 'EndPort',
+        'err' => 'Err',
+        'fixed' => 'Fixed',
+        'id' => 'Id',
+        'msg' => 'Msg',
+        'proto' => 'Proto',
+        'startPort' => 'StartPort',
+        'status' => 'Status',
         'targetPort' => 'TargetPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

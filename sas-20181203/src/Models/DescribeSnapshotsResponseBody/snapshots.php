@@ -21,6 +21,7 @@ class snapshots extends Model
      * @description The actual number of backup objects.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 123
      *
      * @var int
@@ -94,6 +95,7 @@ class snapshots extends Model
      * @description The number of backup objects.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 6
      *
      * @var int
@@ -104,6 +106,7 @@ class snapshots extends Model
      * @description The total number of objects in the data source.
      *
      * >  This parameter is available only for file backup.
+     *
      * @example 7
      *
      * @var int
@@ -234,35 +237,33 @@ class snapshots extends Model
      */
     public $vaultId;
     protected $_name = [
-        'actualBytes'        => 'ActualBytes',
-        'actualItems'        => 'ActualItems',
-        'bytesDone'          => 'BytesDone',
-        'bytesTotal'         => 'BytesTotal',
-        'clientId'           => 'ClientId',
-        'clientVersion'      => 'ClientVersion',
-        'createdTime'        => 'CreatedTime',
-        'errorFile'          => 'ErrorFile',
-        'instanceId'         => 'InstanceId',
-        'itemsDone'          => 'ItemsDone',
-        'itemsTotal'         => 'ItemsTotal',
-        'jobId'              => 'JobId',
+        'actualBytes' => 'ActualBytes',
+        'actualItems' => 'ActualItems',
+        'bytesDone' => 'BytesDone',
+        'bytesTotal' => 'BytesTotal',
+        'clientId' => 'ClientId',
+        'clientVersion' => 'ClientVersion',
+        'createdTime' => 'CreatedTime',
+        'errorFile' => 'ErrorFile',
+        'instanceId' => 'InstanceId',
+        'itemsDone' => 'ItemsDone',
+        'itemsTotal' => 'ItemsTotal',
+        'jobId' => 'JobId',
         'parentSnapshotHash' => 'ParentSnapshotHash',
-        'path'               => 'Path',
-        'paths'              => 'Paths',
-        'planId'             => 'PlanId',
-        'regionId'           => 'RegionId',
-        'retention'          => 'Retention',
-        'snapshotHash'       => 'SnapshotHash',
-        'snapshotId'         => 'SnapshotId',
-        'sourceType'         => 'SourceType',
-        'status'             => 'Status',
-        'uuid'               => 'Uuid',
-        'vaultId'            => 'VaultId',
+        'path' => 'Path',
+        'paths' => 'Paths',
+        'planId' => 'PlanId',
+        'regionId' => 'RegionId',
+        'retention' => 'Retention',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
+        'sourceType' => 'SourceType',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

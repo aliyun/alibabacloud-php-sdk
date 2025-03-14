@@ -33,14 +33,12 @@ class DescribeExposedStatisticsDetailResponseBody extends Model
      */
     public $statisticsDetails;
     protected $_name = [
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'statisticsDetails' => 'StatisticsDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeExposedStatisticsDetailResponseBody extends Model
         if (isset($map['StatisticsDetails'])) {
             if (!empty($map['StatisticsDetails'])) {
                 $model->statisticsDetails = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['StatisticsDetails'] as $item) {
                     $model->statisticsDetails[$n++] = null !== $item ? statisticsDetails::fromMap($item) : $item;
                 }

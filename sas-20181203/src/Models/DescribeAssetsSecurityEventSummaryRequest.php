@@ -12,6 +12,7 @@ class DescribeAssetsSecurityEventSummaryRequest extends Model
      * @description The ID of the cluster to which the container belongs.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example cc58f827d893f4d7fb3e34b5d4395****
      *
      * @var string
@@ -70,16 +71,14 @@ class DescribeAssetsSecurityEventSummaryRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'resourceOwnerId'     => 'ResourceOwnerId',
-        'sourceIp'            => 'SourceIp',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class DescribeDingTalkResponseBody extends Model
     public $requestId;
     protected $_name = [
         'actionList' => 'ActionList',
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeDingTalkResponseBody extends Model
         if (isset($map['ActionList'])) {
             if (!empty($map['ActionList'])) {
                 $model->actionList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ActionList'] as $item) {
                     $model->actionList[$n++] = null !== $item ? actionList::fromMap($item) : $item;
                 }

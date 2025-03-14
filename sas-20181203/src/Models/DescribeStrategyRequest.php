@@ -50,15 +50,13 @@ class DescribeStrategyRequest extends Model
      */
     public $strategyIds;
     protected $_name = [
-        'customType'  => 'CustomType',
-        'lang'        => 'Lang',
-        'sourceIp'    => 'SourceIp',
+        'customType' => 'CustomType',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'strategyIds' => 'StrategyIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

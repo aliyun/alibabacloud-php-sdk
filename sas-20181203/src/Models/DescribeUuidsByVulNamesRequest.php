@@ -143,6 +143,7 @@ class DescribeUuidsByVulNamesRequest extends Model
      *   **sys**: Windows system vulnerability
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -161,31 +162,32 @@ class DescribeUuidsByVulNamesRequest extends Model
     /**
      * @description An array that consists of the names of vulnerabilities.
      *
+     * >  You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the names of vulnerabilities.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $vulNames;
     protected $_name = [
-        'dealed'         => 'Dealed',
-        'fieldName'      => 'FieldName',
-        'fieldValue'     => 'FieldValue',
-        'groupId'        => 'GroupId',
-        'lang'           => 'Lang',
-        'level'          => 'Level',
-        'necessity'      => 'Necessity',
-        'remark'         => 'Remark',
-        'searchTags'     => 'SearchTags',
-        'statusList'     => 'StatusList',
-        'tag'            => 'Tag',
-        'targetType'     => 'TargetType',
-        'type'           => 'Type',
+        'dealed' => 'Dealed',
+        'fieldName' => 'FieldName',
+        'fieldValue' => 'FieldValue',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
+        'level' => 'Level',
+        'necessity' => 'Necessity',
+        'remark' => 'Remark',
+        'searchTags' => 'SearchTags',
+        'statusList' => 'StatusList',
+        'tag' => 'Tag',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
         'vpcInstanceIds' => 'VpcInstanceIds',
-        'vulNames'       => 'VulNames',
+        'vulNames' => 'VulNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

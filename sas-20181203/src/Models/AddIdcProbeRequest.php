@@ -12,6 +12,7 @@ class AddIdcProbeRequest extends Model
      * @description The name of the data center.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +23,7 @@ class AddIdcProbeRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example Hangzhou
      *
      * @var string
@@ -32,6 +34,7 @@ class AddIdcProbeRequest extends Model
      * @description The scan interval.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +45,7 @@ class AddIdcProbeRequest extends Model
      * @description The settings of the CIDR block.
      *
      * This parameter is required.
+     *
      * @example 192.168.XX.XX/24
      *
      * @var string
@@ -52,6 +56,7 @@ class AddIdcProbeRequest extends Model
      * @description The Linux port.
      *
      * This parameter is required.
+     *
      * @example 40
      *
      * @var string
@@ -65,6 +70,7 @@ class AddIdcProbeRequest extends Model
      *   **hour**
      *
      * This parameter is required.
+     *
      * @example day
      *
      * @var string
@@ -74,7 +80,10 @@ class AddIdcProbeRequest extends Model
     /**
      * @description The UUID of the server. Separate multiple UUIDs with commas (,).
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     *
      * This parameter is required.
+     *
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string
@@ -85,25 +94,24 @@ class AddIdcProbeRequest extends Model
      * @description The Windows port.
      *
      * This parameter is required.
+     *
      * @example 40
      *
      * @var string
      */
     public $winPort;
     protected $_name = [
-        'idcName'        => 'IdcName',
-        'idcRegion'      => 'IdcRegion',
+        'idcName' => 'IdcName',
+        'idcRegion' => 'IdcRegion',
         'intervalPeriod' => 'IntervalPeriod',
-        'ipSegments'     => 'IpSegments',
-        'linuxPort'      => 'LinuxPort',
-        'periodUnit'     => 'PeriodUnit',
-        'uuids'          => 'Uuids',
-        'winPort'        => 'WinPort',
+        'ipSegments' => 'IpSegments',
+        'linuxPort' => 'LinuxPort',
+        'periodUnit' => 'PeriodUnit',
+        'uuids' => 'Uuids',
+        'winPort' => 'WinPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

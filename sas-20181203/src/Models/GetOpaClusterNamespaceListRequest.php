@@ -12,6 +12,7 @@ class GetOpaClusterNamespaceListRequest extends Model
      * @description The ID of the cluster that you want to query.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example ca0faf43e33904ecbb6c695df7906****
      *
      * @var string
@@ -45,15 +46,13 @@ class GetOpaClusterNamespaceListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'currentPage'   => 'CurrentPage',
+        'clusterId' => 'ClusterId',
+        'currentPage' => 'CurrentPage',
         'nameSpaceName' => 'NameSpaceName',
-        'pageSize'      => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

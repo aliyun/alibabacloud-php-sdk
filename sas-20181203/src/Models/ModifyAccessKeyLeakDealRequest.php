@@ -12,6 +12,7 @@ class ModifyAccessKeyLeakDealRequest extends Model
      * @description The ID of the AccessKey pair leak.
      *
      * > You can call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to query the ID. You must specify at least one of the Id and **IdList** parameters.
+     *
      * @example 123
      *
      * @var int
@@ -42,21 +43,20 @@ class ModifyAccessKeyLeakDealRequest extends Model
      *   **add-whitelist**: add to the whitelist
      *
      * This parameter is required.
+     *
      * @example disable
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'idList' => 'IdList',
         'remark' => 'Remark',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

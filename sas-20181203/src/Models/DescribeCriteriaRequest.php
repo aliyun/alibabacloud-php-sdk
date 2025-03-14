@@ -40,14 +40,12 @@ class DescribeCriteriaRequest extends Model
      */
     public $value;
     protected $_name = [
-        'machineTypes'   => 'MachineTypes',
+        'machineTypes' => 'MachineTypes',
         'supportAutoTag' => 'SupportAutoTag',
-        'value'          => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

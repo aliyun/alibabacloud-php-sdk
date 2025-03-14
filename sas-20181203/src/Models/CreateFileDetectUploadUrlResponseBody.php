@@ -25,13 +25,11 @@ class CreateFileDetectUploadUrlResponseBody extends Model
      */
     public $uploadUrlList;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'uploadUrlList' => 'UploadUrlList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class CreateFileDetectUploadUrlResponseBody extends Model
         if (isset($map['UploadUrlList'])) {
             if (!empty($map['UploadUrlList'])) {
                 $model->uploadUrlList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['UploadUrlList'] as $item) {
                     $model->uploadUrlList[$n++] = null !== $item ? uploadUrlList::fromMap($item) : $item;
                 }

@@ -11,7 +11,10 @@ class RefreshRegistryTokenRequest extends Model
     /**
      * @description The ID of the image repository.
      *
+     * >  You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -21,9 +24,7 @@ class RefreshRegistryTokenRequest extends Model
         'registryId' => 'RegistryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

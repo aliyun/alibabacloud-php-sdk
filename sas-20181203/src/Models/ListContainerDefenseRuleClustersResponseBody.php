@@ -73,18 +73,16 @@ class ListContainerDefenseRuleClustersResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'clusterList'    => 'ClusterList',
-        'code'           => 'Code',
-        'count'          => 'Count',
+        'clusterList' => 'ClusterList',
+        'code' => 'Code',
+        'count' => 'Count',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +129,7 @@ class ListContainerDefenseRuleClustersResponseBody extends Model
         if (isset($map['ClusterList'])) {
             if (!empty($map['ClusterList'])) {
                 $model->clusterList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ClusterList'] as $item) {
                     $model->clusterList[$n++] = null !== $item ? clusterList::fromMap($item) : $item;
                 }

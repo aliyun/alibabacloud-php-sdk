@@ -20,9 +20,7 @@ class GetAlarmMachineCountRequest extends Model
         'from' => 'From',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

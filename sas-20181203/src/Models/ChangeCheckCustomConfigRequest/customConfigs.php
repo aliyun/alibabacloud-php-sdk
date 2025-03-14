@@ -35,14 +35,12 @@ class customConfigs extends Model
      */
     public $value;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'operation' => 'Operation',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

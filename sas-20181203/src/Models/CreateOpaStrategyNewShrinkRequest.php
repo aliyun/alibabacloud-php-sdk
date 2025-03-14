@@ -20,6 +20,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
      * @description The cluster ID.
      *
      * > This parameter is deprecated.
+     *
      * @example cfa7e2fb8c221483ba59e098c34c6****
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
      * @description The cluster name.
      *
      * > This parameter is deprecated.
+     *
      * @example *
      *
      * @var string
@@ -94,7 +96,10 @@ class CreateOpaStrategyNewShrinkRequest extends Model
     /**
      * @description The rule ID.
      *
+     * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+     *
      * > This parameter is invalid when you create a rule.
+     *
      * @example 16
      *
      * @var int
@@ -114,6 +119,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
      * @description The ID of the rule template.
      *
      * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+     *
      * @example 109
      *
      * @var int
@@ -139,25 +145,23 @@ class CreateOpaStrategyNewShrinkRequest extends Model
      */
     public $whiteList;
     protected $_name = [
-        'alarmDetailShrink'  => 'AlarmDetail',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'description'        => 'Description',
-        'imageName'          => 'ImageName',
-        'label'              => 'Label',
-        'maliciousImage'     => 'MaliciousImage',
-        'ruleAction'         => 'RuleAction',
-        'scopes'             => 'Scopes',
-        'strategyId'         => 'StrategyId',
-        'strategyName'       => 'StrategyName',
+        'alarmDetailShrink' => 'AlarmDetail',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'description' => 'Description',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
+        'maliciousImage' => 'MaliciousImage',
+        'ruleAction' => 'RuleAction',
+        'scopes' => 'Scopes',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
         'strategyTemplateId' => 'StrategyTemplateId',
-        'unScanedImage'      => 'UnScanedImage',
-        'whiteList'          => 'WhiteList',
+        'unScanedImage' => 'UnScanedImage',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -253,7 +257,7 @@ class CreateOpaStrategyNewShrinkRequest extends Model
         if (isset($map['Scopes'])) {
             if (!empty($map['Scopes'])) {
                 $model->scopes = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Scopes'] as $item) {
                     $model->scopes[$n++] = null !== $item ? scopes::fromMap($item) : $item;
                 }

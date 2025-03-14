@@ -67,17 +67,15 @@ class standards extends Model
      */
     public $type;
     protected $_name = [
-        'bindVendor'        => 'BindVendor',
-        'id'                => 'Id',
-        'requirements'      => 'Requirements',
-        'showName'          => 'ShowName',
+        'bindVendor' => 'BindVendor',
+        'id' => 'Id',
+        'requirements' => 'Requirements',
+        'showName' => 'ShowName',
         'showPriorityLevel' => 'ShowPriorityLevel',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class standards extends Model
         if (isset($map['Requirements'])) {
             if (!empty($map['Requirements'])) {
                 $model->requirements = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['Requirements'] as $item) {
                     $model->requirements[$n++] = null !== $item ? requirements::fromMap($item) : $item;
                 }

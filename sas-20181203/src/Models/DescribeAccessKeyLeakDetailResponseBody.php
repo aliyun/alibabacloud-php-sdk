@@ -226,33 +226,31 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
      */
     public $whitelistTime;
     protected $_name = [
-        'accesskeyId'          => 'AccesskeyId',
-        'asset'                => 'Asset',
-        'code'                 => 'Code',
-        'dealTime'             => 'DealTime',
-        'dealType'             => 'DealType',
-        'githubFileName'       => 'GithubFileName',
-        'githubFileType'       => 'GithubFileType',
+        'accesskeyId' => 'AccesskeyId',
+        'asset' => 'Asset',
+        'code' => 'Code',
+        'dealTime' => 'DealTime',
+        'dealType' => 'DealType',
+        'githubFileName' => 'GithubFileName',
+        'githubFileType' => 'GithubFileType',
         'githubFileUpdateTime' => 'GithubFileUpdateTime',
-        'githubFileUrl'        => 'GithubFileUrl',
-        'githubRepoName'       => 'GithubRepoName',
-        'githubRepoUrl'        => 'GithubRepoUrl',
-        'githubUser'           => 'GithubUser',
-        'githubUserPicUrl'     => 'GithubUserPicUrl',
-        'gmtCreate'            => 'GmtCreate',
-        'gmtModified'          => 'GmtModified',
-        'remark'               => 'Remark',
-        'requestId'            => 'RequestId',
-        'source'               => 'Source',
-        'tokenValid'           => 'TokenValid',
-        'type'                 => 'Type',
-        'whitelistStatus'      => 'WhitelistStatus',
-        'whitelistTime'        => 'WhitelistTime',
+        'githubFileUrl' => 'GithubFileUrl',
+        'githubRepoName' => 'GithubRepoName',
+        'githubRepoUrl' => 'GithubRepoUrl',
+        'githubUser' => 'GithubUser',
+        'githubUserPicUrl' => 'GithubUserPicUrl',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'remark' => 'Remark',
+        'requestId' => 'RequestId',
+        'source' => 'Source',
+        'tokenValid' => 'TokenValid',
+        'type' => 'Type',
+        'whitelistStatus' => 'WhitelistStatus',
+        'whitelistTime' => 'WhitelistTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -156,6 +156,7 @@ class DescribeImageSensitiveFileListRequest extends Model
      * @description The UUID of the image.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation of Container Registry to query the image UUID from the value of the **ImageUuid** response parameter.
+     *
      * @example 850613a48999900f48417c7e6e9dcfdd
      *
      * @var string
@@ -206,19 +207,17 @@ class DescribeImageSensitiveFileListRequest extends Model
      */
     public $scanRange;
     protected $_name = [
-        'criteria'     => 'Criteria',
+        'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
-        'currentPage'  => 'CurrentPage',
-        'imageUuid'    => 'ImageUuid',
-        'lang'         => 'Lang',
-        'pageSize'     => 'PageSize',
-        'riskLevel'    => 'RiskLevel',
-        'scanRange'    => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

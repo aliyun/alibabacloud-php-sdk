@@ -24,13 +24,11 @@ class ListClientUserDefineRuleTypesResponseBody extends Model
      */
     public $userDefineRuleTypes;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'userDefineRuleTypes' => 'UserDefineRuleTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

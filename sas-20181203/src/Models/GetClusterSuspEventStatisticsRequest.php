@@ -12,6 +12,7 @@ class GetClusterSuspEventStatisticsRequest extends Model
      * @description The ID of the container cluster.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c6094b964bfc145fe9e418c869e7e****
      *
      * @var string
@@ -28,12 +29,10 @@ class GetClusterSuspEventStatisticsRequest extends Model
     public $from;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'from'      => 'From',
+        'from' => 'From',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

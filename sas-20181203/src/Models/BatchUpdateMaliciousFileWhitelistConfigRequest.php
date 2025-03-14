@@ -19,9 +19,7 @@ class BatchUpdateMaliciousFileWhitelistConfigRequest extends Model
         'configList' => 'ConfigList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class BatchUpdateMaliciousFileWhitelistConfigRequest extends Model
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ConfigList'] as $item) {
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }

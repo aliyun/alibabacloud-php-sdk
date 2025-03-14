@@ -46,15 +46,13 @@ class DeleteBaselineCheckWhiteRecordRequest extends Model
      */
     public $source;
     protected $_name = [
-        'checkIds'  => 'CheckIds',
-        'lang'      => 'Lang',
+        'checkIds' => 'CheckIds',
+        'lang' => 'Lang',
         'recordIds' => 'RecordIds',
-        'source'    => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

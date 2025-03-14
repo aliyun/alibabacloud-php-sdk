@@ -26,13 +26,11 @@ class data extends Model
      */
     public $strategyCount;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'strategyCount' => 'StrategyCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

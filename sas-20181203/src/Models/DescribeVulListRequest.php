@@ -21,6 +21,7 @@ class DescribeVulListRequest extends Model
      * @description The additional type of the vulnerabilities. You need to specify this parameter when you query application vulnerabilities. Set the value to **sca**. If you set **Type** to **app**, you must specify this parameter.
      *
      * > If you set this parameter to **sca**, application vulnerabilities and the vulnerabilities that are detected based on software component analysis are queried. If you do not specify this parameter, only application vulnerabilities are queried.
+     *
      * @example sca
      *
      * @var string
@@ -52,6 +53,7 @@ class DescribeVulListRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
+     *
      * @example 9207613
      *
      * @var string
@@ -132,6 +134,7 @@ class DescribeVulListRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 1232428423234****
      *
      * @var int
@@ -141,7 +144,20 @@ class DescribeVulListRequest extends Model
     /**
      * @description The status of the vulnerability. Separate multiple statuses with commas (,). Valid values:
      *
+     * - 1: unfixed
+     * - 2: fix failed
+     * - 3: rollback failed
+     * - 4: being fixed
+     * - 5: being rolled back
+     * - 6: being verified
+     * - 7: fixed
+     * - 8: fixed and to be restarted
+     * - 9: rolled back
+     * - 10: ignored
+     * - 11: rolled back and to be restarted
+     * - 12: not found
      * - 20: expired
+     *
      * @example 1,2,3
      *
      * @var string
@@ -159,6 +175,7 @@ class DescribeVulListRequest extends Model
      *   **sca**: application vulnerability that is detected by using software component analysis
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -181,6 +198,7 @@ class DescribeVulListRequest extends Model
      * @description The UUIDs of the servers on which you want to query the vulnerabilities. Separate multiple UUIDs with commas (,).
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the UUIDs.
+     *
      * @example 1587bedb-fdb4-48c4-9330-****
      *
      * @var string
@@ -196,29 +214,27 @@ class DescribeVulListRequest extends Model
      */
     public $vpcInstanceIds;
     protected $_name = [
-        'aliasName'                  => 'AliasName',
-        'attachTypes'                => 'AttachTypes',
-        'currentPage'                => 'CurrentPage',
-        'dealed'                     => 'Dealed',
-        'groupId'                    => 'GroupId',
-        'ids'                        => 'Ids',
-        'lang'                       => 'Lang',
-        'name'                       => 'Name',
-        'necessity'                  => 'Necessity',
-        'nextToken'                  => 'NextToken',
-        'pageSize'                   => 'PageSize',
-        'remark'                     => 'Remark',
+        'aliasName' => 'AliasName',
+        'attachTypes' => 'AttachTypes',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'groupId' => 'GroupId',
+        'ids' => 'Ids',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'necessity' => 'Necessity',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'statusList'                 => 'StatusList',
-        'type'                       => 'Type',
-        'useNextToken'               => 'UseNextToken',
-        'uuids'                      => 'Uuids',
-        'vpcInstanceIds'             => 'VpcInstanceIds',
+        'statusList' => 'StatusList',
+        'type' => 'Type',
+        'useNextToken' => 'UseNextToken',
+        'uuids' => 'Uuids',
+        'vpcInstanceIds' => 'VpcInstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

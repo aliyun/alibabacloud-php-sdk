@@ -31,12 +31,10 @@ class network extends Model
     protected $_name = [
         'externalIp' => 'ExternalIp',
         'internalIp' => 'InternalIp',
-        'realIp'     => 'RealIp',
+        'realIp' => 'RealIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

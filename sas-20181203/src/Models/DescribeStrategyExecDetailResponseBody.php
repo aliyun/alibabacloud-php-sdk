@@ -91,20 +91,18 @@ class DescribeStrategyExecDetailResponseBody extends Model
      */
     public $successCount;
     protected $_name = [
-        'endTime'        => 'EndTime',
-        'failCount'      => 'FailCount',
-        'failedEcsList'  => 'FailedEcsList',
+        'endTime' => 'EndTime',
+        'failCount' => 'FailCount',
+        'failedEcsList' => 'FailedEcsList',
         'inProcessCount' => 'InProcessCount',
-        'percent'        => 'Percent',
-        'requestId'      => 'RequestId',
-        'source'         => 'Source',
-        'startTime'      => 'StartTime',
-        'successCount'   => 'SuccessCount',
+        'percent' => 'Percent',
+        'requestId' => 'RequestId',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -163,7 +161,7 @@ class DescribeStrategyExecDetailResponseBody extends Model
         if (isset($map['FailedEcsList'])) {
             if (!empty($map['FailedEcsList'])) {
                 $model->failedEcsList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['FailedEcsList'] as $item) {
                     $model->failedEcsList[$n++] = null !== $item ? failedEcsList::fromMap($item) : $item;
                 }

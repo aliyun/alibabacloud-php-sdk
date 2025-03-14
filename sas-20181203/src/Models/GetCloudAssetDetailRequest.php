@@ -75,15 +75,13 @@ class GetCloudAssetDetailRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'assetSubType'        => 'AssetSubType',
-        'assetType'           => 'AssetType',
+        'assetSubType' => 'AssetSubType',
+        'assetType' => 'AssetType',
         'cloudAssetInstances' => 'CloudAssetInstances',
-        'vendor'              => 'Vendor',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class GetCloudAssetDetailRequest extends Model
         if (isset($map['CloudAssetInstances'])) {
             if (!empty($map['CloudAssetInstances'])) {
                 $model->cloudAssetInstances = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['CloudAssetInstances'] as $item) {
                     $model->cloudAssetInstances[$n++] = null !== $item ? cloudAssetInstances::fromMap($item) : $item;
                 }

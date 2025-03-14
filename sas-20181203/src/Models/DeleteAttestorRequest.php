@@ -31,14 +31,12 @@ class DeleteAttestorRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'name'            => 'Name',
+        'name' => 'Name',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

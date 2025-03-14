@@ -56,15 +56,13 @@ class ListSasContainerWebDefenseRuleRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'criteria'    => 'Criteria',
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
-        'logicalExp'  => 'LogicalExp',
-        'pageSize'    => 'PageSize',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

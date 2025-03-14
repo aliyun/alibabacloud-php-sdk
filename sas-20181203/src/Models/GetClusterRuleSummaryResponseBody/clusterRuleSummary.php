@@ -74,18 +74,16 @@ class clusterRuleSummary extends Model
      */
     public $suggestRuleCount;
     protected $_name = [
-        'closeRuleCount'        => 'CloseRuleCount',
+        'closeRuleCount' => 'CloseRuleCount',
         'interceptionCount7Day' => 'InterceptionCount7Day',
-        'interceptionSwitch'    => 'InterceptionSwitch',
-        'interceptionType'      => 'InterceptionType',
-        'openRuleCount'         => 'OpenRuleCount',
-        'ruleCount'             => 'RuleCount',
-        'suggestRuleCount'      => 'SuggestRuleCount',
+        'interceptionSwitch' => 'InterceptionSwitch',
+        'interceptionType' => 'InterceptionType',
+        'openRuleCount' => 'OpenRuleCount',
+        'ruleCount' => 'RuleCount',
+        'suggestRuleCount' => 'SuggestRuleCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

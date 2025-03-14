@@ -61,17 +61,15 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'quaraFiles'  => 'QuaraFiles',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'quaraFiles' => 'QuaraFiles',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
         if (isset($map['QuaraFiles'])) {
             if (!empty($map['QuaraFiles'])) {
                 $model->quaraFiles = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['QuaraFiles'] as $item) {
                     $model->quaraFiles[$n++] = null !== $item ? quaraFiles::fromMap($item) : $item;
                 }

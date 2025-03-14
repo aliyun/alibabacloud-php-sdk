@@ -52,16 +52,14 @@ class metaDataFields extends Model
      */
     public $valueType;
     protected $_name = [
-        'filed'        => 'Filed',
-        'filedName'    => 'FiledName',
+        'filed' => 'Filed',
+        'filedName' => 'FiledName',
         'operatorList' => 'OperatorList',
-        'sample'       => 'Sample',
-        'valueType'    => 'ValueType',
+        'sample' => 'Sample',
+        'valueType' => 'ValueType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class metaDataFields extends Model
         if (isset($map['OperatorList'])) {
             if (!empty($map['OperatorList'])) {
                 $model->operatorList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OperatorList'] as $item) {
                     $model->operatorList[$n++] = null !== $item ? operatorList::fromMap($item) : $item;
                 }

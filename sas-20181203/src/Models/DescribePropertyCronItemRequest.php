@@ -48,14 +48,12 @@ class DescribePropertyCronItemRequest extends Model
     public $source;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'pageSize'    => 'PageSize',
-        'source'      => 'Source',
+        'forceFlush' => 'ForceFlush',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

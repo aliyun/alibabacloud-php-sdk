@@ -34,13 +34,11 @@ class DescribeExposedInstanceListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'exposedInstances' => 'ExposedInstances',
-        'pageInfo'         => 'PageInfo',
-        'requestId'        => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeExposedInstanceListResponseBody extends Model
         if (isset($map['ExposedInstances'])) {
             if (!empty($map['ExposedInstances'])) {
                 $model->exposedInstances = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ExposedInstances'] as $item) {
                     $model->exposedInstances[$n++] = null !== $item ? exposedInstances::fromMap($item) : $item;
                 }

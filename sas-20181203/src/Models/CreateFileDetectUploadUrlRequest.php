@@ -13,6 +13,7 @@ class CreateFileDetectUploadUrlRequest extends Model
      * @description The hash values of files.
      *
      * > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
+     *
      * @var hashKeyContextList[]
      */
     public $hashKeyContextList;
@@ -21,6 +22,7 @@ class CreateFileDetectUploadUrlRequest extends Model
      * @description The identifiers of files. Only MD5 hash values are supported.
      *
      * > You must specify at least one of the **HashKeyList** and **HashKeyContextList** parameters.
+     *
      * @example CreateFileDetectUploadUrl
      *
      * @var string[]
@@ -38,6 +40,7 @@ class CreateFileDetectUploadUrlRequest extends Model
      * > If you do not know the type of the file, set this parameter to **0**.
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -45,13 +48,11 @@ class CreateFileDetectUploadUrlRequest extends Model
     public $type;
     protected $_name = [
         'hashKeyContextList' => 'HashKeyContextList',
-        'hashKeyList'        => 'HashKeyList',
-        'type'               => 'Type',
+        'hashKeyList' => 'HashKeyList',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +87,7 @@ class CreateFileDetectUploadUrlRequest extends Model
         if (isset($map['HashKeyContextList'])) {
             if (!empty($map['HashKeyContextList'])) {
                 $model->hashKeyContextList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['HashKeyContextList'] as $item) {
                     $model->hashKeyContextList[$n++] = null !== $item ? hashKeyContextList::fromMap($item) : $item;
                 }

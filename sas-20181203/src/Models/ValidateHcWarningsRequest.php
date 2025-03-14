@@ -11,6 +11,7 @@ class ValidateHcWarningsRequest extends Model
     /**
      * @description The IDs of check items that you want to verify. Separate multiple IDs with commas (,).
      * > You can use [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) to get IDs of check items.
+     *
      * @example 695,234
      *
      * @var string
@@ -43,6 +44,7 @@ class ValidateHcWarningsRequest extends Model
      * @description The UUIDs of the servers on which you want to verify the risk items. Separate multiple UUIDs with commas (,).
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
      *
      * @var string
@@ -50,14 +52,12 @@ class ValidateHcWarningsRequest extends Model
     public $uuids;
     protected $_name = [
         'checkIds' => 'CheckIds',
-        'riskIds'  => 'RiskIds',
-        'status'   => 'Status',
-        'uuids'    => 'Uuids',
+        'riskIds' => 'RiskIds',
+        'status' => 'Status',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

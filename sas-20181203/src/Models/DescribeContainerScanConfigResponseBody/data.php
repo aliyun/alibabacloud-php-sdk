@@ -53,16 +53,14 @@ class data extends Model
      */
     public $clusterName;
     protected $_name = [
-        'allCount'    => 'AllCount',
-        'appNames'    => 'AppNames',
+        'allCount' => 'AllCount',
+        'appNames' => 'AppNames',
         'chooseCount' => 'ChooseCount',
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

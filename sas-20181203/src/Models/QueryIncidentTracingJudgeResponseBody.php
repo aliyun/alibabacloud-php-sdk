@@ -36,14 +36,12 @@ class QueryIncidentTracingJudgeResponseBody extends Model
      */
     public $tracingJudge;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'tracingJudge' => 'TracingJudge',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

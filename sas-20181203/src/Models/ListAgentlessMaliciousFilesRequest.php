@@ -12,6 +12,7 @@ class ListAgentlessMaliciousFilesRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +44,7 @@ class ListAgentlessMaliciousFilesRequest extends Model
      * @description The name of the malicious file that you want to query.
      *
      * > Fuzzy match is supported.
+     *
      * @example WebShell
      *
      * @var string
@@ -108,6 +110,7 @@ class ListAgentlessMaliciousFilesRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var string
@@ -139,23 +142,21 @@ class ListAgentlessMaliciousFilesRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'currentPage'        => 'CurrentPage',
-        'dealed'             => 'Dealed',
-        'eventId'            => 'EventId',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'eventId' => 'EventId',
         'fuzzyMaliciousName' => 'FuzzyMaliciousName',
-        'lang'               => 'Lang',
-        'levels'             => 'Levels',
-        'maliciousMd5'       => 'MaliciousMd5',
-        'maliciousType'      => 'MaliciousType',
-        'pageSize'           => 'PageSize',
-        'remark'             => 'Remark',
-        'scanRange'          => 'ScanRange',
-        'uuid'               => 'Uuid',
+        'lang' => 'Lang',
+        'levels' => 'Levels',
+        'maliciousMd5' => 'MaliciousMd5',
+        'maliciousType' => 'MaliciousType',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'scanRange' => 'ScanRange',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

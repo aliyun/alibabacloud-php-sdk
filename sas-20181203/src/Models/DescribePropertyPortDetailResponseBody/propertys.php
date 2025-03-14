@@ -116,23 +116,21 @@ class propertys extends Model
      */
     public $uuid;
     protected $_name = [
-        'bindIp'          => 'BindIp',
+        'bindIp' => 'BindIp',
         'createTimestamp' => 'CreateTimestamp',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'pid'             => 'Pid',
-        'port'            => 'Port',
-        'procName'        => 'ProcName',
-        'proto'           => 'Proto',
-        'uuid'            => 'Uuid',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'pid' => 'Pid',
+        'port' => 'Port',
+        'procName' => 'ProcName',
+        'proto' => 'Proto',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

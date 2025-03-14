@@ -34,14 +34,12 @@ class DescribeVulCheckTaskStatusDetailResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'taskStatuses' => 'TaskStatuses',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeVulCheckTaskStatusDetailResponseBody extends Model
         if (isset($map['TaskStatuses'])) {
             if (!empty($map['TaskStatuses'])) {
                 $model->taskStatuses = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['TaskStatuses'] as $item) {
                     $model->taskStatuses[$n++] = null !== $item ? taskStatuses::fromMap($item) : $item;
                 }

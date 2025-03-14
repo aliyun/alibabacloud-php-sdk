@@ -36,13 +36,11 @@ class imageScan extends Model
     public $scanCount;
     protected $_name = [
         'imageScanCapacity' => 'ImageScanCapacity',
-        'instanceId'        => 'InstanceId',
-        'scanCount'         => 'ScanCount',
+        'instanceId' => 'InstanceId',
+        'scanCount' => 'ScanCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

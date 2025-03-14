@@ -188,27 +188,25 @@ class uniBackupPolicies extends Model
     public $uniRegionId;
     protected $_name = [
         'agentErrorMessage' => 'AgentErrorMessage',
-        'agentStatus'       => 'AgentStatus',
-        'databaseName'      => 'DatabaseName',
-        'databaseType'      => 'DatabaseType',
-        'errorCode'         => 'ErrorCode',
-        'errorMessage'      => 'ErrorMessage',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'instanceStatus'    => 'InstanceStatus',
-        'instanceUuid'      => 'InstanceUuid',
-        'latestBackResult'  => 'LatestBackResult',
-        'latestBackupTime'  => 'LatestBackupTime',
-        'planStatus'        => 'PlanStatus',
-        'policyId'          => 'PolicyId',
-        'policyName'        => 'PolicyName',
-        'policyStatus'      => 'PolicyStatus',
-        'uniRegionId'       => 'UniRegionId',
+        'agentStatus' => 'AgentStatus',
+        'databaseName' => 'DatabaseName',
+        'databaseType' => 'DatabaseType',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceUuid' => 'InstanceUuid',
+        'latestBackResult' => 'LatestBackResult',
+        'latestBackupTime' => 'LatestBackupTime',
+        'planStatus' => 'PlanStatus',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'policyStatus' => 'PolicyStatus',
+        'uniRegionId' => 'UniRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

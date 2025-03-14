@@ -56,6 +56,7 @@ class CreateAgentlessScanTaskRequest extends Model
      *   **2**: image
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -66,21 +67,20 @@ class CreateAgentlessScanTaskRequest extends Model
      * @description The UUIDs of the assets on which you want to run the detection task.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
         'assetSelectionType' => 'AssetSelectionType',
-        'autoDeleteDays'     => 'AutoDeleteDays',
-        'releaseAfterScan'   => 'ReleaseAfterScan',
-        'scanDataDisk'       => 'ScanDataDisk',
-        'targetType'         => 'TargetType',
-        'uuidList'           => 'UuidList',
+        'autoDeleteDays' => 'AutoDeleteDays',
+        'releaseAfterScan' => 'ReleaseAfterScan',
+        'scanDataDisk' => 'ScanDataDisk',
+        'targetType' => 'TargetType',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class multipleData extends Model
     public $value;
     protected $_name = [
         'color' => 'Color',
-        'name'  => 'Name',
-        'type'  => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

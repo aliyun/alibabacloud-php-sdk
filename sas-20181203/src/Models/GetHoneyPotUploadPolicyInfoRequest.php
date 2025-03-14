@@ -23,9 +23,7 @@ class GetHoneyPotUploadPolicyInfoRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

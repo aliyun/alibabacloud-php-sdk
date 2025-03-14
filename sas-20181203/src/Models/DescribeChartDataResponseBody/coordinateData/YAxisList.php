@@ -42,15 +42,13 @@ class YAxisList extends Model
      */
     public $value;
     protected $_name = [
-        'name'    => 'Name',
+        'name' => 'Name',
         'subType' => 'SubType',
-        'type'    => 'Type',
-        'value'   => 'Value',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

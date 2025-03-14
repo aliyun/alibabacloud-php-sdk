@@ -44,15 +44,13 @@ class DescribeDomainCountResponseBody extends Model
      */
     public $totalDomainsCount;
     protected $_name = [
-        'requestId'         => 'RequestId',
-        'rootDomainsCount'  => 'RootDomainsCount',
-        'subDomainsCount'   => 'SubDomainsCount',
+        'requestId' => 'RequestId',
+        'rootDomainsCount' => 'RootDomainsCount',
+        'subDomainsCount' => 'SubDomainsCount',
         'totalDomainsCount' => 'TotalDomainsCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

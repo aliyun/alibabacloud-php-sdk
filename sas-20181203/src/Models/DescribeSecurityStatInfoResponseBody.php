@@ -61,17 +61,15 @@ class DescribeSecurityStatInfoResponseBody extends Model
      */
     public $vulnerability;
     protected $_name = [
-        'attackEvent'   => 'AttackEvent',
-        'healthCheck'   => 'HealthCheck',
-        'requestId'     => 'RequestId',
+        'attackEvent' => 'AttackEvent',
+        'healthCheck' => 'HealthCheck',
+        'requestId' => 'RequestId',
         'securityEvent' => 'SecurityEvent',
-        'success'       => 'Success',
+        'success' => 'Success',
         'vulnerability' => 'Vulnerability',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

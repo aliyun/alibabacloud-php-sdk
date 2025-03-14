@@ -37,14 +37,12 @@ class QueryIncidentVertexNodesResponseBody extends Model
      */
     public $vertexNodes;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'vertexNodes' => 'VertexNodes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

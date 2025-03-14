@@ -21,6 +21,7 @@ class DescribeContainerAppsRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -39,22 +40,23 @@ class DescribeContainerAppsRequest extends Model
     /**
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
+     * >  We recommend that you do not leave this parameter empty.
+     *
      * This parameter is required.
+     *
      * @example 200
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'fieldValue'  => 'FieldValue',
-        'pageSize'    => 'PageSize',
+        'fieldValue' => 'FieldValue',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

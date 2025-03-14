@@ -61,16 +61,14 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'raspAppName'      => 'RaspAppName',
+        'raspAppName' => 'RaspAppName',
         'raspOnlineStatus' => 'RaspOnlineStatus',
-        'raspStatus'       => 'RaspStatus',
-        'result'           => 'Result',
-        'uuid'             => 'Uuid',
+        'raspStatus' => 'RaspStatus',
+        'result' => 'Result',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

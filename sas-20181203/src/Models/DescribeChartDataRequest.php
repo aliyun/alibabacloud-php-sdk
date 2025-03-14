@@ -12,6 +12,7 @@ class DescribeChartDataRequest extends Model
      * @description The ID of the chart.
      *
      * >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 1.0.0.
+     *
      * @example CID_ASSET_RISK_TREND
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeChartDataRequest extends Model
      * @description The ID of the chart.
      *
      * >  You can call the [DescribeChartList](~~DescribeChartList~~) operation to query the ID. This parameter is required if the report version is 2.0.0.
+     *
      * @example CID_VUL_SUMMARY
      *
      * @var string
@@ -44,6 +46,7 @@ class DescribeChartDataRequest extends Model
      * @description The ID of the security report.
      *
      * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * @example 721734
      *
      * @var int
@@ -68,17 +71,15 @@ class DescribeChartDataRequest extends Model
      */
     public $timeStart;
     protected $_name = [
-        'charId'    => 'CharId',
-        'chartId'   => 'ChartId',
-        'lang'      => 'Lang',
-        'reportId'  => 'ReportId',
-        'timeEnd'   => 'TimeEnd',
+        'charId' => 'CharId',
+        'chartId' => 'ChartId',
+        'lang' => 'Lang',
+        'reportId' => 'ReportId',
+        'timeEnd' => 'TimeEnd',
         'timeStart' => 'TimeStart',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

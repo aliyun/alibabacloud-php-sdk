@@ -98,21 +98,19 @@ class DescribePropertySoftwareDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'currentPage'      => 'CurrentPage',
-        'extend'           => 'Extend',
-        'installTimeEnd'   => 'InstallTimeEnd',
+        'currentPage' => 'CurrentPage',
+        'extend' => 'Extend',
+        'installTimeEnd' => 'InstallTimeEnd',
         'installTimeStart' => 'InstallTimeStart',
-        'name'             => 'Name',
-        'pageSize'         => 'PageSize',
-        'path'             => 'Path',
-        'remark'           => 'Remark',
-        'softwareVersion'  => 'SoftwareVersion',
-        'uuid'             => 'Uuid',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'path' => 'Path',
+        'remark' => 'Remark',
+        'softwareVersion' => 'SoftwareVersion',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

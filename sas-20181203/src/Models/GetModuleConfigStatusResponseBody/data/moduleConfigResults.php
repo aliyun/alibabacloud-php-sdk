@@ -36,12 +36,10 @@ class moduleConfigResults extends Model
     public $pass;
     protected $_name = [
         'moduleName' => 'ModuleName',
-        'pass'       => 'Pass',
+        'pass' => 'Pass',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

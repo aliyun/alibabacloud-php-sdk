@@ -157,25 +157,23 @@ class list_ extends Model
      */
     public $type;
     protected $_name = [
-        'affectedCount'     => 'AffectedCount',
-        'checkTime'         => 'CheckTime',
-        'itemId'            => 'ItemId',
-        'remainingTime'     => 'RemainingTime',
-        'repairStatus'      => 'RepairStatus',
-        'riskAssertType'    => 'RiskAssertType',
+        'affectedCount' => 'AffectedCount',
+        'checkTime' => 'CheckTime',
+        'itemId' => 'ItemId',
+        'remainingTime' => 'RemainingTime',
+        'repairStatus' => 'RepairStatus',
+        'riskAssertType' => 'RiskAssertType',
         'riskItemResources' => 'RiskItemResources',
-        'riskLevel'         => 'RiskLevel',
-        'sort'              => 'Sort',
-        'startStatus'       => 'StartStatus',
-        'status'            => 'Status',
-        'taskId'            => 'TaskId',
-        'title'             => 'Title',
-        'type'              => 'Type',
+        'riskLevel' => 'RiskLevel',
+        'sort' => 'Sort',
+        'startStatus' => 'StartStatus',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'title' => 'Title',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -261,7 +259,7 @@ class list_ extends Model
         if (isset($map['RiskItemResources'])) {
             if (!empty($map['RiskItemResources'])) {
                 $model->riskItemResources = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['RiskItemResources'] as $item) {
                     $model->riskItemResources[$n++] = null !== $item ? riskItemResources::fromMap($item) : $item;
                 }

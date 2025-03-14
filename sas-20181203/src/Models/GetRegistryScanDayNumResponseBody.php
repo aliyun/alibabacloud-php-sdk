@@ -25,13 +25,11 @@ class GetRegistryScanDayNumResponseBody extends Model
      */
     public $scanDayNumConfig;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'scanDayNumConfig' => 'ScanDayNumConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

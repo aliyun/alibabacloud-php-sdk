@@ -29,13 +29,11 @@ class installStatus extends Model
      */
     public $installStatus;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'installStatus' => 'InstallStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

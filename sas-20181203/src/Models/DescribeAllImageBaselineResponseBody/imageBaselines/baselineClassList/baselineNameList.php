@@ -43,15 +43,13 @@ class baselineNameList extends Model
      */
     public $nameKey;
     protected $_name = [
-        'alias'            => 'Alias',
+        'alias' => 'Alias',
         'baselineItemList' => 'BaselineItemList',
-        'classKey'         => 'ClassKey',
-        'nameKey'          => 'NameKey',
+        'classKey' => 'ClassKey',
+        'nameKey' => 'NameKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class baselineNameList extends Model
         if (isset($map['BaselineItemList'])) {
             if (!empty($map['BaselineItemList'])) {
                 $model->baselineItemList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['BaselineItemList'] as $item) {
                     $model->baselineItemList[$n++] = null !== $item ? baselineItemList::fromMap($item) : $item;
                 }

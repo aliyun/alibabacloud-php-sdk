@@ -26,13 +26,11 @@ class propertyItems extends Model
      */
     public $source;
     protected $_name = [
-        'count'  => 'Count',
+        'count' => 'Count',
         'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

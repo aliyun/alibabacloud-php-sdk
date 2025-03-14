@@ -30,9 +30,7 @@ class DescribeWhiteListStrategyUuidCountResponseBody extends Model
         'uuidCount' => 'UuidCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

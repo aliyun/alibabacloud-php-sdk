@@ -12,6 +12,7 @@ class data extends Model
      * @description The number of the assets on which the whitelist rule takes effect.
      *
      * >  The value of this parameter is returned only if the value of TargetType is SELECTION_KEY.
+     *
      * @example 1
      *
      * @var string
@@ -120,22 +121,20 @@ class data extends Model
      */
     public $targetValue;
     protected $_name = [
-        'count'       => 'Count',
-        'eventName'   => 'EventName',
-        'field'       => 'Field',
-        'fieldValue'  => 'FieldValue',
-        'gmtCreate'   => 'GmtCreate',
+        'count' => 'Count',
+        'eventName' => 'EventName',
+        'field' => 'Field',
+        'fieldValue' => 'FieldValue',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'operator'    => 'Operator',
-        'source'      => 'Source',
-        'targetType'  => 'TargetType',
+        'id' => 'Id',
+        'operator' => 'Operator',
+        'source' => 'Source',
+        'targetType' => 'TargetType',
         'targetValue' => 'TargetValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

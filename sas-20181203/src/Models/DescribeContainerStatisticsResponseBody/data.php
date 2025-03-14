@@ -62,17 +62,15 @@ class data extends Model
      */
     public $hasRiskNode;
     protected $_name = [
-        'remindAlarmCount'     => 'RemindAlarmCount',
-        'seriousAlarmCount'    => 'SeriousAlarmCount',
+        'remindAlarmCount' => 'RemindAlarmCount',
+        'seriousAlarmCount' => 'SeriousAlarmCount',
         'suspiciousAlarmCount' => 'SuspiciousAlarmCount',
-        'totalAlarmCount'      => 'TotalAlarmCount',
-        'totalNode'            => 'TotalNode',
-        'hasRiskNode'          => 'hasRiskNode',
+        'totalAlarmCount' => 'TotalAlarmCount',
+        'totalNode' => 'TotalNode',
+        'hasRiskNode' => 'hasRiskNode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

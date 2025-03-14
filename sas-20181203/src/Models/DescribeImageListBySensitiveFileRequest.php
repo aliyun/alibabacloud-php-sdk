@@ -20,6 +20,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
     /**
      * @description The image digest.
      * > Fuzzy match is supported.
+     *
      * @example v005
      *
      * @var string
@@ -51,6 +52,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
      * @description The ID of the specified container image.
      *
      * > You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to obtain the IDs of container images from the value of the **InstanceId** response parameter.
+     *
      * @example i-qewqrqcsadf****
      *
      * @var string
@@ -61,6 +63,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
      * @description The name of the image repository.
      *
      * > Fuzzy match is supported.
+     *
      * @example harbor-image-v001
      *
      * @var string
@@ -70,6 +73,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
     /**
      * @description The namespace to which the image repository belongs.
      * > Fuzzy match is supported.
+     *
      * @example libssh2
      *
      * @var string
@@ -82,6 +86,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
      * - **high**
      * - **medium**
      * - **low**
+     *
      * @example high
      *
      * @var string
@@ -92,6 +97,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
      * @description An array consisting of the types of the assets that you want to scan. Valid values:
      * - **image**
      * - **container**
+     *
      * @var string[]
      */
     public $scanRange;
@@ -231,22 +237,20 @@ class DescribeImageListBySensitiveFileRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'      => 'CurrentPage',
-        'imageDigest'      => 'ImageDigest',
-        'lang'             => 'Lang',
-        'pageSize'         => 'PageSize',
-        'repoInstanceId'   => 'RepoInstanceId',
-        'repoName'         => 'RepoName',
-        'repoNamespace'    => 'RepoNamespace',
-        'riskLevel'        => 'RiskLevel',
-        'scanRange'        => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'imageDigest' => 'ImageDigest',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'repoInstanceId' => 'RepoInstanceId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'riskLevel' => 'RiskLevel',
+        'scanRange' => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

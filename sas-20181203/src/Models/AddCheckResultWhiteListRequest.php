@@ -12,6 +12,7 @@ class AddCheckResultWhiteListRequest extends Model
      * @description The IDs of the check items.
      *
      * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
+     *
      * @var int[]
      */
     public $checkIds;
@@ -37,13 +38,11 @@ class AddCheckResultWhiteListRequest extends Model
     public $ruleType;
     protected $_name = [
         'checkIds' => 'CheckIds',
-        'remark'   => 'Remark',
+        'remark' => 'Remark',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class DescribeCheckWarningCountRequest extends Model
      * @description The ID of the check item.
      *
      * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
+     *
      * @example 926
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeCheckWarningCountRequest extends Model
      * @description The ID of the risk item.
      *
      * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     *
      * @example 43
      *
      * @var int
@@ -51,15 +53,13 @@ class DescribeCheckWarningCountRequest extends Model
      */
     public $status;
     protected $_name = [
-        'aliUid'  => 'AliUid',
+        'aliUid' => 'AliUid',
         'checkId' => 'CheckId',
-        'riskId'  => 'RiskId',
-        'status'  => 'Status',
+        'riskId' => 'RiskId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

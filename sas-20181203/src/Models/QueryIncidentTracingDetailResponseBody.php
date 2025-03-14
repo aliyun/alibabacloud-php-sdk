@@ -37,14 +37,12 @@ class QueryIncidentTracingDetailResponseBody extends Model
      */
     public $tracingDetail;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'tracingDetail' => 'TracingDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

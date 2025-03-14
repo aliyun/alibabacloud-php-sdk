@@ -66,6 +66,7 @@ class AddContainerDefenseRuleShrinkRequest extends Model
      *   2: user-defined rules
      *
      * > Only the value 2 is supported.
+     *
      * @example 2
      *
      * @var int
@@ -86,19 +87,17 @@ class AddContainerDefenseRuleShrinkRequest extends Model
      */
     public $whitelistShrink;
     protected $_name = [
-        'description'     => 'Description',
-        'ruleAction'      => 'RuleAction',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'ruleSwitch'      => 'RuleSwitch',
-        'ruleType'        => 'RuleType',
-        'scope'           => 'Scope',
+        'description' => 'Description',
+        'ruleAction' => 'RuleAction',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
+        'ruleType' => 'RuleType',
+        'scope' => 'Scope',
         'whitelistShrink' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -166,7 +165,7 @@ class AddContainerDefenseRuleShrinkRequest extends Model
         if (isset($map['Scope'])) {
             if (!empty($map['Scope'])) {
                 $model->scope = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Scope'] as $item) {
                     $model->scope[$n++] = null !== $item ? scope::fromMap($item) : $item;
                 }

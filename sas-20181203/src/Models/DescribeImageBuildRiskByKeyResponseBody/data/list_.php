@@ -102,21 +102,19 @@ class list_ extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'advice'        => 'Advice',
-        'description'   => 'Description',
-        'layerCmd'      => 'LayerCmd',
-        'layerDigest'   => 'LayerDigest',
-        'promt'         => 'Promt',
-        'riskClass'     => 'RiskClass',
+        'advice' => 'Advice',
+        'description' => 'Description',
+        'layerCmd' => 'LayerCmd',
+        'layerDigest' => 'LayerDigest',
+        'promt' => 'Promt',
+        'riskClass' => 'RiskClass',
         'riskClassName' => 'RiskClassName',
-        'riskKey'       => 'RiskKey',
-        'riskKeyName'   => 'RiskKeyName',
-        'riskLevel'     => 'RiskLevel',
+        'riskKey' => 'RiskKey',
+        'riskKeyName' => 'RiskKeyName',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

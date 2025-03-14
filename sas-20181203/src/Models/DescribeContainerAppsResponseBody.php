@@ -28,9 +28,7 @@ class DescribeContainerAppsResponseBody extends Model
         'tagValues' => 'TagValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

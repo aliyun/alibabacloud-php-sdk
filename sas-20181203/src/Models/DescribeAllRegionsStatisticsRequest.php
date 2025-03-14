@@ -24,6 +24,7 @@ class DescribeAllRegionsStatisticsRequest extends Model
      * @description The ID of the asset group that you want to query.
      *
      * >  You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID.
+     *
      * @example 1161****
      *
      * @var int
@@ -48,15 +49,13 @@ class DescribeAllRegionsStatisticsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'from'     => 'From',
-        'groupId'  => 'GroupId',
-        'remark'   => 'Remark',
+        'from' => 'From',
+        'groupId' => 'GroupId',
+        'remark' => 'Remark',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

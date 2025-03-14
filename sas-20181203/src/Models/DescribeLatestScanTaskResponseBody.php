@@ -48,6 +48,7 @@ class DescribeLatestScanTaskResponseBody extends Model
      *   **groupIds**: the IDs of server groups
      *
      * >  If you leave this parameter empty, all servers are added to the whitelist. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
+     *
      * @example [{"type":"uuid","name":"Host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
      *
      * @var string
@@ -62,15 +63,13 @@ class DescribeLatestScanTaskResponseBody extends Model
     public $uuids;
     protected $_name = [
         'lastCheckTime' => 'LastCheckTime',
-        'requestId'     => 'RequestId',
-        'riskNum'       => 'RiskNum',
-        'targetInfo'    => 'TargetInfo',
-        'uuids'         => 'Uuids',
+        'requestId' => 'RequestId',
+        'riskNum' => 'RiskNum',
+        'targetInfo' => 'TargetInfo',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

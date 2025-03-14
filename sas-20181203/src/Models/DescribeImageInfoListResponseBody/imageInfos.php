@@ -218,33 +218,31 @@ class imageInfos extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'alarmCount'    => 'AlarmCount',
-        'alarmStatus'   => 'AlarmStatus',
-        'digest'        => 'Digest',
-        'endpoints'     => 'Endpoints',
-        'imageCreate'   => 'ImageCreate',
-        'imageId'       => 'ImageId',
-        'imageSize'     => 'ImageSize',
-        'imageUpdate'   => 'ImageUpdate',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
-        'registryType'  => 'RegistryType',
-        'repoId'        => 'RepoId',
-        'repoName'      => 'RepoName',
+        'alarmCount' => 'AlarmCount',
+        'alarmStatus' => 'AlarmStatus',
+        'digest' => 'Digest',
+        'endpoints' => 'Endpoints',
+        'imageCreate' => 'ImageCreate',
+        'imageId' => 'ImageId',
+        'imageSize' => 'ImageSize',
+        'imageUpdate' => 'ImageUpdate',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'registryType' => 'RegistryType',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
-        'repoType'      => 'RepoType',
-        'riskStatus'    => 'RiskStatus',
-        'status'        => 'Status',
-        'tag'           => 'Tag',
-        'tagImmutable'  => 'TagImmutable',
-        'uuid'          => 'Uuid',
-        'vulCount'      => 'VulCount',
-        'vulStatus'     => 'VulStatus',
+        'repoType' => 'RepoType',
+        'riskStatus' => 'RiskStatus',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'tagImmutable' => 'TagImmutable',
+        'uuid' => 'Uuid',
+        'vulCount' => 'VulCount',
+        'vulStatus' => 'VulStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

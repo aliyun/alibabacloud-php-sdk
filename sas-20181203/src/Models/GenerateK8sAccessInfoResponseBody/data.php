@@ -89,20 +89,18 @@ class data extends Model
      */
     public $installKey;
     protected $_name = [
-        'aliUid'        => 'AliUid',
+        'aliUid' => 'AliUid',
         'auditLogStore' => 'AuditLogStore',
-        'auditProject'  => 'AuditProject',
+        'auditProject' => 'AuditProject',
         'auditRegionId' => 'AuditRegionId',
-        'clusterId'     => 'ClusterId',
-        'clusterName'   => 'ClusterName',
-        'expireDate'    => 'ExpireDate',
-        'groupId'       => 'GroupId',
-        'installKey'    => 'InstallKey',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'expireDate' => 'ExpireDate',
+        'groupId' => 'GroupId',
+        'installKey' => 'InstallKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

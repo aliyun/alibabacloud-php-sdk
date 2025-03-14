@@ -12,6 +12,7 @@ class DeleteAntiBruteForceRuleRequest extends Model
      * @description The IDs of the defense rules against brute-force attacks to delete.
      *
      * This parameter is required.
+     *
      * @var int[]
      */
     public $ids;
@@ -19,9 +20,7 @@ class DeleteAntiBruteForceRuleRequest extends Model
         'ids' => 'Ids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetClusterSuspEventStatisticsResponseBody extends Model
      */
     public $suspStatistics;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'suspStatistics' => 'SuspStatistics',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

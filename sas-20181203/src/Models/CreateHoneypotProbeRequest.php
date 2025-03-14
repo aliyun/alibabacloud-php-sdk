@@ -33,7 +33,10 @@ class CreateHoneypotProbeRequest extends Model
     /**
      * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
+     *
      * This parameter is required.
+     *
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -44,6 +47,7 @@ class CreateHoneypotProbeRequest extends Model
      * @description The name of the probe.
      *
      * This parameter is required.
+     *
      * @example testHoneyPotProbe
      *
      * @var string
@@ -76,6 +80,7 @@ class CreateHoneypotProbeRequest extends Model
      *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
      *
      * This parameter is required.
+     *
      * @example host_probe
      *
      * @var string
@@ -104,6 +109,7 @@ class CreateHoneypotProbeRequest extends Model
      * @description The UUID of the instance.
      *
      * > If **ProbeType** is set to **host_probe**, this parameter is required.
+     *
      * @example e4af3620-6895-4e2f-a641-a9d8fb53****
      *
      * @var string
@@ -114,28 +120,27 @@ class CreateHoneypotProbeRequest extends Model
      * @description The ID of the VPC.
      *
      * > If **ProbeType** is set to **vpc_black_hole_probe**, this parameter is required. You can call the [DescribeVpcHoneyPotList](~~DescribeVpcHoneyPotList~~) operation to query the IDs of VPCs.
+     *
      * @example vpc-zm0asrkpv1q8gnk7mn4dn
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'arp'              => 'Arp',
-        'businessGroupId'  => 'BusinessGroupId',
-        'controlNodeId'    => 'ControlNodeId',
-        'displayName'      => 'DisplayName',
+        'arp' => 'Arp',
+        'businessGroupId' => 'BusinessGroupId',
+        'controlNodeId' => 'ControlNodeId',
+        'displayName' => 'DisplayName',
         'honeypotBindList' => 'HoneypotBindList',
-        'ping'             => 'Ping',
-        'probeType'        => 'ProbeType',
-        'probeVersion'     => 'ProbeVersion',
-        'proxyIp'          => 'ProxyIp',
-        'uuid'             => 'Uuid',
-        'vpcId'            => 'VpcId',
+        'ping' => 'Ping',
+        'probeType' => 'ProbeType',
+        'probeVersion' => 'ProbeVersion',
+        'proxyIp' => 'ProxyIp',
+        'uuid' => 'Uuid',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -206,7 +211,7 @@ class CreateHoneypotProbeRequest extends Model
         if (isset($map['HoneypotBindList'])) {
             if (!empty($map['HoneypotBindList'])) {
                 $model->honeypotBindList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['HoneypotBindList'] as $item) {
                     $model->honeypotBindList[$n++] = null !== $item ? honeypotBindList::fromMap($item) : $item;
                 }

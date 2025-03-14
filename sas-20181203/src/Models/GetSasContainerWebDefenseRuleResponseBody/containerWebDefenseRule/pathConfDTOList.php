@@ -21,6 +21,7 @@ class pathConfDTOList extends Model
      * @description Action to be executed.
      * - **block** : Block
      * - **audit** : Alert
+     *
      * @example audit
      *
      * @var string
@@ -67,6 +68,7 @@ class pathConfDTOList extends Model
      * @description Protection mode.
      * - **0**: Basic mode (whitelist)
      * - **1**: Advanced mode (blacklist)
+     *
      * @example 0
      *
      * @var int
@@ -98,21 +100,19 @@ class pathConfDTOList extends Model
      */
     public $processPathList;
     protected $_name = [
-        'backupPath'      => 'BackupPath',
-        'defenseMode'     => 'DefenseMode',
-        'defensePath'     => 'DefensePath',
-        'excludeFile'     => 'ExcludeFile',
+        'backupPath' => 'BackupPath',
+        'defenseMode' => 'DefenseMode',
+        'defensePath' => 'DefensePath',
+        'excludeFile' => 'ExcludeFile',
         'excludeFilePath' => 'ExcludeFilePath',
         'excludeFileType' => 'ExcludeFileType',
-        'guardType'       => 'GuardType',
-        'includeFile'     => 'IncludeFile',
+        'guardType' => 'GuardType',
+        'includeFile' => 'IncludeFile',
         'includeFileType' => 'IncludeFileType',
         'processPathList' => 'ProcessPathList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

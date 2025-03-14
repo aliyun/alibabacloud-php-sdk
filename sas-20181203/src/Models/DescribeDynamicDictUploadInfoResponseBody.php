@@ -71,18 +71,16 @@ class DescribeDynamicDictUploadInfoResponseBody extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'  => 'Accessid',
-        'expire'    => 'Expire',
-        'host'      => 'Host',
-        'key'       => 'Key',
-        'policy'    => 'Policy',
+        'accessid' => 'Accessid',
+        'expire' => 'Expire',
+        'host' => 'Host',
+        'key' => 'Key',
+        'policy' => 'Policy',
         'requestId' => 'RequestId',
         'signature' => 'Signature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

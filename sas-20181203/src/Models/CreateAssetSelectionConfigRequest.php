@@ -18,6 +18,7 @@ class CreateAssetSelectionConfigRequest extends Model
      *   **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: core file protection
      *
      * This parameter is required.
+     *
      * @example VIRUS_SCAN_CYCLE_CONFIG
      *
      * @var string
@@ -57,6 +58,7 @@ class CreateAssetSelectionConfigRequest extends Model
      *   **vpc**: selects the asset by virtual private cloud (VPC).
      *
      * This parameter is required.
+     *
      * @example vpc
      *
      * @var string
@@ -64,13 +66,11 @@ class CreateAssetSelectionConfigRequest extends Model
     public $targetType;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'platform'     => 'Platform',
-        'targetType'   => 'TargetType',
+        'platform' => 'Platform',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DeleteSuspEventNodeRequest extends Model
     /**
      * @description The ID of the description.
      *
+     * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID of the description by using the EventNotes field.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -21,9 +24,7 @@ class DeleteSuspEventNodeRequest extends Model
         'noteId' => 'NoteId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -67,17 +67,15 @@ class columns extends Model
      */
     public $type;
     protected $_name = [
-        'grids'     => 'Grids',
-        'key'       => 'Key',
-        'search'    => 'Search',
+        'grids' => 'Grids',
+        'key' => 'Key',
+        'search' => 'Search',
         'searchKey' => 'SearchKey',
-        'showName'  => 'ShowName',
-        'type'      => 'Type',
+        'showName' => 'ShowName',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class columns extends Model
         if (isset($map['Grids'])) {
             if (!empty($map['Grids'])) {
                 $model->grids = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Grids'] as $item) {
                     $model->grids[$n++] = null !== $item ? grids::fromMap($item) : $item;
                 }

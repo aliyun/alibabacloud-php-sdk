@@ -10,7 +10,10 @@ class DingTalkOnlineTestRequest extends Model
 {
     /**
      * @description The ID of the DingTalk notification configuration.
+     * > You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 2373
      *
      * @var int
@@ -20,9 +23,7 @@ class DingTalkOnlineTestRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

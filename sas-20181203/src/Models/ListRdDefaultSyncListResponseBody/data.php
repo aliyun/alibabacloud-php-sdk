@@ -20,9 +20,7 @@ class data extends Model
         'folderIds' => 'FolderIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

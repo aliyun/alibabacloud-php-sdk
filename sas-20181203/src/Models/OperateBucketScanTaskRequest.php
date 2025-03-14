@@ -28,13 +28,11 @@ class OperateBucketScanTaskRequest extends Model
      */
     public $operateCode;
     protected $_name = [
-        'bucketName'  => 'BucketName',
+        'bucketName' => 'BucketName',
         'operateCode' => 'OperateCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

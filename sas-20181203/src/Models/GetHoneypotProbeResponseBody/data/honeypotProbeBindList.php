@@ -53,16 +53,14 @@ class honeypotProbeBindList extends Model
      */
     public $status;
     protected $_name = [
-        'bindId'        => 'BindId',
-        'bindPortList'  => 'BindPortList',
-        'honeypotId'    => 'HoneypotId',
+        'bindId' => 'BindId',
+        'bindPortList' => 'BindPortList',
+        'honeypotId' => 'HoneypotId',
         'serviceIpList' => 'ServiceIpList',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class honeypotProbeBindList extends Model
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['BindPortList'] as $item) {
                     $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
                 }

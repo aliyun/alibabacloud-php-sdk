@@ -26,12 +26,10 @@ class DescribeContainerServiceK8sClustersResponseBody extends Model
     public $requestId;
     protected $_name = [
         'k8sClusters' => 'K8sClusters',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeContainerServiceK8sClustersResponseBody extends Model
         if (isset($map['K8sClusters'])) {
             if (!empty($map['K8sClusters'])) {
                 $model->k8sClusters = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['K8sClusters'] as $item) {
                     $model->k8sClusters[$n++] = null !== $item ? k8sClusters::fromMap($item) : $item;
                 }

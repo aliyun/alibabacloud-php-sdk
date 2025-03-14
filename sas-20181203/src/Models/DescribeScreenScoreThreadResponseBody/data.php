@@ -22,13 +22,11 @@ class data extends Model
      */
     public $socreThreadDate;
     protected $_name = [
-        'socreThread'     => 'SocreThread',
+        'socreThread' => 'SocreThread',
         'socreThreadDate' => 'SocreThreadDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class GetHoneypotPresetRequest extends Model
     /**
      * @description The ID of the honeypot template.
      *
+     * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
+     *
      * This parameter is required.
+     *
      * @example 207ca117-44b9-495d-84e7-50289b4cxxxx
      *
      * @var string
@@ -31,12 +34,10 @@ class GetHoneypotPresetRequest extends Model
     public $lang;
     protected $_name = [
         'honeypotPresetId' => 'HoneypotPresetId',
-        'lang'             => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -147,26 +147,24 @@ class backupRecordList extends Model
      */
     public $uuid;
     protected $_name = [
-        'backupEndTime'   => 'BackupEndTime',
-        'backupJobId'     => 'BackupJobId',
-        'backupPlanId'    => 'BackupPlanId',
+        'backupEndTime' => 'BackupEndTime',
+        'backupJobId' => 'BackupJobId',
+        'backupPlanId' => 'BackupPlanId',
         'backupStartTime' => 'BackupStartTime',
-        'backupStatus'    => 'BackupStatus',
-        'clientId'        => 'ClientId',
-        'errorCode'       => 'ErrorCode',
-        'errorMessage'    => 'ErrorMessage',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'regionId'        => 'RegionId',
-        'uuid'            => 'Uuid',
+        'backupStatus' => 'BackupStatus',
+        'clientId' => 'ClientId',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

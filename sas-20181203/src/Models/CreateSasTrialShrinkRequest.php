@@ -47,6 +47,7 @@ class CreateSasTrialShrinkRequest extends Model
      *   **2**: second trial
      *
      * >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial type. You can start a trial only if this parameter is not set to 0.
+     *
      * @example 1
      *
      * @var int
@@ -60,22 +61,21 @@ class CreateSasTrialShrinkRequest extends Model
      *   **7**: Ultimate
      *
      * >  You can call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain the trial edition.
+     *
      * @example 7
      *
      * @var int
      */
     public $tryVersion;
     protected $_name = [
-        'fromEcs'           => 'FromEcs',
-        'lang'              => 'Lang',
+        'fromEcs' => 'FromEcs',
+        'lang' => 'Lang',
         'requestFormShrink' => 'RequestForm',
-        'tryType'           => 'TryType',
-        'tryVersion'        => 'TryVersion',
+        'tryType' => 'TryType',
+        'tryVersion' => 'TryVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

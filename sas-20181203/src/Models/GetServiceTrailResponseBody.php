@@ -25,13 +25,11 @@ class GetServiceTrailResponseBody extends Model
      */
     public $serviceTrail;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceTrail' => 'ServiceTrail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

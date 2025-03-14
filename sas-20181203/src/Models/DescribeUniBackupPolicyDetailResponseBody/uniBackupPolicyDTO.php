@@ -128,23 +128,21 @@ class uniBackupPolicyDTO extends Model
      */
     public $speedLimiter;
     protected $_name = [
-        'accountName'  => 'AccountName',
-        'agentStatus'  => 'AgentStatus',
+        'accountName' => 'AccountName',
+        'agentStatus' => 'AgentStatus',
         'databaseType' => 'DatabaseType',
-        'fullPlan'     => 'FullPlan',
-        'incPlan'      => 'IncPlan',
-        'instanceId'   => 'InstanceId',
+        'fullPlan' => 'FullPlan',
+        'incPlan' => 'IncPlan',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'policyId'     => 'PolicyId',
-        'policyName'   => 'PolicyName',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
         'policyStatus' => 'PolicyStatus',
-        'retention'    => 'Retention',
+        'retention' => 'Retention',
         'speedLimiter' => 'SpeedLimiter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

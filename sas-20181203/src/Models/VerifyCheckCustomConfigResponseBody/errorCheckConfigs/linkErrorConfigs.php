@@ -28,21 +28,21 @@ class linkErrorConfigs extends Model
 
     /**
      * @description The type of the parameter that caused the error:
+     * - repair: Repair parameter
      * - custom: Custom configuration parameter
+     *
      * @example repair
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'showName' => 'ShowName',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

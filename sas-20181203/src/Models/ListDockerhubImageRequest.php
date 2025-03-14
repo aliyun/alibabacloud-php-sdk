@@ -12,6 +12,7 @@ class ListDockerhubImageRequest extends Model
      * @description Image query condition, supports the format of `[namespace/]repoName[:version]`, where the conditions within `[]` are optional.
      *
      * This parameter is required.
+     *
      * @example python:3.9
      *
      * @var string
@@ -21,9 +22,7 @@ class ListDockerhubImageRequest extends Model
         'query' => 'Query',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

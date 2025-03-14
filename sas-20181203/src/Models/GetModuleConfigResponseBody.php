@@ -51,16 +51,14 @@ class GetModuleConfigResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'httpStatusCode'   => 'HttpStatusCode',
+        'httpStatusCode' => 'HttpStatusCode',
         'moduleConfigList' => 'ModuleConfigList',
-        'pageInfo'         => 'PageInfo',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -104,7 +102,7 @@ class GetModuleConfigResponseBody extends Model
         if (isset($map['ModuleConfigList'])) {
             if (!empty($map['ModuleConfigList'])) {
                 $model->moduleConfigList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ModuleConfigList'] as $item) {
                     $model->moduleConfigList[$n++] = null !== $item ? moduleConfigList::fromMap($item) : $item;
                 }

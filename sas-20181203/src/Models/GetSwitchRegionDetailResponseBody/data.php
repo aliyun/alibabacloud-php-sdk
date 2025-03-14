@@ -53,15 +53,13 @@ class data extends Model
     public $regionStatus;
     protected $_name = [
         'gmtIsAgreeModified' => 'GmtIsAgreeModified',
-        'gmtNoticed'         => 'GmtNoticed',
-        'isAgree'            => 'IsAgree',
-        'isNoticed'          => 'IsNoticed',
-        'regionStatus'       => 'RegionStatus',
+        'gmtNoticed' => 'GmtNoticed',
+        'isAgree' => 'IsAgree',
+        'isNoticed' => 'IsNoticed',
+        'regionStatus' => 'RegionStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class data extends Model
         if (isset($map['RegionStatus'])) {
             if (!empty($map['RegionStatus'])) {
                 $model->regionStatus = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RegionStatus'] as $item) {
                     $model->regionStatus[$n++] = null !== $item ? regionStatus::fromMap($item) : $item;
                 }

@@ -77,18 +77,16 @@ class DescribeCloudVendorAccountAKListRequest extends Model
      */
     public $vendorAuthAlias;
     protected $_name = [
-        'authIds'         => 'AuthIds',
-        'currentPage'     => 'CurrentPage',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
-        'status'          => 'Status',
-        'subAccountName'  => 'SubAccountName',
+        'authIds' => 'AuthIds',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'subAccountName' => 'SubAccountName',
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

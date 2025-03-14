@@ -67,16 +67,14 @@ class groups extends Model
     public $title;
     protected $_name = [
         'countByStatus' => 'CountByStatus',
-        'id'            => 'Id',
+        'id' => 'Id',
         'remainingTime' => 'RemainingTime',
-        'sort'          => 'Sort',
-        'status'        => 'Status',
-        'title'         => 'Title',
+        'sort' => 'Sort',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -120,7 +118,7 @@ class groups extends Model
         if (isset($map['CountByStatus'])) {
             if (!empty($map['CountByStatus'])) {
                 $model->countByStatus = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CountByStatus'] as $item) {
                     $model->countByStatus[$n++] = null !== $item ? countByStatus::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class GetCommonSwitchConfigRequest extends Model
      * @description The type of the common switch.
      *
      * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) or [ListSystemClientRules](~~ListSystemClientRules~~) operation to obtain the switch type from the response parameter SwitchId.
+     *
      * @example USER-DEFINE-RULE-SWITCH-TYPE_180****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetCommonSwitchConfigRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

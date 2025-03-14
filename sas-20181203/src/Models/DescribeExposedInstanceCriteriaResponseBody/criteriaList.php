@@ -33,20 +33,19 @@ class criteriaList extends Model
      * @description The value of the search condition. This parameter is returned only when the value of the **Type** parameter is **select**.
      *
      * >  If the value of the **Type** parameter is **input**, this parameter is empty.
+     *
      * @example i-bp19r0fdd39idxhf****
      *
      * @var string
      */
     public $values;
     protected $_name = [
-        'name'   => 'Name',
-        'type'   => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

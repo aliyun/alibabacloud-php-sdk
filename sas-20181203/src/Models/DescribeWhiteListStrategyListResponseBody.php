@@ -25,13 +25,11 @@ class DescribeWhiteListStrategyListResponseBody extends Model
      */
     public $strategies;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'strategies' => 'Strategies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeWhiteListStrategyListResponseBody extends Model
         if (isset($map['Strategies'])) {
             if (!empty($map['Strategies'])) {
                 $model->strategies = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Strategies'] as $item) {
                     $model->strategies[$n++] = null !== $item ? strategies::fromMap($item) : $item;
                 }

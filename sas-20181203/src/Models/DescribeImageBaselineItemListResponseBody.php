@@ -34,13 +34,11 @@ class DescribeImageBaselineItemListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'baselineItemInfos' => 'BaselineItemInfos',
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeImageBaselineItemListResponseBody extends Model
         if (isset($map['BaselineItemInfos'])) {
             if (!empty($map['BaselineItemInfos'])) {
                 $model->baselineItemInfos = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['BaselineItemInfos'] as $item) {
                     $model->baselineItemInfos[$n++] = null !== $item ? baselineItemInfos::fromMap($item) : $item;
                 }

@@ -36,13 +36,11 @@ class ListOssScanConfigRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

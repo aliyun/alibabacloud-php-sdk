@@ -80,18 +80,16 @@ class data extends Model
      */
     public $targetType;
     protected $_name = [
-        'checkId'    => 'CheckId',
-        'lang'       => 'Lang',
-        'reason'     => 'Reason',
-        'recordId'   => 'RecordId',
-        'source'     => 'Source',
-        'target'     => 'Target',
+        'checkId' => 'CheckId',
+        'lang' => 'Lang',
+        'reason' => 'Reason',
+        'recordId' => 'RecordId',
+        'source' => 'Source',
+        'target' => 'Target',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

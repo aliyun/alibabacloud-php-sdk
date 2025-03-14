@@ -23,6 +23,7 @@ class riskTypes extends Model
      *
      * - **true**: Have access
      * - **false**: No permissions
+     *
      * @example true
      *
      * @var bool
@@ -45,15 +46,13 @@ class riskTypes extends Model
      */
     public $typeName;
     protected $_name = [
-        'alias'    => 'Alias',
+        'alias' => 'Alias',
         'authFlag' => 'AuthFlag',
         'subTypes' => 'SubTypes',
         'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +96,7 @@ class riskTypes extends Model
         if (isset($map['SubTypes'])) {
             if (!empty($map['SubTypes'])) {
                 $model->subTypes = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['SubTypes'] as $item) {
                     $model->subTypes[$n++] = null !== $item ? subTypes::fromMap($item) : $item;
                 }

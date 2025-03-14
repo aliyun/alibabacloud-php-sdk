@@ -171,29 +171,27 @@ class propertys extends Model
      */
     public $uuid;
     protected $_name = [
-        'cmdline'         => 'Cmdline',
+        'cmdline' => 'Cmdline',
         'createTimestamp' => 'CreateTimestamp',
-        'euidName'        => 'EuidName',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'isPackage'       => 'IsPackage',
-        'md5'             => 'Md5',
-        'name'            => 'Name',
-        'path'            => 'Path',
-        'pid'             => 'Pid',
-        'pname'           => 'Pname',
-        'startTime'       => 'StartTime',
-        'startTimeDt'     => 'StartTimeDt',
-        'state'           => 'State',
-        'user'            => 'User',
-        'uuid'            => 'Uuid',
+        'euidName' => 'EuidName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'isPackage' => 'IsPackage',
+        'md5' => 'Md5',
+        'name' => 'Name',
+        'path' => 'Path',
+        'pid' => 'Pid',
+        'pname' => 'Pname',
+        'startTime' => 'StartTime',
+        'startTimeDt' => 'StartTimeDt',
+        'state' => 'State',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

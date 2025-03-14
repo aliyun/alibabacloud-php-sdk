@@ -26,12 +26,10 @@ class OperateAgentClientInstallResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aegisCelintInstallResposeList' => 'AegisCelintInstallResposeList',
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class OperateAgentClientInstallResponseBody extends Model
         if (isset($map['AegisCelintInstallResposeList'])) {
             if (!empty($map['AegisCelintInstallResposeList'])) {
                 $model->aegisCelintInstallResposeList = [];
-                $n                                    = 0;
+                $n = 0;
                 foreach ($map['AegisCelintInstallResposeList'] as $item) {
                     $model->aegisCelintInstallResposeList[$n++] = null !== $item ? aegisCelintInstallResposeList::fromMap($item) : $item;
                 }

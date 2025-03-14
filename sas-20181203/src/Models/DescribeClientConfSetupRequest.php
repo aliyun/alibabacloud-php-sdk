@@ -12,6 +12,7 @@ class DescribeClientConfSetupRequest extends Model
      * @description The tag that is added to the server.
      *
      * This parameter is required.
+     *
      * @example machineResource
      *
      * @var string
@@ -26,19 +27,18 @@ class DescribeClientConfSetupRequest extends Model
      *   basic
      *
      * This parameter is required.
+     *
      * @example major
      *
      * @var string
      */
     public $strategyTagValue;
     protected $_name = [
-        'strategyTag'      => 'StrategyTag',
+        'strategyTag' => 'StrategyTag',
         'strategyTagValue' => 'StrategyTagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class AdvanceSecurityEventOperationsResponseBody extends Model
      */
     public $securityEventOperationsResponse;
     protected $_name = [
-        'requestId'                       => 'RequestId',
+        'requestId' => 'RequestId',
         'securityEventOperationsResponse' => 'SecurityEventOperationsResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class AdvanceSecurityEventOperationsResponseBody extends Model
         if (isset($map['SecurityEventOperationsResponse'])) {
             if (!empty($map['SecurityEventOperationsResponse'])) {
                 $model->securityEventOperationsResponse = [];
-                $n                                      = 0;
+                $n = 0;
                 foreach ($map['SecurityEventOperationsResponse'] as $item) {
                     $model->securityEventOperationsResponse[$n++] = null !== $item ? securityEventOperationsResponse::fromMap($item) : $item;
                 }

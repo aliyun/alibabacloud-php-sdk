@@ -94,19 +94,17 @@ class AddImageEventOperationRequest extends Model
      */
     public $source;
     protected $_name = [
-        'conditions'    => 'Conditions',
-        'eventKey'      => 'EventKey',
-        'eventName'     => 'EventName',
-        'eventType'     => 'EventType',
-        'note'          => 'Note',
+        'conditions' => 'Conditions',
+        'eventKey' => 'EventKey',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
+        'note' => 'Note',
         'operationCode' => 'OperationCode',
-        'scenarios'     => 'Scenarios',
-        'source'        => 'Source',
+        'scenarios' => 'Scenarios',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

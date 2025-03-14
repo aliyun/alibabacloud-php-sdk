@@ -106,21 +106,19 @@ class rpmEntityList extends Model
     public $version;
     protected $_name = [
         'containerName' => 'ContainerName',
-        'extendField'   => 'ExtendField',
-        'fullVersion'   => 'FullVersion',
-        'imageName'     => 'ImageName',
-        'matchDetail'   => 'MatchDetail',
-        'matchList'     => 'MatchList',
-        'name'          => 'Name',
-        'path'          => 'Path',
-        'pid'           => 'Pid',
-        'updateCmd'     => 'UpdateCmd',
-        'version'       => 'Version',
+        'extendField' => 'ExtendField',
+        'fullVersion' => 'FullVersion',
+        'imageName' => 'ImageName',
+        'matchDetail' => 'MatchDetail',
+        'matchList' => 'MatchList',
+        'name' => 'Name',
+        'path' => 'Path',
+        'pid' => 'Pid',
+        'updateCmd' => 'UpdateCmd',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

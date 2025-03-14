@@ -37,14 +37,12 @@ class configList extends Model
      */
     public $webPathType;
     protected $_name = [
-        'targetList'  => 'TargetList',
-        'webPath'     => 'WebPath',
+        'targetList' => 'TargetList',
+        'webPath' => 'WebPath',
         'webPathType' => 'WebPathType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class configList extends Model
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TargetList'] as $item) {
                     $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
                 }

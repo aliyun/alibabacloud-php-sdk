@@ -61,17 +61,15 @@ class DescribeWhiteListStrategyStatisticsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'strategies'  => 'Strategies',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'strategies' => 'Strategies',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class DescribeWhiteListStrategyStatisticsResponseBody extends Model
         if (isset($map['Strategies'])) {
             if (!empty($map['Strategies'])) {
                 $model->strategies = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Strategies'] as $item) {
                     $model->strategies[$n++] = null !== $item ? strategies::fromMap($item) : $item;
                 }

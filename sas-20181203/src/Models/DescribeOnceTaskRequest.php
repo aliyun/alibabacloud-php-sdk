@@ -39,6 +39,7 @@ class DescribeOnceTaskRequest extends Model
      * @description The ID of the root task.
      *
      * > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
+     *
      * @example bb5d657479bba5e1d308b6c9e85c9174
      *
      * @var string
@@ -83,25 +84,24 @@ class DescribeOnceTaskRequest extends Model
      *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
      * > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
+     *
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'endTimeQuery'   => 'EndTimeQuery',
-        'pageSize'       => 'PageSize',
-        'rootTaskId'     => 'RootTaskId',
-        'source'         => 'Source',
+        'currentPage' => 'CurrentPage',
+        'endTimeQuery' => 'EndTimeQuery',
+        'pageSize' => 'PageSize',
+        'rootTaskId' => 'RootTaskId',
+        'source' => 'Source',
         'startTimeQuery' => 'StartTimeQuery',
-        'taskId'         => 'TaskId',
-        'taskType'       => 'TaskType',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

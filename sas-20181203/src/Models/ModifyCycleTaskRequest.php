@@ -11,7 +11,10 @@ class ModifyCycleTaskRequest extends Model
     /**
      * @description The ID of the task configuration.
      *
+     * >  You can call the [DescribeCycleTaskList](~~DescribeCycleTaskList~~) operation to query the IDs of task configurations.
+     *
      * This parameter is required.
+     *
      * @example 00cfa8161da093089e6804ba6a33****
      *
      * @var string
@@ -52,11 +55,20 @@ class ModifyCycleTaskRequest extends Model
      * @description The additional information.
      *
      * @example {
+     * "targetInfo": [
+     * {
+     * "type": "groupId",
      * "name": "TI HOST",
      * "target": 10597***
+     * },
+     * {
+     * "type": "groupId",
      * "name": "expense HOST",
      * "target": 10597***
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $param;
@@ -104,13 +116,38 @@ class ModifyCycleTaskRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * virus detection task
+     *
+     * <!-- -->
+     *
      *   IMAGE_SCAN
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * image scan task
      *
      * <!-- -->
      *
      *   EMG_VUL_SCHEDULE_SCAN
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * urgent vulnerability scan task
+     *
+     * <!-- -->
+     *
      * @example EMG_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -130,34 +167,57 @@ class ModifyCycleTaskRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * virus detection task
+     *
+     * <!-- -->
+     *
      *   IMAGE_SCAN
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * image scan task
      *
      * <!-- -->
      *
      *   EMG_VUL_SCHEDULE_SCAN
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * urgent vulnerability scan task
+     *
+     * <!-- -->
+     *
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'configId'        => 'ConfigId',
-        'enable'          => 'Enable',
-        'firstDateStr'    => 'FirstDateStr',
-        'intervalPeriod'  => 'IntervalPeriod',
-        'param'           => 'Param',
-        'periodUnit'      => 'PeriodUnit',
-        'targetEndTime'   => 'TargetEndTime',
+        'configId' => 'ConfigId',
+        'enable' => 'Enable',
+        'firstDateStr' => 'FirstDateStr',
+        'intervalPeriod' => 'IntervalPeriod',
+        'param' => 'Param',
+        'periodUnit' => 'PeriodUnit',
+        'targetEndTime' => 'TargetEndTime',
         'targetStartTime' => 'TargetStartTime',
-        'taskName'        => 'TaskName',
-        'taskType'        => 'TaskType',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

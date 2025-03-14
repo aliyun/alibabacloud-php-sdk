@@ -74,17 +74,15 @@ class DescribeClusterHostSecuritySummaryRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'clusterId' => 'ClusterId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'resourceOwnerId'     => 'ResourceOwnerId',
-        'sourceIp'            => 'SourceIp',
-        'targetType'          => 'TargetType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceIp' => 'SourceIp',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class ListAssetRefreshTaskConfigResponseBody extends Model
     public $requestId;
     protected $_name = [
         'assetRefreshConfig' => 'AssetRefreshConfig',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAssetRefreshTaskConfigResponseBody extends Model
         if (isset($map['AssetRefreshConfig'])) {
             if (!empty($map['AssetRefreshConfig'])) {
                 $model->assetRefreshConfig = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['AssetRefreshConfig'] as $item) {
                     $model->assetRefreshConfig[$n++] = null !== $item ? assetRefreshConfig::fromMap($item) : $item;
                 }

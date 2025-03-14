@@ -12,6 +12,7 @@ class cloudAssetTypes extends Model
      * @description The subtype of the cloud asset.
      *
      * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the subtype of the cloud asset.
+     *
      * @example 0
      *
      * @var int
@@ -22,6 +23,7 @@ class cloudAssetTypes extends Model
      * @description The type of the cloud asset.
      *
      * You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the cloud asset type.
+     *
      * @example 18
      *
      * @var int
@@ -44,13 +46,11 @@ class cloudAssetTypes extends Model
     public $vendor;
     protected $_name = [
         'assetSubType' => 'AssetSubType',
-        'assetType'    => 'AssetType',
-        'vendor'       => 'Vendor',
+        'assetType' => 'AssetType',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class data extends Model
      */
     public $pluginOnlineCount;
     protected $_name = [
-        'enableRuleCount'    => 'EnableRuleCount',
-        'pluginCount'        => 'PluginCount',
+        'enableRuleCount' => 'EnableRuleCount',
+        'pluginCount' => 'PluginCount',
         'pluginOfflineCount' => 'PluginOfflineCount',
-        'pluginOnlineCount'  => 'PluginOnlineCount',
+        'pluginOnlineCount' => 'PluginOnlineCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

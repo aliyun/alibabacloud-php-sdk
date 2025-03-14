@@ -84,6 +84,7 @@ class DescribePropertyProcDetailRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -108,22 +109,20 @@ class DescribePropertyProcDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'cmdline'                    => 'Cmdline',
-        'currentPage'                => 'CurrentPage',
-        'extend'                     => 'Extend',
-        'name'                       => 'Name',
-        'pageSize'                   => 'PageSize',
-        'procTimeEnd'                => 'ProcTimeEnd',
-        'procTimeStart'              => 'ProcTimeStart',
-        'remark'                     => 'Remark',
+        'cmdline' => 'Cmdline',
+        'currentPage' => 'CurrentPage',
+        'extend' => 'Extend',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'procTimeEnd' => 'ProcTimeEnd',
+        'procTimeStart' => 'ProcTimeStart',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'user'                       => 'User',
-        'uuid'                       => 'Uuid',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

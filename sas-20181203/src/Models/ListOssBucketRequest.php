@@ -30,12 +30,10 @@ class ListOssBucketRequest extends Model
     public $lang;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

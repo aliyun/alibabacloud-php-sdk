@@ -72,18 +72,16 @@ class ListHoneypotEventFlowsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'               => 'Code',
+        'code' => 'Code',
         'honeypotEventFlows' => 'HoneypotEventFlows',
-        'httpStatusCode'     => 'HttpStatusCode',
-        'message'            => 'Message',
-        'pageInfo'           => 'PageInfo',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -133,7 +131,7 @@ class ListHoneypotEventFlowsResponseBody extends Model
         if (isset($map['HoneypotEventFlows'])) {
             if (!empty($map['HoneypotEventFlows'])) {
                 $model->honeypotEventFlows = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['HoneypotEventFlows'] as $item) {
                     $model->honeypotEventFlows[$n++] = null !== $item ? honeypotEventFlows::fromMap($item) : $item;
                 }

@@ -11,7 +11,10 @@ class CreateSoarStrategyTaskRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeSoarSubscribedStrategy](~~DescribeSoarSubscribedStrategy~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 13840
      *
      * @var int
@@ -22,6 +25,7 @@ class CreateSoarStrategyTaskRequest extends Model
      * @description The name of the policy. Set the value to Automated Batch Vulnerability Fixing Policy for Multiple Servers.
      *
      * This parameter is required.
+     *
      * @example Automated Batch Vulnerability Fixing Policy for Multiple Servers
      *
      * @var string
@@ -32,6 +36,7 @@ class CreateSoarStrategyTaskRequest extends Model
      * @description The name of.the policy task.
      *
      * This parameter is required.
+     *
      * @example task1
      *
      * @var string
@@ -60,13 +65,47 @@ class CreateSoarStrategyTaskRequest extends Model
      *   value: email or DingTalk configuration information
      *
      * This parameter is required.
+     *
      * @example [
+     * {
+     * "name": "vulList",
+     * "associationProperty": "sasAllVul",
+     * "value": [
+     * {
      * "regionId": "cn-hangzhou",
      * "instanceId": "i-bp10i******68lo5e",
      * "instanceName": "instance****",
+     * "vulId": 3974347681,
+     * "vulName": "centos:7:cesa-2024:1249",
+     * "vulAliasName": "CESA-2024:1249",
      * "vulTag": "oval",
      * "vulUuid": "3c5eb76a-******-85ef-67562cdc2344",
+     * "vulType": "cve",
+     * "vulModifyTs": 1721324258000
+     * }
      * ]
+     * },
+     * {
+     * "name": "snapshotConfig",
+     * "associationProperty": "snapshotConfig",
+     * "value": {
+     * "ttl": 1
+     * }
+     * },
+     * {
+     * "name": "notifyConfig",
+     * "associationProperty": "notifyConfig",
+     * "value": {
+     * "ding": [
+     * {
+     * "value": 2195,
+     * "label": "test"
+     * }
+     * ]
+     * }
+     * }
+     * ]
+     *
      * @var string
      */
     public $strategyTaskParams;
@@ -80,16 +119,14 @@ class CreateSoarStrategyTaskRequest extends Model
      */
     public $strategyTaskPlanExeTime;
     protected $_name = [
-        'strategyId'              => 'StrategyId',
-        'strategyName'            => 'StrategyName',
-        'strategyTaskName'        => 'StrategyTaskName',
-        'strategyTaskParams'      => 'StrategyTaskParams',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
+        'strategyTaskName' => 'StrategyTaskName',
+        'strategyTaskParams' => 'StrategyTaskParams',
         'strategyTaskPlanExeTime' => 'StrategyTaskPlanExeTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

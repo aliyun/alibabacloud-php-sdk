@@ -15,6 +15,7 @@ class data extends Model
      *   **false**: no
      *
      * > By default, a maximum of 10 image scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create an image scan task by calling this operation. You must wait for at least one of the 10 existing image scan tasks to complete before you can create an image scan task.
+     *
      * @example true
      *
      * @var bool
@@ -64,6 +65,7 @@ class data extends Model
      *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
      *
      * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -102,20 +104,18 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'canCreate'   => 'CanCreate',
+        'canCreate' => 'CanCreate',
         'collectTime' => 'CollectTime',
-        'execTime'    => 'ExecTime',
+        'execTime' => 'ExecTime',
         'finishCount' => 'FinishCount',
-        'progress'    => 'Progress',
-        'result'      => 'Result',
-        'status'      => 'Status',
-        'taskId'      => 'TaskId',
-        'totalCount'  => 'TotalCount',
+        'progress' => 'Progress',
+        'result' => 'Result',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,12 +25,10 @@ class ListAgentlessRegionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'regionList' => 'RegionList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

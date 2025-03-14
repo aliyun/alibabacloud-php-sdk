@@ -46,23 +46,23 @@ class data extends Model
 
     /**
      * @description Indicates whether the user has enabled the strict mode for this alarm type.
+     * - true: Enabled
      * - false: Not enabled
+     *
      * @example true
      *
      * @var bool
      */
     public $switchConfig;
     protected $_name = [
-        'eventName'     => 'EventName',
-        'eventType'     => 'EventType',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
         'showEventName' => 'ShowEventName',
         'showEventType' => 'ShowEventType',
-        'switchConfig'  => 'SwitchConfig',
+        'switchConfig' => 'SwitchConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

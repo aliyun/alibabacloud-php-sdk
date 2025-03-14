@@ -26,13 +26,11 @@ class DescribeDomainSecureScoreResponseBody extends Model
      */
     public $securityScore;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'securityScore' => 'SecurityScore',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

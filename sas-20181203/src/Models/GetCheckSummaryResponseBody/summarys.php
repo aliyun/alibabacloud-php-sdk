@@ -55,16 +55,14 @@ class summarys extends Model
      */
     public $typeStatistic;
     protected $_name = [
-        'failCount'     => 'FailCount',
-        'passCount'     => 'PassCount',
-        'standards'     => 'Standards',
-        'type'          => 'Type',
+        'failCount' => 'FailCount',
+        'passCount' => 'PassCount',
+        'standards' => 'Standards',
+        'type' => 'Type',
         'typeStatistic' => 'TypeStatistic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class summarys extends Model
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {
                 $model->standards = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Standards'] as $item) {
                     $model->standards[$n++] = null !== $item ? standards::fromMap($item) : $item;
                 }

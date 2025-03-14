@@ -87,19 +87,17 @@ class GetCheckConfigResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'cycleDays'       => 'CycleDays',
-        'enableAddCheck'  => 'EnableAddCheck',
+        'cycleDays' => 'CycleDays',
+        'enableAddCheck' => 'EnableAddCheck',
         'enableAutoCheck' => 'EnableAutoCheck',
-        'endTime'         => 'EndTime',
-        'requestId'       => 'RequestId',
-        'selectedChecks'  => 'SelectedChecks',
-        'standards'       => 'Standards',
-        'startTime'       => 'StartTime',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'selectedChecks' => 'SelectedChecks',
+        'standards' => 'Standards',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -172,7 +170,7 @@ class GetCheckConfigResponseBody extends Model
         if (isset($map['SelectedChecks'])) {
             if (!empty($map['SelectedChecks'])) {
                 $model->selectedChecks = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SelectedChecks'] as $item) {
                     $model->selectedChecks[$n++] = null !== $item ? selectedChecks::fromMap($item) : $item;
                 }
@@ -181,7 +179,7 @@ class GetCheckConfigResponseBody extends Model
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {
                 $model->standards = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Standards'] as $item) {
                     $model->standards[$n++] = null !== $item ? standards::fromMap($item) : $item;
                 }

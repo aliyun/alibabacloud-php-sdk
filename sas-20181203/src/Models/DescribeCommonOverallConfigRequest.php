@@ -92,6 +92,7 @@ class DescribeCommonOverallConfigRequest extends Model
      *   **USER-ENABLE-SWITCH-TYPE_63725**: Ingress service implants suspicious script/binary file
      *
      * This parameter is required.
+     *
      * @example kdump_switch
      *
      * @var string
@@ -99,12 +100,10 @@ class DescribeCommonOverallConfigRequest extends Model
     public $type;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

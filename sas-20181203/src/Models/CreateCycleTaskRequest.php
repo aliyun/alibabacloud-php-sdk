@@ -15,6 +15,7 @@ class CreateCycleTaskRequest extends Model
      *   **0**: no
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +26,7 @@ class CreateCycleTaskRequest extends Model
      * @description The first time when the task is performed.
      *
      * This parameter is required.
+     *
      * @example 1650556800000
      *
      * @var int
@@ -35,6 +37,7 @@ class CreateCycleTaskRequest extends Model
      * @description The interval of the task.
      *
      * This parameter is required.
+     *
      * @example 7
      *
      * @var int
@@ -45,11 +48,20 @@ class CreateCycleTaskRequest extends Model
      * @description The additional information.
      *
      * @example {
+     * "targetInfo": [
+     * {
+     * "type": "groupId",
      * "name": "TI HOST",
      * "target": 10597***
+     * },
+     * {
+     * "type": "groupId",
      * "name": "expense HOST",
      * "target": 10597***
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $param;
@@ -61,6 +73,7 @@ class CreateCycleTaskRequest extends Model
      *   **hour**: hours
      *
      * This parameter is required.
+     *
      * @example day
      *
      * @var string
@@ -80,6 +93,7 @@ class CreateCycleTaskRequest extends Model
      * @description The time when the task ends. Unit: hours.
      *
      * This parameter is required.
+     *
      * @example 6
      *
      * @var int
@@ -90,6 +104,7 @@ class CreateCycleTaskRequest extends Model
      * @description The time when the task is started. Unit: hours.
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -104,6 +119,7 @@ class CreateCycleTaskRequest extends Model
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
      * This parameter is required.
+     *
      * @example EMG_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -118,27 +134,26 @@ class CreateCycleTaskRequest extends Model
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
      * This parameter is required.
+     *
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'enable'          => 'Enable',
-        'firstDateStr'    => 'FirstDateStr',
-        'intervalPeriod'  => 'IntervalPeriod',
-        'param'           => 'Param',
-        'periodUnit'      => 'PeriodUnit',
-        'source'          => 'Source',
-        'targetEndTime'   => 'TargetEndTime',
+        'enable' => 'Enable',
+        'firstDateStr' => 'FirstDateStr',
+        'intervalPeriod' => 'IntervalPeriod',
+        'param' => 'Param',
+        'periodUnit' => 'PeriodUnit',
+        'source' => 'Source',
+        'targetEndTime' => 'TargetEndTime',
         'targetStartTime' => 'TargetStartTime',
-        'taskName'        => 'TaskName',
-        'taskType'        => 'TaskType',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

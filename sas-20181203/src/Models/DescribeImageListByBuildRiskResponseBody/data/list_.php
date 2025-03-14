@@ -115,22 +115,20 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'digest'        => 'Digest',
+        'digest' => 'Digest',
         'firstScanTime' => 'FirstScanTime',
-        'instanceId'    => 'InstanceId',
-        'lastScanTime'  => 'LastScanTime',
-        'regionId'      => 'RegionId',
-        'repoName'      => 'RepoName',
+        'instanceId' => 'InstanceId',
+        'lastScanTime' => 'LastScanTime',
+        'regionId' => 'RegionId',
+        'repoName' => 'RepoName',
         'repoNamespace' => 'RepoNamespace',
-        'riskLevel'     => 'RiskLevel',
-        'status'        => 'Status',
-        'tag'           => 'Tag',
-        'uuid'          => 'Uuid',
+        'riskLevel' => 'RiskLevel',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

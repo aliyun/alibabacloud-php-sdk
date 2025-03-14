@@ -61,17 +61,15 @@ class DescribeVulWhitelistResponseBody extends Model
      */
     public $vulWhitelists;
     protected $_name = [
-        'count'         => 'Count',
-        'currentPage'   => 'CurrentPage',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'count' => 'Count',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vulWhitelists' => 'VulWhitelists',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,7 +128,7 @@ class DescribeVulWhitelistResponseBody extends Model
         if (isset($map['VulWhitelists'])) {
             if (!empty($map['VulWhitelists'])) {
                 $model->vulWhitelists = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['VulWhitelists'] as $item) {
                     $model->vulWhitelists[$n++] = null !== $item ? vulWhitelists::fromMap($item) : $item;
                 }

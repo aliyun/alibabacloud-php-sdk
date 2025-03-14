@@ -30,9 +30,7 @@ class domainListResponseList extends Model
         'ipList' => 'IpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

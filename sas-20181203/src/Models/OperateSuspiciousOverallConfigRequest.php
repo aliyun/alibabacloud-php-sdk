@@ -15,6 +15,7 @@ class OperateSuspiciousOverallConfigRequest extends Model
      *   **off**: no
      *
      * This parameter is required.
+     *
      * @example off
      *
      * @var string
@@ -40,6 +41,7 @@ class OperateSuspiciousOverallConfigRequest extends Model
      *   **false**: no
      *
      * >  This parameter takes effect only when you set **Config** to **on**.
+     *
      * @example true
      *
      * @var bool
@@ -66,22 +68,21 @@ class OperateSuspiciousOverallConfigRequest extends Model
      *   **alisecguard**: Defense mode for Client Protection
      *
      * This parameter is required.
+     *
      * @example k8s_log_analysis
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'       => 'Config',
-        'lang'         => 'Lang',
+        'config' => 'Config',
+        'lang' => 'Lang',
         'noTargetAsOn' => 'NoTargetAsOn',
-        'sourceIp'     => 'SourceIp',
-        'type'         => 'Type',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

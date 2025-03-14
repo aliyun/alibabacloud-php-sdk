@@ -29,9 +29,7 @@ class DescribeChartListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeChartListResponseBody extends Model
         if (isset($map['ChartList'])) {
             if (!empty($map['ChartList'])) {
                 $model->chartList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ChartList'] as $item) {
                     $model->chartList[$n++] = null !== $item ? chartList::fromMap($item) : $item;
                 }

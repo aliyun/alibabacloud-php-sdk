@@ -22,9 +22,7 @@ class ListVulGlobalConfigRequest extends Model
         'configKey' => 'ConfigKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

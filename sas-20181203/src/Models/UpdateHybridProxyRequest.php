@@ -12,6 +12,7 @@ class UpdateHybridProxyRequest extends Model
      * @description The UUID of the Security Center agent.
      *
      * This parameter is required.
+     *
      * @example inet-proxy-14bbbb37-c4b9-4e86-83bd-137a940a6ec4
      *
      * @var string
@@ -21,9 +22,7 @@ class UpdateHybridProxyRequest extends Model
         'proxyUuid' => 'ProxyUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

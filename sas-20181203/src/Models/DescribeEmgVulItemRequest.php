@@ -85,18 +85,16 @@ class DescribeEmgVulItemRequest extends Model
      */
     public $vulName;
     protected $_name = [
-        'checkType'   => 'CheckType',
+        'checkType' => 'CheckType',
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'riskStatus'  => 'RiskStatus',
-        'scanType'    => 'ScanType',
-        'vulName'     => 'VulName',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskStatus' => 'RiskStatus',
+        'scanType' => 'ScanType',
+        'vulName' => 'VulName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

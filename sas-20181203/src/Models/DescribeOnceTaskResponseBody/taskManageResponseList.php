@@ -25,9 +25,21 @@ class taskManageResponseList extends Model
      *   **url**: the download URL of the troubleshooting log.
      *
      * @example [
+     * {
+     * "dispatchType": "manual",
+     * "causeMsg": [],
+     * "causeCode": [],
+     * "resCode": [
+     * "1003"
+     * ],
+     * "resMsg": [
+     * "powershell -executionpolicy bypass -c \\"(New-Object Net.WebClient).DownloadFile(\\"http://aegis.alicdn.com/download/aegis_client_self_check/win32/aegis_checker.exe\\", $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(\\".\\\\\\\\aegis_checker.exe\\"))\\"; \\"./aegis_checker.exe -b eyJtb2RlIjoxLCJqc3J2X2RvbWFpbiI6W10sImlzc3VlIjoib2ZmbGluZSIsInVwZGF0ZV9kb21haW4iOltdLCJ1dWlkIjoiaW5ldC1lYWUwNDg2Ny0wMDJmLTQyM2QtYWYwMC1jNzJjZDYyOWIyNDgiLCJjbWRfaWR4IjoiNDRjZThiZWI3ZGYyYTQxMjQ1NGM4ZDc5OTE1ODI1MzMifQ==\\""
+     * ],
      * "problemType": "offline",
      * "uuid": "inet-eae04867-002f-423d-af00-c72cd629****"
+     * }
      * ]
+     *
      * @var string
      */
     public $detailData;
@@ -147,23 +159,21 @@ class taskManageResponseList extends Model
      */
     public $taskType;
     protected $_name = [
-        'detailData'     => 'DetailData',
-        'failCount'      => 'FailCount',
-        'progress'       => 'Progress',
-        'resultInfo'     => 'ResultInfo',
-        'successCount'   => 'SuccessCount',
-        'taskEndTime'    => 'TaskEndTime',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
-        'taskStartTime'  => 'TaskStartTime',
-        'taskStatus'     => 'TaskStatus',
+        'detailData' => 'DetailData',
+        'failCount' => 'FailCount',
+        'progress' => 'Progress',
+        'resultInfo' => 'ResultInfo',
+        'successCount' => 'SuccessCount',
+        'taskEndTime' => 'TaskEndTime',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskStartTime' => 'TaskStartTime',
+        'taskStatus' => 'TaskStatus',
         'taskStatusText' => 'TaskStatusText',
-        'taskType'       => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

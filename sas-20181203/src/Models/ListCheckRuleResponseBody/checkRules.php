@@ -22,6 +22,7 @@ class checkRules extends Model
      * @description The subtype of the cloud product.
      *
      * > For specific meanings, refer to the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) AssetSubType.
+     *
      * @example 0
      *
      * @var int
@@ -31,6 +32,7 @@ class checkRules extends Model
     /**
      * @description The type of cloud asset.
      * > For specific meanings, refer to the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) AssetType.
+     *
      * @example 1
      *
      * @var int
@@ -101,6 +103,7 @@ class checkRules extends Model
     /**
      * @description The type of rule. Default is **WHITE**. Values:
      * - **WHITE**: Add to whitelist
+     *
      * @example WHITE
      *
      * @var string
@@ -111,6 +114,7 @@ class checkRules extends Model
      * @description The scope where the rule applies. Values:
      * - **INSTNACE**: Instance
      * - **ITEM**: Check item
+     *
      * @example INSTANCE
      *
      * @var string
@@ -124,6 +128,7 @@ class checkRules extends Model
      * - **1**: Non-cloud asset
      * - **2**: IDC asset
      * - **3**, **4**, **5**, **7**: Other cloud assets
+     *
      * @example 0
      *
      * @var int
@@ -139,25 +144,23 @@ class checkRules extends Model
      */
     public $vendorName;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'assetSubType'    => 'AssetSubType',
-        'assetType'       => 'AssetType',
-        'checkId'         => 'CheckId',
-        'checkPolicies'   => 'CheckPolicies',
-        'checkShowName'   => 'CheckShowName',
+        'aliUid' => 'AliUid',
+        'assetSubType' => 'AssetSubType',
+        'assetType' => 'AssetType',
+        'checkId' => 'CheckId',
+        'checkPolicies' => 'CheckPolicies',
+        'checkShowName' => 'CheckShowName',
         'instanceSubType' => 'InstanceSubType',
-        'instanceType'    => 'InstanceType',
-        'remark'          => 'Remark',
-        'ruleId'          => 'RuleId',
-        'ruleType'        => 'RuleType',
-        'scopeType'       => 'ScopeType',
-        'vendor'          => 'Vendor',
-        'vendorName'      => 'VendorName',
+        'instanceType' => 'InstanceType',
+        'remark' => 'Remark',
+        'ruleId' => 'RuleId',
+        'ruleType' => 'RuleType',
+        'scopeType' => 'ScopeType',
+        'vendor' => 'Vendor',
+        'vendorName' => 'VendorName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -237,7 +240,7 @@ class checkRules extends Model
         if (isset($map['CheckPolicies'])) {
             if (!empty($map['CheckPolicies'])) {
                 $model->checkPolicies = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CheckPolicies'] as $item) {
                     $model->checkPolicies[$n++] = null !== $item ? checkPolicies::fromMap($item) : $item;
                 }

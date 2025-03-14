@@ -25,7 +25,10 @@ class DeleteLoginBaseConfigRequest extends Model
      *
      *   **login_common_location**: approved logon locations
      *
+     * Example: {"location":"Shanghai"}.
+     *
      * This parameter is required.
+     *
      * @example {"startTime":"06:00:00","endTime":"16:00:00"}
      *
      * @var string
@@ -36,6 +39,7 @@ class DeleteLoginBaseConfigRequest extends Model
      * @description The UUID of the server whose logon security settings you want to delete.
      *
      * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string
@@ -51,6 +55,7 @@ class DeleteLoginBaseConfigRequest extends Model
      *   **login_common_location**: approved logon locations
      *
      * This parameter is required.
+     *
      * @example login_common_time
      *
      * @var string
@@ -59,12 +64,10 @@ class DeleteLoginBaseConfigRequest extends Model
     protected $_name = [
         'config' => 'Config',
         'target' => 'Target',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

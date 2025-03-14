@@ -11,7 +11,10 @@ class ModifyCloudVendorAccountAKRequest extends Model
     /**
      * @description The unique ID of the AccessKey pair.
      *
+     * >  You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to query the unique ID.
+     *
      * This parameter is required.
+     *
      * @example 2832
      *
      * @var string
@@ -27,6 +30,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      *   **TRIAL**: log audit.
      *
      * >  You can call the [GetSupportedModules](~~GetSupportedModules~~) operation to query the supported modules.
+     *
      * @var string[]
      */
     public $authModules;
@@ -38,6 +42,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      *   **global**
      *
      * >  This parameter takes effect only when Vendor is set to Azure.
+     *
      * @example global
      *
      * @var string
@@ -60,6 +65,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The regions that are examined during AccessKey pair authentication.
      *
      * >  This parameter takes effect only when Vendor is set to AWS. You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to query regions.
+     *
      * @var string[]
      */
     public $regions;
@@ -68,6 +74,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The AccessKey ID.
      *
      * >  If AkType is set to **primary**, you must set SecretId to the AccessKey ID of the third-party master account. If AkType is set to **sub**, you must set SecretId to the AccessKey ID of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, set this parameter to the **app ID** that is used for authentication.
+     *
      * @example S3D6c4O***
      *
      * @var string
@@ -78,6 +85,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The AccessKey secret.
      *
      * >  If AkType is set to **primary**, you must set SecretKey to the AccessKey secret of the third-party master account. If AkType is set to **sub**, you must set SecretKey to the AccessKey secret of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, set this parameter to the **password** that is used for authentication.
+     *
      * @example AE6SLd****
      *
      * @var string
@@ -100,6 +108,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The IDs of subscriptions.
      *
      * >  This parameter takes effect only when Vendor is set to Azure.
+     *
      * @var string[]
      */
     public $subscriptionIds;
@@ -108,6 +117,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The tenant ID.
      *
      * >  This parameter takes effect only when Vendor is set to Azure.
+     *
      * @example 95304a97-339b-4de5-9a7d-cdbffaf****
      *
      * @var string
@@ -118,28 +128,27 @@ class ModifyCloudVendorAccountAKRequest extends Model
      * @description The name of the AccessKey pair.
      *
      * >  The account information of the third-party cloud servers.
+     *
      * @example test
      *
      * @var string
      */
     public $vendorAuthAlias;
     protected $_name = [
-        'authIds'         => 'AuthIds',
-        'authModules'     => 'AuthModules',
-        'domain'          => 'Domain',
-        'lang'            => 'Lang',
-        'regions'         => 'Regions',
-        'secretId'        => 'SecretId',
-        'secretKey'       => 'SecretKey',
-        'status'          => 'Status',
+        'authIds' => 'AuthIds',
+        'authModules' => 'AuthModules',
+        'domain' => 'Domain',
+        'lang' => 'Lang',
+        'regions' => 'Regions',
+        'secretId' => 'SecretId',
+        'secretKey' => 'SecretKey',
+        'status' => 'Status',
         'subscriptionIds' => 'SubscriptionIds',
-        'tenantId'        => 'TenantId',
+        'tenantId' => 'TenantId',
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class checkCountStatisticDTO extends Model
      * - **user**: Top 5 over-authorized users.
      * - **role**: Top 5 over-authorized roles.
      * - **instance**: Top 5 risky cloud products.
+     *
      * @example instance
      *
      * @var string
@@ -28,12 +29,10 @@ class checkCountStatisticDTO extends Model
     public $statisticType;
     protected $_name = [
         'checkCountStatisticItems' => 'CheckCountStatisticItems',
-        'statisticType'            => 'StatisticType',
+        'statisticType' => 'StatisticType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -65,7 +64,7 @@ class checkCountStatisticDTO extends Model
         if (isset($map['CheckCountStatisticItems'])) {
             if (!empty($map['CheckCountStatisticItems'])) {
                 $model->checkCountStatisticItems = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['CheckCountStatisticItems'] as $item) {
                     $model->checkCountStatisticItems[$n++] = null !== $item ? checkCountStatisticItems::fromMap($item) : $item;
                 }

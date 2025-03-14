@@ -21,6 +21,7 @@ class ExportWarningResponseBody extends Model
      * @description The ID of the task to export baseline check results.
      *
      * > You can call use the value of this parameter to call the [DescribeHcExportInfo](~~DescribeHcExportInfo~~) operation to query the export progress.
+     *
      * @example 439316
      *
      * @var int
@@ -36,14 +37,12 @@ class ExportWarningResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fileName'  => 'FileName',
-        'id'        => 'Id',
+        'fileName' => 'FileName',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

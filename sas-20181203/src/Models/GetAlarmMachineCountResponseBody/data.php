@@ -20,9 +20,7 @@ class data extends Model
         'machineCount' => 'MachineCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

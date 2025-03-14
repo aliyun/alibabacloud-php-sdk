@@ -67,17 +67,15 @@ class BindAuthToMachineResponseBody extends Model
      */
     public $unBindCount;
     protected $_name = [
-        'bindCount'             => 'BindCount',
+        'bindCount' => 'BindCount',
         'insufficientCoreCount' => 'InsufficientCoreCount',
-        'insufficientEcsCount'  => 'InsufficientEcsCount',
-        'requestId'             => 'RequestId',
-        'resultCode'            => 'ResultCode',
-        'unBindCount'           => 'UnBindCount',
+        'insufficientEcsCount' => 'InsufficientEcsCount',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'unBindCount' => 'UnBindCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

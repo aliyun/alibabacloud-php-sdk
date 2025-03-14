@@ -22,9 +22,15 @@ class ListCheckInstanceResultResponseBody extends Model
      * @description The extended information about the instances.
      *
      * @example [{
+     * "SecurityGroupNameShow": {
+     * "value": "Sas_Malicious_Ip_Security_Group"
+     * },
+     * "InstanceIdShow": {
      * "link": "https://ecs.console.aliyun.com/#/securityGroupDetail/region/ap-southeast-1/groupId/sg-t4nbk2aodzio52xvj00s/rule/intranetIngress",
      * "value": "sg-t4nbk2aodzio52xv****"
+     * }
      * }]
+     *
      * @var mixed[][]
      */
     public $checks;
@@ -53,15 +59,13 @@ class ListCheckInstanceResultResponseBody extends Model
     public $requestId;
     protected $_name = [
         'basicData' => 'BasicData',
-        'checks'    => 'Checks',
-        'columns'   => 'Columns',
-        'pageInfo'  => 'PageInfo',
+        'checks' => 'Checks',
+        'columns' => 'Columns',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +112,7 @@ class ListCheckInstanceResultResponseBody extends Model
         if (isset($map['BasicData'])) {
             if (!empty($map['BasicData'])) {
                 $model->basicData = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['BasicData'] as $item) {
                     $model->basicData[$n++] = null !== $item ? basicData::fromMap($item) : $item;
                 }
@@ -122,7 +126,7 @@ class ListCheckInstanceResultResponseBody extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Columns'] as $item) {
                     $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }

@@ -28,13 +28,11 @@ class DescribeSuspEventUserSettingResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'levelsOn'  => 'LevelsOn',
+        'levelsOn' => 'LevelsOn',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -59,15 +59,13 @@ class ListMaliciousFileWhitelistConfigsRequest extends Model
     public $source;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'eventName'   => 'EventName',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'source'      => 'Source',
+        'eventName' => 'EventName',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

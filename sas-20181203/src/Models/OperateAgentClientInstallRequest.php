@@ -12,6 +12,7 @@ class OperateAgentClientInstallRequest extends Model
      * @description The IDs of the servers on which you want to install the Security Center agent. Separate multiple IDs with commas (,).
      *
      * > : You must specify at least one of **InstanceIds** and **Uuids**. If you specify **InstanceIds**, you must also specify **Region** and **Os**.
+     *
      * @example i-uf6j8vq9l4r5ntht****
      *
      * @var string
@@ -61,6 +62,7 @@ class OperateAgentClientInstallRequest extends Model
      * @description The UUIDs of the servers on which you want to install the Security Center agent. Separate multiple UUIDs with commas (,).
      *
      * > You must specify at least one of the **InstanceIds** and **Uuids** parameters before you can call this operation.
+     *
      * @example 1587bedb-fdb4-48c4-9330-************
      *
      * @var string
@@ -68,15 +70,13 @@ class OperateAgentClientInstallRequest extends Model
     public $uuids;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'lang'        => 'Lang',
-        'os'          => 'Os',
-        'region'      => 'Region',
-        'uuids'       => 'Uuids',
+        'lang' => 'Lang',
+        'os' => 'Os',
+        'region' => 'Region',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

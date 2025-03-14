@@ -12,6 +12,7 @@ class ModifyBinarySecurityPolicyRequest extends Model
      * @description Cluster information.
      *
      * This parameter is required.
+     *
      * @example [{\\"Namespaces\\":[\\"default\\"],\\"ClusterId\\":\\"c9f5b93a8da8f4341b77***********\\"},{\\"Namespaces\\":[\\"default\\"],\\"ClusterId\\":\\"cc12429dbb8f644f690b0***********\\"}]
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyBinarySecurityPolicyRequest extends Model
      * - **requiredAttestors**: Required attestors.
      *
      * This parameter is required.
+     *
      * @example {\\"PolicyMode\\":\\"requireAttestor\\",\\"RequiredAttestors\\":[\\"test-xcs-04-11-hhht\\"]}
      *
      * @var string
@@ -67,24 +69,23 @@ class ModifyBinarySecurityPolicyRequest extends Model
      *
      * - **enabled**: Enable the protection policy.
      * - **disabled**: Disable the protection policy.
+     *
      * @example enabled
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'clusters'        => 'Clusters',
-        'name'            => 'Name',
-        'policy'          => 'Policy',
-        'remark'          => 'Remark',
+        'clusters' => 'Clusters',
+        'name' => 'Name',
+        'policy' => 'Policy',
+        'remark' => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'status'          => 'Status',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

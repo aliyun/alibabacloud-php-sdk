@@ -29,20 +29,19 @@ class GetServerlessAppAuthDetailResponseBody extends Model
      * @description Whether the API call was successful. Values:
      * - **true**: Success
      * - **false**: Failure
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

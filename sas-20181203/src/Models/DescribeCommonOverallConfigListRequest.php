@@ -20,7 +20,10 @@ class DescribeCommonOverallConfigListRequest extends Model
     /**
      * @description The types of the configuration items.
      *
+     * >  You can query up to 50 types at a time.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $typeList;
@@ -29,9 +32,7 @@ class DescribeCommonOverallConfigListRequest extends Model
         'typeList' => 'TypeList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

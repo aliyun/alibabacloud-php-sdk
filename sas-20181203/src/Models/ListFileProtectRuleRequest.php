@@ -73,17 +73,15 @@ class ListFileProtectRuleRequest extends Model
      */
     public $ruleName;
     protected $_name = [
-        'alertLevel'  => 'AlertLevel',
+        'alertLevel' => 'AlertLevel',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'platform'    => 'Platform',
-        'ruleAction'  => 'RuleAction',
-        'ruleName'    => 'RuleName',
+        'pageSize' => 'PageSize',
+        'platform' => 'Platform',
+        'ruleAction' => 'RuleAction',
+        'ruleName' => 'RuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

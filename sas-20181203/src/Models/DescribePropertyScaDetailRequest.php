@@ -16,6 +16,7 @@ class DescribePropertyScaDetailRequest extends Model
      *   **sca_web**: web service
      *
      * >  If you do not specify this parameter, the default value **sca** is used, which indicates that middleware fingerprints are queried.
+     *
      * @example sca
      *
      * @var string
@@ -64,6 +65,7 @@ class DescribePropertyScaDetailRequest extends Model
      * @description The name of the middleware, database, or web service.
      *
      * >  This parameter is deprecated. You can ignore it.
+     *
      * @example 1
      *
      * @var int
@@ -74,6 +76,7 @@ class DescribePropertyScaDetailRequest extends Model
      * @description The number of entries to return on each page. Default value: **10**.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var int
@@ -120,6 +123,7 @@ class DescribePropertyScaDetailRequest extends Model
      * @description The search condition, such as a server name or a server IP address.
      *
      * >  Fuzzy match is supported.
+     *
      * @example 192.168
      *
      * @var string
@@ -169,6 +173,7 @@ class DescribePropertyScaDetailRequest extends Model
      *   **web_framework**: web framework
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     *
      * @example openssl
      *
      * @var string
@@ -184,6 +189,7 @@ class DescribePropertyScaDetailRequest extends Model
      *   If the **SearchItemSub** parameter is set to **user**, you must enter a username.
      *
      * >  The subquery is used to search for data of a specified database, middleware, or web service.
+     *
      * @example 1.0.2k
      *
      * @var string
@@ -197,6 +203,7 @@ class DescribePropertyScaDetailRequest extends Model
      *   **type**: the type of a database, middleware, or web service
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     *
      * @example name
      *
      * @var string
@@ -235,31 +242,29 @@ class DescribePropertyScaDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'biz'                 => 'Biz',
-        'bizType'             => 'BizType',
-        'currentPage'         => 'CurrentPage',
-        'lang'                => 'Lang',
-        'name'                => 'Name',
-        'pageSize'            => 'PageSize',
-        'pid'                 => 'Pid',
-        'port'                => 'Port',
-        'processStartedEnd'   => 'ProcessStartedEnd',
+        'biz' => 'Biz',
+        'bizType' => 'BizType',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'pid' => 'Pid',
+        'port' => 'Port',
+        'processStartedEnd' => 'ProcessStartedEnd',
         'processStartedStart' => 'ProcessStartedStart',
-        'remark'              => 'Remark',
-        'scaName'             => 'ScaName',
-        'scaNamePattern'      => 'ScaNamePattern',
-        'scaVersion'          => 'ScaVersion',
-        'searchInfo'          => 'SearchInfo',
-        'searchInfoSub'       => 'SearchInfoSub',
-        'searchItem'          => 'SearchItem',
-        'searchItemSub'       => 'SearchItemSub',
-        'user'                => 'User',
-        'uuid'                => 'Uuid',
+        'remark' => 'Remark',
+        'scaName' => 'ScaName',
+        'scaNamePattern' => 'ScaNamePattern',
+        'scaVersion' => 'ScaVersion',
+        'searchInfo' => 'SearchInfo',
+        'searchInfoSub' => 'SearchInfoSub',
+        'searchItem' => 'SearchItem',
+        'searchItemSub' => 'SearchItemSub',
+        'user' => 'User',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

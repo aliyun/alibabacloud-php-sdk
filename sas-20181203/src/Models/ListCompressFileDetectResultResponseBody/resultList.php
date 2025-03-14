@@ -12,7 +12,22 @@ class resultList extends Model
      * @description The extended information about the file detection result.
      *
      * @example {
+     * "HighLight":
+     * [
+     * [
+     * 23245,
+     * 23212
+     * ]
+     * ],
+     * "FileLabel":
+     * [
+     * "PE32",
+     * "Zip",
+     * "SFX",
+     * "encrypted"
+     * ]
      * }
+     *
      * @var string
      */
     public $ext;
@@ -57,6 +72,7 @@ class resultList extends Model
      *   81 to 100: malicious
      *
      * >  A higher score indicates a more suspicious file.
+     *
      * @example 100
      *
      * @var int
@@ -95,17 +111,15 @@ class resultList extends Model
      */
     public $virusType;
     protected $_name = [
-        'ext'       => 'Ext',
-        'hashKey'   => 'HashKey',
-        'path'      => 'Path',
-        'result'    => 'Result',
-        'score'     => 'Score',
+        'ext' => 'Ext',
+        'hashKey' => 'HashKey',
+        'path' => 'Path',
+        'result' => 'Result',
+        'score' => 'Score',
         'virusType' => 'VirusType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

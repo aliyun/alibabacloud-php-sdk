@@ -54,22 +54,21 @@ class bindPortList extends Model
      * @description The destination port.
      *
      * > If **HoneypotId** is specified, this parameter is required.
+     *
      * @example 80
      *
      * @var int
      */
     public $targetPort;
     protected $_name = [
-        'bindPort'   => 'BindPort',
-        'endPort'    => 'EndPort',
-        'fixed'      => 'Fixed',
-        'startPort'  => 'StartPort',
+        'bindPort' => 'BindPort',
+        'endPort' => 'EndPort',
+        'fixed' => 'Fixed',
+        'startPort' => 'StartPort',
         'targetPort' => 'TargetPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

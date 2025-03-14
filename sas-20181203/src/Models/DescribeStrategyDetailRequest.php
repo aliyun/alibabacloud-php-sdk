@@ -12,6 +12,7 @@ class DescribeStrategyDetailRequest extends Model
      * @description The ID of the baseline check policy.
      *
      * This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -39,14 +40,12 @@ class DescribeStrategyDetailRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'id'       => 'Id',
-        'lang'     => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

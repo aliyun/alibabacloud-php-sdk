@@ -26,13 +26,11 @@ class ModifyHybridProxyPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'messgae'   => 'Messgae',
+        'messgae' => 'Messgae',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

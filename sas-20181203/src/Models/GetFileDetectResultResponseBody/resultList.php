@@ -21,6 +21,7 @@ class resultList extends Model
      * @description Whether to identify as a compressed package. Valid values:
      * - **true**: Yes.
      * - **false**: No.
+     *
      * @example false
      *
      * @var bool
@@ -71,6 +72,7 @@ class resultList extends Model
      * @description The score of file detection result.
      *
      * > A higher score indicates a more suspicious file.
+     *
      * @example 100
      *
      * @var int
@@ -108,19 +110,17 @@ class resultList extends Model
      */
     public $virusType;
     protected $_name = [
-        'code'      => 'Code',
-        'compress'  => 'Compress',
-        'ext'       => 'Ext',
-        'hashKey'   => 'HashKey',
-        'message'   => 'Message',
-        'result'    => 'Result',
-        'score'     => 'Score',
+        'code' => 'Code',
+        'compress' => 'Compress',
+        'ext' => 'Ext',
+        'hashKey' => 'HashKey',
+        'message' => 'Message',
+        'result' => 'Result',
+        'score' => 'Score',
         'virusType' => 'VirusType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

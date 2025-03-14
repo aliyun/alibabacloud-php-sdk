@@ -89,18 +89,16 @@ class baselineItemInfos extends Model
     public $whiteList;
     protected $_name = [
         'baselineClassAlias' => 'BaselineClassAlias',
-        'baselineClassKey'   => 'BaselineClassKey',
-        'baselineItemAlias'  => 'BaselineItemAlias',
-        'baselineItemKey'    => 'BaselineItemKey',
-        'baselineNameAlias'  => 'BaselineNameAlias',
-        'baselineNameKey'    => 'BaselineNameKey',
-        'status'             => 'Status',
-        'whiteList'          => 'WhiteList',
+        'baselineClassKey' => 'BaselineClassKey',
+        'baselineItemAlias' => 'BaselineItemAlias',
+        'baselineItemKey' => 'BaselineItemKey',
+        'baselineNameAlias' => 'BaselineNameAlias',
+        'baselineNameKey' => 'BaselineNameKey',
+        'status' => 'Status',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetStrategyTemplateDetailRequest extends Model
      * @description The ID of the template.
      *
      * >  You can call the [GetOpaStrategyTemplateSummary](~~GetOpaStrategyTemplateSummary~~) operation to query the IDs of templates.
+     *
      * @example 2
      *
      * @var int
@@ -21,9 +22,7 @@ class GetStrategyTemplateDetailRequest extends Model
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

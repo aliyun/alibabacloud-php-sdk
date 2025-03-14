@@ -116,22 +116,20 @@ class list_ extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliUid'            => 'AliUid',
-        'disposalWay'       => 'DisposalWay',
-        'eventName'         => 'EventName',
+        'aliUid' => 'AliUid',
+        'disposalWay' => 'DisposalWay',
+        'eventName' => 'EventName',
         'eventNameOriginal' => 'EventNameOriginal',
-        'eventType'         => 'EventType',
+        'eventType' => 'EventType',
         'eventTypeOriginal' => 'EventTypeOriginal',
-        'field'             => 'Field',
-        'fieldValue'        => 'FieldValue',
-        'filedAliasName'    => 'FiledAliasName',
-        'operate'           => 'Operate',
-        'uuids'             => 'Uuids',
+        'field' => 'Field',
+        'fieldValue' => 'FieldValue',
+        'filedAliasName' => 'FiledAliasName',
+        'operate' => 'Operate',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

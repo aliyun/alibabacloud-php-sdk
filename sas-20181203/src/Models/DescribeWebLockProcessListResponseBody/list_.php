@@ -83,19 +83,17 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'count'        => 'Count',
+        'count' => 'Count',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'processName'  => 'ProcessName',
-        'processPath'  => 'ProcessPath',
-        'status'       => 'Status',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'processName' => 'ProcessName',
+        'processPath' => 'ProcessPath',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

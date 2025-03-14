@@ -24,6 +24,7 @@ class ModifyTagWithUuidRequest extends Model
      * @description The ID of the tag that you want to manage.
      *
      * >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the IDs of tags.
+     *
      * @example 3897941
      *
      * @var string
@@ -33,7 +34,10 @@ class ModifyTagWithUuidRequest extends Model
     /**
      * @description The names of the tags that you want to manage. Separate multiple tag names with commas (,).
      *
+     * >  You can call the [DescribeGroupedTags](~~DescribeGroupedTags~~) operation to query the names of tags.
+     *
      * This parameter is required.
+     *
      * @example ac,ad
      *
      * @var string
@@ -65,6 +69,7 @@ class ModifyTagWithUuidRequest extends Model
      * @description The UUIDs of the servers.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example e2737dc3-78f4-4653-a986-dc5fad4b****,c189f0e3-df22-42d5-a73d-02c05667****
      *
      * @var string
@@ -72,15 +77,13 @@ class ModifyTagWithUuidRequest extends Model
     public $uuidList;
     protected $_name = [
         'machineTypes' => 'MachineTypes',
-        'tagId'        => 'TagId',
-        'tagList'      => 'TagList',
-        'target'       => 'Target',
-        'uuidList'     => 'UuidList',
+        'tagId' => 'TagId',
+        'tagList' => 'TagList',
+        'target' => 'Target',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

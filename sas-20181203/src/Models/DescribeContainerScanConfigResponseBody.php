@@ -34,14 +34,12 @@ class DescribeContainerScanConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'data'           => 'Data',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

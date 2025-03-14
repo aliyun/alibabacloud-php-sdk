@@ -184,29 +184,27 @@ class imageRegistryInfos extends Model
      */
     public $whiteList;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'domainName'      => 'DomainName',
-        'id'              => 'Id',
-        'jenkinsEnv'      => 'JenkinsEnv',
-        'netType'         => 'NetType',
-        'password'        => 'Password',
-        'persistenceDay'  => 'PersistenceDay',
-        'protocolType'    => 'ProtocolType',
-        'regionId'        => 'RegionId',
-        'registryHostIp'  => 'RegistryHostIp',
-        'registryName'    => 'RegistryName',
-        'registryType'    => 'RegistryType',
+        'aliUid' => 'AliUid',
+        'domainName' => 'DomainName',
+        'id' => 'Id',
+        'jenkinsEnv' => 'JenkinsEnv',
+        'netType' => 'NetType',
+        'password' => 'Password',
+        'persistenceDay' => 'PersistenceDay',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'registryHostIp' => 'RegistryHostIp',
+        'registryName' => 'RegistryName',
+        'registryType' => 'RegistryType',
         'registryVersion' => 'RegistryVersion',
-        'token'           => 'Token',
-        'transPerHour'    => 'TransPerHour',
-        'userName'        => 'UserName',
-        'vpcId'           => 'VpcId',
-        'whiteList'       => 'WhiteList',
+        'token' => 'Token',
+        'transPerHour' => 'TransPerHour',
+        'userName' => 'UserName',
+        'vpcId' => 'VpcId',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,16 +49,14 @@ class DescribeAttestorsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,14 +39,12 @@ class info extends Model
      */
     public $type;
     protected $_name = [
-        'config'   => 'Config',
+        'config' => 'Config',
         'fileName' => 'FileName',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

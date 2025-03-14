@@ -52,16 +52,14 @@ class repair extends Model
      */
     public $taskId;
     protected $_name = [
-        'operateTime'    => 'OperateTime',
-        'repairConfigs'  => 'RepairConfigs',
-        'status'         => 'Status',
+        'operateTime' => 'OperateTime',
+        'repairConfigs' => 'RepairConfigs',
+        'status' => 'Status',
         'statusShowName' => 'StatusShowName',
-        'taskId'         => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class repair extends Model
         if (isset($map['RepairConfigs'])) {
             if (!empty($map['RepairConfigs'])) {
                 $model->repairConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RepairConfigs'] as $item) {
                     $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
                 }

@@ -20,9 +20,7 @@ class data extends Model
         'limit' => 'Limit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

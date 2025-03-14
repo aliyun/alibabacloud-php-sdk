@@ -11,7 +11,10 @@ class SetClusterInterceptionConfigRequest extends Model
     /**
      * @description The ID of the cluster. Separate multiple cluster IDs with commas (,).
      *
+     * > You can call the [ListClusterInterceptionConfig](~~ListClusterInterceptionConfig~~) operation to query the IDs of clusters.
+     *
      * This parameter is required.
+     *
      * @example c60b77fe62093480db6164a3c2fa****
      *
      * @var string
@@ -25,6 +28,7 @@ class SetClusterInterceptionConfigRequest extends Model
      *   **0**: no
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +43,7 @@ class SetClusterInterceptionConfigRequest extends Model
      *   **2**: the interception history switch
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -46,13 +51,11 @@ class SetClusterInterceptionConfigRequest extends Model
     public $switchType;
     protected $_name = [
         'clusterIds' => 'ClusterIds',
-        'switchOn'   => 'SwitchOn',
+        'switchOn' => 'SwitchOn',
         'switchType' => 'SwitchType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -107,22 +107,20 @@ class data extends Model
      */
     public $whiteImages;
     protected $_name = [
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'mode'             => 'Mode',
-        'ruleDescription'  => 'RuleDescription',
-        'ruleId'           => 'RuleId',
-        'ruleName'         => 'RuleName',
-        'ruleTemplateId'   => 'RuleTemplateId',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'mode' => 'Mode',
+        'ruleDescription' => 'RuleDescription',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleTemplateId' => 'RuleTemplateId',
         'ruleTemplateName' => 'RuleTemplateName',
-        'selectedPolicy'   => 'SelectedPolicy',
-        'switchId'         => 'SwitchId',
-        'whiteImages'      => 'WhiteImages',
+        'selectedPolicy' => 'SelectedPolicy',
+        'switchId' => 'SwitchId',
+        'whiteImages' => 'WhiteImages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

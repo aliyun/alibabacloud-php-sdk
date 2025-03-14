@@ -93,20 +93,18 @@ class baselineDetail extends Model
      */
     public $resultId;
     protected $_name = [
-        'advice'             => 'Advice',
+        'advice' => 'Advice',
         'baselineClassAlias' => 'BaselineClassAlias',
-        'baselineItemAlias'  => 'BaselineItemAlias',
-        'baselineItemKey'    => 'BaselineItemKey',
-        'baselineNameAlias'  => 'BaselineNameAlias',
-        'description'        => 'Description',
-        'level'              => 'Level',
-        'prompt'             => 'Prompt',
-        'resultId'           => 'ResultId',
+        'baselineItemAlias' => 'BaselineItemAlias',
+        'baselineItemKey' => 'BaselineItemKey',
+        'baselineNameAlias' => 'BaselineNameAlias',
+        'description' => 'Description',
+        'level' => 'Level',
+        'prompt' => 'Prompt',
+        'resultId' => 'ResultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

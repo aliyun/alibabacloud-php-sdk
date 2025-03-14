@@ -25,6 +25,7 @@ class ModifyAssetImportantRequest extends Model
      * @description The UUIDs of servers. Separate multiple UUIDs with commas (,).
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string
@@ -32,12 +33,10 @@ class ModifyAssetImportantRequest extends Model
     public $uuidList;
     protected $_name = [
         'importantCode' => 'ImportantCode',
-        'uuidList'      => 'UuidList',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

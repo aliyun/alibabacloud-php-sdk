@@ -10,7 +10,10 @@ class DescribeSoarPlaybookTaskDetailRequest extends Model
 {
     /**
      * @description Playbook ID.
+     * > You can obtain this parameter by calling the [DescribePlaybooks](https://help.aliyun.com/document_detail/2627461.html) interface.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -19,7 +22,10 @@ class DescribeSoarPlaybookTaskDetailRequest extends Model
 
     /**
      * @description The vulnerability ID passed when creating the policy task.
+     * > You can obtain this parameter by calling the [DescribeVulList](~~DescribeVulList~~) interface.
+     *
      * This parameter is required.
+     *
      * @example 14
      *
      * @var int
@@ -28,21 +34,22 @@ class DescribeSoarPlaybookTaskDetailRequest extends Model
 
     /**
      * @description UUID of the playbook task execution.
+     * > You can obtain this parameter by calling the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) interface.
+     *
      * This parameter is required.
+     *
      * @example a15e37da-abe0-4d87-acd2-024e875a****
      *
      * @var string
      */
     public $requestUuid;
     protected $_name = [
-        'playbookId'  => 'PlaybookId',
-        'recordId'    => 'RecordId',
+        'playbookId' => 'PlaybookId',
+        'recordId' => 'RecordId',
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

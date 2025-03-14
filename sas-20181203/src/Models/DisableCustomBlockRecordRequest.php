@@ -11,7 +11,10 @@ class DisableCustomBlockRecordRequest extends Model
     /**
      * @description The IP address that is specified in the policy.
      *
+     * > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the IP address.
+     *
      * This parameter is required.
+     *
      * @example 62.233.XX.XX
      *
      * @var string
@@ -25,6 +28,7 @@ class DisableCustomBlockRecordRequest extends Model
      *   **out**: outbound
      *
      * This parameter is required.
+     *
      * @example in
      *
      * @var string
@@ -36,14 +40,12 @@ class DisableCustomBlockRecordRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

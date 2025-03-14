@@ -12,6 +12,7 @@ class ListUserVpcRequest extends Model
      * @description Region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,9 +22,7 @@ class ListUserVpcRequest extends Model
         'k8sRegionId' => 'K8sRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeExposedInstanceDetailResponseBody extends Model
     public $requestId;
     protected $_name = [
         'exposedChains' => 'ExposedChains',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeExposedInstanceDetailResponseBody extends Model
         if (isset($map['ExposedChains'])) {
             if (!empty($map['ExposedChains'])) {
                 $model->exposedChains = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ExposedChains'] as $item) {
                     $model->exposedChains[$n++] = null !== $item ? exposedChains::fromMap($item) : $item;
                 }

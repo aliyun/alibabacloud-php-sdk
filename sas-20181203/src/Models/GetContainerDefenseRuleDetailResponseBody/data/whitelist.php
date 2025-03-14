@@ -12,6 +12,7 @@ class whitelist extends Model
      * @description The hash values of the files that are added to the whitelist.
      *
      * >  This parameter is not supported.
+     *
      * @deprecated
      *
      * @var string[]
@@ -32,14 +33,12 @@ class whitelist extends Model
      */
     public $path;
     protected $_name = [
-        'hash'  => 'Hash',
+        'hash' => 'Hash',
         'image' => 'Image',
-        'path'  => 'Path',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

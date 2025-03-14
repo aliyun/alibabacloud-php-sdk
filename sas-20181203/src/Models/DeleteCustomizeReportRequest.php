@@ -11,7 +11,10 @@ class DeleteCustomizeReportRequest extends Model
     /**
      * @description The ID of the report.
      *
+     * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -21,9 +24,7 @@ class DeleteCustomizeReportRequest extends Model
         'reportId' => 'ReportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

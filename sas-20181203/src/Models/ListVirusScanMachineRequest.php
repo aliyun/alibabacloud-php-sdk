@@ -12,6 +12,7 @@ class ListVirusScanMachineRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ListVirusScanMachineRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -47,14 +49,12 @@ class ListVirusScanMachineRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'uuid'        => 'Uuid',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class aggregationList extends Model
      */
     public $ruleCount;
     protected $_name = [
-        'id'        => 'Id',
-        'name'      => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'ruleCount' => 'RuleCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

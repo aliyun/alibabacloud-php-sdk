@@ -12,6 +12,7 @@ class ListCompressFileDetectResultRequest extends Model
      * @description The page number. Default value: 1.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class ListCompressFileDetectResultRequest extends Model
      * @description The number of entries per page. Default value: 20.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -47,14 +49,12 @@ class ListCompressFileDetectResultRequest extends Model
     public $sourceIp;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'hashKey'     => 'HashKey',
-        'pageSize'    => 'PageSize',
-        'sourceIp'    => 'SourceIp',
+        'hashKey' => 'HashKey',
+        'pageSize' => 'PageSize',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

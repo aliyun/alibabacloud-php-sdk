@@ -72,6 +72,7 @@ class DescribeWebLockBindListRequest extends Model
      * @description The UUID of the asset that you want to query.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID.
+     *
      * @example 7151f27e-1d51-4e98-a540-8936a****
      *
      * @var string
@@ -79,17 +80,15 @@ class DescribeWebLockBindListRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'remark'      => 'Remark',
-        'sourceIp'    => 'SourceIp',
-        'status'      => 'Status',
-        'uuid'        => 'Uuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

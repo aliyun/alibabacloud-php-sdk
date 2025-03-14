@@ -27,12 +27,10 @@ class list_ extends Model
     public $file;
     protected $_name = [
         'count' => 'Count',
-        'file'  => 'File',
+        'file' => 'File',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

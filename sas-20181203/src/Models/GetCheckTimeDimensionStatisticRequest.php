@@ -30,6 +30,7 @@ class GetCheckTimeDimensionStatisticRequest extends Model
      * @description Type of statistical data. Values:
      * - **CheckPassRate**: Check item pass rate.
      * - **AssetPassRate**: Asset pass rate.
+     *
      * @example AssetPassRate
      *
      * @var string
@@ -43,15 +44,13 @@ class GetCheckTimeDimensionStatisticRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'endTimeStamp'   => 'EndTimeStamp',
+        'endTimeStamp' => 'EndTimeStamp',
         'startTimeStamp' => 'StartTimeStamp',
-        'statisticType'  => 'StatisticType',
-        'vendors'        => 'Vendors',
+        'statisticType' => 'StatisticType',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,7 +15,9 @@ class ModifyClientConfSetupRequest extends Model
      *   mem: the maximum memory usage that can be occupied by the Security Center agent on the server
      *
      * @example {
+     * "cpu": "20"
      * }
+     *
      * @var string
      */
     public $strategyConfig;
@@ -24,6 +26,7 @@ class ModifyClientConfSetupRequest extends Model
      * @description The type of the tag.
      *
      * This parameter is required.
+     *
      * @example machineResource
      *
      * @var string
@@ -38,20 +41,19 @@ class ModifyClientConfSetupRequest extends Model
      *   basic
      *
      * This parameter is required.
+     *
      * @example major
      *
      * @var string
      */
     public $strategyTagValue;
     protected $_name = [
-        'strategyConfig'   => 'StrategyConfig',
-        'strategyTag'      => 'StrategyTag',
+        'strategyConfig' => 'StrategyConfig',
+        'strategyTag' => 'StrategyTag',
         'strategyTagValue' => 'StrategyTagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

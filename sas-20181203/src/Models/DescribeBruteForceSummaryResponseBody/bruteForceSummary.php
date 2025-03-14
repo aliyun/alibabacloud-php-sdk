@@ -71,18 +71,16 @@ class bruteForceSummary extends Model
      */
     public $systemRecordCount;
     protected $_name = [
-        'allStrategyCount'        => 'AllStrategyCount',
+        'allStrategyCount' => 'AllStrategyCount',
         'antiBruteForceRuleCount' => 'AntiBruteForceRuleCount',
-        'customEffectiveCount'    => 'CustomEffectiveCount',
-        'customRecordCount'       => 'CustomRecordCount',
-        'effectiveCount'          => 'EffectiveCount',
-        'systemEffectiveCount'    => 'SystemEffectiveCount',
-        'systemRecordCount'       => 'SystemRecordCount',
+        'customEffectiveCount' => 'CustomEffectiveCount',
+        'customRecordCount' => 'CustomRecordCount',
+        'effectiveCount' => 'EffectiveCount',
+        'systemEffectiveCount' => 'SystemEffectiveCount',
+        'systemRecordCount' => 'SystemRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

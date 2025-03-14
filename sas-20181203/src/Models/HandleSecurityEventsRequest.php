@@ -41,6 +41,7 @@ class HandleSecurityEventsRequest extends Model
      *   **ALL**: all assets
      *
      * >  You can call the [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) operation to obtain the fields that you can specify for **field**.
+     *
      * @example [{"uuid":"part","field":"gmtModified","operate":"contains","fieldValue":"asd"},{"uuid":"part","field":"loginUser","operate":"contains","fieldValue":"vff"}]
      *
      * @var string
@@ -62,6 +63,7 @@ class HandleSecurityEventsRequest extends Model
      *   **quara**: quarantines the source file of the malicious process.
      *
      * This parameter is required.
+     *
      * @example block_ip
      *
      * @var string
@@ -72,6 +74,7 @@ class HandleSecurityEventsRequest extends Model
      * @description The configuration of the operation that you want to perform to handle the alert events.
      *
      * >  If you set OperationCode to `kill_and_quara` or `block_ip`, you must specify OperationParams. If you set OperationCode to other values, you can leave OperationParams empty.
+     *
      * @example {}
      *
      * @var string
@@ -91,6 +94,7 @@ class HandleSecurityEventsRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 16670360956*****
      *
      * @var int
@@ -101,6 +105,7 @@ class HandleSecurityEventsRequest extends Model
      * @description The IDs of the alert events.
      *
      * This parameter is required.
+     *
      * @example ["909361"]
      *
      * @var string[]
@@ -116,19 +121,17 @@ class HandleSecurityEventsRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'markBatch'                  => 'MarkBatch',
-        'markMissParam'              => 'MarkMissParam',
-        'operationCode'              => 'OperationCode',
-        'operationParams'            => 'OperationParams',
-        'remark'                     => 'Remark',
+        'markBatch' => 'MarkBatch',
+        'markMissParam' => 'MarkMissParam',
+        'operationCode' => 'OperationCode',
+        'operationParams' => 'OperationParams',
+        'remark' => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'securityEventIds'           => 'SecurityEventIds',
-        'sourceIp'                   => 'SourceIp',
+        'securityEventIds' => 'SecurityEventIds',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

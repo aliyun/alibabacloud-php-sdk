@@ -26,12 +26,10 @@ class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'containerWebDefenseAppList' => 'ContainerWebDefenseAppList',
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetSasContainerWebDefenseRuleApplicationResponseBody extends Model
         if (isset($map['ContainerWebDefenseAppList'])) {
             if (!empty($map['ContainerWebDefenseAppList'])) {
                 $model->containerWebDefenseAppList = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['ContainerWebDefenseAppList'] as $item) {
                     $model->containerWebDefenseAppList[$n++] = null !== $item ? containerWebDefenseAppList::fromMap($item) : $item;
                 }

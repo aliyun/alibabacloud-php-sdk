@@ -65,16 +65,14 @@ class securityEventOperationsResponse extends Model
      */
     public $userCanOperate;
     protected $_name = [
-        'markField'        => 'MarkField',
+        'markField' => 'MarkField',
         'markFieldsSource' => 'MarkFieldsSource',
-        'operationCode'    => 'OperationCode',
-        'operationParams'  => 'OperationParams',
-        'userCanOperate'   => 'UserCanOperate',
+        'operationCode' => 'OperationCode',
+        'operationParams' => 'OperationParams',
+        'userCanOperate' => 'UserCanOperate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class securityEventOperationsResponse extends Model
         if (isset($map['MarkField'])) {
             if (!empty($map['MarkField'])) {
                 $model->markField = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MarkField'] as $item) {
                     $model->markField[$n++] = null !== $item ? markField::fromMap($item) : $item;
                 }
@@ -130,7 +128,7 @@ class securityEventOperationsResponse extends Model
         if (isset($map['MarkFieldsSource'])) {
             if (!empty($map['MarkFieldsSource'])) {
                 $model->markFieldsSource = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['MarkFieldsSource'] as $item) {
                     $model->markFieldsSource[$n++] = null !== $item ? markFieldsSource::fromMap($item) : $item;
                 }

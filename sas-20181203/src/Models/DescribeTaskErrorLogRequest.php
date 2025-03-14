@@ -11,7 +11,10 @@ class DescribeTaskErrorLogRequest extends Model
     /**
      * @description The ID of the task.
      *
+     * >  You can call the DescribeImageFixTask operation to query the IDs of tasks.
+     *
      * This parameter is required.
+     *
      * @example ivf-6e520160-205d-4801-b8e9-9e7e****
      *
      * @var string
@@ -21,9 +24,7 @@ class DescribeTaskErrorLogRequest extends Model
         'buildTaskId' => 'BuildTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class InstallBackupClientRequest extends Model
      *   **2.0.0**
      *
      * This parameter is required.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -25,6 +26,7 @@ class InstallBackupClientRequest extends Model
      * @description The UUID of the server on which you want to install the anti-ransomware agent.
      *
      * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers. You must specify at least one of the UuidList and Uuid parameters.
+     *
      * @example inet-617eddab-7df4-4a51-b217-a3f59194****
      *
      * @var string
@@ -35,6 +37,7 @@ class InstallBackupClientRequest extends Model
      * @description The UUIDs of servers on which you want to install the anti-ransomware agent.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example ["3bb30859-b3b5-4f28-868f-b0892c98****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
      *
      * @var string[]
@@ -42,13 +45,11 @@ class InstallBackupClientRequest extends Model
     public $uuidList;
     protected $_name = [
         'policyVersion' => 'PolicyVersion',
-        'uuid'          => 'Uuid',
-        'uuidList'      => 'UuidList',
+        'uuid' => 'Uuid',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

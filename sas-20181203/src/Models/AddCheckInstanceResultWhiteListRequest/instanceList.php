@@ -12,6 +12,7 @@ class instanceList extends Model
      * @description The instance ID of the asset.
      *
      * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the instance IDs of assets.
+     *
      * @example i-wz9fdluqx20mp2x7****
      *
      * @var string
@@ -22,6 +23,7 @@ class instanceList extends Model
      * @description The region ID of the asset.
      *
      * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the region ID of the asset.
+     *
      * @example cn-hongkong
      *
      * @var string
@@ -29,12 +31,10 @@ class instanceList extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

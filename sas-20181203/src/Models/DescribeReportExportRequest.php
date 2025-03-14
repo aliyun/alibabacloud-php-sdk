@@ -11,7 +11,10 @@ class DescribeReportExportRequest extends Model
     /**
      * @description The ID of the export task.
      *
+     * >  You can call the [ExportCustomizeReport](https://help.aliyun.com/document_detail/2842677.html) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -31,12 +34,10 @@ class DescribeReportExportRequest extends Model
     public $lang;
     protected $_name = [
         'exportId' => 'ExportId',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

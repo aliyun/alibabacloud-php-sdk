@@ -32,13 +32,11 @@ class DescribeVulCheckTaskStatusDetailRequest extends Model
     public $uuid;
     protected $_name = [
         'taskIds' => 'TaskIds',
-        'types'   => 'Types',
-        'uuid'    => 'Uuid',
+        'types' => 'Types',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

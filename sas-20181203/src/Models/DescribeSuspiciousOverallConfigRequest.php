@@ -28,6 +28,7 @@ class DescribeSuspiciousOverallConfigRequest extends Model
      *   **alisecguard**: Defense mode for Client Protection
      *
      * This parameter is required.
+     *
      * @example auto_breaking
      *
      * @var string
@@ -35,12 +36,10 @@ class DescribeSuspiciousOverallConfigRequest extends Model
     public $type;
     protected $_name = [
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

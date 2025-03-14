@@ -54,15 +54,13 @@ class GetDefenceCountResponseBody extends Model
     public $tamperProofTotal;
     protected $_name = [
         'defenceCount15Days' => 'DefenceCount15Days',
-        'defenceCountTotal'  => 'DefenceCountTotal',
-        'requestId'          => 'RequestId',
-        'tamperProof15Days'  => 'TamperProof15Days',
-        'tamperProofTotal'   => 'TamperProofTotal',
+        'defenceCountTotal' => 'DefenceCountTotal',
+        'requestId' => 'RequestId',
+        'tamperProof15Days' => 'TamperProof15Days',
+        'tamperProofTotal' => 'TamperProofTotal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class taskStatuses extends Model
      */
     public $taskStatusList;
     protected $_name = [
-        'taskId'         => 'TaskId',
+        'taskId' => 'TaskId',
         'taskStatusList' => 'TaskStatusList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class taskStatuses extends Model
         if (isset($map['TaskStatusList'])) {
             if (!empty($map['TaskStatusList'])) {
                 $model->taskStatusList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['TaskStatusList'] as $item) {
                     $model->taskStatusList[$n++] = null !== $item ? taskStatusList::fromMap($item) : $item;
                 }

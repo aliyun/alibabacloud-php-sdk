@@ -67,13 +67,49 @@ class backupPolicyDetail extends Model
      *   **false**: no
      *
      * >  The VSS feature is available only if you create the anti-ransomware policy for Windows servers. After you enable the feature, the number of backup failures due to running processes is significantly reduced. We recommend that you enable the VSS feature. After you enable the feature, the data of disks that are in the exFAT and FAT32 formats cannot be backed up.
+     *
      * @example {
+     * "Exclude": [
+     * "/bin/",
+     * "/usr/bin/",
+     * "/sbin/",
+     * "/boot/",
+     * "/proc/",
+     * "/sys/",
+     * "/srv/",
+     * "/lib/",
+     * "/selinux/",
+     * "/usr/sbin/",
+     * "/run/",
+     * "/lib32/",
+     * "/lib64/",
+     * "/lost+found/",
+     * "/var/lib/kubelet/",
+     * "/var/lib/ntp/proc",
+     * "/var/lib/container",
+     * "Windows\\\\",
+     * "Python27\\\\",
+     * "Program Files (x86)\\\\",
+     * "Program Files\\\\",
+     * "Boot\\\\",
+     * "$RECYCLE.BIN",
      * "System Volume Information\\\\",
      * "Users\\\\Administrator\\\\NTUSER.DAT*",
+     * "ProgramData\\\\",
      * "pagefile.sys",
      * "Users\\\\Default\\\\NTUSER.DAT*",
      * "Users\\\\Administrator\\\\ntuser.*"
+     * ],
+     * "ExcludeSystemPath": true,
+     * "Include": [],
+     * "IsDefault": 1,
+     * "Retention": 7,
+     * "Schedule": "I|1630689360|PT24H",
+     * "Source": [],
+     * "SpeedLimiter": "",
+     * "UseVss": true
      * }
+     *
      * @var string
      */
     public $policy;
@@ -119,19 +155,17 @@ class backupPolicyDetail extends Model
      */
     public $uuidList;
     protected $_name = [
-        'clientStatus'  => 'ClientStatus',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'policy'        => 'Policy',
+        'clientStatus' => 'ClientStatus',
+        'id' => 'Id',
+        'name' => 'Name',
+        'policy' => 'Policy',
         'policyVersion' => 'PolicyVersion',
-        'regionId'      => 'RegionId',
-        'status'        => 'Status',
-        'uuidList'      => 'UuidList',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

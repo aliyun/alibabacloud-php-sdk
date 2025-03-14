@@ -36,6 +36,7 @@ class GetCheckSummaryRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
+     *
      * @example 000
      *
      * @var string
@@ -49,15 +50,13 @@ class GetCheckSummaryRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'isItemStatistic'            => 'IsItemStatistic',
-        'lang'                       => 'Lang',
+        'isItemStatistic' => 'IsItemStatistic',
+        'lang' => 'Lang',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'vendors'                    => 'Vendors',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

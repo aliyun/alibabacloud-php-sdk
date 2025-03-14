@@ -27,12 +27,10 @@ class list_ extends Model
     public $riskCount;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'riskCount'  => 'riskCount',
+        'riskCount' => 'riskCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

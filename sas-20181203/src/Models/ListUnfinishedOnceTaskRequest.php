@@ -24,19 +24,18 @@ class ListUnfinishedOnceTaskRequest extends Model
      *   **IMAGE_SCAN**: image scan task
      *
      * This parameter is required.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'target'   => 'Target',
+        'target' => 'Target',
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -192,28 +192,26 @@ class ListCheckResultRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'checkIds'       => 'CheckIds',
-        'checkKey'       => 'CheckKey',
-        'currentPage'    => 'CurrentPage',
-        'customParam'    => 'CustomParam',
-        'instanceIds'    => 'InstanceIds',
-        'instanceTypes'  => 'InstanceTypes',
-        'lang'           => 'Lang',
+        'checkIds' => 'CheckIds',
+        'checkKey' => 'CheckKey',
+        'currentPage' => 'CurrentPage',
+        'customParam' => 'CustomParam',
+        'instanceIds' => 'InstanceIds',
+        'instanceTypes' => 'InstanceTypes',
+        'lang' => 'Lang',
         'operationTypes' => 'OperationTypes',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'requirementIds' => 'RequirementIds',
-        'riskLevels'     => 'RiskLevels',
-        'sortTypes'      => 'SortTypes',
-        'standardIds'    => 'StandardIds',
-        'statuses'       => 'Statuses',
-        'types'          => 'Types',
-        'vendors'        => 'Vendors',
+        'riskLevels' => 'RiskLevels',
+        'sortTypes' => 'SortTypes',
+        'standardIds' => 'StandardIds',
+        'statuses' => 'Statuses',
+        'types' => 'Types',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

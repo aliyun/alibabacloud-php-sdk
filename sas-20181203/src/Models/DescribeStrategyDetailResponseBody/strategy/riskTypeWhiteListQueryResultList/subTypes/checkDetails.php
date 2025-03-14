@@ -44,14 +44,12 @@ class checkDetails extends Model
     public $rules;
     protected $_name = [
         'checkDesc' => 'CheckDesc',
-        'checkId'   => 'CheckId',
+        'checkId' => 'CheckId',
         'checkItem' => 'CheckItem',
-        'rules'     => 'Rules',
+        'rules' => 'Rules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class checkDetails extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

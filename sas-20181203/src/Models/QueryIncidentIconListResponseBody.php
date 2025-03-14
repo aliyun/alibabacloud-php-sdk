@@ -76,18 +76,16 @@ class QueryIncidentIconListResponseBody extends Model
      */
     public $timeCost;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'infoList'       => 'InfoList',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'timeCost'       => 'TimeCost',
+        'infoList' => 'InfoList',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'timeCost' => 'TimeCost',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

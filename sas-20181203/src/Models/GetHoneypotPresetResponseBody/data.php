@@ -92,20 +92,18 @@ class data extends Model
      */
     public $presetType;
     protected $_name = [
-        'controlNodeName'          => 'ControlNodeName',
-        'fileInfoList'             => 'FileInfoList',
+        'controlNodeName' => 'ControlNodeName',
+        'fileInfoList' => 'FileInfoList',
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
-        'honeypotImageName'        => 'HoneypotImageName',
-        'honeypotPresetId'         => 'HoneypotPresetId',
-        'meta'                     => 'Meta',
-        'nodeId'                   => 'NodeId',
-        'presetName'               => 'PresetName',
-        'presetType'               => 'PresetType',
+        'honeypotImageName' => 'HoneypotImageName',
+        'honeypotPresetId' => 'HoneypotPresetId',
+        'meta' => 'Meta',
+        'nodeId' => 'NodeId',
+        'presetName' => 'PresetName',
+        'presetType' => 'PresetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -161,7 +159,7 @@ class data extends Model
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['FileInfoList'] as $item) {
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
                 }

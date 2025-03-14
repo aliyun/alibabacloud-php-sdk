@@ -12,6 +12,7 @@ class QueryGroupIdByGroupNameRequest extends Model
      * @description The name of the asset group.
      *
      * This parameter is required.
+     *
      * @example TestGroupName
      *
      * @var string
@@ -28,12 +29,10 @@ class QueryGroupIdByGroupNameRequest extends Model
     public $sourceIp;
     protected $_name = [
         'groupName' => 'GroupName',
-        'sourceIp'  => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

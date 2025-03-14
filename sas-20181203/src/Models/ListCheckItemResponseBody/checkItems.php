@@ -153,21 +153,19 @@ class checkItems extends Model
      */
     public $vendor;
     protected $_name = [
-        'checkId'         => 'CheckId',
-        'checkShowName'   => 'CheckShowName',
-        'customConfigs'   => 'CustomConfigs',
-        'description'     => 'Description',
-        'estimatedCount'  => 'EstimatedCount',
+        'checkId' => 'CheckId',
+        'checkShowName' => 'CheckShowName',
+        'customConfigs' => 'CustomConfigs',
+        'description' => 'Description',
+        'estimatedCount' => 'EstimatedCount',
         'instanceSubType' => 'InstanceSubType',
-        'instanceType'    => 'InstanceType',
-        'riskLevel'       => 'RiskLevel',
-        'sectionIds'      => 'SectionIds',
-        'vendor'          => 'Vendor',
+        'instanceType' => 'InstanceType',
+        'riskLevel' => 'RiskLevel',
+        'sectionIds' => 'SectionIds',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -229,7 +227,7 @@ class checkItems extends Model
         if (isset($map['CustomConfigs'])) {
             if (!empty($map['CustomConfigs'])) {
                 $model->customConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CustomConfigs'] as $item) {
                     $model->customConfigs[$n++] = null !== $item ? customConfigs::fromMap($item) : $item;
                 }

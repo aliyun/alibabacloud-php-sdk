@@ -30,13 +30,11 @@ class imageMaliciousFile extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

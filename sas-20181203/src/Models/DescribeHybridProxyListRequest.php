@@ -37,12 +37,10 @@ class DescribeHybridProxyListRequest extends Model
     protected $_name = [
         'clusterName' => 'ClusterName',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

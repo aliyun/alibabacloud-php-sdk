@@ -26,12 +26,10 @@ class DescribeContainerServiceK8sClusterNamespacesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'k8sClusterNamespaces' => 'K8sClusterNamespaces',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeContainerServiceK8sClusterNamespacesResponseBody extends Model
         if (isset($map['K8sClusterNamespaces'])) {
             if (!empty($map['K8sClusterNamespaces'])) {
                 $model->k8sClusterNamespaces = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['K8sClusterNamespaces'] as $item) {
                     $model->k8sClusterNamespaces[$n++] = null !== $item ? k8sClusterNamespaces::fromMap($item) : $item;
                 }

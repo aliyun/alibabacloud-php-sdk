@@ -12,6 +12,7 @@ class scopes extends Model
      * @description The ID of the cluster node to which the rule is applied.
      *
      * > This parameter is not required when you create the instance.
+     *
      * @example ack-p-1
      *
      * @var string
@@ -34,6 +35,7 @@ class scopes extends Model
      * @description The ID of the cluster that is specified in the rule.
      *
      * >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/421736.html) operation to query the cluster ID.
+     *
      * @example cc50d***015d2
      *
      * @var string
@@ -44,19 +46,18 @@ class scopes extends Model
      * @description The namespaces.
      *
      * > This parameter is valid only when the AllNamespace parameter is set to 0.
+     *
      * @var string[]
      */
     public $namespaceList;
     protected $_name = [
         'ackPolicyInstanceId' => 'AckPolicyInstanceId',
-        'allNamespace'        => 'AllNamespace',
-        'clusterId'           => 'ClusterId',
-        'namespaceList'       => 'NamespaceList',
+        'allNamespace' => 'AllNamespace',
+        'clusterId' => 'ClusterId',
+        'namespaceList' => 'NamespaceList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

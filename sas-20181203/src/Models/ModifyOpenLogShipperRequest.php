@@ -15,6 +15,7 @@ class ModifyOpenLogShipperRequest extends Model
      *   **sas**: Security Center
      *
      * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+     *
      * @example sas
      *
      * @var string
@@ -25,19 +26,18 @@ class ModifyOpenLogShipperRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
      */
     public $resourceDirectoryAccountId;
     protected $_name = [
-        'from'                       => 'From',
+        'from' => 'From',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

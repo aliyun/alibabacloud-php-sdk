@@ -12,6 +12,7 @@ class DescribeVersionConfigResponseBody extends Model
      * @description The quota for agentless detection.
      *
      * >  The agentless detection feature is unavailable for purchase. You can ignore this parameter.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +59,7 @@ class DescribeVersionConfigResponseBody extends Model
      * @description The quota for the application whitelist feature.
      *
      * >  The quantity of servers that are allowed by the quota is deducted by one each time you apply an application whitelist to a server. After you enable the application whitelist feature, the quota is 20 by default.
+     *
      * @example 20
      *
      * @var int
@@ -93,6 +95,7 @@ class DescribeVersionConfigResponseBody extends Model
      *   **10**: Value-added Plan edition
      *
      * >  If you purchase the Multi-version edition of Security Center, the value indicates the most advanced edition that is used in the Multi-version edition. If you do not purchase the Multi-version edition of Security Center, the value indicates the edition of Security Center.
+     *
      * @example 1
      *
      * @var int
@@ -156,6 +159,7 @@ class DescribeVersionConfigResponseBody extends Model
      *   **false**: no
      *   **true**: yes
      * >Notice: This parameter is deprecated. You can ignore it.
+     *
      * @example false
      *
      * @var bool
@@ -306,6 +310,7 @@ class DescribeVersionConfigResponseBody extends Model
      * @description The timestamp when the Security Center subscription ends. Unit: milliseconds.
      *
      * >  If you do not renew the subscription within seven days after the expiration date, Security Center of a paid edition is automatically downgraded to Security Center Basic. In this case, you can no longer use the features of the paid edition or view the existing configurations or statistics such as DDoS alerts in Security Center. You must purchase Security Center of a paid edition to use relevant features. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
+     *
      * @example 1625846400000
      *
      * @var int
@@ -444,59 +449,58 @@ class DescribeVersionConfigResponseBody extends Model
      * @description The quota for the web tamper proofing feature. The quantity of servers that are allowed by the quota is deducted by one each time a server is protected by the web tamper proofing feature. Valid values: 0 to N.
      *
      * >  N indicates the number of servers that you own.
+     *
      * @example 0
      *
      * @var int
      */
     public $webLockAuthCount;
     protected $_name = [
-        'agentlessCapacity'      => 'AgentlessCapacity',
-        'allowPartialBuy'        => 'AllowPartialBuy',
-        'antiRansomwareService'  => 'AntiRansomwareService',
-        'appWhiteList'           => 'AppWhiteList',
-        'appWhiteListAuthCount'  => 'AppWhiteListAuthCount',
-        'assetLevel'             => 'AssetLevel',
-        'cspmCapacity'           => 'CspmCapacity',
-        'highestVersion'         => 'HighestVersion',
-        'honeypotCapacity'       => 'HoneypotCapacity',
-        'imageScanCapacity'      => 'ImageScanCapacity',
-        'instanceId'             => 'InstanceId',
-        'isNewContainerVersion'  => 'IsNewContainerVersion',
-        'isNewMultiVersion'      => 'IsNewMultiVersion',
-        'isOverBalance'          => 'IsOverBalance',
-        'isPostpay'              => 'IsPostpay',
-        'isTrialVersion'         => 'IsTrialVersion',
-        'lastTrailEndTime'       => 'LastTrailEndTime',
-        'MVAuthCount'            => 'MVAuthCount',
-        'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
-        'mergedVersion'          => 'MergedVersion',
-        'newThreatAnalysis'      => 'NewThreatAnalysis',
-        'openTime'               => 'OpenTime',
-        'postPayHostVersion'     => 'PostPayHostVersion',
-        'postPayInstanceId'      => 'PostPayInstanceId',
-        'postPayModuleSwitch'    => 'PostPayModuleSwitch',
-        'postPayOpenTime'        => 'PostPayOpenTime',
-        'postPayStatus'          => 'PostPayStatus',
-        'raspCapacity'           => 'RaspCapacity',
-        'releaseTime'            => 'ReleaseTime',
-        'requestId'              => 'RequestId',
-        'sasLog'                 => 'SasLog',
-        'sasScreen'              => 'SasScreen',
-        'sdkCapacity'            => 'SdkCapacity',
-        'slsCapacity'            => 'SlsCapacity',
+        'agentlessCapacity' => 'AgentlessCapacity',
+        'allowPartialBuy' => 'AllowPartialBuy',
+        'antiRansomwareService' => 'AntiRansomwareService',
+        'appWhiteList' => 'AppWhiteList',
+        'appWhiteListAuthCount' => 'AppWhiteListAuthCount',
+        'assetLevel' => 'AssetLevel',
+        'cspmCapacity' => 'CspmCapacity',
+        'highestVersion' => 'HighestVersion',
+        'honeypotCapacity' => 'HoneypotCapacity',
+        'imageScanCapacity' => 'ImageScanCapacity',
+        'instanceId' => 'InstanceId',
+        'isNewContainerVersion' => 'IsNewContainerVersion',
+        'isNewMultiVersion' => 'IsNewMultiVersion',
+        'isOverBalance' => 'IsOverBalance',
+        'isPostpay' => 'IsPostpay',
+        'isTrialVersion' => 'IsTrialVersion',
+        'lastTrailEndTime' => 'LastTrailEndTime',
+        'MVAuthCount' => 'MVAuthCount',
+        'MVUnusedAuthCount' => 'MVUnusedAuthCount',
+        'mergedVersion' => 'MergedVersion',
+        'newThreatAnalysis' => 'NewThreatAnalysis',
+        'openTime' => 'OpenTime',
+        'postPayHostVersion' => 'PostPayHostVersion',
+        'postPayInstanceId' => 'PostPayInstanceId',
+        'postPayModuleSwitch' => 'PostPayModuleSwitch',
+        'postPayOpenTime' => 'PostPayOpenTime',
+        'postPayStatus' => 'PostPayStatus',
+        'raspCapacity' => 'RaspCapacity',
+        'releaseTime' => 'ReleaseTime',
+        'requestId' => 'RequestId',
+        'sasLog' => 'SasLog',
+        'sasScreen' => 'SasScreen',
+        'sdkCapacity' => 'SdkCapacity',
+        'slsCapacity' => 'SlsCapacity',
         'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
-        'threatAnalysisFlow'     => 'ThreatAnalysisFlow',
-        'userDefinedAlarms'      => 'UserDefinedAlarms',
-        'version'                => 'Version',
-        'vmCores'                => 'VmCores',
-        'vulFixCapacity'         => 'VulFixCapacity',
-        'webLock'                => 'WebLock',
-        'webLockAuthCount'       => 'WebLockAuthCount',
+        'threatAnalysisFlow' => 'ThreatAnalysisFlow',
+        'userDefinedAlarms' => 'UserDefinedAlarms',
+        'version' => 'Version',
+        'vmCores' => 'VmCores',
+        'vulFixCapacity' => 'VulFixCapacity',
+        'webLock' => 'WebLock',
+        'webLockAuthCount' => 'WebLockAuthCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

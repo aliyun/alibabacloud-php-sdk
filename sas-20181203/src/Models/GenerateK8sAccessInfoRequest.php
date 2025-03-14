@@ -66,6 +66,7 @@ class GenerateK8sAccessInfoRequest extends Model
      * @description The name of the Kubernetes cluster.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -76,6 +77,7 @@ class GenerateK8sAccessInfoRequest extends Model
      * @description The time at which the container ends to be added.
      *
      * This parameter is required.
+     *
      * @example 1711951508388
      *
      * @var int
@@ -86,6 +88,7 @@ class GenerateK8sAccessInfoRequest extends Model
      * @description The group ID.
      *
      * This parameter is required.
+     *
      * @example 11341690
      *
      * @var int
@@ -102,27 +105,26 @@ class GenerateK8sAccessInfoRequest extends Model
      *   **Others**
      *
      * This parameter is required.
+     *
      * @example Tencent
      *
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'aliyunYundunGatewayApiName'     => 'AliyunYundunGatewayApiName',
-        'aliyunYundunGatewayPopName'     => 'AliyunYundunGatewayPopName',
+        'aliyunYundunGatewayApiName' => 'AliyunYundunGatewayApiName',
+        'aliyunYundunGatewayPopName' => 'AliyunYundunGatewayPopName',
         'aliyunYundunGatewayProjectName' => 'AliyunYundunGatewayProjectName',
-        'auditLogStore'                  => 'AuditLogStore',
-        'auditProject'                   => 'AuditProject',
-        'auditRegionId'                  => 'AuditRegionId',
-        'clusterName'                    => 'ClusterName',
-        'expireDate'                     => 'ExpireDate',
-        'groupId'                        => 'GroupId',
-        'vendor'                         => 'Vendor',
+        'auditLogStore' => 'AuditLogStore',
+        'auditProject' => 'AuditProject',
+        'auditRegionId' => 'AuditRegionId',
+        'clusterName' => 'ClusterName',
+        'expireDate' => 'ExpireDate',
+        'groupId' => 'GroupId',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

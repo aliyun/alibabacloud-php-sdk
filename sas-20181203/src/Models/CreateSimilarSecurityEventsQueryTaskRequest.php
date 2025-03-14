@@ -16,7 +16,10 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
     /**
      * @description The ID of the alert event.
      *
+     * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+     *
      * This parameter is required.
+     *
      * @example 14323
      *
      * @var int
@@ -27,6 +30,7 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
      * @description The codes of alert events that are triggered by the same rule or of the same alert type.
      *
      * >  You must specify at least one of the SecurityEventId and SimilarEventScenarioCode parameters.
+     *
      * @example default
      *
      * @var string
@@ -42,15 +46,13 @@ class CreateSimilarSecurityEventsQueryTaskRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'securityEventId'          => 'SecurityEventId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityEventId' => 'SecurityEventId',
         'similarEventScenarioCode' => 'SimilarEventScenarioCode',
-        'sourceIp'                 => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

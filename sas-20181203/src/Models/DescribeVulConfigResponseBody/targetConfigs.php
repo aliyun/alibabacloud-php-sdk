@@ -24,6 +24,7 @@ class targetConfigs extends Model
      *   **all**: displays all vulnerabilities.
      *
      * When you set the Type parameter to **imageVulClean**, the value of this parameter indicates the vulnerability retention period in days.
+     *
      * @example 90
      *
      * @var string
@@ -60,14 +61,12 @@ class targetConfigs extends Model
      */
     public $type;
     protected $_name = [
-        'config'        => 'Config',
+        'config' => 'Config',
         'overAllConfig' => 'OverAllConfig',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

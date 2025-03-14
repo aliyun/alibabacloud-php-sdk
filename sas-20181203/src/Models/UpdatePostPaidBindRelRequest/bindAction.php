@@ -13,6 +13,7 @@ class bindAction extends Model
      *
      * - **true**: Yes
      * - **false**: No
+     *
      * @example true
      *
      * @var bool
@@ -33,20 +34,19 @@ class bindAction extends Model
      * - **5**: Advanced Edition
      * - **6**: Antivirus Edition
      * - **7**: Container Edition
+     *
      * @example 3
      *
      * @var string
      */
     public $version;
     protected $_name = [
-        'bindAll'  => 'BindAll',
+        'bindAll' => 'BindAll',
         'uuidList' => 'UuidList',
-        'version'  => 'Version',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

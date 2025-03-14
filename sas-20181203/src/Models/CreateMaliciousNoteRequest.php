@@ -11,7 +11,10 @@ class CreateMaliciousNoteRequest extends Model
     /**
      * @description The ID of the alert event to which you want to add remarks.
      *
+     * >  You can call the [ListAgentlessMaliciousFiles](~~ListAgentlessMaliciousFiles~~) operation to obtain the ID of the alert event from the NoteId parameter.
+     *
      * This parameter is required.
+     *
      * @example 80****
      *
      * @var int
@@ -22,6 +25,7 @@ class CreateMaliciousNoteRequest extends Model
      * @description The remarks that you want to add.
      *
      * This parameter is required.
+     *
      * @example Ignore
      *
      * @var string
@@ -29,12 +33,10 @@ class CreateMaliciousNoteRequest extends Model
     public $note;
     protected $_name = [
         'eventId' => 'EventId',
-        'note'    => 'Note',
+        'note' => 'Note',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

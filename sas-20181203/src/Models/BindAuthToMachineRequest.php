@@ -39,6 +39,7 @@ class BindAuthToMachineRequest extends Model
      * @description The UUIDs of the servers that you want to bind to Security Center.
      *
      * >  You must specify at least one of the **Bind** and **UnBind** parameters.
+     *
      * @var string[]
      */
     public $bind;
@@ -59,6 +60,7 @@ class BindAuthToMachineRequest extends Model
      * @description The search conditions that are used to filter servers. The value of this parameter is in the JSON format and is case-sensitive.
      *
      * >  A search condition can be an instance ID, instance name, virtual private cloud (VPC) ID, region, or public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+     *
      * @example [{"name":"riskStatus","value":"YES"},{"name":"internetIp","value":"1.2.XX.XX"}]
      *
      * @var string
@@ -72,6 +74,7 @@ class BindAuthToMachineRequest extends Model
      *   **1**: yes
      *
      * >  If you specify servers, the servers are automatically added to Security Center for protection after the purchase order is complete.
+     *
      * @example 1
      *
      * @var int
@@ -118,25 +121,24 @@ class BindAuthToMachineRequest extends Model
      * @description The UUIDs of the servers that you want to unbind from Security Center.
      *
      * >  You must specify at least one of the **Bind** and **UnBind** parameters.
+     *
      * @var string[]
      */
     public $unBind;
     protected $_name = [
-        'authVersion'    => 'AuthVersion',
-        'autoBind'       => 'AutoBind',
-        'bind'           => 'Bind',
-        'bindAll'        => 'BindAll',
-        'criteria'       => 'Criteria',
-        'isPreBind'      => 'IsPreBind',
-        'logicalExp'     => 'LogicalExp',
-        'ntmVersion'     => 'NtmVersion',
+        'authVersion' => 'AuthVersion',
+        'autoBind' => 'AutoBind',
+        'bind' => 'Bind',
+        'bindAll' => 'BindAll',
+        'criteria' => 'Criteria',
+        'isPreBind' => 'IsPreBind',
+        'logicalExp' => 'LogicalExp',
+        'ntmVersion' => 'NtmVersion',
         'preBindOrderId' => 'PreBindOrderId',
-        'unBind'         => 'UnBind',
+        'unBind' => 'UnBind',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

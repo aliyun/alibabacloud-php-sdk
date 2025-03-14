@@ -29,13 +29,11 @@ class DescribeEmgUserAgreementResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'auth'      => 'Auth',
+        'auth' => 'Auth',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class ModifyImageRegistryRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'id'           => 'Id',
-        'password'     => 'Password',
+        'id' => 'Id',
+        'password' => 'Password',
         'transPerHour' => 'TransPerHour',
-        'userName'     => 'UserName',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

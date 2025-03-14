@@ -131,24 +131,22 @@ class vertexExtendInfo extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliuid'       => 'Aliuid',
-        'displayInfo'  => 'DisplayInfo',
-        'id'           => 'Id',
-        'lang'         => 'Lang',
-        'name'         => 'Name',
+        'aliuid' => 'Aliuid',
+        'displayInfo' => 'DisplayInfo',
+        'id' => 'Id',
+        'lang' => 'Lang',
+        'name' => 'Name',
         'neighborList' => 'NeighborList',
-        'properties'   => 'Properties',
-        'property'     => 'Property',
-        'ruleId'       => 'RuleId',
-        'time'         => 'Time',
-        'timestamp'    => 'Timestamp',
-        'type'         => 'Type',
-        'uuid'         => 'Uuid',
+        'properties' => 'Properties',
+        'property' => 'Property',
+        'ruleId' => 'RuleId',
+        'time' => 'Time',
+        'timestamp' => 'Timestamp',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -222,7 +220,7 @@ class vertexExtendInfo extends Model
         if (isset($map['DisplayInfo'])) {
             if (!empty($map['DisplayInfo'])) {
                 $model->displayInfo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['DisplayInfo'] as $item) {
                     $model->displayInfo[$n++] = null !== $item ? displayInfo::fromMap($item) : $item;
                 }
@@ -240,7 +238,7 @@ class vertexExtendInfo extends Model
         if (isset($map['NeighborList'])) {
             if (!empty($map['NeighborList'])) {
                 $model->neighborList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['NeighborList'] as $item) {
                     $model->neighborList[$n++] = null !== $item ? neighborList::fromMap($item) : $item;
                 }

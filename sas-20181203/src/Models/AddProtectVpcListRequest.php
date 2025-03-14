@@ -11,6 +11,7 @@ class AddProtectVpcListRequest extends Model
     /**
      * @description Collection of new VPC instance IDs.
      * > Call the [DescribeVpcList](~~DescribeVpcList~~) interface to obtain this parameter.
+     *
      * @example ["vpc-bp1vnpgotyzay6p5i****","vpc-bp1vnpgotyzay6p5i****"]
      *
      * @var string
@@ -20,6 +21,7 @@ class AddProtectVpcListRequest extends Model
     /**
      * @description Collection of VPC instance IDs to be deleted.
      * > Call the [DescribeVpcList](~~DescribeVpcList~~) interface to obtain this parameter.
+     *
      * @example ["vpc-bp1vnpgotyzay6p5i****","vpc-bp1vnpgotyzay6p5i****"]
      *
      * @var string
@@ -30,9 +32,7 @@ class AddProtectVpcListRequest extends Model
         'delVpcInstanceIdList' => 'DelVpcInstanceIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

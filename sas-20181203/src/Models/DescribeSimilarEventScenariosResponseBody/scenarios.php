@@ -25,9 +25,7 @@ class scenarios extends Model
         'code' => 'Code',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

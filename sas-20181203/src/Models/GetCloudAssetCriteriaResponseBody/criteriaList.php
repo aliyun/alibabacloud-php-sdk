@@ -51,6 +51,7 @@ class criteriaList extends Model
      * @description The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
      *
      * >  If the value of **Type** is **input**, the value of this parameter is an empty string.
+     *
      * @example fvt*
      *
      * @var string
@@ -58,14 +59,12 @@ class criteriaList extends Model
     public $values;
     protected $_name = [
         'multiValues' => 'MultiValues',
-        'name'        => 'Name',
-        'type'        => 'Type',
-        'values'      => 'Values',
+        'name' => 'Name',
+        'type' => 'Type',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

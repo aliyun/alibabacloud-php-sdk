@@ -22,9 +22,7 @@ class GetVirusScanConfigRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

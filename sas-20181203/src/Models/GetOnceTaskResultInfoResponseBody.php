@@ -63,15 +63,13 @@ class GetOnceTaskResultInfoResponseBody extends Model
     protected $_name = [
         'collectTime' => 'CollectTime',
         'finishCount' => 'FinishCount',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
-        'taskInfo'    => 'TaskInfo',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'taskInfo' => 'TaskInfo',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

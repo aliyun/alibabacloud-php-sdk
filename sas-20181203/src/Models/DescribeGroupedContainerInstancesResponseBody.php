@@ -34,13 +34,11 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'groupedContainerInstanceList' => 'GroupedContainerInstanceList',
-        'pageInfo'                     => 'PageInfo',
-        'requestId'                    => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeGroupedContainerInstancesResponseBody extends Model
         if (isset($map['GroupedContainerInstanceList'])) {
             if (!empty($map['GroupedContainerInstanceList'])) {
                 $model->groupedContainerInstanceList = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['GroupedContainerInstanceList'] as $item) {
                     $model->groupedContainerInstanceList[$n++] = null !== $item ? groupedContainerInstanceList::fromMap($item) : $item;
                 }

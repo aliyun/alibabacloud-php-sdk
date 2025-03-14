@@ -42,6 +42,7 @@ class ListHoneypotAttackerPortraitRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -66,17 +67,15 @@ class ListHoneypotAttackerPortraitRequest extends Model
      */
     public $startTimeStamp;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'endTimeStamp'   => 'EndTimeStamp',
-        'lang'           => 'Lang',
-        'pageSize'       => 'PageSize',
-        'srcIp'          => 'SrcIp',
+        'currentPage' => 'CurrentPage',
+        'endTimeStamp' => 'EndTimeStamp',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'srcIp' => 'SrcIp',
         'startTimeStamp' => 'StartTimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

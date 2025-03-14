@@ -11,7 +11,10 @@ class StartHoneypotRequest extends Model
     /**
      * @description The ID of the honeypot.
      *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+     *
      * This parameter is required.
+     *
      * @example dba7d44775be8e0e5888ee3b1a62554a93d2512247cabc38ddeac17a3b3f****
      *
      * @var string
@@ -31,12 +34,10 @@ class StartHoneypotRequest extends Model
     public $lang;
     protected $_name = [
         'honeypotId' => 'HoneypotId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

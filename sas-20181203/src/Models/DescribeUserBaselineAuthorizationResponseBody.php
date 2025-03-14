@@ -25,13 +25,11 @@ class DescribeUserBaselineAuthorizationResponseBody extends Model
      */
     public $userBaselineAuthorization;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'userBaselineAuthorization' => 'UserBaselineAuthorization',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -54,6 +54,10 @@ class data extends Model
     public $policy;
 
     /**
+     * @description The security token.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $securityToken;
@@ -67,18 +71,16 @@ class data extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'      => 'Accessid',
-        'expire'        => 'Expire',
-        'host'          => 'Host',
-        'key'           => 'Key',
-        'policy'        => 'Policy',
+        'accessid' => 'Accessid',
+        'expire' => 'Expire',
+        'host' => 'Host',
+        'key' => 'Key',
+        'policy' => 'Policy',
         'securityToken' => 'SecurityToken',
-        'signature'     => 'Signature',
+        'signature' => 'Signature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

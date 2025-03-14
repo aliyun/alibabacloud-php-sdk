@@ -21,6 +21,7 @@ class DescribeContainerInstancesRequest extends Model
      *   **AND**: Search conditions are evaluated by using a logical **AND**.
      *
      * > You can use search conditions such as the container ID, cluster ID, cluster name, cluster type, risk level, and region. You can call the [DescribeContainerCriteria](~~DescribeContainerCriteria~~) operation to query the supported search conditions.
+     *
      * @example [{"name":"flag","value":"0|8","logicalExp":"AND"},{"name":"ecsType","value":"!8","logicalExp":"AND"}][{"name":"clusterType","value":"NotManagedKubernetes","logicalExp":"AND"}]
      *
      * @var string
@@ -52,21 +53,20 @@ class DescribeContainerInstancesRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'criteria'    => 'Criteria',
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
-        'logicalExp'  => 'LogicalExp',
-        'pageSize'    => 'PageSize',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

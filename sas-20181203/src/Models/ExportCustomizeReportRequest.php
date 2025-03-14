@@ -15,6 +15,7 @@ class ExportCustomizeReportRequest extends Model
      *   **PDF**
      *
      * >  The default value is HTML. PDF is supported only for security reports in version 2.0.0.
+     *
      * @example HTML
      *
      * @var string
@@ -24,7 +25,10 @@ class ExportCustomizeReportRequest extends Model
     /**
      * @description The ID of the security report.
      *
+     * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -32,12 +36,10 @@ class ExportCustomizeReportRequest extends Model
     public $reportId;
     protected $_name = [
         'exportType' => 'ExportType',
-        'reportId'   => 'ReportId',
+        'reportId' => 'ReportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

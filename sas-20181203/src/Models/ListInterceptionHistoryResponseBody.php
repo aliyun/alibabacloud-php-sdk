@@ -34,13 +34,11 @@ class ListInterceptionHistoryResponseBody extends Model
     public $requestId;
     protected $_name = [
         'interceptionHistoryList' => 'InterceptionHistoryList',
-        'pageInfo'                => 'PageInfo',
-        'requestId'               => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListInterceptionHistoryResponseBody extends Model
         if (isset($map['InterceptionHistoryList'])) {
             if (!empty($map['InterceptionHistoryList'])) {
                 $model->interceptionHistoryList = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['InterceptionHistoryList'] as $item) {
                     $model->interceptionHistoryList[$n++] = null !== $item ? interceptionHistoryList::fromMap($item) : $item;
                 }

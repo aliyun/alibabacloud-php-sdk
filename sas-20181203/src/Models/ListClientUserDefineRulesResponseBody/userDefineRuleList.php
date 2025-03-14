@@ -78,16 +78,14 @@ class userDefineRuleList extends Model
     public $type;
     protected $_name = [
         'actionType' => 'ActionType',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'platform'   => 'Platform',
-        'switchId'   => 'SwitchId',
-        'type'       => 'Type',
+        'id' => 'Id',
+        'name' => 'Name',
+        'platform' => 'Platform',
+        'switchId' => 'SwitchId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

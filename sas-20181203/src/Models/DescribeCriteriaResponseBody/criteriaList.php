@@ -75,14 +75,12 @@ class criteriaList extends Model
     public $values;
     protected $_name = [
         'multiValues' => 'MultiValues',
-        'name'        => 'Name',
-        'type'        => 'Type',
-        'values'      => 'Values',
+        'name' => 'Name',
+        'type' => 'Type',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

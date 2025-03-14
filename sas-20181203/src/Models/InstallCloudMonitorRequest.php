@@ -12,6 +12,7 @@ class InstallCloudMonitorRequest extends Model
      * @description The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey ID.
      *
      * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
+     *
      * @example usY*****R_U
      *
      * @var string
@@ -22,6 +23,7 @@ class InstallCloudMonitorRequest extends Model
      * @description The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey secret.
      *
      * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
+     *
      * @example UCxF2R1sIO90XlU9****
      *
      * @var string
@@ -32,6 +34,7 @@ class InstallCloudMonitorRequest extends Model
      * @description The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](https://help.aliyun.com/document_detail/183431.html).
      *
      * This parameter is required.
+     *
      * @example 3.5.6
      *
      * @var string
@@ -54,14 +57,12 @@ class InstallCloudMonitorRequest extends Model
     protected $_name = [
         'agentAccessKey' => 'AgentAccessKey',
         'agentSecretKey' => 'AgentSecretKey',
-        'argusVersion'   => 'ArgusVersion',
+        'argusVersion' => 'ArgusVersion',
         'instanceIdList' => 'InstanceIdList',
-        'uuidList'       => 'UuidList',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

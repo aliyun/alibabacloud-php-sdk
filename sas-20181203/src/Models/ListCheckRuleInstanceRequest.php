@@ -36,22 +36,23 @@ class ListCheckRuleInstanceRequest extends Model
 
     /**
      * @description Rule ID.
+     * > You can call the [LisCheckRule](https://help.aliyun.com/document_detail/2590599.html) interface to get this parameter.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'instanceList' => 'InstanceList',
-        'pageSize'     => 'PageSize',
-        'ruleId'       => 'RuleId',
+        'pageSize' => 'PageSize',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +93,7 @@ class ListCheckRuleInstanceRequest extends Model
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceList'] as $item) {
                     $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
                 }

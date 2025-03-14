@@ -87,19 +87,17 @@ class processes extends Model
      */
     public $status;
     protected $_name = [
-        'filePath'    => 'FilePath',
-        'id'          => 'Id',
-        'level'       => 'Level',
-        'md5'         => 'Md5',
-        'processId'   => 'ProcessId',
+        'filePath' => 'FilePath',
+        'id' => 'Id',
+        'level' => 'Level',
+        'md5' => 'Md5',
+        'processId' => 'ProcessId',
         'processName' => 'ProcessName',
         'processType' => 'ProcessType',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,9 +38,7 @@ class InstallHybridProxyRequest extends Model
         'yundunUuids' => 'YundunUuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

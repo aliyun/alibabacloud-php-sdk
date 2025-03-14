@@ -64,15 +64,13 @@ class DescribeHybridProxyLinkedClientListRequest extends Model
     protected $_name = [
         'clusterName' => 'ClusterName',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'proxyUuid'   => 'ProxyUuid',
-        'remark'      => 'Remark',
-        'uuid'        => 'Uuid',
+        'pageSize' => 'PageSize',
+        'proxyUuid' => 'ProxyUuid',
+        'remark' => 'Remark',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

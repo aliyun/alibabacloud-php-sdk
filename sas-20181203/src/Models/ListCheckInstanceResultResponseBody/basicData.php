@@ -76,18 +76,16 @@ class basicData extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'id'            => 'Id',
-        'instanceId'    => 'InstanceId',
-        'instanceInfo'  => 'InstanceInfo',
-        'instanceName'  => 'InstanceName',
-        'regionId'      => 'RegionId',
-        'status'        => 'Status',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'instanceInfo' => 'InstanceInfo',
+        'instanceName' => 'InstanceName',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'statusMessage' => 'StatusMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

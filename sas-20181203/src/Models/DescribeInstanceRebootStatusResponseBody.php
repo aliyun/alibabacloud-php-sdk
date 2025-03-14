@@ -35,13 +35,11 @@ class DescribeInstanceRebootStatusResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'rebootStatuses' => 'RebootStatuses',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeInstanceRebootStatusResponseBody extends Model
         if (isset($map['RebootStatuses'])) {
             if (!empty($map['RebootStatuses'])) {
                 $model->rebootStatuses = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['RebootStatuses'] as $item) {
                     $model->rebootStatuses[$n++] = null !== $item ? rebootStatuses::fromMap($item) : $item;
                 }

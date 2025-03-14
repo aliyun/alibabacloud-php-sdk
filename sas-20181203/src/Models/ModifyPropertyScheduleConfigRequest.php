@@ -19,6 +19,7 @@ class ModifyPropertyScheduleConfigRequest extends Model
      *   **168**: collects asset fingerprints once every 7 days.
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyPropertyScheduleConfigRequest extends Model
      *   **scheduler_sca_proxy_period**: website
      *
      * This parameter is required.
+     *
      * @example scheduler_port_period
      *
      * @var string
@@ -46,12 +48,10 @@ class ModifyPropertyScheduleConfigRequest extends Model
     public $type;
     protected $_name = [
         'scheduleTime' => 'ScheduleTime',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

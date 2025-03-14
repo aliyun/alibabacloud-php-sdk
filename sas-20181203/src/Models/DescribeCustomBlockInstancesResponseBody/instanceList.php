@@ -100,19 +100,17 @@ class instanceList extends Model
     public $uuid;
     protected $_name = [
         'aliNetOnline' => 'AliNetOnline',
-        'blockType'    => 'BlockType',
-        'errorCode'    => 'ErrorCode',
+        'blockType' => 'BlockType',
+        'errorCode' => 'ErrorCode',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'status'       => 'Status',
-        'successInfo'  => 'SuccessInfo',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'status' => 'Status',
+        'successInfo' => 'SuccessInfo',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

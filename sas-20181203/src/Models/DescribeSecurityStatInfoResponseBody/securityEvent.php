@@ -93,22 +93,20 @@ class securityEvent extends Model
      */
     public $valueArray;
     protected $_name = [
-        'dateArray'       => 'DateArray',
-        'levelsOn'        => 'LevelsOn',
-        'remindCount'     => 'RemindCount',
-        'remindList'      => 'RemindList',
-        'seriousCount'    => 'SeriousCount',
-        'seriousList'     => 'SeriousList',
+        'dateArray' => 'DateArray',
+        'levelsOn' => 'LevelsOn',
+        'remindCount' => 'RemindCount',
+        'remindList' => 'RemindList',
+        'seriousCount' => 'SeriousCount',
+        'seriousList' => 'SeriousList',
         'suspiciousCount' => 'SuspiciousCount',
-        'suspiciousList'  => 'SuspiciousList',
-        'timeArray'       => 'TimeArray',
-        'totalCount'      => 'TotalCount',
-        'valueArray'      => 'ValueArray',
+        'suspiciousList' => 'SuspiciousList',
+        'timeArray' => 'TimeArray',
+        'totalCount' => 'TotalCount',
+        'valueArray' => 'ValueArray',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

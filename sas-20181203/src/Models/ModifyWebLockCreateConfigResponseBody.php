@@ -26,13 +26,11 @@ class ModifyWebLockCreateConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'configId'  => 'ConfigId',
+        'configId' => 'ConfigId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

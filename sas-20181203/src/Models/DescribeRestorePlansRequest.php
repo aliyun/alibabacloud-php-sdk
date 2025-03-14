@@ -30,6 +30,7 @@ class DescribeRestorePlansRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -52,15 +53,13 @@ class DescribeRestorePlansRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'instanceName' => 'InstanceName',
-        'pageSize'     => 'PageSize',
-        'status'       => 'Status',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

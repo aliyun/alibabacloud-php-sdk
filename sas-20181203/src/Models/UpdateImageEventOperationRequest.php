@@ -24,6 +24,7 @@ class UpdateImageEventOperationRequest extends Model
     /**
      * @description The ID of the alert handling rule.
      * > You can call the [DescribeImageEventOperationPage](~~DescribeImageEventOperationPage~~) operation to query the ID.
+     *
      * @example 814163
      *
      * @var int
@@ -64,15 +65,13 @@ class UpdateImageEventOperationRequest extends Model
     public $source;
     protected $_name = [
         'conditions' => 'Conditions',
-        'id'         => 'Id',
-        'note'       => 'Note',
-        'scenarios'  => 'Scenarios',
-        'source'     => 'Source',
+        'id' => 'Id',
+        'note' => 'Note',
+        'scenarios' => 'Scenarios',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

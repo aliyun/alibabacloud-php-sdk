@@ -30,9 +30,7 @@ class scanDayNumConfig extends Model
         'scanDayNum' => 'ScanDayNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

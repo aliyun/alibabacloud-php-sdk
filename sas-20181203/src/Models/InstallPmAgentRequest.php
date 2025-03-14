@@ -36,6 +36,7 @@ class InstallPmAgentRequest extends Model
      *   **aliyun_monitor**: CloudMonitor client
      *
      * This parameter is required.
+     *
      * @example aliyun_monitor
      *
      * @var string
@@ -46,21 +47,20 @@ class InstallPmAgentRequest extends Model
      * @description The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example inet-a6444920-d303-4ccf-ab87-a1d3cd49****
      *
      * @var string
      */
     public $uuids;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
-        'uuids'    => 'Uuids',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

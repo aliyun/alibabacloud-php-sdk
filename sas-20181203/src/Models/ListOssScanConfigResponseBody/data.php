@@ -145,27 +145,25 @@ class data extends Model
      */
     public $startTime;
     protected $_name = [
-        'allKeyPrefix'           => 'AllKeyPrefix',
-        'bucketCount'            => 'BucketCount',
-        'bucketNameList'         => 'BucketNameList',
+        'allKeyPrefix' => 'AllKeyPrefix',
+        'bucketCount' => 'BucketCount',
+        'bucketNameList' => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
-        'decompressMaxLayer'     => 'DecompressMaxLayer',
-        'decryptionList'         => 'DecryptionList',
-        'enable'                 => 'Enable',
-        'endTime'                => 'EndTime',
-        'id'                     => 'Id',
-        'keyPrefixList'          => 'KeyPrefixList',
-        'keySuffixList'          => 'KeySuffixList',
-        'lastModifiedStartTime'  => 'LastModifiedStartTime',
-        'lastUpdateTime'         => 'LastUpdateTime',
-        'name'                   => 'Name',
-        'scanDayList'            => 'ScanDayList',
-        'startTime'              => 'StartTime',
+        'decompressMaxLayer' => 'DecompressMaxLayer',
+        'decryptionList' => 'DecryptionList',
+        'enable' => 'Enable',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'keyPrefixList' => 'KeyPrefixList',
+        'keySuffixList' => 'KeySuffixList',
+        'lastModifiedStartTime' => 'LastModifiedStartTime',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'name' => 'Name',
+        'scanDayList' => 'ScanDayList',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

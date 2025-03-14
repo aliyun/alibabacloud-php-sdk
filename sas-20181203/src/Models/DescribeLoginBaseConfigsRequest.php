@@ -54,6 +54,7 @@ class DescribeLoginBaseConfigsRequest extends Model
      *   **login_common_account**: common logon account
      *
      * This parameter is required.
+     *
      * @example login_common_location
      *
      * @var string
@@ -61,14 +62,12 @@ class DescribeLoginBaseConfigsRequest extends Model
     public $type;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'target'      => 'Target',
-        'type'        => 'Type',
+        'pageSize' => 'PageSize',
+        'target' => 'Target',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -93,20 +93,18 @@ class PublicPreCheckImageScanTaskRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'digests'        => 'Digests',
-        'instanceIds'    => 'InstanceIds',
-        'regionIds'      => 'RegionIds',
-        'registryTypes'  => 'RegistryTypes',
-        'repoIds'        => 'RepoIds',
-        'repoNames'      => 'RepoNames',
+        'digests' => 'Digests',
+        'instanceIds' => 'InstanceIds',
+        'regionIds' => 'RegionIds',
+        'registryTypes' => 'RegistryTypes',
+        'repoIds' => 'RepoIds',
+        'repoNames' => 'RepoNames',
         'repoNamespaces' => 'RepoNamespaces',
-        'sourceIp'       => 'SourceIp',
-        'tags'           => 'Tags',
+        'sourceIp' => 'SourceIp',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

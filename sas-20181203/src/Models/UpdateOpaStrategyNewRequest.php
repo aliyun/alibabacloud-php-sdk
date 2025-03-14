@@ -21,6 +21,7 @@ class UpdateOpaStrategyNewRequest extends Model
      * @description The cluster ID.
      *
      * > This parameter is deprecated. You can use the Scopes parameter to specify a scope in which cluster parameters take effect.
+     *
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateOpaStrategyNewRequest extends Model
      * @description The cluster name.
      *
      * > This parameter is deprecated.
+     *
      * @example docker-law
      *
      * @var string
@@ -96,6 +98,7 @@ class UpdateOpaStrategyNewRequest extends Model
      * @description The ID of the rule.
      *
      * >  You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the ID.
+     *
      * @example 1003
      *
      * @var int
@@ -115,6 +118,7 @@ class UpdateOpaStrategyNewRequest extends Model
      * @description The ID of the rule template.
      *
      * >  You can call the [GetOpaStrategyTemplateSummary](https://help.aliyun.com/document_detail/2539952.html) operation to query the ID of the rule template.
+     *
      * @example 109
      *
      * @var int
@@ -140,25 +144,23 @@ class UpdateOpaStrategyNewRequest extends Model
      */
     public $whiteList;
     protected $_name = [
-        'alarmDetail'        => 'AlarmDetail',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'description'        => 'Description',
-        'imageName'          => 'ImageName',
-        'label'              => 'Label',
-        'maliciousImage'     => 'MaliciousImage',
-        'ruleAction'         => 'RuleAction',
-        'scopes'             => 'Scopes',
-        'strategyId'         => 'StrategyId',
-        'strategyName'       => 'StrategyName',
+        'alarmDetail' => 'AlarmDetail',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'description' => 'Description',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
+        'maliciousImage' => 'MaliciousImage',
+        'ruleAction' => 'RuleAction',
+        'scopes' => 'Scopes',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
         'strategyTemplateId' => 'StrategyTemplateId',
-        'unScanedImage'      => 'UnScanedImage',
-        'whiteList'          => 'WhiteList',
+        'unScanedImage' => 'UnScanedImage',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -254,7 +256,7 @@ class UpdateOpaStrategyNewRequest extends Model
         if (isset($map['Scopes'])) {
             if (!empty($map['Scopes'])) {
                 $model->scopes = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Scopes'] as $item) {
                     $model->scopes[$n++] = null !== $item ? scopes::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class CreateContainerScanTaskRequest extends Model
      * @description The ID of the cluster to which the container belongs.
      *
      * > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+     *
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string
@@ -39,14 +40,12 @@ class CreateContainerScanTaskRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'containerIds' => 'ContainerIds',
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

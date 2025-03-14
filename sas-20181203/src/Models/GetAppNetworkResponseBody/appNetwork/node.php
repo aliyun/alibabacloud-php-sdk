@@ -70,16 +70,14 @@ class node extends Model
     public $type;
     protected $_name = [
         'containerIds' => 'ContainerIds',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'namespaceId'  => 'NamespaceId',
-        'riskLevel'    => 'RiskLevel',
-        'type'         => 'Type',
+        'id' => 'Id',
+        'name' => 'Name',
+        'namespaceId' => 'NamespaceId',
+        'riskLevel' => 'RiskLevel',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

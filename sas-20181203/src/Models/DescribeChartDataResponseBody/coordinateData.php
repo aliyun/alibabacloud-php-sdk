@@ -23,13 +23,11 @@ class coordinateData extends Model
      */
     public $YAxisList;
     protected $_name = [
-        'XAxis'     => 'XAxis',
+        'XAxis' => 'XAxis',
         'YAxisList' => 'YAxisList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class coordinateData extends Model
         if (isset($map['YAxisList'])) {
             if (!empty($map['YAxisList'])) {
                 $model->YAxisList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['YAxisList'] as $item) {
                     $model->YAxisList[$n++] = null !== $item ? YAxisList::fromMap($item) : $item;
                 }

@@ -26,12 +26,10 @@ class DescribeSearchConditionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'conditionList' => 'ConditionList',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeSearchConditionResponseBody extends Model
         if (isset($map['ConditionList'])) {
             if (!empty($map['ConditionList'])) {
                 $model->conditionList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ConditionList'] as $item) {
                     $model->conditionList[$n++] = null !== $item ? conditionList::fromMap($item) : $item;
                 }

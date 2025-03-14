@@ -94,19 +94,17 @@ class data extends Model
     public $totalCount;
     protected $_name = [
         'currentCount' => 'CurrentCount',
-        'fileName'     => 'FileName',
-        'gmtCreate'    => 'GmtCreate',
-        'id'           => 'Id',
-        'link'         => 'Link',
-        'message'      => 'Message',
-        'progress'     => 'Progress',
-        'status'       => 'Status',
-        'totalCount'   => 'TotalCount',
+        'fileName' => 'FileName',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
+        'link' => 'Link',
+        'message' => 'Message',
+        'progress' => 'Progress',
+        'status' => 'Status',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeTaskErrorLogResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'logs'      => 'Logs',
+        'logs' => 'Logs',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeTaskErrorLogResponseBody extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logs'] as $item) {
                     $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
                 }

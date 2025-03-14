@@ -26,13 +26,11 @@ class checks extends Model
      */
     public $checkShowName;
     protected $_name = [
-        'checkId'       => 'CheckId',
+        'checkId' => 'CheckId',
         'checkShowName' => 'CheckShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

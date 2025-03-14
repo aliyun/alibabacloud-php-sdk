@@ -12,6 +12,7 @@ class ModifyHybridProxyClusterRequest extends Model
      * @description The name of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyHybridProxyClusterRequest extends Model
      * @description The remarks.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -29,12 +31,10 @@ class ModifyHybridProxyClusterRequest extends Model
     public $remark;
     protected $_name = [
         'clusterName' => 'ClusterName',
-        'remark'      => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -64,17 +64,15 @@ class CreateHoneypotNodeResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'honeypotNode'   => 'HoneypotNode',
+        'code' => 'Code',
+        'honeypotNode' => 'HoneypotNode',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

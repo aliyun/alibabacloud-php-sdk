@@ -125,24 +125,22 @@ class list_ extends Model
      */
     public $vendorName;
     protected $_name = [
-        'groupName'    => 'GroupName',
-        'instanceId'   => 'InstanceId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'os'           => 'Os',
-        'osName'       => 'OsName',
-        'regionId'     => 'RegionId',
-        'regionName'   => 'RegionName',
-        'status'       => 'Status',
-        'tag'          => 'Tag',
-        'uuid'         => 'Uuid',
-        'vendorName'   => 'VendorName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'os' => 'Os',
+        'osName' => 'OsName',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
+        'vendorName' => 'VendorName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

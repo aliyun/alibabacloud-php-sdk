@@ -34,14 +34,12 @@ class data extends Model
      */
     public $scenarios;
     protected $_name = [
-        'eventType'  => 'EventType',
+        'eventType' => 'EventType',
         'operations' => 'Operations',
-        'scenarios'  => 'Scenarios',
+        'scenarios' => 'Scenarios',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class data extends Model
         if (isset($map['Operations'])) {
             if (!empty($map['Operations'])) {
                 $model->operations = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Operations'] as $item) {
                     $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
                 }

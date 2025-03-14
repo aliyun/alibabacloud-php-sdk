@@ -26,6 +26,7 @@ class DescribeChartListRequest extends Model
      *   **customize_report**
      *
      * This parameter is required.
+     *
      * @example customize_report
      *
      * @var string
@@ -36,20 +37,19 @@ class DescribeChartListRequest extends Model
      * @description The ID of the report.
      *
      * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * @example 720549
      *
      * @var string
      */
     public $reportId;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'projectCode' => 'ProjectCode',
-        'reportId'    => 'ReportId',
+        'reportId' => 'ReportId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

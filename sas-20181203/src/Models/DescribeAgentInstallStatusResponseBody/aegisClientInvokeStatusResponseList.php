@@ -71,15 +71,13 @@ class aegisClientInvokeStatusResponseList extends Model
      */
     public $uuid;
     protected $_name = [
-        'message'    => 'Message',
+        'message' => 'Message',
         'resuleCode' => 'ResuleCode',
-        'result'     => 'Result',
-        'uuid'       => 'Uuid',
+        'result' => 'Result',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

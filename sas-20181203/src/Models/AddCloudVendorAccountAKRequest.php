@@ -15,6 +15,7 @@ class AddCloudVendorAccountAKRequest extends Model
      *   **sub**: a sub-account
      *
      * This parameter is required.
+     *
      * @example primary
      *
      * @var string
@@ -56,6 +57,7 @@ class AddCloudVendorAccountAKRequest extends Model
      * @description The regions that are examined during AccessKey pair authentication. This parameter takes effect only when Vendor is set to AWS.
      *
      * >  You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to query regions.
+     *
      * @var string[]
      */
     public $regions;
@@ -78,6 +80,7 @@ class AddCloudVendorAccountAKRequest extends Model
      *   **AWS**: Enter the AccessKey ID of a sub-account on AWS.
      *
      * This parameter is required.
+     *
      * @example 45GLRV4SOT0YFB****
      *
      * @var string
@@ -102,6 +105,7 @@ class AddCloudVendorAccountAKRequest extends Model
      *   **AWS**: Enter the AccessKey secret of a sub-account on AWS.
      *
      * This parameter is required.
+     *
      * @example AE6SLd****
      *
      * @var string
@@ -133,6 +137,7 @@ class AddCloudVendorAccountAKRequest extends Model
      *   **AWS**: Amazon Web Services (AWS)
      *
      * This parameter is required.
+     *
      * @example AWS
      *
      * @var string
@@ -143,28 +148,27 @@ class AddCloudVendorAccountAKRequest extends Model
      * @description The name of the AccessKey pair.
      *
      * >  The account information of the third-party cloud servers.
+     *
      * @example test
      *
      * @var string
      */
     public $vendorAuthAlias;
     protected $_name = [
-        'akType'          => 'AkType',
-        'authModules'     => 'AuthModules',
-        'domain'          => 'Domain',
-        'lang'            => 'Lang',
-        'regions'         => 'Regions',
-        'secretId'        => 'SecretId',
-        'secretKey'       => 'SecretKey',
+        'akType' => 'AkType',
+        'authModules' => 'AuthModules',
+        'domain' => 'Domain',
+        'lang' => 'Lang',
+        'regions' => 'Regions',
+        'secretId' => 'SecretId',
+        'secretKey' => 'SecretKey',
         'subscriptionIds' => 'SubscriptionIds',
-        'tenantId'        => 'TenantId',
-        'vendor'          => 'Vendor',
+        'tenantId' => 'TenantId',
+        'vendor' => 'Vendor',
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

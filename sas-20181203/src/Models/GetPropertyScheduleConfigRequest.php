@@ -31,6 +31,7 @@ class GetPropertyScheduleConfigRequest extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *
      * @var string
@@ -41,9 +42,7 @@ class GetPropertyScheduleConfigRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

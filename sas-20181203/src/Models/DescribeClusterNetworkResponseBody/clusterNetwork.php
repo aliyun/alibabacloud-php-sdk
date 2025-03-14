@@ -28,9 +28,7 @@ class clusterNetwork extends Model
         'node' => 'Node',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class clusterNetwork extends Model
         if (isset($map['Edge'])) {
             if (!empty($map['Edge'])) {
                 $model->edge = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Edge'] as $item) {
                     $model->edge[$n++] = null !== $item ? edge::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class clusterNetwork extends Model
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Node'] as $item) {
                     $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
                 }

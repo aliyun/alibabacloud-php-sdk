@@ -12,6 +12,7 @@ class IgnoreHcCheckWarningsRequest extends Model
      * @description The ID of the check item.
      *
      * >  You can call the [DescribeCheckWarnings](https://help.aliyun.com/document_detail/116182.html) operation to query the IDs of check items.
+     *
      * @example 21313
      *
      * @var string
@@ -22,6 +23,7 @@ class IgnoreHcCheckWarningsRequest extends Model
      * @description The ID of the alert that is triggered by the check item. Separate multiple IDs with commas (,).
      *
      * >  You can call the [DescribeCheckWarnings](https://help.aliyun.com/document_detail/116182.html) operation to query the IDs of alerts that are triggered by check items.
+     *
      * @example 98146905,98146907
      *
      * @var string
@@ -41,6 +43,7 @@ class IgnoreHcCheckWarningsRequest extends Model
      * @description The ID of the risk item that you want to ignore or cancel ignoring.
      *
      * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of risk items.
+     *
      * @example 51
      *
      * @var string
@@ -74,24 +77,23 @@ class IgnoreHcCheckWarningsRequest extends Model
      *   **2**: cancels ignoring a risk item
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'checkIds'        => 'CheckIds',
+        'checkIds' => 'CheckIds',
         'checkWarningIds' => 'CheckWarningIds',
-        'reason'          => 'Reason',
-        'riskId'          => 'RiskId',
-        'source'          => 'Source',
-        'sourceIp'        => 'SourceIp',
-        'type'            => 'Type',
+        'reason' => 'Reason',
+        'riskId' => 'RiskId',
+        'source' => 'Source',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

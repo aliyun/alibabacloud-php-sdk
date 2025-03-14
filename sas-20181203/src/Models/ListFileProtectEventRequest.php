@@ -77,6 +77,7 @@ class ListFileProtectEventRequest extends Model
      * - **READ**: read the file.
      * - **RENAME**: rename the file.
      * - **CHOWN**: set the file owner and file association group operations.
+     *
      * @example READ
      *
      * @var string
@@ -128,30 +129,29 @@ class ListFileProtectEventRequest extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUID of the server.
+     *
      * @example inet-ecs-4e876cb0-09f7-43b8-82ef-4bc7a937***
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'alertLevels'  => 'AlertLevels',
-        'currentPage'  => 'CurrentPage',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
+        'alertLevels' => 'AlertLevels',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'operation'    => 'Operation',
-        'pageSize'     => 'PageSize',
-        'ruleName'     => 'RuleName',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'operation' => 'Operation',
+        'pageSize' => 'PageSize',
+        'ruleName' => 'RuleName',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class GenerateOnceTaskResponseBody extends Model
      *   **false**: no
      *
      * > By default, a maximum of 10 scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create a scan task by calling this operation. You must wait for at least one of the 10 existing scan tasks to complete before you can create a scan task.
+     *
      * @example true
      *
      * @var bool
@@ -75,18 +76,16 @@ class GenerateOnceTaskResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'canCreate'   => 'CanCreate',
+        'canCreate' => 'CanCreate',
         'collectTime' => 'CollectTime',
         'finishCount' => 'FinishCount',
-        'lastTask'    => 'LastTask',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
-        'totalCount'  => 'TotalCount',
+        'lastTask' => 'LastTask',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

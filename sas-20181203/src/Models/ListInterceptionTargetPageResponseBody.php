@@ -33,14 +33,12 @@ class ListInterceptionTargetPageResponseBody extends Model
      */
     public $ruleTargetList;
     protected $_name = [
-        'pageInfo'       => 'PageInfo',
-        'requestId'      => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'ruleTargetList' => 'RuleTargetList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class ListInterceptionTargetPageResponseBody extends Model
         if (isset($map['RuleTargetList'])) {
             if (!empty($map['RuleTargetList'])) {
                 $model->ruleTargetList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['RuleTargetList'] as $item) {
                     $model->ruleTargetList[$n++] = null !== $item ? ruleTargetList::fromMap($item) : $item;
                 }

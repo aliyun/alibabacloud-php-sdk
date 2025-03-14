@@ -119,21 +119,19 @@ class machineList extends Model
      */
     public $vendorName;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'instanceName'  => 'InstanceName',
-        'internetIp'    => 'InternetIp',
-        'intranetIp'    => 'IntranetIp',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'machineRegion' => 'MachineRegion',
-        'os'            => 'Os',
-        'regionId'      => 'RegionId',
-        'uuid'          => 'Uuid',
-        'vendor'        => 'Vendor',
-        'vendorName'    => 'VendorName',
+        'os' => 'Os',
+        'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
+        'vendor' => 'Vendor',
+        'vendorName' => 'VendorName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

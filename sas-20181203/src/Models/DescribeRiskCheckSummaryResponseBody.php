@@ -25,13 +25,11 @@ class DescribeRiskCheckSummaryResponseBody extends Model
      */
     public $riskCheckSummary;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'riskCheckSummary' => 'RiskCheckSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

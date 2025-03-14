@@ -33,6 +33,7 @@ class SaveWhiteListStrategyRequest extends Model
      * @description The ID of the application whitelist policy.
      *
      * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to query the ID.
+     *
      * @example 8494
      *
      * @var int
@@ -43,6 +44,7 @@ class SaveWhiteListStrategyRequest extends Model
      * @description The name of the application whitelist policy.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -53,22 +55,21 @@ class SaveWhiteListStrategyRequest extends Model
      * @description The duration of intelligent learning. Unit: hours.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
      */
     public $studyTime;
     protected $_name = [
-        'lang'         => 'Lang',
-        'sourceIp'     => 'SourceIp',
-        'strategyId'   => 'StrategyId',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
         'strategyName' => 'StrategyName',
-        'studyTime'    => 'StudyTime',
+        'studyTime' => 'StudyTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

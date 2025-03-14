@@ -38,13 +38,11 @@ class DescribeWebPathRequest extends Model
     public $type;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'type'        => 'Type',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

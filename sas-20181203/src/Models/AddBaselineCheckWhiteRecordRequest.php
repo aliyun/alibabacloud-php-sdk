@@ -12,6 +12,7 @@ class AddBaselineCheckWhiteRecordRequest extends Model
      * @description The ID of the check item.
      *
      * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
+     *
      * @example 76
      *
      * @var int
@@ -63,16 +64,14 @@ class AddBaselineCheckWhiteRecordRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'checkId'    => 'CheckId',
-        'lang'       => 'Lang',
-        'reason'     => 'Reason',
-        'source'     => 'Source',
+        'checkId' => 'CheckId',
+        'lang' => 'Lang',
+        'reason' => 'Reason',
+        'source' => 'Source',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

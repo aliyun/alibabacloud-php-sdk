@@ -89,19 +89,17 @@ class groupedMaliciousFileResponse extends Model
      */
     public $status;
     protected $_name = [
-        'firstScanTimestamp'  => 'FirstScanTimestamp',
-        'imageCount'          => 'ImageCount',
+        'firstScanTimestamp' => 'FirstScanTimestamp',
+        'imageCount' => 'ImageCount',
         'latestScanTimestamp' => 'LatestScanTimestamp',
-        'level'               => 'Level',
-        'maliciousKey'        => 'MaliciousKey',
-        'maliciousMd5'        => 'MaliciousMd5',
-        'maliciousName'       => 'MaliciousName',
-        'status'              => 'Status',
+        'level' => 'Level',
+        'maliciousKey' => 'MaliciousKey',
+        'maliciousMd5' => 'MaliciousMd5',
+        'maliciousName' => 'MaliciousName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

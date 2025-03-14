@@ -11,7 +11,10 @@ class DeleteSoarStrategyTaskRequest extends Model
     /**
      * @description The ID of the policy task that is in the waiting state.
      *
+     * >  You can call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 11082
      *
      * @var int
@@ -21,9 +24,7 @@ class DeleteSoarStrategyTaskRequest extends Model
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

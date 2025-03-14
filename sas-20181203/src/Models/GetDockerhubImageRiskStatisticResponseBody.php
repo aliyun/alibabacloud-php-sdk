@@ -25,13 +25,11 @@ class GetDockerhubImageRiskStatisticResponseBody extends Model
      */
     public $riskRankInfo;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'riskRankInfo' => 'RiskRankInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,14 +41,12 @@ class targets extends Model
      */
     public $targetType;
     protected $_name = [
-        'flag'       => 'Flag',
-        'target'     => 'Target',
+        'flag' => 'Flag',
+        'target' => 'Target',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

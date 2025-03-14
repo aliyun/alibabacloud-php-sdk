@@ -117,21 +117,19 @@ class baselineResultSummary extends Model
     public $status;
     protected $_name = [
         'baselineClassAlias' => 'BaselineClassAlias',
-        'baselineClassKey'   => 'BaselineClassKey',
-        'baselineNameAlias'  => 'BaselineNameAlias',
-        'baselineNameKey'    => 'BaselineNameKey',
-        'baselineNameLevel'  => 'BaselineNameLevel',
-        'firstScanTime'      => 'FirstScanTime',
-        'highRiskImage'      => 'HighRiskImage',
-        'lastScanTime'       => 'LastScanTime',
-        'lowRiskImage'       => 'LowRiskImage',
-        'middleRiskImage'    => 'MiddleRiskImage',
-        'status'             => 'Status',
+        'baselineClassKey' => 'BaselineClassKey',
+        'baselineNameAlias' => 'BaselineNameAlias',
+        'baselineNameKey' => 'BaselineNameKey',
+        'baselineNameLevel' => 'BaselineNameLevel',
+        'firstScanTime' => 'FirstScanTime',
+        'highRiskImage' => 'HighRiskImage',
+        'lastScanTime' => 'LastScanTime',
+        'lowRiskImage' => 'LowRiskImage',
+        'middleRiskImage' => 'MiddleRiskImage',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

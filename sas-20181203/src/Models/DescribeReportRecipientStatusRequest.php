@@ -24,6 +24,7 @@ class DescribeReportRecipientStatusRequest extends Model
      * @description The email address of the recipient. Separate multiple email addresses with commas (,).
      *
      * This parameter is required.
+     *
      * @example username@example.com,username@example.com
      *
      * @var string
@@ -39,14 +40,12 @@ class DescribeReportRecipientStatusRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'recipients' => 'Recipients',
-        'sourceIp'   => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

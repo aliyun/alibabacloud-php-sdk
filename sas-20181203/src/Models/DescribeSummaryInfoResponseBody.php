@@ -62,15 +62,13 @@ class DescribeSummaryInfoResponseBody extends Model
     public $success;
     protected $_name = [
         'aegisClientOfflineCount' => 'AegisClientOfflineCount',
-        'aegisClientOnlineCount'  => 'AegisClientOnlineCount',
-        'requestId'               => 'RequestId',
-        'securityScore'           => 'SecurityScore',
-        'success'                 => 'Success',
+        'aegisClientOnlineCount' => 'AegisClientOnlineCount',
+        'requestId' => 'RequestId',
+        'securityScore' => 'SecurityScore',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

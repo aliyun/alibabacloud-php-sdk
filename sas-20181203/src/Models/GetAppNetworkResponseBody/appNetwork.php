@@ -32,14 +32,12 @@ class appNetwork extends Model
      */
     public $node;
     protected $_name = [
-        'edge'      => 'Edge',
+        'edge' => 'Edge',
         'namespace' => 'Namespace',
-        'node'      => 'Node',
+        'node' => 'Node',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +84,7 @@ class appNetwork extends Model
         if (isset($map['Edge'])) {
             if (!empty($map['Edge'])) {
                 $model->edge = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Edge'] as $item) {
                     $model->edge[$n++] = null !== $item ? edge::fromMap($item) : $item;
                 }
@@ -95,7 +93,7 @@ class appNetwork extends Model
         if (isset($map['Namespace'])) {
             if (!empty($map['Namespace'])) {
                 $model->namespace = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Namespace'] as $item) {
                     $model->namespace[$n++] = null !== $item ? namespace_::fromMap($item) : $item;
                 }
@@ -104,7 +102,7 @@ class appNetwork extends Model
         if (isset($map['Node'])) {
             if (!empty($map['Node'])) {
                 $model->node = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Node'] as $item) {
                     $model->node[$n++] = null !== $item ? node::fromMap($item) : $item;
                 }

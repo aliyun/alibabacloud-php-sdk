@@ -24,19 +24,18 @@ class DeleteContainerPluginRuleRequest extends Model
      * @description The ID of the rule. You can call the addContainerWebDefenseRule operation to query the ID.
      *
      * This parameter is required.
+     *
      * @example 200022
      *
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

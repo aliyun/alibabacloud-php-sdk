@@ -31,14 +31,12 @@ class vul extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'item'      => 'Item',
+        'item' => 'Item',
         'riskClass' => 'RiskClass',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class vul extends Model
         if (isset($map['Item'])) {
             if (!empty($map['Item'])) {
                 $model->item = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Item'] as $item) {
                     $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
                 }
@@ -88,7 +86,7 @@ class vul extends Model
         if (isset($map['RiskClass'])) {
             if (!empty($map['RiskClass'])) {
                 $model->riskClass = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['RiskClass'] as $item) {
                     $model->riskClass[$n++] = null !== $item ? riskClass::fromMap($item) : $item;
                 }

@@ -30,14 +30,12 @@ class data extends Model
      */
     public $itemList;
     protected $_name = [
-        'dateList'    => 'DateList',
+        'dateList' => 'DateList',
         'dateStrList' => 'DateStrList',
-        'itemList'    => 'ItemList',
+        'itemList' => 'ItemList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class data extends Model
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['ItemList'] as $item) {
                     $model->itemList[$n++] = null !== $item ? itemList::fromMap($item) : $item;
                 }

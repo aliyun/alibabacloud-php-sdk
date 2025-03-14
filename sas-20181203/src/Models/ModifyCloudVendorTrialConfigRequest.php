@@ -10,7 +10,10 @@ class ModifyCloudVendorTrialConfigRequest extends Model
 {
     /**
      * @description The ID of the audit log configuration to be modified.
+     * > The ID can be queried via [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~).
+     *
      * This parameter is required.
+     *
      * @example 23**
      *
      * @var int
@@ -19,7 +22,9 @@ class ModifyCloudVendorTrialConfigRequest extends Model
 
     /**
      * @description Enter the multi-cloud configuration information:
+     * - AWS: parameters sqsQueueName, sqsRegion
      * - Tencent: parameters kafkaUserName, kafkaBootstrapServers, kafkaTopic
+     *
      * @example {\\"sqsRegion\\":\\"us-west-2\\",\\"sqsQueueName\\":\\"****\\"}
      *
      * @var string
@@ -28,7 +33,9 @@ class ModifyCloudVendorTrialConfigRequest extends Model
 
     /**
      * @description Whether to delete this audit log configuration:
+     * - true: Delete
      * - false: Do not delete
+     *
      * @example true
      *
      * @var bool
@@ -42,21 +49,20 @@ class ModifyCloudVendorTrialConfigRequest extends Model
      * - **AWS**: AWS
      *
      * This parameter is required.
+     *
      * @example Tencent
      *
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'authId'      => 'AuthId',
-        'authInfo'    => 'AuthInfo',
+        'authId' => 'AuthId',
+        'authInfo' => 'AuthInfo',
         'deleteTrail' => 'DeleteTrail',
-        'vendor'      => 'Vendor',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

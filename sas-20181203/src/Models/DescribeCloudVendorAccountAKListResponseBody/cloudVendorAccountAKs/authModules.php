@@ -97,19 +97,17 @@ class authModules extends Model
      */
     public $trailStatus;
     protected $_name = [
-        'message'             => 'Message',
-        'module'              => 'Module',
-        'moduleAssetType'     => 'ModuleAssetType',
-        'moduleDisp'          => 'ModuleDisp',
+        'message' => 'Message',
+        'module' => 'Module',
+        'moduleAssetType' => 'ModuleAssetType',
+        'moduleDisp' => 'ModuleDisp',
         'moduleServiceStatus' => 'ModuleServiceStatus',
-        'moduleStatement'     => 'ModuleStatement',
-        'trailMessage'        => 'TrailMessage',
-        'trailStatus'         => 'TrailStatus',
+        'moduleStatement' => 'ModuleStatement',
+        'trailMessage' => 'TrailMessage',
+        'trailStatus' => 'TrailStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

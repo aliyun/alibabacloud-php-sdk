@@ -13,6 +13,7 @@ class GetInstanceAlarmStatisticsRequest extends Model
      * - *sas*: Situation Awareness data source
      * - *aqs*: Alarm event data
      * - *honeypot*: Honeypot
+     *
      * @example sas
      *
      * @var string
@@ -22,6 +23,7 @@ class GetInstanceAlarmStatisticsRequest extends Model
     /**
      * @description The UUID of the server to be queried.
      * > Call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) API to obtain this parameter.
+     *
      * @example 00fea5a1-9792-4373-ab1e-bb6536ba****
      *
      * @var string
@@ -32,9 +34,7 @@ class GetInstanceAlarmStatisticsRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

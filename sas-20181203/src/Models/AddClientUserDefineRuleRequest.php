@@ -15,6 +15,7 @@ class AddClientUserDefineRuleRequest extends Model
      *   **1**: block
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -70,6 +71,7 @@ class AddClientUserDefineRuleRequest extends Model
      * @description The name of the custom defense rule.
      *
      * This parameter is required.
+     *
      * @example Rule 1
      *
      * @var string
@@ -173,34 +175,33 @@ class AddClientUserDefineRuleRequest extends Model
      *   **7**: File Renaming
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'actionType'      => 'ActionType',
-        'cmdline'         => 'Cmdline',
-        'domain'          => 'Domain',
-        'filePath'        => 'FilePath',
-        'IP'              => 'IP',
-        'md5List'         => 'Md5List',
-        'name'            => 'Name',
-        'newFilePath'     => 'NewFilePath',
-        'parentCmdline'   => 'ParentCmdline',
-        'parentProcPath'  => 'ParentProcPath',
-        'platform'        => 'Platform',
-        'port'            => 'Port',
-        'portStr'         => 'PortStr',
-        'procPath'        => 'ProcPath',
+        'actionType' => 'ActionType',
+        'cmdline' => 'Cmdline',
+        'domain' => 'Domain',
+        'filePath' => 'FilePath',
+        'IP' => 'IP',
+        'md5List' => 'Md5List',
+        'name' => 'Name',
+        'newFilePath' => 'NewFilePath',
+        'parentCmdline' => 'ParentCmdline',
+        'parentProcPath' => 'ParentProcPath',
+        'platform' => 'Platform',
+        'port' => 'Port',
+        'portStr' => 'PortStr',
+        'procPath' => 'ProcPath',
         'registryContent' => 'RegistryContent',
-        'registryKey'     => 'RegistryKey',
-        'type'            => 'Type',
+        'registryKey' => 'RegistryKey',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

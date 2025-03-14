@@ -62,16 +62,14 @@ class clients extends Model
      */
     public $uuid;
     protected $_name = [
-        'clientId'      => 'ClientId',
-        'clientStatus'  => 'ClientStatus',
+        'clientId' => 'ClientId',
+        'clientStatus' => 'ClientStatus',
         'clientVersion' => 'ClientVersion',
-        'instanceId'    => 'InstanceId',
-        'uuid'          => 'Uuid',
+        'instanceId' => 'InstanceId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

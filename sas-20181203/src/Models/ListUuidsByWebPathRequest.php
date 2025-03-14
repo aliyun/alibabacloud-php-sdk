@@ -12,6 +12,7 @@ class ListUuidsByWebPathRequest extends Model
      * @description The number of the page to return.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ListUuidsByWebPathRequest extends Model
      * @description The number of entries to return on each page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -50,14 +52,12 @@ class ListUuidsByWebPathRequest extends Model
     public $webPath;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'type'        => 'Type',
-        'webPath'     => 'WebPath',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
+        'webPath' => 'WebPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

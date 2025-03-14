@@ -33,9 +33,7 @@ class accountLabelList extends Model
         'labelStatus' => 'LabelStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

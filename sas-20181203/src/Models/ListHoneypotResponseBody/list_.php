@@ -87,20 +87,18 @@ class list_ extends Model
      */
     public $state;
     protected $_name = [
-        'controlNodeName'          => 'ControlNodeName',
-        'honeypotId'               => 'HoneypotId',
+        'controlNodeName' => 'ControlNodeName',
+        'honeypotId' => 'HoneypotId',
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
-        'honeypotImageId'          => 'HoneypotImageId',
-        'honeypotImageName'        => 'HoneypotImageName',
-        'honeypotName'             => 'HoneypotName',
-        'nodeId'                   => 'NodeId',
-        'presetId'                 => 'PresetId',
-        'state'                    => 'State',
+        'honeypotImageId' => 'HoneypotImageId',
+        'honeypotImageName' => 'HoneypotImageName',
+        'honeypotName' => 'HoneypotName',
+        'nodeId' => 'NodeId',
+        'presetId' => 'PresetId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

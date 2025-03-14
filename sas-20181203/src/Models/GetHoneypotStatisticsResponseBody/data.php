@@ -75,17 +75,15 @@ class data extends Model
     public $usedVpcProbeCount;
     protected $_name = [
         'totalHoneypotCount' => 'TotalHoneypotCount',
-        'totalNodeStatus'    => 'TotalNodeStatus',
-        'totalProbeCount'    => 'TotalProbeCount',
-        'usedHoneypotCount'  => 'UsedHoneypotCount',
+        'totalNodeStatus' => 'TotalNodeStatus',
+        'totalProbeCount' => 'TotalProbeCount',
+        'usedHoneypotCount' => 'UsedHoneypotCount',
         'usedHostProbeCount' => 'UsedHostProbeCount',
-        'usedProbeCount'     => 'UsedProbeCount',
-        'usedVpcProbeCount'  => 'UsedVpcProbeCount',
+        'usedProbeCount' => 'UsedProbeCount',
+        'usedVpcProbeCount' => 'UsedVpcProbeCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

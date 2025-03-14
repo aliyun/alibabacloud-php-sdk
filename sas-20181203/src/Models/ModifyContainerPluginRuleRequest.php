@@ -36,6 +36,7 @@ class ModifyContainerPluginRuleRequest extends Model
      * @description The ID of the rule.
      *
      * This parameter is required.
+     *
      * @example 100012
      *
      * @var int
@@ -77,18 +78,16 @@ class ModifyContainerPluginRuleRequest extends Model
      */
     public $whiteImages;
     protected $_name = [
-        'lang'           => 'Lang',
-        'mode'           => 'Mode',
-        'ruleId'         => 'RuleId',
-        'ruleName'       => 'RuleName',
-        'ruleType'       => 'RuleType',
+        'lang' => 'Lang',
+        'mode' => 'Mode',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
         'selectedPolicy' => 'SelectedPolicy',
-        'whiteImages'    => 'WhiteImages',
+        'whiteImages' => 'WhiteImages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -56,15 +56,13 @@ class data extends Model
     public $selectedCount;
     protected $_name = [
         'enableNewRule' => 'EnableNewRule',
-        'id'            => 'Id',
-        'ruleCount'     => 'RuleCount',
-        'ruleTree'      => 'RuleTree',
+        'id' => 'Id',
+        'ruleCount' => 'RuleCount',
+        'ruleTree' => 'RuleTree',
         'selectedCount' => 'SelectedCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class data extends Model
         if (isset($map['RuleTree'])) {
             if (!empty($map['RuleTree'])) {
                 $model->ruleTree = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['RuleTree'] as $item) {
                     $model->ruleTree[$n++] = null !== $item ? ruleTree::fromMap($item) : $item;
                 }

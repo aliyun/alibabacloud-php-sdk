@@ -38,14 +38,12 @@ class assistInfo extends Model
      */
     public $value;
     protected $_name = [
-        'link'  => 'Link',
-        'type'  => 'Type',
+        'link' => 'Link',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

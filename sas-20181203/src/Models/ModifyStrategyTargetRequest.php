@@ -14,6 +14,7 @@ class ModifyStrategyTargetRequest extends Model
      *   **strategyId**: the ID of the policy
      *
      * This parameter is required.
+     *
      * @example {"strategyId":8070645}
      *
      * @var string
@@ -37,6 +38,7 @@ class ModifyStrategyTargetRequest extends Model
      *   **Target**: the ID of the asset group.
      *
      * This parameter is required.
+     *
      * @example [{"Target":"9273980","BindUuidCount":5320,"TargetType":"groupId","Flag":"del"},{"Target":"9677606","TargetType":"groupId","Flag":"del"},{"Target":"10121607","BindUuidCount":7,"TargetType":"groupId","Flag":"add"},{"Target":"10670708","BindUuidCount":2,"TargetType":"groupId","Flag":"del"},{"Target":"11246338","BindUuidCount":6,"TargetType":"groupId","Flag":"del"},{"Target":"11291161","BindUuidCount":13,"TargetType":"groupId","Flag":"del"}]
      *
      * @var string
@@ -47,21 +49,20 @@ class ModifyStrategyTargetRequest extends Model
      * @description The type of the configuration. Set the value to **hc_strategy**.
      *
      * This parameter is required.
+     *
      * @example hc_strategy
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'   => 'Config',
+        'config' => 'Config',
         'sourceIp' => 'SourceIp',
-        'target'   => 'Target',
-        'type'     => 'Type',
+        'target' => 'Target',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

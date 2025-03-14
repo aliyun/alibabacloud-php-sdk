@@ -96,19 +96,17 @@ class mappingMarkFields extends Model
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'fillType'    => 'FillType',
-        'maxLength'   => 'MaxLength',
-        'minLength'   => 'MinLength',
-        'name'        => 'Name',
-        'required'    => 'Required',
-        'showName'    => 'ShowName',
-        'showValue'   => 'ShowValue',
-        'value'       => 'Value',
+        'fillType' => 'FillType',
+        'maxLength' => 'MaxLength',
+        'minLength' => 'MinLength',
+        'name' => 'Name',
+        'required' => 'Required',
+        'showName' => 'ShowName',
+        'showValue' => 'ShowValue',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

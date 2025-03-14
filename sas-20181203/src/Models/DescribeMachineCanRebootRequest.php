@@ -33,9 +33,7 @@ class DescribeMachineCanRebootRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

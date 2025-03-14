@@ -184,29 +184,27 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'endTime'           => 'EndTime',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'measureSpace'      => 'MeasureSpace',
-        'progress'          => 'Progress',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'measureSpace' => 'MeasureSpace',
+        'progress' => 'Progress',
         'progressByProject' => 'ProgressByProject',
         'reportDownloadUrl' => 'ReportDownloadUrl',
-        'reportStatus'      => 'ReportStatus',
-        'result'            => 'Result',
-        'startTime'         => 'StartTime',
-        'status'            => 'Status',
-        'targetName'        => 'TargetName',
-        'targetType'        => 'TargetType',
-        'taskId'            => 'TaskId',
-        'taskName'          => 'TaskName',
-        'uuid'              => 'Uuid',
+        'reportStatus' => 'ReportStatus',
+        'result' => 'Result',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,6 +11,7 @@ class GetSasContainerWebDefenseRuleRequest extends Model
     /**
      * @description Rule ID.
      * > You can call the [ListSasContainerWebDefenseRule](~~ListSasContainerWebDefenseRule~~) API to get this parameter.
+     *
      * @example 1600009
      *
      * @var int
@@ -20,9 +21,7 @@ class GetSasContainerWebDefenseRuleRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

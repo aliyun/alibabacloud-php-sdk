@@ -56,16 +56,14 @@ class backupStorageCount extends Model
      */
     public $usageStorageByte;
     protected $_name = [
-        'buyStorageByte'      => 'BuyStorageByte',
+        'buyStorageByte' => 'BuyStorageByte',
         'ecsUsageStorageByte' => 'EcsUsageStorageByte',
-        'overflow'            => 'Overflow',
+        'overflow' => 'Overflow',
         'uniUsageStorageByte' => 'UniUsageStorageByte',
-        'usageStorageByte'    => 'UsageStorageByte',
+        'usageStorageByte' => 'UsageStorageByte',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

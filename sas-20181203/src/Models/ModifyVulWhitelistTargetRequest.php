@@ -11,7 +11,10 @@ class ModifyVulWhitelistTargetRequest extends Model
     /**
      * @description The ID of the whitelist.
      *
+     * >  You can call the [DescribeVulWhitelist](~~DescribeVulWhitelist~~) operation to query the IDs of whitelists.
+     *
      * This parameter is required.
+     *
      * @example 2533681
      *
      * @var int
@@ -49,21 +52,26 @@ class ModifyVulWhitelistTargetRequest extends Model
      *   **groupIds**: the IDs of server groups
      *
      * >  If you leave this parameter empty, all servers are added to the whitelist. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
+     *
      * @example {
+     * "type": "GroupId",
+     * "uuids": [],
+     * "groupIds": [
+     * 10782678
+     * ]
      * }
+     *
      * @var string
      */
     public $targetInfo;
     protected $_name = [
-        'id'         => 'Id',
-        'reason'     => 'Reason',
-        'sourceIp'   => 'SourceIp',
+        'id' => 'Id',
+        'reason' => 'Reason',
+        'sourceIp' => 'SourceIp',
         'targetInfo' => 'TargetInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

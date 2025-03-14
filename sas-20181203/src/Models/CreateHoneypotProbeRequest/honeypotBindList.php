@@ -20,6 +20,7 @@ class honeypotBindList extends Model
      * @description The ID of the honeypot.
      *
      * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+     *
      * @example 1a5eda2d40f92ac87d6b63e1a5ad4b76fe0d4110c4a3e2fa85438a29ae55****
      *
      * @var string
@@ -27,12 +28,10 @@ class honeypotBindList extends Model
     public $honeypotId;
     protected $_name = [
         'bindPortList' => 'BindPortList',
-        'honeypotId'   => 'HoneypotId',
+        'honeypotId' => 'HoneypotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +63,7 @@ class honeypotBindList extends Model
         if (isset($map['BindPortList'])) {
             if (!empty($map['BindPortList'])) {
                 $model->bindPortList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['BindPortList'] as $item) {
                     $model->bindPortList[$n++] = null !== $item ? bindPortList::fromMap($item) : $item;
                 }

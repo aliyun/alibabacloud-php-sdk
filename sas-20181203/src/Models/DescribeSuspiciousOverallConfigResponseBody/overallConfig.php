@@ -37,12 +37,10 @@ class overallConfig extends Model
     public $type;
     protected $_name = [
         'config' => 'Config',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

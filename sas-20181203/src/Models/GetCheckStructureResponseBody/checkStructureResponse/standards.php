@@ -47,15 +47,13 @@ class standards extends Model
      */
     public $type;
     protected $_name = [
-        'id'           => 'Id',
+        'id' => 'Id',
         'requirements' => 'Requirements',
-        'showName'     => 'ShowName',
-        'type'         => 'Type',
+        'showName' => 'ShowName',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class standards extends Model
         if (isset($map['Requirements'])) {
             if (!empty($map['Requirements'])) {
                 $model->requirements = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['Requirements'] as $item) {
                     $model->requirements[$n++] = null !== $item ? requirements::fromMap($item) : $item;
                 }

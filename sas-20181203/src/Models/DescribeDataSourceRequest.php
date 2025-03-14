@@ -39,13 +39,11 @@ class DescribeDataSourceRequest extends Model
     public $sourceIp;
     protected $_name = [
         'configType' => 'ConfigType',
-        'lang'       => 'Lang',
-        'sourceIp'   => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

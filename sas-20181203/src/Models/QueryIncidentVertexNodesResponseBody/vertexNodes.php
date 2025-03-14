@@ -52,16 +52,14 @@ class vertexNodes extends Model
      */
     public $vertexList;
     protected $_name = [
-        'edgeList'         => 'EdgeList',
-        'entityTypeList'   => 'EntityTypeList',
-        'lang'             => 'Lang',
+        'edgeList' => 'EdgeList',
+        'entityTypeList' => 'EntityTypeList',
+        'lang' => 'Lang',
         'relationTypeList' => 'RelationTypeList',
-        'vertexList'       => 'VertexList',
+        'vertexList' => 'VertexList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -120,7 +118,7 @@ class vertexNodes extends Model
         if (isset($map['EdgeList'])) {
             if (!empty($map['EdgeList'])) {
                 $model->edgeList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['EdgeList'] as $item) {
                     $model->edgeList[$n++] = null !== $item ? edgeList::fromMap($item) : $item;
                 }
@@ -129,7 +127,7 @@ class vertexNodes extends Model
         if (isset($map['EntityTypeList'])) {
             if (!empty($map['EntityTypeList'])) {
                 $model->entityTypeList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['EntityTypeList'] as $item) {
                     $model->entityTypeList[$n++] = null !== $item ? entityTypeList::fromMap($item) : $item;
                 }
@@ -141,7 +139,7 @@ class vertexNodes extends Model
         if (isset($map['RelationTypeList'])) {
             if (!empty($map['RelationTypeList'])) {
                 $model->relationTypeList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RelationTypeList'] as $item) {
                     $model->relationTypeList[$n++] = null !== $item ? relationTypeList::fromMap($item) : $item;
                 }
@@ -150,7 +148,7 @@ class vertexNodes extends Model
         if (isset($map['VertexList'])) {
             if (!empty($map['VertexList'])) {
                 $model->vertexList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['VertexList'] as $item) {
                     $model->vertexList[$n++] = null !== $item ? vertexList::fromMap($item) : $item;
                 }

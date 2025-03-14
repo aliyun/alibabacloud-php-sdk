@@ -14,6 +14,7 @@ class UpdatePostPaidBindRelRequest extends Model
      *
      * - **0**: Off
      * - **1**: On
+     *
      * @example 1
      *
      * @var int
@@ -27,6 +28,7 @@ class UpdatePostPaidBindRelRequest extends Model
      * - **5**: Advanced Edition
      * - **6**: Antivirus Edition
      * - **7**: Container Edition
+     *
      * @example 3
      *
      * @var int
@@ -40,14 +42,12 @@ class UpdatePostPaidBindRelRequest extends Model
      */
     public $bindAction;
     protected $_name = [
-        'autoBind'        => 'AutoBind',
+        'autoBind' => 'AutoBind',
         'autoBindVersion' => 'AutoBindVersion',
-        'bindAction'      => 'BindAction',
+        'bindAction' => 'BindAction',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +88,7 @@ class UpdatePostPaidBindRelRequest extends Model
         if (isset($map['BindAction'])) {
             if (!empty($map['BindAction'])) {
                 $model->bindAction = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['BindAction'] as $item) {
                     $model->bindAction[$n++] = null !== $item ? bindAction::fromMap($item) : $item;
                 }

@@ -26,13 +26,11 @@ class DescribeAutoDelConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'days'      => 'Days',
+        'days' => 'Days',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

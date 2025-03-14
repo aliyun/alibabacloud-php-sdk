@@ -12,6 +12,7 @@ class ModifyRefreshProcessInfoRequest extends Model
      * @description The UUID of the server.
      *
      * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+     *
      * @example 0f3b8f76-90e5-4455-a5aa-23ce30b5****
      *
      * @var string
@@ -21,9 +22,7 @@ class ModifyRefreshProcessInfoRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

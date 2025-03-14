@@ -10,7 +10,10 @@ class UpdateWhiteListRequest extends Model
 {
     /**
      * @description Image repository ID.
+     * > You can obtain this parameter by calling the [PageImageRegistry](~~PageImageRegistry~~) interface.
+     *
      * This parameter is required.
+     *
      * @example 19882
      *
      * @var int
@@ -21,6 +24,7 @@ class UpdateWhiteListRequest extends Model
      * @description Whitelist list. If there are multiple whitelisted addresses, separate them with a comma (,).
      *
      * This parameter is required.
+     *
      * @example 192.168.XXX.XXX,192.180.XXX.XXX
      *
      * @var string
@@ -28,12 +32,10 @@ class UpdateWhiteListRequest extends Model
     public $whiteList;
     protected $_name = [
         'registryId' => 'RegistryId',
-        'whiteList'  => 'WhiteList',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

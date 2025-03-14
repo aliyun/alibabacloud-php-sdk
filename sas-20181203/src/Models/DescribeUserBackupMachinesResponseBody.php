@@ -25,13 +25,11 @@ class DescribeUserBackupMachinesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'machines'  => 'Machines',
+        'machines' => 'Machines',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeUserBackupMachinesResponseBody extends Model
         if (isset($map['Machines'])) {
             if (!empty($map['Machines'])) {
                 $model->machines = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Machines'] as $item) {
                     $model->machines[$n++] = null !== $item ? machines::fromMap($item) : $item;
                 }

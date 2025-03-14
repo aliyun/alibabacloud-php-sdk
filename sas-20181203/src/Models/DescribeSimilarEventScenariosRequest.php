@@ -16,7 +16,10 @@ class DescribeSimilarEventScenariosRequest extends Model
     /**
      * @description The ID of the alert event.
      *
+     * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID of the alert event.
+     *
      * This parameter is required.
+     *
      * @example 12321
      *
      * @var int
@@ -34,12 +37,10 @@ class DescribeSimilarEventScenariosRequest extends Model
     protected $_name = [
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityEventId' => 'SecurityEventId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

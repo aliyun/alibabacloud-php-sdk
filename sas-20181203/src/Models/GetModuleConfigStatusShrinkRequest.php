@@ -12,6 +12,7 @@ class GetModuleConfigStatusShrinkRequest extends Model
      * @description The service modules that you want to query.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $moduleNamesShrink;
@@ -19,9 +20,7 @@ class GetModuleConfigStatusShrinkRequest extends Model
         'moduleNamesShrink' => 'ModuleNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

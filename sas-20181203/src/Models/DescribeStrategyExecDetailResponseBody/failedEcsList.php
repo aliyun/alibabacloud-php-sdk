@@ -53,16 +53,14 @@ class failedEcsList extends Model
      */
     public $reason;
     protected $_name = [
-        'IP'           => 'IP',
+        'IP' => 'IP',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'reason'       => 'Reason',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

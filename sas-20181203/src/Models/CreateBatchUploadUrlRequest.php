@@ -12,6 +12,7 @@ class CreateBatchUploadUrlRequest extends Model
      * @description The identifiers of files. Only MD5 hash values are supported.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $md5List;
@@ -27,6 +28,7 @@ class CreateBatchUploadUrlRequest extends Model
      * > If you do not know the type of the file, set this parameter to **0**.
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -34,12 +36,10 @@ class CreateBatchUploadUrlRequest extends Model
     public $type;
     protected $_name = [
         'md5List' => 'Md5List',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

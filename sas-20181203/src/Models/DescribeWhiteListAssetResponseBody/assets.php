@@ -78,17 +78,15 @@ class assets extends Model
     public $uuid;
     protected $_name = [
         'allowSelected' => 'AllowSelected',
-        'groupId'       => 'GroupId',
-        'id'            => 'Id',
-        'machineIp'     => 'MachineIp',
-        'machineName'   => 'MachineName',
-        'selected'      => 'Selected',
-        'uuid'          => 'Uuid',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'machineIp' => 'MachineIp',
+        'machineName' => 'MachineName',
+        'selected' => 'Selected',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

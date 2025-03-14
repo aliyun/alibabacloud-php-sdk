@@ -12,6 +12,7 @@ class logMetaList extends Model
      * @description The Logstore that you want to configure.
      *
      * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the Logstore.
+     *
      * @example sas-security-log
      *
      * @var string
@@ -22,6 +23,7 @@ class logMetaList extends Model
      * @description The retention period of hot data in the Logstore.
      *
      * >  The value of this parameter must be at least 7 and smaller than the log retention period. Unit: days. If you specify this parameter for the Logstore, the global retention period of hot data specified by the HotTtl parameter is overwritten.
+     *
      * @example 7
      *
      * @var int
@@ -44,6 +46,7 @@ class logMetaList extends Model
      * @description The log retention period of the Logstore.
      *
      * >  If you specify this parameter for the Logstore, the global log retention period specified by the Ttl parameter is overwritten.
+     *
      * @example 60
      *
      * @var int
@@ -51,14 +54,12 @@ class logMetaList extends Model
     public $ttl;
     protected $_name = [
         'configLogStore' => 'ConfigLogStore',
-        'hotTtl'         => 'HotTtl',
-        'status'         => 'Status',
-        'ttl'            => 'Ttl',
+        'hotTtl' => 'HotTtl',
+        'status' => 'Status',
+        'ttl' => 'Ttl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

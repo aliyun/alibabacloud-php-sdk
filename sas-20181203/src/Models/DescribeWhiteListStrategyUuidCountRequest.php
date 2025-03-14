@@ -32,7 +32,10 @@ class DescribeWhiteListStrategyUuidCountRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * >  You can call the [DescribeWhiteListStrategyStatistics](~~DescribeWhiteListStrategyStatistics~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 8516
      *
      * @var int
@@ -46,21 +49,20 @@ class DescribeWhiteListStrategyUuidCountRequest extends Model
      *   **2**: application policy
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'lang'       => 'Lang',
-        'sourceIp'   => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
         'strategyId' => 'StrategyId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

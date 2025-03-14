@@ -31,12 +31,10 @@ class securityEventOperationStatusResponse extends Model
     public $taskStatus;
     protected $_name = [
         'securityEventOperationStatuses' => 'SecurityEventOperationStatuses',
-        'taskStatus'                     => 'TaskStatus',
+        'taskStatus' => 'TaskStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class securityEventOperationStatusResponse extends Model
         if (isset($map['SecurityEventOperationStatuses'])) {
             if (!empty($map['SecurityEventOperationStatuses'])) {
                 $model->securityEventOperationStatuses = [];
-                $n                                     = 0;
+                $n = 0;
                 foreach ($map['SecurityEventOperationStatuses'] as $item) {
                     $model->securityEventOperationStatuses[$n++] = null !== $item ? securityEventOperationStatuses::fromMap($item) : $item;
                 }

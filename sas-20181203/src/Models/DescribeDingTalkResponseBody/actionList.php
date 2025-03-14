@@ -113,22 +113,20 @@ class actionList extends Model
      */
     public $url;
     protected $_name = [
-        'actionName'   => 'ActionName',
-        'aliUid'       => 'AliUid',
-        'configList'   => 'ConfigList',
+        'actionName' => 'ActionName',
+        'aliUid' => 'AliUid',
+        'configList' => 'ConfigList',
         'dingTalkLang' => 'DingTalkLang',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'groupIdList'  => 'GroupIdList',
-        'id'           => 'Id',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'groupIdList' => 'GroupIdList',
+        'id' => 'Id',
         'intervalTime' => 'IntervalTime',
-        'status'       => 'Status',
-        'url'          => 'Url',
+        'status' => 'Status',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

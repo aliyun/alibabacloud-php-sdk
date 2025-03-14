@@ -11,6 +11,7 @@ class DescribeSoarStrategyTaskParamsRequest extends Model
     /**
      * @description Strategy task ID.
      * > You can obtain this parameter by calling the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) interface.
+     *
      * @example 100
      *
      * @var int
@@ -20,9 +21,7 @@ class DescribeSoarStrategyTaskParamsRequest extends Model
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

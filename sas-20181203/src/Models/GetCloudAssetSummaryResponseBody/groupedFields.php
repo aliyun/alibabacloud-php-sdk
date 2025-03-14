@@ -35,13 +35,11 @@ class groupedFields extends Model
     public $instanceRiskCountTotal;
     protected $_name = [
         'cloudAssetSummaryMetas' => 'CloudAssetSummaryMetas',
-        'instanceCountTotal'     => 'InstanceCountTotal',
+        'instanceCountTotal' => 'InstanceCountTotal',
         'instanceRiskCountTotal' => 'InstanceRiskCountTotal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class groupedFields extends Model
         if (isset($map['CloudAssetSummaryMetas'])) {
             if (!empty($map['CloudAssetSummaryMetas'])) {
                 $model->cloudAssetSummaryMetas = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['CloudAssetSummaryMetas'] as $item) {
                     $model->cloudAssetSummaryMetas[$n++] = null !== $item ? cloudAssetSummaryMetas::fromMap($item) : $item;
                 }

@@ -21,6 +21,7 @@ class ListImageRiskRequest extends Model
      * @description The ID of the container cluster.
      *
      * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
+     *
      * @example c80f79959fd724a888e1187779b13****
      *
      * @var string
@@ -63,17 +64,15 @@ class ListImageRiskRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'currentPage' => 'CurrentPage',
-        'imageName'   => 'ImageName',
-        'namespace'   => 'Namespace',
-        'pageSize'    => 'PageSize',
+        'imageName' => 'ImageName',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

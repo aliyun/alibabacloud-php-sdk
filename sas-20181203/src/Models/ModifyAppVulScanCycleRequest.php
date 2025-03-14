@@ -24,9 +24,7 @@ class ModifyAppVulScanCycleRequest extends Model
         'cycle' => 'Cycle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

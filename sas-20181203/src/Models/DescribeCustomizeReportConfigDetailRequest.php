@@ -22,7 +22,10 @@ class DescribeCustomizeReportConfigDetailRequest extends Model
 
     /**
      * @description The ID of the report.\\
+     * You can call the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 619031
      *
      * @var int
@@ -38,14 +41,12 @@ class DescribeCustomizeReportConfigDetailRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'reportId' => 'ReportId',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

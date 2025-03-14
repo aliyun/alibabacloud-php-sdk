@@ -23,9 +23,7 @@ class kritisStatus extends Model
         'install' => 'Install',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

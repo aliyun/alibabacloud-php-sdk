@@ -57,16 +57,14 @@ class subTypes extends Model
      */
     public $typeName;
     protected $_name = [
-        'alias'        => 'Alias',
+        'alias' => 'Alias',
         'checkDetails' => 'CheckDetails',
-        'on'           => 'On',
-        'supportedOs'  => 'SupportedOs',
-        'typeName'     => 'TypeName',
+        'on' => 'On',
+        'supportedOs' => 'SupportedOs',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +108,7 @@ class subTypes extends Model
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CheckDetails'] as $item) {
                     $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
                 }

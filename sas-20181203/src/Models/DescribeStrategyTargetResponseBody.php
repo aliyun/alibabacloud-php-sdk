@@ -25,13 +25,11 @@ class DescribeStrategyTargetResponseBody extends Model
      */
     public $strategyTargets;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'strategyTargets' => 'StrategyTargets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeStrategyTargetResponseBody extends Model
         if (isset($map['StrategyTargets'])) {
             if (!empty($map['StrategyTargets'])) {
                 $model->strategyTargets = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StrategyTargets'] as $item) {
                     $model->strategyTargets[$n++] = null !== $item ? strategyTargets::fromMap($item) : $item;
                 }

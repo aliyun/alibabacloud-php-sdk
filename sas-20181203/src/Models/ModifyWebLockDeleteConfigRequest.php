@@ -11,7 +11,10 @@ class ModifyWebLockDeleteConfigRequest extends Model
     /**
      * @description The ID of the protected directory that you want to delete.
      *
+     * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the IDs of protected directories.
+     *
      * This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -42,22 +45,23 @@ class ModifyWebLockDeleteConfigRequest extends Model
     /**
      * @description The UUID of the server for which you want to delete the protected directory.
      *
+     * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example 7f7fe9a2-55de-4b9d-a37a-0d981d36****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'id'       => 'Id',
-        'lang'     => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'uuid'     => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

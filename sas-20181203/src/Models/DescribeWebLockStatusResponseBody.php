@@ -71,18 +71,16 @@ class DescribeWebLockStatusResponseBody extends Model
      */
     public $whiteCount;
     protected $_name = [
-        'authCount'  => 'AuthCount',
-        'bindCount'  => 'BindCount',
+        'authCount' => 'AuthCount',
+        'bindCount' => 'BindCount',
         'blockCount' => 'BlockCount',
-        'dirCount'   => 'DirCount',
+        'dirCount' => 'DirCount',
         'expireTime' => 'ExpireTime',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'whiteCount' => 'WhiteCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

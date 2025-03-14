@@ -12,6 +12,7 @@ class DescribeInstallCaptchaRequest extends Model
      * @description The validity period of verification codes. If this parameter is not specified, only the valid verification codes are returned.
      *
      * >  An installation verification code can be used only within the validity period. An expired installation verification code cannot be used to install the Security Center agent.
+     *
      * @example 2020-10-11 16:26:22
      *
      * @var string
@@ -40,13 +41,11 @@ class DescribeInstallCaptchaRequest extends Model
     public $sourceIp;
     protected $_name = [
         'deadline' => 'Deadline',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

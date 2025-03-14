@@ -74,18 +74,16 @@ class strategy extends Model
      */
     public $type;
     protected $_name = [
-        'baselineItem'      => 'BaselineItem',
-        'baselineItemList'  => 'BaselineItemList',
+        'baselineItem' => 'BaselineItem',
+        'baselineItemList' => 'BaselineItemList',
         'selectedItemCount' => 'SelectedItemCount',
-        'strategyId'        => 'StrategyId',
-        'strategyName'      => 'StrategyName',
-        'totalItemCount'    => 'TotalItemCount',
-        'type'              => 'Type',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
+        'totalItemCount' => 'TotalItemCount',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -135,7 +133,7 @@ class strategy extends Model
         if (isset($map['BaselineItemList'])) {
             if (!empty($map['BaselineItemList'])) {
                 $model->baselineItemList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['BaselineItemList'] as $item) {
                     $model->baselineItemList[$n++] = null !== $item ? baselineItemList::fromMap($item) : $item;
                 }

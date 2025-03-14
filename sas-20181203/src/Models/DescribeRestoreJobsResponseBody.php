@@ -33,14 +33,12 @@ class DescribeRestoreJobsResponseBody extends Model
      */
     public $restoreJobs;
     protected $_name = [
-        'pageInfo'    => 'PageInfo',
-        'requestId'   => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'restoreJobs' => 'RestoreJobs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class DescribeRestoreJobsResponseBody extends Model
         if (isset($map['RestoreJobs'])) {
             if (!empty($map['RestoreJobs'])) {
                 $model->restoreJobs = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['RestoreJobs'] as $item) {
                     $model->restoreJobs[$n++] = null !== $item ? restoreJobs::fromMap($item) : $item;
                 }

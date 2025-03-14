@@ -25,13 +25,11 @@ class DescribeSecurityEventOperationStatusResponseBody extends Model
      */
     public $securityEventOperationStatusResponse;
     protected $_name = [
-        'requestId'                            => 'RequestId',
+        'requestId' => 'RequestId',
         'securityEventOperationStatusResponse' => 'SecurityEventOperationStatusResponse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

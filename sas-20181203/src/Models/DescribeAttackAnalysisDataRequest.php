@@ -24,6 +24,7 @@ class DescribeAttackAnalysisDataRequest extends Model
      * @description The number of the page to return. Pages start from page **1**.
      *
      * >  If the Type parameter is set to **DETAILS**, you must specify the CurrentPage parameter.
+     *
      * @example 1
      *
      * @var int
@@ -89,6 +90,7 @@ class DescribeAttackAnalysisDataRequest extends Model
      * @description The timestamp when the attack stops. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 1649040221
      *
      * @var int
@@ -111,6 +113,7 @@ class DescribeAttackAnalysisDataRequest extends Model
      * @description The number of entries to return on each page.
      *
      * >  If the Type parameter is set to **DETAILS**, you must specify the PageSize parameter.
+     *
      * @example 10
      *
      * @var int
@@ -120,7 +123,10 @@ class DescribeAttackAnalysisDataRequest extends Model
     /**
      * @description The timestamp at which the attack starts. By default, the statistics of the previous seven days are queried. Unit: seconds.
      *
+     * >  The start time that you specify must be within the previous 40 days.
+     *
      * This parameter is required.
+     *
      * @example 1644027670
      *
      * @var int
@@ -140,25 +146,24 @@ class DescribeAttackAnalysisDataRequest extends Model
      * >  If the Type parameter is set to **DETAILS**, you must specify the CurrentPage and PageSize parameters.
      *
      * This parameter is required.
+     *
      * @example DETAILS
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'base64'      => 'Base64',
+        'base64' => 'Base64',
         'currentPage' => 'CurrentPage',
-        'data'        => 'Data',
-        'endTime'     => 'EndTime',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
-        'type'        => 'Type',
+        'data' => 'Data',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

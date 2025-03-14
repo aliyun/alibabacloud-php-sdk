@@ -34,6 +34,7 @@ class DescribeGroupedInstancesRequest extends Model
      *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
      *
      * This parameter is required.
+     *
      * @example groupId
      *
      * @var string
@@ -127,21 +128,19 @@ class DescribeGroupedInstancesRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'currentPage'          => 'CurrentPage',
-        'fieldValue'           => 'FieldValue',
-        'groupField'           => 'GroupField',
-        'lang'                 => 'Lang',
-        'machineTypes'         => 'MachineTypes',
-        'noPage'               => 'NoPage',
-        'pageSize'             => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'fieldValue' => 'FieldValue',
+        'groupField' => 'GroupField',
+        'lang' => 'Lang',
+        'machineTypes' => 'MachineTypes',
+        'noPage' => 'NoPage',
+        'pageSize' => 'PageSize',
         'saleVersionCheckCode' => 'SaleVersionCheckCode',
-        'vendor'               => 'Vendor',
-        'vendors'              => 'Vendors',
+        'vendor' => 'Vendor',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

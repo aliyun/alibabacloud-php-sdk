@@ -11,9 +11,13 @@ class DescribeImageInfoListRequest extends Model
     /**
      * @description The UUID of the server. Separate multiple UUIDs with commas (,).
      *
+     * > You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example 391abd09184cbd3743d7f5ec125d****,
      * e6aeb2a5b6004479398b0bcd1160****
+     *
      * @var string
      */
     public $uuids;
@@ -21,9 +25,7 @@ class DescribeImageInfoListRequest extends Model
         'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

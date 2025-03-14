@@ -34,20 +34,19 @@ class DescribeAffectedAssetsRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'current'  => 'Current',
-        'levels'   => 'Levels',
+        'current' => 'Current',
+        'levels' => 'Levels',
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

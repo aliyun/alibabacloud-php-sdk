@@ -24,17 +24,16 @@ class DescribeAssetsScaProcessNumRequest extends Model
      * @description The UUIDs of the servers.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
-        'bizType'  => 'BizType',
+        'bizType' => 'BizType',
         'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

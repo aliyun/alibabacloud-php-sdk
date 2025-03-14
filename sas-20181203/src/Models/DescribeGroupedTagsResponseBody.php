@@ -55,16 +55,14 @@ class DescribeGroupedTagsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'count'          => 'Count',
-        'groupedFileds'  => 'GroupedFileds',
+        'count' => 'Count',
+        'groupedFileds' => 'GroupedFileds',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class DescribeGroupedTagsResponseBody extends Model
         if (isset($map['GroupedFileds'])) {
             if (!empty($map['GroupedFileds'])) {
                 $model->groupedFileds = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['GroupedFileds'] as $item) {
                     $model->groupedFileds[$n++] = null !== $item ? groupedFileds::fromMap($item) : $item;
                 }

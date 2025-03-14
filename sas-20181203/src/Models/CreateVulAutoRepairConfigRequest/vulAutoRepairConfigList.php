@@ -12,6 +12,7 @@ class vulAutoRepairConfigList extends Model
      * @description The alias of the vulnerability.
      *
      * This parameter is required.
+     *
      * @example CVE-2018-25032:zlib 1.2.11 memory corruption
      *
      * @var string
@@ -22,6 +23,7 @@ class vulAutoRepairConfigList extends Model
      * @description The name of the vulnerability.
      *
      * This parameter is required.
+     *
      * @example anolisos:8.4:ANSA-2022:0001
      *
      * @var string
@@ -29,12 +31,10 @@ class vulAutoRepairConfigList extends Model
     public $name;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

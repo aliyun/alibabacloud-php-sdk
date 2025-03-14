@@ -61,17 +61,15 @@ class DescribeWhiteListEffectiveAssetsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'assets'      => 'Assets',
-        'count'       => 'Count',
+        'assets' => 'Assets',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeWhiteListEffectiveAssetsResponseBody extends Model
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Assets'] as $item) {
                     $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }

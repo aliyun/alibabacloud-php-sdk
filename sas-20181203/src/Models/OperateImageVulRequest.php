@@ -46,14 +46,12 @@ class OperateImageVulRequest extends Model
      */
     public $type;
     protected $_name = [
-        'info'        => 'Info',
+        'info' => 'Info',
         'operateType' => 'OperateType',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

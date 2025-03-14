@@ -26,12 +26,10 @@ class GetCloudAssetCriteriaRequest extends Model
     public $value;
     protected $_name = [
         'cloudAssetTypes' => 'CloudAssetTypes',
-        'value'           => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetCloudAssetCriteriaRequest extends Model
         if (isset($map['CloudAssetTypes'])) {
             if (!empty($map['CloudAssetTypes'])) {
                 $model->cloudAssetTypes = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['CloudAssetTypes'] as $item) {
                     $model->cloudAssetTypes[$n++] = null !== $item ? cloudAssetTypes::fromMap($item) : $item;
                 }

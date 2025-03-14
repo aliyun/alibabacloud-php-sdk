@@ -101,21 +101,19 @@ class relationTypeList extends Model
      */
     public $showType;
     protected $_name = [
-        'directed'        => 'Directed',
-        'displayColor'    => 'DisplayColor',
-        'displayIcon'     => 'DisplayIcon',
+        'directed' => 'Directed',
+        'displayColor' => 'DisplayColor',
+        'displayIcon' => 'DisplayIcon',
         'displayTemplate' => 'DisplayTemplate',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'name'            => 'Name',
-        'namespace'       => 'Namespace',
-        'showType'        => 'ShowType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'showType' => 'ShowType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

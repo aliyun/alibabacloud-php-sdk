@@ -62,17 +62,15 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'eventCount'   => 'EventCount',
-        'instanceId'   => 'InstanceId',
+        'eventCount' => 'EventCount',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

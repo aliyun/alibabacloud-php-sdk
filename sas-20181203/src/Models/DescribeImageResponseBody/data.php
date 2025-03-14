@@ -20,9 +20,7 @@ class data extends Model
         'digest' => 'Digest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

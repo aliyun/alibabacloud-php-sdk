@@ -20,9 +20,7 @@ class honeypotProbe extends Model
         'probeId' => 'ProbeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

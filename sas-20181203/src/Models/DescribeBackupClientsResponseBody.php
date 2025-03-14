@@ -25,13 +25,11 @@ class DescribeBackupClientsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clients'   => 'Clients',
+        'clients' => 'Clients',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeBackupClientsResponseBody extends Model
         if (isset($map['Clients'])) {
             if (!empty($map['Clients'])) {
                 $model->clients = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Clients'] as $item) {
                     $model->clients[$n++] = null !== $item ? clients::fromMap($item) : $item;
                 }

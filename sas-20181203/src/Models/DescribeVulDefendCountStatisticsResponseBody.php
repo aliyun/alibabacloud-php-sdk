@@ -35,14 +35,12 @@ class DescribeVulDefendCountStatisticsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'raspDefendedCount'   => 'RaspDefendedCount',
+        'raspDefendedCount' => 'RaspDefendedCount',
         'raspDefensibleCount' => 'RaspDefensibleCount',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class GetAccountLabelResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accountLabelList' => 'AccountLabelList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetAccountLabelResponseBody extends Model
         if (isset($map['AccountLabelList'])) {
             if (!empty($map['AccountLabelList'])) {
                 $model->accountLabelList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['AccountLabelList'] as $item) {
                     $model->accountLabelList[$n++] = null !== $item ? accountLabelList::fromMap($item) : $item;
                 }

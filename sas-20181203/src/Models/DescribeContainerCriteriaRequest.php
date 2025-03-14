@@ -34,12 +34,10 @@ class DescribeContainerCriteriaRequest extends Model
     public $value;
     protected $_name = [
         'groupField' => 'GroupField',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

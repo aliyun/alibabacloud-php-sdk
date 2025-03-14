@@ -90,19 +90,17 @@ class statisticsDetails extends Model
      */
     public $regionId;
     protected $_name = [
-        'exposedCount'             => 'ExposedCount',
-        'exposureComponent'        => 'ExposureComponent',
-        'exposureIp'               => 'ExposureIp',
-        'exposurePort'             => 'ExposurePort',
-        'exposureType'             => 'ExposureType',
-        'exposureTypeId'           => 'ExposureTypeId',
+        'exposedCount' => 'ExposedCount',
+        'exposureComponent' => 'ExposureComponent',
+        'exposureIp' => 'ExposureIp',
+        'exposurePort' => 'ExposurePort',
+        'exposureType' => 'ExposureType',
+        'exposureTypeId' => 'ExposureTypeId',
         'exposureTypeInstanceName' => 'ExposureTypeInstanceName',
-        'regionId'                 => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

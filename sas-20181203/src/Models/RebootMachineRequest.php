@@ -11,7 +11,10 @@ class RebootMachineRequest extends Model
     /**
      * @description The UUID of the server that you want to restart.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example 7151f27e-1d51-4e98-a540-8936a****
      *
      * @var string
@@ -21,9 +24,7 @@ class RebootMachineRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

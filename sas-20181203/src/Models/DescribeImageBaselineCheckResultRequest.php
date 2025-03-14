@@ -42,6 +42,7 @@ class DescribeImageBaselineCheckResultRequest extends Model
      * @description The UUID of the image.
      *
      * This parameter is required.
+     *
      * @example a910053dd4710173ecc9e9d8931f****
      *
      * @var string
@@ -89,19 +90,17 @@ class DescribeImageBaselineCheckResultRequest extends Model
      */
     public $scanRange;
     protected $_name = [
-        'criteria'     => 'Criteria',
+        'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
-        'currentPage'  => 'CurrentPage',
-        'imageUuid'    => 'ImageUuid',
-        'lang'         => 'Lang',
-        'pageSize'     => 'PageSize',
-        'riskLevel'    => 'RiskLevel',
-        'scanRange'    => 'ScanRange',
+        'currentPage' => 'CurrentPage',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'riskLevel' => 'RiskLevel',
+        'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

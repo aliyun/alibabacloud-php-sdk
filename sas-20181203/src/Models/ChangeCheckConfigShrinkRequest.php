@@ -14,6 +14,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description The list of check items that you want to add to the policy.
      *
      * >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
+     *
      * @var addedCheck[]
      */
     public $addedCheck;
@@ -22,6 +23,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description The requirement IDs that you want to specify for the check policy.
      *
      * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the requirement ID. If the ConfigStandardIds parameter is configured, this parameter does not take effect.
+     *
      * @var string
      */
     public $configRequirementIdsShrink;
@@ -30,6 +32,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description The standard IDs that you want to specify for the check policy.
      *
      * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the standard ID.
+     *
      * @var string
      */
     public $configStandardIdsShrink;
@@ -56,6 +59,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description Specifies whether to check the new check items in the selected requirement item. Valid values:
      * - **true**
      * - **false**
+     *
      * @example false
      *
      * @var bool
@@ -67,6 +71,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      *
      * - **true**
      * - **false**
+     *
      * @example true
      *
      * @var bool
@@ -91,6 +96,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description The region ID of the bastion host to query.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -101,6 +107,7 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @description The list of the check items that you want to remove from the policy.
      *
      * >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
+     *
      * @var removedCheck[]
      */
     public $removedCheck;
@@ -140,25 +147,23 @@ class ChangeCheckConfigShrinkRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'addedCheck'                 => 'AddedCheck',
+        'addedCheck' => 'AddedCheck',
         'configRequirementIdsShrink' => 'ConfigRequirementIds',
-        'configStandardIdsShrink'    => 'ConfigStandardIds',
-        'configure'                  => 'Configure',
-        'cycleDays'                  => 'CycleDays',
-        'enableAddCheck'             => 'EnableAddCheck',
-        'enableAutoCheck'            => 'EnableAutoCheck',
-        'endTime'                    => 'EndTime',
-        'regionId'                   => 'RegionId',
-        'removedCheck'               => 'RemovedCheck',
-        'standardIds'                => 'StandardIds',
-        'startTime'                  => 'StartTime',
-        'systemConfig'               => 'SystemConfig',
-        'vendors'                    => 'Vendors',
+        'configStandardIdsShrink' => 'ConfigStandardIds',
+        'configure' => 'Configure',
+        'cycleDays' => 'CycleDays',
+        'enableAddCheck' => 'EnableAddCheck',
+        'enableAutoCheck' => 'EnableAutoCheck',
+        'endTime' => 'EndTime',
+        'regionId' => 'RegionId',
+        'removedCheck' => 'RemovedCheck',
+        'standardIds' => 'StandardIds',
+        'startTime' => 'StartTime',
+        'systemConfig' => 'SystemConfig',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -232,7 +237,7 @@ class ChangeCheckConfigShrinkRequest extends Model
         if (isset($map['AddedCheck'])) {
             if (!empty($map['AddedCheck'])) {
                 $model->addedCheck = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AddedCheck'] as $item) {
                     $model->addedCheck[$n++] = null !== $item ? addedCheck::fromMap($item) : $item;
                 }
@@ -267,7 +272,7 @@ class ChangeCheckConfigShrinkRequest extends Model
         if (isset($map['RemovedCheck'])) {
             if (!empty($map['RemovedCheck'])) {
                 $model->removedCheck = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RemovedCheck'] as $item) {
                     $model->removedCheck[$n++] = null !== $item ? removedCheck::fromMap($item) : $item;
                 }

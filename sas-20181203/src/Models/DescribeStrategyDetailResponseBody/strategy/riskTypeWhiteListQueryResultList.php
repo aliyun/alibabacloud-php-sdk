@@ -46,15 +46,13 @@ class riskTypeWhiteListQueryResultList extends Model
      */
     public $typeName;
     protected $_name = [
-        'alias'    => 'Alias',
-        'on'       => 'On',
+        'alias' => 'Alias',
+        'on' => 'On',
         'subTypes' => 'SubTypes',
         'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class riskTypeWhiteListQueryResultList extends Model
         if (isset($map['SubTypes'])) {
             if (!empty($map['SubTypes'])) {
                 $model->subTypes = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['SubTypes'] as $item) {
                     $model->subTypes[$n++] = null !== $item ? subTypes::fromMap($item) : $item;
                 }

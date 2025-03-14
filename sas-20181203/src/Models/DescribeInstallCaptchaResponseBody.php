@@ -21,6 +21,7 @@ class DescribeInstallCaptchaResponseBody extends Model
      * @description The validity period of the installation verification code.
      *
      * >  The installation verification code is valid only within the validity period. An expired installation verification code cannot be used to install the agent.
+     *
      * @example 2020-10-10 16:06:38
      *
      * @var string
@@ -37,13 +38,11 @@ class DescribeInstallCaptchaResponseBody extends Model
     public $requestId;
     protected $_name = [
         'captchaCode' => 'CaptchaCode',
-        'deadline'    => 'Deadline',
-        'requestId'   => 'RequestId',
+        'deadline' => 'Deadline',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

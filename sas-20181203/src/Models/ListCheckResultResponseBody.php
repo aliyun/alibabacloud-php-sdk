@@ -33,14 +33,12 @@ class ListCheckResultResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'checks'    => 'Checks',
-        'pageInfo'  => 'PageInfo',
+        'checks' => 'Checks',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListCheckResultResponseBody extends Model
         if (isset($map['Checks'])) {
             if (!empty($map['Checks'])) {
                 $model->checks = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Checks'] as $item) {
                     $model->checks[$n++] = null !== $item ? checks::fromMap($item) : $item;
                 }

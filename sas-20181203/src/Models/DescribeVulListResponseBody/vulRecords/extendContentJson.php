@@ -153,26 +153,24 @@ class extendContentJson extends Model
      */
     public $cveList;
     protected $_name = [
-        'absolutePath'  => 'AbsolutePath',
-        'aliasName'     => 'AliasName',
-        'description'   => 'Description',
-        'emgProof'      => 'EmgProof',
-        'ip'            => 'Ip',
-        'lastTs'        => 'LastTs',
-        'necessity'     => 'Necessity',
-        'os'            => 'Os',
-        'osRelease'     => 'OsRelease',
-        'primaryId'     => 'PrimaryId',
+        'absolutePath' => 'AbsolutePath',
+        'aliasName' => 'AliasName',
+        'description' => 'Description',
+        'emgProof' => 'EmgProof',
+        'ip' => 'Ip',
+        'lastTs' => 'LastTs',
+        'necessity' => 'Necessity',
+        'os' => 'Os',
+        'osRelease' => 'OsRelease',
+        'primaryId' => 'PrimaryId',
         'rpmEntityList' => 'RpmEntityList',
-        'status'        => 'Status',
-        'tag'           => 'Tag',
-        'target'        => 'Target',
-        'cveList'       => 'cveList',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'target' => 'Target',
+        'cveList' => 'cveList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -273,7 +271,7 @@ class extendContentJson extends Model
         if (isset($map['RpmEntityList'])) {
             if (!empty($map['RpmEntityList'])) {
                 $model->rpmEntityList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['RpmEntityList'] as $item) {
                     $model->rpmEntityList[$n++] = null !== $item ? rpmEntityList::fromMap($item) : $item;
                 }

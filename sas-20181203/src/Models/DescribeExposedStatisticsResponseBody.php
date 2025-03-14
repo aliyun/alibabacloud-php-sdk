@@ -134,25 +134,23 @@ class DescribeExposedStatisticsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'exposedAsapVulCount'             => 'ExposedAsapVulCount',
-        'exposedComponentCount'           => 'ExposedComponentCount',
-        'exposedDdsCount'                 => 'ExposedDdsCount',
-        'exposedEcsCount'                 => 'ExposedEcsCount',
-        'exposedInstanceCount'            => 'ExposedInstanceCount',
-        'exposedIpCount'                  => 'ExposedIpCount',
-        'exposedKvstoreCount'             => 'ExposedKvstoreCount',
-        'exposedLaterVulCount'            => 'ExposedLaterVulCount',
-        'exposedNntfVulCount'             => 'ExposedNntfVulCount',
-        'exposedPortCount'                => 'ExposedPortCount',
-        'exposedRdsCount'                 => 'ExposedRdsCount',
+        'exposedAsapVulCount' => 'ExposedAsapVulCount',
+        'exposedComponentCount' => 'ExposedComponentCount',
+        'exposedDdsCount' => 'ExposedDdsCount',
+        'exposedEcsCount' => 'ExposedEcsCount',
+        'exposedInstanceCount' => 'ExposedInstanceCount',
+        'exposedIpCount' => 'ExposedIpCount',
+        'exposedKvstoreCount' => 'ExposedKvstoreCount',
+        'exposedLaterVulCount' => 'ExposedLaterVulCount',
+        'exposedNntfVulCount' => 'ExposedNntfVulCount',
+        'exposedPortCount' => 'ExposedPortCount',
+        'exposedRdsCount' => 'ExposedRdsCount',
         'exposedWeekPasswordMachineCount' => 'ExposedWeekPasswordMachineCount',
-        'gatewayAssetCount'               => 'GatewayAssetCount',
-        'requestId'                       => 'RequestId',
+        'gatewayAssetCount' => 'GatewayAssetCount',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

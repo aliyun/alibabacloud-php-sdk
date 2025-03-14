@@ -11,7 +11,10 @@ class DescribeDomainDetailRequest extends Model
     /**
      * @description The domain name or the name of website that you want to query.
      *
+     * >  Fuzzy match is not supported. You must enter a complete domain name or a website.
+     *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -28,12 +31,10 @@ class DescribeDomainDetailRequest extends Model
     public $sourceIp;
     protected $_name = [
         'domainName' => 'DomainName',
-        'sourceIp'   => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -65,17 +65,15 @@ class list_ extends Model
     public $social;
     protected $_name = [
         'attackCount' => 'AttackCount',
-        'browser'     => 'Browser',
-        'host'        => 'Host',
-        'lastTime'    => 'LastTime',
-        'network'     => 'Network',
-        'portraitId'  => 'PortraitId',
-        'social'      => 'Social',
+        'browser' => 'Browser',
+        'host' => 'Host',
+        'lastTime' => 'LastTime',
+        'network' => 'Network',
+        'portraitId' => 'PortraitId',
+        'social' => 'Social',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class GrantSwitchAgreementRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -32,6 +33,7 @@ class GrantSwitchAgreementRequest extends Model
      * @description Switching type. Possible values:
      *
      * - **sg_switch**: Migrate client connections from overseas servers to Singapore
+     *
      * @example sg_switch
      *
      * @var string
@@ -39,13 +41,11 @@ class GrantSwitchAgreementRequest extends Model
     public $type;
     protected $_name = [
         'isAgree' => 'IsAgree',
-        'lang'    => 'Lang',
-        'type'    => 'Type',
+        'lang' => 'Lang',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,14 +39,12 @@ class securityEventOperationStatuses extends Model
      */
     public $status;
     protected $_name = [
-        'errorCode'       => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'securityEventId' => 'SecurityEventId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

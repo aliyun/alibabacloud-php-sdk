@@ -20,6 +20,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
     /**
      * @description Instance type. Values:
      * - **SERVERLESS**: Serverless asset
+     *
      * @example SERVERLESS
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      *
      * - **0**: Off
      * - **1**: On
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +44,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      *
      * - **true**: Yes
      * - **false**: No
+     *
      * @example false
      *
      * @var bool
@@ -52,6 +55,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      * @description List of application IDs to be bound.
      *
      * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+     *
      * @var string[]
      */
     public $bindAppList;
@@ -60,6 +64,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      * @description Type of asset to operate on. Values:
      * - **INSTANCE**: Instance
      * - **APP**: Application
+     *
      * @example APP
      *
      * @var string
@@ -76,6 +81,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
     /**
      * @description Set the conditions for searching assets. This parameter is in JSON format, and case sensitivity should be noted when entering parameters.
      * > Supports searching assets using instance ID, instance name, VPC ID, region, public IP address, etc. You can call the [DescribeCriteria](~~DescribeCriteria~~) interface to query supported search conditions.
+     *
      * @example [{"name":"vulStatus","value":"YES","logicalExp":"AND"}]
      *
      * @var string
@@ -86,6 +92,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      * @description Set the logical relationship between multiple search conditions. Values:
      * - **OR**: Indicates an **or** relationship between multiple conditions.
      * - **AND**: Indicates an **and** relationship between multiple conditions.
+     *
      * @example OR
      *
      * @var string
@@ -106,8 +113,6 @@ class ModifyServerlessAuthToMachineRequest extends Model
      *
      * - **0**: No
      * - **1**: Yes
-     *
-     *
      * > After enabling pre-binding, the specified server will automatically bind the corresponding version\\"s authorization count after the purchase is completed.
      * @example 1
      *
@@ -137,6 +142,7 @@ class ModifyServerlessAuthToMachineRequest extends Model
      * @description List of application IDs to be unbound.
      *
      * > Obtained through the [ListMachineApps](~~ListMachineApps~~) interface.
+     *
      * @var string[]
      */
     public $unBindAppList;
@@ -148,26 +154,24 @@ class ModifyServerlessAuthToMachineRequest extends Model
      */
     public $unBindUuidList;
     protected $_name = [
-        'appCriteria'          => 'AppCriteria',
-        'authItem'             => 'AuthItem',
-        'autoBind'             => 'AutoBind',
-        'bindAll'              => 'BindAll',
-        'bindAppList'          => 'BindAppList',
-        'bindAssetType'        => 'BindAssetType',
-        'bindUuidList'         => 'BindUuidList',
-        'criteria'             => 'Criteria',
-        'logicalExp'           => 'LogicalExp',
-        'ntmVersion'           => 'NtmVersion',
-        'preBind'              => 'PreBind',
-        'preBindOrderId'       => 'PreBindOrderId',
+        'appCriteria' => 'AppCriteria',
+        'authItem' => 'AuthItem',
+        'autoBind' => 'AutoBind',
+        'bindAll' => 'BindAll',
+        'bindAppList' => 'BindAppList',
+        'bindAssetType' => 'BindAssetType',
+        'bindUuidList' => 'BindUuidList',
+        'criteria' => 'Criteria',
+        'logicalExp' => 'LogicalExp',
+        'ntmVersion' => 'NtmVersion',
+        'preBind' => 'PreBind',
+        'preBindOrderId' => 'PreBindOrderId',
         'resourceDirectoryUid' => 'ResourceDirectoryUid',
-        'unBindAppList'        => 'UnBindAppList',
-        'unBindUuidList'       => 'UnBindUuidList',
+        'unBindAppList' => 'UnBindAppList',
+        'unBindUuidList' => 'UnBindUuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

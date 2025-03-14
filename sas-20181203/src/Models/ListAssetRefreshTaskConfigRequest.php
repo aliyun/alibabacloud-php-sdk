@@ -40,13 +40,11 @@ class ListAssetRefreshTaskConfigRequest extends Model
     public $targetId;
     protected $_name = [
         'refreshConfigType' => 'RefreshConfigType',
-        'regionId'          => 'RegionId',
-        'targetId'          => 'TargetId',
+        'regionId' => 'RegionId',
+        'targetId' => 'TargetId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

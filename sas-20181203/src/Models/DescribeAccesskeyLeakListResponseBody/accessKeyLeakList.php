@@ -118,20 +118,18 @@ class accessKeyLeakList extends Model
     protected $_name = [
         'accesskeyId' => 'AccesskeyId',
         'aliUserName' => 'AliUserName',
-        'asset'       => 'Asset',
-        'dealTime'    => 'DealTime',
-        'dealType'    => 'DealType',
+        'asset' => 'Asset',
+        'dealTime' => 'DealTime',
+        'dealType' => 'DealType',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'status'      => 'Status',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'userType'    => 'UserType',
+        'id' => 'Id',
+        'status' => 'Status',
+        'type' => 'Type',
+        'url' => 'Url',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,11 @@ class DescribeCloudVendorTrialConfigRequest extends Model
     /**
      * @description Unique ID of the AK.
      *
+     * > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to get the AuthId.
+     * > -
+     *
      * This parameter is required.
+     *
      * @example 23**
      *
      * @var int
@@ -24,6 +28,7 @@ class DescribeCloudVendorTrialConfigRequest extends Model
      * - **AWS**: Amazon Web Services
      *
      * This parameter is required.
+     *
      * @example AWS
      *
      * @var string
@@ -34,9 +39,7 @@ class DescribeCloudVendorTrialConfigRequest extends Model
         'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

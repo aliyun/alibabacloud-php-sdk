@@ -123,22 +123,20 @@ class list_ extends Model
      */
     public $vpcId;
     protected $_name = [
-        'controlNode'  => 'ControlNode',
-        'deployTime'   => 'DeployTime',
-        'displayName'  => 'DisplayName',
-        'hostIp'       => 'HostIp',
-        'osType'       => 'OsType',
-        'probeId'      => 'ProbeId',
-        'probeType'    => 'ProbeType',
+        'controlNode' => 'ControlNode',
+        'deployTime' => 'DeployTime',
+        'displayName' => 'DisplayName',
+        'hostIp' => 'HostIp',
+        'osType' => 'OsType',
+        'probeId' => 'ProbeId',
+        'probeType' => 'ProbeType',
         'probeVersion' => 'ProbeVersion',
-        'status'       => 'Status',
-        'uuid'         => 'Uuid',
-        'vpcId'        => 'VpcId',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

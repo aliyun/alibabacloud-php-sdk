@@ -25,13 +25,11 @@ class GetCheckTimeDimensionStatisticResponseBody extends Model
      */
     public $timeDimensionStatisticDTO;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'timeDimensionStatisticDTO' => 'TimeDimensionStatisticDTO',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

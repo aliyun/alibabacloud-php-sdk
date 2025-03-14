@@ -30,12 +30,10 @@ class checkStructureResponse extends Model
     public $standards;
     protected $_name = [
         'standardType' => 'StandardType',
-        'standards'    => 'Standards',
+        'standards' => 'Standards',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,7 +68,7 @@ class checkStructureResponse extends Model
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {
                 $model->standards = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Standards'] as $item) {
                     $model->standards[$n++] = null !== $item ? standards::fromMap($item) : $item;
                 }

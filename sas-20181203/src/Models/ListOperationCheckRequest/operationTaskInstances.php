@@ -30,6 +30,7 @@ class operationTaskInstances extends Model
      * @description Asset vendor. Values:
      *
      * - **ALIYUN**: Alibaba Cloud
+     *
      * @example ALIYUN
      *
      * @var string
@@ -37,13 +38,11 @@ class operationTaskInstances extends Model
     public $vendor;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'vendor'     => 'Vendor',
+        'regionId' => 'RegionId',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

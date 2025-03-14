@@ -18,6 +18,7 @@ class DescribePropertyUsageTopRequest extends Model
      *   **sca**: middleware
      *
      * This parameter is required.
+     *
      * @example port
      *
      * @var string
@@ -27,9 +28,7 @@ class DescribePropertyUsageTopRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

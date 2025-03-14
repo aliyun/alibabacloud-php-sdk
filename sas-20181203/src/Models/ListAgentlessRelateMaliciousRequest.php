@@ -12,6 +12,7 @@ class ListAgentlessRelateMaliciousRequest extends Model
      * @description The number of the page to return.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +44,7 @@ class ListAgentlessRelateMaliciousRequest extends Model
      * @description The number of entries to return on each page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var string
@@ -62,15 +64,13 @@ class ListAgentlessRelateMaliciousRequest extends Model
     public $scenario;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'eventId'     => 'EventId',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'scenario'    => 'Scenario',
+        'eventId' => 'EventId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'scenario' => 'Scenario',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

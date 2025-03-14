@@ -29,13 +29,11 @@ class GetAgentlessTaskCountRequest extends Model
      */
     public $targetType;
     protected $_name = [
-        'target'     => 'Target',
+        'target' => 'Target',
         'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

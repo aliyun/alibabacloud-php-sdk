@@ -21,6 +21,7 @@ class DescribeWebLockProcessListRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -49,14 +50,12 @@ class DescribeWebLockProcessListRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
+        'pageSize' => 'PageSize',
         'processName' => 'ProcessName',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

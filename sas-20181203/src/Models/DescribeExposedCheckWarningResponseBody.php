@@ -34,14 +34,12 @@ class DescribeExposedCheckWarningResponseBody extends Model
      */
     public $warningList;
     protected $_name = [
-        'count'       => 'Count',
-        'requestId'   => 'RequestId',
+        'count' => 'Count',
+        'requestId' => 'RequestId',
         'warningList' => 'WarningList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeExposedCheckWarningResponseBody extends Model
         if (isset($map['WarningList'])) {
             if (!empty($map['WarningList'])) {
                 $model->warningList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['WarningList'] as $item) {
                     $model->warningList[$n++] = null !== $item ? warningList::fromMap($item) : $item;
                 }

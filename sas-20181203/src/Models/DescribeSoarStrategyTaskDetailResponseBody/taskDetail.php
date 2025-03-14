@@ -12,7 +12,11 @@ class taskDetail extends Model
      * @description The operational log information of the task.
      *
      * @example {
+     * "resultContent": "{\\"failedNum\\":0,\\"totalNum\\":1,\\"successNum\\":1}",
+     * "resultStatus": 0,
+     * "status": 2
      * }
+     *
      * @var string
      */
     public $logInfo;
@@ -21,11 +25,45 @@ class taskDetail extends Model
      * @description The parameters of the task.
      *
      * @example [
+     * {
+     * "name": "vulList",
+     * "associationProperty": "sasAllVul",
+     * "value": [
+     * {
      * "regionId": "cn-hangzhou",
      * "instanceId": "i-bp10i3dtyq7x4****5e",
+     * "instanceName": "xxx",
+     * "vulId": 1222,
+     * "vulName": "centos:7:cesa-2024:1249",
+     * "vulAliasName": "CESA-2024:1249",
      * "vulTag": "oval",
      * "vulUuid": "3c5eb76a-df89-****-85ef-67562cdc2344",
+     * "vulType": "cve",
+     * "vulModifyTs": 1721324258000
+     * }
      * ]
+     * },
+     * {
+     * "name": "snapshotConfig",
+     * "associationProperty": "snapshotConfig",
+     * "value": {
+     * "ttl": 1
+     * }
+     * },
+     * {
+     * "name": "notifyConfig",
+     * "associationProperty": "notifyConfig",
+     * "value": {
+     * "ding": [
+     * {
+     * "value": 2195,
+     * "label": "test"
+     * }
+     * ]
+     * }
+     * }
+     * ]
+     *
      * @var string
      */
     public $params;
@@ -34,9 +72,27 @@ class taskDetail extends Model
      * @description The process information of the task.
      *
      * @example {
+     * "edges": [
+     * {
+     * "level": 0,
+     * "removeFlag": 0,
+     * "source": 1,
+     * "target": 8
+     * }
+     * ],
+     * "nodes": [
+     * {
      * "actionId": "Action_014s73k",
      * "iconUrl": "https://img.alicdn.com/tfs/TB1T*****jSZLeXXb9kVXa-12-14.svg",
+     * "id": 1,
+     * "label": "describeDisks",
+     * "nodeName": "DescribeDisks",
+     * "status": 0,
+     * "type": "openAPI"
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $processInfo;
@@ -50,15 +106,13 @@ class taskDetail extends Model
      */
     public $taskName;
     protected $_name = [
-        'logInfo'     => 'LogInfo',
-        'params'      => 'Params',
+        'logInfo' => 'LogInfo',
+        'params' => 'Params',
         'processInfo' => 'ProcessInfo',
-        'taskName'    => 'TaskName',
+        'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

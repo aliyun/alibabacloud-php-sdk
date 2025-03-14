@@ -35,14 +35,12 @@ class config extends Model
      */
     public $value;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'showName' => 'ShowName',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

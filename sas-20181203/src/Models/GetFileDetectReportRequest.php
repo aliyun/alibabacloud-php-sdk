@@ -67,16 +67,14 @@ class GetFileDetectReportRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'eventId'    => 'EventId',
-        'field'      => 'Field',
-        'fileHash'   => 'FileHash',
-        'lang'       => 'Lang',
+        'eventId' => 'EventId',
+        'field' => 'Field',
+        'fileHash' => 'FileHash',
+        'lang' => 'Lang',
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

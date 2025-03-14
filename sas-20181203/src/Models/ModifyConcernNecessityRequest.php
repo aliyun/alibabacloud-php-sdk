@@ -24,9 +24,7 @@ class ModifyConcernNecessityRequest extends Model
         'concernNecessity' => 'ConcernNecessity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

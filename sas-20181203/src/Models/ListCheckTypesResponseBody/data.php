@@ -34,14 +34,12 @@ class data extends Model
      */
     public $checkTypeDisName;
     protected $_name = [
-        'checkDetails'     => 'CheckDetails',
-        'checkType'        => 'CheckType',
+        'checkDetails' => 'CheckDetails',
+        'checkType' => 'CheckType',
         'checkTypeDisName' => 'CheckTypeDisName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class data extends Model
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CheckDetails'] as $item) {
                     $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
                 }

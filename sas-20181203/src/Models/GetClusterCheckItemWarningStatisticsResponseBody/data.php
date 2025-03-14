@@ -35,14 +35,12 @@ class data extends Model
      */
     public $mediumWarningCount;
     protected $_name = [
-        'highWarningCount'   => 'HighWarningCount',
-        'lowWarningCount'    => 'LowWarningCount',
+        'highWarningCount' => 'HighWarningCount',
+        'lowWarningCount' => 'LowWarningCount',
         'mediumWarningCount' => 'MediumWarningCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

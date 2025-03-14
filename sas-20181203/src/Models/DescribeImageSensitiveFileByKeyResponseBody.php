@@ -72,18 +72,16 @@ class DescribeImageSensitiveFileByKeyResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'              => 'Code',
-        'httpStatusCode'    => 'HttpStatusCode',
-        'message'           => 'Message',
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
+        'code' => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'sensitiveFileList' => 'SensitiveFileList',
-        'success'           => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -145,7 +143,7 @@ class DescribeImageSensitiveFileByKeyResponseBody extends Model
         if (isset($map['SensitiveFileList'])) {
             if (!empty($map['SensitiveFileList'])) {
                 $model->sensitiveFileList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['SensitiveFileList'] as $item) {
                     $model->sensitiveFileList[$n++] = null !== $item ? sensitiveFileList::fromMap($item) : $item;
                 }

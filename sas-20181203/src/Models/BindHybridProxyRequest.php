@@ -12,6 +12,7 @@ class BindHybridProxyRequest extends Model
      * @description The name of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example sas-proxy
      *
      * @var string
@@ -22,6 +23,7 @@ class BindHybridProxyRequest extends Model
      * @description The UUIDs of servers that you want to add to Security Center over the proxy server.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $yundunUuids;
@@ -30,9 +32,7 @@ class BindHybridProxyRequest extends Model
         'yundunUuids' => 'YundunUuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ModifyBackupPolicyStatusRequest extends Model
      * @description The ID of the anti-ransomware policy.
      *
      * This parameter is required.
+     *
      * @example 30490
      *
      * @var int
@@ -35,21 +36,22 @@ class ModifyBackupPolicyStatusRequest extends Model
      *   **enabled**: enables the anti-ransomware policy. After you enable the anti-ransomware policy, the anti-ransomware feature protects data on your servers. Data on your servers is backed up based on the policy.
      *   **disabled**: disables the anti-ransomware policy. After you disable the anti-ransomware policy, the data backup task that is running based on the policy stops.
      *
+     * >  When the system runs data backup tasks, your network bandwidth is consumed. We recommend that you enable the anti-ransomware policy during peak-off hours to back up data.
+     *
      * This parameter is required.
+     *
      * @example enabled
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'id'            => 'Id',
+        'id' => 'Id',
         'policyVersion' => 'PolicyVersion',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

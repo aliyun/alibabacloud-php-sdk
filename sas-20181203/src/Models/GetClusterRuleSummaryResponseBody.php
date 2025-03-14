@@ -26,12 +26,10 @@ class GetClusterRuleSummaryResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterRuleSummary' => 'ClusterRuleSummary',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

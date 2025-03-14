@@ -23,9 +23,7 @@ class UpdatePublishAutoUpgradeRequest extends Model
         'autoUpgrade' => 'AutoUpgrade',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

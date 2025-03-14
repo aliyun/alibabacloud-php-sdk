@@ -83,19 +83,17 @@ class data extends Model
      */
     public $level;
     protected $_name = [
-        'details'       => 'Details',
-        'eventId'       => 'EventId',
-        'eventName'     => 'EventName',
-        'instanceName'  => 'InstanceName',
-        'internetIp'    => 'InternetIp',
-        'intranetIp'    => 'IntranetIp',
+        'details' => 'Details',
+        'eventId' => 'EventId',
+        'eventName' => 'EventName',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'lastTimeStamp' => 'LastTimeStamp',
-        'level'         => 'Level',
+        'level' => 'Level',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -145,7 +143,7 @@ class data extends Model
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

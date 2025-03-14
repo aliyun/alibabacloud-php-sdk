@@ -25,13 +25,11 @@ class ModifyCreateVulWhitelistResponseBody extends Model
      */
     public $vulWhitelistList;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'vulWhitelistList' => 'VulWhitelistList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         if (isset($map['VulWhitelistList'])) {
             if (!empty($map['VulWhitelistList'])) {
                 $model->vulWhitelistList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['VulWhitelistList'] as $item) {
                     $model->vulWhitelistList[$n++] = null !== $item ? vulWhitelistList::fromMap($item) : $item;
                 }

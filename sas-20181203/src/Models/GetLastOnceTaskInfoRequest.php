@@ -25,6 +25,7 @@ class GetLastOnceTaskInfoRequest extends Model
      *   **ASSETS_COLLECTION**: asset collection task
      *
      * This parameter is required.
+     *
      * @example ASSETS_COLLECTION
      *
      * @var string
@@ -39,20 +40,19 @@ class GetLastOnceTaskInfoRequest extends Model
      *   **ASSETS_COLLECTION**: asset collection task
      *
      * This parameter is required.
+     *
      * @example ASSETS_COLLECTION
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'source'   => 'Source',
+        'source' => 'Source',
         'taskName' => 'TaskName',
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

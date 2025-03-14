@@ -12,6 +12,7 @@ class warningList extends Model
      * @description The ID of the baseline.
      *
      * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of baselines.
+     *
      * @example 107
      *
      * @var int
@@ -54,16 +55,14 @@ class warningList extends Model
      */
     public $uuid;
     protected $_name = [
-        'riskId'       => 'RiskId',
-        'riskName'     => 'RiskName',
+        'riskId' => 'RiskId',
+        'riskName' => 'RiskName',
         'subTypeAlias' => 'SubTypeAlias',
-        'typeAlias'    => 'TypeAlias',
-        'uuid'         => 'Uuid',
+        'typeAlias' => 'TypeAlias',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,7 +20,10 @@ class HandleSimilarSecurityEventsRequest extends Model
     /**
      * @description The operation that you want to perform to handle the alert events.
      *
+     * >  You can call the [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) operation to query the operations.
+     *
      * This parameter is required.
+     *
      * @example offline_handled
      *
      * @var string
@@ -46,6 +49,7 @@ class HandleSimilarSecurityEventsRequest extends Model
      * > *   **subOperation**: the method of detection and removal. Valid values:
      *
      * >     *   **quaraFileByMd5andPath**: quarantines the source file of the process.
+     *
      * @example {"expireTime":1646208726195}
      *
      * @var string
@@ -78,25 +82,26 @@ class HandleSimilarSecurityEventsRequest extends Model
     /**
      * @description The ID of the task that handles the alert events at a time.
      *
+     * >  You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to query the IDs of tasks.
+     *
      * This parameter is required.
+     *
      * @example 666038
      *
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'markMissParam'   => 'MarkMissParam',
-        'operationCode'   => 'OperationCode',
+        'markMissParam' => 'MarkMissParam',
+        'operationCode' => 'OperationCode',
         'operationParams' => 'OperationParams',
-        'remark'          => 'Remark',
+        'remark' => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
-        'taskId'          => 'TaskId',
+        'sourceIp' => 'SourceIp',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

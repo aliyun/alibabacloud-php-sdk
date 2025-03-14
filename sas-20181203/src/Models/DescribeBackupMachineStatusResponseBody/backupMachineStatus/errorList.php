@@ -26,13 +26,11 @@ class errorList extends Model
      */
     public $errorStatus;
     protected $_name = [
-        'errorCode'   => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorStatus' => 'ErrorStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

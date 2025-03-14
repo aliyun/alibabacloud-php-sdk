@@ -38,14 +38,12 @@ class CreateContainerScanTaskByAppNameRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'appNames'  => 'AppNames',
+        'appNames' => 'AppNames',
         'clusterId' => 'ClusterId',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

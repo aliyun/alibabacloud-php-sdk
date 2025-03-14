@@ -35,14 +35,12 @@ class eventLevels extends Model
      */
     public $suspicious;
     protected $_name = [
-        'remind'     => 'Remind',
-        'serious'    => 'Serious',
+        'remind' => 'Remind',
+        'serious' => 'Serious',
         'suspicious' => 'Suspicious',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

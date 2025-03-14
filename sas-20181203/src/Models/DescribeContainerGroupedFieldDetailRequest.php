@@ -11,7 +11,10 @@ class DescribeContainerGroupedFieldDetailRequest extends Model
     /**
      * @description The search conditions that are used to query assets. The value of this parameter is in the JSON format. Separate multiple search conditions with commas (,). Example: `[{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]`.
      *
+     * >  Supported search conditions include the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+     *
      * This parameter is required.
+     *
      * @example [{\\"name\\":\\"clusterId\\",\\"value\\":\\"cfd26658431084c73a48dd97328ba8acf\\"}]
      *
      * @var string
@@ -29,19 +32,18 @@ class DescribeContainerGroupedFieldDetailRequest extends Model
      *   **containerScan**
      *
      * This parameter is required.
+     *
      * @example pod
      *
      * @var string
      */
     public $groupField;
     protected $_name = [
-        'criteria'   => 'Criteria',
+        'criteria' => 'Criteria',
         'groupField' => 'GroupField',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

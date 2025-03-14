@@ -20,9 +20,7 @@ class data extends Model
         'nameSpaceName' => 'NameSpaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

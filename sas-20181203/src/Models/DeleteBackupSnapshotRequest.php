@@ -35,14 +35,12 @@ class DeleteBackupSnapshotRequest extends Model
      */
     public $retainLatestSnapshot;
     protected $_name = [
-        'backupRegionIdList'   => 'BackupRegionIdList',
-        'backupSnapshotList'   => 'BackupSnapshotList',
+        'backupRegionIdList' => 'BackupRegionIdList',
+        'backupSnapshotList' => 'BackupSnapshotList',
         'retainLatestSnapshot' => 'RetainLatestSnapshot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DeleteBackupSnapshotRequest extends Model
         if (isset($map['BackupSnapshotList'])) {
             if (!empty($map['BackupSnapshotList'])) {
                 $model->backupSnapshotList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['BackupSnapshotList'] as $item) {
                     $model->backupSnapshotList[$n++] = null !== $item ? backupSnapshotList::fromMap($item) : $item;
                 }

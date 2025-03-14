@@ -34,13 +34,11 @@ class ListImageRiskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'imageRiskList' => 'ImageRiskList',
-        'pageInfo'      => 'PageInfo',
-        'requestId'     => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListImageRiskResponseBody extends Model
         if (isset($map['ImageRiskList'])) {
             if (!empty($map['ImageRiskList'])) {
                 $model->imageRiskList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ImageRiskList'] as $item) {
                     $model->imageRiskList[$n++] = null !== $item ? imageRiskList::fromMap($item) : $item;
                 }

@@ -34,14 +34,12 @@ class DescribeDomainSecureAlarmListResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'alarmList'  => 'AlarmList',
-        'requestId'  => 'RequestId',
+        'alarmList' => 'AlarmList',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeDomainSecureAlarmListResponseBody extends Model
         if (isset($map['AlarmList'])) {
             if (!empty($map['AlarmList'])) {
                 $model->alarmList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AlarmList'] as $item) {
                     $model->alarmList[$n++] = null !== $item ? alarmList::fromMap($item) : $item;
                 }

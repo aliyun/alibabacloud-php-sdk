@@ -40,6 +40,7 @@ class conditionList extends Model
      *   **OR**: The filter conditions are evaluated by using a logical **OR**.
      *
      * >  If the value of **ConditionType** is **system**, **labelKey** is returned. The labelKey field is used only for internationalization rendering.
+     *
      * @example {\\"filterParams\\":[{\\"labelKey\\":\\"a|b\\",\\"value\\":\\"{\\\\\\"name\\\\\\":\\\\\\"sadsasd\\\\\\",\\\\\\"value\\\\\\":\\\\\\"dasdsdas\\\\\\"}\\"}],\\"LogicalExp\\":\\"OR\\"}
      *
      * @var string
@@ -64,15 +65,13 @@ class conditionList extends Model
      */
     public $nameKey;
     protected $_name = [
-        'conditionType'    => 'ConditionType',
+        'conditionType' => 'ConditionType',
         'filterConditions' => 'FilterConditions',
-        'name'             => 'Name',
-        'nameKey'          => 'NameKey',
+        'name' => 'Name',
+        'nameKey' => 'NameKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

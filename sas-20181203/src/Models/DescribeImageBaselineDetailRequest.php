@@ -39,13 +39,11 @@ class DescribeImageBaselineDetailRequest extends Model
     public $lang;
     protected $_name = [
         'baselineItemKey' => 'BaselineItemKey',
-        'imageUuid'       => 'ImageUuid',
-        'lang'            => 'Lang',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

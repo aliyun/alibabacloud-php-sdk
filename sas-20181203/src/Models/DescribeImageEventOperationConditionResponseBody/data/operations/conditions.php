@@ -36,14 +36,12 @@ class conditions extends Model
      */
     public $supportedMisType;
     protected $_name = [
-        'conditionKey'     => 'ConditionKey',
-        'conditionName'    => 'ConditionName',
+        'conditionKey' => 'ConditionKey',
+        'conditionName' => 'ConditionName',
         'supportedMisType' => 'SupportedMisType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

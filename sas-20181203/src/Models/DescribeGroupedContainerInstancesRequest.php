@@ -12,6 +12,7 @@ class DescribeGroupedContainerInstancesRequest extends Model
      * @description The search conditions for assets. Specify the value in the JSON format. Separate multiple search conditions with commas (,). Example: `[{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]`.
      *
      * >  Supported search conditions include the instance ID, instance name, virtual private cloud (VPC) ID, region, and public IP address. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+     *
      * @example [{"name":"riskStatus","value":"YES"},{"name":"riskLevel","value":"2"}]
      *
      * @var string
@@ -37,6 +38,7 @@ class DescribeGroupedContainerInstancesRequest extends Model
      *   If the **GroupField** parameter is set to **image**, set this parameter to the name of the image that you want to query.
      *
      * >  Fuzzy match is supported.
+     *
      * @example cas-adad-qeqwe
      *
      * @var string
@@ -53,6 +55,7 @@ class DescribeGroupedContainerInstancesRequest extends Model
      *   **image**
      *
      * This parameter is required.
+     *
      * @example pod
      *
      * @var string
@@ -75,23 +78,22 @@ class DescribeGroupedContainerInstancesRequest extends Model
      * @description The number of entries to return on each page. Default value: **20**.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'criteria'    => 'Criteria',
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
-        'fieldValue'  => 'FieldValue',
-        'groupField'  => 'GroupField',
-        'logicalExp'  => 'LogicalExp',
-        'pageSize'    => 'PageSize',
+        'fieldValue' => 'FieldValue',
+        'groupField' => 'GroupField',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

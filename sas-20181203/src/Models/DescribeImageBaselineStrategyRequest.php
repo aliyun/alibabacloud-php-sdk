@@ -41,14 +41,12 @@ class DescribeImageBaselineStrategyRequest extends Model
      */
     public $strategyId;
     protected $_name = [
-        'lang'       => 'Lang',
-        'source'     => 'Source',
+        'lang' => 'Lang',
+        'source' => 'Source',
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

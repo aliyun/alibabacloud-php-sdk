@@ -21,6 +21,7 @@ class CreateOssBucketScanTaskRequest extends Model
      * @description The names of the buckets.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $bucketNameList;
@@ -87,27 +88,26 @@ class CreateOssBucketScanTaskRequest extends Model
      *   **2**: checks only new objects in the bucket.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $scanMode;
     protected $_name = [
-        'allKeyPrefix'           => 'AllKeyPrefix',
-        'bucketNameList'         => 'BucketNameList',
+        'allKeyPrefix' => 'AllKeyPrefix',
+        'bucketNameList' => 'BucketNameList',
         'decompressMaxFileCount' => 'DecompressMaxFileCount',
-        'decompressMaxLayer'     => 'DecompressMaxLayer',
-        'decryptionList'         => 'DecryptionList',
-        'excludeKeySuffixList'   => 'ExcludeKeySuffixList',
-        'keyPrefixList'          => 'KeyPrefixList',
-        'keySuffixList'          => 'KeySuffixList',
-        'lastModifiedStartTime'  => 'LastModifiedStartTime',
-        'scanMode'               => 'ScanMode',
+        'decompressMaxLayer' => 'DecompressMaxLayer',
+        'decryptionList' => 'DecryptionList',
+        'excludeKeySuffixList' => 'ExcludeKeySuffixList',
+        'keyPrefixList' => 'KeyPrefixList',
+        'keySuffixList' => 'KeySuffixList',
+        'lastModifiedStartTime' => 'LastModifiedStartTime',
+        'scanMode' => 'ScanMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

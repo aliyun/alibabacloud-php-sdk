@@ -26,12 +26,10 @@ class data extends Model
     public $hit;
     protected $_name = [
         'excludeApiList' => 'ExcludeApiList',
-        'hit'            => 'Hit',
+        'hit' => 'Hit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class data extends Model
         if (isset($map['ExcludeApiList'])) {
             if (!empty($map['ExcludeApiList'])) {
                 $model->excludeApiList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['ExcludeApiList'] as $item) {
                     $model->excludeApiList[$n++] = null !== $item ? excludeApiList::fromMap($item) : $item;
                 }

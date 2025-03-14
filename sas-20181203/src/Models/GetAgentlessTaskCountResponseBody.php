@@ -108,21 +108,19 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $vulnerability;
     protected $_name = [
         'baselineCheckCount' => 'BaselineCheckCount',
-        'cveVulCount'        => 'CveVulCount',
-        'lastTaskTime'       => 'LastTaskTime',
-        'maliciousFile'      => 'MaliciousFile',
-        'requestId'          => 'RequestId',
-        'riskMachine'        => 'RiskMachine',
-        'scaVulCount'        => 'ScaVulCount',
-        'scanMachine'        => 'ScanMachine',
+        'cveVulCount' => 'CveVulCount',
+        'lastTaskTime' => 'LastTaskTime',
+        'maliciousFile' => 'MaliciousFile',
+        'requestId' => 'RequestId',
+        'riskMachine' => 'RiskMachine',
+        'scaVulCount' => 'ScaVulCount',
+        'scanMachine' => 'ScanMachine',
         'sensitiveFileCount' => 'SensitiveFileCount',
-        'sysVulCount'        => 'SysVulCount',
-        'vulnerability'      => 'Vulnerability',
+        'sysVulCount' => 'SysVulCount',
+        'vulnerability' => 'Vulnerability',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -82,19 +82,17 @@ class uploadUrlList extends Model
      */
     public $publicUrl;
     protected $_name = [
-        'code'        => 'Code',
-        'context'     => 'Context',
-        'expire'      => 'Expire',
-        'fileExist'   => 'FileExist',
-        'hashKey'     => 'HashKey',
+        'code' => 'Code',
+        'context' => 'Context',
+        'expire' => 'Expire',
+        'fileExist' => 'FileExist',
+        'hashKey' => 'HashKey',
         'internalUrl' => 'InternalUrl',
-        'message'     => 'Message',
-        'publicUrl'   => 'PublicUrl',
+        'message' => 'Message',
+        'publicUrl' => 'PublicUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListCheckItemWarningMachineRequest extends Model
      * @description The ID of the check item.
      *
      * This parameter is required.
+     *
      * @example 8
      *
      * @var int
@@ -49,6 +50,7 @@ class ListCheckItemWarningMachineRequest extends Model
      * @description The ID of the asset group.
      *
      * > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID of the asset group.
+     *
      * @example 1161****
      *
      * @var int
@@ -71,6 +73,7 @@ class ListCheckItemWarningMachineRequest extends Model
      * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -133,23 +136,21 @@ class ListCheckItemWarningMachineRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'checkId'             => 'CheckId',
-        'containerFieldName'  => 'ContainerFieldName',
+        'checkId' => 'CheckId',
+        'containerFieldName' => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
-        'currentPage'         => 'CurrentPage',
-        'groupId'             => 'GroupId',
-        'lang'                => 'Lang',
-        'pageSize'            => 'PageSize',
-        'remark'              => 'Remark',
-        'riskType'            => 'RiskType',
-        'source'              => 'Source',
-        'status'              => 'Status',
-        'uuidList'            => 'UuidList',
+        'currentPage' => 'CurrentPage',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'riskType' => 'RiskType',
+        'source' => 'Source',
+        'status' => 'Status',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

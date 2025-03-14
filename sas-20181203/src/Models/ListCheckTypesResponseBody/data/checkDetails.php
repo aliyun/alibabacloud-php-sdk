@@ -41,14 +41,12 @@ class checkDetails extends Model
     public $checkItem;
     protected $_name = [
         'affiliatedRiskTypes' => 'AffiliatedRiskTypes',
-        'affiliatedRisks'     => 'AffiliatedRisks',
-        'checkId'             => 'CheckId',
-        'checkItem'           => 'CheckItem',
+        'affiliatedRisks' => 'AffiliatedRisks',
+        'checkId' => 'CheckId',
+        'checkItem' => 'CheckItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

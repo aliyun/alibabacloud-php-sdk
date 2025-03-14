@@ -34,13 +34,11 @@ class DescribeImageFixTaskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'buildTasks' => 'BuildTasks',
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeImageFixTaskResponseBody extends Model
         if (isset($map['BuildTasks'])) {
             if (!empty($map['BuildTasks'])) {
                 $model->buildTasks = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['BuildTasks'] as $item) {
                     $model->buildTasks[$n++] = null !== $item ? buildTasks::fromMap($item) : $item;
                 }

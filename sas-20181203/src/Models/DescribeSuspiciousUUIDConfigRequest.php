@@ -18,6 +18,7 @@ class DescribeSuspiciousUUIDConfigRequest extends Model
      *   **alisecguard**: client protection
      *
      * This parameter is required.
+     *
      * @example alinet
      *
      * @var string
@@ -27,9 +28,7 @@ class DescribeSuspiciousUUIDConfigRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

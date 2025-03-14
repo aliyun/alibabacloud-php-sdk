@@ -21,6 +21,7 @@ class ListAegisContainerPluginRuleRequest extends Model
      * @description The page number.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +44,7 @@ class ListAegisContainerPluginRuleRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -61,16 +63,14 @@ class ListAegisContainerPluginRuleRequest extends Model
      */
     public $ruleType;
     protected $_name = [
-        'criteria'    => 'Criteria',
+        'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'ruleType'    => 'RuleType',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

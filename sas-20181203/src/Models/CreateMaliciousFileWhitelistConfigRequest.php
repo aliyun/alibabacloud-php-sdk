@@ -83,18 +83,16 @@ class CreateMaliciousFileWhitelistConfigRequest extends Model
      */
     public $targetValue;
     protected $_name = [
-        'eventName'   => 'EventName',
-        'field'       => 'Field',
-        'fieldValue'  => 'FieldValue',
-        'operator'    => 'Operator',
-        'source'      => 'Source',
-        'targetType'  => 'TargetType',
+        'eventName' => 'EventName',
+        'field' => 'Field',
+        'fieldValue' => 'FieldValue',
+        'operator' => 'Operator',
+        'source' => 'Source',
+        'targetType' => 'TargetType',
         'targetValue' => 'TargetValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetInterceptionTargetDetailResponseBody extends Model
      */
     public $ruleTarget;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleTarget' => 'RuleTarget',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

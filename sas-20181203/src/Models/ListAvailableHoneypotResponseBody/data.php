@@ -97,19 +97,17 @@ class data extends Model
     public $template;
     protected $_name = [
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
-        'honeypotImageId'          => 'HoneypotImageId',
-        'honeypotImageName'        => 'HoneypotImageName',
-        'honeypotImageType'        => 'HoneypotImageType',
-        'honeypotImageVersion'     => 'HoneypotImageVersion',
-        'multiports'               => 'Multiports',
-        'proto'                    => 'Proto',
-        'servicePort'              => 'ServicePort',
-        'template'                 => 'Template',
+        'honeypotImageId' => 'HoneypotImageId',
+        'honeypotImageName' => 'HoneypotImageName',
+        'honeypotImageType' => 'HoneypotImageType',
+        'honeypotImageVersion' => 'HoneypotImageVersion',
+        'multiports' => 'Multiports',
+        'proto' => 'Proto',
+        'servicePort' => 'ServicePort',
+        'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

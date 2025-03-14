@@ -25,13 +25,11 @@ class DescribeRiskItemTypeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'list'      => 'List',
+        'list' => 'List',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeRiskItemTypeResponseBody extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

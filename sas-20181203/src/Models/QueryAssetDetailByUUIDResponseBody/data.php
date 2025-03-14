@@ -270,37 +270,35 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliUid'            => 'AliUid',
-        'authVersion'       => 'AuthVersion',
-        'bid'               => 'Bid',
-        'bind'              => 'Bind',
-        'clientStatus'      => 'ClientStatus',
-        'clusterId'         => 'ClusterId',
-        'eip'               => 'Eip',
-        'flag'              => 'Flag',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtModified'       => 'GmtModified',
-        'groupId'           => 'GroupId',
-        'id'                => 'Id',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
+        'aliUid' => 'AliUid',
+        'authVersion' => 'AuthVersion',
+        'bid' => 'Bid',
+        'bind' => 'Bind',
+        'clientStatus' => 'ClientStatus',
+        'clusterId' => 'ClusterId',
+        'eip' => 'Eip',
+        'flag' => 'Flag',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'machineInstanceId' => 'MachineInstanceId',
-        'machineIp'         => 'MachineIp',
-        'machineIpType'     => 'MachineIpType',
-        'machineName'       => 'MachineName',
-        'machineRegion'     => 'MachineRegion',
-        'machineType'       => 'MachineType',
-        'online'            => 'Online',
-        'os'                => 'Os',
-        'osName'            => 'OsName',
-        'regionId'          => 'RegionId',
-        'status'            => 'Status',
-        'uuid'              => 'Uuid',
+        'machineIp' => 'MachineIp',
+        'machineIpType' => 'MachineIpType',
+        'machineName' => 'MachineName',
+        'machineRegion' => 'MachineRegion',
+        'machineType' => 'MachineType',
+        'online' => 'Online',
+        'os' => 'Os',
+        'osName' => 'OsName',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

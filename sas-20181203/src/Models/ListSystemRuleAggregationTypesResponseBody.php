@@ -26,12 +26,10 @@ class ListSystemRuleAggregationTypesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aggregationTypeList' => 'AggregationTypeList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListSystemRuleAggregationTypesResponseBody extends Model
         if (isset($map['AggregationTypeList'])) {
             if (!empty($map['AggregationTypeList'])) {
                 $model->aggregationTypeList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AggregationTypeList'] as $item) {
                     $model->aggregationTypeList[$n++] = null !== $item ? aggregationTypeList::fromMap($item) : $item;
                 }

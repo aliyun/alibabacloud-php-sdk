@@ -29,9 +29,7 @@ class DescribeRiskTypeResponseBody extends Model
         'riskTypes' => 'RiskTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeRiskTypeResponseBody extends Model
         if (isset($map['RiskTypes'])) {
             if (!empty($map['RiskTypes'])) {
                 $model->riskTypes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['RiskTypes'] as $item) {
                     $model->riskTypes[$n++] = null !== $item ? riskTypes::fromMap($item) : $item;
                 }

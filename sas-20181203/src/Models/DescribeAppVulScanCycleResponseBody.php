@@ -30,13 +30,11 @@ class DescribeAppVulScanCycleResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cycle'     => 'Cycle',
+        'cycle' => 'Cycle',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

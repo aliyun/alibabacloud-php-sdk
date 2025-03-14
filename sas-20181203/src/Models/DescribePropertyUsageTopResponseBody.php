@@ -49,15 +49,13 @@ class DescribePropertyUsageTopResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'itemCount'         => 'ItemCount',
-        'requestId'         => 'RequestId',
+        'itemCount' => 'ItemCount',
+        'requestId' => 'RequestId',
         'topStatisticItems' => 'TopStatisticItems',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +99,7 @@ class DescribePropertyUsageTopResponseBody extends Model
         if (isset($map['TopStatisticItems'])) {
             if (!empty($map['TopStatisticItems'])) {
                 $model->topStatisticItems = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['TopStatisticItems'] as $item) {
                     $model->topStatisticItems[$n++] = null !== $item ? topStatisticItems::fromMap($item) : $item;
                 }

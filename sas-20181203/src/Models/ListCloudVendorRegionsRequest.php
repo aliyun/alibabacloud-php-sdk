@@ -31,13 +31,11 @@ class ListCloudVendorRegionsRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

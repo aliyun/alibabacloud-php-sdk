@@ -23,9 +23,7 @@ class ListClientAlertModeRequest extends Model
         'mode' => 'Mode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

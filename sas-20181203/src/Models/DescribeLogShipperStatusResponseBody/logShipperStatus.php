@@ -34,7 +34,9 @@ class logShipperStatus extends Model
 
     /**
      * @description The version of the log analysis field. Valid values:
+     * - SAS_V1
      * - SAS_V2
+     *
      * @example SAS_V1
      *
      * @var string
@@ -101,19 +103,17 @@ class logShipperStatus extends Model
      */
     public $slsServiceStatus;
     protected $_name = [
-        'authStatus'            => 'AuthStatus',
-        'buyStatus'             => 'BuyStatus',
-        'etlMetaVersion'        => 'EtlMetaVersion',
-        'openStatus'            => 'OpenStatus',
-        'postPaidOpenStatus'    => 'PostPaidOpenStatus',
+        'authStatus' => 'AuthStatus',
+        'buyStatus' => 'BuyStatus',
+        'etlMetaVersion' => 'EtlMetaVersion',
+        'openStatus' => 'OpenStatus',
+        'postPaidOpenStatus' => 'PostPaidOpenStatus',
         'postPaidSupportStatus' => 'PostPaidSupportStatus',
-        'slsProjectStatus'      => 'SlsProjectStatus',
-        'slsServiceStatus'      => 'SlsServiceStatus',
+        'slsProjectStatus' => 'SlsProjectStatus',
+        'slsServiceStatus' => 'SlsServiceStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

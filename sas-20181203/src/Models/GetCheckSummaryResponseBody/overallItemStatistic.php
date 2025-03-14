@@ -27,12 +27,10 @@ class overallItemStatistic extends Model
     public $resultCount;
     protected $_name = [
         'releaseCount' => 'ReleaseCount',
-        'resultCount'  => 'ResultCount',
+        'resultCount' => 'ResultCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

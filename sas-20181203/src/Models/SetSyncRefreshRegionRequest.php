@@ -42,13 +42,11 @@ class SetSyncRefreshRegionRequest extends Model
     public $vendor;
     protected $_name = [
         'defaultRegion' => 'DefaultRegion',
-        'regionIds'     => 'RegionIds',
-        'vendor'        => 'Vendor',
+        'regionIds' => 'RegionIds',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

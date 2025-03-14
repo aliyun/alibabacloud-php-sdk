@@ -53,16 +53,14 @@ class ListInstanceCatalogRequest extends Model
      */
     public $types;
     protected $_name = [
-        'lang'           => 'Lang',
-        'regionId'       => 'RegionId',
+        'lang' => 'Lang',
+        'regionId' => 'RegionId',
         'requirementIds' => 'RequirementIds',
-        'standardIds'    => 'StandardIds',
-        'types'          => 'Types',
+        'standardIds' => 'StandardIds',
+        'types' => 'Types',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

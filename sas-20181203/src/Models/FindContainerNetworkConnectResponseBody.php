@@ -33,14 +33,12 @@ class FindContainerNetworkConnectResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'connects'  => 'Connects',
-        'pageInfo'  => 'PageInfo',
+        'connects' => 'Connects',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class FindContainerNetworkConnectResponseBody extends Model
         if (isset($map['Connects'])) {
             if (!empty($map['Connects'])) {
                 $model->connects = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Connects'] as $item) {
                     $model->connects[$n++] = null !== $item ? connects::fromMap($item) : $item;
                 }

@@ -51,14 +51,12 @@ class operationTaskInstances extends Model
     public $vendor;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'taskId'     => 'TaskId',
-        'vendor'     => 'Vendor',
+        'regionId' => 'RegionId',
+        'taskId' => 'TaskId',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

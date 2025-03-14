@@ -33,14 +33,12 @@ class ListPodRiskResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'    => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'podRiskList' => 'PodRiskList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class ListPodRiskResponseBody extends Model
         if (isset($map['PodRiskList'])) {
             if (!empty($map['PodRiskList'])) {
                 $model->podRiskList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['PodRiskList'] as $item) {
                     $model->podRiskList[$n++] = null !== $item ? podRiskList::fromMap($item) : $item;
                 }

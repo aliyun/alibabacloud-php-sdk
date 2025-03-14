@@ -35,14 +35,12 @@ class classifys extends Model
      */
     public $description;
     protected $_name = [
-        'classify'     => 'Classify',
+        'classify' => 'Classify',
         'demoVideoUrl' => 'DemoVideoUrl',
-        'description'  => 'Description',
+        'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdateJenkinsImageRegistryNameRequest extends Model
      * @description The ID of the image repository.
      *
      * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+     *
      * @example 25090
      *
      * @var int
@@ -36,14 +37,12 @@ class UpdateJenkinsImageRegistryNameRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'registryId'   => 'RegistryId',
+        'registryId' => 'RegistryId',
         'registryName' => 'RegistryName',
-        'sourceIp'     => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

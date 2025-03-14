@@ -12,6 +12,7 @@ class ModifyHybridProxyPolicyRequest extends Model
      * @description The name of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example sas-proxy
      *
      * @var string
@@ -22,19 +23,41 @@ class ModifyHybridProxyPolicyRequest extends Model
      * @description The policy of the proxy cluster.
      *
      * This parameter is required.
+     *
      * @example [
+     * {
+     * "policyType": "limitFrequency",
+     * "info":
+     * [
+     * {
+     * "type": "file",
+     * "config": "10"
+     * }
      * ]
+     * },
+     * {
+     * "policyType": "limitBandWidth",
+     * "info":
+     * [
+     * {
+     * "type": "net"
+     * },
+     * {
+     * "type": "process"
+     * }
+     * ]
+     * }
+     * ]
+     *
      * @var string
      */
     public $policyInfo;
     protected $_name = [
         'clusterName' => 'ClusterName',
-        'policyInfo'  => 'PolicyInfo',
+        'policyInfo' => 'PolicyInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

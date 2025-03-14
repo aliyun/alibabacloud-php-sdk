@@ -12,6 +12,7 @@ class scopes extends Model
      * @description The ID of the cluster node to which the rule is applied.
      *
      * >  You can call the [GetOpaStrategyDetailNew](~~GetOpaStrategyDetailNew~~) operation to query the ID of the cluster node to which the rule is applied.
+     *
      * @example ack-1
      *
      * @var string
@@ -34,6 +35,7 @@ class scopes extends Model
      * @description The cluster ID.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
+     *
      * @example cdcb56a931c**
      *
      * @var string
@@ -44,19 +46,18 @@ class scopes extends Model
      * @description The namespaces.
      *
      * > This parameter is valid only when the AllNamespace parameter is set to 0.
+     *
      * @var string[]
      */
     public $namespaceList;
     protected $_name = [
         'ackPolicyInstanceId' => 'AckPolicyInstanceId',
-        'allNamespace'        => 'AllNamespace',
-        'clusterId'           => 'ClusterId',
-        'namespaceList'       => 'NamespaceList',
+        'allNamespace' => 'AllNamespace',
+        'clusterId' => 'ClusterId',
+        'namespaceList' => 'NamespaceList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

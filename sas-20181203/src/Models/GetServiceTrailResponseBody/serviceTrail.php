@@ -38,14 +38,12 @@ class serviceTrail extends Model
      */
     public $updateTime;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'createTime' => 'CreateTime',
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

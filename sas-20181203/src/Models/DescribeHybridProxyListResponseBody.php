@@ -33,14 +33,12 @@ class DescribeHybridProxyListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'proxyList' => 'ProxyList',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribeHybridProxyListResponseBody extends Model
         if (isset($map['ProxyList'])) {
             if (!empty($map['ProxyList'])) {
                 $model->proxyList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ProxyList'] as $item) {
                     $model->proxyList[$n++] = null !== $item ? proxyList::fromMap($item) : $item;
                 }

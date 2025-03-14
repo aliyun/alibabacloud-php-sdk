@@ -12,6 +12,7 @@ class CreateRestoreJobRequest extends Model
      * @description The directory in which the files included in the restoration task are located. This parameter is specified when you create the anti-ransomware policy. The value is a directory that requires protection.
      *
      * This parameter is required.
+     *
      * @example ["root"]
      *
      * @var string
@@ -21,7 +22,10 @@ class CreateRestoreJobRequest extends Model
     /**
      * @description The hash value of the snapshot.
      *
+     * > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain the value of this parameter.
+     *
      * This parameter is required.
+     *
      * @example d4b399edaad94b038e8f91873f19e3eae010ca30798fc36db3a164dd343f****
      *
      * @var string
@@ -31,7 +35,10 @@ class CreateRestoreJobRequest extends Model
     /**
      * @description The ID of the snapshot that you want to use for restoration.
      *
+     * > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain the value of this parameter.
+     *
      * This parameter is required.
+     *
      * @example s-00023dhaatxp18mh****
      *
      * @var string
@@ -41,7 +48,10 @@ class CreateRestoreJobRequest extends Model
     /**
      * @description The version of the backup data.
      *
+     * > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain the value of this parameter.
+     *
      * This parameter is required.
+     *
      * @example 165570544****
      *
      * @var string
@@ -64,6 +74,7 @@ class CreateRestoreJobRequest extends Model
      * @description The path to which you want to restore data.
      *
      * This parameter is required.
+     *
      * @example /root/testfls
      *
      * @var string
@@ -74,6 +85,7 @@ class CreateRestoreJobRequest extends Model
      * @description The UUID of the server whose data you want to restore.
      *
      * This parameter is required.
+     *
      * @example inet-ecs-4e876cb0-09f7-43b8-82ef-4bc7a93769b5
      *
      * @var string
@@ -83,26 +95,27 @@ class CreateRestoreJobRequest extends Model
     /**
      * @description The ID of the backup vault that is used in the restoration task.
      *
+     * > You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to obtain the value of this parameter.
+     *
      * This parameter is required.
+     *
      * @example v-0002n12wokck2q0x****
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'includes'        => 'Includes',
-        'snapshotHash'    => 'SnapshotHash',
-        'snapshotId'      => 'SnapshotId',
+        'includes' => 'Includes',
+        'snapshotHash' => 'SnapshotHash',
+        'snapshotId' => 'SnapshotId',
         'snapshotVersion' => 'SnapshotVersion',
-        'sourceType'      => 'SourceType',
-        'target'          => 'Target',
-        'uuid'            => 'Uuid',
-        'vaultId'         => 'VaultId',
+        'sourceType' => 'SourceType',
+        'target' => 'Target',
+        'uuid' => 'Uuid',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

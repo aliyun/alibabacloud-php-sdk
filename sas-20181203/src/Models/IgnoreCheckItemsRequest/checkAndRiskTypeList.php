@@ -26,13 +26,11 @@ class checkAndRiskTypeList extends Model
      */
     public $riskType;
     protected $_name = [
-        'checkId'  => 'CheckId',
+        'checkId' => 'CheckId',
         'riskType' => 'RiskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

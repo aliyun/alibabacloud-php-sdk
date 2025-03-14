@@ -12,6 +12,7 @@ class DescribeIdcProbeScanResultListRequest extends Model
      * @description The search conditions for assets. This parameter is in the JSON format. The value is case-sensitive.
      *
      * >  A search condition can be the instance ID, instance name, VPC ID, region, or public IP address. You can call the [DescribeIdcAssetCriteria](https://help.aliyun.com/document_detail/2842671.html) operation to query supported search conditions.
+     *
      * @example [{\\"name\\":\\"scannedIp\\",\\"value\\":\\"192.168.2.11\\"}]
      *
      * @var string
@@ -61,6 +62,7 @@ class DescribeIdcProbeScanResultListRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -82,18 +84,16 @@ class DescribeIdcProbeScanResultListRequest extends Model
      */
     public $status;
     protected $_name = [
-        'criteria'       => 'Criteria',
-        'currentPage'    => 'CurrentPage',
-        'foundEndTime'   => 'FoundEndTime',
+        'criteria' => 'Criteria',
+        'currentPage' => 'CurrentPage',
+        'foundEndTime' => 'FoundEndTime',
         'foundStartTime' => 'FoundStartTime',
-        'logicalExp'     => 'LogicalExp',
-        'pageSize'       => 'PageSize',
-        'status'         => 'Status',
+        'logicalExp' => 'LogicalExp',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class mergeFieldList extends Model
     public $fieldValue;
     protected $_name = [
         'fieldExtInfo' => 'FieldExtInfo',
-        'fieldKey'     => 'FieldKey',
-        'fieldType'    => 'FieldType',
-        'fieldValue'   => 'FieldValue',
+        'fieldKey' => 'FieldKey',
+        'fieldType' => 'FieldType',
+        'fieldValue' => 'FieldValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetOnceTaskResultInfoRequest extends Model
      * @description The ID of the scan task.
      *
      * This parameter is required.
+     *
      * @example 9dfa3a7eb9547781632785b49003****
      *
      * @var string
@@ -26,6 +27,7 @@ class GetOnceTaskResultInfoRequest extends Model
      *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
      * This parameter is required.
+     *
      * @example ASSETS_COLLECTION
      *
      * @var string
@@ -40,20 +42,19 @@ class GetOnceTaskResultInfoRequest extends Model
      *   **ASSET_SECURITY_CHECK**: a task of asset information collection
      *
      * This parameter is required.
+     *
      * @example ASSETS_COLLECTION
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'taskId'   => 'TaskId',
+        'taskId' => 'TaskId',
         'taskName' => 'TaskName',
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

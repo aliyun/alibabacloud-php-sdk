@@ -44,15 +44,13 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'internetIp'  => 'InternetIp',
-        'intranetIp'  => 'IntranetIp',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
         'machineName' => 'MachineName',
-        'uuid'        => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

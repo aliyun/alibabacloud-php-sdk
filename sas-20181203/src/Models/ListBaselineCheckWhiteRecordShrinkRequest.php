@@ -73,18 +73,16 @@ class ListBaselineCheckWhiteRecordShrinkRequest extends Model
      */
     public $source;
     protected $_name = [
-        'checkIdsShrink'  => 'CheckIds',
-        'checkItemFuzzy'  => 'CheckItemFuzzy',
-        'currentPage'     => 'CurrentPage',
-        'lang'            => 'Lang',
-        'pageSize'        => 'PageSize',
+        'checkIdsShrink' => 'CheckIds',
+        'checkItemFuzzy' => 'CheckItemFuzzy',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'recordIdsShrink' => 'RecordIds',
-        'source'          => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

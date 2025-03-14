@@ -84,15 +84,13 @@ class data extends Model
      */
     public $selected;
     protected $_name = [
-        'area'     => 'Area',
-        'disable'  => 'Disable',
+        'area' => 'Area',
+        'disable' => 'Disable',
         'regionId' => 'RegionId',
         'selected' => 'Selected',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

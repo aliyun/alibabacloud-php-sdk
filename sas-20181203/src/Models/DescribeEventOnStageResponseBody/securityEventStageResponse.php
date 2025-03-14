@@ -22,9 +22,7 @@ class securityEventStageResponse extends Model
         'securityEventOnStag' => 'SecurityEventOnStag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

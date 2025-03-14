@@ -72,17 +72,15 @@ class authModules extends Model
      */
     public $moduleStatement;
     protected $_name = [
-        'message'             => 'Message',
-        'module'              => 'Module',
-        'moduleAssetType'     => 'ModuleAssetType',
-        'moduleDisp'          => 'ModuleDisp',
+        'message' => 'Message',
+        'module' => 'Module',
+        'moduleAssetType' => 'ModuleAssetType',
+        'moduleDisp' => 'ModuleDisp',
         'moduleServiceStatus' => 'ModuleServiceStatus',
-        'moduleStatement'     => 'ModuleStatement',
+        'moduleStatement' => 'ModuleStatement',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

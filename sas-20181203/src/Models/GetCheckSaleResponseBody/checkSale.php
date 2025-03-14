@@ -51,15 +51,13 @@ class checkSale extends Model
      */
     public $saleUserType;
     protected $_name = [
-        'consumeCount'  => 'ConsumeCount',
-        'loyalUser'     => 'LoyalUser',
+        'consumeCount' => 'ConsumeCount',
+        'loyalUser' => 'LoyalUser',
         'purchaseCount' => 'PurchaseCount',
-        'saleUserType'  => 'SaleUserType',
+        'saleUserType' => 'SaleUserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

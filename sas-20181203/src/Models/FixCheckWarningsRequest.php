@@ -22,6 +22,7 @@ class FixCheckWarningsRequest extends Model
      * • **value**: the value of the fix method.
      *
      * This parameter is required.
+     *
      * @example [{"checkId":8,"rules":[{"ruleId":"rule.ssh_Idle.interval","value":1,"paramList":[{"paramName":"range_val","value":"600"},{"paramName":"range_val","value":"600"}]},{"ruleId":"rule.ssh_Idle.count","value":1,"paramList":[{"paramName":"range_val","value":"3"}]}]}]
      *
      * @var string
@@ -53,6 +54,7 @@ class FixCheckWarningsRequest extends Model
      * @description The ID of the risk item.
      *
      * >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     *
      * @example 10354
      *
      * @var int
@@ -86,18 +88,16 @@ class FixCheckWarningsRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'checkParams'   => 'CheckParams',
-        'lang'          => 'Lang',
+        'checkParams' => 'CheckParams',
+        'lang' => 'Lang',
         'retentionDays' => 'RetentionDays',
-        'riskId'        => 'RiskId',
-        'snapshotName'  => 'SnapshotName',
-        'sourceIp'      => 'SourceIp',
-        'uuids'         => 'Uuids',
+        'riskId' => 'RiskId',
+        'snapshotName' => 'SnapshotName',
+        'sourceIp' => 'SourceIp',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeSecurityCheckScheduleConfigResponseBody extends Model
      */
     public $riskCheckJobConfig;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'riskCheckJobConfig' => 'RiskCheckJobConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

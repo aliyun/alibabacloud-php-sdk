@@ -26,12 +26,10 @@ class instanceTypes extends Model
     public $name;
     protected $_name = [
         'instanceSubTypes' => 'InstanceSubTypes',
-        'name'             => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class instanceTypes extends Model
         if (isset($map['InstanceSubTypes'])) {
             if (!empty($map['InstanceSubTypes'])) {
                 $model->instanceSubTypes = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['InstanceSubTypes'] as $item) {
                     $model->instanceSubTypes[$n++] = null !== $item ? instanceSubTypes::fromMap($item) : $item;
                 }

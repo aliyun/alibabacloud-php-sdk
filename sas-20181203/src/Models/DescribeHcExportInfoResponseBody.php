@@ -93,19 +93,17 @@ class DescribeHcExportInfoResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'currentCount' => 'CurrentCount',
-        'fileName'     => 'FileName',
-        'gmtCreate'    => 'GmtCreate',
-        'id'           => 'Id',
-        'link'         => 'Link',
-        'progress'     => 'Progress',
-        'requestId'    => 'RequestId',
+        'fileName' => 'FileName',
+        'gmtCreate' => 'GmtCreate',
+        'id' => 'Id',
+        'link' => 'Link',
+        'progress' => 'Progress',
+        'requestId' => 'RequestId',
         'resultStatus' => 'ResultStatus',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

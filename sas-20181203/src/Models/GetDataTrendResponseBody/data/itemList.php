@@ -32,12 +32,10 @@ class itemList extends Model
     public $keyName;
     protected $_name = [
         'countList' => 'CountList',
-        'keyName'   => 'KeyName',
+        'keyName' => 'KeyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

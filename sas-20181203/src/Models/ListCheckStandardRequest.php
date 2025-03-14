@@ -54,16 +54,14 @@ class ListCheckStandardRequest extends Model
      */
     public $vendors;
     protected $_name = [
-        'instanceIds'      => 'InstanceIds',
+        'instanceIds' => 'InstanceIds',
         'instanceSubTypes' => 'InstanceSubTypes',
-        'instanceTypes'    => 'InstanceTypes',
-        'lang'             => 'Lang',
-        'vendors'          => 'Vendors',
+        'instanceTypes' => 'InstanceTypes',
+        'lang' => 'Lang',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

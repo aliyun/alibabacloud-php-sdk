@@ -114,22 +114,20 @@ class restorePlans extends Model
      */
     public $updatedTime;
     protected $_name = [
-        'createdTime'        => 'CreatedTime',
-        'databaseName'       => 'DatabaseName',
-        'instanceName'       => 'InstanceName',
-        'policyId'           => 'PolicyId',
-        'policyName'         => 'PolicyName',
-        'restorePoint'       => 'RestorePoint',
-        'status'             => 'Status',
+        'createdTime' => 'CreatedTime',
+        'databaseName' => 'DatabaseName',
+        'instanceName' => 'InstanceName',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'restorePoint' => 'RestorePoint',
+        'status' => 'Status',
         'targetDatabaseName' => 'TargetDatabaseName',
-        'targetInstanceId'   => 'TargetInstanceId',
+        'targetInstanceId' => 'TargetInstanceId',
         'targetInstanceName' => 'TargetInstanceName',
-        'updatedTime'        => 'UpdatedTime',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

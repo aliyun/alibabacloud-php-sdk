@@ -105,21 +105,19 @@ class honeypotAlarmEvents extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'alarmEventId'    => 'AlarmEventId',
-        'alarmEventName'  => 'AlarmEventName',
-        'alarmEventType'  => 'AlarmEventType',
+        'alarmEventId' => 'AlarmEventId',
+        'alarmEventName' => 'AlarmEventName',
+        'alarmEventType' => 'AlarmEventType',
         'alarmUniqueInfo' => 'AlarmUniqueInfo',
-        'eventCount'      => 'EventCount',
-        'firstTime'       => 'FirstTime',
-        'lastTime'        => 'LastTime',
-        'mergeFieldList'  => 'MergeFieldList',
-        'operateStatus'   => 'OperateStatus',
-        'riskLevel'       => 'RiskLevel',
+        'eventCount' => 'EventCount',
+        'firstTime' => 'FirstTime',
+        'lastTime' => 'LastTime',
+        'mergeFieldList' => 'MergeFieldList',
+        'operateStatus' => 'OperateStatus',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -196,7 +194,7 @@ class honeypotAlarmEvents extends Model
         if (isset($map['MergeFieldList'])) {
             if (!empty($map['MergeFieldList'])) {
                 $model->mergeFieldList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['MergeFieldList'] as $item) {
                     $model->mergeFieldList[$n++] = null !== $item ? mergeFieldList::fromMap($item) : $item;
                 }

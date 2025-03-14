@@ -26,12 +26,10 @@ class GetCheckStructureResponseBody extends Model
     public $requestId;
     protected $_name = [
         'checkStructureResponse' => 'CheckStructureResponse',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetCheckStructureResponseBody extends Model
         if (isset($map['CheckStructureResponse'])) {
             if (!empty($map['CheckStructureResponse'])) {
                 $model->checkStructureResponse = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['CheckStructureResponse'] as $item) {
                     $model->checkStructureResponse[$n++] = null !== $item ? checkStructureResponse::fromMap($item) : $item;
                 }

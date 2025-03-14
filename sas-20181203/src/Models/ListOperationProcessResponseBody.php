@@ -33,14 +33,12 @@ class ListOperationProcessResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'processes' => 'Processes',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class ListOperationProcessResponseBody extends Model
         if (isset($map['Processes'])) {
             if (!empty($map['Processes'])) {
                 $model->processes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Processes'] as $item) {
                     $model->processes[$n++] = null !== $item ? processes::fromMap($item) : $item;
                 }

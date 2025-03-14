@@ -25,6 +25,7 @@ class logMetaList extends Model
      * @description The time period after which logs in hot storage are moved to cold storage. Unit: days.
      *
      * >  If the value is -1, logs that are stored in hot storage are not moved to cold storage.
+     *
      * @example -1
      *
      * @var int
@@ -115,22 +116,20 @@ class logMetaList extends Model
      */
     public $userRegion;
     protected $_name = [
-        'category'     => 'Category',
-        'hotTtl'       => 'HotTtl',
-        'logDesc'      => 'LogDesc',
-        'logStore'     => 'LogStore',
-        'project'      => 'Project',
-        'status'       => 'Status',
-        'topic'        => 'Topic',
-        'ttl'          => 'Ttl',
+        'category' => 'Category',
+        'hotTtl' => 'HotTtl',
+        'logDesc' => 'LogDesc',
+        'logStore' => 'LogStore',
+        'project' => 'Project',
+        'status' => 'Status',
+        'topic' => 'Topic',
+        'ttl' => 'Ttl',
         'userLogStore' => 'UserLogStore',
-        'userProject'  => 'UserProject',
-        'userRegion'   => 'UserRegion',
+        'userProject' => 'UserProject',
+        'userRegion' => 'UserRegion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

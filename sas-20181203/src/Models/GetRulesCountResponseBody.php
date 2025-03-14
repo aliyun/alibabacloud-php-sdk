@@ -35,14 +35,12 @@ class GetRulesCountResponseBody extends Model
      */
     public $totalUserDefineRuleCount;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalSystemClientRuleCount' => 'TotalSystemClientRuleCount',
-        'totalUserDefineRuleCount'   => 'TotalUserDefineRuleCount',
+        'totalUserDefineRuleCount' => 'TotalUserDefineRuleCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

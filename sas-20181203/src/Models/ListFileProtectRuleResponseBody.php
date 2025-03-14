@@ -34,13 +34,11 @@ class ListFileProtectRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'fileProtectList' => 'FileProtectList',
-        'pageInfo'        => 'PageInfo',
-        'requestId'       => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListFileProtectRuleResponseBody extends Model
         if (isset($map['FileProtectList'])) {
             if (!empty($map['FileProtectList'])) {
                 $model->fileProtectList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['FileProtectList'] as $item) {
                     $model->fileProtectList[$n++] = null !== $item ? fileProtectList::fromMap($item) : $item;
                 }

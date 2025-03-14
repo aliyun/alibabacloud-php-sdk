@@ -11,7 +11,10 @@ class DeleteMonitorAccountRequest extends Model
     /**
      * @description The ID of the member that you want to delete.
      *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of the members in the Security Center console.
+     *
      * This parameter is required.
+     *
      * @example 1840517068******
      *
      * @var string
@@ -21,9 +24,7 @@ class DeleteMonitorAccountRequest extends Model
         'accountId' => 'AccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

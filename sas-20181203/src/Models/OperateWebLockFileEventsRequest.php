@@ -15,6 +15,7 @@ class OperateWebLockFileEventsRequest extends Model
      *   **0**: no
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +26,7 @@ class OperateWebLockFileEventsRequest extends Model
      * @description The IDs of alert events.
      *
      * This parameter is required.
+     *
      * @var int[]
      */
     public $eventIds;
@@ -39,20 +41,19 @@ class OperateWebLockFileEventsRequest extends Model
      *   **rm_whitelist**: cancels adding the alert events to the whitelist
      *
      * This parameter is required.
+     *
      * @example whitelist
      *
      * @var string
      */
     public $operationCode;
     protected $_name = [
-        'dealAll'       => 'DealAll',
-        'eventIds'      => 'EventIds',
+        'dealAll' => 'DealAll',
+        'eventIds' => 'EventIds',
         'operationCode' => 'OperationCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

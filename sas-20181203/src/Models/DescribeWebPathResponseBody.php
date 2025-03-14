@@ -61,17 +61,15 @@ class DescribeWebPathResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'configList'  => 'ConfigList',
-        'count'       => 'Count',
+        'configList' => 'ConfigList',
+        'count' => 'Count',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeWebPathResponseBody extends Model
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ConfigList'] as $item) {
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }

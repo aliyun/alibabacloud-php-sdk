@@ -62,17 +62,15 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'       => 'AlarmCount',
-        'noSslCount'       => 'NoSslCount',
-        'requestId'        => 'RequestId',
-        'riskCount'        => 'RiskCount',
+        'alarmCount' => 'AlarmCount',
+        'noSslCount' => 'NoSslCount',
+        'requestId' => 'RequestId',
+        'riskCount' => 'RiskCount',
         'totalDomainCount' => 'TotalDomainCount',
-        'vulCount'         => 'VulCount',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class ModifyContainerScanConfigRequest extends Model
      * @description The cluster ID.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
+     *
      * @example cfb7a55a81f7246b5ac18845ea79a****
      *
      * @var string
@@ -39,14 +40,12 @@ class ModifyContainerScanConfigRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'appNames'  => 'AppNames',
+        'appNames' => 'AppNames',
         'clusterId' => 'ClusterId',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class SaveCustomizeReportConfigRequest extends Model
      *   **SAS_GROUP**
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example SAS_GROUP
      *
      * @var string
@@ -25,6 +26,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The time when the report is pinned. Unit: milliseconds.
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example 1717430400000
      *
      * @var int
@@ -35,6 +37,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The email address of the recipient. Separate multiple email addresses with commas (,).
      *
      * This parameter is required.
+     *
      * @example xxx@163.com
      *
      * @var string
@@ -45,6 +48,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The most recent days for report statistics.
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example 7
      *
      * @var int
@@ -55,6 +59,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The end date on which the report is sent. The value is in the yyyy-MM-dd format.
      *
      * >  This parameter is required if the ReportType parameter is set to 3.
+     *
      * @example 2024-01-15
      *
      * @var string
@@ -65,6 +70,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The ID of the report.
      *
      * >  You can call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to query the ID.
+     *
      * @example 123
      *
      * @var int
@@ -101,6 +107,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The start date on which the report is sent. The value is in the yyyy-MM-dd format.
      *
      * >  This parameter is required if the ReportType parameter is set to 3.
+     *
      * @example 2024-01-01
      *
      * @var string
@@ -114,6 +121,7 @@ class SaveCustomizeReportConfigRequest extends Model
      *   **1**: enabled.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -130,6 +138,7 @@ class SaveCustomizeReportConfigRequest extends Model
      *   **4**: report of the most recent time range.
      *
      * This parameter is required.
+     *
      * @example 4
      *
      * @var int
@@ -152,6 +161,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The end time at which the report is sent. The value is in the HH:mm:ss format.
      *
      * >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
+     *
      * @example 10:00:00
      *
      * @var string
@@ -162,6 +172,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The exact day within the sending period.
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example 12
      *
      * @var int
@@ -176,6 +187,7 @@ class SaveCustomizeReportConfigRequest extends Model
      *   **MONTH**
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example MONTH
      *
      * @var string
@@ -186,6 +198,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The start time at which the report is sent. The value is in the HH:mm:ss format.
      *
      * >  This parameter is required if the ReportType parameter is set to 0, 1, 2, or 4.
+     *
      * @example 09:00:00
      *
      * @var string
@@ -196,6 +209,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The groups.
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example 12,123
      *
      * @var string
@@ -206,6 +220,7 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The ID of the Alibaba Cloud account. Separate multiple IDs with commas (,).
      *
      * >  This parameter is supported only in version 2.0.0.
+     *
      * @example 12,123
      *
      * @var string
@@ -216,36 +231,35 @@ class SaveCustomizeReportConfigRequest extends Model
      * @description The title of the report.
      *
      * This parameter is required.
+     *
      * @example Daily Report
      *
      * @var string
      */
     public $title;
     protected $_name = [
-        'groupType'       => 'GroupType',
-        'pinnedTime'      => 'PinnedTime',
-        'recipients'      => 'Recipients',
-        'reportDays'      => 'ReportDays',
-        'reportEndDate'   => 'ReportEndDate',
-        'reportId'        => 'ReportId',
-        'reportLang'      => 'ReportLang',
-        'reportSendType'  => 'ReportSendType',
+        'groupType' => 'GroupType',
+        'pinnedTime' => 'PinnedTime',
+        'recipients' => 'Recipients',
+        'reportDays' => 'ReportDays',
+        'reportEndDate' => 'ReportEndDate',
+        'reportId' => 'ReportId',
+        'reportLang' => 'ReportLang',
+        'reportSendType' => 'ReportSendType',
         'reportStartDate' => 'ReportStartDate',
-        'reportStatus'    => 'ReportStatus',
-        'reportType'      => 'ReportType',
-        'reportVersion'   => 'ReportVersion',
-        'sendEndTime'     => 'SendEndTime',
-        'sendPeriodDays'  => 'SendPeriodDays',
-        'sendPeriodType'  => 'SendPeriodType',
-        'sendStartTime'   => 'SendStartTime',
-        'targetGroups'    => 'TargetGroups',
-        'targetUids'      => 'TargetUids',
-        'title'           => 'Title',
+        'reportStatus' => 'ReportStatus',
+        'reportType' => 'ReportType',
+        'reportVersion' => 'ReportVersion',
+        'sendEndTime' => 'SendEndTime',
+        'sendPeriodDays' => 'SendPeriodDays',
+        'sendPeriodType' => 'SendPeriodType',
+        'sendStartTime' => 'SendStartTime',
+        'targetGroups' => 'TargetGroups',
+        'targetUids' => 'TargetUids',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

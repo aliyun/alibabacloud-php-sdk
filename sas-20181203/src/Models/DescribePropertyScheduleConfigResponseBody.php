@@ -12,6 +12,7 @@ class DescribePropertyScheduleConfigResponseBody extends Model
      * @description The configuration time. Unit: hours.
      *
      * >  A value **0** indicates that asset fingerprint collection is disabled for this type of asset.
+     *
      * @example 3
      *
      * @var string
@@ -27,13 +28,11 @@ class DescribePropertyScheduleConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
+        'config' => 'Config',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

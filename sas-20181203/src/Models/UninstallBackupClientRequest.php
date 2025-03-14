@@ -15,6 +15,7 @@ class UninstallBackupClientRequest extends Model
      *   **2.0.0**
      *
      * This parameter is required.
+     *
      * @example 2.0.0
      *
      * @var string
@@ -25,6 +26,7 @@ class UninstallBackupClientRequest extends Model
      * @description The UUID of the server from which you want to uninstall the anti-ransomware agent.
      *
      * > You must specify at least one of the UuidList and Uuid parameters.
+     *
      * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
      *
      * @var string
@@ -35,6 +37,7 @@ class UninstallBackupClientRequest extends Model
      * @description The UUIDs of the servers from which you want to uninstall the anti-ransomware agent.
      *
      * > You must specify at least one of the UuidList and Uuid parameters.
+     *
      * @example ["D0D6E6E4-CB8C-4897-B852-46AEFDA0****", "3bb30859-b3b5-4f28-868f-b0892c98****"]
      *
      * @var string[]
@@ -42,13 +45,11 @@ class UninstallBackupClientRequest extends Model
     public $uuidList;
     protected $_name = [
         'policyVersion' => 'PolicyVersion',
-        'uuid'          => 'Uuid',
-        'uuidList'      => 'UuidList',
+        'uuid' => 'Uuid',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

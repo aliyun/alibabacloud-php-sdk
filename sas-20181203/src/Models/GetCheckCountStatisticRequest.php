@@ -13,6 +13,7 @@ class GetCheckCountStatisticRequest extends Model
      * - **user**: Top 5 over-authorized users.
      * - **role**: Top 5 over-authorized roles.
      * - **instance**: Top 5 risky cloud products.
+     *
      * @example instance
      *
      * @var string
@@ -27,12 +28,10 @@ class GetCheckCountStatisticRequest extends Model
     public $vendors;
     protected $_name = [
         'statisticType' => 'StatisticType',
-        'vendors'       => 'Vendors',
+        'vendors' => 'Vendors',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

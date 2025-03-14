@@ -42,14 +42,12 @@ class data extends Model
      */
     public $targetType;
     protected $_name = [
-        'platform'     => 'Platform',
+        'platform' => 'Platform',
         'selectionKey' => 'SelectionKey',
-        'targetType'   => 'TargetType',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

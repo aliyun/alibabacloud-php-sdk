@@ -39,6 +39,7 @@ class ListUuidsByAppIdRequest extends Model
      * @description The language type for request and response, default is **zh**. Values:
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -63,17 +64,15 @@ class ListUuidsByAppIdRequest extends Model
      */
     public $resourceDirectoryUid;
     protected $_name = [
-        'appId'                => 'AppId',
-        'appRegionId'          => 'AppRegionId',
-        'currentPage'          => 'CurrentPage',
-        'lang'                 => 'Lang',
-        'pageSize'             => 'PageSize',
+        'appId' => 'AppId',
+        'appRegionId' => 'AppRegionId',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'resourceDirectoryUid' => 'ResourceDirectoryUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

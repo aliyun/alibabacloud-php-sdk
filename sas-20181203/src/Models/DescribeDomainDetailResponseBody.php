@@ -61,17 +61,15 @@ class DescribeDomainDetailResponseBody extends Model
      */
     public $vulCount;
     protected $_name = [
-        'alarmCount'        => 'AlarmCount',
-        'domain'            => 'Domain',
+        'alarmCount' => 'AlarmCount',
+        'domain' => 'Domain',
         'domainDetailItems' => 'DomainDetailItems',
-        'requestId'         => 'RequestId',
-        'rootDomain'        => 'RootDomain',
-        'vulCount'          => 'VulCount',
+        'requestId' => 'RequestId',
+        'rootDomain' => 'RootDomain',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class DescribeDomainDetailResponseBody extends Model
         if (isset($map['DomainDetailItems'])) {
             if (!empty($map['DomainDetailItems'])) {
                 $model->domainDetailItems = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DomainDetailItems'] as $item) {
                     $model->domainDetailItems[$n++] = null !== $item ? domainDetailItems::fromMap($item) : $item;
                 }

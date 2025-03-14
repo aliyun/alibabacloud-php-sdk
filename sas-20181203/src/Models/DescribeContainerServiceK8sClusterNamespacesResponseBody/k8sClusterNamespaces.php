@@ -20,9 +20,7 @@ class k8sClusterNamespaces extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

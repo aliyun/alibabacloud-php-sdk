@@ -186,28 +186,26 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
-        'count'        => 'Count',
-        'ds'           => 'Ds',
-        'eventName'    => 'EventName',
-        'eventStatus'  => 'EventStatus',
-        'eventType'    => 'EventType',
-        'gmtEvent'     => 'GmtEvent',
-        'id'           => 'Id',
+        'count' => 'Count',
+        'ds' => 'Ds',
+        'eventName' => 'EventName',
+        'eventStatus' => 'EventStatus',
+        'eventType' => 'EventType',
+        'gmtEvent' => 'GmtEvent',
+        'id' => 'Id',
         'instanceName' => 'InstanceName',
-        'internetIp'   => 'InternetIp',
-        'intranetIp'   => 'IntranetIp',
-        'ip'           => 'Ip',
-        'level'        => 'Level',
-        'path'         => 'Path',
-        'processName'  => 'ProcessName',
-        'processPath'  => 'ProcessPath',
-        'status'       => 'Status',
-        'uuid'         => 'Uuid',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'level' => 'Level',
+        'path' => 'Path',
+        'processName' => 'ProcessName',
+        'processPath' => 'ProcessPath',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

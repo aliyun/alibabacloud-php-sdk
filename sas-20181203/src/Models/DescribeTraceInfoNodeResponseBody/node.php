@@ -34,14 +34,12 @@ class node extends Model
      */
     public $type;
     protected $_name = [
-        'name'         => 'Name',
+        'name' => 'Name',
         'propertyList' => 'PropertyList',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class node extends Model
         if (isset($map['PropertyList'])) {
             if (!empty($map['PropertyList'])) {
                 $model->propertyList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PropertyList'] as $item) {
                     $model->propertyList[$n++] = null !== $item ? propertyList::fromMap($item) : $item;
                 }

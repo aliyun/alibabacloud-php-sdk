@@ -13,6 +13,7 @@ class OperateApplicationRequest extends Model
      * @description The container application that is protected from being tampered with.
      *
      * This parameter is required.
+     *
      * @var containerWebDefenseApplicationDTOS[]
      */
     public $containerWebDefenseApplicationDTOS;
@@ -21,6 +22,7 @@ class OperateApplicationRequest extends Model
      * @description The ID of the rule.
      *
      * This parameter is required.
+     *
      * @example 300566
      *
      * @var int
@@ -28,12 +30,10 @@ class OperateApplicationRequest extends Model
     public $ruleId;
     protected $_name = [
         'containerWebDefenseApplicationDTOS' => 'ContainerWebDefenseApplicationDTOS',
-        'ruleId'                             => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -65,7 +65,7 @@ class OperateApplicationRequest extends Model
         if (isset($map['ContainerWebDefenseApplicationDTOS'])) {
             if (!empty($map['ContainerWebDefenseApplicationDTOS'])) {
                 $model->containerWebDefenseApplicationDTOS = [];
-                $n                                         = 0;
+                $n = 0;
                 foreach ($map['ContainerWebDefenseApplicationDTOS'] as $item) {
                     $model->containerWebDefenseApplicationDTOS[$n++] = null !== $item ? containerWebDefenseApplicationDTOS::fromMap($item) : $item;
                 }

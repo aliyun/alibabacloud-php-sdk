@@ -166,28 +166,26 @@ class data extends Model
      */
     public $whiteList;
     protected $_name = [
-        'alarmDetail'        => 'AlarmDetail',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'currentPage'        => 'CurrentPage',
-        'description'        => 'Description',
-        'imageName'          => 'ImageName',
-        'label'              => 'Label',
-        'lang'               => 'Lang',
-        'maliciousImage'     => 'MaliciousImage',
-        'pageSize'           => 'PageSize',
-        'ruleAction'         => 'RuleAction',
-        'scopes'             => 'Scopes',
-        'strategyId'         => 'StrategyId',
-        'strategyName'       => 'StrategyName',
+        'alarmDetail' => 'AlarmDetail',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'currentPage' => 'CurrentPage',
+        'description' => 'Description',
+        'imageName' => 'ImageName',
+        'label' => 'Label',
+        'lang' => 'Lang',
+        'maliciousImage' => 'MaliciousImage',
+        'pageSize' => 'PageSize',
+        'ruleAction' => 'RuleAction',
+        'scopes' => 'Scopes',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
         'strategyTemplateId' => 'StrategyTemplateId',
-        'unScanedImage'      => 'UnScanedImage',
-        'whiteList'          => 'WhiteList',
+        'unScanedImage' => 'UnScanedImage',
+        'whiteList' => 'WhiteList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -301,7 +299,7 @@ class data extends Model
         if (isset($map['Scopes'])) {
             if (!empty($map['Scopes'])) {
                 $model->scopes = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Scopes'] as $item) {
                     $model->scopes[$n++] = null !== $item ? scopes::fromMap($item) : $item;
                 }

@@ -15,6 +15,7 @@ class OperateVirusEventsRequest extends Model
      *   **0**: no
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +31,7 @@ class OperateVirusEventsRequest extends Model
      *   **manual_handled**: marks the alert events as manually handled
      *
      * This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -45,14 +47,12 @@ class OperateVirusEventsRequest extends Model
      */
     public $operationRange;
     protected $_name = [
-        'operationAll'   => 'OperationAll',
-        'operationCode'  => 'OperationCode',
+        'operationAll' => 'OperationAll',
+        'operationCode' => 'OperationCode',
         'operationRange' => 'OperationRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

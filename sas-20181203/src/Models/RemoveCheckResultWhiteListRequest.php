@@ -28,6 +28,7 @@ class RemoveCheckResultWhiteListRequest extends Model
      * @description The ID of the whitelist rule.
      *
      * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of whitelist rules.
+     *
      * @example 22
      *
      * @var int
@@ -44,14 +45,12 @@ class RemoveCheckResultWhiteListRequest extends Model
     public $type;
     protected $_name = [
         'checkGroupId' => 'CheckGroupId',
-        'checkIds'     => 'CheckIds',
-        'ruleId'       => 'RuleId',
-        'type'         => 'Type',
+        'checkIds' => 'CheckIds',
+        'ruleId' => 'RuleId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class OperateCommonOverallConfigRequest extends Model
      *   **off**: disable
      *
      * This parameter is required.
+     *
      * @example on
      *
      * @var string
@@ -28,6 +29,7 @@ class OperateCommonOverallConfigRequest extends Model
      *   **false**
      *
      * >  This parameter takes effect only when you set **Config** to **on**.
+     *
      * @example true
      *
      * @var bool
@@ -118,21 +120,20 @@ class OperateCommonOverallConfigRequest extends Model
      *   **USER-ENABLE-SWITCH-TYPE_52829**: delete system backup behavior (Windows)
      *
      * This parameter is required.
+     *
      * @example kdump_switch
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'       => 'Config',
+        'config' => 'Config',
         'noTargetAsOn' => 'NoTargetAsOn',
-        'sourceIp'     => 'SourceIp',
-        'type'         => 'Type',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

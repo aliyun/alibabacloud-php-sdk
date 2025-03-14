@@ -11,7 +11,10 @@ class StopHoneypotRequest extends Model
     /**
      * @description The honeypot ID.
      *
+     * >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain IDs of honeypots.
+     *
      * This parameter is required.
+     *
      * @example 444c699ac151b183b04b562b1dc02639d504c9d097246a322de75c963fe*****
      *
      * @var string
@@ -31,12 +34,10 @@ class StopHoneypotRequest extends Model
     public $lang;
     protected $_name = [
         'honeypotId' => 'HoneypotId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

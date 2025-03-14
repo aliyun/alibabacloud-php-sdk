@@ -33,14 +33,12 @@ class ListCompressFileDetectResultResponseBody extends Model
      */
     public $resultList;
     protected $_name = [
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'resultList' => 'ResultList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class ListCompressFileDetectResultResponseBody extends Model
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
                 $model->resultList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ResultList'] as $item) {
                     $model->resultList[$n++] = null !== $item ? resultList::fromMap($item) : $item;
                 }

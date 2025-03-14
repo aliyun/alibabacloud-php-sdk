@@ -27,12 +27,10 @@ class StartDiscoverDatabaseTaskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'createMark' => 'CreateMark',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

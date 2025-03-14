@@ -113,21 +113,19 @@ class data extends Model
      */
     public $upgradeVersion;
     protected $_name = [
-        'autoUpgrade'         => 'AutoUpgrade',
-        'bigCustomer'         => 'BigCustomer',
-        'curVersion'          => 'CurVersion',
-        'forceUpgradeTime'    => 'ForceUpgradeTime',
-        'graySwitchStatus'    => 'GraySwitchStatus',
-        'latestVersion'       => 'LatestVersion',
+        'autoUpgrade' => 'AutoUpgrade',
+        'bigCustomer' => 'BigCustomer',
+        'curVersion' => 'CurVersion',
+        'forceUpgradeTime' => 'ForceUpgradeTime',
+        'graySwitchStatus' => 'GraySwitchStatus',
+        'latestVersion' => 'LatestVersion',
         'latestVersionCreate' => 'LatestVersionCreate',
-        'latestVersionDesc'   => 'LatestVersionDesc',
-        'publishStatus'       => 'PublishStatus',
-        'upgradeVersion'      => 'UpgradeVersion',
+        'latestVersionDesc' => 'LatestVersionDesc',
+        'publishStatus' => 'PublishStatus',
+        'upgradeVersion' => 'UpgradeVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

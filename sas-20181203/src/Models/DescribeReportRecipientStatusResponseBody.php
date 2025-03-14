@@ -26,12 +26,10 @@ class DescribeReportRecipientStatusResponseBody extends Model
     public $requestId;
     protected $_name = [
         'reportRecipientList' => 'ReportRecipientList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeReportRecipientStatusResponseBody extends Model
         if (isset($map['ReportRecipientList'])) {
             if (!empty($map['ReportRecipientList'])) {
                 $model->reportRecipientList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ReportRecipientList'] as $item) {
                     $model->reportRecipientList[$n++] = null !== $item ? reportRecipientList::fromMap($item) : $item;
                 }

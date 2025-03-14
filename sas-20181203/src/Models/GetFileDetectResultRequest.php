@@ -12,6 +12,7 @@ class GetFileDetectResultRequest extends Model
      * @description The identifiers of files. Only MD5 hash values are supported.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $hashKeyList;
@@ -33,7 +34,10 @@ class GetFileDetectResultRequest extends Model
      *   **2**: webshell file
      *   **4**: script file
      *
+     * > If you do not know the type of the file, set this parameter to 0.
+     *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -41,13 +45,11 @@ class GetFileDetectResultRequest extends Model
     public $type;
     protected $_name = [
         'hashKeyList' => 'HashKeyList',
-        'sourceIp'    => 'SourceIp',
-        'type'        => 'Type',
+        'sourceIp' => 'SourceIp',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeCommonOverallConfigListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'overallList' => 'OverallList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeCommonOverallConfigListResponseBody extends Model
         if (isset($map['OverallList'])) {
             if (!empty($map['OverallList'])) {
                 $model->overallList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['OverallList'] as $item) {
                     $model->overallList[$n++] = null !== $item ? overallList::fromMap($item) : $item;
                 }

@@ -33,14 +33,12 @@ class ListClientUserDefineRulesResponseBody extends Model
      */
     public $userDefineRuleList;
     protected $_name = [
-        'pageInfo'           => 'PageInfo',
-        'requestId'          => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
         'userDefineRuleList' => 'UserDefineRuleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class ListClientUserDefineRulesResponseBody extends Model
         if (isset($map['UserDefineRuleList'])) {
             if (!empty($map['UserDefineRuleList'])) {
                 $model->userDefineRuleList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['UserDefineRuleList'] as $item) {
                     $model->userDefineRuleList[$n++] = null !== $item ? userDefineRuleList::fromMap($item) : $item;
                 }

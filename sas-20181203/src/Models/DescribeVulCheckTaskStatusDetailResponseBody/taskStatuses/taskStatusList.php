@@ -46,14 +46,12 @@ class taskStatusList extends Model
      */
     public $type;
     protected $_name = [
-        'code'   => 'Code',
+        'code' => 'Code',
         'status' => 'Status',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

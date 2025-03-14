@@ -25,13 +25,11 @@ class causeDetails extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class causeDetails extends Model
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
                 $model->value = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Value'] as $item) {
                     $model->value[$n++] = null !== $item ? value::fromMap($item) : $item;
                 }

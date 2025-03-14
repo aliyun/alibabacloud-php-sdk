@@ -20,7 +20,9 @@ class data extends Model
     /**
      * @description The returned code after you install the Security Center agent. Valid values:
      *
+     * 1.  0: The installation is successful.
      * 2.  \\-2: The kernel does not support the installation.
+     *
      * @example -2
      *
      * @var string
@@ -114,22 +116,20 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
-        'clientVersion'  => 'ClientVersion',
-        'installCode'    => 'InstallCode',
+        'clientVersion' => 'ClientVersion',
+        'installCode' => 'InstallCode',
         'installMessage' => 'InstallMessage',
-        'installed'      => 'Installed',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'online'         => 'Online',
-        'platform'       => 'Platform',
-        'supportFile'    => 'SupportFile',
-        'uuid'           => 'Uuid',
+        'installed' => 'Installed',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'online' => 'Online',
+        'platform' => 'Platform',
+        'supportFile' => 'SupportFile',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

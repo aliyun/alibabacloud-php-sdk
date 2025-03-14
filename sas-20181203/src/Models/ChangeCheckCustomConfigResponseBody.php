@@ -35,12 +35,10 @@ class ChangeCheckCustomConfigResponseBody extends Model
     protected $_name = [
         'illegalCustomConfigs' => 'IllegalCustomConfigs',
         'illegalRepairConfigs' => 'IllegalRepairConfigs',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class ChangeCheckCustomConfigResponseBody extends Model
         if (isset($map['IllegalCustomConfigs'])) {
             if (!empty($map['IllegalCustomConfigs'])) {
                 $model->illegalCustomConfigs = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['IllegalCustomConfigs'] as $item) {
                     $model->illegalCustomConfigs[$n++] = null !== $item ? illegalCustomConfigs::fromMap($item) : $item;
                 }
@@ -90,7 +88,7 @@ class ChangeCheckCustomConfigResponseBody extends Model
         if (isset($map['IllegalRepairConfigs'])) {
             if (!empty($map['IllegalRepairConfigs'])) {
                 $model->illegalRepairConfigs = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['IllegalRepairConfigs'] as $item) {
                     $model->illegalRepairConfigs[$n++] = null !== $item ? illegalRepairConfigs::fromMap($item) : $item;
                 }

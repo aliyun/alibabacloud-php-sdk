@@ -24,6 +24,7 @@ class edgeList extends Model
      * - **alert**: Alert
      * - **ip**: IP address
      * - **domain**: Domain
+     *
      * @example process
      *
      * @var string
@@ -55,6 +56,7 @@ class edgeList extends Model
      * - **alert**： Alert
      * - **ip**： IP address
      * - **domain**： Domain
+     *
      * @example file
      *
      * @var string
@@ -79,18 +81,16 @@ class edgeList extends Model
      */
     public $type;
     protected $_name = [
-        'endId'     => 'EndId',
-        'endType'   => 'EndType',
-        'name'      => 'Name',
-        'startId'   => 'StartId',
+        'endId' => 'EndId',
+        'endType' => 'EndType',
+        'name' => 'Name',
+        'startId' => 'StartId',
         'startType' => 'StartType',
-        'time'      => 'Time',
-        'type'      => 'Type',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

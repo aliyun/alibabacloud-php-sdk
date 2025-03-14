@@ -47,22 +47,21 @@ class operationTaskInstanceDetails extends Model
      * @description The operation type of the corresponding task:
      * - **REPAIR**: Repair task
      * - **ROLLBACK**: Rollback task
+     *
      * @example REPAIR
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'checkId'    => 'CheckId',
+        'checkId' => 'CheckId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'repair'     => 'Repair',
-        'type'       => 'Type',
+        'regionId' => 'RegionId',
+        'repair' => 'Repair',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +111,7 @@ class operationTaskInstanceDetails extends Model
         if (isset($map['Repair'])) {
             if (!empty($map['Repair'])) {
                 $model->repair = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Repair'] as $item) {
                     $model->repair[$n++] = null !== $item ? repair::fromMap($item) : $item;
                 }

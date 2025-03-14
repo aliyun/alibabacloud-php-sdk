@@ -23,9 +23,7 @@ class SubmitCheckRequest extends Model
         'scanRange' => 'ScanRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

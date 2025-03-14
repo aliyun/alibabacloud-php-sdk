@@ -24,6 +24,7 @@ class DescribeVulDetailsRequest extends Model
      *   **en**: English
      *
      * This parameter is required.
+     *
      * @example zh
      *
      * @var string
@@ -33,7 +34,10 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @description The name of the vulnerability.
      *
+     * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) or [DescribeVulList](~~DescribeVulList~~) operation to query the names of vulnerabilities.
+     *
      * This parameter is required.
+     *
      * @example SCA:ACSV-2020-052801
      *
      * @var string
@@ -44,6 +48,7 @@ class DescribeVulDetailsRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -61,22 +66,21 @@ class DescribeVulDetailsRequest extends Model
      *   **sca**: vulnerability that is detected based on software component analysis
      *
      * This parameter is required.
+     *
      * @example sca
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'aliasName'                  => 'AliasName',
-        'lang'                       => 'Lang',
-        'name'                       => 'Name',
+        'aliasName' => 'AliasName',
+        'lang' => 'Lang',
+        'name' => 'Name',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'type'                       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -64,16 +64,14 @@ class riskList extends Model
     public $vulCount;
     protected $_name = [
         'alarmCount' => 'AlarmCount',
-        'domain'     => 'Domain',
-        'sslBrand'   => 'SslBrand',
-        'sslStatus'  => 'SslStatus',
-        'uuidList'   => 'UuidList',
-        'vulCount'   => 'VulCount',
+        'domain' => 'Domain',
+        'sslBrand' => 'SslBrand',
+        'sslStatus' => 'SslStatus',
+        'uuidList' => 'UuidList',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

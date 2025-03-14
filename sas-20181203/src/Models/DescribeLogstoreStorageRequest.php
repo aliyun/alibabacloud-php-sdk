@@ -12,6 +12,7 @@ class DescribeLogstoreStorageRequest extends Model
      * @description The ID of the request source. Set the value to **sas**.
      *
      * This parameter is required.
+     *
      * @example sas
      *
      * @var string
@@ -34,9 +35,7 @@ class DescribeLogstoreStorageRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeCommonTargetConfigResponseBody extends Model
      */
     public $targetList;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'targetList' => 'TargetList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeCommonTargetConfigResponseBody extends Model
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TargetList'] as $item) {
                     $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
                 }

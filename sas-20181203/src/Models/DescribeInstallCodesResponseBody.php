@@ -26,12 +26,10 @@ class DescribeInstallCodesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'installCodes' => 'InstallCodes',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeInstallCodesResponseBody extends Model
         if (isset($map['InstallCodes'])) {
             if (!empty($map['InstallCodes'])) {
                 $model->installCodes = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstallCodes'] as $item) {
                     $model->installCodes[$n++] = null !== $item ? installCodes::fromMap($item) : $item;
                 }

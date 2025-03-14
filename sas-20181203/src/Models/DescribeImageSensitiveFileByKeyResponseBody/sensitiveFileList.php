@@ -224,22 +224,20 @@ class sensitiveFileList extends Model
      */
     public $sensitiveFileName;
     protected $_name = [
-        'advice'            => 'Advice',
-        'description'       => 'Description',
-        'filePath'          => 'FilePath',
-        'firstScanTime'     => 'FirstScanTime',
-        'lastScanTime'      => 'LastScanTime',
-        'layerDigest'       => 'LayerDigest',
-        'md5'               => 'Md5',
-        'promt'             => 'Promt',
-        'riskLevel'         => 'RiskLevel',
-        'sensitiveFileKey'  => 'SensitiveFileKey',
+        'advice' => 'Advice',
+        'description' => 'Description',
+        'filePath' => 'FilePath',
+        'firstScanTime' => 'FirstScanTime',
+        'lastScanTime' => 'LastScanTime',
+        'layerDigest' => 'LayerDigest',
+        'md5' => 'Md5',
+        'promt' => 'Promt',
+        'riskLevel' => 'RiskLevel',
+        'sensitiveFileKey' => 'SensitiveFileKey',
         'sensitiveFileName' => 'SensitiveFileName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

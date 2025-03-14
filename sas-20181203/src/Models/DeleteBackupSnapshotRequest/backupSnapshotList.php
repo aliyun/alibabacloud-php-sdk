@@ -11,7 +11,10 @@ class backupSnapshotList extends Model
     /**
      * @description The ID of the Cloud Backup client.
      *
+     * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example c-000a4h33w14ka8xagb2s
      *
      * @var string
@@ -22,6 +25,7 @@ class backupSnapshotList extends Model
      * @description The ID of the server.
      *
      * This parameter is required.
+     *
      * @example i-j6cj8vyajp1fo4atxkae
      *
      * @var string
@@ -36,6 +40,7 @@ class backupSnapshotList extends Model
      *   **cn-beijing**: China (Beijing).
      *
      * This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -45,7 +50,10 @@ class backupSnapshotList extends Model
     /**
      * @description The ID of the snapshot that you want to delete.
      *
+     * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example s-000f9p6r5trm6u4dc1iq
      *
      * @var string
@@ -61,6 +69,7 @@ class backupSnapshotList extends Model
      *   **OTS_TABLE**: Tablestore instances.
      *
      * This parameter is required.
+     *
      * @example ECS_FILE
      *
      * @var string
@@ -70,24 +79,25 @@ class backupSnapshotList extends Model
     /**
      * @description The ID of the backup vault that is used in the restoration task.
      *
+     * >  You can call the [DescribeSnapshots](~~DescribeSnapshots~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example v-0004vhwcs2pmacfzrzt5
      *
      * @var string
      */
     public $vaultId;
     protected $_name = [
-        'clientId'   => 'ClientId',
+        'clientId' => 'ClientId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'snapshotId' => 'SnapshotId',
         'sourceType' => 'SourceType',
-        'vaultId'    => 'VaultId',
+        'vaultId' => 'VaultId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

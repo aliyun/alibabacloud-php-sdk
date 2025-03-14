@@ -335,6 +335,7 @@ class assetDetail extends Model
      * @description The account to which the AccessKey pair belongs.
      *
      * >  This parameter is returned only by third-party cloud servers. If the parameter value is empty, it will not be returned.
+     *
      * @example test
      *
      * @var string
@@ -350,46 +351,44 @@ class assetDetail extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'assetType'       => 'AssetType',
-        'authModifyTime'  => 'AuthModifyTime',
-        'authVersion'     => 'AuthVersion',
-        'bind'            => 'Bind',
-        'clientStatus'    => 'ClientStatus',
+        'assetType' => 'AssetType',
+        'authModifyTime' => 'AuthModifyTime',
+        'authVersion' => 'AuthVersion',
+        'bind' => 'Bind',
+        'clientStatus' => 'ClientStatus',
         'clientSubStatus' => 'ClientSubStatus',
-        'clientVersion'   => 'ClientVersion',
-        'cpu'             => 'Cpu',
-        'cpuInfo'         => 'CpuInfo',
-        'createTime'      => 'CreateTime',
-        'diskInfoList'    => 'DiskInfoList',
-        'flag'            => 'Flag',
-        'groupTrace'      => 'GroupTrace',
-        'hostName'        => 'HostName',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'internetIp'      => 'InternetIp',
-        'intranetIp'      => 'IntranetIp',
-        'ip'              => 'Ip',
-        'ipList'          => 'IpList',
-        'kernel'          => 'Kernel',
-        'macList'         => 'MacList',
-        'mem'             => 'Mem',
-        'memory'          => 'Memory',
-        'os'              => 'Os',
-        'osDetail'        => 'OsDetail',
-        'osName'          => 'OsName',
-        'region'          => 'Region',
-        'regionId'        => 'RegionId',
-        'regionName'      => 'RegionName',
-        'sysInfo'         => 'SysInfo',
-        'tag'             => 'Tag',
-        'uuid'            => 'Uuid',
+        'clientVersion' => 'ClientVersion',
+        'cpu' => 'Cpu',
+        'cpuInfo' => 'CpuInfo',
+        'createTime' => 'CreateTime',
+        'diskInfoList' => 'DiskInfoList',
+        'flag' => 'Flag',
+        'groupTrace' => 'GroupTrace',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'ipList' => 'IpList',
+        'kernel' => 'Kernel',
+        'macList' => 'MacList',
+        'mem' => 'Mem',
+        'memory' => 'Memory',
+        'os' => 'Os',
+        'osDetail' => 'OsDetail',
+        'osName' => 'OsName',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'sysInfo' => 'SysInfo',
+        'tag' => 'Tag',
+        'uuid' => 'Uuid',
         'vendorAuthAlias' => 'VendorAuthAlias',
-        'vpcInstanceId'   => 'VpcInstanceId',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -550,7 +549,7 @@ class assetDetail extends Model
         if (isset($map['DiskInfoList'])) {
             if (!empty($map['DiskInfoList'])) {
                 $model->diskInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DiskInfoList'] as $item) {
                     $model->diskInfoList[$n++] = null !== $item ? diskInfoList::fromMap($item) : $item;
                 }

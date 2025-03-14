@@ -58,17 +58,15 @@ class PageImageRegistryRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'           => 'CurrentPage',
-        'pageSize'              => 'PageSize',
-        'registryNameLike'      => 'RegistryNameLike',
-        'registryTypeInList'    => 'RegistryTypeInList',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'registryNameLike' => 'RegistryNameLike',
+        'registryTypeInList' => 'RegistryTypeInList',
         'registryTypeNotInList' => 'RegistryTypeNotInList',
-        'sourceIp'              => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

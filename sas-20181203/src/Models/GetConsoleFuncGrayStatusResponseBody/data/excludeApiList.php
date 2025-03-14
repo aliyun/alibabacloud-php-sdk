@@ -35,14 +35,12 @@ class excludeApiList extends Model
      */
     public $version;
     protected $_name = [
-        'action'  => 'Action',
-        'code'    => 'Code',
+        'action' => 'Action',
+        'code' => 'Code',
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

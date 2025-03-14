@@ -26,12 +26,10 @@ class ListLogShipperRegionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'logShipperRegionList' => 'LogShipperRegionList',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListLogShipperRegionsResponseBody extends Model
         if (isset($map['LogShipperRegionList'])) {
             if (!empty($map['LogShipperRegionList'])) {
                 $model->logShipperRegionList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['LogShipperRegionList'] as $item) {
                     $model->logShipperRegionList[$n++] = null !== $item ? logShipperRegionList::fromMap($item) : $item;
                 }

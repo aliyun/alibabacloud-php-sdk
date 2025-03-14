@@ -11,7 +11,10 @@ class GetLogMetaRequest extends Model
     /**
      * @description The name of the dedicated Logstore in which logs are stored.
      *
+     * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the name of the Logstore.
+     *
      * This parameter is required.
+     *
      * @example aegis-log-login
      *
      * @var string
@@ -22,19 +25,18 @@ class GetLogMetaRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
      */
     public $resourceDirectoryAccountId;
     protected $_name = [
-        'logStore'                   => 'LogStore',
+        'logStore' => 'LogStore',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

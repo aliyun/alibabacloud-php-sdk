@@ -21,6 +21,7 @@ class securityScoreItemList extends Model
      * @description The threshold for the deduction item.
      *
      * >  Valid values: 0 to the deduction threshold of the deduction module.
+     *
      * @example 5
      *
      * @var int
@@ -84,15 +85,13 @@ class securityScoreItemList extends Model
      */
     public $title;
     protected $_name = [
-        'score'          => 'Score',
+        'score' => 'Score',
         'scoreThreshold' => 'ScoreThreshold',
-        'subRuleType'    => 'SubRuleType',
-        'title'          => 'Title',
+        'subRuleType' => 'SubRuleType',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class repairConfigs extends Model
      */
     public $value;
     protected $_name = [
-        'flowId'    => 'FlowId',
-        'name'      => 'Name',
+        'flowId' => 'FlowId',
+        'name' => 'Name',
         'operation' => 'Operation',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

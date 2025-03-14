@@ -24,13 +24,11 @@ class instanceRiskNum extends Model
      */
     public $riskNumEntity;
     protected $_name = [
-        'instanceItem'  => 'InstanceItem',
+        'instanceItem' => 'InstanceItem',
         'riskNumEntity' => 'RiskNumEntity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

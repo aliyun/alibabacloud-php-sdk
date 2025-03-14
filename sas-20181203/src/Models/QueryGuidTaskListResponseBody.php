@@ -26,12 +26,10 @@ class QueryGuidTaskListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'guideTaskConfigList' => 'GuideTaskConfigList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class QueryGuidTaskListResponseBody extends Model
         if (isset($map['GuideTaskConfigList'])) {
             if (!empty($map['GuideTaskConfigList'])) {
                 $model->guideTaskConfigList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['GuideTaskConfigList'] as $item) {
                     $model->guideTaskConfigList[$n++] = null !== $item ? guideTaskConfigList::fromMap($item) : $item;
                 }

@@ -116,23 +116,21 @@ class k8sAccessInfos extends Model
      */
     public $vendor;
     protected $_name = [
-        'aliUid'        => 'AliUid',
+        'aliUid' => 'AliUid',
         'auditLogStore' => 'AuditLogStore',
-        'auditProject'  => 'AuditProject',
+        'auditProject' => 'AuditProject',
         'auditRegionId' => 'AuditRegionId',
-        'clusterId'     => 'ClusterId',
-        'clusterName'   => 'ClusterName',
-        'expireDate'    => 'ExpireDate',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'id'            => 'Id',
-        'installKey'    => 'InstallKey',
-        'vendor'        => 'Vendor',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'expireDate' => 'ExpireDate',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'installKey' => 'InstallKey',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

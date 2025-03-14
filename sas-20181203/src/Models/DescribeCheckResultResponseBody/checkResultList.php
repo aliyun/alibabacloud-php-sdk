@@ -40,12 +40,10 @@ class checkResultList extends Model
     public $name;
     protected $_name = [
         'complianceStatus' => 'ComplianceStatus',
-        'name'             => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

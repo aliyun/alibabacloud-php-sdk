@@ -38,14 +38,12 @@ class DescribeDomainSecureAlarmListRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'from'     => 'From',
-        'lang'     => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

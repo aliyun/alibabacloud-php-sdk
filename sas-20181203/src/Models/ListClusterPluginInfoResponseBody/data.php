@@ -47,15 +47,13 @@ class data extends Model
      */
     public $nodePluginInfoList;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterStatus'      => 'ClusterStatus',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterStatus' => 'ClusterStatus',
         'nodePluginInfoList' => 'NodePluginInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class data extends Model
         if (isset($map['NodePluginInfoList'])) {
             if (!empty($map['NodePluginInfoList'])) {
                 $model->nodePluginInfoList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['NodePluginInfoList'] as $item) {
                     $model->nodePluginInfoList[$n++] = null !== $item ? nodePluginInfoList::fromMap($item) : $item;
                 }

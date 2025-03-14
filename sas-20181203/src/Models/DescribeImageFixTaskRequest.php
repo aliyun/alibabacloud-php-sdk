@@ -12,6 +12,7 @@ class DescribeImageFixTaskRequest extends Model
      * @description The number of the page to return. Default value: **1**
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeImageFixTaskRequest extends Model
      * @description The number of entries to return on each page. Default value: **20**
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -60,15 +62,13 @@ class DescribeImageFixTaskRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
+        'endTime' => 'EndTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

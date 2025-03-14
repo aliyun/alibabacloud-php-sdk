@@ -93,6 +93,7 @@ class idcProbes extends Model
      * @description The unit of the scan period, with values:
      * - **day**: day.
      * - **hour**: hour.
+     *
      * @example day
      *
      * @var string
@@ -104,6 +105,7 @@ class idcProbes extends Model
      *
      * - **0**: Active
      * - **1**: Inactive
+     *
      * @example 0
      *
      * @var int
@@ -115,6 +117,7 @@ class idcProbes extends Model
      *
      * - **0**: Enabled
      * - **1**: Disabled
+     *
      * @example 0
      *
      * @var int
@@ -139,25 +142,23 @@ class idcProbes extends Model
      */
     public $winPort;
     protected $_name = [
-        'idcName'        => 'IdcName',
-        'idcRegion'      => 'IdcRegion',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
+        'idcName' => 'IdcName',
+        'idcRegion' => 'IdcRegion',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
         'intervalPeriod' => 'IntervalPeriod',
-        'intranetIp'     => 'IntranetIp',
-        'ipSegments'     => 'IpSegments',
-        'linuxPort'      => 'LinuxPort',
-        'periodUnit'     => 'PeriodUnit',
-        'serviceStatus'  => 'ServiceStatus',
-        'status'         => 'Status',
-        'uuid'           => 'Uuid',
-        'winPort'        => 'WinPort',
+        'intranetIp' => 'IntranetIp',
+        'ipSegments' => 'IpSegments',
+        'linuxPort' => 'LinuxPort',
+        'periodUnit' => 'PeriodUnit',
+        'serviceStatus' => 'ServiceStatus',
+        'status' => 'Status',
+        'uuid' => 'Uuid',
+        'winPort' => 'WinPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -54,14 +54,12 @@ class DescribeLoginBaseConfigsResponseBody extends Model
     protected $_name = [
         'baseConfigs' => 'BaseConfigs',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeLoginBaseConfigsResponseBody extends Model
         if (isset($map['BaseConfigs'])) {
             if (!empty($map['BaseConfigs'])) {
                 $model->baseConfigs = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['BaseConfigs'] as $item) {
                     $model->baseConfigs[$n++] = null !== $item ? baseConfigs::fromMap($item) : $item;
                 }

@@ -60,6 +60,7 @@ class groupedVulItems extends Model
      *   **php**
      *
      * >  This parameter is valid only for a vulnerability of the sca type.
+     *
      * @example java
      *
      * @var string
@@ -100,6 +101,7 @@ class groupedVulItems extends Model
      *   **1**: supported
      *
      * >  If this parameter is not returned, the application protection feature is not supported.
+     *
      * @example 1
      *
      * @var int
@@ -156,25 +158,23 @@ class groupedVulItems extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'     => 'AliasName',
-        'asapCount'     => 'AsapCount',
-        'gmtFirst'      => 'GmtFirst',
-        'gmtLast'       => 'GmtLast',
-        'handledCount'  => 'HandledCount',
-        'languageType'  => 'LanguageType',
-        'laterCount'    => 'LaterCount',
-        'name'          => 'Name',
-        'nntfCount'     => 'NntfCount',
-        'raspDefend'    => 'RaspDefend',
-        'related'       => 'Related',
-        'tags'          => 'Tags',
+        'aliasName' => 'AliasName',
+        'asapCount' => 'AsapCount',
+        'gmtFirst' => 'GmtFirst',
+        'gmtLast' => 'GmtLast',
+        'handledCount' => 'HandledCount',
+        'languageType' => 'LanguageType',
+        'laterCount' => 'LaterCount',
+        'name' => 'Name',
+        'nntfCount' => 'NntfCount',
+        'raspDefend' => 'RaspDefend',
+        'related' => 'Related',
+        'tags' => 'Tags',
         'totalFixCount' => 'TotalFixCount',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

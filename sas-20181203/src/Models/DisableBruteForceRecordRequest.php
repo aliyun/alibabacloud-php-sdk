@@ -12,6 +12,7 @@ class DisableBruteForceRecordRequest extends Model
      * @description The IP address that you want to specify in the policy.
      *
      * This parameter is required.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -34,6 +35,7 @@ class DisableBruteForceRecordRequest extends Model
      * @description The ID of the IP address blocking policy.
      *
      * > You can call the [DescribeBruteForceRecords](~~DescribeBruteForceRecords~~) operation to query the policy ID.
+     *
      * @example 114166XX
      *
      * @var int
@@ -56,23 +58,22 @@ class DisableBruteForceRecordRequest extends Model
      * @description The UUID of the server.
      *
      * This parameter is required.
+     *
      * @example cbb9aa80-a8d1-443c-9ff0-2c36cd39****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'blockIp'         => 'BlockIp',
-        'bound'           => 'Bound',
-        'id'              => 'Id',
-        'port'            => 'Port',
+        'blockIp' => 'BlockIp',
+        'bound' => 'Bound',
+        'id' => 'Id',
+        'port' => 'Port',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'uuid'            => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

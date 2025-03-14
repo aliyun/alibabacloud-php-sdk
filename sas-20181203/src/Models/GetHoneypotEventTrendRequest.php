@@ -40,6 +40,7 @@ class GetHoneypotEventTrendRequest extends Model
      * @description The source IP address of the attack.
      *
      * This parameter is required.
+     *
      * @example 10.91.254.***
      *
      * @var string
@@ -55,16 +56,14 @@ class GetHoneypotEventTrendRequest extends Model
      */
     public $startTimeStamp;
     protected $_name = [
-        'endTimeStamp'   => 'EndTimeStamp',
-        'lang'           => 'Lang',
-        'riskLevelList'  => 'RiskLevelList',
-        'srcIp'          => 'SrcIp',
+        'endTimeStamp' => 'EndTimeStamp',
+        'lang' => 'Lang',
+        'riskLevelList' => 'RiskLevelList',
+        'srcIp' => 'SrcIp',
         'startTimeStamp' => 'StartTimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class DescribeDefaultKeyInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'domainList' => 'DomainList',
-        'names'      => 'Names',
-        'requestId'  => 'RequestId',
+        'names' => 'Names',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

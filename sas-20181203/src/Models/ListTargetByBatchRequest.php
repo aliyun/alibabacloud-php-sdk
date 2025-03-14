@@ -21,6 +21,7 @@ class ListTargetByBatchRequest extends Model
      * @description The page number of the current page in a paginated query.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +34,7 @@ class ListTargetByBatchRequest extends Model
      * - **0**: Machine instance
      * - **1**: Machine group
      * - **2**: VPC instance ID
+     *
      * @example 0
      *
      * @var int
@@ -43,21 +45,20 @@ class ListTargetByBatchRequest extends Model
      * @description The maximum number of items to return per page in a paginated query.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'batchId'       => 'BatchId',
-        'currentPage'   => 'CurrentPage',
+        'batchId' => 'BatchId',
+        'currentPage' => 'CurrentPage',
         'operationBase' => 'OperationBase',
-        'pageSize'      => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

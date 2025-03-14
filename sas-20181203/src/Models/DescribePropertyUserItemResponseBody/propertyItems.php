@@ -27,12 +27,10 @@ class propertyItems extends Model
     public $user;
     protected $_name = [
         'count' => 'Count',
-        'user'  => 'User',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

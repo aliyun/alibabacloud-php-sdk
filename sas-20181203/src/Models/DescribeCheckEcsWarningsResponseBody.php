@@ -12,6 +12,7 @@ class DescribeCheckEcsWarningsResponseBody extends Model
      * @description Indicates whether you use the free trial of Security Center. Valid values:
      * - **0**: no
      * - **1**: yes
+     *
      * @example 0
      *
      * @var string
@@ -36,6 +37,7 @@ class DescribeCheckEcsWarningsResponseBody extends Model
      *   **6**: Anti-virus edition
      *
      * >  Both the value 2 and the value 3 indicate the Enterprise edition.
+     *
      * @example 3
      *
      * @var string
@@ -51,15 +53,13 @@ class DescribeCheckEcsWarningsResponseBody extends Model
      */
     public $weakPasswordCount;
     protected $_name = [
-        'canTry'            => 'CanTry',
-        'requestId'         => 'RequestId',
-        'sasVersion'        => 'SasVersion',
+        'canTry' => 'CanTry',
+        'requestId' => 'RequestId',
+        'sasVersion' => 'SasVersion',
         'weakPasswordCount' => 'WeakPasswordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

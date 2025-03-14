@@ -12,6 +12,7 @@ class item extends Model
      * @description The ID of the baseline check item.
      *
      * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the ID.
+     *
      * @example hc.image.checklist.identify.hc_exploit_couchdb_linux.item
      *
      * @var string
@@ -22,19 +23,18 @@ class item extends Model
      * @description The name of the baseline check item.
      *
      * >  You can call the [GetOpaClusterBaseLineList](https://help.aliyun.com/document_detail/2539883.html) operation to query the name.
+     *
      * @example passwd
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

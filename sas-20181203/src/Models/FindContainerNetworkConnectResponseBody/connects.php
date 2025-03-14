@@ -14,6 +14,7 @@ class connects extends Model
      * @description The information about the destination container.
      *
      * > This parameter is not supported.
+     *
      * @var dstContainer
      */
     public $dstContainer;
@@ -67,6 +68,7 @@ class connects extends Model
      * @description The information about the source container.
      *
      * > This parameter is not supported.
+     *
      * @var srcContainer
      */
     public $srcContainer;
@@ -90,19 +92,17 @@ class connects extends Model
     public $srcPort;
     protected $_name = [
         'dstContainer' => 'DstContainer',
-        'dstIp'        => 'DstIp',
-        'dstPort'      => 'DstPort',
-        'firstTime'    => 'FirstTime',
-        'id'           => 'Id',
-        'lastTime'     => 'LastTime',
+        'dstIp' => 'DstIp',
+        'dstPort' => 'DstPort',
+        'firstTime' => 'FirstTime',
+        'id' => 'Id',
+        'lastTime' => 'LastTime',
         'srcContainer' => 'SrcContainer',
-        'srcIp'        => 'SrcIp',
-        'srcPort'      => 'SrcPort',
+        'srcIp' => 'SrcIp',
+        'srcPort' => 'SrcPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

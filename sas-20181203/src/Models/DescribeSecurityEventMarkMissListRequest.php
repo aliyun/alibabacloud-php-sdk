@@ -12,6 +12,7 @@ class DescribeSecurityEventMarkMissListRequest extends Model
      * @description The number of the page to return. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +32,7 @@ class DescribeSecurityEventMarkMissListRequest extends Model
      * @description The number of entries per page. Default value: **20**.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -60,17 +62,15 @@ class DescribeSecurityEventMarkMissListRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'eventName'       => 'EventName',
-        'pageSize'        => 'PageSize',
-        'remark'          => 'Remark',
+        'currentPage' => 'CurrentPage',
+        'eventName' => 'EventName',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceIp'        => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

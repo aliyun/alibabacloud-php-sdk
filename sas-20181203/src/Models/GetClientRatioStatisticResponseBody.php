@@ -41,14 +41,12 @@ class GetClientRatioStatisticResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clientInstallRatio' => 'ClientInstallRatio',
-        'clientOnlineRatio'  => 'ClientOnlineRatio',
-        'dates'              => 'Dates',
-        'requestId'          => 'RequestId',
+        'clientOnlineRatio' => 'ClientOnlineRatio',
+        'dates' => 'Dates',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,20 +38,19 @@ class UpdatePostPaidBindRelResponseBody extends Model
      * - **6**: Serverless protection not enabled
      * - **7**: Pay-as-you-go service for host and container security not enabled
      * - **-1**: Binding exception
+     *
      * @example 0
      *
      * @var int
      */
     public $resultCode;
     protected $_name = [
-        'bindCount'  => 'BindCount',
-        'requestId'  => 'RequestId',
+        'bindCount' => 'BindCount',
+        'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

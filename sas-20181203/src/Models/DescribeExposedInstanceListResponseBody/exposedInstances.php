@@ -201,6 +201,7 @@ class exposedInstances extends Model
      * @description The ID of the region in which the asset resides.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -225,32 +226,30 @@ class exposedInstances extends Model
      */
     public $uuid;
     protected $_name = [
-        'asapVulCount'       => 'AsapVulCount',
-        'assetType'          => 'AssetType',
-        'cloudAssetInfo'     => 'CloudAssetInfo',
-        'cspmAlarmCount'     => 'CspmAlarmCount',
+        'asapVulCount' => 'AsapVulCount',
+        'assetType' => 'AssetType',
+        'cloudAssetInfo' => 'CloudAssetInfo',
+        'cspmAlarmCount' => 'CspmAlarmCount',
         'exploitHealthCount' => 'ExploitHealthCount',
-        'exposureComponent'  => 'ExposureComponent',
-        'exposureIp'         => 'ExposureIp',
-        'exposurePort'       => 'ExposurePort',
-        'exposureType'       => 'ExposureType',
-        'exposureTypeId'     => 'ExposureTypeId',
-        'groupId'            => 'GroupId',
-        'groupName'          => 'GroupName',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'internetIp'         => 'InternetIp',
-        'intranetIp'         => 'IntranetIp',
-        'laterVulCount'      => 'LaterVulCount',
-        'nntfVulCount'       => 'NntfVulCount',
-        'regionId'           => 'RegionId',
-        'totalVulCount'      => 'TotalVulCount',
-        'uuid'               => 'Uuid',
+        'exposureComponent' => 'ExposureComponent',
+        'exposureIp' => 'ExposureIp',
+        'exposurePort' => 'ExposurePort',
+        'exposureType' => 'ExposureType',
+        'exposureTypeId' => 'ExposureTypeId',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'laterVulCount' => 'LaterVulCount',
+        'nntfVulCount' => 'NntfVulCount',
+        'regionId' => 'RegionId',
+        'totalVulCount' => 'TotalVulCount',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

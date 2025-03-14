@@ -33,14 +33,12 @@ class DescribeBackupPoliciesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'  => 'PageInfo',
-        'policies'  => 'Policies',
+        'pageInfo' => 'PageInfo',
+        'policies' => 'Policies',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribeBackupPoliciesResponseBody extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Policies'] as $item) {
                     $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }

@@ -214,33 +214,31 @@ class honeypotEventFlows extends Model
      */
     public $uid;
     protected $_name = [
-        'agentId'         => 'AgentId',
-        'agentName'       => 'AgentName',
-        'dockerId'        => 'DockerId',
-        'dstIp'           => 'DstIp',
-        'dstPort'         => 'DstPort',
+        'agentId' => 'AgentId',
+        'agentName' => 'AgentName',
+        'dockerId' => 'DockerId',
+        'dstIp' => 'DstIp',
+        'dstPort' => 'DstPort',
         'eventConnection' => 'EventConnection',
-        'extra'           => 'Extra',
-        'extra1'          => 'Extra1',
-        'fileOssUrl'      => 'FileOssUrl',
-        'firstTime'       => 'FirstTime',
+        'extra' => 'Extra',
+        'extra1' => 'Extra1',
+        'fileOssUrl' => 'FileOssUrl',
+        'firstTime' => 'FirstTime',
         'honeypotEventId' => 'HoneypotEventId',
-        'honeypotId'      => 'HoneypotId',
-        'honeypotName'    => 'HoneypotName',
-        'lastTime'        => 'LastTime',
-        'riskLevel'       => 'RiskLevel',
+        'honeypotId' => 'HoneypotId',
+        'honeypotName' => 'HoneypotName',
+        'lastTime' => 'LastTime',
+        'riskLevel' => 'RiskLevel',
         'securityEventId' => 'SecurityEventId',
-        'srcIp'           => 'SrcIp',
-        'srcMac'          => 'SrcMac',
-        'srcPort'         => 'SrcPort',
-        'status'          => 'Status',
-        'typeId'          => 'TypeId',
-        'uid'             => 'Uid',
+        'srcIp' => 'SrcIp',
+        'srcMac' => 'SrcMac',
+        'srcPort' => 'SrcPort',
+        'status' => 'Status',
+        'typeId' => 'TypeId',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,6 +33,7 @@ class DescribeWhiteListAssetRequest extends Model
      * @description The number of entries per page. Maximum value: **500**. Default value: **500**. This value indicates that 500 entries are displayed on each page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -52,6 +53,7 @@ class DescribeWhiteListAssetRequest extends Model
      * @description The ID of the policy.
      *
      * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * @example 2730
      *
      * @var int
@@ -65,23 +67,22 @@ class DescribeWhiteListAssetRequest extends Model
      *   **2**: application policy
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'lang'       => 'Lang',
-        'lastMaxId'  => 'LastMaxId',
-        'pageSize'   => 'PageSize',
-        'sourceIp'   => 'SourceIp',
+        'lang' => 'Lang',
+        'lastMaxId' => 'LastMaxId',
+        'pageSize' => 'PageSize',
+        'sourceIp' => 'SourceIp',
         'strategyId' => 'StrategyId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

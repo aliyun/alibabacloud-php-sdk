@@ -11,7 +11,10 @@ class GetInterceptionRuleDetailRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * This parameter is required.
+     *
      * @example c7f60fdabc84xxx
      *
      * @var string
@@ -21,7 +24,10 @@ class GetInterceptionRuleDetailRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * > You can call the [ListInterceptionRulePage](~~ListInterceptionRulePage~~) operation to query the IDs of rules.
+     *
      * This parameter is required.
+     *
      * @example 500002
      *
      * @var string
@@ -29,12 +35,10 @@ class GetInterceptionRuleDetailRequest extends Model
     public $ruleId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,6 +33,7 @@ class ExportWarningRequest extends Model
      * @description The ID of the server group.
      *
      * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * @example 13007754
      *
      * @var int
@@ -140,6 +141,7 @@ class ExportWarningRequest extends Model
      * @description The subtypes of the baselines based on which baseline checks are performed. Separate multiple subtypes with commas (,).
      *
      * > You must set the value of this parameter to the value of the **TypeName** parameter that is contained in the **SubTypes** parameter. You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to obtain the value of the TypeName parameter.
+     *
      * @example hc_middleware_ack_master
      *
      * @var string
@@ -150,6 +152,7 @@ class ExportWarningRequest extends Model
      * @description The type of the baseline based on which baseline checks are performed.
      *
      * > You must set the value of this parameter to the value of the **TypeName** parameter that is returned by calling the [DescribeRiskType](~~DescribeRiskType~~) operation. If both the **TypeName** and **TypeNames** parameters are specified, only the **TypeName** parameter takes effect.
+     *
      * @example hc_container
      *
      * @var string
@@ -160,6 +163,7 @@ class ExportWarningRequest extends Model
      * @description The types of the baselines based on which baseline checks are performed. Separate multiple types with commas (,).
      *
      * > You must set the value of this parameter to the value of the **TypeName** parameter that is returned by calling the [DescribeRiskType](~~DescribeRiskType~~) operation. If both the **TypeName** and **TypeNames** parameters are specified, only the **TypeName** parameter takes effect.
+     *
      * @example hc_container,cis
      *
      * @var string
@@ -175,27 +179,25 @@ class ExportWarningRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'dealed'          => 'Dealed',
-        'exportType'      => 'ExportType',
-        'groupId'         => 'GroupId',
-        'isCleartextPwd'  => 'IsCleartextPwd',
+        'dealed' => 'Dealed',
+        'exportType' => 'ExportType',
+        'groupId' => 'GroupId',
+        'isCleartextPwd' => 'IsCleartextPwd',
         'isSummaryExport' => 'IsSummaryExport',
-        'lang'            => 'Lang',
-        'riskIds'         => 'RiskIds',
-        'riskLevels'      => 'RiskLevels',
-        'riskName'        => 'RiskName',
-        'sourceIp'        => 'SourceIp',
-        'statusList'      => 'StatusList',
-        'strategyId'      => 'StrategyId',
-        'subTypeNames'    => 'SubTypeNames',
-        'typeName'        => 'TypeName',
-        'typeNames'       => 'TypeNames',
-        'uuids'           => 'Uuids',
+        'lang' => 'Lang',
+        'riskIds' => 'RiskIds',
+        'riskLevels' => 'RiskLevels',
+        'riskName' => 'RiskName',
+        'sourceIp' => 'SourceIp',
+        'statusList' => 'StatusList',
+        'strategyId' => 'StrategyId',
+        'subTypeNames' => 'SubTypeNames',
+        'typeName' => 'TypeName',
+        'typeNames' => 'TypeNames',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

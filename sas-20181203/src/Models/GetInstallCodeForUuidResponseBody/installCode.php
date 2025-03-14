@@ -20,6 +20,7 @@ class installCode extends Model
     /**
      * @description Expiration date of the installation verification code. The format is a 13-digit timestamp.
      * > The installation verification code can only be used within its validity period. Expired codes cannot be used.
+     *
      * @example 1723860871689
      *
      * @var int
@@ -50,6 +51,7 @@ class installCode extends Model
      * - **linux**: Linux
      *
      * - **windows**: Windows
+     *
      * @example linux
      *
      * @var string
@@ -67,15 +69,13 @@ class installCode extends Model
     protected $_name = [
         'captchaCode' => 'CaptchaCode',
         'expiredDate' => 'ExpiredDate',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'os'          => 'Os',
-        'vendorName'  => 'VendorName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'os' => 'Os',
+        'vendorName' => 'VendorName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

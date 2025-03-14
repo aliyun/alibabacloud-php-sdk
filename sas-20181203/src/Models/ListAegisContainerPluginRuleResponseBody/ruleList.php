@@ -114,23 +114,21 @@ class ruleList extends Model
      */
     public $whiteImages;
     protected $_name = [
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'mode'             => 'Mode',
-        'policies'         => 'Policies',
-        'ruleDescription'  => 'RuleDescription',
-        'ruleId'           => 'RuleId',
-        'ruleName'         => 'RuleName',
-        'ruleTemplateId'   => 'RuleTemplateId',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'mode' => 'Mode',
+        'policies' => 'Policies',
+        'ruleDescription' => 'RuleDescription',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleTemplateId' => 'RuleTemplateId',
         'ruleTemplateName' => 'RuleTemplateName',
-        'selectedPolicy'   => 'SelectedPolicy',
-        'switchId'         => 'SwitchId',
-        'whiteImages'      => 'WhiteImages',
+        'selectedPolicy' => 'SelectedPolicy',
+        'switchId' => 'SwitchId',
+        'whiteImages' => 'WhiteImages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -201,7 +199,7 @@ class ruleList extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Policies'] as $item) {
                     $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }

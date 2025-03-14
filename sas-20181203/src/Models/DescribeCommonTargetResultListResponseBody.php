@@ -25,13 +25,11 @@ class DescribeCommonTargetResultListResponseBody extends Model
      */
     public $targetConfig;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'targetConfig' => 'TargetConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpgradeVersionByUuidsRequest extends Model
      * @description The version to which you want to upgrade the client.
      *
      * This parameter is required.
+     *
      * @example 0.0.9
      *
      * @var string
@@ -22,17 +23,16 @@ class UpgradeVersionByUuidsRequest extends Model
      * @description The UUIDs of the assets on which you want to run the detection task.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $uuidList;
     protected $_name = [
         'upgradeVersion' => 'UpgradeVersion',
-        'uuidList'       => 'UuidList',
+        'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

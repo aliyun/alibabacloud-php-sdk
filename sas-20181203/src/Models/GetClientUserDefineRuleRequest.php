@@ -12,6 +12,7 @@ class GetClientUserDefineRuleRequest extends Model
      * @description The ID of the custom defense rule.
      *
      * This parameter is required.
+     *
      * @example 200****
      *
      * @var int
@@ -21,9 +22,7 @@ class GetClientUserDefineRuleRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

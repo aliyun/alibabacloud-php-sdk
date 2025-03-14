@@ -37,13 +37,11 @@ class scope extends Model
     public $namespaces;
     protected $_name = [
         'allNamespace' => 'AllNamespace',
-        'clusterId'    => 'ClusterId',
-        'namespaces'   => 'Namespaces',
+        'clusterId' => 'ClusterId',
+        'namespaces' => 'Namespaces',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

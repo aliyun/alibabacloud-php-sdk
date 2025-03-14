@@ -39,13 +39,11 @@ class logMeta extends Model
     public $status;
     protected $_name = [
         'logStore' => 'LogStore',
-        'project'  => 'Project',
-        'status'   => 'Status',
+        'project' => 'Project',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

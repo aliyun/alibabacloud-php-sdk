@@ -53,16 +53,14 @@ class edgeList extends Model
      */
     public $type;
     protected $_name = [
-        'count'   => 'Count',
-        'endId'   => 'EndId',
+        'count' => 'Count',
+        'endId' => 'EndId',
         'startId' => 'StartId',
-        'time'    => 'Time',
-        'type'    => 'Type',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

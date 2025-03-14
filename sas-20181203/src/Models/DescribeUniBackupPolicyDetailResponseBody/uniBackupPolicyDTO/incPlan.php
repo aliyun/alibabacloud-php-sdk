@@ -46,15 +46,13 @@ class incPlan extends Model
      */
     public $startTime;
     protected $_name = [
-        'days'      => 'Days',
-        'interval'  => 'Interval',
-        'planType'  => 'PlanType',
+        'days' => 'Days',
+        'interval' => 'Interval',
+        'planType' => 'PlanType',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

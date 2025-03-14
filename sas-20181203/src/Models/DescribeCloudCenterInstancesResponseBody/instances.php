@@ -24,6 +24,7 @@ class instances extends Model
      * @description The ID of the application.
      *
      * >  This parameter is available only when the **Vendor** parameter is set to 9.
+     *
      * @example test
      *
      * @var string
@@ -34,6 +35,7 @@ class instances extends Model
      * @description The name of the application.
      *
      * >  This parameter is available only when the **Vendor** parameter is set to 9.
+     *
      * @example testAppName
      *
      * @var string
@@ -630,65 +632,63 @@ class instances extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'alarmStatus'        => 'AlarmStatus',
-        'appId'              => 'AppId',
-        'appName'            => 'AppName',
-        'assetType'          => 'AssetType',
-        'assetTypeName'      => 'AssetTypeName',
-        'authModifyTime'     => 'AuthModifyTime',
-        'authVersion'        => 'AuthVersion',
-        'authVersionName'    => 'AuthVersionName',
-        'bind'               => 'Bind',
-        'clientStatus'       => 'ClientStatus',
-        'clientSubStatus'    => 'ClientSubStatus',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'cores'              => 'Cores',
-        'cpuInfo'            => 'CpuInfo',
-        'createdTime'        => 'CreatedTime',
-        'exposedStatus'      => 'ExposedStatus',
-        'flag'               => 'Flag',
-        'flagName'           => 'FlagName',
-        'groupId'            => 'GroupId',
-        'groupTrace'         => 'GroupTrace',
-        'hcStatus'           => 'HcStatus',
-        'healthCheckCount'   => 'HealthCheckCount',
-        'importance'         => 'Importance',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'internetIp'         => 'InternetIp',
-        'intranetIp'         => 'IntranetIp',
-        'ip'                 => 'Ip',
-        'ipListString'       => 'IpListString',
-        'kernel'             => 'Kernel',
+        'alarmStatus' => 'AlarmStatus',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'assetType' => 'AssetType',
+        'assetTypeName' => 'AssetTypeName',
+        'authModifyTime' => 'AuthModifyTime',
+        'authVersion' => 'AuthVersion',
+        'authVersionName' => 'AuthVersionName',
+        'bind' => 'Bind',
+        'clientStatus' => 'ClientStatus',
+        'clientSubStatus' => 'ClientSubStatus',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'cores' => 'Cores',
+        'cpuInfo' => 'CpuInfo',
+        'createdTime' => 'CreatedTime',
+        'exposedStatus' => 'ExposedStatus',
+        'flag' => 'Flag',
+        'flagName' => 'FlagName',
+        'groupId' => 'GroupId',
+        'groupTrace' => 'GroupTrace',
+        'hcStatus' => 'HcStatus',
+        'healthCheckCount' => 'HealthCheckCount',
+        'importance' => 'Importance',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'ip' => 'Ip',
+        'ipListString' => 'IpListString',
+        'kernel' => 'Kernel',
         'lastLoginTimestamp' => 'LastLoginTimestamp',
-        'macListString'      => 'MacListString',
-        'mem'                => 'Mem',
-        'os'                 => 'Os',
-        'osName'             => 'OsName',
-        'podCount'           => 'PodCount',
-        'postPaidFlag'       => 'PostPaidFlag',
-        'region'             => 'Region',
-        'regionId'           => 'RegionId',
-        'regionName'         => 'RegionName',
-        'riskCount'          => 'RiskCount',
-        'riskStatus'         => 'RiskStatus',
-        'safeEventCount'     => 'SafeEventCount',
-        'status'             => 'Status',
-        'tag'                => 'Tag',
-        'tagId'              => 'TagId',
-        'tagResources'       => 'TagResources',
-        'uuid'               => 'Uuid',
-        'vendor'             => 'Vendor',
-        'vendorName'         => 'VendorName',
-        'vpcInstanceId'      => 'VpcInstanceId',
-        'vulCount'           => 'VulCount',
-        'vulStatus'          => 'VulStatus',
+        'macListString' => 'MacListString',
+        'mem' => 'Mem',
+        'os' => 'Os',
+        'osName' => 'OsName',
+        'podCount' => 'PodCount',
+        'postPaidFlag' => 'PostPaidFlag',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
+        'riskCount' => 'RiskCount',
+        'riskStatus' => 'RiskStatus',
+        'safeEventCount' => 'SafeEventCount',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'tagId' => 'TagId',
+        'tagResources' => 'TagResources',
+        'uuid' => 'Uuid',
+        'vendor' => 'Vendor',
+        'vendorName' => 'VendorName',
+        'vpcInstanceId' => 'VpcInstanceId',
+        'vulCount' => 'VulCount',
+        'vulStatus' => 'VulStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

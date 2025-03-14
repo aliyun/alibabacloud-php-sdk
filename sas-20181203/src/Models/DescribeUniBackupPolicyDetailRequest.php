@@ -11,7 +11,10 @@ class DescribeUniBackupPolicyDetailRequest extends Model
     /**
      * @description The ID of the anti-ransomware policy.
      *
+     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -21,9 +24,7 @@ class DescribeUniBackupPolicyDetailRequest extends Model
         'policyId' => 'PolicyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

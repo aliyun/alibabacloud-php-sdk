@@ -24,6 +24,7 @@ class ModifyEmgVulSubmitRequest extends Model
      * @description The name of the vulnerability.
      *
      * This parameter is required.
+     *
      * @example scan:ASCV-2019-032401
      *
      * @var string
@@ -37,20 +38,19 @@ class ModifyEmgVulSubmitRequest extends Model
      *   **no**
      *
      * This parameter is required.
+     *
      * @example yes
      *
      * @var string
      */
     public $userAgreement;
     protected $_name = [
-        'lang'          => 'Lang',
-        'name'          => 'Name',
+        'lang' => 'Lang',
+        'name' => 'Name',
         'userAgreement' => 'UserAgreement',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

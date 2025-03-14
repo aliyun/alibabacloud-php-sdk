@@ -25,13 +25,11 @@ class GetLogMetaResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'logMeta'   => 'LogMeta',
+        'logMeta' => 'LogMeta',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

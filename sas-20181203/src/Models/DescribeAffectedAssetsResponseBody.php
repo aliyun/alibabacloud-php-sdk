@@ -34,13 +34,11 @@ class DescribeAffectedAssetsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'assetList' => 'AssetList',
-        'pageInfo'  => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class DescribeAffectedAssetsResponseBody extends Model
         if (isset($map['AssetList'])) {
             if (!empty($map['AssetList'])) {
                 $model->assetList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AssetList'] as $item) {
                     $model->assetList[$n++] = null !== $item ? assetList::fromMap($item) : $item;
                 }

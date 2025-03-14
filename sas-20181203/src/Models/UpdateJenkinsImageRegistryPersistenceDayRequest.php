@@ -21,6 +21,7 @@ class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
      * @description The ID of the image repository.
      *
      * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
+     *
      * @example 25363
      *
      * @var int
@@ -37,13 +38,11 @@ class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
     public $sourceIp;
     protected $_name = [
         'persistenceDay' => 'PersistenceDay',
-        'registryId'     => 'RegistryId',
-        'sourceIp'       => 'SourceIp',
+        'registryId' => 'RegistryId',
+        'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeInstanceStatisticsRequest extends Model
      * @description The source of the request. Set the value to **sas**, which indicates that the request is sent from Security Center.
      *
      * This parameter is required.
+     *
      * @example sas
      *
      * @var string
@@ -43,21 +44,20 @@ class DescribeInstanceStatisticsRequest extends Model
      * @description The UUIDs of the assets to query. Separate multiple UUIDs with commas (,). You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of assets.
      *
      * This parameter is required.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'from'     => 'From',
-        'lang'     => 'Lang',
+        'from' => 'From',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
-        'uuid'     => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

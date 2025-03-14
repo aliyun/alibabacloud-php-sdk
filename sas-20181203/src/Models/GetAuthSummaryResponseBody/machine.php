@@ -98,21 +98,19 @@ class machine extends Model
      */
     public $unBindEcsCount;
     protected $_name = [
-        'bindCoreCount'         => 'BindCoreCount',
-        'bindEcsCount'          => 'BindEcsCount',
+        'bindCoreCount' => 'BindCoreCount',
+        'bindEcsCount' => 'BindEcsCount',
         'postPaidBindCoreCount' => 'PostPaidBindCoreCount',
-        'postPaidBindEcsCount'  => 'PostPaidBindEcsCount',
-        'riskCoreCount'         => 'RiskCoreCount',
-        'riskEcsCount'          => 'RiskEcsCount',
-        'totalCoreCount'        => 'TotalCoreCount',
-        'totalEcsCount'         => 'TotalEcsCount',
-        'unBindCoreCount'       => 'UnBindCoreCount',
-        'unBindEcsCount'        => 'UnBindEcsCount',
+        'postPaidBindEcsCount' => 'PostPaidBindEcsCount',
+        'riskCoreCount' => 'RiskCoreCount',
+        'riskEcsCount' => 'RiskEcsCount',
+        'totalCoreCount' => 'TotalCoreCount',
+        'totalEcsCount' => 'TotalEcsCount',
+        'unBindCoreCount' => 'UnBindCoreCount',
+        'unBindEcsCount' => 'UnBindEcsCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

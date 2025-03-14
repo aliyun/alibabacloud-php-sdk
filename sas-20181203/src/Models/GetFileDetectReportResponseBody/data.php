@@ -12,7 +12,19 @@ class data extends Model
      * @description The basic information about the detected file.
      *
      * @example {
+     * "sha256": "",
+     * "sha512": "",
+     * "source": "aegis",
+     * "gmt_first_submit": "",
+     * "sha1": "",
+     * "virus_result": "",
+     * "webshell_result": "",
+     * "gmt_update": "",
+     * "sandbox_result": "2",
+     * "fileSize": "363752",
+     * "virus_name": "",
      * }
+     *
      * @var string
      */
     public $basic;
@@ -108,20 +120,18 @@ class data extends Model
      */
     public $threatTypes;
     protected $_name = [
-        'basic'         => 'Basic',
-        'fileHash'      => 'FileHash',
-        'filename'      => 'Filename',
-        'hasData'       => 'HasData',
+        'basic' => 'Basic',
+        'fileHash' => 'FileHash',
+        'filename' => 'Filename',
+        'hasData' => 'HasData',
         'intelligences' => 'Intelligences',
-        'sandbox'       => 'Sandbox',
-        'showTab'       => 'ShowTab',
-        'threatLevel'   => 'ThreatLevel',
-        'threatTypes'   => 'ThreatTypes',
+        'sandbox' => 'Sandbox',
+        'showTab' => 'ShowTab',
+        'threatLevel' => 'ThreatLevel',
+        'threatTypes' => 'ThreatTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

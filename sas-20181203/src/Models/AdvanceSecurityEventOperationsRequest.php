@@ -45,6 +45,7 @@ class AdvanceSecurityEventOperationsRequest extends Model
      *   Others
      *
      * For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
+     *
      * @example Malicious script
      *
      * @var string
@@ -65,15 +66,13 @@ class AdvanceSecurityEventOperationsRequest extends Model
      */
     public $ruleId;
     protected $_name = [
-        'eventName'       => 'EventName',
-        'eventType'       => 'EventType',
+        'eventName' => 'EventName',
+        'eventType' => 'EventType',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'ruleId'          => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

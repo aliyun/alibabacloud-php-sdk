@@ -53,16 +53,14 @@ class diskInfoList extends Model
      */
     public $useSizeByte;
     protected $_name = [
-        'diskName'      => 'DiskName',
-        'totalSize'     => 'TotalSize',
+        'diskName' => 'DiskName',
+        'totalSize' => 'TotalSize',
         'totalSizeByte' => 'TotalSizeByte',
-        'useSize'       => 'UseSize',
-        'useSizeByte'   => 'UseSizeByte',
+        'useSize' => 'UseSize',
+        'useSizeByte' => 'UseSizeByte',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

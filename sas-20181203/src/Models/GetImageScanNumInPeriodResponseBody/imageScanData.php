@@ -20,9 +20,7 @@ class imageScanData extends Model
         'imageScanCount' => 'ImageScanCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

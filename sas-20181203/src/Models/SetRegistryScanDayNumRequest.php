@@ -12,6 +12,7 @@ class SetRegistryScanDayNumRequest extends Model
      * @description The cycle at which you want to scan your images. Unit: days.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -21,9 +22,7 @@ class SetRegistryScanDayNumRequest extends Model
         'scanDayNum' => 'ScanDayNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

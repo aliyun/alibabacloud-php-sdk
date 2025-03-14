@@ -51,15 +51,13 @@ class details extends Model
      */
     public $valueDisplay;
     protected $_name = [
-        'infoType'     => 'InfoType',
-        'nameDisplay'  => 'NameDisplay',
-        'type'         => 'Type',
+        'infoType' => 'InfoType',
+        'nameDisplay' => 'NameDisplay',
+        'type' => 'Type',
         'valueDisplay' => 'ValueDisplay',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,20 +23,21 @@ class DescribeSoarStrategyTaskDetailRequest extends Model
     /**
      * @description The ID of the policy task.
      *
+     * >  You can call the [DescribeSoarStrategyTasks](~~DescribeSoarStrategyTasks~~) operation to obtain the ID.
+     *
      * This parameter is required.
+     *
      * @example 10585
      *
      * @var int
      */
     public $strategyTaskId;
     protected $_name = [
-        'lang'           => 'Lang',
+        'lang' => 'Lang',
         'strategyTaskId' => 'StrategyTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

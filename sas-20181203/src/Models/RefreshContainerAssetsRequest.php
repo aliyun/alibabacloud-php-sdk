@@ -15,6 +15,7 @@ class RefreshContainerAssetsRequest extends Model
      *   **CONTAINER**
      *
      * This parameter is required.
+     *
      * @example IMAGE
      *
      * @var string
@@ -24,9 +25,7 @@ class RefreshContainerAssetsRequest extends Model
         'assetType' => 'AssetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

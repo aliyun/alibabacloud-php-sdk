@@ -37,6 +37,7 @@ class DescribeRiskCheckResultRequest extends Model
      *   **6**: basic security protection
      *
      * > If you do not specify this parameter, all types of check items are queried.
+     *
      * @example 1
      *
      * @var int
@@ -137,23 +138,21 @@ class DescribeRiskCheckResultRequest extends Model
      */
     public $status;
     protected $_name = [
-        'assetType'       => 'AssetType',
-        'currentPage'     => 'CurrentPage',
-        'groupId'         => 'GroupId',
-        'itemIds'         => 'ItemIds',
-        'lang'            => 'Lang',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
-        'queryFlag'       => 'QueryFlag',
+        'assetType' => 'AssetType',
+        'currentPage' => 'CurrentPage',
+        'groupId' => 'GroupId',
+        'itemIds' => 'ItemIds',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'queryFlag' => 'QueryFlag',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'riskLevel'       => 'RiskLevel',
-        'sourceIp'        => 'SourceIp',
-        'status'          => 'Status',
+        'riskLevel' => 'RiskLevel',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -13,7 +13,10 @@ class SubmitOperationTaskRequest extends Model
     /**
      * @description The ID of the check item.
      *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+     *
      * This parameter is required.
+     *
      * @example 132
      *
      * @var int
@@ -43,6 +46,7 @@ class SubmitOperationTaskRequest extends Model
      * @description The key linked to cross-page selections during task submission.
      *
      * >  You can call the [CreateAssetSelectionConfig](~~CreateAssetSelectionConfig~~) operation to query the associated key from the BusinessType field.
+     *
      * @example CSPM_OPERATION_RELATION_KEY_173***
      *
      * @var string
@@ -63,23 +67,22 @@ class SubmitOperationTaskRequest extends Model
      *   Rollback task: ROLLBACK
      *
      * This parameter is required.
+     *
      * @example REPAIR
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'checkId'                => 'CheckId',
-        'dimensionType'          => 'DimensionType',
+        'checkId' => 'CheckId',
+        'dimensionType' => 'DimensionType',
         'operationTaskInstances' => 'OperationTaskInstances',
-        'relationKey'            => 'RelationKey',
-        'repairTempParam'        => 'RepairTempParam',
-        'type'                   => 'Type',
+        'relationKey' => 'RelationKey',
+        'repairTempParam' => 'RepairTempParam',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -135,7 +138,7 @@ class SubmitOperationTaskRequest extends Model
         if (isset($map['OperationTaskInstances'])) {
             if (!empty($map['OperationTaskInstances'])) {
                 $model->operationTaskInstances = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['OperationTaskInstances'] as $item) {
                     $model->operationTaskInstances[$n++] = null !== $item ? operationTaskInstances::fromMap($item) : $item;
                 }
@@ -147,7 +150,7 @@ class SubmitOperationTaskRequest extends Model
         if (isset($map['RepairTempParam'])) {
             if (!empty($map['RepairTempParam'])) {
                 $model->repairTempParam = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['RepairTempParam'] as $item) {
                     $model->repairTempParam[$n++] = null !== $item ? repairTempParam::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class GetModuleConfigStatusRequest extends Model
      * @description The service modules that you want to query.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $moduleNames;
@@ -19,9 +20,7 @@ class GetModuleConfigStatusRequest extends Model
         'moduleNames' => 'ModuleNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

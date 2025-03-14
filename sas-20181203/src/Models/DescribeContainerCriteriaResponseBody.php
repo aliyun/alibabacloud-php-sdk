@@ -26,12 +26,10 @@ class DescribeContainerCriteriaResponseBody extends Model
     public $requestId;
     protected $_name = [
         'criteriaList' => 'CriteriaList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeContainerCriteriaResponseBody extends Model
         if (isset($map['CriteriaList'])) {
             if (!empty($map['CriteriaList'])) {
                 $model->criteriaList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CriteriaList'] as $item) {
                     $model->criteriaList[$n++] = null !== $item ? criteriaList::fromMap($item) : $item;
                 }

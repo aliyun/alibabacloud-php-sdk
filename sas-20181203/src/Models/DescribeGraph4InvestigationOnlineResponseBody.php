@@ -47,22 +47,21 @@ class DescribeGraph4InvestigationOnlineResponseBody extends Model
      * @description The result status of the API call. Values:
      * - **true**: The API call was successful.
      * - **false**: The API call failed.
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

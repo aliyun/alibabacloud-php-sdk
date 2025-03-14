@@ -12,6 +12,7 @@ class operationList extends Model
      * @description The ID of the server group.
      *
      * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     *
      * @example 11883086
      *
      * @var string
@@ -34,6 +35,7 @@ class operationList extends Model
      * @description The UUID of the server.
      *
      * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * @example de393767-6fe1-4a8d-837d-927a2b******
      *
      * @var string
@@ -49,15 +51,13 @@ class operationList extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'operation'     => 'Operation',
-        'uuid'          => 'Uuid',
+        'groupId' => 'GroupId',
+        'operation' => 'Operation',
+        'uuid' => 'Uuid',
         'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

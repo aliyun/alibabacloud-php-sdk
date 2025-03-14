@@ -158,25 +158,23 @@ class ListAgentlessTaskRequest extends Model
     public $uuid;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'internetIp'  => 'InternetIp',
-        'intranetIp'  => 'IntranetIp',
-        'lang'        => 'Lang',
+        'endTime' => 'EndTime',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lang' => 'Lang',
         'machineName' => 'MachineName',
-        'pageSize'    => 'PageSize',
-        'rootTask'    => 'RootTask',
-        'rootTaskId'  => 'RootTaskId',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'targetName'  => 'TargetName',
-        'targetType'  => 'TargetType',
-        'taskId'      => 'TaskId',
-        'uuid'        => 'Uuid',
+        'pageSize' => 'PageSize',
+        'rootTask' => 'RootTask',
+        'rootTaskId' => 'RootTaskId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'taskId' => 'TaskId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

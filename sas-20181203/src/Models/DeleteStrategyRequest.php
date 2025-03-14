@@ -12,6 +12,7 @@ class DeleteStrategyRequest extends Model
      * @description The ID of the baseline check policy that you want to delete.
      *
      * This parameter is required.
+     *
      * @example 1404656
      *
      * @var string
@@ -39,14 +40,12 @@ class DeleteStrategyRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
-        'id'       => 'Id',
-        'lang'     => 'Lang',
+        'id' => 'Id',
+        'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

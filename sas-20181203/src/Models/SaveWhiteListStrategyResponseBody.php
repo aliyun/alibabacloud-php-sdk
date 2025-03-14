@@ -26,13 +26,11 @@ class SaveWhiteListStrategyResponseBody extends Model
      */
     public $strategyId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -56,15 +56,13 @@ class rules extends Model
     public $ruleId;
     protected $_name = [
         'defaultValue' => 'DefaultValue',
-        'optional'     => 'Optional',
-        'paramList'    => 'ParamList',
-        'ruleDesc'     => 'RuleDesc',
-        'ruleId'       => 'RuleId',
+        'optional' => 'Optional',
+        'paramList' => 'ParamList',
+        'ruleDesc' => 'RuleDesc',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class rules extends Model
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ParamList'] as $item) {
                     $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }

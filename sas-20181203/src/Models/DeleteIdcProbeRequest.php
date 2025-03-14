@@ -11,7 +11,10 @@ class DeleteIdcProbeRequest extends Model
     /**
      * @description The UUID of the server.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *
      * This parameter is required.
+     *
      * @example inet-1234567****
      *
      * @var string
@@ -21,9 +24,7 @@ class DeleteIdcProbeRequest extends Model
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

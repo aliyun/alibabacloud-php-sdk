@@ -14,6 +14,7 @@ class DescribeNeedAsyncQueryRequest extends Model
      *   **suspicious**: alerts
      *
      * This parameter is required.
+     *
      * @example suspicious
      *
      * @var string
@@ -23,9 +24,7 @@ class DescribeNeedAsyncQueryRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

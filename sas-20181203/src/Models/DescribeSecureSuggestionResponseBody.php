@@ -34,14 +34,12 @@ class DescribeSecureSuggestionResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'suggestions' => 'Suggestions',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeSecureSuggestionResponseBody extends Model
         if (isset($map['Suggestions'])) {
             if (!empty($map['Suggestions'])) {
                 $model->suggestions = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Suggestions'] as $item) {
                     $model->suggestions[$n++] = null !== $item ? suggestions::fromMap($item) : $item;
                 }

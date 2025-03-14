@@ -92,20 +92,18 @@ class privateK8sInfos extends Model
      */
     public $vpcId;
     protected $_name = [
-        'aliUid'      => 'AliUid',
+        'aliUid' => 'AliUid',
         'apiServerIp' => 'ApiServerIp',
         'clusterName' => 'ClusterName',
-        'id'          => 'Id',
-        'k8sVersion'  => 'K8sVersion',
-        'kubeConfig'  => 'KubeConfig',
-        'netType'     => 'NetType',
-        'regionId'    => 'RegionId',
-        'vpcId'       => 'VpcId',
+        'id' => 'Id',
+        'k8sVersion' => 'K8sVersion',
+        'kubeConfig' => 'KubeConfig',
+        'netType' => 'NetType',
+        'regionId' => 'RegionId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class ModifyDingTalkStatusRequest extends Model
     /**
      * @description The notification IDs of DingTalk chatbots. Separate multiple IDs with commas (,).
      *
+     * >  You can call the [DescribeDingTalk](~~DescribeDingTalk~~) operation to query the notification IDs.
+     *
      * This parameter is required.
+     *
      * @example 2259
      *
      * @var string
@@ -25,19 +28,18 @@ class ModifyDingTalkStatusRequest extends Model
      *   **1**: enabled
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
      */
     public $status;
     protected $_name = [
-        'ids'    => 'Ids',
+        'ids' => 'Ids',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

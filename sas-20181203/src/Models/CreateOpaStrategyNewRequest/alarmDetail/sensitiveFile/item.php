@@ -12,6 +12,7 @@ class item extends Model
      * @description The ID of the sensitive files.
      *
      * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+     *
      * @example key
      *
      * @var string
@@ -22,19 +23,18 @@ class item extends Model
      * @description The name of the sensitive files.
      *
      * >  You can call the [GetSensitiveDefineRuleConfig](~~GetSensitiveDefineRuleConfig~~) operation to query the ID of the malicious sample.
+     *
      * @example name
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

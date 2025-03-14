@@ -113,21 +113,19 @@ class DescribeSuspEventExportInfoResponseBody extends Model
     public $type;
     protected $_name = [
         'exportStatus' => 'ExportStatus',
-        'fileName'     => 'FileName',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'id'           => 'Id',
-        'link'         => 'Link',
-        'progress'     => 'Progress',
-        'properties'   => 'Properties',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
-        'type'         => 'Type',
+        'fileName' => 'FileName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'link' => 'Link',
+        'progress' => 'Progress',
+        'properties' => 'Properties',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

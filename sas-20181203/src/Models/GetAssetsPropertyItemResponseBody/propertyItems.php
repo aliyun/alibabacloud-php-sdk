@@ -21,6 +21,7 @@ class propertyItems extends Model
      * @description The endpoint.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
+     *
      * @example localhost
      *
      * @var string
@@ -31,6 +32,7 @@ class propertyItems extends Model
      * @description The name of the module.
      *
      * > This parameter is returned only when **Biz** is set to **lkm**.
+     *
      * @example alihids
      *
      * @var string
@@ -41,21 +43,20 @@ class propertyItems extends Model
      * @description The path to the startup item.
      *
      * > This parameter is returned only when **Biz** is set to **autorun**.
+     *
      * @example C:/Program Files/****
      *
      * @var string
      */
     public $path;
     protected $_name = [
-        'count'      => 'Count',
-        'domain'     => 'Domain',
+        'count' => 'Count',
+        'domain' => 'Domain',
         'moduleName' => 'ModuleName',
-        'path'       => 'Path',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

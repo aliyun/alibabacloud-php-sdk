@@ -34,6 +34,7 @@ class ModifyContainerDefenseRuleShrinkRequest extends Model
      * @description The ID of the rule.
      *
      * >  You can call the [ListContainerDefenseRule](https://help.aliyun.com/document_detail/2590599.html) operation to query the IDs of rules.
+     *
      * @example 123
      *
      * @var int
@@ -87,19 +88,17 @@ class ModifyContainerDefenseRuleShrinkRequest extends Model
      */
     public $whitelistShrink;
     protected $_name = [
-        'description'     => 'Description',
-        'ruleAction'      => 'RuleAction',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'ruleSwitch'      => 'RuleSwitch',
-        'ruleType'        => 'RuleType',
-        'scope'           => 'Scope',
+        'description' => 'Description',
+        'ruleAction' => 'RuleAction',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleSwitch' => 'RuleSwitch',
+        'ruleType' => 'RuleType',
+        'scope' => 'Scope',
         'whitelistShrink' => 'Whitelist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -167,7 +166,7 @@ class ModifyContainerDefenseRuleShrinkRequest extends Model
         if (isset($map['Scope'])) {
             if (!empty($map['Scope'])) {
                 $model->scope = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Scope'] as $item) {
                     $model->scope[$n++] = null !== $item ? scope::fromMap($item) : $item;
                 }

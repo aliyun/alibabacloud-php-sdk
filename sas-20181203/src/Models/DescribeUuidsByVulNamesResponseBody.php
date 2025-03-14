@@ -35,13 +35,11 @@ class DescribeUuidsByVulNamesResponseBody extends Model
     public $vulCount;
     protected $_name = [
         'machineInfoStatistics' => 'MachineInfoStatistics',
-        'requestId'             => 'RequestId',
-        'vulCount'              => 'VulCount',
+        'requestId' => 'RequestId',
+        'vulCount' => 'VulCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeUuidsByVulNamesResponseBody extends Model
         if (isset($map['MachineInfoStatistics'])) {
             if (!empty($map['MachineInfoStatistics'])) {
                 $model->machineInfoStatistics = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['MachineInfoStatistics'] as $item) {
                     $model->machineInfoStatistics[$n++] = null !== $item ? machineInfoStatistics::fromMap($item) : $item;
                 }

@@ -197,32 +197,30 @@ class data extends Model
      */
     public $weakPWNum;
     protected $_name = [
-        'account'                => 'Account',
-        'agentlessAll'           => 'AgentlessAll',
-        'agentlessBaseline'      => 'AgentlessBaseline',
-        'agentlessMalicious'     => 'AgentlessMalicious',
+        'account' => 'Account',
+        'agentlessAll' => 'AgentlessAll',
+        'agentlessBaseline' => 'AgentlessBaseline',
+        'agentlessMalicious' => 'AgentlessMalicious',
         'agentlessSensitiveFile' => 'AgentlessSensitiveFile',
-        'agentlessVulCve'        => 'AgentlessVulCve',
-        'agentlessVulSca'        => 'AgentlessVulSca',
-        'agentlessVulSys'        => 'AgentlessVulSys',
-        'appNum'                 => 'AppNum',
-        'cmsNum'                 => 'CmsNum',
-        'cspmNum'                => 'CspmNum',
-        'cveNum'                 => 'CveNum',
-        'emgNum'                 => 'EmgNum',
-        'health'                 => 'Health',
-        'scaNum'                 => 'ScaNum',
-        'suspicious'             => 'Suspicious',
-        'sysNum'                 => 'SysNum',
-        'trojan'                 => 'Trojan',
-        'uuid'                   => 'Uuid',
-        'vul'                    => 'Vul',
-        'weakPWNum'              => 'WeakPWNum',
+        'agentlessVulCve' => 'AgentlessVulCve',
+        'agentlessVulSca' => 'AgentlessVulSca',
+        'agentlessVulSys' => 'AgentlessVulSys',
+        'appNum' => 'AppNum',
+        'cmsNum' => 'CmsNum',
+        'cspmNum' => 'CspmNum',
+        'cveNum' => 'CveNum',
+        'emgNum' => 'EmgNum',
+        'health' => 'Health',
+        'scaNum' => 'ScaNum',
+        'suspicious' => 'Suspicious',
+        'sysNum' => 'SysNum',
+        'trojan' => 'Trojan',
+        'uuid' => 'Uuid',
+        'vul' => 'Vul',
+        'weakPWNum' => 'WeakPWNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

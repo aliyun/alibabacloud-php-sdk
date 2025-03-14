@@ -75,13 +75,11 @@ class detail extends Model
     public $title;
     protected $_name = [
         'description' => 'Description',
-        'subType'     => 'SubType',
-        'title'       => 'Title',
+        'subType' => 'SubType',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

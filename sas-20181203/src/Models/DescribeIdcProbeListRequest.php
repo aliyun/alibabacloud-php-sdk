@@ -29,6 +29,7 @@ class DescribeIdcProbeListRequest extends Model
     /**
      * @description Specifies the maximum number of data entries to display per page in a paginated query. The default number of data entries per page is 20, and if the PageSize parameter is empty, it will default to returning 20 data entries.
      * > It is recommended that the PageSize value is not empty.
+     *
      * @example 20
      *
      * @var int
@@ -40,6 +41,7 @@ class DescribeIdcProbeListRequest extends Model
      *
      * - **0**: Enabled
      * - **1**: Disabled
+     *
      * @example 0
      *
      * @var int
@@ -47,14 +49,12 @@ class DescribeIdcProbeListRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'idcName'     => 'IdcName',
-        'pageSize'    => 'PageSize',
-        'status'      => 'Status',
+        'idcName' => 'IdcName',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class flowStep extends Model
     public $step;
     protected $_name = [
         'showText' => 'ShowText',
-        'step'     => 'Step',
+        'step' => 'Step',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

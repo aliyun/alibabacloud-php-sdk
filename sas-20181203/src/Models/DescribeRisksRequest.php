@@ -33,6 +33,7 @@ class DescribeRisksRequest extends Model
      * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
      * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     *
      * @example 127608589417****
      *
      * @var int
@@ -43,6 +44,7 @@ class DescribeRisksRequest extends Model
      * @description The baseline ID.
      *
      * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the baseline IDs.
+     *
      * @example 75
      *
      * @var int
@@ -58,16 +60,14 @@ class DescribeRisksRequest extends Model
      */
     public $riskName;
     protected $_name = [
-        'lang'                       => 'Lang',
-        'limit'                      => 'Limit',
+        'lang' => 'Lang',
+        'limit' => 'Limit',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'riskId'                     => 'RiskId',
-        'riskName'                   => 'RiskName',
+        'riskId' => 'RiskId',
+        'riskName' => 'RiskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class containerWebDefenseApplicationDTOS extends Model
     /**
      * @description The ID of the cluster to which the container belongs.
      *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the cluster ID.
+     *
      * This parameter is required.
+     *
      * @example ceb68cc58234141828677e383bd21ff0c
      *
      * @var string
@@ -25,6 +28,7 @@ class containerWebDefenseApplicationDTOS extends Model
      *   **del**: not applied
      *
      * This parameter is required.
+     *
      * @example add
      *
      * @var string
@@ -44,6 +48,7 @@ class containerWebDefenseApplicationDTOS extends Model
      * @description The value of the application tag.
      *
      * This parameter is required.
+     *
      * @example app:app-003
      *
      * @var string
@@ -51,14 +56,12 @@ class containerWebDefenseApplicationDTOS extends Model
     public $tag;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'flag'      => 'Flag',
-        'id'        => 'Id',
-        'tag'       => 'Tag',
+        'flag' => 'Flag',
+        'id' => 'Id',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

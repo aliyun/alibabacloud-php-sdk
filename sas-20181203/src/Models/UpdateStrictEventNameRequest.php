@@ -10,7 +10,9 @@ class UpdateStrictEventNameRequest extends Model
 {
     /**
      * @description List of strict alarms to be operated on. This list is a complete list, and any strict alarms not included in this list will have the opposite operation performed.
+     * > You can call [DescribeStrictEventName](~~DescribeStrictEventName~~) to get the list of all strict mode alarms.
      * > -
+     *
      * @var string[]
      */
     public $eventNameList;
@@ -20,6 +22,7 @@ class UpdateStrictEventNameRequest extends Model
      *
      * - **zh**: Chinese
      * - **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -32,6 +35,7 @@ class UpdateStrictEventNameRequest extends Model
      * - *off*: Turn off the alarm
      *
      * This parameter is required.
+     *
      * @example on
      *
      * @var string
@@ -39,13 +43,11 @@ class UpdateStrictEventNameRequest extends Model
     public $operator;
     protected $_name = [
         'eventNameList' => 'EventNameList',
-        'lang'          => 'Lang',
-        'operator'      => 'Operator',
+        'lang' => 'Lang',
+        'operator' => 'Operator',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

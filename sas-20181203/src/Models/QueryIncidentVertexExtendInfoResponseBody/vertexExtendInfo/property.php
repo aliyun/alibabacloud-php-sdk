@@ -162,6 +162,7 @@ class property extends Model
      * @example [
      * "003d544744249351****"
      * ]
+     *
      * @var string
      */
     public $entityList;
@@ -229,35 +230,33 @@ class property extends Model
      */
     public $subUserId;
     protected $_name = [
-        'alertDesc'          => 'AlertDesc',
-        'alertDetail'        => 'AlertDetail',
-        'alertLevel'         => 'AlertLevel',
-        'alertName'          => 'AlertName',
-        'alertNameCode'      => 'AlertNameCode',
-        'alertNameEn'        => 'AlertNameEn',
-        'alertSrcProd'       => 'AlertSrcProd',
+        'alertDesc' => 'AlertDesc',
+        'alertDetail' => 'AlertDetail',
+        'alertLevel' => 'AlertLevel',
+        'alertName' => 'AlertName',
+        'alertNameCode' => 'AlertNameCode',
+        'alertNameEn' => 'AlertNameEn',
+        'alertSrcProd' => 'AlertSrcProd',
         'alertSrcProdModule' => 'AlertSrcProdModule',
-        'alertTitle'         => 'AlertTitle',
-        'alertType'          => 'AlertType',
-        'alertTypeCode'      => 'AlertTypeCode',
-        'alertTypeEn'        => 'AlertTypeEn',
-        'alertUuid'          => 'AlertUuid',
-        'assetList'          => 'AssetList',
-        'attCk'              => 'AttCk',
-        'cloudCode'          => 'CloudCode',
-        'entityList'         => 'EntityList',
-        'gmtCreate'          => 'GmtCreate',
-        'gmtModified'        => 'GmtModified',
-        'logTime'            => 'LogTime',
-        'logUuid'            => 'LogUuid',
-        'mainUserId'         => 'MainUserId',
-        'occurTime'          => 'OccurTime',
-        'subUserId'          => 'SubUserId',
+        'alertTitle' => 'AlertTitle',
+        'alertType' => 'AlertType',
+        'alertTypeCode' => 'AlertTypeCode',
+        'alertTypeEn' => 'AlertTypeEn',
+        'alertUuid' => 'AlertUuid',
+        'assetList' => 'AssetList',
+        'attCk' => 'AttCk',
+        'cloudCode' => 'CloudCode',
+        'entityList' => 'EntityList',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'logTime' => 'LogTime',
+        'logUuid' => 'LogUuid',
+        'mainUserId' => 'MainUserId',
+        'occurTime' => 'OccurTime',
+        'subUserId' => 'SubUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

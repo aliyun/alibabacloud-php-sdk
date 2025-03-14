@@ -29,6 +29,7 @@ class securityScoreRuleList extends Model
      * @description The deduction threshold of the deduction module.
      *
      * >  Valid values: 0 to 100. The sum of the deduction thresholds for all deduction modules must be equal to 100.
+     *
      * @example 20
      *
      * @var int
@@ -51,15 +52,13 @@ class securityScoreRuleList extends Model
      */
     public $title;
     protected $_name = [
-        'ruleType'              => 'RuleType',
-        'score'                 => 'Score',
+        'ruleType' => 'RuleType',
+        'score' => 'Score',
         'securityScoreItemList' => 'SecurityScoreItemList',
-        'title'                 => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +102,7 @@ class securityScoreRuleList extends Model
         if (isset($map['SecurityScoreItemList'])) {
             if (!empty($map['SecurityScoreItemList'])) {
                 $model->securityScoreItemList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['SecurityScoreItemList'] as $item) {
                     $model->securityScoreItemList[$n++] = null !== $item ? securityScoreItemList::fromMap($item) : $item;
                 }

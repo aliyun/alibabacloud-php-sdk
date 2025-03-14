@@ -81,19 +81,17 @@ class DescribeImageVulWhiteListResponseBody extends Model
      */
     public $timeCost;
     protected $_name = [
-        'code'              => 'Code',
-        'httpStatusCode'    => 'HttpStatusCode',
+        'code' => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
         'imageVulWhitelist' => 'ImageVulWhitelist',
-        'message'           => 'Message',
-        'pageInfo'          => 'PageInfo',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
-        'timeCost'          => 'TimeCost',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'timeCost' => 'TimeCost',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -149,7 +147,7 @@ class DescribeImageVulWhiteListResponseBody extends Model
         if (isset($map['ImageVulWhitelist'])) {
             if (!empty($map['ImageVulWhitelist'])) {
                 $model->imageVulWhitelist = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ImageVulWhitelist'] as $item) {
                     $model->imageVulWhitelist[$n++] = null !== $item ? imageVulWhitelist::fromMap($item) : $item;
                 }

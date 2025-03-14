@@ -12,6 +12,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The ID of the container cluster.
      *
      * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -111,6 +113,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The MD5 hash value of the malicious image sample.
      *
      * >  You can call the [DescribeGroupedMaliciousFiles](~~DescribeGroupedMaliciousFiles~~) operation to query the MD5 hash values of malicious image samples.
+     *
      * @example d836968041f7683b5459****
      *
      * @var string
@@ -130,6 +133,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The number of entries to return on each page. Default value: **20**.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var string
@@ -149,6 +153,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The ID of the image repository.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+     *
      * @example crr-vridcl4****
      *
      * @var string
@@ -159,6 +164,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The ID of the container image.
      *
      * >  You can call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+     *
      * @example cri-datvailb****
      *
      * @var string
@@ -169,6 +175,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The name of the image repository.
      *
      * >  Fuzzy match is supported.
+     *
      * @example centos
      *
      * @var string
@@ -179,6 +186,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      * @description The namespace to which the image repository belongs.
      *
      * >  Fuzzy match is supported.
+     *
      * @example hanghai-namespace
      *
      * @var string
@@ -228,32 +236,30 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'containerId'    => 'ContainerId',
-        'currentPage'    => 'CurrentPage',
-        'image'          => 'Image',
-        'imageDigest'    => 'ImageDigest',
-        'imageLayer'     => 'ImageLayer',
-        'imageTag'       => 'ImageTag',
-        'lang'           => 'Lang',
-        'levels'         => 'Levels',
-        'maliciousMd5'   => 'MaliciousMd5',
-        'namespace'      => 'Namespace',
-        'pageSize'       => 'PageSize',
-        'pod'            => 'Pod',
-        'repoId'         => 'RepoId',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'containerId' => 'ContainerId',
+        'currentPage' => 'CurrentPage',
+        'image' => 'Image',
+        'imageDigest' => 'ImageDigest',
+        'imageLayer' => 'ImageLayer',
+        'imageTag' => 'ImageTag',
+        'lang' => 'Lang',
+        'levels' => 'Levels',
+        'maliciousMd5' => 'MaliciousMd5',
+        'namespace' => 'Namespace',
+        'pageSize' => 'PageSize',
+        'pod' => 'Pod',
+        'repoId' => 'RepoId',
         'repoInstanceId' => 'RepoInstanceId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'repoRegionId'   => 'RepoRegionId',
-        'scanRange'      => 'ScanRange',
-        'status'         => 'Status',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

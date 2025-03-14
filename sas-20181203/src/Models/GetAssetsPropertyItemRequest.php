@@ -16,6 +16,7 @@ class GetAssetsPropertyItemRequest extends Model
      *   **web_server**: website
      *
      * This parameter is required.
+     *
      * @example lkm
      *
      * @var string
@@ -59,6 +60,7 @@ class GetAssetsPropertyItemRequest extends Model
      * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -73,6 +75,7 @@ class GetAssetsPropertyItemRequest extends Model
      *   If you set **SearchItem** to **path**, you must enter the path to the self-starting item.
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the information about asset fingerprints by asset fingerprint name.
+     *
      * @example /lib/systemd/s****
      *
      * @var string
@@ -95,24 +98,23 @@ class GetAssetsPropertyItemRequest extends Model
      *   **path**: the path to the self-starting item
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the information about asset fingerprints by asset fingerprint name.
+     *
      * @example path
      *
      * @var string
      */
     public $searchItem;
     protected $_name = [
-        'biz'         => 'Biz',
+        'biz' => 'Biz',
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'searchInfo'  => 'SearchInfo',
-        'searchItem'  => 'SearchItem',
+        'forceFlush' => 'ForceFlush',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'searchInfo' => 'SearchInfo',
+        'searchItem' => 'SearchItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

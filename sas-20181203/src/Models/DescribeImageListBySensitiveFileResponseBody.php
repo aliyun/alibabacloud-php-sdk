@@ -64,24 +64,23 @@ class DescribeImageListBySensitiveFileResponseBody extends Model
      * @description Indicates whether the request was successful. Valid values:
      * - **true**: The request was successful.
      * - **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'imageInfos'     => 'ImageInfos',
-        'message'        => 'Message',
-        'pageInfo'       => 'PageInfo',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'imageInfos' => 'ImageInfos',
+        'message' => 'Message',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +133,7 @@ class DescribeImageListBySensitiveFileResponseBody extends Model
         if (isset($map['ImageInfos'])) {
             if (!empty($map['ImageInfos'])) {
                 $model->imageInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ImageInfos'] as $item) {
                     $model->imageInfos[$n++] = null !== $item ? imageInfos::fromMap($item) : $item;
                 }

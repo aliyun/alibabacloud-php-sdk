@@ -45,6 +45,7 @@ class DescribeWhiteListEffectiveAssetsRequest extends Model
      * @description The number of entries per page. Maximum value: **1000**. Default value: 20. If you leave this parameter empty, 20 data entries are returned per page.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -73,24 +74,23 @@ class DescribeWhiteListEffectiveAssetsRequest extends Model
      * @description The ID of the policy.
      *
      * >  You can call the [DescribeWhiteListStrategyList](~~DescribeWhiteListStrategyList~~) operation to obtain the ID.
+     *
      * @example 8437592
      *
      * @var int
      */
     public $strategyId;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'lang'           => 'Lang',
+        'currentPage' => 'CurrentPage',
+        'lang' => 'Lang',
         'needStatistics' => 'NeedStatistics',
-        'pageSize'       => 'PageSize',
-        'remark'         => 'Remark',
-        'sourceIp'       => 'SourceIp',
-        'strategyId'     => 'StrategyId',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
+        'sourceIp' => 'SourceIp',
+        'strategyId' => 'StrategyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

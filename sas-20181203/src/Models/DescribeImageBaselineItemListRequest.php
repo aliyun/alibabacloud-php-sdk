@@ -39,6 +39,7 @@ class DescribeImageBaselineItemListRequest extends Model
      * @description The UUID of the image.
      *
      * This parameter is required.
+     *
      * @example 0b5c7193300da2070220038718ad****
      *
      * @var string
@@ -95,19 +96,17 @@ class DescribeImageBaselineItemListRequest extends Model
     public $uuids;
     protected $_name = [
         'baselineClassKey' => 'BaselineClassKey',
-        'baselineNameKey'  => 'BaselineNameKey',
-        'currentPage'      => 'CurrentPage',
-        'imageUuid'        => 'ImageUuid',
-        'lang'             => 'Lang',
-        'pageSize'         => 'PageSize',
-        'scanRange'        => 'ScanRange',
-        'status'           => 'Status',
-        'uuids'            => 'Uuids',
+        'baselineNameKey' => 'BaselineNameKey',
+        'currentPage' => 'CurrentPage',
+        'imageUuid' => 'ImageUuid',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'scanRange' => 'ScanRange',
+        'status' => 'Status',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

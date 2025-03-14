@@ -35,14 +35,12 @@ class data extends Model
      */
     public $suspiciousCount;
     protected $_name = [
-        'remindCount'     => 'RemindCount',
-        'seriousCount'    => 'SeriousCount',
+        'remindCount' => 'RemindCount',
+        'seriousCount' => 'SeriousCount',
         'suspiciousCount' => 'SuspiciousCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

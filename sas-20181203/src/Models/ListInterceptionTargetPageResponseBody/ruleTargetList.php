@@ -73,6 +73,7 @@ class ruleTargetList extends Model
      * @description The ID of the network object.
      *
      * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of network objects.
+     *
      * @example 400914
      *
      * @var int
@@ -99,21 +100,19 @@ class ruleTargetList extends Model
      */
     public $targetType;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'imageList'   => 'ImageList',
-        'namespace'   => 'Namespace',
-        'ruleType'    => 'RuleType',
-        'tagList'     => 'TagList',
-        'targetId'    => 'TargetId',
-        'targetName'  => 'TargetName',
-        'targetType'  => 'TargetType',
+        'imageList' => 'ImageList',
+        'namespace' => 'Namespace',
+        'ruleType' => 'RuleType',
+        'tagList' => 'TagList',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -63,6 +63,10 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security token.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $securityToken;
@@ -76,19 +80,17 @@ class DescribeCustomizedDictUploadInfoResponseBody extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'      => 'Accessid',
-        'expire'        => 'Expire',
-        'host'          => 'Host',
-        'key'           => 'Key',
-        'policy'        => 'Policy',
-        'requestId'     => 'RequestId',
+        'accessid' => 'Accessid',
+        'expire' => 'Expire',
+        'host' => 'Host',
+        'key' => 'Key',
+        'policy' => 'Policy',
+        'requestId' => 'RequestId',
         'securityToken' => 'SecurityToken',
-        'signature'     => 'Signature',
+        'signature' => 'Signature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteTagWithUuidRequest extends Model
      * @description The name of the tag.
      *
      * This parameter is required.
+     *
      * @example abc
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteTagWithUuidRequest extends Model
      * @description The UUIDs of servers.
      *
      * > If the UuidList parameter is specified, Security Center removes the tag only from the servers whose UUIDs are specified by UuidList. If the UuidList parameter is not specified, Security Center removes the tag from all servers.
+     *
      * @example 111-xx,aa-bb
      *
      * @var string
      */
     public $uuidList;
     protected $_name = [
-        'tagName'  => 'TagName',
+        'tagName' => 'TagName',
         'uuidList' => 'UuidList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

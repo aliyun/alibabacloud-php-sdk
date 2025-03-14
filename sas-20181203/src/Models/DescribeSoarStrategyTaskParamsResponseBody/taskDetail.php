@@ -26,13 +26,11 @@ class taskDetail extends Model
      */
     public $taskName;
     protected $_name = [
-        'params'   => 'Params',
+        'params' => 'Params',
         'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

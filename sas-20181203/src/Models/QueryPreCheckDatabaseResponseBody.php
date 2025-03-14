@@ -98,7 +98,30 @@ class QueryPreCheckDatabaseResponseBody extends Model
      * @example [
      * {
      * "instanceId": "i-wz91if83t97xgtn2****",
+     * "checkTime": 1671245753,
+     * "sourceType": "MSSQL",
+     * "results":
+     * [
+     * {
+     * "item": "OSS_INTERNAL_ENDPOINT_CONNECTIVITY",
+     * "result": "PASSED"
+     * },
+     * {
+     * "item": "SERVICE_CONNECTIVITY",
+     * "result": "PASSED"
+     * },
+     * {
+     * "item": "SQL_SERVER_DB_IN_SIMPLE_RECOVERY_MODE",
+     * "result": "WARNING"
+     * },
+     * {
+     * "item": "SQL_SERVER_DB_NOT_ONLINE",
+     * "result": "PASSED"
+     * }
      * ]
+     * }
+     * ]
+     *
      * @var string
      */
     public $result;
@@ -113,17 +136,15 @@ class QueryPreCheckDatabaseResponseBody extends Model
     public $updatedTime;
     protected $_name = [
         'completedTime' => 'CompletedTime',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'progress'      => 'Progress',
-        'requestId'     => 'RequestId',
-        'result'        => 'Result',
-        'updatedTime'   => 'UpdatedTime',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'progress' => 'Progress',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
+        'updatedTime' => 'UpdatedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

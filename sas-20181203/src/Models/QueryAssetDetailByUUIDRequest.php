@@ -17,7 +17,9 @@ class QueryAssetDetailByUUIDRequest extends Model
      * "429fe207-3014-40c6-972b-cdff1d7a****",
      * "429fe207-3014-40c6-972b-cdff1d7b****",
      * "429fe207-3014-40c6-972b-cdff1d7c****"
+     * ]
      * }
+     *
      * @var string
      */
     public $requests;
@@ -25,9 +27,7 @@ class QueryAssetDetailByUUIDRequest extends Model
         'requests' => 'Requests',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

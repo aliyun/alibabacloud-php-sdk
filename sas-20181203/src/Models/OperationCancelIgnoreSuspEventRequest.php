@@ -21,17 +21,16 @@ class OperationCancelIgnoreSuspEventRequest extends Model
      * @description The IDs of alert events.
      *
      * This parameter is required.
+     *
      * @var int[]
      */
     public $securityEventIds;
     protected $_name = [
-        'remark'           => 'Remark',
+        'remark' => 'Remark',
         'securityEventIds' => 'SecurityEventIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

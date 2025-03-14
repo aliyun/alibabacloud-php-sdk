@@ -107,6 +107,7 @@ class vulRecords extends Model
      * @description The name of the instance.
      *
      * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example testInstance
      *
      * @var string
@@ -195,6 +196,7 @@ class vulRecords extends Model
      *   **nntf**: low
      *
      * >  We recommend that you fix high-level vulnerabilities as soon as possible.
+     *
      * @example asap,later,nntf
      *
      * @var string
@@ -329,44 +331,42 @@ class vulRecords extends Model
      */
     public $uuid;
     protected $_name = [
-        'aliasName'         => 'AliasName',
-        'canFix'            => 'CanFix',
-        'canUpdate'         => 'CanUpdate',
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'containerId'       => 'ContainerId',
+        'aliasName' => 'AliasName',
+        'canFix' => 'CanFix',
+        'canUpdate' => 'CanUpdate',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'containerId' => 'ContainerId',
         'extendContentJson' => 'ExtendContentJson',
-        'firstTs'           => 'FirstTs',
-        'image'             => 'Image',
-        'imageDigest'       => 'ImageDigest',
-        'instanceName'      => 'InstanceName',
-        'internetIp'        => 'InternetIp',
-        'intranetIp'        => 'IntranetIp',
-        'lastTs'            => 'LastTs',
-        'layers'            => 'Layers',
-        'maliciousSource'   => 'MaliciousSource',
-        'modifyTs'          => 'ModifyTs',
-        'name'              => 'Name',
-        'namespace'         => 'Namespace',
-        'necessity'         => 'Necessity',
-        'pod'               => 'Pod',
-        'primaryId'         => 'PrimaryId',
-        'related'           => 'Related',
-        'repoName'          => 'RepoName',
-        'repoNamespace'     => 'RepoNamespace',
-        'scanTime'          => 'ScanTime',
-        'status'            => 'Status',
-        'tag'               => 'Tag',
-        'targetId'          => 'TargetId',
-        'targetName'        => 'TargetName',
-        'targetType'        => 'TargetType',
-        'type'              => 'Type',
-        'uuid'              => 'Uuid',
+        'firstTs' => 'FirstTs',
+        'image' => 'Image',
+        'imageDigest' => 'ImageDigest',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'lastTs' => 'LastTs',
+        'layers' => 'Layers',
+        'maliciousSource' => 'MaliciousSource',
+        'modifyTs' => 'ModifyTs',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'necessity' => 'Necessity',
+        'pod' => 'Pod',
+        'primaryId' => 'PrimaryId',
+        'related' => 'Related',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'scanTime' => 'ScanTime',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

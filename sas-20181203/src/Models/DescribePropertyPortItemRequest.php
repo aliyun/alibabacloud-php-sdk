@@ -45,14 +45,12 @@ class DescribePropertyPortItemRequest extends Model
     public $port;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'pageSize'    => 'PageSize',
-        'port'        => 'Port',
+        'forceFlush' => 'ForceFlush',
+        'pageSize' => 'PageSize',
+        'port' => 'Port',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

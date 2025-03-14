@@ -11,7 +11,10 @@ class assetList extends Model
     /**
      * @description The type of the cloud disk. Values:
      *
+     * - system: System disk.
+     *
      * - data: Data disk.
+     *
      * @example system
      *
      * @var string
@@ -60,23 +63,22 @@ class assetList extends Model
      * - **3**: User snapshot
      *
      * - **4**: User-defined image
+     *
      * @example 3
      *
      * @var int
      */
     public $targetType;
     protected $_name = [
-        'diskType'     => 'DiskType',
-        'instanceId'   => 'InstanceId',
+        'diskType' => 'DiskType',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'platform'     => 'Platform',
-        'regionId'     => 'RegionId',
-        'targetType'   => 'TargetType',
+        'platform' => 'Platform',
+        'regionId' => 'RegionId',
+        'targetType' => 'TargetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,9 @@ class data extends Model
     /**
      * @description The handling method of the rule. Valid values:
      *
+     * 1.  pass: allow
      * 2.  alert
+     *
      * @example pass
      *
      * @var string
@@ -86,7 +88,9 @@ class data extends Model
     /**
      * @description The status of the rule. Valid values:
      *
+     * 1.  0: disabled
      * 2.  1: enabled
+     *
      * @example 1
      *
      * @var int
@@ -102,21 +106,19 @@ class data extends Model
      */
     public $switchId;
     protected $_name = [
-        'action'     => 'Action',
+        'action' => 'Action',
         'alertLevel' => 'AlertLevel',
-        'fileOps'    => 'FileOps',
-        'filePaths'  => 'FilePaths',
-        'id'         => 'Id',
-        'platform'   => 'Platform',
-        'procPaths'  => 'ProcPaths',
-        'ruleName'   => 'RuleName',
-        'status'     => 'Status',
-        'switchId'   => 'SwitchId',
+        'fileOps' => 'FileOps',
+        'filePaths' => 'FilePaths',
+        'id' => 'Id',
+        'platform' => 'Platform',
+        'procPaths' => 'ProcPaths',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'switchId' => 'SwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

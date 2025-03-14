@@ -24,6 +24,7 @@ class StartVirusScanTaskRequest extends Model
      *   If you set **type** to **uuid**, you must set this field to the UUID of the server. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      *
      * This parameter is required.
+     *
      * @example [{"type":"uuid","name":"Host001","target":"503201a7-14c6-4280-801b-1169ed42****"}]
      *
      * @var string
@@ -33,9 +34,7 @@ class StartVirusScanTaskRequest extends Model
         'targetInfo' => 'TargetInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

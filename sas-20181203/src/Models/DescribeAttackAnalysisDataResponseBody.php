@@ -139,16 +139,14 @@ class DescribeAttackAnalysisDataResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'data'      => 'Data',
-        'page'      => 'Page',
-        'pageSize'  => 'PageSize',
+        'data' => 'Data',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class DescribePropertyTypeScaItemResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pageInfo'          => 'PageInfo',
+        'pageInfo' => 'PageInfo',
         'propertyTypeItems' => 'PropertyTypeItems',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribePropertyTypeScaItemResponseBody extends Model
         if (isset($map['PropertyTypeItems'])) {
             if (!empty($map['PropertyTypeItems'])) {
                 $model->propertyTypeItems = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['PropertyTypeItems'] as $item) {
                     $model->propertyTypeItems[$n++] = null !== $item ? propertyTypeItems::fromMap($item) : $item;
                 }

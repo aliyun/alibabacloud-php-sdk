@@ -26,12 +26,10 @@ class DescribeAgentInstallStatusResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aegisClientInvokeStatusResponseList' => 'AegisClientInvokeStatusResponseList',
-        'requestId'                           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeAgentInstallStatusResponseBody extends Model
         if (isset($map['AegisClientInvokeStatusResponseList'])) {
             if (!empty($map['AegisClientInvokeStatusResponseList'])) {
                 $model->aegisClientInvokeStatusResponseList = [];
-                $n                                          = 0;
+                $n = 0;
                 foreach ($map['AegisClientInvokeStatusResponseList'] as $item) {
                     $model->aegisClientInvokeStatusResponseList[$n++] = null !== $item ? aegisClientInvokeStatusResponseList::fromMap($item) : $item;
                 }

@@ -125,22 +125,20 @@ class groupedVulItems extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName'    => 'AliasName',
-        'asapCount'    => 'AsapCount',
-        'canFix'       => 'CanFix',
-        'gmtLast'      => 'GmtLast',
+        'aliasName' => 'AliasName',
+        'asapCount' => 'AsapCount',
+        'canFix' => 'CanFix',
+        'gmtLast' => 'GmtLast',
         'lastScanTime' => 'LastScanTime',
-        'laterCount'   => 'LaterCount',
-        'name'         => 'Name',
-        'nntfCount'    => 'NntfCount',
-        'status'       => 'Status',
-        'tags'         => 'Tags',
-        'type'         => 'Type',
+        'laterCount' => 'LaterCount',
+        'name' => 'Name',
+        'nntfCount' => 'NntfCount',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

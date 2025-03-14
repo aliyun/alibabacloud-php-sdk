@@ -16,6 +16,7 @@ class DescribePropertyScaItemRequest extends Model
      *   **sca_web**: web service
      *
      * > If you do not specify this parameter, the default value **sca** is used, which indicates that middleware fingerprints are queried.
+     *
      * @example sca
      *
      * @var string
@@ -59,6 +60,7 @@ class DescribePropertyScaItemRequest extends Model
      * @description The number of entries to return on each page.
      *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var int
@@ -81,6 +83,7 @@ class DescribePropertyScaItemRequest extends Model
      *   **web_framework**: web framework
      *
      * > You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     *
      * @example system_service
      *
      * @var string
@@ -94,24 +97,23 @@ class DescribePropertyScaItemRequest extends Model
      *   **type**: the type of a database, middleware, or web service
      *
      * > You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
+     *
      * @example type
      *
      * @var string
      */
     public $searchItem;
     protected $_name = [
-        'biz'         => 'Biz',
+        'biz' => 'Biz',
         'currentPage' => 'CurrentPage',
-        'forceFlush'  => 'ForceFlush',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
-        'searchInfo'  => 'SearchInfo',
-        'searchItem'  => 'SearchItem',
+        'forceFlush' => 'ForceFlush',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'searchInfo' => 'SearchInfo',
+        'searchItem' => 'SearchItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

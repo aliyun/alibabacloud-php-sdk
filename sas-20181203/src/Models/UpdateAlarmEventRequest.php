@@ -41,13 +41,11 @@ class UpdateAlarmEventRequest extends Model
     public $operationCode;
     protected $_name = [
         'alarmEventIdList' => 'AlarmEventIdList',
-        'lang'             => 'Lang',
-        'operationCode'    => 'OperationCode',
+        'lang' => 'Lang',
+        'operationCode' => 'OperationCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

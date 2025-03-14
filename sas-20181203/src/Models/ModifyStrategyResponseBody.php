@@ -47,14 +47,12 @@ class ModifyStrategyResponseBody extends Model
     public $success;
     protected $_name = [
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'result'         => 'Result',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

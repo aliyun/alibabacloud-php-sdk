@@ -46,6 +46,7 @@ class errorRepairConfigs extends Model
     /**
      * @description The type of the parameter that caused the error:
      * - repair: Repair parameter
+     *
      * @example repair
      *
      * @var string
@@ -61,17 +62,15 @@ class errorRepairConfigs extends Model
      */
     public $value;
     protected $_name = [
-        'errorCode'        => 'ErrorCode',
-        'errorMsg'         => 'ErrorMsg',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
         'linkErrorConfigs' => 'LinkErrorConfigs',
-        'name'             => 'Name',
-        'type'             => 'Type',
-        'value'            => 'Value',
+        'name' => 'Name',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +120,7 @@ class errorRepairConfigs extends Model
         if (isset($map['LinkErrorConfigs'])) {
             if (!empty($map['LinkErrorConfigs'])) {
                 $model->linkErrorConfigs = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['LinkErrorConfigs'] as $item) {
                     $model->linkErrorConfigs[$n++] = null !== $item ? linkErrorConfigs::fromMap($item) : $item;
                 }

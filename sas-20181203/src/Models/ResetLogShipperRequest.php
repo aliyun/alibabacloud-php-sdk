@@ -13,6 +13,7 @@ class ResetLogShipperRequest extends Model
      * @description The global retention period of hot data.
      *
      * >  The value of this parameter must be at least 7 and smaller than the log retention period. Unit: days.
+     *
      * @example 7
      *
      * @var int
@@ -30,20 +31,19 @@ class ResetLogShipperRequest extends Model
      * @description The global log retention period.
      *
      * >  This parameter is supported only when the log analysis feature uses the pay-as-you-go billing method.
+     *
      * @example 180
      *
      * @var int
      */
     public $ttl;
     protected $_name = [
-        'hotTtl'      => 'HotTtl',
+        'hotTtl' => 'HotTtl',
         'logMetaList' => 'LogMetaList',
-        'ttl'         => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +81,7 @@ class ResetLogShipperRequest extends Model
         if (isset($map['LogMetaList'])) {
             if (!empty($map['LogMetaList'])) {
                 $model->logMetaList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['LogMetaList'] as $item) {
                     $model->logMetaList[$n++] = null !== $item ? logMetaList::fromMap($item) : $item;
                 }

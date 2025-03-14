@@ -24,9 +24,7 @@ class ModifyAutoDelConfigRequest extends Model
         'days' => 'Days',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

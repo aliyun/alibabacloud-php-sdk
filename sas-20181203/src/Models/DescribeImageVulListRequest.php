@@ -240,6 +240,7 @@ class DescribeImageVulListRequest extends Model
      * @description The type of the vulnerability. Set the value to **cve**, which indicates image vulnerabilities.
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -255,37 +256,35 @@ class DescribeImageVulListRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliasName'      => 'AliasName',
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'containerId'    => 'ContainerId',
-        'currentPage'    => 'CurrentPage',
-        'dealed'         => 'Dealed',
-        'digest'         => 'Digest',
-        'image'          => 'Image',
-        'instanceId'     => 'InstanceId',
-        'lang'           => 'Lang',
-        'name'           => 'Name',
-        'namespace'      => 'Namespace',
-        'necessity'      => 'Necessity',
-        'pageSize'       => 'PageSize',
-        'pod'            => 'Pod',
-        'regionId'       => 'RegionId',
-        'repoId'         => 'RepoId',
+        'aliasName' => 'AliasName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'containerId' => 'ContainerId',
+        'currentPage' => 'CurrentPage',
+        'dealed' => 'Dealed',
+        'digest' => 'Digest',
+        'image' => 'Image',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'necessity' => 'Necessity',
+        'pageSize' => 'PageSize',
+        'pod' => 'Pod',
+        'regionId' => 'RegionId',
+        'repoId' => 'RepoId',
         'repoInstanceId' => 'RepoInstanceId',
-        'repoName'       => 'RepoName',
-        'repoNamespace'  => 'RepoNamespace',
-        'repoRegionId'   => 'RepoRegionId',
-        'scanRange'      => 'ScanRange',
-        'statusList'     => 'StatusList',
-        'tag'            => 'Tag',
-        'type'           => 'Type',
-        'uuids'          => 'Uuids',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
+        'repoRegionId' => 'RepoRegionId',
+        'scanRange' => 'ScanRange',
+        'statusList' => 'StatusList',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'uuids' => 'Uuids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class ModifyVulTargetConfigRequest extends Model
      *   **off**: no
      *
      * This parameter is required.
+     *
      * @example off
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyVulTargetConfigRequest extends Model
      *   **emg**: urgent vulnerability
      *
      * This parameter is required.
+     *
      * @example cve
      *
      * @var string
@@ -49,21 +51,20 @@ class ModifyVulTargetConfigRequest extends Model
      * @description The UUID of the server.
      *
      * This parameter is required.
+     *
      * @example inet-7c676676-06fa-442e-90fb-b802e5d6****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'config'   => 'Config',
+        'config' => 'Config',
         'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
-        'uuid'     => 'Uuid',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

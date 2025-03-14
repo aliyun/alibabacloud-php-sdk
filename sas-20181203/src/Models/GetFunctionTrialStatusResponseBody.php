@@ -15,6 +15,7 @@ class GetFunctionTrialStatusResponseBody extends Model
      * - **1**: Not eligible
      * - **2**: Trial ended
      * - **3**: In trial
+     *
      * @example 1
      *
      * @var int
@@ -26,17 +27,16 @@ class GetFunctionTrialStatusResponseBody extends Model
      *
      * @example 8B30CCDD-B79A-5844-BE66-F6D51335
      * XXXX
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

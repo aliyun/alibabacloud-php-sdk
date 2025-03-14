@@ -43,15 +43,13 @@ class metaDatas extends Model
      */
     public $metaDataFields;
     protected $_name = [
-        'dataSourceId'   => 'DataSourceId',
+        'dataSourceId' => 'DataSourceId',
         'dataSourceName' => 'DataSourceName',
-        'description'    => 'Description',
+        'description' => 'Description',
         'metaDataFields' => 'MetaDataFields',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class metaDatas extends Model
         if (isset($map['MetaDataFields'])) {
             if (!empty($map['MetaDataFields'])) {
                 $model->metaDataFields = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['MetaDataFields'] as $item) {
                     $model->metaDataFields[$n++] = null !== $item ? metaDataFields::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class DescribeSoarSubscribedStrategyRequest extends Model
      * @description The page number. Pages start from page 1.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class DescribeSoarSubscribedStrategyRequest extends Model
      * @description The number of entries per page.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -29,12 +31,10 @@ class DescribeSoarSubscribedStrategyRequest extends Model
     public $pageSize;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

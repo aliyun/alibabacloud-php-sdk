@@ -19,9 +19,7 @@ class pushTaskRsp extends Model
         'pushTaskResultList' => 'PushTaskResultList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class pushTaskRsp extends Model
         if (isset($map['PushTaskResultList'])) {
             if (!empty($map['PushTaskResultList'])) {
                 $model->pushTaskResultList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['PushTaskResultList'] as $item) {
                     $model->pushTaskResultList[$n++] = null !== $item ? pushTaskResultList::fromMap($item) : $item;
                 }

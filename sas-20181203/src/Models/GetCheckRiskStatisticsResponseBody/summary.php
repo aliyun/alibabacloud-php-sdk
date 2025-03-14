@@ -64,15 +64,13 @@ class summary extends Model
     protected $_name = [
         'handledCheckToday' => 'HandledCheckToday',
         'handledCheckTotal' => 'HandledCheckTotal',
-        'handledDays'       => 'HandledDays',
-        'riskCheckCnt'      => 'RiskCheckCnt',
-        'riskDays'          => 'RiskDays',
-        'riskWarningCnt'    => 'RiskWarningCnt',
+        'handledDays' => 'HandledDays',
+        'riskCheckCnt' => 'RiskCheckCnt',
+        'riskDays' => 'RiskDays',
+        'riskWarningCnt' => 'RiskWarningCnt',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
