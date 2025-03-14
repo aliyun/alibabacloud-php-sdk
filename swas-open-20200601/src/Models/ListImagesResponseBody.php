@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListImagesResponseBody\images;
+use AlibabaCloud\Tea\Model;
 
 class ListImagesResponseBody extends Model
 {
     /**
+     * @description Details of the queried images.
+     *
      * @var images[]
      */
     public $images;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'images'    => 'Images',
+        'images' => 'Images',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->images)) {
-            Model::validateArray($this->images);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->images) {
-            if (\is_array($this->images)) {
-                $res['Images'] = [];
-                $n1            = 0;
-                foreach ($this->images as $item1) {
-                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Images'] = [];
+            if (null !== $this->images && \is_array($this->images)) {
+                $n = 0;
+                foreach ($this->images as $item) {
+                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +50,23 @@ class ListImagesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListImagesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
-                foreach ($map['Images'] as $item1) {
-                    $model->images[$n1++] = images::fromMap($item1);
+                $n = 0;
+                foreach ($map['Images'] as $item) {
+                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

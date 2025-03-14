@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LoginInstanceResponseBody extends Model
 {
     /**
+     * @description The URL that you use to log on to the server.
+     *
+     * @example https://ecs-workbench.aliyun.com/view/instance/single/gbktfz****
+     *
      * @var string
      */
     public $redirectUrl;
+
     /**
+     * @description The request ID.
+     *
+     * @example C2DE174B-7196-5778-A00D-6EA2601B****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'redirectUrl' => 'RedirectUrl',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->redirectUrl) {
             $res['RedirectUrl'] = $this->redirectUrl;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class LoginInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LoginInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RedirectUrl'])) {
             $model->redirectUrl = $map['RedirectUrl'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,72 +4,84 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantAttributesResponseBody\cloudAssistant;
+use AlibabaCloud\Tea\Model;
 
 class DescribeCloudAssistantAttributesResponseBody extends Model
 {
     /**
+     * @description The Command Assistant information.
+     *
      * @var cloudAssistant[]
      */
     public $cloudAssistant;
+
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The request ID.
+     *
+     * @example 30637AD6-D977-4833-A54C-CC89483E****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of entries.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'cloudAssistant' => 'CloudAssistant',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cloudAssistant)) {
-            Model::validateArray($this->cloudAssistant);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cloudAssistant) {
-            if (\is_array($this->cloudAssistant)) {
-                $res['CloudAssistant'] = [];
-                $n1                    = 0;
-                foreach ($this->cloudAssistant as $item1) {
-                    $res['CloudAssistant'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CloudAssistant'] = [];
+            if (null !== $this->cloudAssistant && \is_array($this->cloudAssistant)) {
+                $n = 0;
+                foreach ($this->cloudAssistant as $item) {
+                    $res['CloudAssistant'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -77,36 +89,32 @@ class DescribeCloudAssistantAttributesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeCloudAssistantAttributesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudAssistant'])) {
             if (!empty($map['CloudAssistant'])) {
                 $model->cloudAssistant = [];
-                $n1                    = 0;
-                foreach ($map['CloudAssistant'] as $item1) {
-                    $model->cloudAssistant[$n1++] = cloudAssistant::fromMap($item1);
+                $n = 0;
+                foreach ($map['CloudAssistant'] as $item) {
+                    $model->cloudAssistant[$n++] = null !== $item ? cloudAssistant::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

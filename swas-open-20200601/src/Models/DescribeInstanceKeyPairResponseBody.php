@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceKeyPairResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the key pair.
+     *
+     * @example 4f:70:62:e9:0c:72:f7:ee:74:ce:e3:bf:e0:82:**:**
+     *
      * @var string
      */
     public $fingerprint;
+
     /**
+     * @description The name of the key pair.
+     *
+     * @example KeyPairName
+     *
      * @var string
      */
     public $keyPairName;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'fingerprint' => 'Fingerprint',
         'keyPairName' => 'KeyPairName',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
-
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +58,20 @@ class DescribeInstanceKeyPairResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceKeyPairResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
-
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StopInstancesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example C2DE174B-7196-5778-A00D-6EA2601B****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class StopInstancesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class StopInstancesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StopInstancesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

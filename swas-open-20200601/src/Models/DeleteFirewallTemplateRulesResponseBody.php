@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteFirewallTemplateRulesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 30637AD6-D977-4833-A54C-CC89483E****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteFirewallTemplateRulesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteFirewallTemplateRulesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteFirewallTemplateRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

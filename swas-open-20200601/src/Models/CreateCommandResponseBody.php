@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateCommandResponseBody extends Model
 {
     /**
+     * @description The command ID.
+     *
+     * @example c-sh02yh0932w****
+     *
      * @var string
      */
     public $commandId;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4****
+     *
      * @var string
      */
     public $requestId;
@@ -21,18 +30,14 @@ class CreateCommandResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateCommandResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateCommandResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

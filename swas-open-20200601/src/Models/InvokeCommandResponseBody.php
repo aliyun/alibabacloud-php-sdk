@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InvokeCommandResponseBody extends Model
 {
     /**
+     * @description The execution ID of the command.
+     *
+     * @example t-bj02prjhw1n****
+     *
      * @var string
      */
     public $invokeId;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'invokeId'  => 'InvokeId',
+        'invokeId' => 'InvokeId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class InvokeCommandResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InvokeCommandResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

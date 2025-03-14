@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DetachKeyPairResponseBody\results;
+use AlibabaCloud\Tea\Model;
 
 class DetachKeyPairResponseBody extends Model
 {
     /**
+     * @description The total number of simple application servers from which you fail to unbind key pairs.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $failCount;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The request results.
+     *
      * @var results[]
      */
     public $results;
+
     /**
+     * @description The total number of simple application servers from which the SSH key pair is unbound.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'failCount'  => 'FailCount',
-        'requestId'  => 'RequestId',
-        'results'    => 'Results',
+        'failCount' => 'FailCount',
+        'requestId' => 'RequestId',
+        'results' => 'Results',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->results)) {
-            Model::validateArray($this->results);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->results) {
-            if (\is_array($this->results)) {
-                $res['Results'] = [];
-                $n1             = 0;
-                foreach ($this->results as $item1) {
-                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Results'] = [];
+            if (null !== $this->results && \is_array($this->results)) {
+                $n = 0;
+                foreach ($this->results as $item) {
+                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,32 +76,29 @@ class DetachKeyPairResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachKeyPairResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1             = 0;
-                foreach ($map['Results'] as $item1) {
-                    $model->results[$n1++] = results::fromMap($item1);
+                $n = 0;
+                foreach ($map['Results'] as $item) {
+                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,62 +4,70 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteFirewallTemplateRulesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The ID of the firewall template.
+     *
+     * This parameter is required.
+     *
+     * @example ft-bcf1a7hrdq717****
+     *
      * @var string
      */
     public $firewallTemplateId;
+
     /**
+     * @description The IDs of the firewall template rules.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $firewallTemplateRuleId;
+
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'firewallTemplateId'     => 'FirewallTemplateId',
+        'clientToken' => 'ClientToken',
+        'firewallTemplateId' => 'FirewallTemplateId',
         'firewallTemplateRuleId' => 'FirewallTemplateRuleId',
-        'regionId'               => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->firewallTemplateRuleId)) {
-            Model::validateArray($this->firewallTemplateRuleId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->firewallTemplateId) {
             $res['FirewallTemplateId'] = $this->firewallTemplateId;
         }
-
         if (null !== $this->firewallTemplateRuleId) {
-            if (\is_array($this->firewallTemplateRuleId)) {
-                $res['FirewallTemplateRuleId'] = [];
-                $n1                            = 0;
-                foreach ($this->firewallTemplateRuleId as $item1) {
-                    $res['FirewallTemplateRuleId'][$n1++] = $item1;
-                }
-            }
+            $res['FirewallTemplateRuleId'] = $this->firewallTemplateRuleId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -67,32 +75,25 @@ class DeleteFirewallTemplateRulesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteFirewallTemplateRulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['FirewallTemplateId'])) {
             $model->firewallTemplateId = $map['FirewallTemplateId'];
         }
-
         if (isset($map['FirewallTemplateRuleId'])) {
             if (!empty($map['FirewallTemplateRuleId'])) {
-                $model->firewallTemplateRuleId = [];
-                $n1                            = 0;
-                foreach ($map['FirewallTemplateRuleId'] as $item1) {
-                    $model->firewallTemplateRuleId[$n1++] = $item1;
-                }
+                $model->firewallTemplateRuleId = $map['FirewallTemplateRuleId'];
             }
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

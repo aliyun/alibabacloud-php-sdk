@@ -4,62 +4,87 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListImagesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
     /**
+     * @description The description of the image.
+     *
+     * @example Apps ImageOS ImageCustom Images
+     * WordPress is a popular and powerful platform that allows you to build blogs and content management websites and implement custom features by using third-party templates and plug-ins. This WordPress image is built based on CentOS 7.9, PHP 7.4, MySQL 5.7, and Apache 2.4.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the image.
+     *
+     * @example 794c230fd3e64ea19f83f4d7a0ad****
+     *
      * @var string
      */
     public $imageId;
+
     /**
+     * @description The name of the image.
+     *
+     * @example WordPress-4.8.1
+     *
      * @var string
      */
     public $imageName;
+
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system
+     *   app
+     *   custom
+     *
+     * @example app
+     *
      * @var string
      */
     public $imageType;
+
     /**
+     * @description The operating system type of the image. Valid values:
+     *
+     *   Linux
+     *   Windows
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $platform;
     protected $_name = [
         'description' => 'Description',
-        'imageId'     => 'ImageId',
-        'imageName'   => 'ImageName',
-        'imageType'   => 'ImageType',
-        'platform'    => 'Platform',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageType' => 'ImageType',
+        'platform' => 'Platform',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
-
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
-
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
-
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
@@ -67,30 +92,26 @@ class images extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return images
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
-
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
-
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
-
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }

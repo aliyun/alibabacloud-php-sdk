@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateInstanceKeyPairResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the key pair.
+     *
+     * @example If2K1ItazA4GlKkWCEhdRj8Wd6czAvK9*****
+     *
      * @var string
      */
     public $fingerprint;
+
     /**
+     * @description The name of the key pair.
+     *
+     * @example ceshi
+     *
      * @var string
      */
     public $keyPairName;
+
     /**
+     * @description The private key.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $privateKey;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'fingerprint' => 'Fingerprint',
         'keyPairName' => 'KeyPairName',
-        'privateKey'  => 'PrivateKey',
-        'requestId'   => 'RequestId',
+        'privateKey' => 'PrivateKey',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
-
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
-
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,26 +71,23 @@ class CreateInstanceKeyPairResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateInstanceKeyPairResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
-
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
-
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

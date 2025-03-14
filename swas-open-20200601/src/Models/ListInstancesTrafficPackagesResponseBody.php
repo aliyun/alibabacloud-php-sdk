@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstancesTrafficPackagesResponseBody\instanceTrafficPackageUsages;
+use AlibabaCloud\Tea\Model;
 
 class ListInstancesTrafficPackagesResponseBody extends Model
 {
     /**
+     * @description The data transfers that exceed the quota of the data transfer plan in the current month. Unit: bytes.
+     *
      * @var instanceTrafficPackageUsages[]
      */
     public $instanceTrafficPackageUsages;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceTrafficPackageUsages' => 'InstanceTrafficPackageUsages',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instanceTrafficPackageUsages)) {
-            Model::validateArray($this->instanceTrafficPackageUsages);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceTrafficPackageUsages) {
-            if (\is_array($this->instanceTrafficPackageUsages)) {
-                $res['InstanceTrafficPackageUsages'] = [];
-                $n1                                  = 0;
-                foreach ($this->instanceTrafficPackageUsages as $item1) {
-                    $res['InstanceTrafficPackageUsages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InstanceTrafficPackageUsages'] = [];
+            if (null !== $this->instanceTrafficPackageUsages && \is_array($this->instanceTrafficPackageUsages)) {
+                $n = 0;
+                foreach ($this->instanceTrafficPackageUsages as $item) {
+                    $res['InstanceTrafficPackageUsages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +50,23 @@ class ListInstancesTrafficPackagesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstancesTrafficPackagesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTrafficPackageUsages'])) {
             if (!empty($map['InstanceTrafficPackageUsages'])) {
                 $model->instanceTrafficPackageUsages = [];
-                $n1                                  = 0;
-                foreach ($map['InstanceTrafficPackageUsages'] as $item1) {
-                    $model->instanceTrafficPackageUsages[$n1++] = instanceTrafficPackageUsages::fromMap($item1);
+                $n = 0;
+                foreach ($map['InstanceTrafficPackageUsages'] as $item) {
+                    $model->instanceTrafficPackageUsages[$n++] = null !== $item ? instanceTrafficPackageUsages::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

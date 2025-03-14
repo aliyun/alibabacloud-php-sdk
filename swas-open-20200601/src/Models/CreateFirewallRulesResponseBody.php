@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateFirewallRulesResponseBody extends Model
 {
     /**
+     * @description The IDs of the firewall rules that you created.
+     *
      * @var string[]
      */
     public $firewallRuleIds;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'firewallRuleIds' => 'FirewallRuleIds',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->firewallRuleIds)) {
-            Model::validateArray($this->firewallRuleIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->firewallRuleIds) {
-            if (\is_array($this->firewallRuleIds)) {
-                $res['FirewallRuleIds'] = [];
-                $n1                     = 0;
-                foreach ($this->firewallRuleIds as $item1) {
-                    $res['FirewallRuleIds'][$n1++] = $item1;
-                }
-            }
+            $res['FirewallRuleIds'] = $this->firewallRuleIds;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +43,19 @@ class CreateFirewallRulesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateFirewallRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallRuleIds'])) {
             if (!empty($map['FirewallRuleIds'])) {
-                $model->firewallRuleIds = [];
-                $n1                     = 0;
-                foreach ($map['FirewallRuleIds'] as $item1) {
-                    $model->firewallRuleIds[$n1++] = $item1;
-                }
+                $model->firewallRuleIds = $map['FirewallRuleIds'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

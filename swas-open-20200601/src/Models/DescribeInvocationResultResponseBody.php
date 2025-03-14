@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeInvocationResultResponseBody\invocationResult;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInvocationResultResponseBody extends Model
 {
     /**
+     * @description The execution results.
+     *
      * @var invocationResult
      */
     public $invocationResult;
+
     /**
+     * @description The request ID.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'invocationResult' => 'InvocationResult',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->invocationResult) {
-            $this->invocationResult->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->invocationResult) {
-            $res['InvocationResult'] = null !== $this->invocationResult ? $this->invocationResult->toArray($noStream) : $this->invocationResult;
+            $res['InvocationResult'] = null !== $this->invocationResult ? $this->invocationResult->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class DescribeInvocationResultResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInvocationResultResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvocationResult'])) {
             $model->invocationResult = invocationResult::fromMap($map['InvocationResult']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
