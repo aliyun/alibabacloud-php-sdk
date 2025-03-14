@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteColumnRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example column-AAAAAAAAh6Q9ERazKYFvkA
+     *
      * @var string
      */
     public $columnIdKey;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2v3934xtp49esw64
+     *
      * @var string
      */
     public $workspaceId;
@@ -21,18 +30,14 @@ class DeleteColumnRequest extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnIdKey) {
             $res['columnIdKey'] = $this->columnIdKey;
         }
-
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -40,18 +45,17 @@ class DeleteColumnRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteColumnRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columnIdKey'])) {
             $model->columnIdKey = $map['columnIdKey'];
         }
-
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

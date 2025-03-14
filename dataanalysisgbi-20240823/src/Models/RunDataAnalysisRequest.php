@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RunDataAnalysisRequest extends Model
 {
@@ -12,81 +12,77 @@ class RunDataAnalysisRequest extends Model
      * @var mixed
      */
     public $agentCtrlParams;
+
     /**
      * @var string[]
      */
     public $dataRole;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $generateSqlOnly;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $query;
+
     /**
+     * @example sessionID
+     *
      * @var string
      */
     public $sessionId;
+
     /**
+     * @example STANDARD_MIX
+     *
      * @var string
      */
     public $specificationType;
+
     /**
      * @var mixed
      */
     public $userParams;
     protected $_name = [
-        'agentCtrlParams'   => 'agentCtrlParams',
-        'dataRole'          => 'dataRole',
-        'generateSqlOnly'   => 'generateSqlOnly',
-        'query'             => 'query',
-        'sessionId'         => 'sessionId',
+        'agentCtrlParams' => 'agentCtrlParams',
+        'dataRole' => 'dataRole',
+        'generateSqlOnly' => 'generateSqlOnly',
+        'query' => 'query',
+        'sessionId' => 'sessionId',
         'specificationType' => 'specificationType',
-        'userParams'        => 'userParams',
+        'userParams' => 'userParams',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataRole)) {
-            Model::validateArray($this->dataRole);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentCtrlParams) {
             $res['agentCtrlParams'] = $this->agentCtrlParams;
         }
-
         if (null !== $this->dataRole) {
-            if (\is_array($this->dataRole)) {
-                $res['dataRole'] = [];
-                $n1              = 0;
-                foreach ($this->dataRole as $item1) {
-                    $res['dataRole'][$n1++] = $item1;
-                }
-            }
+            $res['dataRole'] = $this->dataRole;
         }
-
         if (null !== $this->generateSqlOnly) {
             $res['generateSqlOnly'] = $this->generateSqlOnly;
         }
-
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
-
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
-
         if (null !== $this->specificationType) {
             $res['specificationType'] = $this->specificationType;
         }
-
         if (null !== $this->userParams) {
             $res['userParams'] = $this->userParams;
         }
@@ -94,44 +90,34 @@ class RunDataAnalysisRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RunDataAnalysisRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentCtrlParams'])) {
             $model->agentCtrlParams = $map['agentCtrlParams'];
         }
-
         if (isset($map['dataRole'])) {
             if (!empty($map['dataRole'])) {
-                $model->dataRole = [];
-                $n1              = 0;
-                foreach ($map['dataRole'] as $item1) {
-                    $model->dataRole[$n1++] = $item1;
-                }
+                $model->dataRole = $map['dataRole'];
             }
         }
-
         if (isset($map['generateSqlOnly'])) {
             $model->generateSqlOnly = $map['generateSqlOnly'];
         }
-
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
-
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
-
         if (isset($map['specificationType'])) {
             $model->specificationType = $map['specificationType'];
         }
-
         if (isset($map['userParams'])) {
             $model->userParams = $map['userParams'];
         }

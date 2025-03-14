@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateSynonymsRequest extends Model
 {
@@ -12,72 +12,63 @@ class UpdateSynonymsRequest extends Model
      * @var string[]
      */
     public $columns;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example synonyms-AAAAAAAAAUpwTTVrwTFJwQ
+     *
      * @var string
      */
     public $synonymIdKey;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $word;
+
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $wordSynonyms;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2v3934xtp49esw64
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'columns'      => 'columns',
+        'columns' => 'columns',
         'synonymIdKey' => 'synonymIdKey',
-        'word'         => 'word',
+        'word' => 'word',
         'wordSynonyms' => 'wordSynonyms',
-        'workspaceId'  => 'workspaceId',
+        'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->columns)) {
-            Model::validateArray($this->columns);
-        }
-        if (\is_array($this->wordSynonyms)) {
-            Model::validateArray($this->wordSynonyms);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columns) {
-            if (\is_array($this->columns)) {
-                $res['columns'] = [];
-                $n1             = 0;
-                foreach ($this->columns as $item1) {
-                    $res['columns'][$n1++] = $item1;
-                }
-            }
+            $res['columns'] = $this->columns;
         }
-
         if (null !== $this->synonymIdKey) {
             $res['synonymIdKey'] = $this->synonymIdKey;
         }
-
         if (null !== $this->word) {
             $res['word'] = $this->word;
         }
-
         if (null !== $this->wordSynonyms) {
-            if (\is_array($this->wordSynonyms)) {
-                $res['wordSynonyms'] = [];
-                $n1                  = 0;
-                foreach ($this->wordSynonyms as $item1) {
-                    $res['wordSynonyms'][$n1++] = $item1;
-                }
-            }
+            $res['wordSynonyms'] = $this->wordSynonyms;
         }
-
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -85,42 +76,30 @@ class UpdateSynonymsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateSynonymsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
-                $model->columns = [];
-                $n1             = 0;
-                foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1++] = $item1;
-                }
+                $model->columns = $map['columns'];
             }
         }
-
         if (isset($map['synonymIdKey'])) {
             $model->synonymIdKey = $map['synonymIdKey'];
         }
-
         if (isset($map['word'])) {
             $model->word = $map['word'];
         }
-
         if (isset($map['wordSynonyms'])) {
             if (!empty($map['wordSynonyms'])) {
-                $model->wordSynonyms = [];
-                $n1                  = 0;
-                foreach ($map['wordSynonyms'] as $item1) {
-                    $model->wordSynonyms[$n1++] = $item1;
-                }
+                $model->wordSynonyms = $map['wordSynonyms'];
             }
         }
-
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

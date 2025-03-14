@@ -4,98 +4,69 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataAnalysisResponseBody\data\visualization;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example bar
+     *
      * @var string
      */
     public $plotType;
+
     /**
      * @var string[]
      */
     public $xAxis;
+
     /**
      * @var string[]
      */
     public $yAxis;
     protected $_name = [
         'plotType' => 'plotType',
-        'xAxis'    => 'xAxis',
-        'yAxis'    => 'yAxis',
+        'xAxis' => 'xAxis',
+        'yAxis' => 'yAxis',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->xAxis)) {
-            Model::validateArray($this->xAxis);
-        }
-        if (\is_array($this->yAxis)) {
-            Model::validateArray($this->yAxis);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->plotType) {
             $res['plotType'] = $this->plotType;
         }
-
         if (null !== $this->xAxis) {
-            if (\is_array($this->xAxis)) {
-                $res['xAxis'] = [];
-                $n1           = 0;
-                foreach ($this->xAxis as $item1) {
-                    $res['xAxis'][$n1++] = $item1;
-                }
-            }
+            $res['xAxis'] = $this->xAxis;
         }
-
         if (null !== $this->yAxis) {
-            if (\is_array($this->yAxis)) {
-                $res['yAxis'] = [];
-                $n1           = 0;
-                foreach ($this->yAxis as $item1) {
-                    $res['yAxis'][$n1++] = $item1;
-                }
-            }
+            $res['yAxis'] = $this->yAxis;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['plotType'])) {
             $model->plotType = $map['plotType'];
         }
-
         if (isset($map['xAxis'])) {
             if (!empty($map['xAxis'])) {
-                $model->xAxis = [];
-                $n1           = 0;
-                foreach ($map['xAxis'] as $item1) {
-                    $model->xAxis[$n1++] = $item1;
-                }
+                $model->xAxis = $map['xAxis'];
             }
         }
-
         if (isset($map['yAxis'])) {
             if (!empty($map['yAxis'])) {
-                $model->yAxis = [];
-                $n1           = 0;
-                foreach ($map['yAxis'] as $item1) {
-                    $model->yAxis[$n1++] = $item1;
-                }
+                $model->yAxis = $map['yAxis'];
             }
         }
 

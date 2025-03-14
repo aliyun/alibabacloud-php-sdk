@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\BatchDeleteSynonymsRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\BatchDeleteSynonymsResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\CancelDatasourceAuthorizationRequest;
@@ -64,10 +64,11 @@ use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\UpdateTableInfoRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\UpdateTableInfoResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\UpdateVirtualDatasourceInstanceRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\UpdateVirtualDatasourceInstanceResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class DataAnalysisGBI extends OpenApiClient
 {
@@ -92,61 +93,53 @@ class DataAnalysisGBI extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 批量删除当前指定业务空间下的同义词.
+     * @summary 批量删除当前指定业务空间下的同义词
+     *  *
+     * @param BatchDeleteSynonymsRequest $request BatchDeleteSynonymsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDeleteSynonymsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns BatchDeleteSynonymsResponse
-     *
-     * @param BatchDeleteSynonymsRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BatchDeleteSynonymsResponse
+     * @return BatchDeleteSynonymsResponse BatchDeleteSynonymsResponse
      */
     public function batchDeleteSynonymsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->synonymIdKeys) {
-            @$body['synonymIdKeys'] = $request->synonymIdKeys;
+        if (!Utils::isUnset($request->synonymIdKeys)) {
+            $body['synonymIdKeys'] = $request->synonymIdKeys;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteSynonyms',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/batchDelete/synonyms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchDeleteSynonyms',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/batchDelete/synonyms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BatchDeleteSynonymsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -154,14 +147,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 批量删除当前指定业务空间下的同义词.
+     * @summary 批量删除当前指定业务空间下的同义词
+     *  *
+     * @param BatchDeleteSynonymsRequest $request BatchDeleteSynonymsRequest
      *
-     * @param request - BatchDeleteSynonymsRequest
-     * @returns BatchDeleteSynonymsResponse
-     *
-     * @param BatchDeleteSynonymsRequest $request
-     *
-     * @return BatchDeleteSynonymsResponse
+     * @return BatchDeleteSynonymsResponse BatchDeleteSynonymsResponse
      */
     public function batchDeleteSynonyms($request)
     {
@@ -172,43 +162,37 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 取消关联的数据源授权.
+     * @summary 取消关联的数据源授权
+     *  *
+     * @param CancelDatasourceAuthorizationRequest $request CancelDatasourceAuthorizationRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelDatasourceAuthorizationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelDatasourceAuthorizationResponse
-     *
-     * @param CancelDatasourceAuthorizationRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CancelDatasourceAuthorizationResponse
+     * @return CancelDatasourceAuthorizationResponse CancelDatasourceAuthorizationResponse
      */
     public function cancelDatasourceAuthorizationWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelDatasourceAuthorization',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/cancel/datasource',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelDatasourceAuthorization',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/cancel/datasource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelDatasourceAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -216,14 +200,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 取消关联的数据源授权.
+     * @summary 取消关联的数据源授权
+     *  *
+     * @param CancelDatasourceAuthorizationRequest $request CancelDatasourceAuthorizationRequest
      *
-     * @param request - CancelDatasourceAuthorizationRequest
-     * @returns CancelDatasourceAuthorizationResponse
-     *
-     * @param CancelDatasourceAuthorizationRequest $request
-     *
-     * @return CancelDatasourceAuthorizationResponse
+     * @return CancelDatasourceAuthorizationResponse CancelDatasourceAuthorizationResponse
      */
     public function cancelDatasourceAuthorization($request)
     {
@@ -234,53 +215,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在指定的业务空间下创建新的业务逻辑解释.
+     * @summary 在指定的业务空间下创建新的业务逻辑解释
+     *  *
+     * @param CreateBusinessLogicRequest $request CreateBusinessLogicRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateBusinessLogicRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBusinessLogicResponse
-     *
-     * @param CreateBusinessLogicRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateBusinessLogicResponse
+     * @return CreateBusinessLogicResponse CreateBusinessLogicResponse
      */
     public function createBusinessLogicWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateBusinessLogic',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/create/logic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateBusinessLogic',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/create/logic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBusinessLogicResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -288,14 +261,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在指定的业务空间下创建新的业务逻辑解释.
+     * @summary 在指定的业务空间下创建新的业务逻辑解释
+     *  *
+     * @param CreateBusinessLogicRequest $request CreateBusinessLogicRequest
      *
-     * @param request - CreateBusinessLogicRequest
-     * @returns CreateBusinessLogicResponse
-     *
-     * @param CreateBusinessLogicRequest $request
-     *
-     * @return CreateBusinessLogicResponse
+     * @return CreateBusinessLogicResponse CreateBusinessLogicResponse
      */
     public function createBusinessLogic($request)
     {
@@ -306,65 +276,54 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 创建数据库关联授权.
+     * @summary 创建数据库关联授权
+     *  *
+     * @param CreateDatasourceAuthorizationRequest $request CreateDatasourceAuthorizationRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDatasourceAuthorizationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDatasourceAuthorizationResponse
-     *
-     * @param CreateDatasourceAuthorizationRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateDatasourceAuthorizationResponse
+     * @return CreateDatasourceAuthorizationResponse CreateDatasourceAuthorizationResponse
      */
     public function createDatasourceAuthorizationWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->password) {
-            @$body['password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
-        if (null !== $request->url) {
-            @$body['url'] = $request->url;
+        if (!Utils::isUnset($request->url)) {
+            $body['url'] = $request->url;
         }
-
-        if (null !== $request->userName) {
-            @$body['userName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $body['userName'] = $request->userName;
         }
-
-        if (null !== $request->vdbId) {
-            @$body['vdbId'] = $request->vdbId;
+        if (!Utils::isUnset($request->vdbId)) {
+            $body['vdbId'] = $request->vdbId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasourceAuthorization',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/create/datasource',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasourceAuthorization',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/create/datasource',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDatasourceAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -372,14 +331,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 创建数据库关联授权.
+     * @summary 创建数据库关联授权
+     *  *
+     * @param CreateDatasourceAuthorizationRequest $request CreateDatasourceAuthorizationRequest
      *
-     * @param request - CreateDatasourceAuthorizationRequest
-     * @returns CreateDatasourceAuthorizationResponse
-     *
-     * @param CreateDatasourceAuthorizationRequest $request
-     *
-     * @return CreateDatasourceAuthorizationResponse
+     * @return CreateDatasourceAuthorizationResponse CreateDatasourceAuthorizationResponse
      */
     public function createDatasourceAuthorization($request)
     {
@@ -390,57 +346,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在当前指定的业务空间下面，新建同义词.
+     * @summary 在当前指定的业务空间下面，新建同义词
+     *  *
+     * @param CreateSynonymsRequest $request CreateSynonymsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSynonymsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateSynonymsResponse
-     *
-     * @param CreateSynonymsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateSynonymsResponse
+     * @return CreateSynonymsResponse CreateSynonymsResponse
      */
     public function createSynonymsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columns) {
-            @$body['columns'] = $request->columns;
+        if (!Utils::isUnset($request->columns)) {
+            $body['columns'] = $request->columns;
         }
-
-        if (null !== $request->word) {
-            @$body['word'] = $request->word;
+        if (!Utils::isUnset($request->word)) {
+            $body['word'] = $request->word;
         }
-
-        if (null !== $request->wordSynonyms) {
-            @$body['wordSynonyms'] = $request->wordSynonyms;
+        if (!Utils::isUnset($request->wordSynonyms)) {
+            $body['wordSynonyms'] = $request->wordSynonyms;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSynonyms',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/create/synonyms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSynonyms',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/create/synonyms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSynonymsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -448,14 +395,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在当前指定的业务空间下面，新建同义词.
+     * @summary 在当前指定的业务空间下面，新建同义词
+     *  *
+     * @param CreateSynonymsRequest $request CreateSynonymsRequest
      *
-     * @param request - CreateSynonymsRequest
-     * @returns CreateSynonymsResponse
-     *
-     * @param CreateSynonymsRequest $request
-     *
-     * @return CreateSynonymsResponse
+     * @return CreateSynonymsResponse CreateSynonymsResponse
      */
     public function createSynonyms($request)
     {
@@ -466,57 +410,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在指定的业务空间创建虚拟数据源.
+     * @summary 在指定的业务空间创建虚拟数据源
+     *  *
+     * @param CreateVirtualDatasourceInstanceRequest $request CreateVirtualDatasourceInstanceRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVirtualDatasourceInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateVirtualDatasourceInstanceResponse
-     *
-     * @param CreateVirtualDatasourceInstanceRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return CreateVirtualDatasourceInstanceResponse
+     * @return CreateVirtualDatasourceInstanceResponse CreateVirtualDatasourceInstanceResponse
      */
     public function createVirtualDatasourceInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualDatasourceInstance',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/virtualDatasource/createVirtualDatasourceInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVirtualDatasourceInstance',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/virtualDatasource/createVirtualDatasourceInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateVirtualDatasourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -524,14 +459,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 在指定的业务空间创建虚拟数据源.
+     * @summary 在指定的业务空间创建虚拟数据源
+     *  *
+     * @param CreateVirtualDatasourceInstanceRequest $request CreateVirtualDatasourceInstanceRequest
      *
-     * @param request - CreateVirtualDatasourceInstanceRequest
-     * @returns CreateVirtualDatasourceInstanceResponse
-     *
-     * @param CreateVirtualDatasourceInstanceRequest $request
-     *
-     * @return CreateVirtualDatasourceInstanceResponse
+     * @return CreateVirtualDatasourceInstanceResponse CreateVirtualDatasourceInstanceResponse
      */
     public function createVirtualDatasourceInstance($request)
     {
@@ -542,49 +474,42 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 删除指定业务空间下所指定的业务逻辑解释.
+     * @summary 删除指定业务空间下所指定的业务逻辑解释
+     *  *
+     * @param DeleteBusinessLogicRequest $request DeleteBusinessLogicRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBusinessLogicRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBusinessLogicResponse
-     *
-     * @param DeleteBusinessLogicRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteBusinessLogicResponse
+     * @return DeleteBusinessLogicResponse DeleteBusinessLogicResponse
      */
     public function deleteBusinessLogicWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->businessLogicIdKeys) {
-            @$body['businessLogicIdKeys'] = $request->businessLogicIdKeys;
+        if (!Utils::isUnset($request->businessLogicIdKeys)) {
+            $body['businessLogicIdKeys'] = $request->businessLogicIdKeys;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBusinessLogic',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/delete/logic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteBusinessLogic',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/delete/logic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBusinessLogicResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -592,14 +517,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 删除指定业务空间下所指定的业务逻辑解释.
+     * @summary 删除指定业务空间下所指定的业务逻辑解释
+     *  *
+     * @param DeleteBusinessLogicRequest $request DeleteBusinessLogicRequest
      *
-     * @param request - DeleteBusinessLogicRequest
-     * @returns DeleteBusinessLogicResponse
-     *
-     * @param DeleteBusinessLogicRequest $request
-     *
-     * @return DeleteBusinessLogicResponse
+     * @return DeleteBusinessLogicResponse DeleteBusinessLogicResponse
      */
     public function deleteBusinessLogic($request)
     {
@@ -610,49 +532,42 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 从当前所指定的业务空间中，删除所指定的列.
+     * @summary 从当前所指定的业务空间中，删除所指定的列
+     *  *
+     * @param DeleteColumnRequest $request DeleteColumnRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteColumnRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteColumnResponse
-     *
-     * @param DeleteColumnRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteColumnResponse
+     * @return DeleteColumnResponse DeleteColumnResponse
      */
     public function deleteColumnWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columnIdKey) {
-            @$body['columnIdKey'] = $request->columnIdKey;
+        if (!Utils::isUnset($request->columnIdKey)) {
+            $body['columnIdKey'] = $request->columnIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteColumn',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/delete/column',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteColumn',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/delete/column',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteColumnResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -660,14 +575,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 从当前所指定的业务空间中，删除所指定的列.
+     * @summary 从当前所指定的业务空间中，删除所指定的列
+     *  *
+     * @param DeleteColumnRequest $request DeleteColumnRequest
      *
-     * @param request - DeleteColumnRequest
-     * @returns DeleteColumnResponse
-     *
-     * @param DeleteColumnRequest $request
-     *
-     * @return DeleteColumnResponse
+     * @return DeleteColumnResponse DeleteColumnResponse
      */
     public function deleteColumn($request)
     {
@@ -678,49 +590,42 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 将当前指定数据表从指定业务空间管控中删除.
+     * @summary 将当前指定数据表从指定业务空间管控中删除
+     *  *
+     * @param DeleteSelectedTableRequest $request DeleteSelectedTableRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSelectedTableRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteSelectedTableResponse
-     *
-     * @param DeleteSelectedTableRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteSelectedTableResponse
+     * @return DeleteSelectedTableResponse DeleteSelectedTableResponse
      */
     public function deleteSelectedTableWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSelectedTable',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/delete/table',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSelectedTable',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/delete/table',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteSelectedTableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -728,14 +633,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 将当前指定数据表从指定业务空间管控中删除.
+     * @summary 将当前指定数据表从指定业务空间管控中删除
+     *  *
+     * @param DeleteSelectedTableRequest $request DeleteSelectedTableRequest
      *
-     * @param request - DeleteSelectedTableRequest
-     * @returns DeleteSelectedTableResponse
-     *
-     * @param DeleteSelectedTableRequest $request
-     *
-     * @return DeleteSelectedTableResponse
+     * @return DeleteSelectedTableResponse DeleteSelectedTableResponse
      */
     public function deleteSelectedTable($request)
     {
@@ -746,49 +648,42 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 删除指定业务空间下面的虚拟数据源实例.
+     * @summary 删除指定业务空间下面的虚拟数据源实例
+     *  *
+     * @param DeleteVirtualDatasourceInstanceRequest $request DeleteVirtualDatasourceInstanceRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVirtualDatasourceInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteVirtualDatasourceInstanceResponse
-     *
-     * @param DeleteVirtualDatasourceInstanceRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DeleteVirtualDatasourceInstanceResponse
+     * @return DeleteVirtualDatasourceInstanceResponse DeleteVirtualDatasourceInstanceResponse
      */
     public function deleteVirtualDatasourceInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->vdbId) {
-            @$body['vdbId'] = $request->vdbId;
+        if (!Utils::isUnset($request->vdbId)) {
+            $body['vdbId'] = $request->vdbId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVirtualDatasourceInstance',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/virtualDatasource/deleteVirtualDatasourceInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteVirtualDatasourceInstance',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/virtualDatasource/deleteVirtualDatasourceInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteVirtualDatasourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -796,14 +691,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 删除指定业务空间下面的虚拟数据源实例.
+     * @summary 删除指定业务空间下面的虚拟数据源实例
+     *  *
+     * @param DeleteVirtualDatasourceInstanceRequest $request DeleteVirtualDatasourceInstanceRequest
      *
-     * @param request - DeleteVirtualDatasourceInstanceRequest
-     * @returns DeleteVirtualDatasourceInstanceResponse
-     *
-     * @param DeleteVirtualDatasourceInstanceRequest $request
-     *
-     * @return DeleteVirtualDatasourceInstanceResponse
+     * @return DeleteVirtualDatasourceInstanceResponse DeleteVirtualDatasourceInstanceResponse
      */
     public function deleteVirtualDatasourceInstance($request)
     {
@@ -814,53 +706,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间下的企业知识名词解释列表.
+     * @summary 获取当前指定业务空间下的企业知识名词解释列表
+     *  *
+     * @param ListBusinessLogicRequest $request ListBusinessLogicRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListBusinessLogicRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListBusinessLogicResponse
-     *
-     * @param ListBusinessLogicRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListBusinessLogicResponse
+     * @return ListBusinessLogicResponse ListBusinessLogicResponse
      */
     public function listBusinessLogicWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBusinessLogic',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/list/logic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListBusinessLogic',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/list/logic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListBusinessLogicResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -868,14 +752,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间下的企业知识名词解释列表.
+     * @summary 获取当前指定业务空间下的企业知识名词解释列表
+     *  *
+     * @param ListBusinessLogicRequest $request ListBusinessLogicRequest
      *
-     * @param request - ListBusinessLogicRequest
-     * @returns ListBusinessLogicResponse
-     *
-     * @param ListBusinessLogicRequest $request
-     *
-     * @return ListBusinessLogicResponse
+     * @return ListBusinessLogicResponse ListBusinessLogicResponse
      */
     public function listBusinessLogic($request)
     {
@@ -886,57 +767,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间，指定表下面的列信息.
+     * @summary 获取当前指定业务空间，指定表下面的列信息
+     *  *
+     * @param ListColumnRequest $request ListColumnRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListColumnRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListColumnResponse
-     *
-     * @param ListColumnRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListColumnResponse
+     * @return ListColumnResponse ListColumnResponse
      */
     public function listColumnWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListColumn',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/list/column',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListColumn',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/list/column',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListColumnResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -944,14 +816,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间，指定表下面的列信息.
+     * @summary 获取当前指定业务空间，指定表下面的列信息
+     *  *
+     * @param ListColumnRequest $request ListColumnRequest
      *
-     * @param request - ListColumnRequest
-     * @returns ListColumnResponse
-     *
-     * @param ListColumnRequest $request
-     *
-     * @return ListColumnResponse
+     * @return ListColumnResponse ListColumnResponse
      */
     public function listColumn($request)
     {
@@ -962,53 +831,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间，指定表、列下的枚举值
+     * @summary 获取当前业务空间，指定表、列下的枚举值
+     *  *
+     * @param ListEnumMappingRequest $request ListEnumMappingRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListEnumMappingRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListEnumMappingResponse
-     *
-     * @param ListEnumMappingRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListEnumMappingResponse
+     * @return ListEnumMappingResponse ListEnumMappingResponse
      */
     public function listEnumMappingWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columnIdKey) {
-            @$body['columnIdKey'] = $request->columnIdKey;
+        if (!Utils::isUnset($request->columnIdKey)) {
+            $body['columnIdKey'] = $request->columnIdKey;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEnumMapping',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/list/mapping',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEnumMapping',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/list/mapping',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListEnumMappingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1016,14 +877,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间，指定表、列下的枚举值
+     * @summary 获取当前业务空间，指定表、列下的枚举值
+     *  *
+     * @param ListEnumMappingRequest $request ListEnumMappingRequest
      *
-     * @param request - ListEnumMappingRequest
-     * @returns ListEnumMappingResponse
-     *
-     * @param ListEnumMappingRequest $request
-     *
-     * @return ListEnumMappingResponse
+     * @return ListEnumMappingResponse ListEnumMappingResponse
      */
     public function listEnumMapping($request)
     {
@@ -1034,53 +892,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间处于以关联状态的数据表.
+     * @summary 获取当前业务空间处于以关联状态的数据表
+     *  *
+     * @param ListSelectedTablesRequest $request ListSelectedTablesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSelectedTablesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSelectedTablesResponse
-     *
-     * @param ListSelectedTablesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListSelectedTablesResponse
+     * @return ListSelectedTablesResponse ListSelectedTablesResponse
      */
     public function listSelectedTablesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSelectedTables',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/list/datasource/table',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSelectedTables',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/list/datasource/table',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectedTablesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1088,14 +938,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间处于以关联状态的数据表.
+     * @summary 获取当前业务空间处于以关联状态的数据表
+     *  *
+     * @param ListSelectedTablesRequest $request ListSelectedTablesRequest
      *
-     * @param request - ListSelectedTablesRequest
-     * @returns ListSelectedTablesResponse
-     *
-     * @param ListSelectedTablesRequest $request
-     *
-     * @return ListSelectedTablesResponse
+     * @return ListSelectedTablesResponse ListSelectedTablesResponse
      */
     public function listSelectedTables($request)
     {
@@ -1106,53 +953,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间下的同义词列表.
+     * @summary 获取当前指定业务空间下的同义词列表
+     *  *
+     * @param ListSynonymsRequest $request ListSynonymsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListSynonymsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListSynonymsResponse
-     *
-     * @param ListSynonymsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListSynonymsResponse
+     * @return ListSynonymsResponse ListSynonymsResponse
      */
     public function listSynonymsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSynonyms',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/list/synonyms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSynonyms',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/list/synonyms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSynonymsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1160,14 +999,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前指定业务空间下的同义词列表.
+     * @summary 获取当前指定业务空间下的同义词列表
+     *  *
+     * @param ListSynonymsRequest $request ListSynonymsRequest
      *
-     * @param request - ListSynonymsRequest
-     * @returns ListSynonymsResponse
-     *
-     * @param ListSynonymsRequest $request
-     *
-     * @return ListSynonymsResponse
+     * @return ListSynonymsResponse ListSynonymsResponse
      */
     public function listSynonyms($request)
     {
@@ -1178,53 +1014,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间下的数据源实例列表.
+     * @summary 获取当前业务空间下的数据源实例列表
+     *  *
+     * @param ListVirtualDatasourceInstanceRequest $request ListVirtualDatasourceInstanceRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListVirtualDatasourceInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListVirtualDatasourceInstanceResponse
-     *
-     * @param ListVirtualDatasourceInstanceRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListVirtualDatasourceInstanceResponse
+     * @return ListVirtualDatasourceInstanceResponse ListVirtualDatasourceInstanceResponse
      */
     public function listVirtualDatasourceInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->maxResults) {
-            @$body['maxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$body['nextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVirtualDatasourceInstance',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/virtualDatasource/listVirtualDatasourceInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVirtualDatasourceInstance',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/virtualDatasource/listVirtualDatasourceInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListVirtualDatasourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1232,14 +1060,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 获取当前业务空间下的数据源实例列表.
+     * @summary 获取当前业务空间下的数据源实例列表
+     *  *
+     * @param ListVirtualDatasourceInstanceRequest $request ListVirtualDatasourceInstanceRequest
      *
-     * @param request - ListVirtualDatasourceInstanceRequest
-     * @returns ListVirtualDatasourceInstanceResponse
-     *
-     * @param ListVirtualDatasourceInstanceRequest $request
-     *
-     * @return ListVirtualDatasourceInstanceResponse
+     * @return ListVirtualDatasourceInstanceResponse ListVirtualDatasourceInstanceResponse
      */
     public function listVirtualDatasourceInstance($request)
     {
@@ -1250,53 +1075,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 将指定数据表的数据列恢复到初始话状态
+     * @summary 将指定数据表的数据列恢复到初始话状态
+     *  *
+     * @param RecoverColumnRequest $request RecoverColumnRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RecoverColumnRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RecoverColumnResponse
-     *
-     * @param RecoverColumnRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RecoverColumnResponse
+     * @return RecoverColumnResponse RecoverColumnResponse
      */
     public function recoverColumnWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columnIdKey) {
-            @$body['columnIdKey'] = $request->columnIdKey;
+        if (!Utils::isUnset($request->columnIdKey)) {
+            $body['columnIdKey'] = $request->columnIdKey;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RecoverColumn',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/recover/column',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RecoverColumn',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/recover/column',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RecoverColumnResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1304,14 +1121,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 将指定数据表的数据列恢复到初始话状态
+     * @summary 将指定数据表的数据列恢复到初始话状态
+     *  *
+     * @param RecoverColumnRequest $request RecoverColumnRequest
      *
-     * @param request - RecoverColumnRequest
-     * @returns RecoverColumnResponse
-     *
-     * @param RecoverColumnRequest $request
-     *
-     * @return RecoverColumnResponse
+     * @return RecoverColumnResponse RecoverColumnResponse
      */
     public function recoverColumn($request)
     {
@@ -1322,53 +1136,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 从远程数据库刷新当前所关联的数据表信息.
+     * @summary 从远程数据库刷新当前所关联的数据表信息
+     *  *
+     * @param ResyncTableRequest $request ResyncTableRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResyncTableRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResyncTableResponse
-     *
-     * @param ResyncTableRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ResyncTableResponse
+     * @return ResyncTableResponse ResyncTableResponse
      */
     public function resyncTableWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->keep) {
-            @$body['keep'] = $request->keep;
+        if (!Utils::isUnset($request->keep)) {
+            $body['keep'] = $request->keep;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResyncTable',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/refresh/table',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ResyncTable',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/refresh/table',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResyncTableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1376,14 +1182,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 从远程数据库刷新当前所关联的数据表信息.
+     * @summary 从远程数据库刷新当前所关联的数据表信息
+     *  *
+     * @param ResyncTableRequest $request ResyncTableRequest
      *
-     * @param request - ResyncTableRequest
-     * @returns ResyncTableResponse
-     *
-     * @param ResyncTableRequest $request
-     *
-     * @return ResyncTableResponse
+     * @return ResyncTableResponse ResyncTableResponse
      */
     public function resyncTable($request)
     {
@@ -1394,68 +1197,56 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 运行数据分析.
-     *
-     * @param request - RunDataAnalysisRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunDataAnalysisResponse
-     *
+     * @summary 运行数据分析
+     *  *
      * @param string                 $workspaceId
-     * @param RunDataAnalysisRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param RunDataAnalysisRequest $request     RunDataAnalysisRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return RunDataAnalysisResponse
+     * @return RunDataAnalysisResponse RunDataAnalysisResponse
      */
     public function runDataAnalysisWithOptions($workspaceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->agentCtrlParams) {
-            @$body['agentCtrlParams'] = $request->agentCtrlParams;
+        if (!Utils::isUnset($request->agentCtrlParams)) {
+            $body['agentCtrlParams'] = $request->agentCtrlParams;
         }
-
-        if (null !== $request->dataRole) {
-            @$body['dataRole'] = $request->dataRole;
+        if (!Utils::isUnset($request->dataRole)) {
+            $body['dataRole'] = $request->dataRole;
         }
-
-        if (null !== $request->generateSqlOnly) {
-            @$body['generateSqlOnly'] = $request->generateSqlOnly;
+        if (!Utils::isUnset($request->generateSqlOnly)) {
+            $body['generateSqlOnly'] = $request->generateSqlOnly;
         }
-
-        if (null !== $request->query) {
-            @$body['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->specificationType) {
-            @$body['specificationType'] = $request->specificationType;
+        if (!Utils::isUnset($request->specificationType)) {
+            $body['specificationType'] = $request->specificationType;
         }
-
-        if (null !== $request->userParams) {
-            @$body['userParams'] = $request->userParams;
+        if (!Utils::isUnset($request->userParams)) {
+            $body['userParams'] = $request->userParams;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunDataAnalysis',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/gbi/runDataAnalysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunDataAnalysis',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/gbi/runDataAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunDataAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1463,15 +1254,12 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 运行数据分析.
-     *
-     * @param request - RunDataAnalysisRequest
-     * @returns RunDataAnalysisResponse
-     *
+     * @summary 运行数据分析
+     *  *
      * @param string                 $workspaceId
-     * @param RunDataAnalysisRequest $request
+     * @param RunDataAnalysisRequest $request     RunDataAnalysisRequest
      *
-     * @return RunDataAnalysisResponse
+     * @return RunDataAnalysisResponse RunDataAnalysisResponse
      */
     public function runDataAnalysis($workspaceId, $request)
     {
@@ -1482,57 +1270,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 对结构化结果进行分析、可视化信息生成.
+     * @summary 对结构化结果进行分析、可视化信息生成
+     *  *
+     * @param RunDataResultAnalysisRequest $request RunDataResultAnalysisRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RunDataResultAnalysisRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunDataResultAnalysisResponse
-     *
-     * @param RunDataResultAnalysisRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return RunDataResultAnalysisResponse
+     * @return RunDataResultAnalysisResponse RunDataResultAnalysisResponse
      */
     public function runDataResultAnalysisWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->analysisMode) {
-            @$body['analysisMode'] = $request->analysisMode;
+        if (!Utils::isUnset($request->analysisMode)) {
+            $body['analysisMode'] = $request->analysisMode;
         }
-
-        if (null !== $request->requestId) {
-            @$body['requestId'] = $request->requestId;
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
         }
-
-        if (null !== $request->sqlData) {
-            @$body['sqlData'] = $request->sqlData;
+        if (!Utils::isUnset($request->sqlData)) {
+            $body['sqlData'] = $request->sqlData;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunDataResultAnalysis',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/runDataResultAnalysis',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunDataResultAnalysis',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/runDataResultAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunDataResultAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1540,14 +1319,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 对结构化结果进行分析、可视化信息生成.
+     * @summary 对结构化结果进行分析、可视化信息生成
+     *  *
+     * @param RunDataResultAnalysisRequest $request RunDataResultAnalysisRequest
      *
-     * @param request - RunDataResultAnalysisRequest
-     * @returns RunDataResultAnalysisResponse
-     *
-     * @param RunDataResultAnalysisRequest $request
-     *
-     * @return RunDataResultAnalysisResponse
+     * @return RunDataResultAnalysisResponse RunDataResultAnalysisResponse
      */
     public function runDataResultAnalysis($request)
     {
@@ -1558,57 +1334,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 运行sql生成.
+     * @summary 运行sql生成
+     *  *
+     * @param RunSqlGenerationRequest $request RunSqlGenerationRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RunSqlGenerationRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RunSqlGenerationResponse
-     *
-     * @param RunSqlGenerationRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return RunSqlGenerationResponse
+     * @return RunSqlGenerationResponse RunSqlGenerationResponse
      */
     public function runSqlGenerationWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->query) {
-            @$body['query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
         }
-
-        if (null !== $request->sessionId) {
-            @$body['sessionId'] = $request->sessionId;
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
         }
-
-        if (null !== $request->specificationType) {
-            @$body['specificationType'] = $request->specificationType;
+        if (!Utils::isUnset($request->specificationType)) {
+            $body['specificationType'] = $request->specificationType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunSqlGeneration',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/runSqlGeneration',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunSqlGeneration',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/runSqlGeneration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RunSqlGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1616,14 +1383,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 运行sql生成.
+     * @summary 运行sql生成
+     *  *
+     * @param RunSqlGenerationRequest $request RunSqlGenerationRequest
      *
-     * @param request - RunSqlGenerationRequest
-     * @returns RunSqlGenerationResponse
-     *
-     * @param RunSqlGenerationRequest $request
-     *
-     * @return RunSqlGenerationResponse
+     * @return RunSqlGenerationResponse RunSqlGenerationResponse
      */
     public function runSqlGeneration($request)
     {
@@ -1634,53 +1398,45 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 向当前指定的业务空间下的指定虚拟数据源实例添加ddl语句.
+     * @summary 向当前指定的业务空间下的指定虚拟数据源实例添加ddl语句
+     *  *
+     * @param SaveVirtualDatasourceDdlRequest $request SaveVirtualDatasourceDdlRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SaveVirtualDatasourceDdlRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SaveVirtualDatasourceDdlResponse
-     *
-     * @param SaveVirtualDatasourceDdlRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SaveVirtualDatasourceDdlResponse
+     * @return SaveVirtualDatasourceDdlResponse SaveVirtualDatasourceDdlResponse
      */
     public function saveVirtualDatasourceDdlWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->ddl) {
-            @$body['ddl'] = $request->ddl;
+        if (!Utils::isUnset($request->ddl)) {
+            $body['ddl'] = $request->ddl;
         }
-
-        if (null !== $request->vdbId) {
-            @$body['vdbId'] = $request->vdbId;
+        if (!Utils::isUnset($request->vdbId)) {
+            $body['vdbId'] = $request->vdbId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveVirtualDatasourceDdl',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/virtualDatasource/addDdl2VirtualInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveVirtualDatasourceDdl',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/virtualDatasource/addDdl2VirtualInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SaveVirtualDatasourceDdlResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1688,14 +1444,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 向当前指定的业务空间下的指定虚拟数据源实例添加ddl语句.
+     * @summary 向当前指定的业务空间下的指定虚拟数据源实例添加ddl语句
+     *  *
+     * @param SaveVirtualDatasourceDdlRequest $request SaveVirtualDatasourceDdlRequest
      *
-     * @param request - SaveVirtualDatasourceDdlRequest
-     * @returns SaveVirtualDatasourceDdlResponse
-     *
-     * @param SaveVirtualDatasourceDdlRequest $request
-     *
-     * @return SaveVirtualDatasourceDdlResponse
+     * @return SaveVirtualDatasourceDdlResponse SaveVirtualDatasourceDdlResponse
      */
     public function saveVirtualDatasourceDdl($request)
     {
@@ -1706,61 +1459,51 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 更新当前业务空间所关联的数据表.
+     * @summary 更新当前业务空间所关联的数据表
+     *  *
+     * @param SyncRemoteTablesRequest $request SyncRemoteTablesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SyncRemoteTablesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SyncRemoteTablesResponse
-     *
-     * @param SyncRemoteTablesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SyncRemoteTablesResponse
+     * @return SyncRemoteTablesResponse SyncRemoteTablesResponse
      */
     public function syncRemoteTablesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->keepTableNames) {
-            @$body['keepTableNames'] = $request->keepTableNames;
+        if (!Utils::isUnset($request->keepTableNames)) {
+            $body['keepTableNames'] = $request->keepTableNames;
         }
-
-        if (null !== $request->noModifiedTableNames) {
-            @$body['noModifiedTableNames'] = $request->noModifiedTableNames;
+        if (!Utils::isUnset($request->noModifiedTableNames)) {
+            $body['noModifiedTableNames'] = $request->noModifiedTableNames;
         }
-
-        if (null !== $request->pullSamples) {
-            @$body['pullSamples'] = $request->pullSamples;
+        if (!Utils::isUnset($request->pullSamples)) {
+            $body['pullSamples'] = $request->pullSamples;
         }
-
-        if (null !== $request->tableNames) {
-            @$body['tableNames'] = $request->tableNames;
+        if (!Utils::isUnset($request->tableNames)) {
+            $body['tableNames'] = $request->tableNames;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SyncRemoteTables',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/datasource/tables',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SyncRemoteTables',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/datasource/tables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SyncRemoteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1768,14 +1511,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 更新当前业务空间所关联的数据表.
+     * @summary 更新当前业务空间所关联的数据表
+     *  *
+     * @param SyncRemoteTablesRequest $request SyncRemoteTablesRequest
      *
-     * @param request - SyncRemoteTablesRequest
-     * @returns SyncRemoteTablesResponse
-     *
-     * @param SyncRemoteTablesRequest $request
-     *
-     * @return SyncRemoteTablesResponse
+     * @return SyncRemoteTablesResponse SyncRemoteTablesResponse
      */
     public function syncRemoteTables($request)
     {
@@ -1786,57 +1526,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间下所指定的业务逻辑解释.
+     * @summary 修改当前指定业务空间下所指定的业务逻辑解释
+     *  *
+     * @param UpdateBusinessLogicRequest $request UpdateBusinessLogicRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateBusinessLogicRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateBusinessLogicResponse
-     *
-     * @param UpdateBusinessLogicRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateBusinessLogicResponse
+     * @return UpdateBusinessLogicResponse UpdateBusinessLogicResponse
      */
     public function updateBusinessLogicWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->businessLogicIdKey) {
-            @$body['businessLogicIdKey'] = $request->businessLogicIdKey;
+        if (!Utils::isUnset($request->businessLogicIdKey)) {
+            $body['businessLogicIdKey'] = $request->businessLogicIdKey;
         }
-
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBusinessLogic',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/logic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateBusinessLogic',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/logic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateBusinessLogicResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1844,14 +1575,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间下所指定的业务逻辑解释.
+     * @summary 修改当前指定业务空间下所指定的业务逻辑解释
+     *  *
+     * @param UpdateBusinessLogicRequest $request UpdateBusinessLogicRequest
      *
-     * @param request - UpdateBusinessLogicRequest
-     * @returns UpdateBusinessLogicResponse
-     *
-     * @param UpdateBusinessLogicRequest $request
-     *
-     * @return UpdateBusinessLogicResponse
+     * @return UpdateBusinessLogicResponse UpdateBusinessLogicResponse
      */
     public function updateBusinessLogic($request)
     {
@@ -1862,81 +1590,66 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间中，指定列的信息.
+     * @summary 修改当前指定业务空间中，指定列的信息
+     *  *
+     * @param UpdateColumnRequest $request UpdateColumnRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateColumnRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateColumnResponse
-     *
-     * @param UpdateColumnRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateColumnResponse
+     * @return UpdateColumnResponse UpdateColumnResponse
      */
     public function updateColumnWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->chineseName) {
-            @$body['chineseName'] = $request->chineseName;
+        if (!Utils::isUnset($request->chineseName)) {
+            $body['chineseName'] = $request->chineseName;
         }
-
-        if (null !== $request->columnIdKey) {
-            @$body['columnIdKey'] = $request->columnIdKey;
+        if (!Utils::isUnset($request->columnIdKey)) {
+            $body['columnIdKey'] = $request->columnIdKey;
         }
-
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->enumType) {
-            @$body['enumType'] = $request->enumType;
+        if (!Utils::isUnset($request->enumType)) {
+            $body['enumType'] = $request->enumType;
         }
-
-        if (null !== $request->enumValues) {
-            @$body['enumValues'] = $request->enumValues;
+        if (!Utils::isUnset($request->enumValues)) {
+            $body['enumValues'] = $request->enumValues;
         }
-
-        if (null !== $request->rangeMax) {
-            @$body['rangeMax'] = $request->rangeMax;
+        if (!Utils::isUnset($request->rangeMax)) {
+            $body['rangeMax'] = $request->rangeMax;
         }
-
-        if (null !== $request->rangeMin) {
-            @$body['rangeMin'] = $request->rangeMin;
+        if (!Utils::isUnset($request->rangeMin)) {
+            $body['rangeMin'] = $request->rangeMin;
         }
-
-        if (null !== $request->samples) {
-            @$body['samples'] = $request->samples;
+        if (!Utils::isUnset($request->samples)) {
+            $body['samples'] = $request->samples;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateColumn',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/column',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateColumn',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/column',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateColumnResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1944,14 +1657,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间中，指定列的信息.
+     * @summary 修改当前指定业务空间中，指定列的信息
+     *  *
+     * @param UpdateColumnRequest $request UpdateColumnRequest
      *
-     * @param request - UpdateColumnRequest
-     * @returns UpdateColumnResponse
-     *
-     * @param UpdateColumnRequest $request
-     *
-     * @return UpdateColumnResponse
+     * @return UpdateColumnResponse UpdateColumnResponse
      */
     public function updateColumn($request)
     {
@@ -1962,57 +1672,48 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间指定列下的枚举值信息.
+     * @summary 修改当前指定业务空间指定列下的枚举值信息
+     *  *
+     * @param UpdateEnumMappingRequest $request UpdateEnumMappingRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateEnumMappingRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateEnumMappingResponse
-     *
-     * @param UpdateEnumMappingRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateEnumMappingResponse
+     * @return UpdateEnumMappingResponse UpdateEnumMappingResponse
      */
     public function updateEnumMappingWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columnIdKey) {
-            @$body['columnIdKey'] = $request->columnIdKey;
+        if (!Utils::isUnset($request->columnIdKey)) {
+            $body['columnIdKey'] = $request->columnIdKey;
         }
-
-        if (null !== $request->enumMapping) {
-            @$body['enumMapping'] = $request->enumMapping;
+        if (!Utils::isUnset($request->enumMapping)) {
+            $body['enumMapping'] = $request->enumMapping;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEnumMapping',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/mapping',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateEnumMapping',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/mapping',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateEnumMappingResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2020,14 +1721,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前指定业务空间指定列下的枚举值信息.
+     * @summary 修改当前指定业务空间指定列下的枚举值信息
+     *  *
+     * @param UpdateEnumMappingRequest $request UpdateEnumMappingRequest
      *
-     * @param request - UpdateEnumMappingRequest
-     * @returns UpdateEnumMappingResponse
-     *
-     * @param UpdateEnumMappingRequest $request
-     *
-     * @return UpdateEnumMappingResponse
+     * @return UpdateEnumMappingResponse UpdateEnumMappingResponse
      */
     public function updateEnumMapping($request)
     {
@@ -2038,61 +1736,51 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前业务空间指定的同义词信息.
+     * @summary 修改当前业务空间指定的同义词信息
+     *  *
+     * @param UpdateSynonymsRequest $request UpdateSynonymsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateSynonymsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateSynonymsResponse
-     *
-     * @param UpdateSynonymsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateSynonymsResponse
+     * @return UpdateSynonymsResponse UpdateSynonymsResponse
      */
     public function updateSynonymsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->columns) {
-            @$body['columns'] = $request->columns;
+        if (!Utils::isUnset($request->columns)) {
+            $body['columns'] = $request->columns;
         }
-
-        if (null !== $request->synonymIdKey) {
-            @$body['synonymIdKey'] = $request->synonymIdKey;
+        if (!Utils::isUnset($request->synonymIdKey)) {
+            $body['synonymIdKey'] = $request->synonymIdKey;
         }
-
-        if (null !== $request->word) {
-            @$body['word'] = $request->word;
+        if (!Utils::isUnset($request->word)) {
+            $body['word'] = $request->word;
         }
-
-        if (null !== $request->wordSynonyms) {
-            @$body['wordSynonyms'] = $request->wordSynonyms;
+        if (!Utils::isUnset($request->wordSynonyms)) {
+            $body['wordSynonyms'] = $request->wordSynonyms;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSynonyms',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/synonyms',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSynonyms',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/synonyms',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateSynonymsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2100,14 +1788,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前业务空间指定的同义词信息.
+     * @summary 修改当前业务空间指定的同义词信息
+     *  *
+     * @param UpdateSynonymsRequest $request UpdateSynonymsRequest
      *
-     * @param request - UpdateSynonymsRequest
-     * @returns UpdateSynonymsResponse
-     *
-     * @param UpdateSynonymsRequest $request
-     *
-     * @return UpdateSynonymsResponse
+     * @return UpdateSynonymsResponse UpdateSynonymsResponse
      */
     public function updateSynonyms($request)
     {
@@ -2118,61 +1803,51 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前所指定的数据表的信息.
+     * @summary 修改当前所指定的数据表的信息
+     *  *
+     * @param UpdateTableInfoRequest $request UpdateTableInfoRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateTableInfoRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateTableInfoResponse
-     *
-     * @param UpdateTableInfoRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateTableInfoResponse
+     * @return UpdateTableInfoResponse UpdateTableInfoResponse
      */
     public function updateTableInfoWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->foreignKeys) {
-            @$body['foreignKeys'] = $request->foreignKeys;
+        if (!Utils::isUnset($request->foreignKeys)) {
+            $body['foreignKeys'] = $request->foreignKeys;
         }
-
-        if (null !== $request->primaryKey) {
-            @$body['primaryKey'] = $request->primaryKey;
+        if (!Utils::isUnset($request->primaryKey)) {
+            $body['primaryKey'] = $request->primaryKey;
         }
-
-        if (null !== $request->tableIdKey) {
-            @$body['tableIdKey'] = $request->tableIdKey;
+        if (!Utils::isUnset($request->tableIdKey)) {
+            $body['tableIdKey'] = $request->tableIdKey;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTableInfo',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/update/table',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTableInfo',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/update/table',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateTableInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2180,14 +1855,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改当前所指定的数据表的信息.
+     * @summary 修改当前所指定的数据表的信息
+     *  *
+     * @param UpdateTableInfoRequest $request UpdateTableInfoRequest
      *
-     * @param request - UpdateTableInfoRequest
-     * @returns UpdateTableInfoResponse
-     *
-     * @param UpdateTableInfoRequest $request
-     *
-     * @return UpdateTableInfoResponse
+     * @return UpdateTableInfoResponse UpdateTableInfoResponse
      */
     public function updateTableInfo($request)
     {
@@ -2198,61 +1870,51 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改指定业务空间下所指定的虚拟数据源的信息.
+     * @summary 修改指定业务空间下所指定的虚拟数据源的信息
+     *  *
+     * @param UpdateVirtualDatasourceInstanceRequest $request UpdateVirtualDatasourceInstanceRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateVirtualDatasourceInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateVirtualDatasourceInstanceResponse
-     *
-     * @param UpdateVirtualDatasourceInstanceRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return UpdateVirtualDatasourceInstanceResponse
+     * @return UpdateVirtualDatasourceInstanceResponse UpdateVirtualDatasourceInstanceResponse
      */
     public function updateVirtualDatasourceInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->workspaceId) {
-            @$query['workspaceId'] = $request->workspaceId;
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
         }
-
         $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
-        if (null !== $request->vdbId) {
-            @$body['vdbId'] = $request->vdbId;
+        if (!Utils::isUnset($request->vdbId)) {
+            $body['vdbId'] = $request->vdbId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVirtualDatasourceInstance',
-            'version'     => '2024-08-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/gbi/virtualDatasource/updateVirtualDatasourceInstance',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVirtualDatasourceInstance',
+            'version' => '2024-08-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gbi/virtualDatasource/updateVirtualDatasourceInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateVirtualDatasourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2260,14 +1922,11 @@ class DataAnalysisGBI extends OpenApiClient
     }
 
     /**
-     * 修改指定业务空间下所指定的虚拟数据源的信息.
+     * @summary 修改指定业务空间下所指定的虚拟数据源的信息
+     *  *
+     * @param UpdateVirtualDatasourceInstanceRequest $request UpdateVirtualDatasourceInstanceRequest
      *
-     * @param request - UpdateVirtualDatasourceInstanceRequest
-     * @returns UpdateVirtualDatasourceInstanceResponse
-     *
-     * @param UpdateVirtualDatasourceInstanceRequest $request
-     *
-     * @return UpdateVirtualDatasourceInstanceResponse
+     * @return UpdateVirtualDatasourceInstanceResponse UpdateVirtualDatasourceInstanceResponse
      */
     public function updateVirtualDatasourceInstance($request)
     {

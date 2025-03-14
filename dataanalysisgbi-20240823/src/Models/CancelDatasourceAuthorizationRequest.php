@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelDatasourceAuthorizationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example llm-2v3934xtp49esw64
+     *
      * @var string
      */
     public $workspaceId;
@@ -16,12 +20,9 @@ class CancelDatasourceAuthorizationRequest extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workspaceId) {
@@ -31,11 +32,11 @@ class CancelDatasourceAuthorizationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelDatasourceAuthorizationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
