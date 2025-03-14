@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDBEndpointAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class CreateDBEndpointAddressResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class CreateDBEndpointAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDBEndpointAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

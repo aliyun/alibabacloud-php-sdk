@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsResponseBody\items\backupLog;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,23 +17,17 @@ class items extends Model
         'backupLog' => 'BackupLog',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->backupLog)) {
-            Model::validateArray($this->backupLog);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupLog) {
-            if (\is_array($this->backupLog)) {
-                $res['BackupLog'] = [];
-                $n1               = 0;
-                foreach ($this->backupLog as $item1) {
-                    $res['BackupLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BackupLog'] = [];
+            if (null !== $this->backupLog && \is_array($this->backupLog)) {
+                $n = 0;
+                foreach ($this->backupLog as $item) {
+                    $res['BackupLog'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupLog'])) {
             if (!empty($map['BackupLog'])) {
                 $model->backupLog = [];
-                $n1               = 0;
-                foreach ($map['BackupLog'] as $item1) {
-                    $model->backupLog[$n1++] = backupLog::fromMap($item1);
+                $n = 0;
+                foreach ($map['BackupLog'] as $item) {
+                    $model->backupLog[$n++] = null !== $item ? backupLog::fromMap($item) : $item;
                 }
             }
         }

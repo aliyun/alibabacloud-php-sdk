@@ -4,98 +4,118 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDBNodesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+     *
+     * @example 6000170000591aed949d0f54a343f1a42***********
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The ID of the cluster.
+     *
+     * This parameter is required.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
+
     /**
+     * @description The IDs of the nodes.
+     *
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters that belong to your Alibaba Cloud account, such as the cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example pi-************
+     *
      * @var string[]
      */
     public $DBNodeId;
+
     /**
+     * @description The node type. Valid values:
+     *
+     *   RO
+     *   STANDBY
+     *   DLNode
+     *
+     * Enumerated values:
+     *
+     *   DLNode: AI node
+     *   STANDBY: standby node
+     *   RO: read-only node
+     *
+     * @example RO
+     *
      * @var string
      */
     public $DBNodeType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBClusterId'          => 'DBClusterId',
-        'DBNodeId'             => 'DBNodeId',
-        'DBNodeType'           => 'DBNodeType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'DBClusterId' => 'DBClusterId',
+        'DBNodeId' => 'DBNodeId',
+        'DBNodeType' => 'DBNodeType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->DBNodeId)) {
-            Model::validateArray($this->DBNodeId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-
         if (null !== $this->DBNodeId) {
-            if (\is_array($this->DBNodeId)) {
-                $res['DBNodeId'] = [];
-                $n1              = 0;
-                foreach ($this->DBNodeId as $item1) {
-                    $res['DBNodeId'][$n1++] = $item1;
-                }
-            }
+            $res['DBNodeId'] = $this->DBNodeId;
         }
-
         if (null !== $this->DBNodeType) {
             $res['DBNodeType'] = $this->DBNodeType;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -103,48 +123,37 @@ class DeleteDBNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDBNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-
         if (isset($map['DBNodeId'])) {
             if (!empty($map['DBNodeId'])) {
-                $model->DBNodeId = [];
-                $n1              = 0;
-                foreach ($map['DBNodeId'] as $item1) {
-                    $model->DBNodeId[$n1++] = $item1;
-                }
+                $model->DBNodeId = $map['DBNodeId'];
             }
         }
-
         if (isset($map['DBNodeType'])) {
             $model->DBNodeType = $map['DBNodeType'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

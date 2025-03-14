@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsResponseBody\typeList;
+use AlibabaCloud\Tea\Model;
 
 class DescribePendingMaintenanceActionsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 314127C2-B6C1-4F58-B1F6-E6B645******
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The details of pending events.
+     *
      * @var typeList[]
      */
     public $typeList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'typeList'  => 'TypeList',
+        'typeList' => 'TypeList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->typeList)) {
-            Model::validateArray($this->typeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->typeList) {
-            if (\is_array($this->typeList)) {
-                $res['TypeList'] = [];
-                $n1              = 0;
-                foreach ($this->typeList as $item1) {
-                    $res['TypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TypeList'] = [];
+            if (null !== $this->typeList && \is_array($this->typeList)) {
+                $n = 0;
+                foreach ($this->typeList as $item) {
+                    $res['TypeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class DescribePendingMaintenanceActionsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePendingMaintenanceActionsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TypeList'])) {
             if (!empty($map['TypeList'])) {
                 $model->typeList = [];
-                $n1              = 0;
-                foreach ($map['TypeList'] as $item1) {
-                    $model->typeList[$n1++] = typeList::fromMap($item1);
+                $n = 0;
+                foreach ($map['TypeList'] as $item) {
+                    $model->typeList[$n++] = null !== $item ? typeList::fromMap($item) : $item;
                 }
             }
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksRequest;
@@ -223,6 +224,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAccessWhitelistRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAccessWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAndNodesParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAndNodesParametersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterArchRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterArchResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAuditLogCollectorRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAuditLogCollectorResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDeletionRequest;
@@ -311,10 +314,11 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Polardb extends OpenApiClient
 {
@@ -322,51 +326,51 @@ class Polardb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'polardb.aliyuncs.com',
-            'cn-beijing'                  => 'polardb.aliyuncs.com',
-            'cn-wulanchabu'               => 'polardb.aliyuncs.com',
-            'cn-hangzhou'                 => 'polardb.aliyuncs.com',
-            'cn-shanghai'                 => 'polardb.aliyuncs.com',
-            'cn-shenzhen'                 => 'polardb.aliyuncs.com',
-            'cn-guangzhou'                => 'polardb.aliyuncs.com',
-            'cn-hongkong'                 => 'polardb.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'polardb.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'polardb.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'polardb.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'polardb.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'polardb.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'polardb.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'polardb.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'polardb.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'polardb.aliyuncs.com',
-            'cn-edge-1'                   => 'polardb.aliyuncs.com',
-            'cn-fujian'                   => 'polardb.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'polardb.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'polardb.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'polardb.aliyuncs.com',
+            'cn-beijing' => 'polardb.aliyuncs.com',
+            'cn-wulanchabu' => 'polardb.aliyuncs.com',
+            'cn-hangzhou' => 'polardb.aliyuncs.com',
+            'cn-shanghai' => 'polardb.aliyuncs.com',
+            'cn-shenzhen' => 'polardb.aliyuncs.com',
+            'cn-guangzhou' => 'polardb.aliyuncs.com',
+            'cn-hongkong' => 'polardb.aliyuncs.com',
+            'cn-hangzhou-finance' => 'polardb.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'polardb.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'polardb.aliyuncs.com',
+            'cn-north-2-gov-1' => 'polardb.aliyuncs.com',
+            'ap-northeast-2-pop' => 'polardb.aliyuncs.com',
+            'cn-beijing-finance-1' => 'polardb.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'polardb.aliyuncs.com',
+            'cn-beijing-gov-1' => 'polardb.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'polardb.aliyuncs.com',
+            'cn-edge-1' => 'polardb.aliyuncs.com',
+            'cn-fujian' => 'polardb.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'polardb.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'polardb.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'polardb.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'polardb.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'polardb.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'polardb.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'polardb.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'polardb.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'polardb.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'polardb.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'polardb.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'polardb.aliyuncs.com',
-            'cn-shanghai-inner'           => 'polardb.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'polardb.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'polardb.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'polardb.aliyuncs.com',
+            'cn-qingdao-nebula' => 'polardb.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'polardb.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'polardb.aliyuncs.com',
+            'cn-shanghai-inner' => 'polardb.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'polardb.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'polardb.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'polardb.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'polardb.aliyuncs.com',
-            'cn-wuhan'                    => 'polardb.aliyuncs.com',
-            'cn-yushanfang'               => 'polardb.aliyuncs.com',
-            'cn-zhangbei'                 => 'polardb.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'polardb.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'polardb.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'polardb.aliyuncs.com',
-            'eu-west-1-oxs'               => 'polardb.aliyuncs.com',
-            'rus-west-1-pop'              => 'polardb.aliyuncs.com',
+            'cn-shenzhen-inner' => 'polardb.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'polardb.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'polardb.aliyuncs.com',
+            'cn-wuhan' => 'polardb.aliyuncs.com',
+            'cn-yushanfang' => 'polardb.aliyuncs.com',
+            'cn-zhangbei' => 'polardb.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'polardb.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'polardb.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'polardb.aliyuncs.com',
+            'eu-west-1-oxs' => 'polardb.aliyuncs.com',
+            'rus-west-1-pop' => 'polardb.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -385,76 +389,64 @@ class Polardb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Cancels O\\&M events at a time.
+     * @summary Cancels O\\&M events at a time.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelActiveOperationTasksResponse
-     *
-     * @param CancelActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->taskIds) {
-            @$query['TaskIds'] = $request->taskIds;
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelActiveOperationTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelActiveOperationTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -462,14 +454,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels O\\&M events at a time.
+     * @summary Cancels O\\&M events at a time.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      *
-     * @param request - CancelActiveOperationTasksRequest
-     * @returns CancelActiveOperationTasksResponse
-     *
-     * @param CancelActiveOperationTasksRequest $request
-     *
-     * @return CancelActiveOperationTasksResponse
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -479,64 +468,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels scheduled tasks that are not yet started.
+     * @summary Cancels scheduled tasks that are not yet started.
+     *  *
+     * @param CancelScheduleTasksRequest $request CancelScheduleTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelScheduleTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelScheduleTasksResponse
-     *
-     * @param CancelScheduleTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CancelScheduleTasksResponse
+     * @return CancelScheduleTasksResponse CancelScheduleTasksResponse
      */
     public function cancelScheduleTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelScheduleTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelScheduleTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelScheduleTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -544,14 +522,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels scheduled tasks that are not yet started.
+     * @summary Cancels scheduled tasks that are not yet started.
+     *  *
+     * @param CancelScheduleTasksRequest $request CancelScheduleTasksRequest
      *
-     * @param request - CancelScheduleTasksRequest
-     * @returns CancelScheduleTasksResponse
-     *
-     * @param CancelScheduleTasksRequest $request
-     *
-     * @return CancelScheduleTasksResponse
+     * @return CancelScheduleTasksResponse CancelScheduleTasksResponse
      */
     public function cancelScheduleTasks($request)
     {
@@ -561,60 +536,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether an account name is valid or unique in a cluster.
+     * @summary Checks whether an account name is valid or unique in a cluster.
+     *  *
+     * @param CheckAccountNameRequest $request CheckAccountNameRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckAccountNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckAccountNameResponse
-     *
-     * @param CheckAccountNameRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CheckAccountNameResponse
+     * @return CheckAccountNameResponse CheckAccountNameResponse
      */
     public function checkAccountNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckAccountName',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckAccountName',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckAccountNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -622,14 +587,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether an account name is valid or unique in a cluster.
+     * @summary Checks whether an account name is valid or unique in a cluster.
+     *  *
+     * @param CheckAccountNameRequest $request CheckAccountNameRequest
      *
-     * @param request - CheckAccountNameRequest
-     * @returns CheckAccountNameResponse
-     *
-     * @param CheckAccountNameRequest $request
-     *
-     * @return CheckAccountNameResponse
+     * @return CheckAccountNameResponse CheckAccountNameResponse
      */
     public function checkAccountName($request)
     {
@@ -639,60 +601,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     *  *
+     * @param CheckDBNameRequest $request CheckDBNameRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckDBNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckDBNameResponse
-     *
-     * @param CheckDBNameRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CheckDBNameResponse
+     * @return CheckDBNameResponse CheckDBNameResponse
      */
     public function checkDBNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDBName',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDBName',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckDBNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -700,14 +652,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     *  *
+     * @param CheckDBNameRequest $request CheckDBNameRequest
      *
-     * @param request - CheckDBNameRequest
-     * @returns CheckDBNameResponse
-     *
-     * @param CheckDBNameRequest $request
-     *
-     * @return CheckDBNameResponse
+     * @return CheckDBNameResponse CheckDBNameResponse
      */
     public function checkDBName($request)
     {
@@ -717,64 +666,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the cluster is authorized to use Key Management Service (KMS).
+     * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+     *  *
+     * @param CheckKMSAuthorizedRequest $request CheckKMSAuthorizedRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckKMSAuthorizedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckKMSAuthorizedResponse
-     *
-     * @param CheckKMSAuthorizedRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CheckKMSAuthorizedResponse
+     * @return CheckKMSAuthorizedResponse CheckKMSAuthorizedResponse
      */
     public function checkKMSAuthorizedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->TDERegion) {
-            @$query['TDERegion'] = $request->TDERegion;
+        if (!Utils::isUnset($request->TDERegion)) {
+            $query['TDERegion'] = $request->TDERegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckKMSAuthorized',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckKMSAuthorized',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckKMSAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -782,14 +720,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the cluster is authorized to use Key Management Service (KMS).
+     * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+     *  *
+     * @param CheckKMSAuthorizedRequest $request CheckKMSAuthorizedRequest
      *
-     * @param request - CheckKMSAuthorizedRequest
-     * @returns CheckKMSAuthorizedResponse
-     *
-     * @param CheckKMSAuthorizedRequest $request
-     *
-     * @return CheckKMSAuthorizedResponse
+     * @return CheckKMSAuthorizedResponse CheckKMSAuthorizedResponse
      */
     public function checkKMSAuthorized($request)
     {
@@ -799,52 +734,44 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role (SLR) is created.
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckServiceLinkedRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckServiceLinkedRole',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckServiceLinkedRole',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -852,14 +779,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role (SLR) is created.
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @param request - CheckServiceLinkedRoleRequest
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -869,60 +793,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DB4AI.
+     * @summary 关闭DB4AI
+     *  *
+     * @param CloseAITaskRequest $request CloseAITaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CloseAITaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CloseAITaskResponse
-     *
-     * @param CloseAITaskRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CloseAITaskResponse
+     * @return CloseAITaskResponse CloseAITaskResponse
      */
     public function closeAITaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseAITask',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseAITask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CloseAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -930,14 +844,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DB4AI.
+     * @summary 关闭DB4AI
+     *  *
+     * @param CloseAITaskRequest $request CloseAITaskRequest
      *
-     * @param request - CloseAITaskRequest
-     * @returns CloseAITaskResponse
-     *
-     * @param CloseAITaskRequest $request
-     *
-     * @return CloseAITaskResponse
+     * @return CloseAITaskResponse CloseAITaskResponse
      */
     public function closeAITask($request)
     {
@@ -947,65 +858,54 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
-     *
-     * @remarks
-     *   You can call this operation to cancel the migration task before data migration.
+     * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+     *  *
+     * @description *   You can call this operation to cancel the migration task before data migration.
      * *   You can call this operation to perform the migration task after data migration.
      * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
+     * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CloseDBClusterMigrationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CloseDBClusterMigrationResponse
-     *
-     * @param CloseDBClusterMigrationRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CloseDBClusterMigrationResponse
+     * @return CloseDBClusterMigrationResponse CloseDBClusterMigrationResponse
      */
     public function closeDBClusterMigrationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->continueEnableBinlog) {
-            @$query['ContinueEnableBinlog'] = $request->continueEnableBinlog;
+        if (!Utils::isUnset($request->continueEnableBinlog)) {
+            $query['ContinueEnableBinlog'] = $request->continueEnableBinlog;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseDBClusterMigration',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseDBClusterMigration',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CloseDBClusterMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1013,19 +913,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
-     *
-     * @remarks
-     *   You can call this operation to cancel the migration task before data migration.
+     * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+     *  *
+     * @description *   You can call this operation to cancel the migration task before data migration.
      * *   You can call this operation to perform the migration task after data migration.
      * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
+     * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
      *
-     * @param request - CloseDBClusterMigrationRequest
-     * @returns CloseDBClusterMigrationResponse
-     *
-     * @param CloseDBClusterMigrationRequest $request
-     *
-     * @return CloseDBClusterMigrationResponse
+     * @return CloseDBClusterMigrationResponse CloseDBClusterMigrationResponse
      */
     public function closeDBClusterMigration($request)
     {
@@ -1035,92 +931,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database account for a PolarDB cluster.
+     * @summary Creates a database account for a PolarDB cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->accountPrivilege) {
-            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
         }
-
-        if (null !== $request->accountType) {
-            @$query['AccountType'] = $request->accountType;
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->privForAllDB) {
-            @$query['PrivForAllDB'] = $request->privForAllDB;
+        if (!Utils::isUnset($request->privForAllDB)) {
+            $query['PrivForAllDB'] = $request->privForAllDB;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1128,14 +1006,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database account for a PolarDB cluster.
+     * @summary Creates a database account for a PolarDB cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @param request - CreateAccountRequest
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -1145,72 +1020,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates a lightweight license activation code.
+     * @summary Generates a lightweight license activation code.
+     *  *
+     * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateActivationCodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateActivationCodeResponse
-     *
-     * @param CreateActivationCodeRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateActivationCodeResponse
+     * @return CreateActivationCodeResponse CreateActivationCodeResponse
      */
     public function createActivationCodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunOrderId) {
-            @$query['AliyunOrderId'] = $request->aliyunOrderId;
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->macAddress) {
-            @$query['MacAddress'] = $request->macAddress;
+        if (!Utils::isUnset($request->macAddress)) {
+            $query['MacAddress'] = $request->macAddress;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->systemIdentifier) {
-            @$query['SystemIdentifier'] = $request->systemIdentifier;
+        if (!Utils::isUnset($request->systemIdentifier)) {
+            $query['SystemIdentifier'] = $request->systemIdentifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateActivationCode',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateActivationCode',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateActivationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1218,14 +1080,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates a lightweight license activation code.
+     * @summary Generates a lightweight license activation code.
+     *  *
+     * @param CreateActivationCodeRequest $request CreateActivationCodeRequest
      *
-     * @param request - CreateActivationCodeRequest
-     * @returns CreateActivationCodeResponse
-     *
-     * @param CreateActivationCodeRequest $request
-     *
-     * @return CreateActivationCodeResponse
+     * @return CreateActivationCodeResponse CreateActivationCodeResponse
      */
     public function createActivationCode($request)
     {
@@ -1235,66 +1094,55 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a full snapshot backup for a PolarDB cluster.
-     *
-     * @remarks
-     * >
+     * @summary Creates a full snapshot backup for a PolarDB cluster.
+     *  *
+     * @description >
      * *   You can manually create up to three backups for each cluster.
      * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
      * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1302,20 +1150,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a full snapshot backup for a PolarDB cluster.
-     *
-     * @remarks
-     * >
+     * @summary Creates a full snapshot backup for a PolarDB cluster.
+     *  *
+     * @description >
      * *   You can manually create up to three backups for each cluster.
      * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
      * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @param request - CreateBackupRequest
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -1325,68 +1169,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a cluster that is used to store cold data.
+     * @summary Creates a cluster that is used to store cold data.
+     *  *
+     * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateColdStorageInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateColdStorageInstanceResponse
-     *
-     * @param CreateColdStorageInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CreateColdStorageInstanceResponse
+     * @return CreateColdStorageInstanceResponse CreateColdStorageInstanceResponse
      */
     public function createColdStorageInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->coldStorageInstanceDescription) {
-            @$query['ColdStorageInstanceDescription'] = $request->coldStorageInstanceDescription;
+        if (!Utils::isUnset($request->coldStorageInstanceDescription)) {
+            $query['ColdStorageInstanceDescription'] = $request->coldStorageInstanceDescription;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateColdStorageInstance',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateColdStorageInstance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateColdStorageInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1394,14 +1226,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a cluster that is used to store cold data.
+     * @summary Creates a cluster that is used to store cold data.
+     *  *
+     * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
      *
-     * @param request - CreateColdStorageInstanceRequest
-     * @returns CreateColdStorageInstanceResponse
-     *
-     * @param CreateColdStorageInstanceRequest $request
-     *
-     * @return CreateColdStorageInstanceResponse
+     * @return CreateColdStorageInstanceResponse CreateColdStorageInstanceResponse
      */
     public function createColdStorageInstance($request)
     {
@@ -1411,268 +1240,206 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * CreateDBCluster.
+     * @summary CreateDBCluster.
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDBClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDBClusterResponse
-     *
-     * @param CreateDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowShutDown) {
-            @$query['AllowShutDown'] = $request->allowShutDown;
+        if (!Utils::isUnset($request->allowShutDown)) {
+            $query['AllowShutDown'] = $request->allowShutDown;
         }
-
-        if (null !== $request->architecture) {
-            @$query['Architecture'] = $request->architecture;
+        if (!Utils::isUnset($request->architecture)) {
+            $query['Architecture'] = $request->architecture;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->backupRetentionPolicyOnClusterDeletion) {
-            @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
+            $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
-
-        if (null !== $request->burstingEnabled) {
-            @$query['BurstingEnabled'] = $request->burstingEnabled;
+        if (!Utils::isUnset($request->burstingEnabled)) {
+            $query['BurstingEnabled'] = $request->burstingEnabled;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->cloneDataPoint) {
-            @$query['CloneDataPoint'] = $request->cloneDataPoint;
+        if (!Utils::isUnset($request->cloneDataPoint)) {
+            $query['CloneDataPoint'] = $request->cloneDataPoint;
         }
-
-        if (null !== $request->clusterNetworkType) {
-            @$query['ClusterNetworkType'] = $request->clusterNetworkType;
+        if (!Utils::isUnset($request->clusterNetworkType)) {
+            $query['ClusterNetworkType'] = $request->clusterNetworkType;
         }
-
-        if (null !== $request->creationCategory) {
-            @$query['CreationCategory'] = $request->creationCategory;
+        if (!Utils::isUnset($request->creationCategory)) {
+            $query['CreationCategory'] = $request->creationCategory;
         }
-
-        if (null !== $request->creationOption) {
-            @$query['CreationOption'] = $request->creationOption;
+        if (!Utils::isUnset($request->creationOption)) {
+            $query['CreationOption'] = $request->creationOption;
         }
-
-        if (null !== $request->DBClusterDescription) {
-            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (!Utils::isUnset($request->DBClusterDescription)) {
+            $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-
-        if (null !== $request->DBMinorVersion) {
-            @$query['DBMinorVersion'] = $request->DBMinorVersion;
+        if (!Utils::isUnset($request->DBMinorVersion)) {
+            $query['DBMinorVersion'] = $request->DBMinorVersion;
         }
-
-        if (null !== $request->DBNodeClass) {
-            @$query['DBNodeClass'] = $request->DBNodeClass;
+        if (!Utils::isUnset($request->DBNodeClass)) {
+            $query['DBNodeClass'] = $request->DBNodeClass;
         }
-
-        if (null !== $request->DBNodeNum) {
-            @$query['DBNodeNum'] = $request->DBNodeNum;
+        if (!Utils::isUnset($request->DBNodeNum)) {
+            $query['DBNodeNum'] = $request->DBNodeNum;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->defaultTimeZone) {
-            @$query['DefaultTimeZone'] = $request->defaultTimeZone;
+        if (!Utils::isUnset($request->defaultTimeZone)) {
+            $query['DefaultTimeZone'] = $request->defaultTimeZone;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->hotStandbyCluster) {
-            @$query['HotStandbyCluster'] = $request->hotStandbyCluster;
+        if (!Utils::isUnset($request->hotStandbyCluster)) {
+            $query['HotStandbyCluster'] = $request->hotStandbyCluster;
         }
-
-        if (null !== $request->loosePolarLogBin) {
-            @$query['LoosePolarLogBin'] = $request->loosePolarLogBin;
+        if (!Utils::isUnset($request->loosePolarLogBin)) {
+            $query['LoosePolarLogBin'] = $request->loosePolarLogBin;
         }
-
-        if (null !== $request->looseXEngine) {
-            @$query['LooseXEngine'] = $request->looseXEngine;
+        if (!Utils::isUnset($request->looseXEngine)) {
+            $query['LooseXEngine'] = $request->looseXEngine;
         }
-
-        if (null !== $request->looseXEngineUseMemoryPct) {
-            @$query['LooseXEngineUseMemoryPct'] = $request->looseXEngineUseMemoryPct;
+        if (!Utils::isUnset($request->looseXEngineUseMemoryPct)) {
+            $query['LooseXEngineUseMemoryPct'] = $request->looseXEngineUseMemoryPct;
         }
-
-        if (null !== $request->lowerCaseTableNames) {
-            @$query['LowerCaseTableNames'] = $request->lowerCaseTableNames;
+        if (!Utils::isUnset($request->lowerCaseTableNames)) {
+            $query['LowerCaseTableNames'] = $request->lowerCaseTableNames;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->provisionedIops) {
-            @$query['ProvisionedIops'] = $request->provisionedIops;
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
         }
-
-        if (null !== $request->proxyClass) {
-            @$query['ProxyClass'] = $request->proxyClass;
+        if (!Utils::isUnset($request->proxyClass)) {
+            $query['ProxyClass'] = $request->proxyClass;
         }
-
-        if (null !== $request->proxyType) {
-            @$query['ProxyType'] = $request->proxyType;
+        if (!Utils::isUnset($request->proxyType)) {
+            $query['ProxyType'] = $request->proxyType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scaleMax) {
-            @$query['ScaleMax'] = $request->scaleMax;
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
         }
-
-        if (null !== $request->scaleMin) {
-            @$query['ScaleMin'] = $request->scaleMin;
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
         }
-
-        if (null !== $request->scaleRoNumMax) {
-            @$query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
         }
-
-        if (null !== $request->scaleRoNumMin) {
-            @$query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
-        if (null !== $request->serverlessType) {
-            @$query['ServerlessType'] = $request->serverlessType;
+        if (!Utils::isUnset($request->serverlessType)) {
+            $query['ServerlessType'] = $request->serverlessType;
         }
-
-        if (null !== $request->sourceResourceId) {
-            @$query['SourceResourceId'] = $request->sourceResourceId;
+        if (!Utils::isUnset($request->sourceResourceId)) {
+            $query['SourceResourceId'] = $request->sourceResourceId;
         }
-
-        if (null !== $request->standbyAZ) {
-            @$query['StandbyAZ'] = $request->standbyAZ;
+        if (!Utils::isUnset($request->standbyAZ)) {
+            $query['StandbyAZ'] = $request->standbyAZ;
         }
-
-        if (null !== $request->storageAutoScale) {
-            @$query['StorageAutoScale'] = $request->storageAutoScale;
+        if (!Utils::isUnset($request->storageAutoScale)) {
+            $query['StorageAutoScale'] = $request->storageAutoScale;
         }
-
-        if (null !== $request->storageEncryption) {
-            @$query['StorageEncryption'] = $request->storageEncryption;
+        if (!Utils::isUnset($request->storageEncryption)) {
+            $query['StorageEncryption'] = $request->storageEncryption;
         }
-
-        if (null !== $request->storageEncryptionKey) {
-            @$query['StorageEncryptionKey'] = $request->storageEncryptionKey;
+        if (!Utils::isUnset($request->storageEncryptionKey)) {
+            $query['StorageEncryptionKey'] = $request->storageEncryptionKey;
         }
-
-        if (null !== $request->storagePayType) {
-            @$query['StoragePayType'] = $request->storagePayType;
+        if (!Utils::isUnset($request->storagePayType)) {
+            $query['StoragePayType'] = $request->storagePayType;
         }
-
-        if (null !== $request->storageSpace) {
-            @$query['StorageSpace'] = $request->storageSpace;
+        if (!Utils::isUnset($request->storageSpace)) {
+            $query['StorageSpace'] = $request->storageSpace;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->storageUpperBound) {
-            @$query['StorageUpperBound'] = $request->storageUpperBound;
+        if (!Utils::isUnset($request->storageUpperBound)) {
+            $query['StorageUpperBound'] = $request->storageUpperBound;
         }
-
-        if (null !== $request->strictConsistency) {
-            @$query['StrictConsistency'] = $request->strictConsistency;
+        if (!Utils::isUnset($request->strictConsistency)) {
+            $query['StrictConsistency'] = $request->strictConsistency;
         }
-
-        if (null !== $request->TDEStatus) {
-            @$query['TDEStatus'] = $request->TDEStatus;
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->targetMinorVersion) {
-            @$query['TargetMinorVersion'] = $request->targetMinorVersion;
+        if (!Utils::isUnset($request->targetMinorVersion)) {
+            $query['TargetMinorVersion'] = $request->targetMinorVersion;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
-        if (null !== $request->VPCId) {
-            @$query['VPCId'] = $request->VPCId;
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBCluster',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1680,14 +1447,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * CreateDBCluster.
+     * @summary CreateDBCluster.
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
-     * @param request - CreateDBClusterRequest
-     * @returns CreateDBClusterResponse
-     *
-     * @param CreateDBClusterRequest $request
-     *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBCluster($request)
     {
@@ -1697,96 +1461,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a custom cluster endpoint for a PolarDB cluster.
+     * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterEndpointRequest $request CreateDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDBClusterEndpointRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDBClusterEndpointResponse
-     *
-     * @param CreateDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateDBClusterEndpointResponse
+     * @return CreateDBClusterEndpointResponse CreateDBClusterEndpointResponse
      */
     public function createDBClusterEndpointWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoAddNewNodes) {
-            @$query['AutoAddNewNodes'] = $request->autoAddNewNodes;
+        if (!Utils::isUnset($request->autoAddNewNodes)) {
+            $query['AutoAddNewNodes'] = $request->autoAddNewNodes;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointDescription) {
-            @$query['DBEndpointDescription'] = $request->DBEndpointDescription;
+        if (!Utils::isUnset($request->DBEndpointDescription)) {
+            $query['DBEndpointDescription'] = $request->DBEndpointDescription;
         }
-
-        if (null !== $request->endpointConfig) {
-            @$query['EndpointConfig'] = $request->endpointConfig;
+        if (!Utils::isUnset($request->endpointConfig)) {
+            $query['EndpointConfig'] = $request->endpointConfig;
         }
-
-        if (null !== $request->endpointType) {
-            @$query['EndpointType'] = $request->endpointType;
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
         }
-
-        if (null !== $request->nodes) {
-            @$query['Nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $query['Nodes'] = $request->nodes;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->polarSccTimeoutAction) {
-            @$query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        if (!Utils::isUnset($request->polarSccTimeoutAction)) {
+            $query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
         }
-
-        if (null !== $request->polarSccWaitTimeout) {
-            @$query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        if (!Utils::isUnset($request->polarSccWaitTimeout)) {
+            $query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
         }
-
-        if (null !== $request->readWriteMode) {
-            @$query['ReadWriteMode'] = $request->readWriteMode;
+        if (!Utils::isUnset($request->readWriteMode)) {
+            $query['ReadWriteMode'] = $request->readWriteMode;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->sccMode) {
-            @$query['SccMode'] = $request->sccMode;
+        if (!Utils::isUnset($request->sccMode)) {
+            $query['SccMode'] = $request->sccMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBClusterEndpoint',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBClusterEndpoint',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBClusterEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1794,14 +1539,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a custom cluster endpoint for a PolarDB cluster.
+     * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterEndpointRequest $request CreateDBClusterEndpointRequest
      *
-     * @param request - CreateDBClusterEndpointRequest
-     * @returns CreateDBClusterEndpointResponse
-     *
-     * @param CreateDBClusterEndpointRequest $request
-     *
-     * @return CreateDBClusterEndpointResponse
+     * @return CreateDBClusterEndpointResponse CreateDBClusterEndpointResponse
      */
     public function createDBClusterEndpoint($request)
     {
@@ -1811,83 +1553,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *
-     * @param request - CreateDBEndpointAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDBEndpointAddressResponse
-     *
-     * @param CreateDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateDBEndpointAddressResponse
+     * @return CreateDBEndpointAddressResponse CreateDBEndpointAddressResponse
      */
     public function createDBEndpointAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->netType) {
-            @$query['NetType'] = $request->netType;
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->VPCId) {
-            @$query['VPCId'] = $request->VPCId;
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
-
-        if (null !== $request->zoneInfo) {
-            @$query['ZoneInfo'] = $request->zoneInfo;
+        if (!Utils::isUnset($request->zoneInfo)) {
+            $query['ZoneInfo'] = $request->zoneInfo;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBEndpointAddress',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1895,17 +1621,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
      *
-     * @remarks
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *
-     * @param request - CreateDBEndpointAddressRequest
-     * @returns CreateDBEndpointAddressResponse
-     *
-     * @param CreateDBEndpointAddressRequest $request
-     *
-     * @return CreateDBEndpointAddressResponse
+     * @return CreateDBEndpointAddressResponse CreateDBEndpointAddressResponse
      */
     public function createDBEndpointAddress($request)
     {
@@ -1915,110 +1637,88 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database link.
-     *
-     * @remarks
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     * @summary Creates a database link.
+     *  *
+     * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
      * > *   You can create up to 10 database links for a cluster.
      * > *   Each database link connects a source cluster and a destination cluster.
      * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *  *
+     * @param CreateDBLinkRequest $request CreateDBLinkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDBLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDBLinkResponse
-     *
-     * @param CreateDBLinkRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateDBLinkResponse
+     * @return CreateDBLinkResponse CreateDBLinkResponse
      */
     public function createDBLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBLinkName) {
-            @$query['DBLinkName'] = $request->DBLinkName;
+        if (!Utils::isUnset($request->DBLinkName)) {
+            $query['DBLinkName'] = $request->DBLinkName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->sourceDBName) {
-            @$query['SourceDBName'] = $request->sourceDBName;
+        if (!Utils::isUnset($request->sourceDBName)) {
+            $query['SourceDBName'] = $request->sourceDBName;
         }
-
-        if (null !== $request->targetDBAccount) {
-            @$query['TargetDBAccount'] = $request->targetDBAccount;
+        if (!Utils::isUnset($request->targetDBAccount)) {
+            $query['TargetDBAccount'] = $request->targetDBAccount;
         }
-
-        if (null !== $request->targetDBInstanceName) {
-            @$query['TargetDBInstanceName'] = $request->targetDBInstanceName;
+        if (!Utils::isUnset($request->targetDBInstanceName)) {
+            $query['TargetDBInstanceName'] = $request->targetDBInstanceName;
         }
-
-        if (null !== $request->targetDBName) {
-            @$query['TargetDBName'] = $request->targetDBName;
+        if (!Utils::isUnset($request->targetDBName)) {
+            $query['TargetDBName'] = $request->targetDBName;
         }
-
-        if (null !== $request->targetDBPasswd) {
-            @$query['TargetDBPasswd'] = $request->targetDBPasswd;
+        if (!Utils::isUnset($request->targetDBPasswd)) {
+            $query['TargetDBPasswd'] = $request->targetDBPasswd;
         }
-
-        if (null !== $request->targetIp) {
-            @$query['TargetIp'] = $request->targetIp;
+        if (!Utils::isUnset($request->targetIp)) {
+            $query['TargetIp'] = $request->targetIp;
         }
-
-        if (null !== $request->targetPort) {
-            @$query['TargetPort'] = $request->targetPort;
+        if (!Utils::isUnset($request->targetPort)) {
+            $query['TargetPort'] = $request->targetPort;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBLink',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBLinkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2026,20 +1726,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database link.
-     *
-     * @remarks
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     * @summary Creates a database link.
+     *  *
+     * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
      * > *   You can create up to 10 database links for a cluster.
      * > *   Each database link connects a source cluster and a destination cluster.
      * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *  *
+     * @param CreateDBLinkRequest $request CreateDBLinkRequest
      *
-     * @param request - CreateDBLinkRequest
-     * @returns CreateDBLinkResponse
-     *
-     * @param CreateDBLinkRequest $request
-     *
-     * @return CreateDBLinkResponse
+     * @return CreateDBLinkResponse CreateDBLinkResponse
      */
     public function createDBLink($request)
     {
@@ -2049,88 +1745,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds a read-only node to a PolarDB cluster.
+     * @summary Adds a read-only node to a PolarDB cluster.
+     *  *
+     * @param CreateDBNodesRequest $request CreateDBNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDBNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDBNodesResponse
-     *
-     * @param CreateDBNodesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateDBNodesResponse
+     * @return CreateDBNodesResponse CreateDBNodesResponse
      */
     public function createDBNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNode) {
-            @$query['DBNode'] = $request->DBNode;
+        if (!Utils::isUnset($request->DBNode)) {
+            $query['DBNode'] = $request->DBNode;
         }
-
-        if (null !== $request->DBNodeType) {
-            @$query['DBNodeType'] = $request->DBNodeType;
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
         }
-
-        if (null !== $request->endpointBindList) {
-            @$query['EndpointBindList'] = $request->endpointBindList;
+        if (!Utils::isUnset($request->endpointBindList)) {
+            $query['EndpointBindList'] = $request->endpointBindList;
         }
-
-        if (null !== $request->imciSwitch) {
-            @$query['ImciSwitch'] = $request->imciSwitch;
+        if (!Utils::isUnset($request->imciSwitch)) {
+            $query['ImciSwitch'] = $request->imciSwitch;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBNodes',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBNodes',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2138,14 +1817,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds a read-only node to a PolarDB cluster.
+     * @summary Adds a read-only node to a PolarDB cluster.
+     *  *
+     * @param CreateDBNodesRequest $request CreateDBNodesRequest
      *
-     * @param request - CreateDBNodesRequest
-     * @returns CreateDBNodesResponse
-     *
-     * @param CreateDBNodesRequest $request
-     *
-     * @return CreateDBNodesResponse
+     * @return CreateDBNodesResponse CreateDBNodesResponse
      */
     public function createDBNodes($request)
     {
@@ -2155,89 +1831,72 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database for a PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Creates a database for a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The cluster is in the Running state.
      * *   The cluster is unlocked.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDatabaseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDatabaseResponse
-     *
-     * @param CreateDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabaseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPrivilege) {
-            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
         }
-
-        if (null !== $request->characterSetName) {
-            @$query['CharacterSetName'] = $request->characterSetName;
+        if (!Utils::isUnset($request->characterSetName)) {
+            $query['CharacterSetName'] = $request->characterSetName;
         }
-
-        if (null !== $request->collate) {
-            @$query['Collate'] = $request->collate;
+        if (!Utils::isUnset($request->collate)) {
+            $query['Collate'] = $request->collate;
         }
-
-        if (null !== $request->ctype) {
-            @$query['Ctype'] = $request->ctype;
+        if (!Utils::isUnset($request->ctype)) {
+            $query['Ctype'] = $request->ctype;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBDescription) {
-            @$query['DBDescription'] = $request->DBDescription;
+        if (!Utils::isUnset($request->DBDescription)) {
+            $query['DBDescription'] = $request->DBDescription;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatabase',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDatabase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2245,19 +1904,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database for a PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Creates a database for a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The cluster is in the Running state.
      * *   The cluster is unlocked.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
-     * @param request - CreateDatabaseRequest
-     * @returns CreateDatabaseResponse
-     *
-     * @param CreateDatabaseRequest $request
-     *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabase($request)
     {
@@ -2267,75 +1922,61 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global database network (GDN).
+     * @summary Creates a global database network (GDN).
+     *  *
+     * @description >  A cluster belongs to only one GDN.
+     *  *
+     * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  A cluster belongs to only one GDN.
-     *
-     * @param request - CreateGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateGlobalDatabaseNetworkResponse
-     *
-     * @param CreateGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateGlobalDatabaseNetworkResponse
+     * @return CreateGlobalDatabaseNetworkResponse CreateGlobalDatabaseNetworkResponse
      */
     public function createGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->enableGlobalDomainName) {
-            @$query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
+        if (!Utils::isUnset($request->enableGlobalDomainName)) {
+            $query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
         }
-
-        if (null !== $request->GDNDescription) {
-            @$query['GDNDescription'] = $request->GDNDescription;
+        if (!Utils::isUnset($request->GDNDescription)) {
+            $query['GDNDescription'] = $request->GDNDescription;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2343,17 +1984,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global database network (GDN).
+     * @summary Creates a global database network (GDN).
+     *  *
+     * @description >  A cluster belongs to only one GDN.
+     *  *
+     * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
      *
-     * @remarks
-     * >  A cluster belongs to only one GDN.
-     *
-     * @param request - CreateGlobalDatabaseNetworkRequest
-     * @returns CreateGlobalDatabaseNetworkResponse
-     *
-     * @param CreateGlobalDatabaseNetworkRequest $request
-     *
-     * @return CreateGlobalDatabaseNetworkResponse
+     * @return CreateGlobalDatabaseNetworkResponse CreateGlobalDatabaseNetworkResponse
      */
     public function createGlobalDatabaseNetwork($request)
     {
@@ -2363,72 +2000,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGlobalSecurityIPGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGlobalSecurityIPGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2436,14 +2060,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -2453,56 +2074,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or obtains a virtual license order.
+     * @summary Creates or obtains a virtual license order.
+     *  *
+     * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateOrGetVirtualLicenseOrderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateOrGetVirtualLicenseOrderResponse
-     *
-     * @param CreateOrGetVirtualLicenseOrderRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateOrGetVirtualLicenseOrderResponse
+     * @return CreateOrGetVirtualLicenseOrderResponse CreateOrGetVirtualLicenseOrderResponse
      */
     public function createOrGetVirtualLicenseOrderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrGetVirtualLicenseOrder',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOrGetVirtualLicenseOrder',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateOrGetVirtualLicenseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2510,14 +2122,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or obtains a virtual license order.
+     * @summary Creates or obtains a virtual license order.
+     *  *
+     * @param CreateOrGetVirtualLicenseOrderRequest $request CreateOrGetVirtualLicenseOrderRequest
      *
-     * @param request - CreateOrGetVirtualLicenseOrderRequest
-     * @returns CreateOrGetVirtualLicenseOrderResponse
-     *
-     * @param CreateOrGetVirtualLicenseOrderRequest $request
-     *
-     * @return CreateOrGetVirtualLicenseOrderResponse
+     * @return CreateOrGetVirtualLicenseOrderResponse CreateOrGetVirtualLicenseOrderResponse
      */
     public function createOrGetVirtualLicenseOrder($request)
     {
@@ -2527,84 +2136,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Creates a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > You can call this operation only on a PolarDB for MySQL cluster.
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateParameterGroupResponse
-     *
-     * @param CreateParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupDesc) {
-            @$query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        if (!Utils::isUnset($request->parameterGroupDesc)) {
+            $query['ParameterGroupDesc'] = $request->parameterGroupDesc;
         }
-
-        if (null !== $request->parameterGroupName) {
-            @$query['ParameterGroupName'] = $request->parameterGroupName;
+        if (!Utils::isUnset($request->parameterGroupName)) {
+            $query['ParameterGroupName'] = $request->parameterGroupName;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateParameterGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2612,18 +2205,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Creates a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > You can call this operation only on a PolarDB for MySQL cluster.
+     *  *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
-     * @param request - CreateParameterGroupRequest
-     * @returns CreateParameterGroupResponse
-     *
-     * @param CreateParameterGroupRequest $request
-     *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroup($request)
     {
@@ -2633,52 +2222,44 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role (SLR).
+     * @summary Creates a service-linked role (SLR).
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateServiceLinkedRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateServiceLinkedRoleResponse
-     *
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2686,14 +2267,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role (SLR).
+     * @summary Creates a service-linked role (SLR).
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @param request - CreateServiceLinkedRoleRequest
-     * @returns CreateServiceLinkedRoleResponse
-     *
-     * @param CreateServiceLinkedRoleRequest $request
-     *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -2703,72 +2281,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Purchases a storage plan.
+     * @summary Purchases a storage plan.
+     *  *
+     * @param CreateStoragePlanRequest $request CreateStoragePlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateStoragePlanRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateStoragePlanResponse
-     *
-     * @param CreateStoragePlanRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateStoragePlanResponse
+     * @return CreateStoragePlanResponse CreateStoragePlanResponse
      */
     public function createStoragePlanWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->storageClass) {
-            @$query['StorageClass'] = $request->storageClass;
+        if (!Utils::isUnset($request->storageClass)) {
+            $query['StorageClass'] = $request->storageClass;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStoragePlan',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStoragePlan',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateStoragePlanResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2776,14 +2341,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Purchases a storage plan.
+     * @summary Purchases a storage plan.
+     *  *
+     * @param CreateStoragePlanRequest $request CreateStoragePlanRequest
      *
-     * @param request - CreateStoragePlanRequest
-     * @returns CreateStoragePlanResponse
-     *
-     * @param CreateStoragePlanRequest $request
-     *
-     * @return CreateStoragePlanResponse
+     * @return CreateStoragePlanResponse CreateStoragePlanResponse
      */
     public function createStoragePlan($request)
     {
@@ -2793,63 +2355,52 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account for a PolarDB cluster.
+     * @summary Deletes a database account for a PolarDB cluster.
+     *  *
+     * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *
-     * @param request - DeleteAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2857,17 +2408,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account for a PolarDB cluster.
+     * @summary Deletes a database account for a PolarDB cluster.
+     *  *
+     * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @remarks
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *
-     * @param request - DeleteAccountRequest
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -2877,67 +2424,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes the backup sets of a PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the cluster meets the following requirements:
+     * @summary Deletes the backup sets of a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the cluster meets the following requirements:
      * *   The cluster is in the Running state.
      * *   The backup sets are in the Success state.
      * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
      * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBackup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBackup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2945,21 +2481,17 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes the backup sets of a PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the cluster meets the following requirements:
+     * @summary Deletes the backup sets of a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the cluster meets the following requirements:
      * *   The cluster is in the Running state.
      * *   The backup sets are in the Success state.
      * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
      * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
      *
-     * @param request - DeleteBackupRequest
-     * @returns DeleteBackupResponse
-     *
-     * @param DeleteBackupRequest $request
-     *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackup($request)
     {
@@ -2969,60 +2501,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go PolarDB cluster.
+     * @summary Releases a pay-as-you-go PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDBClusterResponse
-     *
-     * @param DeleteDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupRetentionPolicyOnClusterDeletion) {
-            @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
+            $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBCluster',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3030,14 +2552,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go PolarDB cluster.
+     * @summary Releases a pay-as-you-go PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
-     * @param request - DeleteDBClusterRequest
-     * @returns DeleteDBClusterResponse
-     *
-     * @param DeleteDBClusterRequest $request
-     *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBCluster($request)
     {
@@ -3047,60 +2566,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a custom cluster endpoint of a PolarDB cluster.
+     * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterEndpointRequest $request DeleteDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBClusterEndpointRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDBClusterEndpointResponse
-     *
-     * @param DeleteDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteDBClusterEndpointResponse
+     * @return DeleteDBClusterEndpointResponse DeleteDBClusterEndpointResponse
      */
     public function deleteDBClusterEndpointWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBClusterEndpoint',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBClusterEndpoint',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBClusterEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3108,14 +2617,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a custom cluster endpoint of a PolarDB cluster.
+     * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterEndpointRequest $request DeleteDBClusterEndpointRequest
      *
-     * @param request - DeleteDBClusterEndpointRequest
-     * @returns DeleteDBClusterEndpointResponse
-     *
-     * @param DeleteDBClusterEndpointRequest $request
-     *
-     * @return DeleteDBClusterEndpointResponse
+     * @return DeleteDBClusterEndpointResponse DeleteDBClusterEndpointResponse
      */
     public function deleteDBClusterEndpoint($request)
     {
@@ -3125,68 +2631,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
-     *
-     * @remarks
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+     *  *
+     * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
      * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *  *
+     * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBEndpointAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDBEndpointAddressResponse
-     *
-     * @param DeleteDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteDBEndpointAddressResponse
+     * @return DeleteDBEndpointAddressResponse DeleteDBEndpointAddressResponse
      */
     public function deleteDBEndpointAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->netType) {
-            @$query['NetType'] = $request->netType;
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBEndpointAddress',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3194,18 +2688,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
-     *
-     * @remarks
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+     *  *
+     * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
      * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *  *
+     * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
      *
-     * @param request - DeleteDBEndpointAddressRequest
-     * @returns DeleteDBEndpointAddressResponse
-     *
-     * @param DeleteDBEndpointAddressRequest $request
-     *
-     * @return DeleteDBEndpointAddressResponse
+     * @return DeleteDBEndpointAddressResponse DeleteDBEndpointAddressResponse
      */
     public function deleteDBEndpointAddress($request)
     {
@@ -3215,60 +2705,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @param DeleteDBLinkRequest $request DeleteDBLinkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDBLinkResponse
-     *
-     * @param DeleteDBLinkRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteDBLinkResponse
+     * @return DeleteDBLinkResponse DeleteDBLinkResponse
      */
     public function deleteDBLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBLinkName) {
-            @$query['DBLinkName'] = $request->DBLinkName;
+        if (!Utils::isUnset($request->DBLinkName)) {
+            $query['DBLinkName'] = $request->DBLinkName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBLink',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBLinkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3276,14 +2756,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @param DeleteDBLinkRequest $request DeleteDBLinkRequest
      *
-     * @param request - DeleteDBLinkRequest
-     * @returns DeleteDBLinkResponse
-     *
-     * @param DeleteDBLinkRequest $request
-     *
-     * @return DeleteDBLinkResponse
+     * @return DeleteDBLinkResponse DeleteDBLinkResponse
      */
     public function deleteDBLink($request)
     {
@@ -3293,68 +2770,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a read-only node from a PolarDB cluster.
+     * @summary Deletes a read-only node from a PolarDB cluster.
+     *  *
+     * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBNodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDBNodesResponse
-     *
-     * @param DeleteDBNodesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteDBNodesResponse
+     * @return DeleteDBNodesResponse DeleteDBNodesResponse
      */
     public function deleteDBNodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->DBNodeType) {
-            @$query['DBNodeType'] = $request->DBNodeType;
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBNodes',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBNodes',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3362,14 +2827,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a read-only node from a PolarDB cluster.
+     * @summary Deletes a read-only node from a PolarDB cluster.
+     *  *
+     * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
      *
-     * @param request - DeleteDBNodesRequest
-     * @returns DeleteDBNodesResponse
-     *
-     * @param DeleteDBNodesRequest $request
-     *
-     * @return DeleteDBNodesResponse
+     * @return DeleteDBNodesResponse DeleteDBNodesResponse
      */
     public function deleteDBNodes($request)
     {
@@ -3379,64 +2841,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database from a PolarDB cluster.
-     *
-     * @remarks
-     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     * @summary Deletes a database from a PolarDB cluster.
+     *  *
+     * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
      * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDatabaseRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteDatabaseResponse
-     *
-     * @param DeleteDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabaseWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatabase',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDatabase',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3444,18 +2895,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database from a PolarDB cluster.
-     *
-     * @remarks
-     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     * @summary Deletes a database from a PolarDB cluster.
+     *  *
+     * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
      * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *  *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
-     * @param request - DeleteDatabaseRequest
-     * @returns DeleteDatabaseResponse
-     *
-     * @param DeleteDatabaseRequest $request
-     *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabase($request)
     {
@@ -3465,67 +2912,55 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global database network (GDN).
+     * @summary Deletes a global database network (GDN).
+     *  *
+     * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *  *
+     * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
-     *
-     * @param request - DeleteGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteGlobalDatabaseNetworkResponse
-     *
-     * @param DeleteGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteGlobalDatabaseNetworkResponse
+     * @return DeleteGlobalDatabaseNetworkResponse DeleteGlobalDatabaseNetworkResponse
      */
     public function deleteGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3533,17 +2968,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global database network (GDN).
+     * @summary Deletes a global database network (GDN).
+     *  *
+     * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *  *
+     * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
      *
-     * @remarks
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
-     *
-     * @param request - DeleteGlobalDatabaseNetworkRequest
-     * @returns DeleteGlobalDatabaseNetworkResponse
-     *
-     * @param DeleteGlobalDatabaseNetworkRequest $request
-     *
-     * @return DeleteGlobalDatabaseNetworkResponse
+     * @return DeleteGlobalDatabaseNetworkResponse DeleteGlobalDatabaseNetworkResponse
      */
     public function deleteGlobalDatabaseNetwork($request)
     {
@@ -3553,72 +2984,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGlobalSecurityIPGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGlobalSecurityIPGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3626,14 +3044,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -3643,44 +3058,41 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a data masking rule.
+     * @summary Deletes a data masking rule.
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteMaskingRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteMaskingRulesResponse
-     *
-     * @param DeleteMaskingRulesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ruleNameList) {
-            @$query['RuleNameList'] = $request->ruleNameList;
+        if (!Utils::isUnset($request->interfaceVersion)) {
+            $query['InterfaceVersion'] = $request->interfaceVersion;
         }
-
+        if (!Utils::isUnset($request->ruleNameList)) {
+            $query['RuleNameList'] = $request->ruleNameList;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMaskingRules',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMaskingRules',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3688,14 +3100,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a data masking rule.
+     * @summary Deletes a data masking rule.
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
      *
-     * @param request - DeleteMaskingRulesRequest
-     * @returns DeleteMaskingRulesResponse
-     *
-     * @param DeleteMaskingRulesRequest $request
-     *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRules($request)
     {
@@ -3705,68 +3114,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template of a PolarDB cluster.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Deletes a parameter template of a PolarDB cluster.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteParameterGroupResponse
-     *
-     * @param DeleteParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteParameterGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3774,18 +3171,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template of a PolarDB cluster.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Deletes a parameter template of a PolarDB cluster.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *  *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
-     * @param request - DeleteParameterGroupRequest
-     * @returns DeleteParameterGroupResponse
-     *
-     * @param DeleteParameterGroupRequest $request
-     *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroup($request)
     {
@@ -3795,36 +3188,32 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the PolarDB for AI feature.
+     * @summary Queries the status of the PolarDB for AI feature.
+     *  *
+     * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAITaskStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAITaskStatusResponse
-     *
-     * @param DescribeAITaskStatusRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeAITaskStatusResponse
+     * @return DescribeAITaskStatusResponse DescribeAITaskStatusResponse
      */
     public function describeAITaskStatusWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAITaskStatus',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAITaskStatus',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAITaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3832,14 +3221,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the PolarDB for AI feature.
+     * @summary Queries the status of the PolarDB for AI feature.
+     *  *
+     * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
      *
-     * @param request - DescribeAITaskStatusRequest
-     * @returns DescribeAITaskStatusResponse
-     *
-     * @param DescribeAITaskStatusRequest $request
-     *
-     * @return DescribeAITaskStatusResponse
+     * @return DescribeAITaskStatusResponse DescribeAITaskStatusResponse
      */
     public function describeAITaskStatus($request)
     {
@@ -3849,72 +3235,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a database account of a PolarDB cluster.
+     * @summary Queries information about a database account of a PolarDB cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3922,14 +3295,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a database account of a PolarDB cluster.
+     * @summary Queries information about a database account of a PolarDB cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @param request - DescribeAccountsRequest
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -3939,60 +3309,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of an activation code.
+     * @summary Queries the details of an activation code.
+     *  *
+     * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActivationCodeDetailsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeActivationCodeDetailsResponse
-     *
-     * @param DescribeActivationCodeDetailsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeActivationCodeDetailsResponse
+     * @return DescribeActivationCodeDetailsResponse DescribeActivationCodeDetailsResponse
      */
     public function describeActivationCodeDetailsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->activationCodeId) {
-            @$query['ActivationCodeId'] = $request->activationCodeId;
+        if (!Utils::isUnset($request->activationCodeId)) {
+            $query['ActivationCodeId'] = $request->activationCodeId;
         }
-
-        if (null !== $request->aliyunOrderId) {
-            @$query['AliyunOrderId'] = $request->aliyunOrderId;
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActivationCodeDetails',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActivationCodeDetails',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeActivationCodeDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4000,14 +3360,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of an activation code.
+     * @summary Queries the details of an activation code.
+     *  *
+     * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
      *
-     * @param request - DescribeActivationCodeDetailsRequest
-     * @returns DescribeActivationCodeDetailsResponse
-     *
-     * @param DescribeActivationCodeDetailsRequest $request
-     *
-     * @return DescribeActivationCodeDetailsResponse
+     * @return DescribeActivationCodeDetailsResponse DescribeActivationCodeDetailsResponse
      */
     public function describeActivationCodeDetails($request)
     {
@@ -4017,72 +3374,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of activation codes.
+     * @summary Queries a list of activation codes.
+     *  *
+     * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActivationCodesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeActivationCodesResponse
-     *
-     * @param DescribeActivationCodesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeActivationCodesResponse
+     * @return DescribeActivationCodesResponse DescribeActivationCodesResponse
      */
     public function describeActivationCodesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunOrderId) {
-            @$query['AliyunOrderId'] = $request->aliyunOrderId;
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
         }
-
-        if (null !== $request->macAddress) {
-            @$query['MacAddress'] = $request->macAddress;
+        if (!Utils::isUnset($request->macAddress)) {
+            $query['MacAddress'] = $request->macAddress;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->systemIdentifier) {
-            @$query['SystemIdentifier'] = $request->systemIdentifier;
+        if (!Utils::isUnset($request->systemIdentifier)) {
+            $query['SystemIdentifier'] = $request->systemIdentifier;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActivationCodes',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActivationCodes',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeActivationCodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4090,14 +3434,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of activation codes.
+     * @summary Queries a list of activation codes.
+     *  *
+     * @param DescribeActivationCodesRequest $request DescribeActivationCodesRequest
      *
-     * @param request - DescribeActivationCodesRequest
-     * @returns DescribeActivationCodesResponse
-     *
-     * @param DescribeActivationCodesRequest $request
-     *
-     * @return DescribeActivationCodesResponse
+     * @return DescribeActivationCodesResponse DescribeActivationCodesResponse
      */
     public function describeActivationCodes($request)
     {
@@ -4107,96 +3448,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用户侧查询运维任务
+     * @summary 用户侧查询运维任务
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowCancel) {
-            @$query['AllowCancel'] = $request->allowCancel;
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
         }
-
-        if (null !== $request->allowChange) {
-            @$query['AllowChange'] = $request->allowChange;
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
         }
-
-        if (null !== $request->changeLevel) {
-            @$query['ChangeLevel'] = $request->changeLevel;
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4204,14 +3526,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用户侧查询运维任务
+     * @summary 用户侧查询运维任务
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -4221,72 +3540,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAutoRenewAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAutoRenewAttributeResponse
-     *
-     * @param DescribeAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterIds) {
-            @$query['DBClusterIds'] = $request->DBClusterIds;
+        if (!Utils::isUnset($request->DBClusterIds)) {
+            $query['DBClusterIds'] = $request->DBClusterIds;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoRenewAttribute',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoRenewAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4294,14 +3600,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
      *
-     * @param request - DescribeAutoRenewAttributeRequest
-     * @returns DescribeAutoRenewAttributeResponse
-     *
-     * @param DescribeAutoRenewAttributeRequest $request
-     *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttribute($request)
     {
@@ -4311,76 +3614,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup logs and the URLs to download the backup logs.
+     * @summary Queries backup logs and the URLs to download the backup logs.
+     *  *
+     * @param DescribeBackupLogsRequest $request DescribeBackupLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupLogsResponse
-     *
-     * @param DescribeBackupLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeBackupLogsResponse
+     * @return DescribeBackupLogsResponse DescribeBackupLogsResponse
      */
     public function describeBackupLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupRegion) {
-            @$query['BackupRegion'] = $request->backupRegion;
+        if (!Utils::isUnset($request->backupRegion)) {
+            $query['BackupRegion'] = $request->backupRegion;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupLogs',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupLogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupLogsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4388,14 +3677,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup logs and the URLs to download the backup logs.
+     * @summary Queries backup logs and the URLs to download the backup logs.
+     *  *
+     * @param DescribeBackupLogsRequest $request DescribeBackupLogsRequest
      *
-     * @param request - DescribeBackupLogsRequest
-     * @returns DescribeBackupLogsResponse
-     *
-     * @param DescribeBackupLogsRequest $request
-     *
-     * @return DescribeBackupLogsResponse
+     * @return DescribeBackupLogsResponse DescribeBackupLogsResponse
      */
     public function describeBackupLogs($request)
     {
@@ -4405,56 +3691,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the automatic backup policy of a PolarDB cluster.
+     * @summary Queries the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4462,14 +3739,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the automatic backup policy of a PolarDB cluster.
+     * @summary Queries the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @param request - DescribeBackupPolicyRequest
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -4479,64 +3753,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks of a PolarDB cluster.
+     * @summary Queries the backup tasks of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupJobId) {
-            @$query['BackupJobId'] = $request->backupJobId;
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
         }
-
-        if (null !== $request->backupMode) {
-            @$query['BackupMode'] = $request->backupMode;
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4544,14 +3807,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks of a PolarDB cluster.
+     * @summary Queries the backup tasks of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @param request - DescribeBackupTasksRequest
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -4561,88 +3821,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup details of a PolarDB cluster.
+     * @summary Queries the backup details of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupMode) {
-            @$query['BackupMode'] = $request->backupMode;
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
         }
-
-        if (null !== $request->backupRegion) {
-            @$query['BackupRegion'] = $request->backupRegion;
+        if (!Utils::isUnset($request->backupRegion)) {
+            $query['BackupRegion'] = $request->backupRegion;
         }
-
-        if (null !== $request->backupStatus) {
-            @$query['BackupStatus'] = $request->backupStatus;
+        if (!Utils::isUnset($request->backupStatus)) {
+            $query['BackupStatus'] = $request->backupStatus;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4650,14 +3893,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup details of a PolarDB cluster.
+     * @summary Queries the backup details of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @param request - DescribeBackupsRequest
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -4667,60 +3907,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries character sets that are supported by a PolarDB for MySQL cluster.
+     * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCharacterSetNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeCharacterSetNameResponse
-     *
-     * @param DescribeCharacterSetNameRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeCharacterSetNameResponse
+     * @return DescribeCharacterSetNameResponse DescribeCharacterSetNameResponse
      */
     public function describeCharacterSetNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCharacterSetName',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCharacterSetName',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeCharacterSetNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4728,14 +3958,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries character sets that are supported by a PolarDB for MySQL cluster.
+     * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
      *
-     * @param request - DescribeCharacterSetNameRequest
-     * @returns DescribeCharacterSetNameResponse
-     *
-     * @param DescribeCharacterSetNameRequest $request
-     *
-     * @return DescribeCharacterSetNameResponse
+     * @return DescribeCharacterSetNameResponse DescribeCharacterSetNameResponse
      */
     public function describeCharacterSetName($request)
     {
@@ -4745,72 +3972,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of a cluster.
+     * @summary Queries the specifications of a cluster.
+     *  *
+     * @param DescribeClassListRequest $request DescribeClassListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClassListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeClassListResponse
-     *
-     * @param DescribeClassListRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeClassListResponse
+     * @return DescribeClassListResponse DescribeClassListResponse
      */
     public function describeClassListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->commodityCode) {
-            @$query['CommodityCode'] = $request->commodityCode;
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
         }
-
-        if (null !== $request->masterHa) {
-            @$query['MasterHa'] = $request->masterHa;
+        if (!Utils::isUnset($request->masterHa)) {
+            $query['MasterHa'] = $request->masterHa;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClassList',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClassList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeClassListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4818,14 +4032,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of a cluster.
+     * @summary Queries the specifications of a cluster.
+     *  *
+     * @param DescribeClassListRequest $request DescribeClassListRequest
      *
-     * @param request - DescribeClassListRequest
-     * @returns DescribeClassListResponse
-     *
-     * @param DescribeClassListRequest $request
-     *
-     * @return DescribeClassListResponse
+     * @return DescribeClassListResponse DescribeClassListResponse
      */
     public function describeClassList($request)
     {
@@ -4835,56 +4046,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists and security groups of a PolarDB cluster.
+     * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhitelistRequest $request DescribeDBClusterAccessWhitelistRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterAccessWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterAccessWhitelistResponse
-     *
-     * @param DescribeDBClusterAccessWhitelistRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeDBClusterAccessWhitelistResponse
+     * @return DescribeDBClusterAccessWhitelistResponse DescribeDBClusterAccessWhitelistResponse
      */
     public function describeDBClusterAccessWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAccessWhitelist',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAccessWhitelist',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterAccessWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4892,14 +4094,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists and security groups of a PolarDB cluster.
+     * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhitelistRequest $request DescribeDBClusterAccessWhitelistRequest
      *
-     * @param request - DescribeDBClusterAccessWhitelistRequest
-     * @returns DescribeDBClusterAccessWhitelistResponse
-     *
-     * @param DescribeDBClusterAccessWhitelistRequest $request
-     *
-     * @return DescribeDBClusterAccessWhitelistResponse
+     * @return DescribeDBClusterAccessWhitelistResponse DescribeDBClusterAccessWhitelistResponse
      */
     public function describeDBClusterAccessWhitelist($request)
     {
@@ -4909,60 +4108,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a PolarDB cluster.
+     * @summary Queries information about a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterAttributeResponse
-     *
-     * @param DescribeDBClusterAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->describeType) {
-            @$query['DescribeType'] = $request->describeType;
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAttribute',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4970,14 +4159,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a PolarDB cluster.
+     * @summary Queries information about a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
      *
-     * @param request - DescribeDBClusterAttributeRequest
-     * @returns DescribeDBClusterAttributeResponse
-     *
-     * @param DescribeDBClusterAttributeRequest $request
-     *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -4987,56 +4173,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     *  *
+     * @param DescribeDBClusterAuditLogCollectorRequest $request DescribeDBClusterAuditLogCollectorRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterAuditLogCollectorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterAuditLogCollectorResponse
-     *
-     * @param DescribeDBClusterAuditLogCollectorRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeDBClusterAuditLogCollectorResponse
+     * @return DescribeDBClusterAuditLogCollectorResponse DescribeDBClusterAuditLogCollectorResponse
      */
     public function describeDBClusterAuditLogCollectorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAuditLogCollector',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAuditLogCollector',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterAuditLogCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5044,14 +4221,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     *  *
+     * @param DescribeDBClusterAuditLogCollectorRequest $request DescribeDBClusterAuditLogCollectorRequest
      *
-     * @param request - DescribeDBClusterAuditLogCollectorRequest
-     * @returns DescribeDBClusterAuditLogCollectorResponse
-     *
-     * @param DescribeDBClusterAuditLogCollectorRequest $request
-     *
-     * @return DescribeDBClusterAuditLogCollectorResponse
+     * @return DescribeDBClusterAuditLogCollectorResponse DescribeDBClusterAuditLogCollectorResponse
      */
     public function describeDBClusterAuditLogCollector($request)
     {
@@ -5061,76 +4235,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries available resources in a PolarDB cluster.
+     * @summary Queries available resources in a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAvailableResourcesRequest $request DescribeDBClusterAvailableResourcesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterAvailableResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterAvailableResourcesResponse
-     *
-     * @param DescribeDBClusterAvailableResourcesRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeDBClusterAvailableResourcesResponse
+     * @return DescribeDBClusterAvailableResourcesResponse DescribeDBClusterAvailableResourcesResponse
      */
     public function describeDBClusterAvailableResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBNodeClass) {
-            @$query['DBNodeClass'] = $request->DBNodeClass;
+        if (!Utils::isUnset($request->DBNodeClass)) {
+            $query['DBNodeClass'] = $request->DBNodeClass;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAvailableResources',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAvailableResources',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterAvailableResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5138,14 +4298,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries available resources in a PolarDB cluster.
+     * @summary Queries available resources in a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAvailableResourcesRequest $request DescribeDBClusterAvailableResourcesRequest
      *
-     * @param request - DescribeDBClusterAvailableResourcesRequest
-     * @returns DescribeDBClusterAvailableResourcesResponse
-     *
-     * @param DescribeDBClusterAvailableResourcesRequest $request
-     *
-     * @return DescribeDBClusterAvailableResourcesResponse
+     * @return DescribeDBClusterAvailableResourcesResponse DescribeDBClusterAvailableResourcesResponse
      */
     public function describeDBClusterAvailableResources($request)
     {
@@ -5155,68 +4312,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the source IP address can access a cluster.
+     * @summary Queries whether the source IP address can access a cluster.
+     *  *
+     * @param DescribeDBClusterConnectivityRequest $request DescribeDBClusterConnectivityRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterConnectivityRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterConnectivityResponse
-     *
-     * @param DescribeDBClusterConnectivityRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBClusterConnectivityResponse
+     * @return DescribeDBClusterConnectivityResponse DescribeDBClusterConnectivityResponse
      */
     public function describeDBClusterConnectivityWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceIpAddress) {
-            @$query['SourceIpAddress'] = $request->sourceIpAddress;
+        if (!Utils::isUnset($request->sourceIpAddress)) {
+            $query['SourceIpAddress'] = $request->sourceIpAddress;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterConnectivity',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterConnectivity',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5224,14 +4369,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the source IP address can access a cluster.
+     * @summary Queries whether the source IP address can access a cluster.
+     *  *
+     * @param DescribeDBClusterConnectivityRequest $request DescribeDBClusterConnectivityRequest
      *
-     * @param request - DescribeDBClusterConnectivityRequest
-     * @returns DescribeDBClusterConnectivityResponse
-     *
-     * @param DescribeDBClusterConnectivityRequest $request
-     *
-     * @return DescribeDBClusterConnectivityResponse
+     * @return DescribeDBClusterConnectivityResponse DescribeDBClusterConnectivityResponse
      */
     public function describeDBClusterConnectivity($request)
     {
@@ -5241,64 +4383,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the endpoints of a PolarDB cluster.
+     * @summary Queries the endpoints of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterEndpointsRequest $request DescribeDBClusterEndpointsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterEndpointsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterEndpointsResponse
-     *
-     * @param DescribeDBClusterEndpointsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBClusterEndpointsResponse
+     * @return DescribeDBClusterEndpointsResponse DescribeDBClusterEndpointsResponse
      */
     public function describeDBClusterEndpointsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->describeType) {
-            @$query['DescribeType'] = $request->describeType;
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterEndpoints',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterEndpoints',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5306,14 +4437,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the endpoints of a PolarDB cluster.
+     * @summary Queries the endpoints of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterEndpointsRequest $request DescribeDBClusterEndpointsRequest
      *
-     * @param request - DescribeDBClusterEndpointsRequest
-     * @returns DescribeDBClusterEndpointsResponse
-     *
-     * @param DescribeDBClusterEndpointsRequest $request
-     *
-     * @return DescribeDBClusterEndpointsResponse
+     * @return DescribeDBClusterEndpointsResponse DescribeDBClusterEndpointsResponse
      */
     public function describeDBClusterEndpoints($request)
     {
@@ -5323,59 +4451,49 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The ID of the synchronous task.
+     * @summary The ID of the synchronous task.
+     *  *
+     * @description The ID of the request.
+     *  *
+     * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The ID of the request.
-     *
-     * @param request - DescribeDBClusterMigrationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterMigrationResponse
-     *
-     * @param DescribeDBClusterMigrationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBClusterMigrationResponse
+     * @return DescribeDBClusterMigrationResponse DescribeDBClusterMigrationResponse
      */
     public function describeDBClusterMigrationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterMigration',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterMigration',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5383,17 +4501,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The ID of the synchronous task.
+     * @summary The ID of the synchronous task.
+     *  *
+     * @description The ID of the request.
+     *  *
+     * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      *
-     * @remarks
-     * The ID of the request.
-     *
-     * @param request - DescribeDBClusterMigrationRequest
-     * @returns DescribeDBClusterMigrationResponse
-     *
-     * @param DescribeDBClusterMigrationRequest $request
-     *
-     * @return DescribeDBClusterMigrationResponse
+     * @return DescribeDBClusterMigrationResponse DescribeDBClusterMigrationResponse
      */
     public function describeDBClusterMigration($request)
     {
@@ -5403,56 +4517,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @param DescribeDBClusterMonitorRequest $request DescribeDBClusterMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterMonitorResponse
-     *
-     * @param DescribeDBClusterMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDBClusterMonitorResponse
+     * @return DescribeDBClusterMonitorResponse DescribeDBClusterMonitorResponse
      */
     public function describeDBClusterMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterMonitor',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterMonitor',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5460,14 +4565,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @param DescribeDBClusterMonitorRequest $request DescribeDBClusterMonitorRequest
      *
-     * @param request - DescribeDBClusterMonitorRequest
-     * @returns DescribeDBClusterMonitorResponse
-     *
-     * @param DescribeDBClusterMonitorRequest $request
-     *
-     * @return DescribeDBClusterMonitorResponse
+     * @return DescribeDBClusterMonitorResponse DescribeDBClusterMonitorResponse
      */
     public function describeDBClusterMonitor($request)
     {
@@ -5477,60 +4579,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a PolarDB cluster.
+     * @summary Queries the parameters of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterParametersRequest $request DescribeDBClusterParametersRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterParametersResponse
-     *
-     * @param DescribeDBClusterParametersRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBClusterParametersResponse
+     * @return DescribeDBClusterParametersResponse DescribeDBClusterParametersResponse
      */
     public function describeDBClusterParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->describeType) {
-            @$query['DescribeType'] = $request->describeType;
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterParameters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5538,14 +4630,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a PolarDB cluster.
+     * @summary Queries the parameters of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterParametersRequest $request DescribeDBClusterParametersRequest
      *
-     * @param request - DescribeDBClusterParametersRequest
-     * @returns DescribeDBClusterParametersResponse
-     *
-     * @param DescribeDBClusterParametersRequest $request
-     *
-     * @return DescribeDBClusterParametersResponse
+     * @return DescribeDBClusterParametersResponse DescribeDBClusterParametersResponse
      */
     public function describeDBClusterParameters($request)
     {
@@ -5555,10 +4644,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a PolarDB cluster.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Queries the performance data of a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -5570,59 +4658,49 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
      * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterPerformanceResponse
-     *
-     * @param DescribeDBClusterPerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterPerformance',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5630,10 +4708,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a PolarDB cluster.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Queries the performance data of a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -5645,13 +4722,10 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
      * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
-     * @param request - DescribeDBClusterPerformanceRequest
-     * @returns DescribeDBClusterPerformanceResponse
-     *
-     * @param DescribeDBClusterPerformanceRequest $request
-     *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -5661,56 +4735,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterSSLResponse
-     *
-     * @param DescribeDBClusterSSLRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDBClusterSSLResponse
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
      */
     public function describeDBClusterSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterSSL',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterSSL',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5718,14 +4783,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
      *
-     * @param request - DescribeDBClusterSSLRequest
-     * @returns DescribeDBClusterSSLResponse
-     *
-     * @param DescribeDBClusterSSLRequest $request
-     *
-     * @return DescribeDBClusterSSLResponse
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
      */
     public function describeDBClusterSSL($request)
     {
@@ -5735,56 +4797,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the serverless configurations of a serverless cluster.
+     * @summary Queries the serverless configurations of a serverless cluster.
+     *  *
+     * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterServerlessConfRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterServerlessConfResponse
-     *
-     * @param DescribeDBClusterServerlessConfRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDBClusterServerlessConfResponse
+     * @return DescribeDBClusterServerlessConfResponse DescribeDBClusterServerlessConfResponse
      */
     public function describeDBClusterServerlessConfWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterServerlessConf',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterServerlessConf',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5792,14 +4845,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the serverless configurations of a serverless cluster.
+     * @summary Queries the serverless configurations of a serverless cluster.
+     *  *
+     * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
      *
-     * @param request - DescribeDBClusterServerlessConfRequest
-     * @returns DescribeDBClusterServerlessConfResponse
-     *
-     * @param DescribeDBClusterServerlessConfRequest $request
-     *
-     * @return DescribeDBClusterServerlessConfResponse
+     * @return DescribeDBClusterServerlessConfResponse DescribeDBClusterServerlessConfResponse
      */
     public function describeDBClusterServerlessConf($request)
     {
@@ -5809,56 +4859,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     * @summary Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterTDERequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterTDEResponse
-     *
-     * @param DescribeDBClusterTDERequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDBClusterTDEResponse
+     * @return DescribeDBClusterTDEResponse DescribeDBClusterTDEResponse
      */
     public function describeDBClusterTDEWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterTDE',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterTDE',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterTDEResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5866,14 +4907,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     * @summary Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
      *
-     * @param request - DescribeDBClusterTDERequest
-     * @returns DescribeDBClusterTDEResponse
-     *
-     * @param DescribeDBClusterTDERequest $request
-     *
-     * @return DescribeDBClusterTDEResponse
+     * @return DescribeDBClusterTDEResponse DescribeDBClusterTDEResponse
      */
     public function describeDBClusterTDE($request)
     {
@@ -5883,60 +4921,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClusterVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClusterVersionResponse
-     *
-     * @param DescribeDBClusterVersionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->describeType) {
-            @$query['DescribeType'] = $request->describeType;
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterVersion',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterVersion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterVersionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5944,14 +4972,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
      *
-     * @param request - DescribeDBClusterVersionRequest
-     * @returns DescribeDBClusterVersionResponse
-     *
-     * @param DescribeDBClusterVersionRequest $request
-     *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersion($request)
     {
@@ -5961,120 +4986,95 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClustersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClustersResponse
-     *
-     * @param DescribeDBClustersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->DBClusterDescription) {
-            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (!Utils::isUnset($request->DBClusterDescription)) {
+            $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-
-        if (null !== $request->DBClusterIds) {
-            @$query['DBClusterIds'] = $request->DBClusterIds;
+        if (!Utils::isUnset($request->DBClusterIds)) {
+            $query['DBClusterIds'] = $request->DBClusterIds;
         }
-
-        if (null !== $request->DBClusterStatus) {
-            @$query['DBClusterStatus'] = $request->DBClusterStatus;
+        if (!Utils::isUnset($request->DBClusterStatus)) {
+            $query['DBClusterStatus'] = $request->DBClusterStatus;
         }
-
-        if (null !== $request->DBNodeIds) {
-            @$query['DBNodeIds'] = $request->DBNodeIds;
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->describeType) {
-            @$query['DescribeType'] = $request->describeType;
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
-
-        if (null !== $request->expired) {
-            @$query['Expired'] = $request->expired;
+        if (!Utils::isUnset($request->expired)) {
+            $query['Expired'] = $request->expired;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->recentCreationInterval) {
-            @$query['RecentCreationInterval'] = $request->recentCreationInterval;
+        if (!Utils::isUnset($request->recentCreationInterval)) {
+            $query['RecentCreationInterval'] = $request->recentCreationInterval;
         }
-
-        if (null !== $request->recentExpirationInterval) {
-            @$query['RecentExpirationInterval'] = $request->recentExpirationInterval;
+        if (!Utils::isUnset($request->recentExpirationInterval)) {
+            $query['RecentExpirationInterval'] = $request->recentExpirationInterval;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6082,14 +5082,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
      *
-     * @param request - DescribeDBClustersRequest
-     * @returns DescribeDBClustersResponse
-     *
-     * @param DescribeDBClustersRequest $request
-     *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -6099,88 +5096,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about PolarDB clusters that contain backup sets in a region.
+     * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+     *  *
+     * @param DescribeDBClustersWithBackupsRequest $request DescribeDBClustersWithBackupsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBClustersWithBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBClustersWithBackupsResponse
-     *
-     * @param DescribeDBClustersWithBackupsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBClustersWithBackupsResponse
+     * @return DescribeDBClustersWithBackupsResponse DescribeDBClustersWithBackupsResponse
      */
     public function describeDBClustersWithBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterDescription) {
-            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (!Utils::isUnset($request->DBClusterDescription)) {
+            $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-
-        if (null !== $request->DBClusterIds) {
-            @$query['DBClusterIds'] = $request->DBClusterIds;
+        if (!Utils::isUnset($request->DBClusterIds)) {
+            $query['DBClusterIds'] = $request->DBClusterIds;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->isDeleted) {
-            @$query['IsDeleted'] = $request->isDeleted;
+        if (!Utils::isUnset($request->isDeleted)) {
+            $query['IsDeleted'] = $request->isDeleted;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClustersWithBackups',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClustersWithBackups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClustersWithBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6188,14 +5168,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about PolarDB clusters that contain backup sets in a region.
+     * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+     *  *
+     * @param DescribeDBClustersWithBackupsRequest $request DescribeDBClustersWithBackupsRequest
      *
-     * @param request - DescribeDBClustersWithBackupsRequest
-     * @returns DescribeDBClustersWithBackupsResponse
-     *
-     * @param DescribeDBClustersWithBackupsRequest $request
-     *
-     * @return DescribeDBClustersWithBackupsResponse
+     * @return DescribeDBClustersWithBackupsResponse DescribeDBClustersWithBackupsResponse
      */
     public function describeDBClustersWithBackups($request)
     {
@@ -6205,56 +5182,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     * @summary Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     *  *
+     * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInitializeVariableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBInitializeVariableResponse
-     *
-     * @param DescribeDBInitializeVariableRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDBInitializeVariableResponse
+     * @return DescribeDBInitializeVariableResponse DescribeDBInitializeVariableResponse
      */
     public function describeDBInitializeVariableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInitializeVariable',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInitializeVariable',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInitializeVariableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6262,14 +5230,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     * @summary Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     *  *
+     * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
      *
-     * @param request - DescribeDBInitializeVariableRequest
-     * @returns DescribeDBInitializeVariableResponse
-     *
-     * @param DescribeDBInitializeVariableRequest $request
-     *
-     * @return DescribeDBInitializeVariableResponse
+     * @return DescribeDBInitializeVariableResponse DescribeDBInitializeVariableResponse
      */
     public function describeDBInitializeVariable($request)
     {
@@ -6279,63 +5244,52 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *  *
+     * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-     *
-     * @param request - DescribeDBLinksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBLinksResponse
-     *
-     * @param DescribeDBLinksRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDBLinksResponse
+     * @return DescribeDBLinksResponse DescribeDBLinksResponse
      */
     public function describeDBLinksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBLinkName) {
-            @$query['DBLinkName'] = $request->DBLinkName;
+        if (!Utils::isUnset($request->DBLinkName)) {
+            $query['DBLinkName'] = $request->DBLinkName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBLinks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBLinks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBLinksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6343,17 +5297,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *  *
+     * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
      *
-     * @remarks
-     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-     *
-     * @param request - DescribeDBLinksRequest
-     * @returns DescribeDBLinksResponse
-     *
-     * @param DescribeDBLinksRequest $request
-     *
-     * @return DescribeDBLinksResponse
+     * @return DescribeDBLinksResponse DescribeDBLinksResponse
      */
     public function describeDBLinks($request)
     {
@@ -6363,10 +5313,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a node in a PolarDB cluster.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Queries the performance data of a node in a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -6378,63 +5327,52 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
      * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBNodePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBNodePerformanceResponse
-     *
-     * @param DescribeDBNodePerformanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBNodePerformance',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBNodePerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6442,10 +5380,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a node in a PolarDB cluster.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Queries the performance data of a node in a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -6457,13 +5394,10 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
      * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
      *
-     * @param request - DescribeDBNodePerformanceRequest
-     * @returns DescribeDBNodePerformanceResponse
-     *
-     * @param DescribeDBNodePerformanceRequest $request
-     *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformance($request)
     {
@@ -6473,60 +5407,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a specified node in a cluster.
+     * @summary Queries the parameters of a specified node in a cluster.
+     *  *
+     * @param DescribeDBNodesParametersRequest $request DescribeDBNodesParametersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBNodesParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBNodesParametersResponse
-     *
-     * @param DescribeDBNodesParametersRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBNodesParametersResponse
+     * @return DescribeDBNodesParametersResponse DescribeDBNodesParametersResponse
      */
     public function describeDBNodesParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeIds) {
-            @$query['DBNodeIds'] = $request->DBNodeIds;
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBNodesParameters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBNodesParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBNodesParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6534,14 +5458,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a specified node in a cluster.
+     * @summary Queries the parameters of a specified node in a cluster.
+     *  *
+     * @param DescribeDBNodesParametersRequest $request DescribeDBNodesParametersRequest
      *
-     * @param request - DescribeDBNodesParametersRequest
-     * @returns DescribeDBNodesParametersResponse
-     *
-     * @param DescribeDBNodesParametersRequest $request
-     *
-     * @return DescribeDBNodesParametersResponse
+     * @return DescribeDBNodesParametersResponse DescribeDBNodesParametersResponse
      */
     public function describeDBNodesParameters($request)
     {
@@ -6551,71 +5472,58 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of PolarProxy.
+     * @summary Queries the performance data of PolarProxy.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *
-     * @param request - DescribeDBProxyPerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDBProxyPerformanceResponse
-     *
-     * @param DescribeDBProxyPerformanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBProxyPerformanceResponse
+     * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
      */
     public function describeDBProxyPerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBProxyPerformance',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBProxyPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBProxyPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6623,17 +5531,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of PolarProxy.
+     * @summary Queries the performance data of PolarProxy.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      *
-     * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *
-     * @param request - DescribeDBProxyPerformanceRequest
-     * @returns DescribeDBProxyPerformanceResponse
-     *
-     * @param DescribeDBProxyPerformanceRequest $request
-     *
-     * @return DescribeDBProxyPerformanceResponse
+     * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
      */
     public function describeDBProxyPerformance($request)
     {
@@ -6643,56 +5547,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a cluster in Database Autonomy Service (DAS).
+     * @summary Queries the configurations of a cluster in Database Autonomy Service (DAS).
+     *  *
+     * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDasConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDasConfigResponse
-     *
-     * @param DescribeDasConfigRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeDasConfigResponse
+     * @return DescribeDasConfigResponse DescribeDasConfigResponse
      */
     public function describeDasConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDasConfig',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDasConfig',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDasConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6700,14 +5595,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a cluster in Database Autonomy Service (DAS).
+     * @summary Queries the configurations of a cluster in Database Autonomy Service (DAS).
+     *  *
+     * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
      *
-     * @param request - DescribeDasConfigRequest
-     * @returns DescribeDasConfigResponse
-     *
-     * @param DescribeDasConfigRequest $request
-     *
-     * @return DescribeDasConfigResponse
+     * @return DescribeDasConfigResponse DescribeDasConfigResponse
      */
     public function describeDasConfig($request)
     {
@@ -6717,68 +5609,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about databases in a PolarDB cluster.
+     * @summary Queries the information about databases in a PolarDB cluster.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDatabasesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDatabasesResponse
-     *
-     * @param DescribeDatabasesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabasesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDatabases',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDatabases',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6786,14 +5666,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about databases in a PolarDB cluster.
+     * @summary Queries the information about databases in a PolarDB cluster.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      *
-     * @param request - DescribeDatabasesRequest
-     * @returns DescribeDatabasesResponse
-     *
-     * @param DescribeDatabasesRequest $request
-     *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabases($request)
     {
@@ -6803,92 +5680,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the backup sets in a released PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     * @summary Queries the information about the backup sets in a released PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
      * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+     *  *
+     * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDetachedBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDetachedBackupsResponse
-     *
-     * @param DescribeDetachedBackupsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDetachedBackupsResponse
+     * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
      */
     public function describeDetachedBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->backupMode) {
-            @$query['BackupMode'] = $request->backupMode;
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
         }
-
-        if (null !== $request->backupRegion) {
-            @$query['BackupRegion'] = $request->backupRegion;
+        if (!Utils::isUnset($request->backupRegion)) {
+            $query['BackupRegion'] = $request->backupRegion;
         }
-
-        if (null !== $request->backupStatus) {
-            @$query['BackupStatus'] = $request->backupStatus;
+        if (!Utils::isUnset($request->backupStatus)) {
+            $query['BackupStatus'] = $request->backupStatus;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDetachedBackups',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDetachedBackups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDetachedBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6896,18 +5755,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the backup sets in a released PolarDB cluster.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     * @summary Queries the information about the backup sets in a released PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
      * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+     *  *
+     * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      *
-     * @param request - DescribeDetachedBackupsRequest
-     * @returns DescribeDetachedBackupsResponse
-     *
-     * @param DescribeDetachedBackupsRequest $request
-     *
-     * @return DescribeDetachedBackupsResponse
+     * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
      */
     public function describeDetachedBackups($request)
     {
@@ -6917,64 +5772,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Global Database Network (GDN).
+     * @summary Queries the information about a Global Database Network (GDN).
+     *  *
+     * @param DescribeGlobalDatabaseNetworkRequest $request DescribeGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGlobalDatabaseNetworkResponse
-     *
-     * @param DescribeGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeGlobalDatabaseNetworkResponse
+     * @return DescribeGlobalDatabaseNetworkResponse DescribeGlobalDatabaseNetworkResponse
      */
     public function describeGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6982,14 +5826,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Global Database Network (GDN).
+     * @summary Queries the information about a Global Database Network (GDN).
+     *  *
+     * @param DescribeGlobalDatabaseNetworkRequest $request DescribeGlobalDatabaseNetworkRequest
      *
-     * @param request - DescribeGlobalDatabaseNetworkRequest
-     * @returns DescribeGlobalDatabaseNetworkResponse
-     *
-     * @param DescribeGlobalDatabaseNetworkRequest $request
-     *
-     * @return DescribeGlobalDatabaseNetworkResponse
+     * @return DescribeGlobalDatabaseNetworkResponse DescribeGlobalDatabaseNetworkResponse
      */
     public function describeGlobalDatabaseNetwork($request)
     {
@@ -6999,84 +5840,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     *  *
+     * @param DescribeGlobalDatabaseNetworksRequest $request DescribeGlobalDatabaseNetworksRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalDatabaseNetworksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGlobalDatabaseNetworksResponse
-     *
-     * @param DescribeGlobalDatabaseNetworksRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeGlobalDatabaseNetworksResponse
+     * @return DescribeGlobalDatabaseNetworksResponse DescribeGlobalDatabaseNetworksResponse
      */
     public function describeGlobalDatabaseNetworksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->filterRegion) {
-            @$query['FilterRegion'] = $request->filterRegion;
+        if (!Utils::isUnset($request->filterRegion)) {
+            $query['FilterRegion'] = $request->filterRegion;
         }
-
-        if (null !== $request->GDNDescription) {
-            @$query['GDNDescription'] = $request->GDNDescription;
+        if (!Utils::isUnset($request->GDNDescription)) {
+            $query['GDNDescription'] = $request->GDNDescription;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalDatabaseNetworks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalDatabaseNetworks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGlobalDatabaseNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7084,14 +5909,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     *  *
+     * @param DescribeGlobalDatabaseNetworksRequest $request DescribeGlobalDatabaseNetworksRequest
      *
-     * @param request - DescribeGlobalDatabaseNetworksRequest
-     * @returns DescribeGlobalDatabaseNetworksResponse
-     *
-     * @param DescribeGlobalDatabaseNetworksRequest $request
-     *
-     * @return DescribeGlobalDatabaseNetworksResponse
+     * @return DescribeGlobalDatabaseNetworksResponse DescribeGlobalDatabaseNetworksResponse
      */
     public function describeGlobalDatabaseNetworks($request)
     {
@@ -7101,68 +5923,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalSecurityIPGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalSecurityIPGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7170,14 +5980,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -7187,68 +5994,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the relationship between a cluster and a global IP whitelist template.
+     * @summary Queries the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalSecurityIPGroupRelation',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalSecurityIPGroupRelation',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7256,14 +6051,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the relationship between a cluster and a global IP whitelist template.
+     * @summary Queries the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -7273,56 +6065,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information of a license order.
+     * @summary Queries the information of a license order.
+     *  *
+     * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLicenseOrderDetailsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLicenseOrderDetailsResponse
-     *
-     * @param DescribeLicenseOrderDetailsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeLicenseOrderDetailsResponse
+     * @return DescribeLicenseOrderDetailsResponse DescribeLicenseOrderDetailsResponse
      */
     public function describeLicenseOrderDetailsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunOrderId) {
-            @$query['AliyunOrderId'] = $request->aliyunOrderId;
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLicenseOrderDetails',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLicenseOrderDetails',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLicenseOrderDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7330,14 +6113,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information of a license order.
+     * @summary Queries the information of a license order.
+     *  *
+     * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
      *
-     * @param request - DescribeLicenseOrderDetailsRequest
-     * @returns DescribeLicenseOrderDetailsResponse
-     *
-     * @param DescribeLicenseOrderDetailsRequest $request
-     *
-     * @return DescribeLicenseOrderDetailsResponse
+     * @return DescribeLicenseOrderDetailsResponse DescribeLicenseOrderDetailsResponse
      */
     public function describeLicenseOrderDetails($request)
     {
@@ -7347,76 +6127,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of license orders.
+     * @summary Queries a list of license orders.
+     *  *
+     * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLicenseOrdersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLicenseOrdersResponse
-     *
-     * @param DescribeLicenseOrdersRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeLicenseOrdersResponse
+     * @return DescribeLicenseOrdersResponse DescribeLicenseOrdersResponse
      */
     public function describeLicenseOrdersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunOrderId) {
-            @$query['AliyunOrderId'] = $request->aliyunOrderId;
+        if (!Utils::isUnset($request->aliyunOrderId)) {
+            $query['AliyunOrderId'] = $request->aliyunOrderId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->packageType) {
-            @$query['PackageType'] = $request->packageType;
+        if (!Utils::isUnset($request->packageType)) {
+            $query['PackageType'] = $request->packageType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->purchaseChannel) {
-            @$query['PurchaseChannel'] = $request->purchaseChannel;
+        if (!Utils::isUnset($request->purchaseChannel)) {
+            $query['PurchaseChannel'] = $request->purchaseChannel;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->virtualOrder) {
-            @$query['VirtualOrder'] = $request->virtualOrder;
+        if (!Utils::isUnset($request->virtualOrder)) {
+            $query['VirtualOrder'] = $request->virtualOrder;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLicenseOrders',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLicenseOrders',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLicenseOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7424,14 +6190,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of license orders.
+     * @summary Queries a list of license orders.
+     *  *
+     * @param DescribeLicenseOrdersRequest $request DescribeLicenseOrdersRequest
      *
-     * @param request - DescribeLicenseOrdersRequest
-     * @returns DescribeLicenseOrdersResponse
-     *
-     * @param DescribeLicenseOrdersRequest $request
-     *
-     * @return DescribeLicenseOrdersResponse
+     * @return DescribeLicenseOrdersResponse DescribeLicenseOrdersResponse
      */
     public function describeLicenseOrders($request)
     {
@@ -7441,56 +6204,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the retention policy of log backups in a PolarDB cluster.
+     * @summary Queries the retention policy of log backups in a PolarDB cluster.
+     *  *
+     * @param DescribeLogBackupPolicyRequest $request DescribeLogBackupPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLogBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLogBackupPolicyResponse
-     *
-     * @param DescribeLogBackupPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeLogBackupPolicyResponse
+     * @return DescribeLogBackupPolicyResponse DescribeLogBackupPolicyResponse
      */
     public function describeLogBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogBackupPolicy',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLogBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7498,14 +6252,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the retention policy of log backups in a PolarDB cluster.
+     * @summary Queries the retention policy of log backups in a PolarDB cluster.
+     *  *
+     * @param DescribeLogBackupPolicyRequest $request DescribeLogBackupPolicyRequest
      *
-     * @param request - DescribeLogBackupPolicyRequest
-     * @returns DescribeLogBackupPolicyResponse
-     *
-     * @param DescribeLogBackupPolicyRequest $request
-     *
-     * @return DescribeLogBackupPolicyResponse
+     * @return DescribeLogBackupPolicyResponse DescribeLogBackupPolicyResponse
      */
     public function describeLogBackupPolicy($request)
     {
@@ -7515,44 +6266,41 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMaskingRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeMaskingRulesResponse
-     *
-     * @param DescribeMaskingRulesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ruleNameList) {
-            @$query['RuleNameList'] = $request->ruleNameList;
+        if (!Utils::isUnset($request->interfaceVersion)) {
+            $query['InterfaceVersion'] = $request->interfaceVersion;
         }
-
+        if (!Utils::isUnset($request->ruleNameList)) {
+            $query['RuleNameList'] = $request->ruleNameList;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMaskingRules',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMaskingRules',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7560,14 +6308,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
      *
-     * @param request - DescribeMaskingRulesRequest
-     * @returns DescribeMaskingRulesResponse
-     *
-     * @param DescribeMaskingRulesRequest $request
-     *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRules($request)
     {
@@ -7577,84 +6322,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the databases or tables that can be restored.
+     * @summary Queries the details of the databases or tables that can be restored.
+     *  *
+     * @param DescribeMetaListRequest $request DescribeMetaListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMetaListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeMetaListResponse
-     *
-     * @param DescribeMetaListRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeMetaListResponse
+     * @return DescribeMetaListResponse DescribeMetaListResponse
      */
     public function describeMetaListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->getDbName) {
-            @$query['GetDbName'] = $request->getDbName;
+        if (!Utils::isUnset($request->getDbName)) {
+            $query['GetDbName'] = $request->getDbName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionCode) {
-            @$query['RegionCode'] = $request->regionCode;
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetaList',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetaList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7662,14 +6391,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the databases or tables that can be restored.
+     * @summary Queries the details of the databases or tables that can be restored.
+     *  *
+     * @param DescribeMetaListRequest $request DescribeMetaListRequest
      *
-     * @param request - DescribeMetaListRequest
-     * @returns DescribeMetaListResponse
-     *
-     * @param DescribeMetaListRequest $request
-     *
-     * @return DescribeMetaListResponse
+     * @return DescribeMetaListResponse DescribeMetaListResponse
      */
     public function describeMetaList($request)
     {
@@ -7679,68 +6405,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a parameter template.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeParameterGroupResponse
-     *
-     * @param DescribeParameterGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7748,18 +6462,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a parameter template.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
-     * @param request - DescribeParameterGroupRequest
-     * @returns DescribeParameterGroupResponse
-     *
-     * @param DescribeParameterGroupRequest $request
-     *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroup($request)
     {
@@ -7769,72 +6479,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries parameter templates that are available in a specified region.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Queries parameter templates that are available in a specified region.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeParameterGroupsResponse
-     *
-     * @param DescribeParameterGroupsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterGroups',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterGroups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7842,18 +6539,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries parameter templates that are available in a specified region.
-     *
-     * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Queries parameter templates that are available in a specified region.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
-     * @param request - DescribeParameterGroupsRequest
-     * @returns DescribeParameterGroupsResponse
-     *
-     * @param DescribeParameterGroupsRequest $request
-     *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroups($request)
     {
@@ -7863,68 +6556,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the default parameters in a cluster.
+     * @summary Queries the default parameters in a cluster.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterTemplates',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterTemplates',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7932,14 +6613,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the default parameters in a cluster.
+     * @summary Queries the default parameters in a cluster.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @param request - DescribeParameterTemplatesRequest
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -7949,80 +6627,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a pending event.
+     * @summary Queries the information about a pending event.
+     *  *
+     * @param DescribePendingMaintenanceActionRequest $request DescribePendingMaintenanceActionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePendingMaintenanceActionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePendingMaintenanceActionResponse
-     *
-     * @param DescribePendingMaintenanceActionRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribePendingMaintenanceActionResponse
+     * @return DescribePendingMaintenanceActionResponse DescribePendingMaintenanceActionResponse
      */
     public function describePendingMaintenanceActionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePendingMaintenanceAction',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePendingMaintenanceAction',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePendingMaintenanceActionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8030,14 +6693,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a pending event.
+     * @summary Queries the information about a pending event.
+     *  *
+     * @param DescribePendingMaintenanceActionRequest $request DescribePendingMaintenanceActionRequest
      *
-     * @param request - DescribePendingMaintenanceActionRequest
-     * @returns DescribePendingMaintenanceActionResponse
-     *
-     * @param DescribePendingMaintenanceActionRequest $request
-     *
-     * @return DescribePendingMaintenanceActionResponse
+     * @return DescribePendingMaintenanceActionResponse DescribePendingMaintenanceActionResponse
      */
     public function describePendingMaintenanceAction($request)
     {
@@ -8047,68 +6707,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of scheduled events for different types of tasks.
+     * @summary Queries the numbers of scheduled events for different types of tasks.
+     *  *
+     * @param DescribePendingMaintenanceActionsRequest $request DescribePendingMaintenanceActionsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePendingMaintenanceActionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePendingMaintenanceActionsResponse
-     *
-     * @param DescribePendingMaintenanceActionsRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribePendingMaintenanceActionsResponse
+     * @return DescribePendingMaintenanceActionsResponse DescribePendingMaintenanceActionsResponse
      */
     public function describePendingMaintenanceActionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePendingMaintenanceActions',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePendingMaintenanceActions',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePendingMaintenanceActionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8116,14 +6764,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of scheduled events for different types of tasks.
+     * @summary Queries the numbers of scheduled events for different types of tasks.
+     *  *
+     * @param DescribePendingMaintenanceActionsRequest $request DescribePendingMaintenanceActionsRequest
      *
-     * @param request - DescribePendingMaintenanceActionsRequest
-     * @returns DescribePendingMaintenanceActionsResponse
-     *
-     * @param DescribePendingMaintenanceActionsRequest $request
-     *
-     * @return DescribePendingMaintenanceActionsResponse
+     * @return DescribePendingMaintenanceActionsResponse DescribePendingMaintenanceActionsResponse
      */
     public function describePendingMaintenanceActions($request)
     {
@@ -8133,36 +6778,32 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the SQL Explorer feature is enabled for the cluster.
+     * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+     *  *
+     * @param DescribePolarSQLCollectorPolicyRequest $request DescribePolarSQLCollectorPolicyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePolarSQLCollectorPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePolarSQLCollectorPolicyResponse
-     *
-     * @param DescribePolarSQLCollectorPolicyRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribePolarSQLCollectorPolicyResponse
+     * @return DescribePolarSQLCollectorPolicyResponse DescribePolarSQLCollectorPolicyResponse
      */
     public function describePolarSQLCollectorPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePolarSQLCollectorPolicy',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePolarSQLCollectorPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePolarSQLCollectorPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8170,14 +6811,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the SQL Explorer feature is enabled for the cluster.
+     * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+     *  *
+     * @param DescribePolarSQLCollectorPolicyRequest $request DescribePolarSQLCollectorPolicyRequest
      *
-     * @param request - DescribePolarSQLCollectorPolicyRequest
-     * @returns DescribePolarSQLCollectorPolicyResponse
-     *
-     * @param DescribePolarSQLCollectorPolicyRequest $request
-     *
-     * @return DescribePolarSQLCollectorPolicyResponse
+     * @return DescribePolarSQLCollectorPolicyResponse DescribePolarSQLCollectorPolicyResponse
      */
     public function describePolarSQLCollectorPolicy($request)
     {
@@ -8187,52 +6825,44 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the regions and zones available for PolarDB.
+     * @summary Queries the regions and zones available for PolarDB.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8240,14 +6870,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the regions and zones available for PolarDB.
+     * @summary Queries the regions and zones available for PolarDB.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -8257,96 +6884,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of all scheduled tasks.
+     * @summary Queries the details of all scheduled tasks.
+     *  *
+     * @param DescribeScheduleTasksRequest $request DescribeScheduleTasksRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScheduleTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScheduleTasksResponse
-     *
-     * @param DescribeScheduleTasksRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeScheduleTasksResponse
+     * @return DescribeScheduleTasksResponse DescribeScheduleTasksResponse
      */
     public function describeScheduleTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterDescription) {
-            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (!Utils::isUnset($request->DBClusterDescription)) {
+            $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->orderId) {
-            @$query['OrderId'] = $request->orderId;
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskAction) {
-            @$query['TaskAction'] = $request->taskAction;
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScheduleTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScheduleTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScheduleTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8354,14 +6962,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of all scheduled tasks.
+     * @summary Queries the details of all scheduled tasks.
+     *  *
+     * @param DescribeScheduleTasksRequest $request DescribeScheduleTasksRequest
      *
-     * @param request - DescribeScheduleTasksRequest
-     * @returns DescribeScheduleTasksResponse
-     *
-     * @param DescribeScheduleTasksRequest $request
-     *
-     * @return DescribeScheduleTasksResponse
+     * @return DescribeScheduleTasksResponse DescribeScheduleTasksResponse
      */
     public function describeScheduleTasks($request)
     {
@@ -8371,92 +6976,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Slow Log Details.
-     *
-     * @remarks
-     * >- Only PolarDB MySQL Edition clusters support calling this interface.
+     * @summary Slow Log Details
+     *  *
+     * @description >- Only PolarDB MySQL Edition clusters support calling this interface.
      * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->SQLHASH) {
-            @$query['SQLHASH'] = $request->SQLHASH;
+        if (!Utils::isUnset($request->SQLHASH)) {
+            $query['SQLHASH'] = $request->SQLHASH;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogRecords',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8464,18 +7051,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Slow Log Details.
-     *
-     * @remarks
-     * >- Only PolarDB MySQL Edition clusters support calling this interface.
+     * @summary Slow Log Details
+     *  *
+     * @description >- Only PolarDB MySQL Edition clusters support calling this interface.
      * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -8485,83 +7068,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about the slow query logs of a PolarDB cluster.
+     * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *
-     * @param request - DescribeSlowLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeSlowLogsResponse
-     *
-     * @param DescribeSlowLogsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeSlowLogsResponse
+     * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
      */
     public function describeSlowLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogs',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8569,17 +7136,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about the slow query logs of a PolarDB cluster.
+     * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
+     * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
-     * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *
-     * @param request - DescribeSlowLogsRequest
-     * @returns DescribeSlowLogsResponse
-     *
-     * @param DescribeSlowLogsRequest $request
-     *
-     * @return DescribeSlowLogsResponse
+     * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
      */
     public function describeSlowLogs($request)
     {
@@ -8589,84 +7152,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
-     *
-     * @remarks
-     *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
+     * @summary Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
+     *  *
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
      * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *  *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeTasksResponse
-     *
-     * @param DescribeTasksRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8674,18 +7221,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
-     *
-     * @remarks
-     *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
+     * @summary Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
+     *  *
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
      * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *  *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
      *
-     * @param request - DescribeTasksRequest
-     * @returns DescribeTasksResponse
-     *
-     * @param DescribeTasksRequest $request
-     *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -8695,64 +7238,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUserEncryptionKeyListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->TDERegion) {
-            @$query['TDERegion'] = $request->TDERegion;
+        if (!Utils::isUnset($request->TDERegion)) {
+            $query['TDERegion'] = $request->TDERegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEncryptionKeyList',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEncryptionKeyList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8760,14 +7292,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @param request - DescribeUserEncryptionKeyListRequest
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -8777,84 +7306,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a vSwitch.
+     * @summary Queries a vSwitch.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVSwitchesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeVSwitchesResponse
-     *
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitchesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedHostGroupId) {
-            @$query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVSwitches',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVSwitches',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8862,14 +7375,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a vSwitch.
+     * @summary Queries a vSwitch.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
-     * @param request - DescribeVSwitchesRequest
-     * @returns DescribeVSwitchesResponse
-     *
-     * @param DescribeVSwitchesRequest $request
-     *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitches($request)
     {
@@ -8879,56 +7389,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables a stable serverless cluster.
+     * @summary Disables a stable serverless cluster.
+     *  *
+     * @param DisableDBClusterServerlessRequest $request DisableDBClusterServerlessRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableDBClusterServerlessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableDBClusterServerlessResponse
-     *
-     * @param DisableDBClusterServerlessRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DisableDBClusterServerlessResponse
+     * @return DisableDBClusterServerlessResponse DisableDBClusterServerlessResponse
      */
     public function disableDBClusterServerlessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableDBClusterServerless',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableDBClusterServerless',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableDBClusterServerlessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8936,14 +7437,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables a stable serverless cluster.
+     * @summary Disables a stable serverless cluster.
+     *  *
+     * @param DisableDBClusterServerlessRequest $request DisableDBClusterServerlessRequest
      *
-     * @param request - DisableDBClusterServerlessRequest
-     * @returns DisableDBClusterServerlessResponse
-     *
-     * @param DisableDBClusterServerlessRequest $request
-     *
-     * @return DisableDBClusterServerlessResponse
+     * @return DisableDBClusterServerlessResponse DisableDBClusterServerlessResponse
      */
     public function disableDBClusterServerless($request)
     {
@@ -8953,80 +7451,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables a stable serverless cluster.
+     * @summary Enables a stable serverless cluster.
+     *  *
+     * @param EnableDBClusterServerlessRequest $request EnableDBClusterServerlessRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableDBClusterServerlessRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableDBClusterServerlessResponse
-     *
-     * @param EnableDBClusterServerlessRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return EnableDBClusterServerlessResponse
+     * @return EnableDBClusterServerlessResponse EnableDBClusterServerlessResponse
      */
     public function enableDBClusterServerlessWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scaleApRoNumMax) {
-            @$query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
+        if (!Utils::isUnset($request->scaleApRoNumMax)) {
+            $query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
         }
-
-        if (null !== $request->scaleApRoNumMin) {
-            @$query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
+        if (!Utils::isUnset($request->scaleApRoNumMin)) {
+            $query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
         }
-
-        if (null !== $request->scaleMax) {
-            @$query['ScaleMax'] = $request->scaleMax;
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
         }
-
-        if (null !== $request->scaleMin) {
-            @$query['ScaleMin'] = $request->scaleMin;
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
         }
-
-        if (null !== $request->scaleRoNumMax) {
-            @$query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
         }
-
-        if (null !== $request->scaleRoNumMin) {
-            @$query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableDBClusterServerless',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableDBClusterServerless',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableDBClusterServerlessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9034,14 +7517,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables a stable serverless cluster.
+     * @summary Enables a stable serverless cluster.
+     *  *
+     * @param EnableDBClusterServerlessRequest $request EnableDBClusterServerlessRequest
      *
-     * @param request - EnableDBClusterServerlessRequest
-     * @returns EnableDBClusterServerlessResponse
-     *
-     * @param EnableDBClusterServerlessRequest $request
-     *
-     * @return EnableDBClusterServerlessResponse
+     * @return EnableDBClusterServerlessResponse EnableDBClusterServerlessResponse
      */
     public function enableDBClusterServerless($request)
     {
@@ -9051,64 +7531,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the status of SQL firewall rules for a cluster.
+     * @summary Modifies the status of SQL firewall rules for a cluster.
+     *  *
+     * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableFirewallRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableFirewallRulesResponse
-     *
-     * @param EnableFirewallRulesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return EnableFirewallRulesResponse
+     * @return EnableFirewallRulesResponse EnableFirewallRulesResponse
      */
     public function enableFirewallRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->enable) {
-            @$query['Enable'] = $request->enable;
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->ruleNameList) {
-            @$query['RuleNameList'] = $request->ruleNameList;
+        if (!Utils::isUnset($request->ruleNameList)) {
+            $query['RuleNameList'] = $request->ruleNameList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableFirewallRules',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableFirewallRules',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9116,14 +7585,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the status of SQL firewall rules for a cluster.
+     * @summary Modifies the status of SQL firewall rules for a cluster.
+     *  *
+     * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
      *
-     * @param request - EnableFirewallRulesRequest
-     * @returns EnableFirewallRulesResponse
-     *
-     * @param EnableFirewallRulesRequest $request
-     *
-     * @return EnableFirewallRulesResponse
+     * @return EnableFirewallRulesResponse EnableFirewallRulesResponse
      */
     public function enableFirewallRules($request)
     {
@@ -9133,92 +7599,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Evaluates available resources.
+     * @summary Evaluates available resources.
+     *  *
+     * @param EvaluateRegionResourceRequest $request EvaluateRegionResourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EvaluateRegionResourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EvaluateRegionResourceResponse
-     *
-     * @param EvaluateRegionResourceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return EvaluateRegionResourceResponse
+     * @return EvaluateRegionResourceResponse EvaluateRegionResourceResponse
      */
     public function evaluateRegionResourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceConnType) {
-            @$query['DBInstanceConnType'] = $request->DBInstanceConnType;
+        if (!Utils::isUnset($request->DBInstanceConnType)) {
+            $query['DBInstanceConnType'] = $request->DBInstanceConnType;
         }
-
-        if (null !== $request->DBNodeClass) {
-            @$query['DBNodeClass'] = $request->DBNodeClass;
+        if (!Utils::isUnset($request->DBNodeClass)) {
+            $query['DBNodeClass'] = $request->DBNodeClass;
         }
-
-        if (null !== $request->DBType) {
-            @$query['DBType'] = $request->DBType;
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
         }
-
-        if (null !== $request->DBVersion) {
-            @$query['DBVersion'] = $request->DBVersion;
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
-
-        if (null !== $request->dispenseMode) {
-            @$query['DispenseMode'] = $request->dispenseMode;
+        if (!Utils::isUnset($request->dispenseMode)) {
+            $query['DispenseMode'] = $request->dispenseMode;
         }
-
-        if (null !== $request->needMaxScaleLink) {
-            @$query['NeedMaxScaleLink'] = $request->needMaxScaleLink;
+        if (!Utils::isUnset($request->needMaxScaleLink)) {
+            $query['NeedMaxScaleLink'] = $request->needMaxScaleLink;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subDomain) {
-            @$query['SubDomain'] = $request->subDomain;
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EvaluateRegionResource',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EvaluateRegionResource',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EvaluateRegionResourceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9226,14 +7674,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Evaluates available resources.
+     * @summary Evaluates available resources.
+     *  *
+     * @param EvaluateRegionResourceRequest $request EvaluateRegionResourceRequest
      *
-     * @param request - EvaluateRegionResourceRequest
-     * @returns EvaluateRegionResourceResponse
-     *
-     * @param EvaluateRegionResourceRequest $request
-     *
-     * @return EvaluateRegionResourceResponse
+     * @return EvaluateRegionResourceResponse EvaluateRegionResourceResponse
      */
     public function evaluateRegionResource($request)
     {
@@ -9243,72 +7688,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     *  *
+     * @param FailoverDBClusterRequest $request FailoverDBClusterRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - FailoverDBClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns FailoverDBClusterResponse
-     *
-     * @param FailoverDBClusterRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return FailoverDBClusterResponse
+     * @return FailoverDBClusterResponse FailoverDBClusterResponse
      */
     public function failoverDBClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->rollBackForDisaster) {
-            @$query['RollBackForDisaster'] = $request->rollBackForDisaster;
+        if (!Utils::isUnset($request->rollBackForDisaster)) {
+            $query['RollBackForDisaster'] = $request->rollBackForDisaster;
         }
-
-        if (null !== $request->targetDBNodeId) {
-            @$query['TargetDBNodeId'] = $request->targetDBNodeId;
+        if (!Utils::isUnset($request->targetDBNodeId)) {
+            $query['TargetDBNodeId'] = $request->targetDBNodeId;
         }
-
-        if (null !== $request->targetZoneType) {
-            @$query['TargetZoneType'] = $request->targetZoneType;
+        if (!Utils::isUnset($request->targetZoneType)) {
+            $query['TargetZoneType'] = $request->targetZoneType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FailoverDBCluster',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FailoverDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return FailoverDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9316,14 +7748,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     *  *
+     * @param FailoverDBClusterRequest $request FailoverDBClusterRequest
      *
-     * @param request - FailoverDBClusterRequest
-     * @returns FailoverDBClusterResponse
-     *
-     * @param FailoverDBClusterRequest $request
-     *
-     * @return FailoverDBClusterResponse
+     * @return FailoverDBClusterResponse FailoverDBClusterResponse
      */
     public function failoverDBCluster($request)
     {
@@ -9333,75 +7762,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
-     *
-     * @remarks
-     * > *   An account can be authorized to access one or more databases.
+     * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+     *  *
+     * @description > *   An account can be authorized to access one or more databases.
      * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
      * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
      * > *   You can call this operation only on a PolarDB for MySQL cluster.
      * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *  *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GrantAccountPrivilegeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GrantAccountPrivilegeResponse
-     *
-     * @param GrantAccountPrivilegeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPrivilege) {
-            @$query['AccountPrivilege'] = $request->accountPrivilege;
+        if (!Utils::isUnset($request->accountPrivilege)) {
+            $query['AccountPrivilege'] = $request->accountPrivilege;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantAccountPrivilege',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantAccountPrivilege',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GrantAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9409,21 +7825,17 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
-     *
-     * @remarks
-     * > *   An account can be authorized to access one or more databases.
+     * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+     *  *
+     * @description > *   An account can be authorized to access one or more databases.
      * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
      * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
      * > *   You can call this operation only on a PolarDB for MySQL cluster.
      * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *  *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
-     * @param request - GrantAccountPrivilegeRequest
-     * @returns GrantAccountPrivilegeResponse
-     *
-     * @param GrantAccountPrivilegeRequest $request
-     *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilege($request)
     {
@@ -9433,72 +7845,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9506,14 +7905,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -9523,60 +7919,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Manually starts a cluster.
+     * @summary Manually starts a cluster.
+     *  *
+     * @param ManuallyStartDBClusterRequest $request ManuallyStartDBClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ManuallyStartDBClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ManuallyStartDBClusterResponse
-     *
-     * @param ManuallyStartDBClusterRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ManuallyStartDBClusterResponse
+     * @return ManuallyStartDBClusterResponse ManuallyStartDBClusterResponse
      */
     public function manuallyStartDBClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ManuallyStartDBCluster',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManuallyStartDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ManuallyStartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9584,14 +7970,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Manually starts a cluster.
+     * @summary Manually starts a cluster.
+     *  *
+     * @param ManuallyStartDBClusterRequest $request ManuallyStartDBClusterRequest
      *
-     * @param request - ManuallyStartDBClusterRequest
-     * @returns ManuallyStartDBClusterResponse
-     *
-     * @param ManuallyStartDBClusterRequest $request
-     *
-     * @return ManuallyStartDBClusterResponse
+     * @return ManuallyStartDBClusterResponse ManuallyStartDBClusterResponse
      */
     public function manuallyStartDBCluster($request)
     {
@@ -9601,64 +7984,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of a PolarDB cluster.
+     * @summary Modifies the description of a database account of a PolarDB cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAccountDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9666,14 +8038,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of a PolarDB cluster.
+     * @summary Modifies the description of a database account of a PolarDB cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @param request - ModifyAccountDescriptionRequest
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -9683,68 +8052,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the password of a database account for a specified PolarDB cluster.
+     * @summary Changes the password of a database account for a specified PolarDB cluster.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAccountPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAccountPasswordResponse
-     *
-     * @param ModifyAccountPasswordRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->newAccountPassword) {
-            @$query['NewAccountPassword'] = $request->newAccountPassword;
+        if (!Utils::isUnset($request->newAccountPassword)) {
+            $query['NewAccountPassword'] = $request->newAccountPassword;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->passwordType) {
-            @$query['PasswordType'] = $request->passwordType;
+        if (!Utils::isUnset($request->passwordType)) {
+            $query['PasswordType'] = $request->passwordType;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountPassword',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountPassword',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9752,14 +8109,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the password of a database account for a specified PolarDB cluster.
+     * @summary Changes the password of a database account for a specified PolarDB cluster.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
      *
-     * @param request - ModifyAccountPasswordRequest
-     * @returns ModifyAccountPasswordResponse
-     *
-     * @param ModifyAccountPasswordRequest $request
-     *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -9769,72 +8123,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\&M events for an instance.
+     * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->immediateStart) {
-            @$query['ImmediateStart'] = $request->immediateStart;
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
-        if (null !== $request->taskIds) {
-            @$query['TaskIds'] = $request->taskIds;
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTasks',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyActiveOperationTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9842,14 +8183,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\&M events for an instance.
+     * @summary Modifies the switching time of scheduled O\\&M events for an instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -9859,76 +8197,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAutoRenewAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAutoRenewAttributeResponse
-     *
-     * @param ModifyAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterIds) {
-            @$query['DBClusterIds'] = $request->DBClusterIds;
+        if (!Utils::isUnset($request->DBClusterIds)) {
+            $query['DBClusterIds'] = $request->DBClusterIds;
         }
-
-        if (null !== $request->duration) {
-            @$query['Duration'] = $request->duration;
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->renewalStatus) {
-            @$query['RenewalStatus'] = $request->renewalStatus;
+        if (!Utils::isUnset($request->renewalStatus)) {
+            $query['RenewalStatus'] = $request->renewalStatus;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAutoRenewAttribute',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAutoRenewAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9936,14 +8260,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
      *
-     * @param request - ModifyAutoRenewAttributeRequest
-     * @returns ModifyAutoRenewAttributeResponse
-     *
-     * @param ModifyAutoRenewAttributeRequest $request
-     *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttribute($request)
     {
@@ -9953,107 +8274,85 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a PolarDB cluster.
+     * @summary Modifies the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
-     *
-     * @param request - ModifyBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupFrequency) {
-            @$query['BackupFrequency'] = $request->backupFrequency;
+        if (!Utils::isUnset($request->backupFrequency)) {
+            $query['BackupFrequency'] = $request->backupFrequency;
         }
-
-        if (null !== $request->backupRetentionPolicyOnClusterDeletion) {
-            @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
+            $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->dataLevel1BackupFrequency) {
-            @$query['DataLevel1BackupFrequency'] = $request->dataLevel1BackupFrequency;
+        if (!Utils::isUnset($request->dataLevel1BackupFrequency)) {
+            $query['DataLevel1BackupFrequency'] = $request->dataLevel1BackupFrequency;
         }
-
-        if (null !== $request->dataLevel1BackupPeriod) {
-            @$query['DataLevel1BackupPeriod'] = $request->dataLevel1BackupPeriod;
+        if (!Utils::isUnset($request->dataLevel1BackupPeriod)) {
+            $query['DataLevel1BackupPeriod'] = $request->dataLevel1BackupPeriod;
         }
-
-        if (null !== $request->dataLevel1BackupRetentionPeriod) {
-            @$query['DataLevel1BackupRetentionPeriod'] = $request->dataLevel1BackupRetentionPeriod;
+        if (!Utils::isUnset($request->dataLevel1BackupRetentionPeriod)) {
+            $query['DataLevel1BackupRetentionPeriod'] = $request->dataLevel1BackupRetentionPeriod;
         }
-
-        if (null !== $request->dataLevel1BackupTime) {
-            @$query['DataLevel1BackupTime'] = $request->dataLevel1BackupTime;
+        if (!Utils::isUnset($request->dataLevel1BackupTime)) {
+            $query['DataLevel1BackupTime'] = $request->dataLevel1BackupTime;
         }
-
-        if (null !== $request->dataLevel2BackupAnotherRegionRegion) {
-            @$query['DataLevel2BackupAnotherRegionRegion'] = $request->dataLevel2BackupAnotherRegionRegion;
+        if (!Utils::isUnset($request->dataLevel2BackupAnotherRegionRegion)) {
+            $query['DataLevel2BackupAnotherRegionRegion'] = $request->dataLevel2BackupAnotherRegionRegion;
         }
-
-        if (null !== $request->dataLevel2BackupAnotherRegionRetentionPeriod) {
-            @$query['DataLevel2BackupAnotherRegionRetentionPeriod'] = $request->dataLevel2BackupAnotherRegionRetentionPeriod;
+        if (!Utils::isUnset($request->dataLevel2BackupAnotherRegionRetentionPeriod)) {
+            $query['DataLevel2BackupAnotherRegionRetentionPeriod'] = $request->dataLevel2BackupAnotherRegionRetentionPeriod;
         }
-
-        if (null !== $request->dataLevel2BackupPeriod) {
-            @$query['DataLevel2BackupPeriod'] = $request->dataLevel2BackupPeriod;
+        if (!Utils::isUnset($request->dataLevel2BackupPeriod)) {
+            $query['DataLevel2BackupPeriod'] = $request->dataLevel2BackupPeriod;
         }
-
-        if (null !== $request->dataLevel2BackupRetentionPeriod) {
-            @$query['DataLevel2BackupRetentionPeriod'] = $request->dataLevel2BackupRetentionPeriod;
+        if (!Utils::isUnset($request->dataLevel2BackupRetentionPeriod)) {
+            $query['DataLevel2BackupRetentionPeriod'] = $request->dataLevel2BackupRetentionPeriod;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->preferredBackupPeriod) {
-            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-
-        if (null !== $request->preferredBackupTime) {
-            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10061,17 +8360,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a PolarDB cluster.
+     * @summary Modifies the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
-     *
-     * @param request - ModifyBackupPolicyRequest
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -10081,100 +8376,80 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a PolarDB for MySQL cluster.
+     * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterResponse
-     *
-     * @param ModifyDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->compressStorage) {
-            @$query['CompressStorage'] = $request->compressStorage;
+        if (!Utils::isUnset($request->compressStorage)) {
+            $query['CompressStorage'] = $request->compressStorage;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeCrashList) {
-            @$query['DBNodeCrashList'] = $request->DBNodeCrashList;
+        if (!Utils::isUnset($request->DBNodeCrashList)) {
+            $query['DBNodeCrashList'] = $request->DBNodeCrashList;
         }
-
-        if (null !== $request->dataSyncMode) {
-            @$query['DataSyncMode'] = $request->dataSyncMode;
+        if (!Utils::isUnset($request->dataSyncMode)) {
+            $query['DataSyncMode'] = $request->dataSyncMode;
         }
-
-        if (null !== $request->faultInjectionType) {
-            @$query['FaultInjectionType'] = $request->faultInjectionType;
+        if (!Utils::isUnset($request->faultInjectionType)) {
+            $query['FaultInjectionType'] = $request->faultInjectionType;
         }
-
-        if (null !== $request->faultSimulateMode) {
-            @$query['FaultSimulateMode'] = $request->faultSimulateMode;
+        if (!Utils::isUnset($request->faultSimulateMode)) {
+            $query['FaultSimulateMode'] = $request->faultSimulateMode;
         }
-
-        if (null !== $request->imciAutoIndex) {
-            @$query['ImciAutoIndex'] = $request->imciAutoIndex;
+        if (!Utils::isUnset($request->imciAutoIndex)) {
+            $query['ImciAutoIndex'] = $request->imciAutoIndex;
         }
-
-        if (null !== $request->modifyRowCompression) {
-            @$query['ModifyRowCompression'] = $request->modifyRowCompression;
+        if (!Utils::isUnset($request->modifyRowCompression)) {
+            $query['ModifyRowCompression'] = $request->modifyRowCompression;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->standbyHAMode) {
-            @$query['StandbyHAMode'] = $request->standbyHAMode;
+        if (!Utils::isUnset($request->standbyHAMode)) {
+            $query['StandbyHAMode'] = $request->standbyHAMode;
         }
-
-        if (null !== $request->storageAutoScale) {
-            @$query['StorageAutoScale'] = $request->storageAutoScale;
+        if (!Utils::isUnset($request->storageAutoScale)) {
+            $query['StorageAutoScale'] = $request->storageAutoScale;
         }
-
-        if (null !== $request->storageUpperBound) {
-            @$query['StorageUpperBound'] = $request->storageUpperBound;
+        if (!Utils::isUnset($request->storageUpperBound)) {
+            $query['StorageUpperBound'] = $request->storageUpperBound;
         }
-
-        if (null !== $request->tableMeta) {
-            @$query['TableMeta'] = $request->tableMeta;
+        if (!Utils::isUnset($request->tableMeta)) {
+            $query['TableMeta'] = $request->tableMeta;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBCluster',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10182,14 +8457,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a PolarDB for MySQL cluster.
+     * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
      *
-     * @param request - ModifyDBClusterRequest
-     * @returns ModifyDBClusterResponse
-     *
-     * @param ModifyDBClusterRequest $request
-     *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -10199,80 +8471,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhitelistRequest $request ModifyDBClusterAccessWhitelistRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterAccessWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterAccessWhitelistResponse
-     *
-     * @param ModifyDBClusterAccessWhitelistRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyDBClusterAccessWhitelistResponse
+     * @return ModifyDBClusterAccessWhitelistResponse ModifyDBClusterAccessWhitelistResponse
      */
     public function modifyDBClusterAccessWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterIPArrayAttribute) {
-            @$query['DBClusterIPArrayAttribute'] = $request->DBClusterIPArrayAttribute;
+        if (!Utils::isUnset($request->DBClusterIPArrayAttribute)) {
+            $query['DBClusterIPArrayAttribute'] = $request->DBClusterIPArrayAttribute;
         }
-
-        if (null !== $request->DBClusterIPArrayName) {
-            @$query['DBClusterIPArrayName'] = $request->DBClusterIPArrayName;
+        if (!Utils::isUnset($request->DBClusterIPArrayName)) {
+            $query['DBClusterIPArrayName'] = $request->DBClusterIPArrayName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->modifyMode) {
-            @$query['ModifyMode'] = $request->modifyMode;
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityGroupIds) {
-            @$query['SecurityGroupIds'] = $request->securityGroupIds;
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
         }
-
-        if (null !== $request->securityIps) {
-            @$query['SecurityIps'] = $request->securityIps;
+        if (!Utils::isUnset($request->securityIps)) {
+            $query['SecurityIps'] = $request->securityIps;
         }
-
-        if (null !== $request->whiteListType) {
-            @$query['WhiteListType'] = $request->whiteListType;
+        if (!Utils::isUnset($request->whiteListType)) {
+            $query['WhiteListType'] = $request->whiteListType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterAccessWhitelist',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterAccessWhitelist',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterAccessWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10280,14 +8537,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhitelistRequest $request ModifyDBClusterAccessWhitelistRequest
      *
-     * @param request - ModifyDBClusterAccessWhitelistRequest
-     * @returns ModifyDBClusterAccessWhitelistResponse
-     *
-     * @param ModifyDBClusterAccessWhitelistRequest $request
-     *
-     * @return ModifyDBClusterAccessWhitelistResponse
+     * @return ModifyDBClusterAccessWhitelistResponse ModifyDBClusterAccessWhitelistResponse
      */
     public function modifyDBClusterAccessWhitelist($request)
     {
@@ -10297,84 +8551,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies cluster parameters and applies them to specified nodes.
+     * @summary Modifies cluster parameters and applies them to specified nodes.
+     *  *
+     * @param ModifyDBClusterAndNodesParametersRequest $request ModifyDBClusterAndNodesParametersRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterAndNodesParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterAndNodesParametersResponse
-     *
-     * @param ModifyDBClusterAndNodesParametersRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyDBClusterAndNodesParametersResponse
+     * @return ModifyDBClusterAndNodesParametersResponse ModifyDBClusterAndNodesParametersResponse
      */
     public function modifyDBClusterAndNodesParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeIds) {
-            @$query['DBNodeIds'] = $request->DBNodeIds;
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->standbyClusterIdListNeedToSync) {
-            @$query['StandbyClusterIdListNeedToSync'] = $request->standbyClusterIdListNeedToSync;
+        if (!Utils::isUnset($request->standbyClusterIdListNeedToSync)) {
+            $query['StandbyClusterIdListNeedToSync'] = $request->standbyClusterIdListNeedToSync;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterAndNodesParameters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterAndNodesParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterAndNodesParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10382,14 +8620,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies cluster parameters and applies them to specified nodes.
+     * @summary Modifies cluster parameters and applies them to specified nodes.
+     *  *
+     * @param ModifyDBClusterAndNodesParametersRequest $request ModifyDBClusterAndNodesParametersRequest
      *
-     * @param request - ModifyDBClusterAndNodesParametersRequest
-     * @returns ModifyDBClusterAndNodesParametersResponse
-     *
-     * @param ModifyDBClusterAndNodesParametersRequest $request
-     *
-     * @return ModifyDBClusterAndNodesParametersResponse
+     * @return ModifyDBClusterAndNodesParametersResponse ModifyDBClusterAndNodesParametersResponse
      */
     public function modifyDBClusterAndNodesParameters($request)
     {
@@ -10399,60 +8634,109 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     * @summary 变更standby模式
+     *  *
+     * @param ModifyDBClusterArchRequest $request ModifyDBClusterArchRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterAuditLogCollectorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterAuditLogCollectorResponse
+     * @return ModifyDBClusterArchResponse ModifyDBClusterArchResponse
+     */
+    public function modifyDBClusterArchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->hotStandbyCluster)) {
+            $query['HotStandbyCluster'] = $request->hotStandbyCluster;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->standbyAZ)) {
+            $query['StandbyAZ'] = $request->standbyAZ;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBClusterArch',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyDBClusterArchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyDBClusterArchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 变更standby模式
+     *  *
+     * @param ModifyDBClusterArchRequest $request ModifyDBClusterArchRequest
      *
-     * @param ModifyDBClusterAuditLogCollectorRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @return ModifyDBClusterArchResponse ModifyDBClusterArchResponse
+     */
+    public function modifyDBClusterArch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterArchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     *  *
+     * @param ModifyDBClusterAuditLogCollectorRequest $request ModifyDBClusterAuditLogCollectorRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAuditLogCollectorResponse
+     * @return ModifyDBClusterAuditLogCollectorResponse ModifyDBClusterAuditLogCollectorResponse
      */
     public function modifyDBClusterAuditLogCollectorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->collectorStatus) {
-            @$query['CollectorStatus'] = $request->collectorStatus;
+        if (!Utils::isUnset($request->collectorStatus)) {
+            $query['CollectorStatus'] = $request->collectorStatus;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterAuditLogCollector',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterAuditLogCollector',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterAuditLogCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10460,14 +8744,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     *  *
+     * @param ModifyDBClusterAuditLogCollectorRequest $request ModifyDBClusterAuditLogCollectorRequest
      *
-     * @param request - ModifyDBClusterAuditLogCollectorRequest
-     * @returns ModifyDBClusterAuditLogCollectorResponse
-     *
-     * @param ModifyDBClusterAuditLogCollectorRequest $request
-     *
-     * @return ModifyDBClusterAuditLogCollectorResponse
+     * @return ModifyDBClusterAuditLogCollectorResponse ModifyDBClusterAuditLogCollectorResponse
      */
     public function modifyDBClusterAuditLogCollector($request)
     {
@@ -10477,60 +8758,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the cluster lock feature for a PolarDB cluster.
+     * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDeletionRequest $request ModifyDBClusterDeletionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterDeletionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterDeletionResponse
-     *
-     * @param ModifyDBClusterDeletionRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBClusterDeletionResponse
+     * @return ModifyDBClusterDeletionResponse ModifyDBClusterDeletionResponse
      */
     public function modifyDBClusterDeletionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->protection) {
-            @$query['Protection'] = $request->protection;
+        if (!Utils::isUnset($request->protection)) {
+            $query['Protection'] = $request->protection;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterDeletion',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterDeletion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10538,14 +8809,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the cluster lock feature for a PolarDB cluster.
+     * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDeletionRequest $request ModifyDBClusterDeletionRequest
      *
-     * @param request - ModifyDBClusterDeletionRequest
-     * @returns ModifyDBClusterDeletionResponse
-     *
-     * @param ModifyDBClusterDeletionRequest $request
-     *
-     * @return ModifyDBClusterDeletionResponse
+     * @return ModifyDBClusterDeletionResponse ModifyDBClusterDeletionResponse
      */
     public function modifyDBClusterDeletion($request)
     {
@@ -10555,60 +8823,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a PolarDB cluster.
+     * @summary Modifies the name of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterDescriptionResponse
-     *
-     * @param ModifyDBClusterDescriptionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterDescription) {
-            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        if (!Utils::isUnset($request->DBClusterDescription)) {
+            $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterDescription',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10616,14 +8874,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a PolarDB cluster.
+     * @summary Modifies the name of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
      *
-     * @param request - ModifyDBClusterDescriptionRequest
-     * @returns ModifyDBClusterDescriptionResponse
-     *
-     * @param ModifyDBClusterDescriptionRequest $request
-     *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -10633,92 +8888,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     *  *
+     * @param ModifyDBClusterEndpointRequest $request ModifyDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterEndpointRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterEndpointResponse
-     *
-     * @param ModifyDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBClusterEndpointResponse
+     * @return ModifyDBClusterEndpointResponse ModifyDBClusterEndpointResponse
      */
     public function modifyDBClusterEndpointWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoAddNewNodes) {
-            @$query['AutoAddNewNodes'] = $request->autoAddNewNodes;
+        if (!Utils::isUnset($request->autoAddNewNodes)) {
+            $query['AutoAddNewNodes'] = $request->autoAddNewNodes;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointDescription) {
-            @$query['DBEndpointDescription'] = $request->DBEndpointDescription;
+        if (!Utils::isUnset($request->DBEndpointDescription)) {
+            $query['DBEndpointDescription'] = $request->DBEndpointDescription;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->endpointConfig) {
-            @$query['EndpointConfig'] = $request->endpointConfig;
+        if (!Utils::isUnset($request->endpointConfig)) {
+            $query['EndpointConfig'] = $request->endpointConfig;
         }
-
-        if (null !== $request->nodes) {
-            @$query['Nodes'] = $request->nodes;
+        if (!Utils::isUnset($request->nodes)) {
+            $query['Nodes'] = $request->nodes;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->polarSccTimeoutAction) {
-            @$query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
+        if (!Utils::isUnset($request->polarSccTimeoutAction)) {
+            $query['PolarSccTimeoutAction'] = $request->polarSccTimeoutAction;
         }
-
-        if (null !== $request->polarSccWaitTimeout) {
-            @$query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
+        if (!Utils::isUnset($request->polarSccWaitTimeout)) {
+            $query['PolarSccWaitTimeout'] = $request->polarSccWaitTimeout;
         }
-
-        if (null !== $request->readWriteMode) {
-            @$query['ReadWriteMode'] = $request->readWriteMode;
+        if (!Utils::isUnset($request->readWriteMode)) {
+            $query['ReadWriteMode'] = $request->readWriteMode;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->sccMode) {
-            @$query['SccMode'] = $request->sccMode;
+        if (!Utils::isUnset($request->sccMode)) {
+            $query['SccMode'] = $request->sccMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterEndpoint',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterEndpoint',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10726,14 +8963,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     *  *
+     * @param ModifyDBClusterEndpointRequest $request ModifyDBClusterEndpointRequest
      *
-     * @param request - ModifyDBClusterEndpointRequest
-     * @returns ModifyDBClusterEndpointResponse
-     *
-     * @param ModifyDBClusterEndpointRequest $request
-     *
-     * @return ModifyDBClusterEndpointResponse
+     * @return ModifyDBClusterEndpointResponse ModifyDBClusterEndpointResponse
      */
     public function modifyDBClusterEndpoint($request)
     {
@@ -10743,63 +8977,52 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of a PolarDB cluster.
+     * @summary Modifies the maintenance window of a PolarDB cluster.
+     *  *
+     * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-     *
-     * @param request - ModifyDBClusterMaintainTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterMaintainTimeResponse
-     *
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->maintainTime) {
-            @$query['MaintainTime'] = $request->maintainTime;
+        if (!Utils::isUnset($request->maintainTime)) {
+            $query['MaintainTime'] = $request->maintainTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterMaintainTime',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterMaintainTime',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10807,17 +9030,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of a PolarDB cluster.
+     * @summary Modifies the maintenance window of a PolarDB cluster.
+     *  *
+     * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
-     * @remarks
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-     *
-     * @param request - ModifyDBClusterMaintainTimeRequest
-     * @returns ModifyDBClusterMaintainTimeResponse
-     *
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -10827,81 +9046,66 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *
-     * @remarks
-     *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *  *
+     * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
      * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
      * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
+     * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterMigrationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterMigrationResponse
-     *
-     * @param ModifyDBClusterMigrationRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyDBClusterMigrationResponse
+     * @return ModifyDBClusterMigrationResponse ModifyDBClusterMigrationResponse
      */
     public function modifyDBClusterMigrationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionStrings) {
-            @$query['ConnectionStrings'] = $request->connectionStrings;
+        if (!Utils::isUnset($request->connectionStrings)) {
+            $query['ConnectionStrings'] = $request->connectionStrings;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->newMasterInstanceId) {
-            @$query['NewMasterInstanceId'] = $request->newMasterInstanceId;
+        if (!Utils::isUnset($request->newMasterInstanceId)) {
+            $query['NewMasterInstanceId'] = $request->newMasterInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->sourceRDSDBInstanceId) {
-            @$query['SourceRDSDBInstanceId'] = $request->sourceRDSDBInstanceId;
+        if (!Utils::isUnset($request->sourceRDSDBInstanceId)) {
+            $query['SourceRDSDBInstanceId'] = $request->sourceRDSDBInstanceId;
         }
-
-        if (null !== $request->swapConnectionString) {
-            @$query['SwapConnectionString'] = $request->swapConnectionString;
+        if (!Utils::isUnset($request->swapConnectionString)) {
+            $query['SwapConnectionString'] = $request->swapConnectionString;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterMigration',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterMigration',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10909,19 +9113,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *
-     * @remarks
-     *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *  *
+     * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
      * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
      * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
+     * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
      *
-     * @param request - ModifyDBClusterMigrationRequest
-     * @returns ModifyDBClusterMigrationResponse
-     *
-     * @param ModifyDBClusterMigrationRequest $request
-     *
-     * @return ModifyDBClusterMigrationResponse
+     * @return ModifyDBClusterMigrationResponse ModifyDBClusterMigrationResponse
      */
     public function modifyDBClusterMigration($request)
     {
@@ -10931,10 +9131,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -10945,59 +9144,49 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *  *
+     * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterMonitorResponse
-     *
-     * @param ModifyDBClusterMonitorRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyDBClusterMonitorResponse
+     * @return ModifyDBClusterMonitorResponse ModifyDBClusterMonitorResponse
      */
     public function modifyDBClusterMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterMonitor',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterMonitor',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11005,10 +9194,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
-     *
-     * @remarks
-     *   When the monitoring data is collected every 5 seconds:
+     * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
      *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
      *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
@@ -11019,13 +9207,10 @@ class Polardb extends OpenApiClient
      *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
      *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
      *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *  *
+     * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
      *
-     * @param request - ModifyDBClusterMonitorRequest
-     * @returns ModifyDBClusterMonitorResponse
-     *
-     * @param ModifyDBClusterMonitorRequest $request
-     *
-     * @return ModifyDBClusterMonitorResponse
+     * @return ModifyDBClusterMonitorResponse ModifyDBClusterMonitorResponse
      */
     public function modifyDBClusterMonitor($request)
     {
@@ -11035,81 +9220,66 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
-     *
-     * @remarks
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     *  *
+     * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * **
      * **Only PolarDB for MySQL clusters support parameter templates.
+     *  *
+     * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterParametersResponse
-     *
-     * @param ModifyDBClusterParametersRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyDBClusterParametersResponse
+     * @return ModifyDBClusterParametersResponse ModifyDBClusterParametersResponse
      */
     public function modifyDBClusterParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterParameters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11117,19 +9287,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
-     *
-     * @remarks
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     *  *
+     * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
      * **
      * **Only PolarDB for MySQL clusters support parameter templates.
+     *  *
+     * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
      *
-     * @param request - ModifyDBClusterParametersRequest
-     * @returns ModifyDBClusterParametersResponse
-     *
-     * @param ModifyDBClusterParametersRequest $request
-     *
-     * @return ModifyDBClusterParametersResponse
+     * @return ModifyDBClusterParametersResponse ModifyDBClusterParametersResponse
      */
     public function modifyDBClusterParameters($request)
     {
@@ -11139,88 +9305,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the primary zone of a PolarDB cluster.
+     * @summary Changes the primary zone of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterPrimaryZoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterPrimaryZoneResponse
-     *
-     * @param ModifyDBClusterPrimaryZoneRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyDBClusterPrimaryZoneResponse
+     * @return ModifyDBClusterPrimaryZoneResponse ModifyDBClusterPrimaryZoneResponse
      */
     public function modifyDBClusterPrimaryZoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->isSwitchOverForDisaster) {
-            @$query['IsSwitchOverForDisaster'] = $request->isSwitchOverForDisaster;
+        if (!Utils::isUnset($request->isSwitchOverForDisaster)) {
+            $query['IsSwitchOverForDisaster'] = $request->isSwitchOverForDisaster;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->VPCId) {
-            @$query['VPCId'] = $request->VPCId;
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
-        if (null !== $request->zoneType) {
-            @$query['ZoneType'] = $request->zoneType;
+        if (!Utils::isUnset($request->zoneType)) {
+            $query['ZoneType'] = $request->zoneType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterPrimaryZone',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterPrimaryZone',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterPrimaryZoneResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11228,14 +9377,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the primary zone of a PolarDB cluster.
+     * @summary Changes the primary zone of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
      *
-     * @param request - ModifyDBClusterPrimaryZoneRequest
-     * @returns ModifyDBClusterPrimaryZoneResponse
-     *
-     * @param ModifyDBClusterPrimaryZoneRequest $request
-     *
-     * @return ModifyDBClusterPrimaryZoneResponse
+     * @return ModifyDBClusterPrimaryZoneResponse ModifyDBClusterPrimaryZoneResponse
      */
     public function modifyDBClusterPrimaryZone($request)
     {
@@ -11245,64 +9391,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group for a database cluster.
+     * @summary Modifies the configurations of a resource group for a database cluster.
+     *  *
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterResourceGroupResponse
-     *
-     * @param ModifyDBClusterResourceGroupRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDBClusterResourceGroupResponse
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
      */
     public function modifyDBClusterResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterResourceGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterResourceGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11310,14 +9445,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group for a database cluster.
+     * @summary Modifies the configurations of a resource group for a database cluster.
+     *  *
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      *
-     * @param request - ModifyDBClusterResourceGroupRequest
-     * @returns ModifyDBClusterResourceGroupResponse
-     *
-     * @param ModifyDBClusterResourceGroupRequest $request
-     *
-     * @return ModifyDBClusterResourceGroupResponse
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
      */
     public function modifyDBClusterResourceGroup($request)
     {
@@ -11327,72 +9459,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     * @summary Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterSSLResponse
-     *
-     * @param ModifyDBClusterSSLRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyDBClusterSSLResponse
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
      */
     public function modifyDBClusterSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->netType) {
-            @$query['NetType'] = $request->netType;
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->SSLAutoRotate) {
-            @$query['SSLAutoRotate'] = $request->SSLAutoRotate;
+        if (!Utils::isUnset($request->SSLAutoRotate)) {
+            $query['SSLAutoRotate'] = $request->SSLAutoRotate;
         }
-
-        if (null !== $request->SSLEnabled) {
-            @$query['SSLEnabled'] = $request->SSLEnabled;
+        if (!Utils::isUnset($request->SSLEnabled)) {
+            $query['SSLEnabled'] = $request->SSLEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterSSL',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterSSL',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterSSLResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11400,14 +9519,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     * @summary Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
      *
-     * @param request - ModifyDBClusterSSLRequest
-     * @returns ModifyDBClusterSSLResponse
-     *
-     * @param ModifyDBClusterSSLRequest $request
-     *
-     * @return ModifyDBClusterSSLResponse
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
      */
     public function modifyDBClusterSSL($request)
     {
@@ -11417,120 +9533,95 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a serverless cluster.
+     * @summary Modifies the configurations of a serverless cluster.
+     *  *
+     * @param ModifyDBClusterServerlessConfRequest $request ModifyDBClusterServerlessConfRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterServerlessConfRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterServerlessConfResponse
-     *
-     * @param ModifyDBClusterServerlessConfRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyDBClusterServerlessConfResponse
+     * @return ModifyDBClusterServerlessConfResponse ModifyDBClusterServerlessConfResponse
      */
     public function modifyDBClusterServerlessConfWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowShutDown) {
-            @$query['AllowShutDown'] = $request->allowShutDown;
+        if (!Utils::isUnset($request->allowShutDown)) {
+            $query['AllowShutDown'] = $request->allowShutDown;
         }
-
-        if (null !== $request->crontabJobId) {
-            @$query['CrontabJobId'] = $request->crontabJobId;
+        if (!Utils::isUnset($request->crontabJobId)) {
+            $query['CrontabJobId'] = $request->crontabJobId;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scaleApRoNumMax) {
-            @$query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
+        if (!Utils::isUnset($request->scaleApRoNumMax)) {
+            $query['ScaleApRoNumMax'] = $request->scaleApRoNumMax;
         }
-
-        if (null !== $request->scaleApRoNumMin) {
-            @$query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
+        if (!Utils::isUnset($request->scaleApRoNumMin)) {
+            $query['ScaleApRoNumMin'] = $request->scaleApRoNumMin;
         }
-
-        if (null !== $request->scaleMax) {
-            @$query['ScaleMax'] = $request->scaleMax;
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
         }
-
-        if (null !== $request->scaleMin) {
-            @$query['ScaleMin'] = $request->scaleMin;
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
         }
-
-        if (null !== $request->scaleRoNumMax) {
-            @$query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
         }
-
-        if (null !== $request->scaleRoNumMin) {
-            @$query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
         }
-
-        if (null !== $request->secondsUntilAutoPause) {
-            @$query['SecondsUntilAutoPause'] = $request->secondsUntilAutoPause;
+        if (!Utils::isUnset($request->secondsUntilAutoPause)) {
+            $query['SecondsUntilAutoPause'] = $request->secondsUntilAutoPause;
         }
-
-        if (null !== $request->serverlessRuleCpuEnlargeThreshold) {
-            @$query['ServerlessRuleCpuEnlargeThreshold'] = $request->serverlessRuleCpuEnlargeThreshold;
+        if (!Utils::isUnset($request->serverlessRuleCpuEnlargeThreshold)) {
+            $query['ServerlessRuleCpuEnlargeThreshold'] = $request->serverlessRuleCpuEnlargeThreshold;
         }
-
-        if (null !== $request->serverlessRuleCpuShrinkThreshold) {
-            @$query['ServerlessRuleCpuShrinkThreshold'] = $request->serverlessRuleCpuShrinkThreshold;
+        if (!Utils::isUnset($request->serverlessRuleCpuShrinkThreshold)) {
+            $query['ServerlessRuleCpuShrinkThreshold'] = $request->serverlessRuleCpuShrinkThreshold;
         }
-
-        if (null !== $request->serverlessRuleMode) {
-            @$query['ServerlessRuleMode'] = $request->serverlessRuleMode;
+        if (!Utils::isUnset($request->serverlessRuleMode)) {
+            $query['ServerlessRuleMode'] = $request->serverlessRuleMode;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterServerlessConf',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterServerlessConf',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11538,14 +9629,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a serverless cluster.
+     * @summary Modifies the configurations of a serverless cluster.
+     *  *
+     * @param ModifyDBClusterServerlessConfRequest $request ModifyDBClusterServerlessConfRequest
      *
-     * @param request - ModifyDBClusterServerlessConfRequest
-     * @returns ModifyDBClusterServerlessConfResponse
-     *
-     * @param ModifyDBClusterServerlessConfRequest $request
-     *
-     * @return ModifyDBClusterServerlessConfResponse
+     * @return ModifyDBClusterServerlessConfResponse ModifyDBClusterServerlessConfResponse
      */
     public function modifyDBClusterServerlessConf($request)
     {
@@ -11555,64 +9643,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改存储性能.
+     * @summary 修改存储性能
+     *  *
+     * @param ModifyDBClusterStoragePerformanceRequest $request ModifyDBClusterStoragePerformanceRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterStoragePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterStoragePerformanceResponse
-     *
-     * @param ModifyDBClusterStoragePerformanceRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyDBClusterStoragePerformanceResponse
+     * @return ModifyDBClusterStoragePerformanceResponse ModifyDBClusterStoragePerformanceResponse
      */
     public function modifyDBClusterStoragePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->burstingEnabled) {
-            @$query['BurstingEnabled'] = $request->burstingEnabled;
+        if (!Utils::isUnset($request->burstingEnabled)) {
+            $query['BurstingEnabled'] = $request->burstingEnabled;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->provisionedIops) {
-            @$query['ProvisionedIops'] = $request->provisionedIops;
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterStoragePerformance',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterStoragePerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterStoragePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11620,14 +9697,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改存储性能.
+     * @summary 修改存储性能
+     *  *
+     * @param ModifyDBClusterStoragePerformanceRequest $request ModifyDBClusterStoragePerformanceRequest
      *
-     * @param request - ModifyDBClusterStoragePerformanceRequest
-     * @returns ModifyDBClusterStoragePerformanceResponse
-     *
-     * @param ModifyDBClusterStoragePerformanceRequest $request
-     *
-     * @return ModifyDBClusterStoragePerformanceResponse
+     * @return ModifyDBClusterStoragePerformanceResponse ModifyDBClusterStoragePerformanceResponse
      */
     public function modifyDBClusterStoragePerformance($request)
     {
@@ -11637,76 +9711,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     *  *
+     * @param ModifyDBClusterStorageSpaceRequest $request ModifyDBClusterStorageSpaceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterStorageSpaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterStorageSpaceResponse
-     *
-     * @param ModifyDBClusterStorageSpaceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBClusterStorageSpaceResponse
+     * @return ModifyDBClusterStorageSpaceResponse ModifyDBClusterStorageSpaceResponse
      */
     public function modifyDBClusterStorageSpaceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->storageSpace) {
-            @$query['StorageSpace'] = $request->storageSpace;
+        if (!Utils::isUnset($request->storageSpace)) {
+            $query['StorageSpace'] = $request->storageSpace;
         }
-
-        if (null !== $request->subCategory) {
-            @$query['SubCategory'] = $request->subCategory;
+        if (!Utils::isUnset($request->subCategory)) {
+            $query['SubCategory'] = $request->subCategory;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterStorageSpace',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterStorageSpace',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterStorageSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11714,14 +9774,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     *  *
+     * @param ModifyDBClusterStorageSpaceRequest $request ModifyDBClusterStorageSpaceRequest
      *
-     * @param request - ModifyDBClusterStorageSpaceRequest
-     * @returns ModifyDBClusterStorageSpaceResponse
-     *
-     * @param ModifyDBClusterStorageSpaceRequest $request
-     *
-     * @return ModifyDBClusterStorageSpaceResponse
+     * @return ModifyDBClusterStorageSpaceResponse ModifyDBClusterStorageSpaceResponse
      */
     public function modifyDBClusterStorageSpace($request)
     {
@@ -11731,80 +9788,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
-     *
-     * @remarks
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * @summary Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
+     *  *
+     * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
      * > *   After TDE is enabled, you cannot disable TDE.
+     *  *
+     * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBClusterTDERequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBClusterTDEResponse
-     *
-     * @param ModifyDBClusterTDERequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyDBClusterTDEResponse
+     * @return ModifyDBClusterTDEResponse ModifyDBClusterTDEResponse
      */
     public function modifyDBClusterTDEWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->enableAutomaticRotation) {
-            @$query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
+        if (!Utils::isUnset($request->enableAutomaticRotation)) {
+            $query['EnableAutomaticRotation'] = $request->enableAutomaticRotation;
         }
-
-        if (null !== $request->encryptNewTables) {
-            @$query['EncryptNewTables'] = $request->encryptNewTables;
+        if (!Utils::isUnset($request->encryptNewTables)) {
+            $query['EncryptNewTables'] = $request->encryptNewTables;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleArn) {
-            @$query['RoleArn'] = $request->roleArn;
+        if (!Utils::isUnset($request->roleArn)) {
+            $query['RoleArn'] = $request->roleArn;
         }
-
-        if (null !== $request->TDEStatus) {
-            @$query['TDEStatus'] = $request->TDEStatus;
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterTDE',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterTDE',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBClusterTDEResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11812,18 +9854,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
-     *
-     * @remarks
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * @summary Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
+     *  *
+     * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
      * > *   After TDE is enabled, you cannot disable TDE.
+     *  *
+     * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
      *
-     * @param request - ModifyDBClusterTDERequest
-     * @returns ModifyDBClusterTDEResponse
-     *
-     * @param ModifyDBClusterTDERequest $request
-     *
-     * @return ModifyDBClusterTDEResponse
+     * @return ModifyDBClusterTDEResponse ModifyDBClusterTDEResponse
      */
     public function modifyDBClusterTDE($request)
     {
@@ -11833,64 +9871,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database in a PolarDB for MySQL cluster.
+     * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBDescriptionResponse
-     *
-     * @param ModifyDBDescriptionRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDBDescriptionResponse
+     * @return ModifyDBDescriptionResponse ModifyDBDescriptionResponse
      */
     public function modifyDBDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBDescription) {
-            @$query['DBDescription'] = $request->DBDescription;
+        if (!Utils::isUnset($request->DBDescription)) {
+            $query['DBDescription'] = $request->DBDescription;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBDescription',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11898,14 +9925,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database in a PolarDB for MySQL cluster.
+     * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
      *
-     * @param request - ModifyDBDescriptionRequest
-     * @returns ModifyDBDescriptionResponse
-     *
-     * @param ModifyDBDescriptionRequest $request
-     *
-     * @return ModifyDBDescriptionResponse
+     * @return ModifyDBDescriptionResponse ModifyDBDescriptionResponse
      */
     public function modifyDBDescription($request)
     {
@@ -11915,80 +9939,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     *  *
+     * @param ModifyDBEndpointAddressRequest $request ModifyDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBEndpointAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBEndpointAddressResponse
-     *
-     * @param ModifyDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBEndpointAddressResponse
+     * @return ModifyDBEndpointAddressResponse ModifyDBEndpointAddressResponse
      */
     public function modifyDBEndpointAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionStringPrefix) {
-            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBEndpointId) {
-            @$query['DBEndpointId'] = $request->DBEndpointId;
+        if (!Utils::isUnset($request->DBEndpointId)) {
+            $query['DBEndpointId'] = $request->DBEndpointId;
         }
-
-        if (null !== $request->netType) {
-            @$query['NetType'] = $request->netType;
+        if (!Utils::isUnset($request->netType)) {
+            $query['NetType'] = $request->netType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->privateZoneAddressPrefix) {
-            @$query['PrivateZoneAddressPrefix'] = $request->privateZoneAddressPrefix;
+        if (!Utils::isUnset($request->privateZoneAddressPrefix)) {
+            $query['PrivateZoneAddressPrefix'] = $request->privateZoneAddressPrefix;
         }
-
-        if (null !== $request->privateZoneName) {
-            @$query['PrivateZoneName'] = $request->privateZoneName;
+        if (!Utils::isUnset($request->privateZoneName)) {
+            $query['PrivateZoneName'] = $request->privateZoneName;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBEndpointAddress',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -11996,14 +10005,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     *  *
+     * @param ModifyDBEndpointAddressRequest $request ModifyDBEndpointAddressRequest
      *
-     * @param request - ModifyDBEndpointAddressRequest
-     * @returns ModifyDBEndpointAddressResponse
-     *
-     * @param ModifyDBEndpointAddressRequest $request
-     *
-     * @return ModifyDBEndpointAddressResponse
+     * @return ModifyDBEndpointAddressResponse ModifyDBEndpointAddressResponse
      */
     public function modifyDBEndpointAddress($request)
     {
@@ -12013,88 +10019,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * @summary Changes the node specifications of a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodeClassRequest $request ModifyDBNodeClassRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBNodeClassRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBNodeClassResponse
-     *
-     * @param ModifyDBNodeClassRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyDBNodeClassResponse
+     * @return ModifyDBNodeClassResponse ModifyDBNodeClassResponse
      */
     public function modifyDBNodeClassWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeTargetClass) {
-            @$query['DBNodeTargetClass'] = $request->DBNodeTargetClass;
+        if (!Utils::isUnset($request->DBNodeTargetClass)) {
+            $query['DBNodeTargetClass'] = $request->DBNodeTargetClass;
         }
-
-        if (null !== $request->DBNodeType) {
-            @$query['DBNodeType'] = $request->DBNodeType;
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedFlashingOffTime) {
-            @$query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
+        if (!Utils::isUnset($request->plannedFlashingOffTime)) {
+            $query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subCategory) {
-            @$query['SubCategory'] = $request->subCategory;
+        if (!Utils::isUnset($request->subCategory)) {
+            $query['SubCategory'] = $request->subCategory;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBNodeClass',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBNodeClass',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBNodeClassResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12102,14 +10091,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * @summary Changes the node specifications of a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodeClassRequest $request ModifyDBNodeClassRequest
      *
-     * @param request - ModifyDBNodeClassRequest
-     * @returns ModifyDBNodeClassResponse
-     *
-     * @param ModifyDBNodeClassRequest $request
-     *
-     * @return ModifyDBNodeClassResponse
+     * @return ModifyDBNodeClassResponse ModifyDBNodeClassResponse
      */
     public function modifyDBNodeClass($request)
     {
@@ -12119,64 +10105,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the failover with hot replica feature for a node in a cluster.
+     * @summary Enables or disables the failover with hot replica feature for a node in a cluster.
+     *  *
+     * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBNodeHotReplicaModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBNodeHotReplicaModeResponse
-     *
-     * @param ModifyDBNodeHotReplicaModeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyDBNodeHotReplicaModeResponse
+     * @return ModifyDBNodeHotReplicaModeResponse ModifyDBNodeHotReplicaModeResponse
      */
     public function modifyDBNodeHotReplicaModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->hotReplicaMode) {
-            @$query['HotReplicaMode'] = $request->hotReplicaMode;
+        if (!Utils::isUnset($request->hotReplicaMode)) {
+            $query['HotReplicaMode'] = $request->hotReplicaMode;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBNodeHotReplicaMode',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBNodeHotReplicaMode',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBNodeHotReplicaModeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12184,14 +10159,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the failover with hot replica feature for a node in a cluster.
+     * @summary Enables or disables the failover with hot replica feature for a node in a cluster.
+     *  *
+     * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      *
-     * @param request - ModifyDBNodeHotReplicaModeRequest
-     * @returns ModifyDBNodeHotReplicaModeResponse
-     *
-     * @param ModifyDBNodeHotReplicaModeRequest $request
-     *
-     * @return ModifyDBNodeHotReplicaModeResponse
+     * @return ModifyDBNodeHotReplicaModeResponse ModifyDBNodeHotReplicaModeResponse
      */
     public function modifyDBNodeHotReplicaMode($request)
     {
@@ -12201,84 +10173,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a node in a PolarDB cluster.
+     * @summary Changes the specifications of a node in a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodesClassRequest $request ModifyDBNodesClassRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBNodesClassRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBNodesClassResponse
-     *
-     * @param ModifyDBNodesClassRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyDBNodesClassResponse
+     * @return ModifyDBNodesClassResponse ModifyDBNodesClassResponse
      */
     public function modifyDBNodesClassWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNode) {
-            @$query['DBNode'] = $request->DBNode;
+        if (!Utils::isUnset($request->DBNode)) {
+            $query['DBNode'] = $request->DBNode;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedFlashingOffTime) {
-            @$query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
+        if (!Utils::isUnset($request->plannedFlashingOffTime)) {
+            $query['PlannedFlashingOffTime'] = $request->plannedFlashingOffTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->subCategory) {
-            @$query['SubCategory'] = $request->subCategory;
+        if (!Utils::isUnset($request->subCategory)) {
+            $query['SubCategory'] = $request->subCategory;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBNodesClass',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBNodesClass',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBNodesClassResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12286,14 +10242,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a node in a PolarDB cluster.
+     * @summary Changes the specifications of a node in a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodesClassRequest $request ModifyDBNodesClassRequest
      *
-     * @param request - ModifyDBNodesClassRequest
-     * @returns ModifyDBNodesClassResponse
-     *
-     * @param ModifyDBNodesClassRequest $request
-     *
-     * @return ModifyDBNodesClassResponse
+     * @return ModifyDBNodesClassResponse ModifyDBNodesClassResponse
      */
     public function modifyDBNodesClass($request)
     {
@@ -12303,80 +10256,65 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a node and applies them to specified nodes.
+     * @summary Modifies the parameters of a node and applies them to specified nodes.
+     *  *
+     * @param ModifyDBNodesParametersRequest $request ModifyDBNodesParametersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBNodesParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyDBNodesParametersResponse
-     *
-     * @param ModifyDBNodesParametersRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBNodesParametersResponse
+     * @return ModifyDBNodesParametersResponse ModifyDBNodesParametersResponse
      */
     public function modifyDBNodesParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNodeIds) {
-            @$query['DBNodeIds'] = $request->DBNodeIds;
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameterGroupId) {
-            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBNodesParameters',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBNodesParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBNodesParametersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12384,14 +10322,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a node and applies them to specified nodes.
+     * @summary Modifies the parameters of a node and applies them to specified nodes.
+     *  *
+     * @param ModifyDBNodesParametersRequest $request ModifyDBNodesParametersRequest
      *
-     * @param request - ModifyDBNodesParametersRequest
-     * @returns ModifyDBNodesParametersResponse
-     *
-     * @param ModifyDBNodesParametersRequest $request
-     *
-     * @return ModifyDBNodesParametersResponse
+     * @return ModifyDBNodesParametersResponse ModifyDBNodesParametersResponse
      */
     public function modifyDBNodesParameters($request)
     {
@@ -12401,72 +10336,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies a global database network (GDN).
+     * @summary Modifies a global database network (GDN).
+     *  *
+     * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyGlobalDatabaseNetworkResponse
-     *
-     * @param ModifyGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyGlobalDatabaseNetworkResponse
+     * @return ModifyGlobalDatabaseNetworkResponse ModifyGlobalDatabaseNetworkResponse
      */
     public function modifyGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->enableGlobalDomainName) {
-            @$query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
+        if (!Utils::isUnset($request->enableGlobalDomainName)) {
+            $query['EnableGlobalDomainName'] = $request->enableGlobalDomainName;
         }
-
-        if (null !== $request->GDNDescription) {
-            @$query['GDNDescription'] = $request->GDNDescription;
+        if (!Utils::isUnset($request->GDNDescription)) {
+            $query['GDNDescription'] = $request->GDNDescription;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12474,14 +10396,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies a global database network (GDN).
+     * @summary Modifies a global database network (GDN).
+     *  *
+     * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
      *
-     * @param request - ModifyGlobalDatabaseNetworkRequest
-     * @returns ModifyGlobalDatabaseNetworkResponse
-     *
-     * @param ModifyGlobalDatabaseNetworkRequest $request
-     *
-     * @return ModifyGlobalDatabaseNetworkResponse
+     * @return ModifyGlobalDatabaseNetworkResponse ModifyGlobalDatabaseNetworkResponse
      */
     public function modifyGlobalDatabaseNetwork($request)
     {
@@ -12491,76 +10410,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies an IP whitelist template.
+     * @summary Modifies an IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroup',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12568,14 +10473,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies an IP whitelist template.
+     * @summary Modifies an IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -12585,72 +10487,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroupName',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroupName',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12658,14 +10547,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -12675,72 +10561,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the relationship between a cluster and a global IP whitelist template.
+     * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalSecurityIPGroupRelation',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalSecurityIPGroupRelation',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12748,14 +10621,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the relationship between a cluster and a global IP whitelist template.
+     * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -12765,68 +10635,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the retention policy of the log backups in a PolarDB cluster.
+     * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyLogBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyLogBackupPolicyResponse
-     *
-     * @param ModifyLogBackupPolicyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->logBackupAnotherRegionRegion) {
-            @$query['LogBackupAnotherRegionRegion'] = $request->logBackupAnotherRegionRegion;
+        if (!Utils::isUnset($request->logBackupAnotherRegionRegion)) {
+            $query['LogBackupAnotherRegionRegion'] = $request->logBackupAnotherRegionRegion;
         }
-
-        if (null !== $request->logBackupAnotherRegionRetentionPeriod) {
-            @$query['LogBackupAnotherRegionRetentionPeriod'] = $request->logBackupAnotherRegionRetentionPeriod;
+        if (!Utils::isUnset($request->logBackupAnotherRegionRetentionPeriod)) {
+            $query['LogBackupAnotherRegionRetentionPeriod'] = $request->logBackupAnotherRegionRetentionPeriod;
         }
-
-        if (null !== $request->logBackupRetentionPeriod) {
-            @$query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
+        if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
+            $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyLogBackupPolicy',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyLogBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyLogBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12834,14 +10692,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the retention policy of the log backups in a PolarDB cluster.
+     * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
      *
-     * @param request - ModifyLogBackupPolicyRequest
-     * @returns ModifyLogBackupPolicyResponse
-     *
-     * @param ModifyLogBackupPolicyRequest $request
-     *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicy($request)
     {
@@ -12851,60 +10706,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies or adds a data masking rule.
+     * @summary Modifies or adds a data masking rule.
+     *  *
+     * @param ModifyMaskingRulesRequest $request ModifyMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyMaskingRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyMaskingRulesResponse
-     *
-     * @param ModifyMaskingRulesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->enable) {
-            @$query['Enable'] = $request->enable;
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
         }
-
-        if (null !== $request->ruleConfig) {
-            @$query['RuleConfig'] = $request->ruleConfig;
+        if (!Utils::isUnset($request->interfaceVersion)) {
+            $query['InterfaceVersion'] = $request->interfaceVersion;
         }
-
-        if (null !== $request->ruleName) {
-            @$query['RuleName'] = $request->ruleName;
+        if (!Utils::isUnset($request->ruleConfig)) {
+            $query['RuleConfig'] = $request->ruleConfig;
         }
-
-        if (null !== $request->ruleNameList) {
-            @$query['RuleNameList'] = $request->ruleNameList;
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
         }
-
-        if (null !== $request->ruleVersion) {
-            @$query['RuleVersion'] = $request->ruleVersion;
+        if (!Utils::isUnset($request->ruleNameList)) {
+            $query['RuleNameList'] = $request->ruleNameList;
         }
-
+        if (!Utils::isUnset($request->ruleVersion)) {
+            $query['RuleVersion'] = $request->ruleVersion;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMaskingRules',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMaskingRules',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyMaskingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -12912,14 +10760,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies or adds a data masking rule.
+     * @summary Modifies or adds a data masking rule.
+     *  *
+     * @param ModifyMaskingRulesRequest $request ModifyMaskingRulesRequest
      *
-     * @param request - ModifyMaskingRulesRequest
-     * @returns ModifyMaskingRulesResponse
-     *
-     * @param ModifyMaskingRulesRequest $request
-     *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRules($request)
     {
@@ -12929,72 +10774,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of a pending event.
+     * @summary Modifies the switching time of a pending event.
+     *  *
+     * @param ModifyPendingMaintenanceActionRequest $request ModifyPendingMaintenanceActionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyPendingMaintenanceActionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyPendingMaintenanceActionResponse
-     *
-     * @param ModifyPendingMaintenanceActionRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyPendingMaintenanceActionResponse
+     * @return ModifyPendingMaintenanceActionResponse ModifyPendingMaintenanceActionResponse
      */
     public function modifyPendingMaintenanceActionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPendingMaintenanceAction',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPendingMaintenanceAction',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyPendingMaintenanceActionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13002,14 +10834,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of a pending event.
+     * @summary Modifies the switching time of a pending event.
+     *  *
+     * @param ModifyPendingMaintenanceActionRequest $request ModifyPendingMaintenanceActionRequest
      *
-     * @param request - ModifyPendingMaintenanceActionRequest
-     * @returns ModifyPendingMaintenanceActionResponse
-     *
-     * @param ModifyPendingMaintenanceActionRequest $request
-     *
-     * @return ModifyPendingMaintenanceActionResponse
+     * @return ModifyPendingMaintenanceActionResponse ModifyPendingMaintenanceActionResponse
      */
     public function modifyPendingMaintenanceAction($request)
     {
@@ -13019,76 +10848,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the PolarDB for AI feature for a cluster.
+     * @summary Enables the PolarDB for AI feature for a cluster.
+     *  *
+     * @param OpenAITaskRequest $request OpenAITaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - OpenAITaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns OpenAITaskResponse
-     *
-     * @param OpenAITaskRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return OpenAITaskResponse
+     * @return OpenAITaskResponse OpenAITaskResponse
      */
     public function openAITaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenAITask',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenAITask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return OpenAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13096,14 +10911,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the PolarDB for AI feature for a cluster.
+     * @summary Enables the PolarDB for AI feature for a cluster.
+     *  *
+     * @param OpenAITaskRequest $request OpenAITaskRequest
      *
-     * @param request - OpenAITaskRequest
-     * @returns OpenAITaskResponse
-     *
-     * @param OpenAITaskRequest $request
-     *
-     * @return OpenAITaskResponse
+     * @return OpenAITaskResponse OpenAITaskResponse
      */
     public function openAITask($request)
     {
@@ -13113,56 +10925,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the storage usage of a cluster.
+     * @summary Updates the storage usage of a cluster.
+     *  *
+     * @param RefreshDBClusterStorageUsageRequest $request RefreshDBClusterStorageUsageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RefreshDBClusterStorageUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RefreshDBClusterStorageUsageResponse
-     *
-     * @param RefreshDBClusterStorageUsageRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return RefreshDBClusterStorageUsageResponse
+     * @return RefreshDBClusterStorageUsageResponse RefreshDBClusterStorageUsageResponse
      */
     public function refreshDBClusterStorageUsageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->syncRealTime) {
-            @$query['SyncRealTime'] = $request->syncRealTime;
+        if (!Utils::isUnset($request->syncRealTime)) {
+            $query['SyncRealTime'] = $request->syncRealTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshDBClusterStorageUsage',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshDBClusterStorageUsage',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RefreshDBClusterStorageUsageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13170,14 +10973,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the storage usage of a cluster.
+     * @summary Updates the storage usage of a cluster.
+     *  *
+     * @param RefreshDBClusterStorageUsageRequest $request RefreshDBClusterStorageUsageRequest
      *
-     * @param request - RefreshDBClusterStorageUsageRequest
-     * @returns RefreshDBClusterStorageUsageResponse
-     *
-     * @param RefreshDBClusterStorageUsageRequest $request
-     *
-     * @return RefreshDBClusterStorageUsageResponse
+     * @return RefreshDBClusterStorageUsageResponse RefreshDBClusterStorageUsageResponse
      */
     public function refreshDBClusterStorageUsage($request)
     {
@@ -13187,67 +10987,55 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Removes a secondary cluster from a GDN.
+     * @summary Removes a secondary cluster from a GDN.
+     *  *
+     * @description >  You cannot remove the primary cluster from a GDN.
+     *  *
+     * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You cannot remove the primary cluster from a GDN.
-     *
-     * @param request - RemoveDBClusterFromGDNRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveDBClusterFromGDNResponse
-     *
-     * @param RemoveDBClusterFromGDNRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RemoveDBClusterFromGDNResponse
+     * @return RemoveDBClusterFromGDNResponse RemoveDBClusterFromGDNResponse
      */
     public function removeDBClusterFromGDNWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveDBClusterFromGDN',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveDBClusterFromGDN',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveDBClusterFromGDNResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13255,17 +11043,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Removes a secondary cluster from a GDN.
+     * @summary Removes a secondary cluster from a GDN.
+     *  *
+     * @description >  You cannot remove the primary cluster from a GDN.
+     *  *
+     * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
      *
-     * @remarks
-     * >  You cannot remove the primary cluster from a GDN.
-     *
-     * @param request - RemoveDBClusterFromGDNRequest
-     * @returns RemoveDBClusterFromGDNResponse
-     *
-     * @param RemoveDBClusterFromGDNRequest $request
-     *
-     * @return RemoveDBClusterFromGDNResponse
+     * @return RemoveDBClusterFromGDNResponse RemoveDBClusterFromGDNResponse
      */
     public function removeDBClusterFromGDN($request)
     {
@@ -13275,68 +11059,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Resets the permissions of a privileged account for a PolarDB cluster.
-     *
-     * @remarks
-     * >- Only PolarDB for MySQL clusters support this operation.
+     * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+     *  *
+     * @description >- Only PolarDB for MySQL clusters support this operation.
      * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *  *
+     * @param ResetAccountRequest $request ResetAccountRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResetAccountResponse
-     *
-     * @param ResetAccountRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ResetAccountResponse
+     * @return ResetAccountResponse ResetAccountResponse
      */
     public function resetAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccount',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccount',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13344,18 +11116,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Resets the permissions of a privileged account for a PolarDB cluster.
-     *
-     * @remarks
-     * >- Only PolarDB for MySQL clusters support this operation.
+     * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+     *  *
+     * @description >- Only PolarDB for MySQL clusters support this operation.
      * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *  *
+     * @param ResetAccountRequest $request ResetAccountRequest
      *
-     * @param request - ResetAccountRequest
-     * @returns ResetAccountResponse
-     *
-     * @param ResetAccountRequest $request
-     *
-     * @return ResetAccountResponse
+     * @return ResetAccountResponse ResetAccountResponse
      */
     public function resetAccount($request)
     {
@@ -13365,68 +11133,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Rebuilds a secondary cluster in a Global Database Network (GDN).
+     * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+     *  *
+     * @param ResetGlobalDatabaseNetworkRequest $request ResetGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResetGlobalDatabaseNetworkResponse
-     *
-     * @param ResetGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ResetGlobalDatabaseNetworkResponse
+     * @return ResetGlobalDatabaseNetworkResponse ResetGlobalDatabaseNetworkResponse
      */
     public function resetGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13434,14 +11190,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Rebuilds a secondary cluster in a Global Database Network (GDN).
+     * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+     *  *
+     * @param ResetGlobalDatabaseNetworkRequest $request ResetGlobalDatabaseNetworkRequest
      *
-     * @param request - ResetGlobalDatabaseNetworkRequest
-     * @returns ResetGlobalDatabaseNetworkResponse
-     *
-     * @param ResetGlobalDatabaseNetworkRequest $request
-     *
-     * @return ResetGlobalDatabaseNetworkResponse
+     * @return ResetGlobalDatabaseNetworkResponse ResetGlobalDatabaseNetworkResponse
      */
     public function resetGlobalDatabaseNetwork($request)
     {
@@ -13451,60 +11204,50 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts database links.
+     * @summary Restarts database links.
+     *  *
+     * @param RestartDBLinkRequest $request RestartDBLinkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartDBLinkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RestartDBLinkResponse
-     *
-     * @param RestartDBLinkRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RestartDBLinkResponse
+     * @return RestartDBLinkResponse RestartDBLinkResponse
      */
     public function restartDBLinkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBLink',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBLink',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestartDBLinkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13512,14 +11255,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts database links.
+     * @summary Restarts database links.
+     *  *
+     * @param RestartDBLinkRequest $request RestartDBLinkRequest
      *
-     * @param request - RestartDBLinkRequest
-     * @returns RestartDBLinkResponse
-     *
-     * @param RestartDBLinkRequest $request
-     *
-     * @return RestartDBLinkResponse
+     * @return RestartDBLinkResponse RestartDBLinkResponse
      */
     public function restartDBLink($request)
     {
@@ -13529,56 +11269,47 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts a node in a PolarDB cluster.
+     * @summary Restarts a node in a PolarDB cluster.
+     *  *
+     * @param RestartDBNodeRequest $request RestartDBNodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartDBNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RestartDBNodeResponse
-     *
-     * @param RestartDBNodeRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RestartDBNodeResponse
+     * @return RestartDBNodeResponse RestartDBNodeResponse
      */
     public function restartDBNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBNodeId) {
-            @$query['DBNodeId'] = $request->DBNodeId;
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBNode',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBNode',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestartDBNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13586,14 +11317,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts a node in a PolarDB cluster.
+     * @summary Restarts a node in a PolarDB cluster.
+     *  *
+     * @param RestartDBNodeRequest $request RestartDBNodeRequest
      *
-     * @param request - RestartDBNodeRequest
-     * @returns RestartDBNodeResponse
-     *
-     * @param RestartDBNodeRequest $request
-     *
-     * @return RestartDBNodeResponse
+     * @return RestartDBNodeResponse RestartDBNodeResponse
      */
     public function restartDBNode($request)
     {
@@ -13603,72 +11331,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restores PolarDB databases and tables.
+     * @summary Restores PolarDB databases and tables.
+     *  *
+     * @param RestoreTableRequest $request RestoreTableRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestoreTableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RestoreTableResponse
-     *
-     * @param RestoreTableRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RestoreTableResponse
+     * @return RestoreTableResponse RestoreTableResponse
      */
     public function restoreTableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->tableMeta) {
-            @$query['TableMeta'] = $request->tableMeta;
+        if (!Utils::isUnset($request->tableMeta)) {
+            $query['TableMeta'] = $request->tableMeta;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestoreTable',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestoreTable',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestoreTableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13676,14 +11391,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restores PolarDB databases and tables.
+     * @summary Restores PolarDB databases and tables.
+     *  *
+     * @param RestoreTableRequest $request RestoreTableRequest
      *
-     * @param request - RestoreTableRequest
-     * @returns RestoreTableResponse
-     *
-     * @param RestoreTableRequest $request
-     *
-     * @return RestoreTableResponse
+     * @return RestoreTableResponse RestoreTableResponse
      */
     public function restoreTable($request)
     {
@@ -13693,64 +11405,53 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     *  *
+     * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RevokeAccountPrivilegeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RevokeAccountPrivilegeResponse
-     *
-     * @param RevokeAccountPrivilegeRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RevokeAccountPrivilegeResponse
+     * @return RevokeAccountPrivilegeResponse RevokeAccountPrivilegeResponse
      */
     public function revokeAccountPrivilegeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeAccountPrivilege',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeAccountPrivilege',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RevokeAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13758,14 +11459,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     *  *
+     * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      *
-     * @param request - RevokeAccountPrivilegeRequest
-     * @returns RevokeAccountPrivilegeResponse
-     *
-     * @param RevokeAccountPrivilegeRequest $request
-     *
-     * @return RevokeAccountPrivilegeResponse
+     * @return RevokeAccountPrivilegeResponse RevokeAccountPrivilegeResponse
      */
     public function revokeAccountPrivilege($request)
     {
@@ -13775,74 +11473,60 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param request - SwitchOverGlobalDatabaseNetworkRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SwitchOverGlobalDatabaseNetworkResponse
+     * @param SwitchOverGlobalDatabaseNetworkRequest $request SwitchOverGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param SwitchOverGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return SwitchOverGlobalDatabaseNetworkResponse
+     * @return SwitchOverGlobalDatabaseNetworkResponse SwitchOverGlobalDatabaseNetworkResponse
      */
     public function switchOverGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->forced) {
-            @$query['Forced'] = $request->forced;
+        if (!Utils::isUnset($request->forced)) {
+            $query['Forced'] = $request->forced;
         }
-
-        if (null !== $request->GDNId) {
-            @$query['GDNId'] = $request->GDNId;
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchOverGlobalDatabaseNetwork',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchOverGlobalDatabaseNetwork',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SwitchOverGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13850,12 +11534,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param request - SwitchOverGlobalDatabaseNetworkRequest
-     * @returns SwitchOverGlobalDatabaseNetworkResponse
+     * @param SwitchOverGlobalDatabaseNetworkRequest $request SwitchOverGlobalDatabaseNetworkRequest
      *
-     * @param SwitchOverGlobalDatabaseNetworkRequest $request
-     *
-     * @return SwitchOverGlobalDatabaseNetworkResponse
+     * @return SwitchOverGlobalDatabaseNetworkResponse SwitchOverGlobalDatabaseNetworkResponse
      */
     public function switchOverGlobalDatabaseNetwork($request)
     {
@@ -13865,68 +11546,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates tags for a PolarDB cluster.
+     * @summary Creates tags for a PolarDB cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -13934,14 +11603,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates tags for a PolarDB cluster.
+     * @summary Creates tags for a PolarDB cluster.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -13951,76 +11617,62 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the node configurations.
+     * @summary Temporarily changes the node configurations.
+     *  *
+     * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TempModifyDBNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TempModifyDBNodeResponse
-     *
-     * @param TempModifyDBNodeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return TempModifyDBNodeResponse
+     * @return TempModifyDBNodeResponse TempModifyDBNodeResponse
      */
     public function tempModifyDBNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->DBNode) {
-            @$query['DBNode'] = $request->DBNode;
+        if (!Utils::isUnset($request->DBNode)) {
+            $query['DBNode'] = $request->DBNode;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->operationType) {
-            @$query['OperationType'] = $request->operationType;
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TempModifyDBNode',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TempModifyDBNode',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TempModifyDBNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14028,14 +11680,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the node configurations.
+     * @summary Temporarily changes the node configurations.
+     *  *
+     * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      *
-     * @param request - TempModifyDBNodeRequest
-     * @returns TempModifyDBNodeResponse
-     *
-     * @param TempModifyDBNodeRequest $request
-     *
-     * @return TempModifyDBNodeResponse
+     * @return TempModifyDBNodeResponse TempModifyDBNodeResponse
      */
     public function tempModifyDBNode($request)
     {
@@ -14045,86 +11694,70 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a PolarDB cluster.
-     *
-     * @remarks
-     * >
+     * @summary Changes the billing method of a PolarDB cluster.
+     *  *
+     * @description >
      * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
      * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
      * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *  *
+     * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransformDBClusterPayTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TransformDBClusterPayTypeResponse
-     *
-     * @param TransformDBClusterPayTypeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return TransformDBClusterPayTypeResponse
+     * @return TransformDBClusterPayTypeResponse TransformDBClusterPayTypeResponse
      */
     public function transformDBClusterPayTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransformDBClusterPayType',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransformDBClusterPayType',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TransformDBClusterPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14132,20 +11765,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a PolarDB cluster.
-     *
-     * @remarks
-     * >
+     * @summary Changes the billing method of a PolarDB cluster.
+     *  *
+     * @description >
      * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
      * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
      * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *  *
+     * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      *
-     * @param request - TransformDBClusterPayTypeRequest
-     * @returns TransformDBClusterPayTypeResponse
-     *
-     * @param TransformDBClusterPayTypeRequest $request
-     *
-     * @return TransformDBClusterPayTypeResponse
+     * @return TransformDBClusterPayTypeResponse TransformDBClusterPayTypeResponse
      */
     public function transformDBClusterPayType($request)
     {
@@ -14155,72 +11784,59 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from PolarDB clusters.
+     * @summary Unbinds tags from PolarDB clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14228,14 +11844,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from PolarDB clusters.
+     * @summary Unbinds tags from PolarDB clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -14245,92 +11858,74 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Upgrades the kernel version of a PolarDB for MySQL cluster.
-     *
-     * @remarks
-     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
      * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpgradeDBClusterVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpgradeDBClusterVersionResponse
-     *
-     * @param UpgradeDBClusterVersionRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpgradeDBClusterVersionResponse
+     * @return UpgradeDBClusterVersionResponse UpgradeDBClusterVersionResponse
      */
     public function upgradeDBClusterVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->fromTimeService) {
-            @$query['FromTimeService'] = $request->fromTimeService;
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->plannedEndTime) {
-            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
         }
-
-        if (null !== $request->plannedStartTime) {
-            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->targetDBRevisionVersionCode) {
-            @$query['TargetDBRevisionVersionCode'] = $request->targetDBRevisionVersionCode;
+        if (!Utils::isUnset($request->targetDBRevisionVersionCode)) {
+            $query['TargetDBRevisionVersionCode'] = $request->targetDBRevisionVersionCode;
         }
-
-        if (null !== $request->targetProxyRevisionVersionCode) {
-            @$query['TargetProxyRevisionVersionCode'] = $request->targetProxyRevisionVersionCode;
+        if (!Utils::isUnset($request->targetProxyRevisionVersionCode)) {
+            $query['TargetProxyRevisionVersionCode'] = $request->targetProxyRevisionVersionCode;
         }
-
-        if (null !== $request->upgradeLabel) {
-            @$query['UpgradeLabel'] = $request->upgradeLabel;
+        if (!Utils::isUnset($request->upgradeLabel)) {
+            $query['UpgradeLabel'] = $request->upgradeLabel;
         }
-
-        if (null !== $request->upgradePolicy) {
-            @$query['UpgradePolicy'] = $request->upgradePolicy;
+        if (!Utils::isUnset($request->upgradePolicy)) {
+            $query['UpgradePolicy'] = $request->upgradePolicy;
         }
-
-        if (null !== $request->upgradeType) {
-            @$query['UpgradeType'] = $request->upgradeType;
+        if (!Utils::isUnset($request->upgradeType)) {
+            $query['UpgradeType'] = $request->upgradeType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBClusterVersion',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBClusterVersion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeDBClusterVersionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -14338,18 +11933,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Upgrades the kernel version of a PolarDB for MySQL cluster.
-     *
-     * @remarks
-     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
      * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      *
-     * @param request - UpgradeDBClusterVersionRequest
-     * @returns UpgradeDBClusterVersionResponse
-     *
-     * @param UpgradeDBClusterVersionRequest $request
-     *
-     * @return UpgradeDBClusterVersionResponse
+     * @return UpgradeDBClusterVersionResponse UpgradeDBClusterVersionResponse
      */
     public function upgradeDBClusterVersion($request)
     {

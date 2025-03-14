@@ -4,135 +4,174 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest\DBNode;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBNodesClassRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+     *
+     * @example 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example pc-*************
+     *
      * @var string
      */
     public $DBClusterId;
+
     /**
+     * @description The details of the nodes.
+     *
+     * This parameter is required.
+     *
      * @var DBNode[]
      */
     public $DBNode;
+
     /**
+     * @description The type of the configuration change. Valid values:
+     *
+     *   **Upgrade**
+     *   **Downgrade**
+     *
+     * This parameter is required.
+     *
+     * @example Upgrade
+     *
      * @var string
      */
     public $modifyType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description The latest start time to upgrade the specifications within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+     *
+     * >*   The value of this parameter must be at least 30 minutes later than the value of PlannedStartTime.
+     * >*   By default, if you specify `PlannedStartTime` but do not specify PlannedEndTime, the latest start time of the task is set to `Value of PlannedEndTime + 30 minutes`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and you do not specify PlannedEndTime, the latest start time of the task is `2021-01-14T09:30:00Z`.
+     *
+     * @example 2021-01-14T09:30:00Z
+     *
      * @var string
      */
     public $plannedEndTime;
+
     /**
      * @var string
      */
     public $plannedFlashingOffTime;
+
     /**
+     * @description The earliest start time to upgrade the specifications within the scheduled time period. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+     *
+     * > *   This parameter takes effect only when `ModifyType` is set to `Upgrade`.
+     * >*   The earliest start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in the time that ranges from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+     * >*   If this parameter is left empty, the upgrade task is immediately performed.
+     *
+     * @example 2021-01-14T09:00:00Z
+     *
      * @var string
      */
     public $plannedStartTime;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
+     * @description The category of the cluster. Valid values:
+     *
+     *   **normal_exclusive**: dedicated
+     *   **normal_general**: genera-purpose
+     *
+     * @example normal_general
+     *
      * @var string
      */
     public $subCategory;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'DBClusterId'            => 'DBClusterId',
-        'DBNode'                 => 'DBNode',
-        'modifyType'             => 'ModifyType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'plannedEndTime'         => 'PlannedEndTime',
+        'clientToken' => 'ClientToken',
+        'DBClusterId' => 'DBClusterId',
+        'DBNode' => 'DBNode',
+        'modifyType' => 'ModifyType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'plannedEndTime' => 'PlannedEndTime',
         'plannedFlashingOffTime' => 'PlannedFlashingOffTime',
-        'plannedStartTime'       => 'PlannedStartTime',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'subCategory'            => 'SubCategory',
+        'plannedStartTime' => 'PlannedStartTime',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'subCategory' => 'SubCategory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->DBNode)) {
-            Model::validateArray($this->DBNode);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-
         if (null !== $this->DBNode) {
-            if (\is_array($this->DBNode)) {
-                $res['DBNode'] = [];
-                $n1            = 0;
-                foreach ($this->DBNode as $item1) {
-                    $res['DBNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DBNode'] = [];
+            if (null !== $this->DBNode && \is_array($this->DBNode)) {
+                $n = 0;
+                foreach ($this->DBNode as $item) {
+                    $res['DBNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->plannedEndTime) {
             $res['PlannedEndTime'] = $this->plannedEndTime;
         }
-
         if (null !== $this->plannedFlashingOffTime) {
             $res['PlannedFlashingOffTime'] = $this->plannedFlashingOffTime;
         }
-
         if (null !== $this->plannedStartTime) {
             $res['PlannedStartTime'] = $this->plannedStartTime;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->subCategory) {
             $res['SubCategory'] = $this->subCategory;
         }
@@ -140,64 +179,53 @@ class ModifyDBNodesClassRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBNodesClassRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-
         if (isset($map['DBNode'])) {
             if (!empty($map['DBNode'])) {
                 $model->DBNode = [];
-                $n1            = 0;
-                foreach ($map['DBNode'] as $item1) {
-                    $model->DBNode[$n1++] = DBNode::fromMap($item1);
+                $n = 0;
+                foreach ($map['DBNode'] as $item) {
+                    $model->DBNode[$n++] = null !== $item ? DBNode::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['PlannedEndTime'])) {
             $model->plannedEndTime = $map['PlannedEndTime'];
         }
-
         if (isset($map['PlannedFlashingOffTime'])) {
             $model->plannedFlashingOffTime = $map['PlannedFlashingOffTime'];
         }
-
         if (isset($map['PlannedStartTime'])) {
             $model->plannedStartTime = $map['PlannedStartTime'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['SubCategory'])) {
             $model->subCategory = $map['SubCategory'];
         }

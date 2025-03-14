@@ -4,53 +4,51 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserEncryptionKeyListResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
+
     /**
+     * @description Cluster key list.
+     *
      * @var string[]
      */
     public $keyList;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example A7E6A8FD-C50B-46B2-BA85-D8B8D3******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'keyList'     => 'KeyList',
-        'requestId'   => 'RequestId',
+        'keyList' => 'KeyList',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keyList)) {
-            Model::validateArray($this->keyList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-
         if (null !== $this->keyList) {
-            if (\is_array($this->keyList)) {
-                $res['KeyList'] = [];
-                $n1             = 0;
-                foreach ($this->keyList as $item1) {
-                    $res['KeyList'][$n1++] = $item1;
-                }
-            }
+            $res['KeyList'] = $this->keyList;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,28 +56,22 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserEncryptionKeyListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-
         if (isset($map['KeyList'])) {
             if (!empty($map['KeyList'])) {
-                $model->keyList = [];
-                $n1             = 0;
-                foreach ($map['KeyList'] as $item1) {
-                    $model->keyList[$n1++] = $item1;
-                }
+                $model->keyList = $map['KeyList'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

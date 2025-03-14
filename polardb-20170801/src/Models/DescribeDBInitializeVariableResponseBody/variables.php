@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableResponseBody\variables\variable;
+use AlibabaCloud\Tea\Model;
 
 class variables extends Model
 {
@@ -17,23 +17,17 @@ class variables extends Model
         'variable' => 'Variable',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->variable)) {
-            Model::validateArray($this->variable);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->variable) {
-            if (\is_array($this->variable)) {
-                $res['Variable'] = [];
-                $n1              = 0;
-                foreach ($this->variable as $item1) {
-                    $res['Variable'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Variable'] = [];
+            if (null !== $this->variable && \is_array($this->variable)) {
+                $n = 0;
+                foreach ($this->variable as $item) {
+                    $res['Variable'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class variables extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return variables
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Variable'])) {
             if (!empty($map['Variable'])) {
                 $model->variable = [];
-                $n1              = 0;
-                foreach ($map['Variable'] as $item1) {
-                    $model->variable[$n1++] = variable::fromMap($item1);
+                $n = 0;
+                foreach ($map['Variable'] as $item) {
+                    $model->variable[$n++] = null !== $item ? variable::fromMap($item) : $item;
                 }
             }
         }

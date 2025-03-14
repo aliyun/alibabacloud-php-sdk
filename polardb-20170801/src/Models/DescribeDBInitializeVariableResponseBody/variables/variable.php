@@ -4,44 +4,69 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableResponseBody\variables;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class variable extends Model
 {
     /**
+     * @description The character set that is supported.
+     *
+     * @example EUC_CN
+     *
      * @var string
      */
     public $charset;
+
     /**
+     * @description The language that indicates the collation of the databases that are created.
+     *
+     * >- The language must be compatible with the character set that is specified by **CharacterSetName**.
+     * >- This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters.
+     * >- This parameter is optional for PolarDB for MySQL clusters.
+     *
+     * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+     *
+     * @example C
+     *
      * @var string
      */
     public $collate;
+
     /**
+     * @description The language that indicates the character type of the database.
+     *
+     * >
+     *
+     *   The language must be compatible with the character set that is specified by **CharacterSetName**.
+     *
+     *   The specified parameter value must be the same as the value of **Collate**.
+     *
+     *   If the PolarDB cluster runs PolarDB for PostgreSQL (Compatible with Oracle) or PolarDB for PostgreSQL, this parameter is required. If the cluster runs PolarDB for MySQL, this parameter is not supported.
+     *
+     * To view the valid values of this parameter, perform the following steps: First, log on to the PolarDB console and click the ID of a cluster. Then, in the left-side navigation pane, choose **Settings and Management** > **Databases**. Finally, click **Create Database**.
+     *
+     * @example C
+     *
      * @var string
      */
     public $ctype;
     protected $_name = [
         'charset' => 'Charset',
         'collate' => 'Collate',
-        'ctype'   => 'Ctype',
+        'ctype' => 'Ctype',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->charset) {
             $res['Charset'] = $this->charset;
         }
-
         if (null !== $this->collate) {
             $res['Collate'] = $this->collate;
         }
-
         if (null !== $this->ctype) {
             $res['Ctype'] = $this->ctype;
         }
@@ -49,22 +74,20 @@ class variable extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return variable
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Charset'])) {
             $model->charset = $map['Charset'];
         }
-
         if (isset($map['Collate'])) {
             $model->collate = $map['Collate'];
         }
-
         if (isset($map['Ctype'])) {
             $model->ctype = $map['Ctype'];
         }

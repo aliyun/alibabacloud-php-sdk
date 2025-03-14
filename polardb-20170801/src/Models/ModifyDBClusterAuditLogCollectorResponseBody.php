@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBClusterAuditLogCollectorResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 22C0ACF0-DD29-4B67-9190-B7A48C******
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyDBClusterAuditLogCollectorResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyDBClusterAuditLogCollectorResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBClusterAuditLogCollectorResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

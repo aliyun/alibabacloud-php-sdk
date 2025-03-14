@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DBNodeIds extends Model
 {
@@ -16,45 +16,29 @@ class DBNodeIds extends Model
         'DBNodeId' => 'DBNodeId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->DBNodeId)) {
-            Model::validateArray($this->DBNodeId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBNodeId) {
-            if (\is_array($this->DBNodeId)) {
-                $res['DBNodeId'] = [];
-                $n1              = 0;
-                foreach ($this->DBNodeId as $item1) {
-                    $res['DBNodeId'][$n1++] = $item1;
-                }
-            }
+            $res['DBNodeId'] = $this->DBNodeId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBNodeIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBNodeId'])) {
             if (!empty($map['DBNodeId'])) {
-                $model->DBNodeId = [];
-                $n1              = 0;
-                foreach ($map['DBNodeId'] as $item1) {
-                    $model->DBNodeId[$n1++] = $item1;
-                }
+                $model->DBNodeId = $map['DBNodeId'];
             }
         }
 

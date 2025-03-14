@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SwitchOverGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 67F2E75F-AE67-4FB2-821F-A81237EACD15
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SwitchOverGlobalDatabaseNetworkResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SwitchOverGlobalDatabaseNetworkResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SwitchOverGlobalDatabaseNetworkResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

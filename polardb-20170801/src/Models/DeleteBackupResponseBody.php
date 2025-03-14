@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteBackupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3CF4F9FE-BF77-4739-8D68-B8DF5D******
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteBackupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteBackupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteBackupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

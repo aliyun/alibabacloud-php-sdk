@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteParameterGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4F7195E7-5F74-479D-AF59-1B4BF9******
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteParameterGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteParameterGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteParameterGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

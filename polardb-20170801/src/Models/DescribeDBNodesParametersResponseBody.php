@@ -4,72 +4,88 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBNodesParametersResponseBody\DBNodeIds;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBNodesParametersResponseBody extends Model
 {
     /**
+     * @description The IDs of the nodes.
+     *
      * @var DBNodeIds[]
      */
     public $DBNodeIds;
+
     /**
+     * @description The type of the database engine. Set the value to **MySQL**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
+
     /**
+     * @description The version of the MySQL database engine. Valid values:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $DBVersion;
+
     /**
+     * @description The cluster engine.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $engine;
+
     /**
+     * @description The request ID.
+     *
+     * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBNodeIds' => 'DBNodeIds',
-        'DBType'    => 'DBType',
+        'DBType' => 'DBType',
         'DBVersion' => 'DBVersion',
-        'engine'    => 'Engine',
+        'engine' => 'Engine',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->DBNodeIds)) {
-            Model::validateArray($this->DBNodeIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBNodeIds) {
-            if (\is_array($this->DBNodeIds)) {
-                $res['DBNodeIds'] = [];
-                $n1               = 0;
-                foreach ($this->DBNodeIds as $item1) {
-                    $res['DBNodeIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DBNodeIds'] = [];
+            if (null !== $this->DBNodeIds && \is_array($this->DBNodeIds)) {
+                $n = 0;
+                foreach ($this->DBNodeIds as $item) {
+                    $res['DBNodeIds'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
         }
-
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
         }
-
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -77,36 +93,32 @@ class DescribeDBNodesParametersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBNodesParametersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBNodeIds'])) {
             if (!empty($map['DBNodeIds'])) {
                 $model->DBNodeIds = [];
-                $n1               = 0;
-                foreach ($map['DBNodeIds'] as $item1) {
-                    $model->DBNodeIds[$n1++] = DBNodeIds::fromMap($item1);
+                $n = 0;
+                foreach ($map['DBNodeIds'] as $item) {
+                    $model->DBNodeIds[$n++] = null !== $item ? DBNodeIds::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
         }
-
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
         }
-
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

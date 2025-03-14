@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksResponseBody\items;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
+     * @description The details of the backup task.
+     *
      * @var items
      */
     public $items;
+
     /**
+     * @description The request ID.
+     *
+     * @example FA8C1EF1-E3D4-44D7-B809-823187******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->items) {
-            $this->items->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class DescribeBackupTasksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBackupTasksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

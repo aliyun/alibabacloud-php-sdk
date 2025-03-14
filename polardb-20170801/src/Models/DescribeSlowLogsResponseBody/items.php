@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsResponseBody\items\SQLSlowLog;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,23 +17,17 @@ class items extends Model
         'SQLSlowLog' => 'SQLSlowLog',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->SQLSlowLog)) {
-            Model::validateArray($this->SQLSlowLog);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->SQLSlowLog) {
-            if (\is_array($this->SQLSlowLog)) {
-                $res['SQLSlowLog'] = [];
-                $n1                = 0;
-                foreach ($this->SQLSlowLog as $item1) {
-                    $res['SQLSlowLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SQLSlowLog'] = [];
+            if (null !== $this->SQLSlowLog && \is_array($this->SQLSlowLog)) {
+                $n = 0;
+                foreach ($this->SQLSlowLog as $item) {
+                    $res['SQLSlowLog'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SQLSlowLog'])) {
             if (!empty($map['SQLSlowLog'])) {
                 $model->SQLSlowLog = [];
-                $n1                = 0;
-                foreach ($map['SQLSlowLog'] as $item1) {
-                    $model->SQLSlowLog[$n1++] = SQLSlowLog::fromMap($item1);
+                $n = 0;
+                foreach ($map['SQLSlowLog'] as $item) {
+                    $model->SQLSlowLog[$n++] = null !== $item ? SQLSlowLog::fromMap($item) : $item;
                 }
             }
         }

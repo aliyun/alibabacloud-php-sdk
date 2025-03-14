@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateColdStorageInstanceResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pcs_2zeth2gf4i83e578t
+     *
      * @var string
      */
     public $coldStorageInstanceId;
+
     /**
+     * @description The request ID.
+     *
+     * @example F6EBB4ED-D12F-5F49-824C-9DD9C0EC4CF2
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'coldStorageInstanceId' => 'ColdStorageInstanceId',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->coldStorageInstanceId) {
             $res['ColdStorageInstanceId'] = $this->coldStorageInstanceId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateColdStorageInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateColdStorageInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColdStorageInstanceId'])) {
             $model->coldStorageInstanceId = $map['ColdStorageInstanceId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

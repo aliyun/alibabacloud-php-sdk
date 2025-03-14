@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gd-m5ex5wqfqbou*****
+     *
      * @var string
      */
     public $GDNId;
+
     /**
+     * @description The request ID.
+     *
+     * @example C61892A4-0850-4516-9E26-44D96C1782DE
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'GDNId'     => 'GDNId',
+        'GDNId' => 'GDNId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->GDNId) {
             $res['GDNId'] = $this->GDNId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateGlobalDatabaseNetworkResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateGlobalDatabaseNetworkResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GDNId'])) {
             $model->GDNId = $map['GDNId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
