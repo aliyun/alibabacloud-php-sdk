@@ -39,14 +39,12 @@ class ModifyAndroidInstanceGroupRequest extends Model
      */
     public $policyGroupId;
     protected $_name = [
-        'instanceGroupId'      => 'InstanceGroupId',
+        'instanceGroupId' => 'InstanceGroupId',
         'newInstanceGroupName' => 'NewInstanceGroupName',
-        'policyGroupId'        => 'PolicyGroupId',
+        'policyGroupId' => 'PolicyGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

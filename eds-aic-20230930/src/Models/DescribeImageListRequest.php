@@ -44,6 +44,7 @@ class DescribeImageListRequest extends Model
      *   System: system images.
      *
      * This parameter is required.
+     *
      * @example System
      *
      * @var string
@@ -85,18 +86,16 @@ class DescribeImageListRequest extends Model
      */
     public $status;
     protected $_name = [
-        'imageId'          => 'ImageId',
-        'imageName'        => 'ImageName',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'imagePackageType' => 'ImagePackageType',
-        'imageType'        => 'ImageType',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'status'           => 'Status',
+        'imageType' => 'ImageType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

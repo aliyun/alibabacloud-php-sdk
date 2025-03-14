@@ -12,6 +12,7 @@ class DescribeInvocationsRequest extends Model
      * @description The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -20,19 +21,18 @@ class DescribeInvocationsRequest extends Model
      * @description The ID of the execution. You can retrieve the output of a command once by using either the execution ID or the cloud phone instance ID.
      *
      * This parameter is required.
+     *
      * @example t-4e98eeb5****
      *
      * @var string
      */
     public $invocationId;
     protected $_name = [
-        'instanceIds'  => 'InstanceIds',
+        'instanceIds' => 'InstanceIds',
         'invocationId' => 'InvocationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

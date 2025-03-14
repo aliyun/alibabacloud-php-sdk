@@ -20,6 +20,8 @@ class RunCommandRequest extends Model
     /**
      * @description The encoding method of the command content (`CommandContent`). The value is not case-sensitive.
      *
+     * >  If you set the value to an invalid encoding method, the system will process the command content as `PlainText`.
+     *
      * Valid values:
      *
      *   Base64: encodes the command content in Base64.
@@ -47,15 +49,13 @@ class RunCommandRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'commandContent'  => 'CommandContent',
+        'commandContent' => 'CommandContent',
         'contentEncoding' => 'ContentEncoding',
-        'instanceIds'     => 'InstanceIds',
-        'timeout'         => 'Timeout',
+        'instanceIds' => 'InstanceIds',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

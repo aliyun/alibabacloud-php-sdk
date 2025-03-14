@@ -126,21 +126,19 @@ class ModifyPolicyGroupRequest extends Model
      */
     public $resolutionWidth;
     protected $_name = [
-        'cameraRedirect'    => 'CameraRedirect',
-        'clipboard'         => 'Clipboard',
+        'cameraRedirect' => 'CameraRedirect',
+        'clipboard' => 'Clipboard',
         'html5FileTransfer' => 'Html5FileTransfer',
-        'localDrive'        => 'LocalDrive',
-        'lockResolution'    => 'LockResolution',
+        'localDrive' => 'LocalDrive',
+        'lockResolution' => 'LockResolution',
         'netRedirectPolicy' => 'NetRedirectPolicy',
-        'policyGroupId'     => 'PolicyGroupId',
-        'policyGroupName'   => 'PolicyGroupName',
-        'resolutionHeight'  => 'ResolutionHeight',
-        'resolutionWidth'   => 'ResolutionWidth',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupName' => 'PolicyGroupName',
+        'resolutionHeight' => 'ResolutionHeight',
+        'resolutionWidth' => 'ResolutionWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

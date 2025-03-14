@@ -123,24 +123,22 @@ class DescribeBackupFilesRequest extends Model
      */
     public $statusList;
     protected $_name = [
-        'androidInstanceId'   => 'AndroidInstanceId',
+        'androidInstanceId' => 'AndroidInstanceId',
         'androidInstanceName' => 'AndroidInstanceName',
-        'backupAll'           => 'BackupAll',
-        'backupFileId'        => 'BackupFileId',
-        'backupFileName'      => 'BackupFileName',
-        'description'         => 'Description',
-        'endTime'             => 'EndTime',
-        'endUserId'           => 'EndUserId',
-        'instanceGroupId'     => 'InstanceGroupId',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'startTime'           => 'StartTime',
-        'statusList'          => 'StatusList',
+        'backupAll' => 'BackupAll',
+        'backupFileId' => 'BackupFileId',
+        'backupFileName' => 'BackupFileName',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
+        'instanceGroupId' => 'InstanceGroupId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'startTime' => 'StartTime',
+        'statusList' => 'StatusList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

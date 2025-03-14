@@ -18,9 +18,7 @@ class DeleteAndroidInstanceGroupRequest extends Model
         'instanceGroupIds' => 'InstanceGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

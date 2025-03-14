@@ -116,21 +116,19 @@ class DescribeAndroidInstanceGroupsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'bizRegionId'       => 'BizRegionId',
-        'chargeType'        => 'ChargeType',
-        'instanceGroupIds'  => 'InstanceGroupIds',
+        'bizRegionId' => 'BizRegionId',
+        'chargeType' => 'ChargeType',
+        'instanceGroupIds' => 'InstanceGroupIds',
         'instanceGroupName' => 'InstanceGroupName',
-        'keyPairId'         => 'KeyPairId',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'policyGroupId'     => 'PolicyGroupId',
-        'saleMode'          => 'SaleMode',
-        'status'            => 'Status',
+        'keyPairId' => 'KeyPairId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'policyGroupId' => 'PolicyGroupId',
+        'saleMode' => 'SaleMode',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteImagesRequest extends Model
      * @description The IDs of the images.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $imageIds;
@@ -19,9 +20,7 @@ class DeleteImagesRequest extends Model
         'imageIds' => 'ImageIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

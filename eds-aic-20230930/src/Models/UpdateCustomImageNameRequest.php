@@ -26,13 +26,11 @@ class UpdateCustomImageNameRequest extends Model
      */
     public $imageName;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'imageName' => 'ImageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

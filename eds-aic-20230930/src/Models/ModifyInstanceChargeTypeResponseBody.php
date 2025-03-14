@@ -34,13 +34,11 @@ class ModifyInstanceChargeTypeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceGroupIds' => 'InstanceGroupIds',
-        'orderId'          => 'OrderId',
-        'requestId'        => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

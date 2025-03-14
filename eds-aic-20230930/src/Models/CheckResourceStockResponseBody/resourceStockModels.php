@@ -35,14 +35,12 @@ class resourceStockModels extends Model
      */
     public $zoneId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
         'stockStatus' => 'StockStatus',
-        'zoneId'      => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

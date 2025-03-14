@@ -26,12 +26,10 @@ class BatchGetAcpConnectionTicketResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceConnectionModels' => 'InstanceConnectionModels',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class BatchGetAcpConnectionTicketResponseBody extends Model
         if (isset($map['InstanceConnectionModels'])) {
             if (!empty($map['InstanceConnectionModels'])) {
                 $model->instanceConnectionModels = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['InstanceConnectionModels'] as $item) {
                     $model->instanceConnectionModels[$n++] = null !== $item ? instanceConnectionModels::fromMap($item) : $item;
                 }

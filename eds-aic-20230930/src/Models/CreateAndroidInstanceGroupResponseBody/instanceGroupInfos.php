@@ -25,12 +25,10 @@ class instanceGroupInfos extends Model
     public $instanceIds;
     protected $_name = [
         'instanceGroupId' => 'InstanceGroupId',
-        'instanceIds'     => 'InstanceIds',
+        'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

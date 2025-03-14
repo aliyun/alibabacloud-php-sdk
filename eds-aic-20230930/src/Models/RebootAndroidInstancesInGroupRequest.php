@@ -30,12 +30,10 @@ class RebootAndroidInstancesInGroupRequest extends Model
     public $forceStop;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
-        'forceStop'          => 'ForceStop',
+        'forceStop' => 'ForceStop',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

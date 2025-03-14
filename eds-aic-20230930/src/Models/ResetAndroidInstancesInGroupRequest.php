@@ -18,9 +18,7 @@ class ResetAndroidInstancesInGroupRequest extends Model
         'androidInstanceIds' => 'AndroidInstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

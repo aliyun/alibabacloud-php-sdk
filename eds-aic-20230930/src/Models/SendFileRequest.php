@@ -12,6 +12,7 @@ class SendFileRequest extends Model
      * @description The IDs of the cloud phone instances.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $androidInstanceIdList;
@@ -20,6 +21,7 @@ class SendFileRequest extends Model
      * @description The path to which you want to upload the pushed file in the cloud phone instance.
      *
      * This parameter is required.
+     *
      * @example /data
      *
      * @var string
@@ -27,9 +29,15 @@ class SendFileRequest extends Model
     public $sourceFilePath;
 
     /**
+     * @var string
+     */
+    public $targetFileName;
+
+    /**
      * @description The endpoint of the OSS bucket in which the file is stored.
      *
      * >  Set the value to an internal endpoint when the cloud phone instance and the OSS bucket are in the same region to improve transfer speed without incurring public traffic fees. Sample endpoint: `oss-cn-hangzhou-internal.aliyuncs.com`. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+     *
      * @example oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -42,6 +50,7 @@ class SendFileRequest extends Model
      *   Set the value to OSS.
      *
      * This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -51,21 +60,23 @@ class SendFileRequest extends Model
     /**
      * @description The OSS URL of the file.
      *
+     * >  The OSS bucket name must start with "cloudphone-saved-bucket-", for example, "cloudphone-saved-bucket-example". You must also create an OSS directory to store the backup data. Set the value for UploadUrl in this format: oss://\\<BucketName>/\\<OSSDirectoryName>\\<FileName>.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $uploadUrl;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
-        'sourceFilePath'        => 'SourceFilePath',
-        'uploadEndpoint'        => 'UploadEndpoint',
-        'uploadType'            => 'UploadType',
-        'uploadUrl'             => 'UploadUrl',
+        'sourceFilePath' => 'SourceFilePath',
+        'targetFileName' => 'TargetFileName',
+        'uploadEndpoint' => 'UploadEndpoint',
+        'uploadType' => 'UploadType',
+        'uploadUrl' => 'UploadUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,6 +86,9 @@ class SendFileRequest extends Model
         }
         if (null !== $this->sourceFilePath) {
             $res['SourceFilePath'] = $this->sourceFilePath;
+        }
+        if (null !== $this->targetFileName) {
+            $res['TargetFileName'] = $this->targetFileName;
         }
         if (null !== $this->uploadEndpoint) {
             $res['UploadEndpoint'] = $this->uploadEndpoint;
@@ -104,6 +118,9 @@ class SendFileRequest extends Model
         }
         if (isset($map['SourceFilePath'])) {
             $model->sourceFilePath = $map['SourceFilePath'];
+        }
+        if (isset($map['TargetFileName'])) {
+            $model->targetFileName = $map['TargetFileName'];
         }
         if (isset($map['UploadEndpoint'])) {
             $model->uploadEndpoint = $map['UploadEndpoint'];

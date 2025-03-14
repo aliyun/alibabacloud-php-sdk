@@ -70,17 +70,15 @@ class data extends Model
      */
     public $startTime;
     protected $_name = [
-        'finishTime'       => 'FinishTime',
-        'instanceId'       => 'InstanceId',
-        'invocationId'     => 'InvocationId',
+        'finishTime' => 'FinishTime',
+        'instanceId' => 'InstanceId',
+        'invocationId' => 'InvocationId',
         'invocationStatus' => 'InvocationStatus',
-        'output'           => 'Output',
-        'startTime'        => 'StartTime',
+        'output' => 'Output',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,15 +41,13 @@ class BatchGetAcpConnectionTicketRequest extends Model
      */
     public $instanceTasks;
     protected $_name = [
-        'endUserId'       => 'EndUserId',
+        'endUserId' => 'EndUserId',
         'instanceGroupId' => 'InstanceGroupId',
-        'instanceIds'     => 'InstanceIds',
-        'instanceTasks'   => 'InstanceTasks',
+        'instanceIds' => 'InstanceIds',
+        'instanceTasks' => 'InstanceTasks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class BatchGetAcpConnectionTicketRequest extends Model
         if (isset($map['InstanceTasks'])) {
             if (!empty($map['InstanceTasks'])) {
                 $model->instanceTasks = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InstanceTasks'] as $item) {
                     $model->instanceTasks[$n++] = null !== $item ? instanceTasks::fromMap($item) : $item;
                 }

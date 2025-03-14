@@ -34,13 +34,11 @@ class AuthorizeAndroidInstanceRequest extends Model
     public $unAuthorizeUserId;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
-        'authorizeUserId'    => 'AuthorizeUserId',
-        'unAuthorizeUserId'  => 'UnAuthorizeUserId',
+        'authorizeUserId' => 'AuthorizeUserId',
+        'unAuthorizeUserId' => 'UnAuthorizeUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

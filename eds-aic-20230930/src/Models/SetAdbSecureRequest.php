@@ -24,6 +24,7 @@ class SetAdbSecureRequest extends Model
      *   1: The ADB authentication feature is enabled.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -31,12 +32,10 @@ class SetAdbSecureRequest extends Model
     public $status;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

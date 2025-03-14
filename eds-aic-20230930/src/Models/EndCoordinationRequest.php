@@ -30,13 +30,11 @@ class EndCoordinationRequest extends Model
     public $ownerUserId;
     protected $_name = [
         'coordinatorUserId' => 'CoordinatorUserId',
-        'instanceId'        => 'InstanceId',
-        'ownerUserId'       => 'OwnerUserId',
+        'instanceId' => 'InstanceId',
+        'ownerUserId' => 'OwnerUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

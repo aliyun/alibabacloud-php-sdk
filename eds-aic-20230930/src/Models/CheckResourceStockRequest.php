@@ -26,6 +26,7 @@ class CheckResourceStockRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,16 +47,14 @@ class CheckResourceStockRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'acpSpecId'       => 'AcpSpecId',
-        'amount'          => 'Amount',
-        'bizRegionId'     => 'BizRegionId',
+        'acpSpecId' => 'AcpSpecId',
+        'amount' => 'Amount',
+        'bizRegionId' => 'BizRegionId',
         'gpuAcceleration' => 'GpuAcceleration',
-        'zoneId'          => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

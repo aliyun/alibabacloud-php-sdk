@@ -12,6 +12,7 @@ class BackupFileRequest extends Model
      * @description The IDs of the instances.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $androidInstanceIdList;
@@ -37,7 +38,10 @@ class BackupFileRequest extends Model
     /**
      * @description The OSS path of the backup file.
      *
+     * >  To upload a backup file to an OSS bucket, you must obtain the name of the bucket. When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss://${bucketName}/${key}.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $backupFilePath;
@@ -69,6 +73,7 @@ class BackupFileRequest extends Model
      * @description The endpoint of the OSS bucket to which you want to upload the backup file.
      *
      * > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
+     *
      * @example oss-cn-shanghai-internal.aliyuncs.com
      *
      * @var string
@@ -89,19 +94,17 @@ class BackupFileRequest extends Model
     public $uploadType;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
-        'backupAll'             => 'BackupAll',
-        'backupFileName'        => 'BackupFileName',
-        'backupFilePath'        => 'BackupFilePath',
-        'description'           => 'Description',
-        'sourceAppList'         => 'SourceAppList',
-        'sourceFilePathList'    => 'SourceFilePathList',
-        'uploadEndpoint'        => 'UploadEndpoint',
-        'uploadType'            => 'UploadType',
+        'backupAll' => 'BackupAll',
+        'backupFileName' => 'BackupFileName',
+        'backupFilePath' => 'BackupFilePath',
+        'description' => 'Description',
+        'sourceAppList' => 'SourceAppList',
+        'sourceFilePathList' => 'SourceFilePathList',
+        'uploadEndpoint' => 'UploadEndpoint',
+        'uploadType' => 'UploadType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

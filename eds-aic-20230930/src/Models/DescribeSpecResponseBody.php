@@ -43,15 +43,13 @@ class DescribeSpecResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'specInfoModel' => 'SpecInfoModel',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class DescribeSpecResponseBody extends Model
         if (isset($map['SpecInfoModel'])) {
             if (!empty($map['SpecInfoModel'])) {
                 $model->specInfoModel = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SpecInfoModel'] as $item) {
                     $model->specInfoModel[$n++] = null !== $item ? specInfoModel::fromMap($item) : $item;
                 }

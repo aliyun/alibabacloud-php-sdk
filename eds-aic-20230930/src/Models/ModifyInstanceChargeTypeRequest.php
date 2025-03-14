@@ -32,6 +32,7 @@ class ModifyInstanceChargeTypeRequest extends Model
      * >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
      *
      * This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -42,6 +43,7 @@ class ModifyInstanceChargeTypeRequest extends Model
      * @description The IDs of the instance groups.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceGroupIds;
@@ -67,17 +69,15 @@ class ModifyInstanceChargeTypeRequest extends Model
      */
     public $periodUnit;
     protected $_name = [
-        'autoPay'          => 'AutoPay',
-        'autoRenew'        => 'AutoRenew',
-        'chargeType'       => 'ChargeType',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'chargeType' => 'ChargeType',
         'instanceGroupIds' => 'InstanceGroupIds',
-        'period'           => 'Period',
-        'periodUnit'       => 'PeriodUnit',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

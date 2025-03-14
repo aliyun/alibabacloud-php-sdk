@@ -43,14 +43,12 @@ class data extends Model
     public $totalCount;
     protected $_name = [
         'attachedInstanceIds' => 'AttachedInstanceIds',
-        'failCount'           => 'FailCount',
-        'keyPairId'           => 'KeyPairId',
-        'totalCount'          => 'TotalCount',
+        'failCount' => 'FailCount',
+        'keyPairId' => 'KeyPairId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

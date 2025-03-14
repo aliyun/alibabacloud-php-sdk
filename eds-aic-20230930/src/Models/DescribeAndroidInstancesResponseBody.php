@@ -44,14 +44,12 @@ class DescribeAndroidInstancesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instanceModel' => 'InstanceModel',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeAndroidInstancesResponseBody extends Model
         if (isset($map['InstanceModel'])) {
             if (!empty($map['InstanceModel'])) {
                 $model->instanceModel = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InstanceModel'] as $item) {
                     $model->instanceModel[$n++] = null !== $item ? instanceModel::fromMap($item) : $item;
                 }

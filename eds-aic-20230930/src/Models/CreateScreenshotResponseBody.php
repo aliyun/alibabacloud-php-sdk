@@ -26,12 +26,10 @@ class CreateScreenshotResponseBody extends Model
     public $tasks;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tasks'     => 'Tasks',
+        'tasks' => 'Tasks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class CreateScreenshotResponseBody extends Model
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Tasks'] as $item) {
                     $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }

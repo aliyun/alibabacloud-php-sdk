@@ -33,6 +33,7 @@ class DowngradeAndroidInstanceGroupRequest extends Model
      * @description The ID of the instance group.
      *
      * This parameter is required.
+     *
      * @example ag-cuv4scs4obxhs****
      *
      * @var string
@@ -40,13 +41,11 @@ class DowngradeAndroidInstanceGroupRequest extends Model
     public $instanceGroupId;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
-        'autoPay'            => 'AutoPay',
-        'instanceGroupId'    => 'InstanceGroupId',
+        'autoPay' => 'AutoPay',
+        'instanceGroupId' => 'InstanceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,14 +29,12 @@ class UninstallAppRequest extends Model
      */
     public $instanceIdList;
     protected $_name = [
-        'appIdList'           => 'AppIdList',
+        'appIdList' => 'AppIdList',
         'instanceGroupIdList' => 'InstanceGroupIdList',
-        'instanceIdList'      => 'InstanceIdList',
+        'instanceIdList' => 'InstanceIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

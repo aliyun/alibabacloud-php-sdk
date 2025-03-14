@@ -35,14 +35,12 @@ class data extends Model
      */
     public $keyPairName;
     protected $_name = [
-        'gmtCreated'  => 'GmtCreated',
-        'keyPairId'   => 'KeyPairId',
+        'gmtCreated' => 'GmtCreated',
+        'keyPairId' => 'KeyPairId',
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

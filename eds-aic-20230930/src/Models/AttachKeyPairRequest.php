@@ -19,6 +19,7 @@ class AttachKeyPairRequest extends Model
      * @description The ID of the ADB key pair.
      *
      * This parameter is required.
+     *
      * @example kp-6v2q33ae4tw3a****
      *
      * @var string
@@ -26,12 +27,10 @@ class AttachKeyPairRequest extends Model
     public $keyPairId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'keyPairId'   => 'KeyPairId',
+        'keyPairId' => 'KeyPairId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,15 +41,13 @@ class CreateAndroidInstanceGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instanceGroupIds'   => 'InstanceGroupIds',
+        'instanceGroupIds' => 'InstanceGroupIds',
         'instanceGroupInfos' => 'InstanceGroupInfos',
-        'orderId'            => 'OrderId',
-        'requestId'          => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class CreateAndroidInstanceGroupResponseBody extends Model
         if (isset($map['InstanceGroupInfos'])) {
             if (!empty($map['InstanceGroupInfos'])) {
                 $model->instanceGroupInfos = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['InstanceGroupInfos'] as $item) {
                     $model->instanceGroupInfos[$n++] = null !== $item ? instanceGroupInfos::fromMap($item) : $item;
                 }

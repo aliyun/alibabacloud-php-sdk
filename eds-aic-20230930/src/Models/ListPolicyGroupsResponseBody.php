@@ -43,15 +43,13 @@ class ListPolicyGroupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'        => 'NextToken',
+        'nextToken' => 'NextToken',
         'policyGroupModel' => 'PolicyGroupModel',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListPolicyGroupsResponseBody extends Model
         if (isset($map['PolicyGroupModel'])) {
             if (!empty($map['PolicyGroupModel'])) {
                 $model->policyGroupModel = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['PolicyGroupModel'] as $item) {
                     $model->policyGroupModel[$n++] = null !== $item ? policyGroupModel::fromMap($item) : $item;
                 }

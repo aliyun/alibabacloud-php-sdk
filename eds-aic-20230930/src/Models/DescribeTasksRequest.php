@@ -154,25 +154,23 @@ class DescribeTasksRequest extends Model
      */
     public $taskTypes;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'invokeId'     => 'InvokeId',
-        'level'        => 'Level',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'param'        => 'Param',
+        'invokeId' => 'InvokeId',
+        'level' => 'Level',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'param' => 'Param',
         'parentTaskId' => 'ParentTaskId',
-        'resourceIds'  => 'ResourceIds',
-        'taskIds'      => 'TaskIds',
-        'taskStatus'   => 'TaskStatus',
+        'resourceIds' => 'ResourceIds',
+        'taskIds' => 'TaskIds',
+        'taskStatus' => 'TaskStatus',
         'taskStatuses' => 'TaskStatuses',
-        'taskType'     => 'TaskType',
-        'taskTypes'    => 'TaskTypes',
+        'taskType' => 'TaskType',
+        'taskTypes' => 'TaskTypes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

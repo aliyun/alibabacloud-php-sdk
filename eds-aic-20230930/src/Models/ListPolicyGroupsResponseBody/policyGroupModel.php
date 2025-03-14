@@ -135,22 +135,20 @@ class policyGroupModel extends Model
      */
     public $sessionResolutionWidth;
     protected $_name = [
-        'cameraRedirect'          => 'CameraRedirect',
-        'clipboard'               => 'Clipboard',
-        'gmtCreate'               => 'GmtCreate',
-        'html5FileTransfer'       => 'Html5FileTransfer',
-        'localDrive'              => 'LocalDrive',
-        'lockResolution'          => 'LockResolution',
-        'netRedirectPolicy'       => 'NetRedirectPolicy',
-        'policyGroupId'           => 'PolicyGroupId',
-        'policyGroupName'         => 'PolicyGroupName',
+        'cameraRedirect' => 'CameraRedirect',
+        'clipboard' => 'Clipboard',
+        'gmtCreate' => 'GmtCreate',
+        'html5FileTransfer' => 'Html5FileTransfer',
+        'localDrive' => 'LocalDrive',
+        'lockResolution' => 'LockResolution',
+        'netRedirectPolicy' => 'NetRedirectPolicy',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupName' => 'PolicyGroupName',
         'sessionResolutionHeight' => 'SessionResolutionHeight',
-        'sessionResolutionWidth'  => 'SessionResolutionWidth',
+        'sessionResolutionWidth' => 'SessionResolutionWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

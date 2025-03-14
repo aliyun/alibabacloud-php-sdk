@@ -38,17 +38,15 @@ class customAppInfo extends Model
      */
     public $versionCode;
     protected $_name = [
-        'apkSize'     => 'ApkSize',
+        'apkSize' => 'ApkSize',
         'downloadUrl' => 'DownloadUrl',
-        'md5'         => 'Md5',
+        'md5' => 'Md5',
         'packageName' => 'PackageName',
-        'version'     => 'Version',
+        'version' => 'Version',
         'versionCode' => 'VersionCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

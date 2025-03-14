@@ -30,6 +30,7 @@ class CreateCustomImageRequest extends Model
      * @description Image name.
      *
      * This parameter is required.
+     *
      * @example custom image name
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateCustomImageRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example acp-2zecay9ponatdc4m****
      *
      * @var string
@@ -48,13 +50,11 @@ class CreateCustomImageRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
-        'imageName'   => 'ImageName',
-        'instanceId'  => 'InstanceId',
+        'imageName' => 'ImageName',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -92,6 +92,11 @@ class data extends Model
     public $imageType;
 
     /**
+     * @var string
+     */
+    public $imageVersion;
+
+    /**
      * @description The language of the image.
      *
      * @example zh
@@ -150,25 +155,24 @@ class data extends Model
      */
     public $systemType;
     protected $_name = [
-        'aliUid'                   => 'AliUid',
-        'description'              => 'Description',
-        'gmtCreate'                => 'GmtCreate',
-        'gmtModified'              => 'GmtModified',
-        'imageId'                  => 'ImageId',
-        'imageName'                => 'ImageName',
+        'aliUid' => 'AliUid',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'imageRegionDistributeMap' => 'ImageRegionDistributeMap',
-        'imageRegionList'          => 'ImageRegionList',
-        'imageType'                => 'ImageType',
-        'language'                 => 'Language',
-        'releaseTime'              => 'ReleaseTime',
-        'renderingType'            => 'RenderingType',
-        'status'                   => 'Status',
-        'systemType'               => 'SystemType',
+        'imageRegionList' => 'ImageRegionList',
+        'imageType' => 'ImageType',
+        'imageVersion' => 'ImageVersion',
+        'language' => 'Language',
+        'releaseTime' => 'ReleaseTime',
+        'renderingType' => 'RenderingType',
+        'status' => 'Status',
+        'systemType' => 'SystemType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -204,6 +208,9 @@ class data extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -260,6 +267,9 @@ class data extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

@@ -18,6 +18,11 @@ class specInfoModel extends Model
     public $core;
 
     /**
+     * @var string
+     */
+    public $maxPhoneCount;
+
+    /**
      * @description Memory size.
      *
      * @example 16
@@ -25,6 +30,11 @@ class specInfoModel extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var string
+     */
+    public $minPhoneCount;
 
     /**
      * @var string
@@ -72,19 +82,19 @@ class specInfoModel extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'core'           => 'Core',
-        'memory'         => 'Memory',
-        'phoneCount'     => 'PhoneCount',
-        'resolution'     => 'Resolution',
-        'specId'         => 'SpecId',
-        'specStatus'     => 'SpecStatus',
-        'specType'       => 'SpecType',
+        'core' => 'Core',
+        'maxPhoneCount' => 'MaxPhoneCount',
+        'memory' => 'Memory',
+        'minPhoneCount' => 'MinPhoneCount',
+        'phoneCount' => 'PhoneCount',
+        'resolution' => 'Resolution',
+        'specId' => 'SpecId',
+        'specStatus' => 'SpecStatus',
+        'specType' => 'SpecType',
         'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,8 +102,14 @@ class specInfoModel extends Model
         if (null !== $this->core) {
             $res['Core'] = $this->core;
         }
+        if (null !== $this->maxPhoneCount) {
+            $res['MaxPhoneCount'] = $this->maxPhoneCount;
+        }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->minPhoneCount) {
+            $res['MinPhoneCount'] = $this->minPhoneCount;
         }
         if (null !== $this->phoneCount) {
             $res['PhoneCount'] = $this->phoneCount;
@@ -128,8 +144,14 @@ class specInfoModel extends Model
         if (isset($map['Core'])) {
             $model->core = $map['Core'];
         }
+        if (isset($map['MaxPhoneCount'])) {
+            $model->maxPhoneCount = $map['MaxPhoneCount'];
+        }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['MinPhoneCount'])) {
+            $model->minPhoneCount = $map['MinPhoneCount'];
         }
         if (isset($map['PhoneCount'])) {
             $model->phoneCount = $map['PhoneCount'];

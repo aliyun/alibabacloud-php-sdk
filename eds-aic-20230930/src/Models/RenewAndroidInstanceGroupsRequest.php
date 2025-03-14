@@ -52,15 +52,13 @@ class RenewAndroidInstanceGroupsRequest extends Model
      */
     public $periodUnit;
     protected $_name = [
-        'autoPay'          => 'AutoPay',
+        'autoPay' => 'AutoPay',
         'instanceGroupIds' => 'InstanceGroupIds',
-        'period'           => 'Period',
-        'periodUnit'       => 'PeriodUnit',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

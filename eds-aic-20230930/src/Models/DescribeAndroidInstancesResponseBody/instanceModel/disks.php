@@ -30,9 +30,7 @@ class disks extends Model
         'diskType' => 'DiskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

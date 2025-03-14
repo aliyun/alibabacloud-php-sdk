@@ -22,13 +22,11 @@ class GenerateCoordinationCodeRequest extends Model
      */
     public $ownerUserId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'ownerUserId' => 'OwnerUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

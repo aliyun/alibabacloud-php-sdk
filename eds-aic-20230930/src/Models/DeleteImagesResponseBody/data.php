@@ -22,13 +22,11 @@ class data extends Model
      */
     public $successDeleteImageIds;
     protected $_name = [
-        'failDeleteImageIds'    => 'FailDeleteImageIds',
+        'failDeleteImageIds' => 'FailDeleteImageIds',
         'successDeleteImageIds' => 'SuccessDeleteImageIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

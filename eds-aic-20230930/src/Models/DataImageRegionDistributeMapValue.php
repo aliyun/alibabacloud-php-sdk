@@ -35,12 +35,10 @@ class DataImageRegionDistributeMapValue extends Model
     public $progress;
     protected $_name = [
         'distributeStatus' => 'DistributeStatus',
-        'progress'         => 'Progress',
+        'progress' => 'Progress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

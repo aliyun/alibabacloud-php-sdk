@@ -25,13 +25,11 @@ class CheckResourceStockResponseBody extends Model
      */
     public $resourceStockModels;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceStockModels' => 'ResourceStockModels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class CheckResourceStockResponseBody extends Model
         if (isset($map['ResourceStockModels'])) {
             if (!empty($map['ResourceStockModels'])) {
                 $model->resourceStockModels = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ResourceStockModels'] as $item) {
                     $model->resourceStockModels[$n++] = null !== $item ? resourceStockModels::fromMap($item) : $item;
                 }

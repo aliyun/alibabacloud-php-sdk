@@ -164,26 +164,24 @@ class DescribeAndroidInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'androidInstanceIds'  => 'AndroidInstanceIds',
+        'androidInstanceIds' => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
-        'bizRegionId'         => 'BizRegionId',
-        'chargeType'          => 'ChargeType',
-        'instanceGroupId'     => 'InstanceGroupId',
-        'instanceGroupIds'    => 'InstanceGroupIds',
-        'instanceGroupName'   => 'InstanceGroupName',
-        'keyPairId'           => 'KeyPairId',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'nodeId'              => 'NodeId',
-        'nodeName'            => 'NodeName',
-        'saleMode'            => 'SaleMode',
-        'status'              => 'Status',
-        'tag'                 => 'Tag',
+        'bizRegionId' => 'BizRegionId',
+        'chargeType' => 'ChargeType',
+        'instanceGroupId' => 'InstanceGroupId',
+        'instanceGroupIds' => 'InstanceGroupIds',
+        'instanceGroupName' => 'InstanceGroupName',
+        'keyPairId' => 'KeyPairId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'saleMode' => 'SaleMode',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -300,7 +298,7 @@ class DescribeAndroidInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

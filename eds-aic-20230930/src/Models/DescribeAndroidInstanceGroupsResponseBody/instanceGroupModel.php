@@ -62,6 +62,11 @@ class instanceGroupModel extends Model
     public $disks;
 
     /**
+     * @var bool
+     */
+    public $enableIpv6;
+
+    /**
      * @description The error code.
      *
      * @example 0
@@ -159,6 +164,11 @@ class instanceGroupModel extends Model
      * @var string
      */
     public $instanceGroupStatus;
+
+    /**
+     * @var int
+     */
+    public $ipv6Bandwidth;
 
     /**
      * @description The memory size.
@@ -259,39 +269,39 @@ class instanceGroupModel extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'appInstanceGroupId'        => 'AppInstanceGroupId',
-        'architectureType'          => 'ArchitectureType',
-        'availableInstanceAmount'   => 'AvailableInstanceAmount',
-        'chargeType'                => 'ChargeType',
-        'cpu'                       => 'Cpu',
-        'disks'                     => 'Disks',
-        'errorCode'                 => 'ErrorCode',
-        'gmtCreate'                 => 'GmtCreate',
-        'gmtExpired'                => 'GmtExpired',
-        'gmtModified'               => 'GmtModified',
-        'imageId'                   => 'ImageId',
-        'installedAppList'          => 'InstalledAppList',
-        'instanceGroupId'           => 'InstanceGroupId',
-        'instanceGroupName'         => 'InstanceGroupName',
-        'instanceGroupSpec'         => 'InstanceGroupSpec',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'architectureType' => 'ArchitectureType',
+        'availableInstanceAmount' => 'AvailableInstanceAmount',
+        'chargeType' => 'ChargeType',
+        'cpu' => 'Cpu',
+        'disks' => 'Disks',
+        'enableIpv6' => 'EnableIpv6',
+        'errorCode' => 'ErrorCode',
+        'gmtCreate' => 'GmtCreate',
+        'gmtExpired' => 'GmtExpired',
+        'gmtModified' => 'GmtModified',
+        'imageId' => 'ImageId',
+        'installedAppList' => 'InstalledAppList',
+        'instanceGroupId' => 'InstanceGroupId',
+        'instanceGroupName' => 'InstanceGroupName',
+        'instanceGroupSpec' => 'InstanceGroupSpec',
         'instanceGroupSpecDescribe' => 'InstanceGroupSpecDescribe',
-        'instanceGroupStatus'       => 'InstanceGroupStatus',
-        'memory'                    => 'Memory',
-        'numberOfInstances'         => 'NumberOfInstances',
-        'officeSiteId'              => 'OfficeSiteId',
-        'policyGroupId'             => 'PolicyGroupId',
-        'regionId'                  => 'RegionId',
-        'renderingType'             => 'RenderingType',
-        'resolutionHeight'          => 'ResolutionHeight',
-        'resolutionWidth'           => 'ResolutionWidth',
-        'saleMode'                  => 'SaleMode',
-        'systemVersion'             => 'SystemVersion',
-        'vSwitchId'                 => 'VSwitchId',
+        'instanceGroupStatus' => 'InstanceGroupStatus',
+        'ipv6Bandwidth' => 'Ipv6Bandwidth',
+        'memory' => 'Memory',
+        'numberOfInstances' => 'NumberOfInstances',
+        'officeSiteId' => 'OfficeSiteId',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId' => 'RegionId',
+        'renderingType' => 'RenderingType',
+        'resolutionHeight' => 'ResolutionHeight',
+        'resolutionWidth' => 'ResolutionWidth',
+        'saleMode' => 'SaleMode',
+        'systemVersion' => 'SystemVersion',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -319,6 +329,9 @@ class instanceGroupModel extends Model
                     $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -352,6 +365,9 @@ class instanceGroupModel extends Model
         }
         if (null !== $this->instanceGroupStatus) {
             $res['InstanceGroupStatus'] = $this->instanceGroupStatus;
+        }
+        if (null !== $this->ipv6Bandwidth) {
+            $res['Ipv6Bandwidth'] = $this->ipv6Bandwidth;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -416,11 +432,14 @@ class instanceGroupModel extends Model
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Disks'] as $item) {
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
@@ -454,6 +473,9 @@ class instanceGroupModel extends Model
         }
         if (isset($map['InstanceGroupStatus'])) {
             $model->instanceGroupStatus = $map['InstanceGroupStatus'];
+        }
+        if (isset($map['Ipv6Bandwidth'])) {
+            $model->ipv6Bandwidth = $map['Ipv6Bandwidth'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

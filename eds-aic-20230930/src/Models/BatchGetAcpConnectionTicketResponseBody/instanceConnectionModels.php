@@ -54,15 +54,13 @@ class instanceConnectionModels extends Model
     public $ticket;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
-        'instanceId'         => 'InstanceId',
-        'taskId'             => 'TaskId',
-        'taskStatus'         => 'TaskStatus',
-        'ticket'             => 'Ticket',
+        'instanceId' => 'InstanceId',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
+        'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

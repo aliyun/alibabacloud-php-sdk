@@ -67,18 +67,16 @@ class DescribeSpecRequest extends Model
     public $specType;
     protected $_name = [
         'bizRegionId' => 'BizRegionId',
-        'matrixSpec'  => 'MatrixSpec',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'saleMode'    => 'SaleMode',
-        'specIds'     => 'SpecIds',
-        'specStatus'  => 'SpecStatus',
-        'specType'    => 'SpecType',
+        'matrixSpec' => 'MatrixSpec',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'saleMode' => 'SaleMode',
+        'specIds' => 'SpecIds',
+        'specStatus' => 'SpecStatus',
+        'specType' => 'SpecType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

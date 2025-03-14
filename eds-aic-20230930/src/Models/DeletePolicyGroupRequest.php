@@ -12,6 +12,7 @@ class DeletePolicyGroupRequest extends Model
      * @description The IDs of the policies.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $policyGroupIds;
@@ -19,9 +20,7 @@ class DeletePolicyGroupRequest extends Model
         'policyGroupIds' => 'PolicyGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

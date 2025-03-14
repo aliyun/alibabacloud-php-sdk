@@ -42,15 +42,13 @@ class DescribeKeyPairsRequest extends Model
      */
     public $nextToken;
     protected $_name = [
-        'keyPairIds'  => 'KeyPairIds',
+        'keyPairIds' => 'KeyPairIds',
         'keyPairName' => 'KeyPairName',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

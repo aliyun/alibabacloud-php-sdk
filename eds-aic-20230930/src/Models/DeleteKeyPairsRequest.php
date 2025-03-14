@@ -18,9 +18,7 @@ class DeleteKeyPairsRequest extends Model
         'keyPairIds' => 'KeyPairIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

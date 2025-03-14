@@ -184,30 +184,28 @@ class data extends Model
      */
     public $uploadType;
     protected $_name = [
-        'androidInstanceId'   => 'AndroidInstanceId',
+        'androidInstanceId' => 'AndroidInstanceId',
         'androidInstanceName' => 'AndroidInstanceName',
-        'backupAll'           => 'BackupAll',
-        'backupFileId'        => 'BackupFileId',
-        'backupFileName'      => 'BackupFileName',
-        'backupFilePath'      => 'BackupFilePath',
-        'description'         => 'Description',
-        'endUserId'           => 'EndUserId',
-        'fileSize'            => 'FileSize',
-        'gmtCreated'          => 'GmtCreated',
-        'gmtModified'         => 'GmtModified',
-        'instanceGroupId'     => 'InstanceGroupId',
-        'regionId'            => 'RegionId',
-        'sourceAppInfoList'   => 'SourceAppInfoList',
-        'sourceFilePathList'  => 'SourceFilePathList',
-        'status'              => 'Status',
-        'taskId'              => 'TaskId',
-        'uploadEndpoint'      => 'UploadEndpoint',
-        'uploadType'          => 'UploadType',
+        'backupAll' => 'BackupAll',
+        'backupFileId' => 'BackupFileId',
+        'backupFileName' => 'BackupFileName',
+        'backupFilePath' => 'BackupFilePath',
+        'description' => 'Description',
+        'endUserId' => 'EndUserId',
+        'fileSize' => 'FileSize',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'instanceGroupId' => 'InstanceGroupId',
+        'regionId' => 'RegionId',
+        'sourceAppInfoList' => 'SourceAppInfoList',
+        'sourceFilePathList' => 'SourceFilePathList',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'uploadEndpoint' => 'UploadEndpoint',
+        'uploadType' => 'UploadType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

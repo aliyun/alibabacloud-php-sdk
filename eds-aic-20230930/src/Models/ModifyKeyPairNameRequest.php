@@ -12,6 +12,7 @@ class ModifyKeyPairNameRequest extends Model
      * @description The ID of the ADB key pair.
      *
      * This parameter is required.
+     *
      * @example kp-6v2q33ae4tw3a****
      *
      * @var string
@@ -22,19 +23,18 @@ class ModifyKeyPairNameRequest extends Model
      * @description The name of the ADB key pair.
      *
      * This parameter is required.
+     *
      * @example newKeyPairName
      *
      * @var string
      */
     public $newKeyPairName;
     protected $_name = [
-        'keyPairId'      => 'KeyPairId',
+        'keyPairId' => 'KeyPairId',
         'newKeyPairName' => 'NewKeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

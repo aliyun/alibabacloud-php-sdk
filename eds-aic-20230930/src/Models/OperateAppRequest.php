@@ -39,14 +39,12 @@ class OperateAppRequest extends Model
      */
     public $operateType;
     protected $_name = [
-        'appId'          => 'AppId',
+        'appId' => 'AppId',
         'instanceIdList' => 'InstanceIdList',
-        'operateType'    => 'OperateType',
+        'operateType' => 'OperateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

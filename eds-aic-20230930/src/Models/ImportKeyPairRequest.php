@@ -12,6 +12,7 @@ class ImportKeyPairRequest extends Model
      * @description The name of the ADB key pair.
      *
      * This parameter is required.
+     *
      * @example TestKeyPairName
      *
      * @var string
@@ -22,19 +23,18 @@ class ImportKeyPairRequest extends Model
      * @description The public key of the ADB key pair.
      *
      * This parameter is required.
+     *
      * @example ABC1234567*****
      *
      * @var string
      */
     public $publicKeyBody;
     protected $_name = [
-        'keyPairName'   => 'KeyPairName',
+        'keyPairName' => 'KeyPairName',
         'publicKeyBody' => 'PublicKeyBody',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

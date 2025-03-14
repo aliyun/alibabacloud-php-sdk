@@ -43,15 +43,13 @@ class DescribeImageListResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'data'       => 'Data',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'data' => 'Data',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeImageListResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

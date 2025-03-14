@@ -21,19 +21,18 @@ class ModifyAndroidInstanceRequest extends Model
      * @description The new name of the cloud phone instance.
      *
      * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with http:// or https://.
+     *
      * @example new_name
      *
      * @var string
      */
     public $newAndroidInstanceName;
     protected $_name = [
-        'androidInstanceId'      => 'AndroidInstanceId',
+        'androidInstanceId' => 'AndroidInstanceId',
         'newAndroidInstanceName' => 'NewAndroidInstanceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

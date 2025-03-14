@@ -42,15 +42,13 @@ class ListPolicyGroupsRequest extends Model
      */
     public $policyGroupName;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'policyGroupIds'  => 'PolicyGroupIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'policyGroupIds' => 'PolicyGroupIds',
         'policyGroupName' => 'PolicyGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

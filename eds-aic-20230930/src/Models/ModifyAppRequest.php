@@ -44,15 +44,13 @@ class ModifyAppRequest extends Model
      */
     public $iconUrl;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'description' => 'Description',
-        'iconUrl'     => 'IconUrl',
+        'iconUrl' => 'IconUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

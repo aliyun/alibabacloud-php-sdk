@@ -12,6 +12,7 @@ class UpdateInstanceGroupImageRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example imgc-075cllfeuazh****
      *
      * @var string
@@ -22,17 +23,16 @@ class UpdateInstanceGroupImageRequest extends Model
      * @description The IDs of the instance groups.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceGroupIds;
     protected $_name = [
-        'imageId'          => 'ImageId',
+        'imageId' => 'ImageId',
         'instanceGroupIds' => 'InstanceGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

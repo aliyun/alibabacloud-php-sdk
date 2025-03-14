@@ -85,18 +85,16 @@ class netRedirectPolicy extends Model
      */
     public $proxyUserName;
     protected $_name = [
-        'customProxy'   => 'CustomProxy',
-        'hostAddr'      => 'HostAddr',
-        'netRedirect'   => 'NetRedirect',
-        'port'          => 'Port',
+        'customProxy' => 'CustomProxy',
+        'hostAddr' => 'HostAddr',
+        'netRedirect' => 'NetRedirect',
+        'port' => 'Port',
         'proxyPassword' => 'ProxyPassword',
-        'proxyType'     => 'ProxyType',
+        'proxyType' => 'ProxyType',
         'proxyUserName' => 'ProxyUserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

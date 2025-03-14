@@ -35,12 +35,10 @@ class DescribeRegionsRequest extends Model
     public $saleMode;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'saleMode'       => 'SaleMode',
+        'saleMode' => 'SaleMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

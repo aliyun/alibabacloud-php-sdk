@@ -153,6 +153,11 @@ class instanceModel extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @description The version of the image.
      *
      * @example 3.5.3.867
@@ -289,43 +294,42 @@ class instanceModel extends Model
      */
     public $tags;
     protected $_name = [
-        'androidInstanceGroupId'      => 'AndroidInstanceGroupId',
-        'androidInstanceGroupName'    => 'AndroidInstanceGroupName',
-        'androidInstanceId'           => 'AndroidInstanceId',
-        'androidInstanceName'         => 'AndroidInstanceName',
-        'androidInstanceStatus'       => 'AndroidInstanceStatus',
-        'appInstanceGroupId'          => 'AppInstanceGroupId',
-        'appInstanceId'               => 'AppInstanceId',
-        'authorizedUserId'            => 'AuthorizedUserId',
-        'bindUserId'                  => 'BindUserId',
-        'chargeType'                  => 'ChargeType',
-        'cpu'                         => 'Cpu',
-        'disks'                       => 'Disks',
-        'errorCode'                   => 'ErrorCode',
-        'gmtCreate'                   => 'GmtCreate',
-        'gmtExpired'                  => 'GmtExpired',
-        'gmtModified'                 => 'GmtModified',
-        'imageVersion'                => 'ImageVersion',
-        'instanceType'                => 'InstanceType',
-        'keyPairId'                   => 'KeyPairId',
-        'memory'                      => 'Memory',
-        'networkInterfaceIp'          => 'NetworkInterfaceIp',
+        'androidInstanceGroupId' => 'AndroidInstanceGroupId',
+        'androidInstanceGroupName' => 'AndroidInstanceGroupName',
+        'androidInstanceId' => 'AndroidInstanceId',
+        'androidInstanceName' => 'AndroidInstanceName',
+        'androidInstanceStatus' => 'AndroidInstanceStatus',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceId' => 'AppInstanceId',
+        'authorizedUserId' => 'AuthorizedUserId',
+        'bindUserId' => 'BindUserId',
+        'chargeType' => 'ChargeType',
+        'cpu' => 'Cpu',
+        'disks' => 'Disks',
+        'errorCode' => 'ErrorCode',
+        'gmtCreate' => 'GmtCreate',
+        'gmtExpired' => 'GmtExpired',
+        'gmtModified' => 'GmtModified',
+        'imageId' => 'ImageId',
+        'imageVersion' => 'ImageVersion',
+        'instanceType' => 'InstanceType',
+        'keyPairId' => 'KeyPairId',
+        'memory' => 'Memory',
+        'networkInterfaceIp' => 'NetworkInterfaceIp',
         'networkInterfaceIpv6Address' => 'NetworkInterfaceIpv6Address',
-        'officeSiteId'                => 'OfficeSiteId',
-        'persistentAppInstanceId'     => 'PersistentAppInstanceId',
-        'policyGroupId'               => 'PolicyGroupId',
-        'publicIpAddress'             => 'PublicIpAddress',
-        'publicIpv6Address'           => 'PublicIpv6Address',
-        'rate'                        => 'Rate',
-        'regionId'                    => 'RegionId',
-        'renderingType'               => 'RenderingType',
-        'sessionStatus'               => 'SessionStatus',
-        'tags'                        => 'Tags',
+        'officeSiteId' => 'OfficeSiteId',
+        'persistentAppInstanceId' => 'PersistentAppInstanceId',
+        'policyGroupId' => 'PolicyGroupId',
+        'publicIpAddress' => 'PublicIpAddress',
+        'publicIpv6Address' => 'PublicIpv6Address',
+        'rate' => 'Rate',
+        'regionId' => 'RegionId',
+        'renderingType' => 'RenderingType',
+        'sessionStatus' => 'SessionStatus',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -383,6 +387,9 @@ class instanceModel extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
@@ -486,7 +493,7 @@ class instanceModel extends Model
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Disks'] as $item) {
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
@@ -503,6 +510,9 @@ class instanceModel extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];
@@ -552,7 +562,7 @@ class instanceModel extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

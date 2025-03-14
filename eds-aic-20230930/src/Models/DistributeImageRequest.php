@@ -12,6 +12,7 @@ class DistributeImageRequest extends Model
      * @description The regions to which you want to distribute an image.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $distributeRegionList;
@@ -20,6 +21,7 @@ class DistributeImageRequest extends Model
      * @description The ID of the image that you want to distribute.
      *
      * This parameter is required.
+     *
      * @example imgc-075cllfeuazh0****
      *
      * @var string
@@ -27,12 +29,10 @@ class DistributeImageRequest extends Model
     public $imageId;
     protected $_name = [
         'distributeRegionList' => 'DistributeRegionList',
-        'imageId'              => 'ImageId',
+        'imageId' => 'ImageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

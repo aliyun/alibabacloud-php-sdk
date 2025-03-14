@@ -102,20 +102,18 @@ class CreateAppRequest extends Model
      */
     public $ossAppUrl;
     protected $_name = [
-        'appName'       => 'AppName',
-        'bizRegionId'   => 'BizRegionId',
+        'appName' => 'AppName',
+        'bizRegionId' => 'BizRegionId',
         'customAppInfo' => 'CustomAppInfo',
-        'description'   => 'Description',
-        'fileName'      => 'FileName',
-        'filePath'      => 'FilePath',
-        'iconUrl'       => 'IconUrl',
-        'installParam'  => 'InstallParam',
-        'ossAppUrl'     => 'OssAppUrl',
+        'description' => 'Description',
+        'fileName' => 'FileName',
+        'filePath' => 'FilePath',
+        'iconUrl' => 'IconUrl',
+        'installParam' => 'InstallParam',
+        'ossAppUrl' => 'OssAppUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

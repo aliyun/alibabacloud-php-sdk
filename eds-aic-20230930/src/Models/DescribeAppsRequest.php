@@ -93,19 +93,17 @@ class DescribeAppsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appIdList'          => 'AppIdList',
-        'appName'            => 'AppName',
-        'bizRegionId'        => 'BizRegionId',
+        'appIdList' => 'AppIdList',
+        'appName' => 'AppName',
+        'bizRegionId' => 'BizRegionId',
         'installationStatus' => 'InstallationStatus',
-        'MD5'                => 'MD5',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'status'             => 'Status',
+        'MD5' => 'MD5',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

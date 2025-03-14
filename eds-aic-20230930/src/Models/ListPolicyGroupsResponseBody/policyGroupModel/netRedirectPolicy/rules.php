@@ -32,12 +32,10 @@ class rules extends Model
     public $target;
     protected $_name = [
         'ruleType' => 'RuleType',
-        'target'   => 'Target',
+        'target' => 'Target',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

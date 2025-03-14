@@ -18,9 +18,7 @@ class DeleteAppsRequest extends Model
         'appIdList' => 'AppIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateScreenshotRequest extends Model
      * @description The IDs of the cloud phone instances. You can create multiple snapshots simultaneously.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $androidInstanceIdList;
@@ -35,13 +36,11 @@ class CreateScreenshotRequest extends Model
     public $skipCheckPolicyConfig;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
-        'ossBucketName'         => 'OssBucketName',
+        'ossBucketName' => 'OssBucketName',
         'skipCheckPolicyConfig' => 'SkipCheckPolicyConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

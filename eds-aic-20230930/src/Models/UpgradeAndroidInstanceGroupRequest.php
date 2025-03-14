@@ -40,14 +40,12 @@ class UpgradeAndroidInstanceGroupRequest extends Model
      */
     public $instanceGroupId;
     protected $_name = [
-        'autoPay'                  => 'AutoPay',
+        'autoPay' => 'AutoPay',
         'increaseNumberOfInstance' => 'IncreaseNumberOfInstance',
-        'instanceGroupId'          => 'InstanceGroupId',
+        'instanceGroupId' => 'InstanceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

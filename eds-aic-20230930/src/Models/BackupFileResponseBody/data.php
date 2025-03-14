@@ -45,14 +45,12 @@ class data extends Model
     public $taskId;
     protected $_name = [
         'androidInstanceId' => 'AndroidInstanceId',
-        'backupFileId'      => 'BackupFileId',
-        'backupFileName'    => 'BackupFileName',
-        'taskId'            => 'TaskId',
+        'backupFileId' => 'BackupFileId',
+        'backupFileName' => 'BackupFileName',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -147,25 +147,23 @@ class data extends Model
      */
     public $status;
     protected $_name = [
-        'androidAppVersion'  => 'AndroidAppVersion',
-        'apkSize'            => 'ApkSize',
-        'appId'              => 'AppId',
-        'appName'            => 'AppName',
-        'bizRegionId'        => 'BizRegionId',
-        'description'        => 'Description',
-        'gmtCreate'          => 'GmtCreate',
-        'gmtModified'        => 'GmtModified',
-        'iconUrl'            => 'IconUrl',
+        'androidAppVersion' => 'AndroidAppVersion',
+        'apkSize' => 'ApkSize',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'bizRegionId' => 'BizRegionId',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'iconUrl' => 'IconUrl',
         'installationStatus' => 'InstallationStatus',
-        'instanceGroupList'  => 'InstanceGroupList',
-        'MD5'                => 'MD5',
-        'packageName'        => 'PackageName',
-        'status'             => 'Status',
+        'instanceGroupList' => 'InstanceGroupList',
+        'MD5' => 'MD5',
+        'packageName' => 'PackageName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

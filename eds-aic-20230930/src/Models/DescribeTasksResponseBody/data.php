@@ -206,33 +206,31 @@ class data extends Model
      */
     public $totalChildCount;
     protected $_name = [
-        'errorCode'         => 'ErrorCode',
-        'errorMsg'          => 'ErrorMsg',
-        'failedChildCount'  => 'FailedChildCount',
-        'finishTime'        => 'FinishTime',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'instanceStatus'    => 'InstanceStatus',
-        'invokeId'          => 'InvokeId',
-        'level'             => 'Level',
-        'operator'          => 'Operator',
-        'param'             => 'Param',
-        'parentTaskId'      => 'ParentTaskId',
-        'regionId'          => 'RegionId',
-        'resourceId'        => 'ResourceId',
-        'result'            => 'Result',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'failedChildCount' => 'FailedChildCount',
+        'finishTime' => 'FinishTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
+        'invokeId' => 'InvokeId',
+        'level' => 'Level',
+        'operator' => 'Operator',
+        'param' => 'Param',
+        'parentTaskId' => 'ParentTaskId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'result' => 'Result',
         'runningChildCount' => 'RunningChildCount',
-        'startTime'         => 'StartTime',
+        'startTime' => 'StartTime',
         'successChildCount' => 'SuccessChildCount',
-        'taskId'            => 'TaskId',
-        'taskStatus'        => 'TaskStatus',
-        'taskType'          => 'TaskType',
-        'totalChildCount'   => 'TotalChildCount',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
+        'taskType' => 'TaskType',
+        'totalChildCount' => 'TotalChildCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

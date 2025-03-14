@@ -26,13 +26,11 @@ class regionModels extends Model
      */
     public $regionName;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'regionName' => 'RegionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteImagesShrinkRequest extends Model
      * @description The IDs of the images.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $imageIdsShrink;
@@ -19,9 +20,7 @@ class DeleteImagesShrinkRequest extends Model
         'imageIdsShrink' => 'ImageIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

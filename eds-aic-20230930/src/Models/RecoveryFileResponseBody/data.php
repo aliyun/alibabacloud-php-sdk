@@ -27,12 +27,10 @@ class data extends Model
     public $taskId;
     protected $_name = [
         'androidInstanceId' => 'AndroidInstanceId',
-        'taskId'            => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

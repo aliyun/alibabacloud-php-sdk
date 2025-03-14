@@ -44,14 +44,12 @@ class DescribeAndroidInstanceGroupsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'instanceGroupModel' => 'InstanceGroupModel',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeAndroidInstanceGroupsResponseBody extends Model
         if (isset($map['InstanceGroupModel'])) {
             if (!empty($map['InstanceGroupModel'])) {
                 $model->instanceGroupModel = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['InstanceGroupModel'] as $item) {
                     $model->instanceGroupModel[$n++] = null !== $item ? instanceGroupModel::fromMap($item) : $item;
                 }

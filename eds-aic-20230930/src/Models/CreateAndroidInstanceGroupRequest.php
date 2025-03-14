@@ -59,6 +59,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      *   cn-hangzhou: China (Hangzhou).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -115,6 +116,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      * @description The ID of the image. You can call the [DescribeImageList](https://help.aliyun.com/document_detail/2807324.html) operation to query images.
      *
      * This parameter is required.
+     *
      * @example imgc-06zyt9m93zwax****
      *
      * @var string
@@ -125,6 +127,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      * @description The name of the instance group.
      *
      * >  The name can be up to 30 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), or hyphens (-). It must start with letters but cannot start with `http://` or `https://`.
+     *
      * @example defaultInstanceGroup
      *
      * @var string
@@ -141,6 +144,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      *   acp.std.large: Standard (4 vCPUs, 8 GiB of memory, and 32 GiB of storage).
      *
      * This parameter is required.
+     *
      * @example acp.basic.small
      *
      * @var string
@@ -160,6 +164,7 @@ class CreateAndroidInstanceGroupRequest extends Model
      * @description The ID of the key pair. When you create an instance group and specify a valid key pair ID, all cloud phone instances within the group will automatically be bound to that key pair upon creation. This eliminates the need to manually bind key pairs to individual cloud phone instances.
      *
      * >  Binding key pairs to cloud phone instances is currently not supported during instance group resizing.
+     *
      * @example kp-7o9xywwfutc1l****
      *
      * @var string
@@ -239,31 +244,29 @@ class CreateAndroidInstanceGroupRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'amount'            => 'Amount',
-        'autoPay'           => 'AutoPay',
-        'autoRenew'         => 'AutoRenew',
-        'bizRegionId'       => 'BizRegionId',
-        'chargeType'        => 'ChargeType',
-        'clientToken'       => 'ClientToken',
-        'enableIpv6'        => 'EnableIpv6',
-        'gpuAcceleration'   => 'GpuAcceleration',
-        'imageId'           => 'ImageId',
+        'amount' => 'Amount',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'bizRegionId' => 'BizRegionId',
+        'chargeType' => 'ChargeType',
+        'clientToken' => 'ClientToken',
+        'enableIpv6' => 'EnableIpv6',
+        'gpuAcceleration' => 'GpuAcceleration',
+        'imageId' => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
         'instanceGroupSpec' => 'InstanceGroupSpec',
-        'ipv6Bandwidth'     => 'Ipv6Bandwidth',
-        'keyPairId'         => 'KeyPairId',
+        'ipv6Bandwidth' => 'Ipv6Bandwidth',
+        'keyPairId' => 'KeyPairId',
         'numberOfInstances' => 'NumberOfInstances',
-        'officeSiteId'      => 'OfficeSiteId',
-        'period'            => 'Period',
-        'periodUnit'        => 'PeriodUnit',
-        'policyGroupId'     => 'PolicyGroupId',
-        'tag'               => 'Tag',
-        'vSwitchId'         => 'VSwitchId',
+        'officeSiteId' => 'OfficeSiteId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'policyGroupId' => 'PolicyGroupId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -403,7 +406,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

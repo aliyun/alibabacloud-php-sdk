@@ -12,6 +12,7 @@ class CreateKeyPairRequest extends Model
      * @description The name of the key pair. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter but cannot start with http:// or https://.
      *
      * This parameter is required.
+     *
      * @example testKeyPairName
      *
      * @var string
@@ -21,9 +22,7 @@ class CreateKeyPairRequest extends Model
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

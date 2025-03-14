@@ -116,20 +116,18 @@ class CreatePolicyGroupShrinkRequest extends Model
      */
     public $resolutionWidth;
     protected $_name = [
-        'cameraRedirect'          => 'CameraRedirect',
-        'clipboard'               => 'Clipboard',
-        'html5FileTransfer'       => 'Html5FileTransfer',
-        'localDrive'              => 'LocalDrive',
-        'lockResolution'          => 'LockResolution',
+        'cameraRedirect' => 'CameraRedirect',
+        'clipboard' => 'Clipboard',
+        'html5FileTransfer' => 'Html5FileTransfer',
+        'localDrive' => 'LocalDrive',
+        'lockResolution' => 'LockResolution',
         'netRedirectPolicyShrink' => 'NetRedirectPolicy',
-        'policyGroupName'         => 'PolicyGroupName',
-        'resolutionHeight'        => 'ResolutionHeight',
-        'resolutionWidth'         => 'ResolutionWidth',
+        'policyGroupName' => 'PolicyGroupName',
+        'resolutionHeight' => 'ResolutionHeight',
+        'resolutionWidth' => 'ResolutionWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

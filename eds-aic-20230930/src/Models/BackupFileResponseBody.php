@@ -45,15 +45,13 @@ class BackupFileResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'count'     => 'Count',
-        'data'      => 'Data',
+        'count' => 'Count',
+        'data' => 'Data',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +92,7 @@ class BackupFileResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
